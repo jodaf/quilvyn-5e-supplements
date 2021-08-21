@@ -1,7 +1,7 @@
 ## 5th Edition supplements plugin for the Quilvyn RPG character sheet generator.
 
 The quilvyn-5E-supplements package bundles modules that extend Quilvyn to work
-fifth edition supplements of D&D, applying the rules of the following books:
+5th edition supplements of D&D, applying the rules from the following books:
 
 - <a href="https://dnd.wizards.com/products/tabletop-games/rpg-products/sc-adventurers-guide">Sword Coast Adventurer's Guide</a>
 - <a href="https://dnd.wizards.com/products/tabletop-games/rpg-products/volos-guide-to-monsters">Volo's Guide to Monsters</a>
@@ -9,8 +9,8 @@ fifth edition supplements of D&D, applying the rules of the following books:
 
 ### Requirements
 
-quilvyn-5E-supplements relies on the 5th Edition SRD module and the core
-modules installed by the quilvyn-core package.
+quilvyn-5E-supplements relies on the 5th Edition SRD module installed by the
+quilvyn-5E package and the core modules installed by the quilvyn-core package.
 
 ### Installation
 
@@ -42,5 +42,5 @@ following lines to the file plugins/plugins.js:
 ### Usage
 
 Once the package plugins are installed as described above, start Quilvyn and
-choose one or more of the rule sets shown above from the Rules menu in the
-initial window.
+check the boxes next to one or more of the rule sets shown above from the rule
+sets menu in the initial window.
