@@ -135,15 +135,32 @@ Tasha.FEATURES_ADDED = {
   'Infectious Inspiration':
     'Section=magic ' +
     'Note="R60\' Reaction to grant extra bardic inspiration after successful use %V/long rest"',
+  'Psionic Sorcery':
+    'Section=magic ' +
+    'Note="Cast spell using Sorcery Points instead of spell slot"',
+  'Psychic Defenses':
+    'Section=save ' +
+    'Note="Resistance to psychic damage, Adv vs. charm and fright"',
+  'Revelation In The Flesh':
+    'Section=ability,feature ' +
+    'Note=' +
+      '"Spend 1 Sorcery Point for Fly %{speed}\', Swim %{speed*2} and water breathing, or squeeze through 1 inch space for 10 min",' +
+      '"Spend 1 Sorcery Point for 60\' see invisible for 10 min"',
   'Silver Tongue':
     'Section=skill Note="Min 10 roll on Deception and Persuasion"',
+  'Telepathic Speech':
+    'Section=feature ' +
+    'Note="R30\' Communicate telepatically w/target for %{levels.Sorcerer} min"',
   'Unfailing Inspiration':
     'Section=magic Note="Inspiration die kept after failed use"',
   'Universal Speech':
     'Section=magic Note="R60\' %V targets understand self for 1 hr 1/long rest"',
   'Unsettling Words':
     'Section=magic ' +
-    'Note="R60\' Target subtract Bardic Inspiration roll from next save"'
+    'Note="R60\' Target subtract Bardic Inspiration roll from next save"',
+  'Warping Implosion':
+    'Section=magic ' +
+    'Note="120\' teleport causes 3d10 HP in 5\' radius of starting position (Str neg) 1/long rest"'
 };
 Tasha.PATHS_ADDED = {
   'Aberrant Mind':
