@@ -19,22 +19,22 @@ subdirectory within the Quilvyn installation directory, then append the
 following lines to the file plugins/plugins.js:
 
     RULESETS["Volo's Guide supplement to D&D 5E rules - Character Races"] = {
-      url:'Volo.js',
+      url:'plugins/Volo.js',
       group:'5E',
       supplement:'D&D 5E'
     };
     RULESETS["Volo's Guide supplement to D&D 5E rules - Monstrous Races"] = {
-      url:'Volo.js',
+      url:'plugins/Volo.js',
       group:'5E',
       supplement:'D&D 5E'
     };
     RULESETS["Xanathar's Guide supplement to D&D 5E rules"] = {
-      url:'Xanathar.js',
+      url:'plugins/Xanathar.js',
       group:'5E',
       supplement:'D&D 5E'
     };
     RULESETS['Sword Coast Campaign Setting using D&D 5E rules'] = {
-      url:'SwordCoast.js',
+      url:'plugins/SwordCoast.js',
       group:'5E',
       require:'D&D 5E'
     };
