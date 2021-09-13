@@ -588,29 +588,25 @@ Xanathar.FEATURES_ADDED = {
 };
 Xanathar.PATHS_ADDED = {
   'Arcane Archer':
-    'Group=Fighter ' +
-    'Level=levels.Fighter ' +
+    'Group=Fighter Level=levels.Fighter ' +
     'Features=' +
       '"3:Skill Proficiency (Choose 1 from Arcana, Nature)",' +
       '"3:Arcane Archer Lore","3:Arcane Shot","7:Curving Shot",' +
       '"7:Magic Arrow","15:Ever-Ready Shot","18:Improved Shots"',
   'Cavalier':
-    'Group=Fighter ' +
-    'Level=levels.Fighter ' +
+    'Group=Fighter Level=levels.Fighter ' +
     'Features=' +
       // TODO choice of skill proficiency or language
       '"3:Skill Proficiency (Choose 1 from Animal Handling, History, Insight, Performance, Persuasion)",' +
       '"3:Born To The Saddle","3:Unwavering Mark","7:Warding Maneuver",' +
       '"10:Hold The Line","15:Ferocious Charger","18:Vigilant Defender"',
   'Circle Of Dreams':
-    'Group=Druid ' +
-    'Level=levels.Druid ' +
+    'Group=Druid Level=levels.Druid ' +
     'Features=' +
       '"2:Balm Of The Summer Court","6:Hearth Of Moonlight And Shadow",' +
       '"10:Hidden Paths","14:Walker In Dreams"',
   'Circle Of The Shepherd':
-    'Group=Druid ' +
-    'Level=levels.Druid ' +
+    'Group=Druid Level=levels.Druid ' +
     'Features=' +
       '"2:Speech Of The Woods","2:Spirit Totem (Bear)",' +
       '"2:Spirit Totem (Hawk)","2:Spirit Totem (Unicorn)",' +
@@ -654,8 +650,7 @@ Xanathar.PATHS_ADDED = {
       'Forge4:7=2,' +
       'Forge5:9=2',
   'Gloom Stalker':
-    'Group=Ranger ' +
-    'Level=levels.Ranger ' +
+    'Group=Ranger Level=levels.Ranger ' +
     'Features=' +
       '"3:Dread Ambusher","3:Umbral Sight","7:Iron Mind",' +
       '"11:Stalker\'s Fury","15:Shadowy Dodge" ' +
@@ -680,8 +675,7 @@ Xanathar.PATHS_ADDED = {
       'Grave4:7=2,' +
       'Grave5:9=2',
   'Horizon Walker':
-    'Group=Ranger ' +
-    'Level=levels.Ranger ' +
+    'Group=Ranger Level=levels.Ranger ' +
     'Features=' +
       '"3:Detect Portal","3:Planar Warrior","7:Ethereal Step",' +
       '"11:Distant Strike","15:Spectral Defense" ' +
@@ -704,8 +698,7 @@ Xanathar.PATHS_ADDED = {
       '"3:Master Of Intrigue","3:Master Of Tactics",' +
       '"9:Insightful Manipulator","13:Misdirection","17:Soul Of Deceit"',
   'Monster Slayer':
-    'Group=Ranger ' +
-    'Level=levels.Ranger ' +
+    'Group=Ranger Level=levels.Ranger ' +
     'Features=' +
       '"3:Hunter\'s Sense","3:Slayer\'s Prey","7:Supernatural Defense",' +
       '"11:Magic-User\'s Nemesis","15:Slayer\'s Counter" ' +
@@ -764,8 +757,7 @@ Xanathar.PATHS_ADDED = {
       '"3:Divine Fury","3:Warrior Of The Gods","6:Fanatical Focus",' +
       '"10:Zealous Presence","14:Rage Beyond Death"',
   'Samurai':
-    'Group=Fighter ' +
-    'Level=levels.Fighter ' +
+    'Group=Fighter Level=levels.Fighter ' +
     'Features=' +
       // TODO choice of skill proficiency or language
       '"3:Skill Proficiency (Choose 1 from History, Insight, Performance, Persuasion)",' +
@@ -1290,6 +1282,6 @@ Xanathar.ruleNotes = function() {
     'Dungeons & Dragons Player\'s Handbook © 2014 Wizards of the Coast LLC.\n' +
     '<p>\n' +
     '<p>\n' +
-    'There are no known bugs, limitations, or usage notes specific to the Xanathar plugin\n' +
+    'There are no known bugs, limitations, or usage notes specific to the Xanathar plugin.\n' +
     '</p>\n';
 };
