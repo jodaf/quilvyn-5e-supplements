@@ -37,12 +37,11 @@ function Tasha(edition, rules) {
     rules = PHB5E.rules
   Tasha.identityRules(
     rules, Tasha.CLASSES_SELECTABLES_ADDED, Tasha.DEITIES_DOMAINS_ADDED,
-    Tasha.PATHS_ADDED
+    Tasha.PATHS
   );
-  SRD5E.magicRules(rules, {}, Tasha.SPELLS_ADDED);
+  SRD5E.magicRules(rules, {}, Tasha.SPELLS);
   Tasha.magicRules(rules, Tasha.SPELLS_LEVELS_ADDED);
-  SRD5E.talentRules
-    (rules, Tasha.FEATS_ADDED, Tasha.FEATURES_ADDED, {}, {}, {}, {});
+  SRD5E.talentRules(rules, Tasha.FEATS, Tasha.FEATURES, {}, {}, {}, {});
 
 }
 
@@ -111,7 +110,7 @@ Tasha.DEITIES_DOMAINS_ADDED = {
   'FR-Selune':'Twilight',
   'NH-Yondalla':'Twilight'
 };
-Tasha.FEATS_ADDED = {
+Tasha.FEATS = {
   'Artificier Initiate':'',
   'Chef':'',
   'Crusher':'',
@@ -131,7 +130,45 @@ Tasha.FEATS_ADDED = {
   'Telekinetic':'',
   'Telepathic':''
 };
-Tasha.FEATURES_ADDED = {
+Tasha.FEATURES = {
+  // Feats
+  'Artificier Initiate':'Section=feature Note="TODO"',
+  'Chef':'Section=feature Note="TODO"',
+  'Crusher':'Section=feature Note="TODO"',
+  'Eldritch Adept':'Section=feature Note="TODO"',
+  'Fey Touched':'Section=feature Note="TODO"',
+  'Fighting Initiate':'Section=feature Note="TODO"',
+  'Gunner':'Section=feature Note="TODO"',
+  'Metamagic Adept':'Section=feature Note="TODO"',
+  'Piercer':
+    'Section=ability,combat ' +
+    'Note=' +
+      '"Ability Boost (Choose 1 from Strength, Dexterity)",' +
+      '"Additional piercing crit die, reroll 1 piercing damage die 1/tn"',
+  'Poisoner':
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Ignore poison resistance, poison-coated weapon +2d8 HP (DC 14 Con neg)",' +
+      '"Tool Proficiency (Poisoner\'s Kit)"',
+  'Shadow Touched':
+    'Section=ability,magic ' +
+    'Note=' +
+      '"Ability Boost (Choose 1 from Intelligence, Wisdom, Charisma)",' +
+      '"Learn <i>Invisibility</i>, cast chosten 1st-level spell 1/long rest"',
+  'Skill Expert':'Section=feature Note="TODO"',
+  'Slasher':'Section=feature Note="TODO"',
+  'Telekinetic':'Section=feature Note="TODO"',
+  'Telepathic':'Section=feature Note="TODO"',
+  // Paths
+  'Bladesong':
+    'Section=ability,combat,magic,skill ' +
+    'Note=' +
+      '"+10 Speed in light or no armor for 1 min 2/short rest",' +
+      '"+%V AC in light or no armor for 1 min 2/short rest",' +
+      '"+%V Concentration in light or no armor to retain spell for 1 min 2/short rest",' +
+      '"Adv Acrobatics in light or no armor for 1 min 2/short rest"',
+  'Extra Attack':
+    'Section=combat Note="+%V Attacks Per Round"',
   'Infectious Inspiration':
     'Section=magic ' +
     'Note="R60\' Reaction to grant extra bardic inspiration after successful use %V/long rest"',
@@ -148,9 +185,17 @@ Tasha.FEATURES_ADDED = {
       '"Spend 1 Sorcery Point for 60\' see invisible for 10 min"',
   'Silver Tongue':
     'Section=skill Note="Min 10 roll on Deception and Persuasion"',
+  'Song Of Defense':
+    'Section=magic Note="Expend spell slot to reduce damage by 5x slot level"',
+  'Song Of Victory':'Section=combat Note="+%V damage for 1 min 2/short rest"',
   'Telepathic Speech':
     'Section=feature ' +
     'Note="R30\' Communicate telepatically w/target for %{levels.Sorcerer} min"',
+  'Training In War And Song':
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Armor Proficiency (Light)/Weapon Proficiency (Choose 1 from any)",' +
+      '"Skill Proficiency (Performance)"',
   'Unfailing Inspiration':
     'Section=magic Note="Inspiration die kept after failed use"',
   'Universal Speech':
@@ -162,7 +207,7 @@ Tasha.FEATURES_ADDED = {
     'Section=magic ' +
     'Note="120\' teleport causes 3d10 HP in 5\' radius of starting position (Str neg) 1/long rest"'
 };
-Tasha.PATHS_ADDED = {
+Tasha.PATHS = {
   'Aberrant Mind':
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
@@ -320,87 +365,91 @@ Tasha.PATHS_ADDED = {
       '"3:Arms Of The Astral Self","6:Visage Of The Astral Self",' +
       '"11:Body Of The Astral Self","17:Awakened Astral Self"'
 };
-Tasha.SPELLS_ADDED = {
+Tasha.SPELLS = {
   'Booming Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="Weapon attack does +%{($L+1)//6}d8 HP thunder +%{($L+7)//6}d8 HP if target moves before next tn"',
   'Blade Of Disaster':
     'School=Conjuration ' +
     'Level=K9,S9,W9 ' +
-    'Description="TODO"',
+    'Description="Planar blade move 30\'/tn, two attacks 4d12 HP force x3@18 for conc + 1 min"',
   'Dream Of The Blue Veil':
     'School=Conjuration ' +
     'Level=B7,K7,S7,W7 ' +
-    'Description="TODO"',
+    'Description="Self and 8 willing others travel to another world for 6 hr"',
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="Weapon attack does +%{($L+1)//6}d8 HP fire +abilityModifier+%{($L+7)//6}d8 HP to another target w/in 5\'"',
   'Intellect Fortress':
     'School=Abjuration ' +
     'Level=A3,B3,K3,S3,W3 ' +
-    'Description="TODO"',
+    'Description="R30\' Willing target Resistance to psychic damage, Adv Int, Wis, and Cha saves for conc or 1 hr"',
   'Lightning Lure':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="R15\' Target pulled 10\' and %{($L+7)//6}d8 HP lightning (Str neg)"',
   'Mind Sliver':
     'School=Enchantment ' +
     'Level=K0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="R60\' Target %{($L+7)//6}d6 HP psychic, -1d4 next save (Int neg)"',
   'Spirit Shroud':
     'School=Necromancy ' +
     'Level=C3,K3,P3,W3 ' +
-    'Description="TODO"',
+    'Description="Self hits +1d8 HP radiant, necrotic, or cold, target w/in 10\' -10\' Speed for conc or 1 min"',
   'Summon Aberration':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
-    'Description="TODO"',
+    'Description="R90\' Summoned beholderkin, slaad, or star spawn aberrant spirit obeys commands for conc or 1 hr"',
   'Summon Beast':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
-    'Description="TODO"',
+    'Description="R90\' Summoned air, land, or water bestial spirit obeys commands for conc or 1 hr"',
   'Summon Celestial':
     'School=Conjuration ' +
     'Level=C5,P5 ' +
-    'Description="TODO"',
+    'Description="R90\' Summoned avenger or defender celestial spirit obeys commands for conc or 1 hr"',
   'Summon Construct':
     'School=Conjuration ' +
     'Level=A4,W4 ' +
-    'Description="TODO"',
+    'Description="R90\' Summoned clay, metal, or stone construct spirit obeys commands for conc or 1 hr"',
   'Summon Elemental':
     'School=Conjuration ' +
     'Level=D4,R4,W4 ' +
-    'Description="TODO"',
+    'Description="R90\' Summoned air, earth, fire, or water elemental spirit obeys commands for conc or 1 hr"',
   'Summon Fey':
     'School=Conjuration ' +
     'Level=D3,R3,K3,W3 ' +
-    'Description="TODO"',
+    'Description="R90\' Summoned fuming, mirthful, or ticksy fey spirit obeys commands for conc or 1 hr"',
   'Summon Fiend':
     'School=Conjuration ' +
     'Level=K6,W6 ' +
-    'Description="TODO"',
+    'Description="R90\' Summoned demon, devil, or yugoloth fiendish spirit obeys commands for conc or 1 hr"',
+  'Summon Shadowspawn':
+    'School=Conjuration ' +
+    'Level=K3,W3 ' +
+    'Description="R90\' Summoned fury, despair, or fear shadow spirit obeys commands for conc or 1 hr"',
   'Summon Undead':
     'School=Necromancy ' +
     'Level=K3,W3 ' +
-    'Description="TODO"',
+    'Description="R90\' Summoned ghostly, putrid, or skeletal undead spirit obeys commands for conc or 1 hr"',
   'Sword Burst':
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="R5\' %{($L+7)}d6 HP force (Dex neg)"',
   "Tasha's Caustic Brew":
     'School=Evocation ' +
     'Level=A1,S1,W1 ' +
-    'Description="TODO"',
+    'Description="30\'x5\' line 2d4 HP/rd acid for conc or 1 min (Dex neg)"',
   "Tasha's Mind Whip":
     'School=Enchantment ' +
     'Level=S2,W2 ' +
-    'Description="TODO"',
+    'Description="R90\' Target 3d6 HP psychic, single action next tn (Int half, no action reduction)"',
   "Tasha's Otherworldly Guise":
     'School=Transmutation ' +
     'Level=K6,S6,W6 ' +
-    'Description="TODO"'
+    'Description="Self 40\' Fly Speed, +2 AC, attacks magical and use spell ability modifier, extra attack, immune fire, poison, and poisoned (Lower Planes) or radiant, necrotic, and charmed (Upper Planes) for conc or 1 min"'
 };
 Tasha.SPELLS_LEVELS_ADDED = {
   'Aid':'Peace2',
@@ -513,7 +562,18 @@ Tasha.pathRulesExtra = function(rules, name) {
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
     'Level';
 
-  if(name == 'College Of Eloquence') {
+  if(name == 'Bladesinging') {
+    rules.defineRule('combatNotes.bladesong',
+      'intelligenceModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule('combatNotes.songOfVictory',
+      'intelligenceModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule('combatNotes.extraAttack', pathLevel, '+=', '1');
+    rules.defineRule('magicNotes.bladesong',
+      'intelligenceModifier', '=', 'Math.max(source, 1)'
+    );
+  } else if(name == 'College Of Eloquence') {
     rules.defineRule('magicNotes.infectiousInspiration',
       'charismaModifier', '=', 'Math.max(source, 1)'
     );
