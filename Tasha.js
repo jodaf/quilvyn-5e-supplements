@@ -560,7 +560,6 @@ Tasha.SPELLS = {
     'Description="Self 40\' Fly Speed, +2 AC, attacks magical and use spell ability modifier, extra attack, immune fire, poison, and poisoned (Lower Planes) or radiant, necrotic, and charmed (Upper Planes) for conc or 1 min"'
 };
 Tasha.SPELLS_LEVELS_ADDED = {
-  'Absorb Elements':'A1',
   'Acid Splash':'A0',
   'Aid':'A2,B2,Peace2,R2',
   'Alarm':'A1,Watchers1',
@@ -582,8 +581,6 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Blink':'A3',
   'Blur':'A2',
   'Burning Hands':'Wildfire1',
-  'Catapult':'A1',
-  'Catnap':'A3',
   'Chill Touch':'Spores1',
   'Circle Of Power':'Twilight5',
   'Cloudkill':'Spores5',
@@ -596,7 +593,6 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Contagion':'Spores5',
   'Continual Flame':'A2,D2',
   'Counterspell':'Watchers3',
-  'Create Bonfire':'A0',
   'Create Food And Water':'A3',
   'Creation':'A5',
   'Cure Wounds':'A1,Wildfire1',
@@ -609,7 +605,6 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Divination':'D4,W4',
   'Dominate Beast':'R4',
   'Dominate Person':'Order5',
-  'Elemental Bane':'A4',
   'Elemental Weapon':'A3,D3,R3',
   'Enhance Ability':'A2,Glory2,R2,W2',
   'Enlarge/Reduce':'A2,B2,D2',
@@ -619,14 +614,12 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Faerie Fire':'A1,Twilight1',
   'Fire Bolt':'A0',
   'Fire Shield':'D4,S4,Wildfire4',
-  'Flame Arrows':'A3',
   'Flame Blade':'S2',
   'Flame Strike':'Glory5,Wildfire5',
   'Flaming Sphere':'S2,Wildfire2',
   'Flesh To Stone':'D6,S6',
   'Fly':'A3',
   'Freedom Of Movement':'A4,Glory4',
-  'Frostbite':'A0',
   'Gaseous Form':'Spores3',
   'Gate':'K9',
   'Gentle Repose':'P2,Spores2',
@@ -656,7 +649,6 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Longstrider':'A1',
   'Mage Hand':'A0',
   'Magic Mouth':'A2',
-  'Magic Stone':'A0',
   'Magic Weapon':'A2,Glory2,R2,S2',
   'Mass Cure Wounds':'Wildfire5',
   'Mass Healing Word':'B3,Order3',
@@ -683,7 +675,6 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Protection From Energy':'A3,Glory3',
   'Protection From Poison':'A2',
   'Purify Food And Drink':'A1',
-  'Pyrotechnics':'A2',
   "Rary's Telepathic Bond":'B5,Peace5',
   'Ray Of Frost':'A0',
   'Revivify':'A3,D3,R3,Wildfire3',
@@ -695,11 +686,8 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'See Invisibility':'A2,Twilight2,Watchers2',
   'Sending':'Peace3',
   'Shocking Grasp':'A0',
-  'Skill Empowerment':'A5',
-  'Skywrite':'A2',
   'Sleep':'Twilight1',
   'Slow':'B3,Order3',
-  'Snare':'A1',
   'Speak With Dead':'W3',
   'Spare The Dying':'A0',
   'Spider Climb':'A2',
@@ -710,9 +698,6 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Symbol':'D7',
   'Teleportation Circle':'K5',
   'Thorn Whip':'A0',
-  'Thunderclap':'A0',
-  'Tiny Servant':'A3',
-  'Transmute Rock':'A5',
   'Vampiric Touch':'S3',
   'Warding Bond':'Peace2',
   'Wall Of Stone':'A5',
@@ -722,6 +707,22 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Web':'A2',
   'Weird':'K9',
   'Zone Of Truth':'Order2',
+};
+if(window.Xanathar) {
+  Tasha.SPELLS_LEVELS_ADDED['Absorb Elements'] = 'A1';
+  Tasha.SPELLS_LEVELS_ADDED['Catapult'] = 'A1';
+  Tasha.SPELLS_LEVELS_ADDED['Catnap'] = 'A3';
+  Tasha.SPELLS_LEVELS_ADDED['Create Bonfire'] = 'A0';
+  Tasha.SPELLS_LEVELS_ADDED['Elemental Bane'] = 'A4';
+  Tasha.SPELLS_LEVELS_ADDED['Flame Arrows'] = 'A3';
+  Tasha.SPELLS_LEVELS_ADDED['Frostbite'] = 'A0';
+  Tasha.SPELLS_LEVELS_ADDED['Magic Stone'] = 'A0';
+  Tasha.SPELLS_LEVELS_ADDED['Pyrotechnics'] = 'A2';
+  Tasha.SPELLS_LEVELS_ADDED['Skill Empowerment'] = 'A5';
+  Tasha.SPELLS_LEVELS_ADDED['Snare'] = 'A1';
+  Tasha.SPELLS_LEVELS_ADDED['Thunderclap'] = 'A0';
+  Tasha.SPELLS_LEVELS_ADDED['Tiny Servant'] = 'A3';
+  Tasha.SPELLS_LEVELS_ADDED['Transmute Rock'] = 'A5';
 };
 
 /* Defines rules related to basic character identity. */
@@ -767,7 +768,7 @@ Tasha.identityRules = function(
 /* Defines rules related to magic use. */
 Tasha.magicRules = function(rules, spellsLevels) {
   for(var s in spellsLevels) {
-    var defn = PHB5E.SPELLS[s] || (Xanathar ? Xanathar.SPELLS[s] : null);
+    var defn = PHB5E.SPELLS[s] || (window.Xanathar ? Xanathar.SPELLS[s] : null);
     if(!defn) {
       console.log('Unknown spell "' + s + '"');
       continue;
