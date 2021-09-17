@@ -36,8 +36,8 @@ function Tasha(edition, rules) {
   if(rules == null)
     rules = PHB5E.rules
   Tasha.identityRules(
-    rules, Tasha.CLASSES_SELECTABLES_ADDED, Tasha.DEITIES_DOMAINS_ADDED,
-    Tasha.PATHS
+    rules, Tasha.CLASSES, Tasha.CLASSES_FEATURES_ADDED,
+    Tasha.CLASSES_SELECTABLES_ADDED, Tasha.DEITIES_DOMAINS_ADDED, Tasha.PATHS
   );
   SRD5E.magicRules(rules, {}, Tasha.SPELLS);
   Tasha.magicRules(rules, Tasha.SPELLS_LEVELS_ADDED);
@@ -46,6 +46,79 @@ function Tasha(edition, rules) {
 }
 
 Tasha.VERSION = '2.2.1.0';
+
+Tasha.CLASSES = {
+  'Artificer':
+    'HitDie=d8 ' +
+    'Features=' +
+      '"1:Armor Proficiency (Medium/Shield)",' +
+      '"1:Save Proficiency (Constitution/Intelligence)",' +
+      '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
+      '"1:Tool Proficiency (Thieves\' Tools/Tinker\'s Tools/Choose 1 from any Artisan)",' +
+      '"1:Weapon Proficiency (Simple)",' +
+      '"1:Magical Tinkering",1:Spellcasting,"2:Infuse Item",' +
+      '"3:Artificer Specialist","3:The Right Tool For The Job",' +
+      '"6:Tool Expertise","7:Flash Of Genius","10:Magic Item Adept",' +
+      '"11:Spell-Storing Item","14:Magic Item Savant","18:Magic Item Master",' +
+      '"20:Soul Of Artifice" ' +
+    'Selectables=' +
+      '"3:Alchemist:Artificer Specialist","3:Armorer:Artificer Specialist",' +
+      '"3:Artillerist:Artificer Specialist" ' +
+    'CasterLevelArcane=levels.Artificer ' +
+    'SpellAbility=intelligence ' +
+    'SpellSlots=' +
+      'A0:1=2;10=3;14=4,' +
+      'A1:1=2;3=3;5=4,' +
+      'A2:5=2;8=3,' +
+      'A3:9=2;11=3,' +
+      'A4:13=1;15=2;17=3,' +
+      'A5:17=1;19=2'
+};
+
+Tasha.CLASSES_FEATURES_ADDED = {
+  'Barbarian':
+    '"3:Primal Knowledge",' +
+    '"7:Instictive Pounce"',
+  'Bard':
+    '"2:Magical Inspiration",' +
+    '"4:Bardic Versatility"',
+  'Cleric':
+    '"2:Harness Divine Power",' +
+    '"4:Cantrip Versatility",' +
+    '"8:Blessed Strikes"',
+  'Druid':
+    '"2:Wild Companion",' +
+    '"4:Cantrip Versatility"',
+  'Fighter':
+    '"4:Martial Versatility"',
+  'Monk':
+    '"2:Dedicated Weapon",' +
+    '"3:Ki-Fueled Attack",' +
+    '"4:Quickened Healing",' +
+    '"5:Focused Aim"',
+  'Paladin':
+    '"3:Harness Divine Power",' +
+    '"4:Martial Versatility"',
+  'Ranger':
+    '"1:Deft Explorer",' +
+    '"1:Canny",' +
+    '"1:Favored Foe",' +
+    '"2:Spellcasting Focus",' +
+    '"3:Primal Awareness",' +
+    '"4:Martial Versatility",' +
+    '"6:Roving",' +
+    '"10:Nature\'s Veil",' +
+    '"10:Tireless"',
+  'Rogue':
+    '"3:Steady Aim"',
+  'Sorcerer':
+    '"3:Magical Guidance",' +
+    '"4:Sorcerous Versatility"',
+  'Warlock':
+    '"4:Eldritch Versatility"',
+  'Wizard':
+    '"3:Cantrip Formulas"'
+};
 
 Tasha.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
@@ -63,15 +136,25 @@ Tasha.CLASSES_SELECTABLES_ADDED = {
     '"2:Circle Of Stars:Druid Circle",' +
     '"2:Circle Of Wildfire:Druid Circle"',
   'Fighter':
+    '"1:Fighting Style (Blind Fighting):Fighting Style",' +
+    '"1:Fighting Style (Interception):Fighting Style",' +
+    '"1:Fighting Style (Superior Technique):Fighting Style",' +
+    '"1:Fighting Style (Unarmed Fighting):Fighting Style",' +
     '"3:Psi Warrior:Martial Archetype",' +
     '"3:Rune Knight:Martial Archetype"',
   'Monk':
     '"3:Way Of Mercy:Monastic Tradition",' +
     '"3:Way Of The Astral Self:Monastic Tradition"',
   'Paladin':
+    '"2:Fighting Style (Blessed Warrior):Fighting Style",' +
+    '"2:Fighting Style (Blind Fighting):Fighting Style",' +
+    '"2:Fighting Style (Interception):Fighting Style",' +
     '"3:Oath Of Glory:Sacred Oath",' +
     '"3:Oath Of The Watchers:Sacred Oath"',
   'Ranger':
+    '"2:Fighting Style (Blind Fighting):Fighting Style",' +
+    '"2:Fighting Style (Druidic Warrior):Fighting Style",' +
+    '"2:Fighting Style (Thrown Weapon Fighting):Fighting Style",' +
     '"3:Fey Wanderer:Ranger Archetype",' +
     '"3:Swarmkeeper:Ranger Archetype"',
   'Rogue':
@@ -79,10 +162,21 @@ Tasha.CLASSES_SELECTABLES_ADDED = {
     '"3:Soul Knife:Roguish Archetype"',
   'Sorcerer':
     '"1:Aberrant Mind:Sorcerous Origin",' +
-    '"1:Clockwork Soul:Sorcerous Origin"',
+    '"1:Clockwork Soul:Sorcerous Origin",' +
+    '"3:Seeking Spell:Metamagic",' +
+    '"3:Transmuted Spell:Metamagic"',
   'Warlock':
     '"1:Fathomless:Otherworldly Patron",' +
-    '"1:The Genie:Otherworldly Patron"',
+    '"1:The Genie:Otherworldly Patron",' +
+    '"3:Pact Of The Talisman:Pact Boon",' +
+    '"features.Pact Of The Talisman ? 12:Bond Of The Talisman:Eldritch Invocation",' +
+    '"2:Eldritch Mind:Eldritch Invocation",' +
+    '"features.Pact Of The Tome ? 5:Far Scribe:Eldritch Invocation",' +
+    '"features.Pact Of The Tome ? 9:Gift Of The Protectors:Eldritch Invocation",' +
+    '"features.Pact Of The Chain ? 2:Investment Of The Chain Master:Eldritch Invocation",' +
+    '"features.Pact Of The Talisman ? 7:Protection Of The Talisman:Eldritch Invocation",' +
+    '"features.Pact Of The Talisman ? 2:Rebuke Of The Talisman:Eldritch Invocation",' +
+    '"2:Undying Servitude:Eldritch Invocation"',
   'Wizard':
     '"2:Bladesinger:Arcane Tradition",' +
     '"2:Order Of Scribes:Arcane Tradition"'
@@ -172,6 +266,9 @@ Tasha.FEATURES = {
   'Infectious Inspiration':
     'Section=magic ' +
     'Note="R60\' Reaction to grant extra bardic inspiration after successful use %V/long rest"',
+  'Magical Guidance':
+    'Section=feature ' +
+    'Note="Spend 1 Sorcery Point to reroll failed ability check"',
   'Psionic Sorcery':
     'Section=magic ' +
     'Note="Cast spell using Sorcery Points instead of spell slot"',
@@ -183,11 +280,15 @@ Tasha.FEATURES = {
     'Note=' +
       '"Spend 1 Sorcery Point for Fly %{speed}\', Swim %{speed*2} and water breathing, or squeeze through 1 inch space for 10 min",' +
       '"Spend 1 Sorcery Point for 60\' see invisible for 10 min"',
+  'Seeking Spell':
+    'Section=magic Note="Spend 2 Sorcery Points to reroll missed spell attack"',
   'Silver Tongue':
     'Section=skill Note="Min 10 roll on Deception and Persuasion"',
   'Song Of Defense':
     'Section=magic Note="Expend spell slot to reduce damage by 5x slot level"',
   'Song Of Victory':'Section=combat Note="+%V damage for 1 min 2/short rest"',
+  'Sorcerous Versatility':
+    'Section=magic Note="Exchange Metamagic option or Cantrip"',
   'Telepathic Speech':
     'Section=feature ' +
     'Note="R30\' Communicate telepatically w/target for %{levels.Sorcerer} min"',
@@ -196,6 +297,9 @@ Tasha.FEATURES = {
     'Note=' +
       '"Armor Proficiency (Light)/Weapon Proficiency (Choose 1 from any)",' +
       '"Skill Proficiency (Performance)"',
+  'Transmuted Spell':
+    'Section=magic ' +
+    'Note="Change spell damage from acid, code, fire, lightning, poison, or thunder to another type"',
   'Unfailing Inspiration':
     'Section=magic Note="Inspiration die kept after failed use"',
   'Universal Speech':
@@ -452,77 +556,190 @@ Tasha.SPELLS = {
     'Description="Self 40\' Fly Speed, +2 AC, attacks magical and use spell ability modifier, extra attack, immune fire, poison, and poisoned (Lower Planes) or radiant, necrotic, and charmed (Upper Planes) for conc or 1 min"'
 };
 Tasha.SPELLS_LEVELS_ADDED = {
-  'Aid':'Peace2',
-  'Alarm':'Watchers1',
+  'Absorb Elements':'A1',
+  'Acid Splash':'A0',
+  'Aid':'A2,B2,Peace2,R2',
+  'Alarm':'A1,Watchers1',
+  'Alter Self':'A2',
   'Animate Dead':'Spores3',
-  'Aura Of Life':'Twilight4,Wildfire4',
-  'Aura Of Purity':'Peace4,Watchers4',
-  'Aura Of Vitality':'Twilight3',
+  'Animate Objects':'A5',
+  'Antipathy/Sympathy':'B8',
+  'Arcane Eye':'A4',
+  'Arcane Lock':'A2',
+  'Augury':'D2,W2',
+  'Aura Of Life':'C4,Twilight4,Wildfire4',
+  'Aura Of Purity':'C4,Peace4,Watchers4',
+  'Aura Of Vitality':'C3,D3,Twilight3',
   'Banishment':'Watchers4',
   'Beacon Of Hope':'Peace3',
+  "Bigby's Hand":'A5,S5',
   'Blight':'Spores4',
   'Blindness/Deafness':'Spores2',
+  'Blink':'A3',
+  'Blur':'A2',
   'Burning Hands':'Wildfire1',
+  'Catapult':'A1',
+  'Catnap':'A3',
   'Chill Touch':'Spores1',
   'Circle Of Power':'Twilight5',
   'Cloudkill':'Spores5',
-  'Command':'Order1',
+  'Color Spray':'B1',
+  'Command':'B1,Order1',
   'Commune':'Glory5,Order5',
   'Compulsion':'Glory4,Order4',
+  'Cone Of Cold':'D5',
   'Confusion':'Spores4',
   'Contagion':'Spores5',
+  'Continual Flame':'A2,D2',
   'Counterspell':'Watchers3',
-  'Cure Wounds':'Wildfire1',
-  'Detect Magic':'Watchers1',
+  'Create Bonfire':'A0',
+  'Create Food And Water':'A3',
+  'Creation':'A5',
+  'Cure Wounds':'A1,Wildfire1',
+  'Dancing Lights':'A0',
+  'Darkvision':'A2',
+  'Demiplane':'S8',
+  'Detect Magic':'A1,Watchers1',
+  'Disguise Self':'A1',
+  'Dispel Magic':'A3',
+  'Divination':'D4,W4',
+  'Dominate Beast':'R4',
   'Dominate Person':'Order5',
-  'Enhance Ability':'Glory2',
-  'Faerie Fire':'Twilight1',
-  'Fire Shield':'Wildfire4',
+  'Elemental Bane':'A4',
+  'Elemental Weapon':'A3,D3,R3',
+  'Enhance Ability':'A2,Glory2,R2,W2',
+  'Enlarge/Reduce':'A2,B2,D2',
+  'Entangle':'R1',
+  'Expeditious Retreat':'A1',
+  'Fabricate':'A4',
+  'Faerie Fire':'A1,Twilight1',
+  'Fire Bolt':'A0',
+  'Fire Shield':'D4,S4,Wildfire4',
+  'Flame Arrows':'A3',
+  'Flame Blade':'S2',
   'Flame Strike':'Glory5,Wildfire5',
-  'Flaming Sphere':'Wildfire2',
-  'Freedom Of Movement':'Glory4',
+  'Flaming Sphere':'S2,Wildfire2',
+  'Flesh To Stone':'D6,S6',
+  'Fly':'A3',
+  'Freedom Of Movement':'A4,Glory4',
+  'Frostbite':'A0',
   'Gaseous Form':'Spores3',
-  'Gentle Repose':'Spores2',
+  'Gate':'K9',
+  'Gentle Repose':'P2,Spores2',
+  'Glyph Of Warding':'A3',
+  'Grease':'A1,S1',
   'Greater Invisibility':'Twilight4',
-  'Greater Restoration':'Peace5',
+  'Greater Restoration':'A5,Peace5,R5',
+  'Guidance':'A0',
   'Guiding Bolt':'Glory1',
-  'Haste':'Glory3',
+  'Gust Of Wind':'R2',
+  'Haste':'A3,Glory3',
+  'Heat Metal':'A2',
+  "Heroes' Feast":'B6',
   'Heroism':'Glory1,Order1,Peace1',
   'Hold Monster':'Watchers5',
   'Hold Person':'Order2',
+  'Identify':'A1',
+  'Incendiary Cloud':'D8',
+  'Invisibility':'A2',
+  'Jump':'A1',
+  "Leomund's Secret Chest":'A4',
   "Leomund's Tiny Hut":'Twilight3',
+  'Lesser Restoration':'A2',
+  'Levitate':'A2',
+  'Light':'A0',
   'Locate Creature':'Order4',
-  'Magic Weapon':'Glory2',
+  'Longstrider':'A1',
+  'Mage Hand':'A0',
+  'Magic Mouth':'A2',
+  'Magic Stone':'A0',
+  'Magic Weapon':'A2,Glory2,R2,S2',
   'Mass Cure Wounds':'Wildfire5',
-  'Mass Healing Word':'Order3',
-  'Mislead':'Twilight5',
+  'Mass Healing Word':'B3,Order3',
+  'Meld Into Stone':'R3',
+  'Mending':'A0',
+  'Message':'A0',
+  'Mirror Image':'B2',
+  'Mislead':'K5,Twilight5',
   'Moonbeam':'Twilight2,Watchers2',
+  "Mordenkainen's Faithful Hound":'A4',
   'Nondetection':'Watchers3',
-  "Otiluke's Resilient Sphere":'Peace4',
+  "Otiluke's Freezing Sphere":'S6',
+  "Otiluke's Resilient Sphere":'A4,Peace4',
+  'Phantasmal Killer':'B4',
+  'Planar Binding':'K5',
   'Plant Growth':'Wildfire3',
-  'Protection From Energy':'Glory3',
-  "Rary's Telepathic Bond":'Peace5',
-  'Revivify':'Wildfire3',
-  'Sanctuary':'Peace1',
+  'Poison Spray':'A0',
+  'Power Word Heal':'C9',
+  'Prayer Of Healing':'P2',
+  'Prestidigitation':'A0',
+  'Prismatic Spray':'B7',
+  'Prismatic Wall':'B9',
+  'Protection From Evil And Good':'D1',
+  'Protection From Energy':'A3,Glory3',
+  'Protection From Poison':'A2',
+  'Purify Food And Drink':'A1',
+  'Pyrotechnics':'A2',
+  "Rary's Telepathic Bond":'B5,Peace5',
+  'Ray Of Frost':'A0',
+  'Revivify':'A3,D3,R3,Wildfire3',
+  'Rope Trick':'A2',
+  'Sanctuary':'A1,Peace1',
   'Scorching Ray':'Wildfire2',
   'Scrying':'Watchers5',
-  'See Invisibility':'Twilight2,Watchers2',
+  'Searing Smite':'R1',
+  'See Invisibility':'A2,Twilight2,Watchers2',
   'Sending':'Peace3',
+  'Shocking Grasp':'A0',
+  'Skill Empowerment':'A5',
+  'Skywrite':'A2',
   'Sleep':'Twilight1',
-  'Slow':'Order3',
+  'Slow':'B3,Order3',
+  'Snare':'A1',
+  'Speak With Dead':'W3',
+  'Spare The Dying':'A0',
+  'Spider Climb':'A2',
+  'Stone Shape':'A4',
+  'Stoneskin':'A4',
+  'Sunbeam':'C6',
+  'Sunburst':'C8',
+  'Symbol':'D7',
+  'Teleportation Circle':'K5',
+  'Thorn Whip':'A0',
+  'Thunderclap':'A0',
+  'Tiny Servant':'A3',
+  'Transmute Rock':'A5',
+  'Vampiric Touch':'S3',
   'Warding Bond':'Peace2',
+  'Wall Of Stone':'A5',
+  'Warding Bond':'P2',
+  'Water Breathing':'A3',
+  'Water Walk':'A3',
+  'Web':'A2',
+  'Weird':'K9',
   'Zone Of Truth':'Order2',
 };
 
 /* Defines rules related to basic character identity. */
 Tasha.identityRules = function(
-  rules, classSelectables, deitiesDomains, paths
+  rules, classes, classFeatures, classSelectables, deitiesDomains, paths
 ) {
 
   QuilvynUtils.checkAttrTable
+    (classes, ['Require', 'HitDie', 'Features', 'Selectables', 'Languages', 'CasterLevelArcane', 'CasterLevelDivine', 'SpellAbility', 'SpellSlots', 'Spells']);
+  QuilvynUtils.checkAttrTable
     (paths, ['Features', 'Selectables', 'Group', 'Level', 'SpellAbility', 'SpellSlots', 'Spells']);
 
-  for(var clas in classSelectables) {
+  var clas;
+
+  for(clas in classes) {
+    rules.choiceRules(rules, 'Class', clas, classes[clas]);
+  }
+  for(clas in classFeatures) {
+    SRD5E.featureListRules
+      (rules, QuilvynUtils.getAttrValueArray('Features=' + classFeatures[clas], 'Features'), clas, 'levels.' + clas, false);
+  }
+  for(clas in classSelectables) {
     SRD5E.featureListRules
       (rules, QuilvynUtils.getAttrValueArray('Selectables=' + classSelectables[clas], 'Selectables'), clas, 'levels.' + clas, true);
   }
