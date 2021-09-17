@@ -23,8 +23,8 @@ Place, Suite 330, Boston, MA 02111-1307 USA.
  * Everything. The Xanathar function contains methods that load rules for
  * particular parts of the rules; raceRules for character races, magicRules for
  * spells, etc. These member methods can be called independently in order to use
- * a subset of XGTE. Similarly, the constant fields of Xanathar (FEATS,
- * BACKGROUNDS, etc.) can be manipulated to modify the choices.
+ * a subset of XGTE. Similarly, the constant fields of Xanathar (FEATURES,
+ * PATHS, etc.) can be manipulated to modify the choices.
  */
 function Xanathar(edition, rules) {
 
@@ -37,11 +37,11 @@ function Xanathar(edition, rules) {
     rules = PHB5E.rules
   Xanathar.identityRules(
     rules, Xanathar.CLASSES_SELECTABLES_ADDED, Xanathar.DEITIES_DOMAINS_ADDED,
-    Xanathar.PATHS_ADDED
+    Xanathar.PATHS
   );
-  Xanathar.magicRules(rules, Xanathar.SPELLS_LEVELS_ADDED);
+  Xanathar.magicRules(rules, Xanathar.SPELLS, Xanathar.SPELLS_LEVELS_ADDED);
   SRD5E.talentRules
-    (rules, {}, Xanathar.FEATURES_ADDED, {}, {}, {}, Xanathar.TOOLS_ADDED);
+    (rules, {}, Xanathar.FEATURES, {}, {}, {}, Xanathar.TOOLS_ADDED);
 
 }
 
@@ -122,7 +122,7 @@ Xanathar.DEITIES_DOMAINS_ADDED = {
   'Greyhawk-Wee Jas':'Grave',
   'NH-Moradin':'Forge'
 };
-Xanathar.FEATURES_ADDED = {
+Xanathar.FEATURES = {
   'Accursed Specter':
     'Section=combat ' +
     'Note="Raise slain humanoid as specter w/%V temporary HP, +%1 attack until long rest 1/long rest"',
@@ -586,7 +586,7 @@ Xanathar.FEATURES_ADDED = {
     'Section=combat ' +
     'Note="R60\' Battle cry gives 10 targets Adv attack and save for 1 tn 1/long rest"'
 };
-Xanathar.PATHS_ADDED = {
+Xanathar.PATHS = {
   'Arcane Archer':
     'Group=Fighter Level=levels.Fighter ' +
     'Features=' +
@@ -821,6 +821,390 @@ Xanathar.PATHS_ADDED = {
       '"3:Radiant Sun Bolt","6:Searing Arc Strike","11:Searing Sunburst",' +
       '"17:Sun Shield"'
 };
+Xanathar.SPELLS = {
+
+  "Abi-Dalzim's Horrid Wilting":
+    'School=Necromancy ' +
+    'Level=S8,W8 ' +
+    'Description="TODO"',
+  'Absorb Elements':
+    'School=Abjuration ' +
+    'Level=D1,R1,S1,W1 ' +
+    'Description="TODO"',
+  "Aganazzar's Scorcher":
+    'School=Evocation ' +
+    'Level=S2,W2 ' +
+    'Description="TODO"',
+  'Beast Bond':
+    'School=Divination ' +
+    'Level=D1,R1 ' +
+    'Description="TODO"',
+  'Bones Of The Earth':
+    'School=Transmutation ' +
+    'Level=D6 ' +
+    'Description="TODO"',
+  'Catapult':
+    'School=Transmutation ' +
+    'Level=S1,W1 ' +
+    'Description="TODO"',
+  'Catnap':
+    'School=Enchantment ' +
+    'Level=B3,S3,W3 ' +
+    'Description="TODO"',
+  'Cause Fear':
+    'School=Necromancy ' +
+    'Level=K1,W1 ' +
+    'Description="TODO"',
+  'Ceremony':
+    'School=Abjuration ' +
+    'Level=C1,P1 ' +
+    'Description="TODO"',
+  'Chaos Bolt':
+    'School=Evocation ' +
+    'Level=S1 ' +
+    'Description="TODO"',
+  'Charm Monster':
+    'School=Enchantment ' +
+    'Level=B4,D4,K4,S4,W4 ' +
+    'Description="TODO"',
+  'Control Flames':
+    'School=Transmutation ' +
+    'Level=D0,S0,W0 ' +
+    'Description="TODO"',
+  'Control Winds':
+    'School=Transmutation ' +
+    'Level=D5,S5,W5 ' +
+    'Description="TODO"',
+  'Create Bonfire':
+    'School=Conjuration ' +
+    'Level=D0,K0,S0,W0 ' +
+    'Description="TODO"',
+  'Create Homunculus':
+    'School=Transmutation ' +
+    'Level=W6 ' +
+    'Description="TODO"',
+  'Crown Of Stars':
+    'School=Evocation ' +
+    'Level=K7,S7,W7 ' +
+    'Description="TODO"',
+  'Danse Macabre':
+    'School=Necromancy ' +
+    'Level=K5,W5 ' +
+    'Description="TODO"',
+  'Dawn':
+    'School=Evocation ' +
+    'Level=C5,W5 ' +
+    'Description="TODO"',
+  "Dragon's Breath":
+    'School=Transmutation ' +
+    'Level=S2,W2 ' +
+    'Description="TODO"',
+  'Druid Grove':
+    'School=Abjuration ' +
+    'Level=D6 ' +
+    'Description="TODO"',
+  'Dust Devil':
+    'School=Conjuration ' +
+    'Level=D2,S2,W2 ' +
+    'Description="TODO"',
+  'Earthbind':
+    'School=Transmutation ' +
+    'Level=D2,K2,S2,W2 ' +
+    'Description="TODO"',
+  'Earth Tremor':
+    'School=Evocation ' +
+    'Level=B1,D1,S1,W1 ' +
+    'Description="TODO"',
+  'Elemental Bane':
+    'School=Transmutation ' +
+    'Level=D4,K4,W4 ' +
+    'Description="TODO"',
+  'Enemies Abound':
+    'School=Enchantment ' +
+    'Level=B3,K3,S3,W3 ' +
+    'Description="TODO"',
+  'Enervation':
+    'School=Necromancy ' +
+    'Level=K5,S5,W5 ' +
+    'Description="TODO"',
+  'Erupting Earth':
+    'School=Transmutation ' +
+    'Level=D3,S3,W3 ' +
+    'Description="TODO"',
+  'Far Step':
+    'School=Conjuration ' +
+    'Level=K5,S5,W5 ' +
+    'Description="TODO"',
+  'Find Greater Steed':
+    'School=Conjuration ' +
+    'Level=P4 ' +
+    'Description="TODO"',
+  'Flame Arrows':
+    'School=Transmutation ' +
+    'Level=D3,R3,S3,W3 ' +
+    'Description="TODO"',
+  'Frostbite':
+    'School=Evocation ' +
+    'Level=D0,K0,S0,W0 ' +
+    'Description="TODO"',
+  'Guardian Of Nature':
+    'School=Transmutation ' +
+    'Level=D4,R4 ' +
+    'Description="TODO"',
+  'Gust':
+    'School=Transmutation ' +
+    'Level=D0,S0,W0 ' +
+    'Description="TODO"',
+  'Healing Spirit':
+    'School=Conjuration ' +
+    'Level=D2,R2 ' +
+    'Description="TODO"',
+  'Holy Weapon':
+    'School=Evocation ' +
+    'Level=C5,P5 ' +
+    'Description="TODO"',
+  'Ice Knife':
+    'School=Evocation ' +
+    'Level=D1,S1,W1 ' +
+    'Description="TODO"',
+  'Illusory Dragon':
+    'School=Illusion ' +
+    'Level=W8 ' +
+    'Description="TODO"',
+  'Immolation':
+    'School=Evocation ' +
+    'Level=S5,W5 ' +
+    'Description="TODO"',
+  'Infernal Calling':
+    'School=Conjuration ' +
+    'Level=K5,W5 ' +
+    'Description="TODO"',
+  'Infestation':
+    'School=Conjuration ' +
+    'Level=D0,K0,S0,W0 ' +
+    'Description="TODO"',
+  'Investiture Of Flame':
+    'School=Transmutation ' +
+    'Level=D6,K6,S6,W6 ' +
+    'Description="TODO"',
+  'Investiture Of Ice':
+    'School=Transmutation ' +
+    'Level=D6,K6,S6,W6 ' +
+    'Description="TODO"',
+  'Investiture Of Stone':
+    'School=Transmutation ' +
+    'Level=D6,K6,S6,W6 ' +
+    'Description="TODO"',
+  'Investiture Of Wind':
+    'School=Transmutation ' +
+    'Level=D6,K6,S6,W6 ' +
+    'Description="TODO"',
+  'Invulnerability':
+    'School=Abjuration ' +
+    'Level=W9 ' +
+    'Description="TODO"',
+  'Life Transference':
+    'School=Necromancy ' +
+    'Level=C3,W3 ' +
+    'Description="TODO"',
+  'Maddening Darkness':
+    'School=Evocation ' +
+    'Level=K8,W8 ' +
+    'Description="TODO"',
+  'Maelstrom':
+    'School=Evocation ' +
+    'Level=D5 ' +
+    'Description="TODO"',
+  'Magic Stone':
+    'School=Transmutation ' +
+    'Level=D0,K0 ' +
+    'Description="TODO"',
+  'Mass Polymorph':
+    'School=Transmutation ' +
+    'Level=B9,S9,W9 ' +
+    'Description="TODO"',
+  "Maximilian's Earthen Grasp":
+    'School=Transmutation ' +
+    'Level=S2,W2 ' +
+    'Description="TODO"',
+  "Melf's Minute Meteors":
+    'School=Evocation ' +
+    'Level=S3,W3 ' +
+    'Description="TODO"',
+  'Mental Prison':
+    'School=Illusion ' +
+    'Level=K6,S6,W6 ' +
+    'Description="TODO"',
+  'Mighty Fortress':
+    'School=Conjuration ' +
+    'Level=W8 ' +
+    'Description="TODO"',
+  'Mind Spike':
+    'School=Divination ' +
+    'Level=K2,S2,W2 ' +
+    'Description="TODO"',
+  'Mold Earth':
+    'School=Transmutation ' +
+    'Level=D0,S0,W0 ' +
+    'Description="TODO"',
+  'Negative Energy Flood':
+    'School=Necromancy ' +
+    'Level=K5,W5 ' +
+    'Description="TODO"',
+  'Power Word Pain':
+    'School=Enchantment ' +
+    'Level=K7,S7,W7 ' +
+    'Description="TODO"',
+  'Primal Savagery':
+    'School=Transmutation ' +
+    'Level=D0 ' +
+    'Description="TODO"',
+  'Primordial Ward':
+    'School=Abjuration ' +
+    'Level=D6 ' +
+    'Description="TODO"',
+  'Psychic Scream':
+    'School=Enchantment ' +
+    'Level=B9,K9,S9,W8 ' +
+    'Description="TODO"',
+  'Pyrotechnics':
+    'School=Transmutation ' +
+    'Level=B2,S2,W2 ' +
+    'Description="TODO"',
+  'Scatter':
+    'School=Conjuration ' +
+    'Level=K6,S6,W6 ' +
+    'Description="TODO"',
+  'Shadow Blade':
+    'School=Illusion ' +
+    'Level=K2,S2,W2 ' +
+    'Description="TODO"',
+  'Shadow Of Moil':
+    'School=Necromancy ' +
+    'Level=K4 ' +
+    'Description="TODO"',
+  'Shape Water':
+    'School=Transmutation ' +
+    'Level=D0,S0,W0 ' +
+    'Description="TODO"',
+  'Sickening Radiance':
+    'School=Evocation ' +
+    'Level=K4,S4,W4 ' +
+    'Description="TODO"',
+  'Skill Empowerment':
+    'School=Transmutation ' +
+    'Level=B5,S5,W5 ' +
+    'Description="TODO"',
+  'Skywrite':
+    'School=Transmutation ' +
+    'Level=B2,D2,W2 ' +
+    'Description="TODO"',
+  'Snare':
+    'School=Abjuration ' +
+    'Level=D1,R1,W1 ' +
+    'Description="TODO"',
+  "Snilloc's Snowball Storm":
+    'School=Evocation ' +
+    'Level=S2,W2 ' +
+    'Description="TODO"',
+  'Soul Cage':
+    'School=Necromancy ' +
+    'Level=K6,W6 ' +
+    'Description="TODO"',
+  'Steel Wind Strike':
+    'School=Conjuration ' +
+    'Level=R5,W5 ' +
+    'Description="TODO"',
+  'Storm Sphere':
+    'School=Evocation ' +
+    'Level=S4,W4 ' +
+    'Description="TODO"',
+  'Summon Greater Demon':
+    'School=Conjuration ' +
+    'Level=K4,W4 ' +
+    'Description="TODO"',
+  'Summon Lesser Demon':
+    'School=Conjuration ' +
+    'Level=K3,W3 ' +
+    'Description="TODO"',
+  'Synaptic Static':
+    'School=Enchantment ' +
+    'Level=B5,K5,S5,W5 ' +
+    'Description="TODO"',
+  'Temple Of The Gods':
+    'School=Conjuration ' +
+    'Level=C7 ' +
+    'Description="TODO"',
+  "Tenser's Transformation":
+    'School=Transmutation ' +
+    'Level=W6 ' +
+    'Description="TODO"',
+  'Thunderclap':
+    'School=Evocation ' +
+    'Level=B0,D0,K0,S0,W0 ' +
+    'Description="TODO"',
+  'Thunder Step':
+    'School=Conjuration ' +
+    'Level=K3,S3,W3 ' +
+    'Description="TODO"',
+  'Tidal Wave':
+    'School=Conjuration ' +
+    'Level=D3,S3,W3 ' +
+    'Description="TODO"',
+  'Tiny Servant':
+    'School=Transmutation ' +
+    'Level=W3 ' +
+    'Description="TODO"',
+  'Toll The Dead':
+    'School=Necromancy ' +
+    'Level=C0,K0,W0 ' +
+    'Description="TODO"',
+  'Transmute Rock':
+    'School=Transmutation ' +
+    'Level=D5,W5 ' +
+    'Description="TODO"',
+  'Vitriolic Sphere':
+    'School=Evocation ' +
+    'Level=S4,W4 ' +
+    'Description="TODO"',
+  'Wall Of Light':
+    'School=Evocation ' +
+    'Level=K5,S5,W5 ' +
+    'Description="TODO"',
+  'Wall Of Sand':
+    'School=Evocation ' +
+    'Level=W3 ' +
+    'Description="TODO"',
+  'Wall Of Water':
+    'School=Evocation ' +
+    'Level=D3,S3,W3 ' +
+    'Description="TODO"',
+  'Warding Wind':
+    'School=Evocation ' +
+    'Level=B2,D2,S2,W2 ' +
+    'Description="TODO"',
+  'Watery Sphere':
+    'School=Conjuration ' +
+    'Level=D4,S4,W4 ' +
+    'Description="TODO"',
+  'Whirlwind':
+    'School=Evocation ' +
+    'Level=D7,S7,W7 ' +
+    'Description="TODO"',
+  'Word Of Radiance':
+    'School=Evocation ' +
+    'Level=C0 ' +
+    'Description="TODO"',
+  'Wrath Of Nature':
+    'School=Evocation ' +
+    'Level=D5,R5 ' +
+    'Description="TODO"',
+  'Zephyr Strike':
+    'School=Transmutation ' +
+    'Level=R1 ' +
+    'Description="TODO"'
+
+};
 Xanathar.SPELLS_LEVELS_ADDED = {
   'Animate Objects':'Forge5',
   'Antilife Shell':'Grave5',
@@ -923,8 +1307,16 @@ Xanathar.identityRules = function(
 };
 
 /* Defines rules related to magic use. */
-Xanathar.magicRules = function(rules, spellsLevels) {
-  for(var s in spellsLevels) {
+Xanathar.magicRules = function(rules, spells, spellsLevels) {
+
+  QuilvynUtils.checkAttrTable
+    (spells, ['School', 'Group', 'Level', 'Description']);
+
+  var s;
+  for(s in spells) {
+    rules.choiceRules(rules, 'Spell', s, spells[s]);
+  }
+  for(s in spellsLevels) {
     if(!PHB5E.SPELLS[s]) {
       console.log('Unknown spell "' + s + '"');
       continue;
@@ -932,6 +1324,7 @@ Xanathar.magicRules = function(rules, spellsLevels) {
     rules.choiceRules
       (rules, 'Spell', s, PHB5E.SPELLS[s] + ' Level=' + spellsLevels[s]);
   }
+
 };
 
 /* Defines the rules related to character classes. */

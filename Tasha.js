@@ -182,28 +182,32 @@ Tasha.CLASSES_SELECTABLES_ADDED = {
     '"2:Order Of Scribes:Arcane Tradition"'
 };
 Tasha.DEITIES_DOMAINS_ADDED = {
-  'Eberron-Aureon':'Order',
   'FR-Bane':'Order',
-  'Dragonlance-Majere':'Order',
   'Greyhawk-Pholtus':'Order',
   'FR-Tyr':'Order',
   'Greyhawk-Wee Jas':'Order',
   'NH-Angharradh':'Peace',
   'NH-Berronar Truesilver':'Peace',
-  'Eberron-Boldrei':'Peace,Twilight',
   'NH-Cyrrollalee':'Peace',
   'FR-Eldath':'Peace',
   'NH-Gaerdal Ironhand':'Peace',
-  'Dragonlance-Paladine':'Peace',
   'Greyhawk-Rao':'Peace',
   'Greyhawk-Celestian':'Twilight',
-  'Eberron-Dol Arrah':'Twilight',
   'FR-Helm':'Twilight',
   'FR-Ilmater':'Twilight',
-  'Dragonlance-Mishalkal':'Twilight',
   'FR-Selune':'Twilight',
   'NH-Yondalla':'Twilight'
 };
+if(Window.Eberron) {
+  Tasha.DEITY_DOMAINS_ADDED['Eberron-Aureon'] = 'Order';
+  Tasha.DEITY_DOMAINS_ADDED['Eberron-Boldrei'] = 'Peace,Twilight';
+  Tasha.DEITY_DOMAINS_ADDED['Eberron-Dol Arrah'] = 'Twilight';
+}
+if(Window.Dragonlance) {
+  Tasha.DEITY_DOMAINS_ADDED['Dragonlance-Majere'] = 'Order';
+  Tasha.DEITY_DOMAINS_ADDED['Dragonlance-Mishalkal'] = 'Twilight';
+  Tasha.DEITY_DOMAINS_ADDED['Dragonlance-Paladine'] = 'Peace';
+}
 Tasha.FEATS = {
   'Artificier Initiate':'',
   'Chef':'',
@@ -763,12 +767,12 @@ Tasha.identityRules = function(
 /* Defines rules related to magic use. */
 Tasha.magicRules = function(rules, spellsLevels) {
   for(var s in spellsLevels) {
-    if(!PHB5E.SPELLS[s]) {
+    var defn = PHB5E.SPELLS[s] || (Xanathar ? Xanathar.SPELLS[s] : null);
+    if(!defn) {
       console.log('Unknown spell "' + s + '"');
       continue;
     }
-    rules.choiceRules
-      (rules, 'Spell', s, PHB5E.SPELLS[s] + ' Level=' + spellsLevels[s]);
+    rules.choiceRules(rules, 'Spell', s, defn + ' Level=' + spellsLevels[s]);
   }
 };
 
