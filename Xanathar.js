@@ -826,87 +826,88 @@ Xanathar.SPELLS = {
   "Abi-Dalzim's Horrid Wilting":
     'School=Necromancy ' +
     'Level=S8,W8 ' +
-    'Description="TODO"',
+    'Description="R150\' 30\' radius withers plants, creatures suffer 12d8 HP necrotic (Con half, plants and water elementals Disadv)"',
   'Absorb Elements':
     'School=Abjuration ' +
     'Level=D1,R1,S1,W1 ' +
-    'Description="TODO"',
+    'Description="Self reaction reduces energy damage by half, self hit next turn inflicts +1d6 HP"',
   "Aganazzar's Scorcher":
     'School=Evocation ' +
     'Level=S2,W2 ' +
-    'Description="TODO"',
+    'Description="Creatures in 5\' by $RS\' path suffer 3d8 HP fire (Dex half)"',
   'Beast Bond':
     'School=Divination ' +
     'Level=D1,R1 ' +
-    'Description="TODO"',
+    'Description="Touched friendly beast up to 3 HD has telepathic link w/self, Adv attacking foes adjacent to self for conc or 10 min"',
   'Bones Of The Earth':
     'School=Transmutation ' +
     'Level=D6 ' +
-    'Description="TODO"',
+    'Description="R120\' Six 5\'x30\' pillars burst from the ground, inflict 6d6 HP bludgeoning and pin creatures caught between top and ceiling (Dex neg, Str frees)"',
   'Catapult':
     'School=Transmutation ' +
     'Level=S1,W1 ' +
-    'Description="TODO"',
+    'Description="R60\' Up to 5 lb object flies 90\', strikes for 3d8 HP bludgeoning (Dex neg)"',
   'Catnap':
     'School=Enchantment ' +
     'Level=B3,S3,W3 ' +
-    'Description="TODO"',
+    'Description="R30\' Three willing targets sleep for 10 min, gain benefits of short rest"',
   'Cause Fear':
     'School=Necromancy ' +
     'Level=K1,W1 ' +
-    'Description="TODO"',
+    'Description="R60\' Target frightened (Disadv ability checks and attacks) for conc or 1 min (Wis neg each turn)"',
   'Ceremony':
     'School=Abjuration ' +
     'Level=C1,P1 ' +
-    'Description="TODO"',
+    'Description="Self perform rites of atonement, bless water, coming of age, dedication, funeral, or wedding"',
   'Chaos Bolt':
     'School=Evocation ' +
     'Level=S1 ' +
-    'Description="TODO"',
+    'Description="R120\' Ranged spell attack inflicts 2d8 + 1d6 HP of random type"',
   'Charm Monster':
     'School=Enchantment ' +
     'Level=B4,D4,K4,S4,W4 ' +
-    'Description="TODO"',
+    'Description="R30\' Target regards you as a friend (Wis neg) for 1 hr or until harmed"',
   'Control Flames':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="R60\' Target flame up to 5\' cu expands 5\', extinguishes, doubles light area for 1 hr, or forms shapes for 1 hr"',
   'Control Winds':
     'School=Transmutation ' +
     'Level=D5,S5,W5 ' +
-    'Description="TODO"',
+    'Description="R300\' Air in 100\' cu creates gusts, downdraft, or updraft for conc or 1 hr"',
   'Create Bonfire':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="R60\' Creates 5\' fire that inflicts ${Lplus7div6}d8 HP (Dex neg) for conc or 1 min"',
   'Create Homunculus':
     'School=Transmutation ' +
     'Level=W6 ' +
-    'Description="TODO"',
+    'Description="Self create magical companion, suffer 2d4 HP piercing"',
   'Crown Of Stars':
     'School=Evocation ' +
     'Level=K7,S7,W7 ' +
-    'Description="TODO"',
+    'Description="Create seven flames around self that give 30\' light, ranged touch w/each inflicts 4d12 HP radiant for 1 hr"',
   'Danse Macabre':
     'School=Necromancy ' +
     'Level=K5,W5 ' +
-    'Description="TODO"',
+    // Note: should be +chaMod for K5, +intMod for W5
+    'Description="R60\' Create from corpses up to 5 skeletons and zombies that obey self and attack at +%{charismaModifier>?intelligenceModifer} for conc or 1 hr"',
   'Dawn':
     'School=Evocation ' +
     'Level=C5,W5 ' +
-    'Description="TODO"',
+    'Description="R60\' Sunlight in 30\' radius inflicts 4d10 HP radiant, moves 60\'/rd for conc or 1 min"',
   "Dragon's Breath":
     'School=Transmutation ' +
     'Level=S2,W2 ' +
-    'Description="TODO"',
+    'Description="Touched gains ability to breathe acid, code, fire, lightning, or poison that inflicts 3d6 HP in a 15\' code for conc or 1 min"',
   'Druid Grove':
     'School=Abjuration ' +
     'Level=D6 ' +
-    'Description="TODO"',
+    'Description="Touched area up to 90\' cu responds to intruders w/chosen hostile effect for 1 dy"',
   'Dust Devil':
     'School=Conjuration ' +
     'Level=D2,S2,W2 ' +
-    'Description="TODO"',
+    'Description="R60\' inflicts 1d8 HP bludgeoning and pushes 10\' (Str half HP, no push) for conc or 1 min"',
   'Earthbind':
     'School=Transmutation ' +
     'Level=D2,K2,S2,W2 ' +
