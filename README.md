@@ -36,7 +36,7 @@ following lines to the file plugins/plugins.js:
     RULESETS['Sword Coast Campaign Setting using D&D 5E rules'] = {
       url:'plugins/SwordCoast.js',
       group:'5E',
-      require:'D&D 5E'
+      require:'PHB5E.js'
     };
 
 ### Usage
