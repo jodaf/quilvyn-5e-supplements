@@ -891,7 +891,7 @@ Xanathar.SPELLS = {
     'School=Necromancy ' +
     'Level=K5,W5 ' +
     // Note: should be +chaMod for K5, +intMod for W5
-    'Description="R60\' Create from corpses up to 5 skeletons and zombies that obey self and attack at +%{charismaModifier>?intelligenceModifer} for conc or 1 hr"',
+    'Description="R60\' Create from corpses up to 5 skeletons and zombies that obey self and attack at +%{charismaModifier>?intelligenceModifier} for conc or 1 hr"',
   'Dawn':
     'School=Evocation ' +
     'Level=C5,W5 ' +
@@ -911,147 +911,147 @@ Xanathar.SPELLS = {
   'Earthbind':
     'School=Transmutation ' +
     'Level=D2,K2,S2,W2 ' +
-    'Description="TODO"',
+    'Description="R300\' Reduces target fly speed to 0 for conc or 1 min (Str neg)"',
   'Earth Tremor':
     'School=Evocation ' +
     'Level=B1,D1,S1,W1 ' +
-    'Description="TODO"',
+    'Description="Creatures in 10\' radius knocked prone and suffer 1d6 HP bludgeoning (Dex neg)"',
   'Elemental Bane':
     'School=Transmutation ' +
     'Level=D4,K4,W4 ' +
-    'Description="TODO"',
+    'Description="R90\' Target loses resistance to and takes +2d6 HP from next hit of chosen energy type for conc or 1 min"',
   'Enemies Abound':
     'School=Enchantment ' +
     'Level=B3,K3,S3,W3 ' +
-    'Description="TODO"',
+    'Description="R120\' Target regards all creatures as enemies for conc or 1 min (Int neg)"',
   'Enervation':
     'School=Necromancy ' +
     'Level=K5,S5,W5 ' +
-    'Description="TODO"',
+    'Description="R60\' Target suffers 4d6 HP necrotic/rd and self regains half for conc or 1 min (Dex 2d6 HP for 1 rd)"',
   'Erupting Earth':
     'School=Transmutation ' +
     'Level=D3,S3,W3 ' +
-    'Description="TODO"',
+    'Description="R120\' Fountain of earth inflicts 3d12 HP bludgeoning in 20\' cu (Dex half) and makes terrain difficult"',
   'Far Step':
     'School=Conjuration ' +
     'Level=K5,S5,W5 ' +
-    'Description="TODO"',
+    'Description="Self teleport 60\'/tn for conc or 1 min"',
   'Find Greater Steed':
     'School=Conjuration ' +
     'Level=P4 ' +
-    'Description="TODO"',
+    'Description="R30\' Summons mount (minimum Intelligence 6) that can speak and communicate telepathically w/self"',
   'Flame Arrows':
     'School=Transmutation ' +
     'Level=D3,R3,S3,W3 ' +
-    'Description="TODO"',
+    'Description="Touched 12 pieces ammunition inflict +1d6 HP fire on hit for conc or 1 hr"',
   'Frostbite':
     'School=Evocation ' +
     'Level=D0,K0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="Target suffers 1d6 HP cold and Disadv on attack in next turn (Con neg)"',
   'Guardian Of Nature':
     'School=Transmutation ' +
     'Level=D4,R4 ' +
-    'Description="TODO"',
+    'Description="Changes self into Primal Beast (+10\' Speed, 120\' Darkvision, Adv Str, melee inflicts +1d6 force) or Great Tree (10 temporary HP, Adv Con, Adv Dex and Wis attack, 15\' radius difficult terrain) for conc or 1 min"',
   'Gust':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="R30\' Push creature 5\' (Str neg) or object 10\', or create light breeze"',
   'Healing Spirit':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
-    'Description="TODO"',
+    'Description="R60\' Allies in 5\' cu heal 1d6/tn for conc, %{wisdomModifier+1>?2} times, or 1 min"',
   'Holy Weapon':
     'School=Evocation ' +
     'Level=C5,P5 ' +
-    'Description="TODO"',
+    'Description="Touched weapon emits 30\' bright light, inflicts +2d8 HP radiant for conc or 1 hr; blast at end inflicts 4d8 radiant and blindness for 1 min in 30\' radius (Con half damage, no blindness)"',
   'Ice Knife':
     'School=Evocation ' +
     'Level=D1,S1,W1 ' +
-    'Description="TODO"',
+    'Description="R60\' Ranged spell attack inflicts 1d10 HP piercing, 2d6 HP cold in 5\' radius (Dex neg)"',
   'Illusory Dragon':
     'School=Illusion ' +
     'Level=W8 ' +
-    'Description="TODO"',
+    'Description="R120\' Shadow dragon frightens (Wis neg), moves 60\'/tn, inflicts 7d6 HP from choice of energy in 60\' cone (Save half) for conc or 1 min"',
   'Immolation':
     'School=Evocation ' +
     'Level=S5,W5 ' +
-    'Description="TODO"',
+    'Description="R90\' Target suffers 8d6 HP fire/tn (Save half, ends spell) for conc or 1 min"',
   'Infernal Calling':
     'School=Conjuration ' +
     'Level=K5,W5 ' +
-    'Description="TODO"',
+    'Description="R90\' Summons uncontrolled devil for conc or 1 hr"',
   'Infestation':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="R30\' Target suffers 1d6 poison and moves randomly 5\' (Con neg)"',
   'Investiture Of Flame':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="TODO"',
+    'Description="Self emits 30\' bright light, gains immunity to fire and Adv vs. cold, inflicts 1d10 fire in 5\' radius, and can create a 15\'x5\' line of fire that inflicts 4d8 HP (Dex half) for conc or 10 min"',
   'Investiture Of Ice':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="TODO"',
+    'Description="Self gains immunity to cold and Adv vs. fire, moves across ice or snow normally, radiates 10\' difficult terrain, and can create a 15\' cone of freezing wind that inflicts 4d6 HP and slows for 1 tn (Dex half, no slow) for conc or 10 min"',
   'Investiture Of Stone':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="TODO"',
+    'Description="Self gains resistance to non-magical bludgeoning, piercing, and slashing, can radiates 15\' radius shaking that knocks prone (Dex neg), and can move through earth and stone for conc or 10 min"',
   'Investiture Of Wind':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="TODO"',
+    'Description="Ranged attacks on self suffer Disadv, self fly 60\'/tn and create R60\' 15\' cu swirling wind that inflicts 2d10 HP bludgeoning for conc or 10 min"',
   'Invulnerability':
     'School=Abjuration ' +
     'Level=W9 ' +
-    'Description="TODO"',
+    'Description="Self gains immunity to all damage for conc or 10 min"',
   'Life Transference':
     'School=Necromancy ' +
     'Level=C3,W3 ' +
-    'Description="TODO"',
+    'Description="R30\' Self takes 4d8 HP necrotic, target regains dbl"',
   'Maddening Darkness':
     'School=Evocation ' +
     'Level=K8,W8 ' +
-    'Description="TODO"',
+    'Description="R150\' 60\' radius magical darkness inflicts 8d8 HP psychic/tn (Wis half) for conc or 10 min"',
   'Maelstrom':
     'School=Evocation ' +
     'Level=D5 ' +
-    'Description="TODO"',
+    'Description="R120\' 30\' radius swirling water inflicts 6d6 HP bludgeoning/tn and pulls creatures toward center for conc or 1 min"',
   'Magic Stone':
     'School=Transmutation ' +
     'Level=D0,K0 ' +
-    'Description="TODO"',
+    'Description="3 touched stones attack at +mod, inflict 1d6+mod bludgeoning for 1 min"',
   'Mass Polymorph':
     'School=Transmutation ' +
     'Level=B9,S9,W9 ' +
-    'Description="TODO"',
+    'Description="R120\' 10 targets transform into beasts, gain temporary HP for conc or 1 hr"',
   "Maximilian's Earthen Grasp":
     'School=Transmutation ' +
     'Level=S2,W2 ' +
-    'Description="TODO"',
+    'Description="R30\' Earthen hands inflicts 2d6 HP bludgeoning and restrains (Str neg), inflicts additional 2d6 HP/tn for conc or 1 min (Str escapes)"',
   "Melf's Minute Meteors":
     'School=Evocation ' +
     'Level=S3,W3 ' +
-    'Description="TODO"',
+    'Description="R120\' 6 meteors inflicts 2d6 HP fire 2/tn for conc or 10 min"',
   'Mental Prison':
     'School=Illusion ' +
     'Level=K6,S6,W6 ' +
-    'Description="TODO"',
+    'Description="R60\' Target suffers 5d6 HP psychic, trapped by illusionary danger (inflicting 10d6 HP psychic) for conc or 1 min (Int 5d6 HP only)"',
   'Mighty Fortress':
     'School=Conjuration ' +
     'Level=W8 ' +
-    'Description="TODO"',
+    'Description="R1 mile 120\' sq fortress rises for 1 wk"',
   'Mind Spike':
     'School=Divination ' +
     'Level=K2,S2,W2 ' +
-    'Description="TODO"',
+    'Description="R60\' Target suffers 3d8 HP psychic (Wis half), location known to self for conc or 1 hr"',
   'Mold Earth':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="R30\' Excavates, colors, or changes movement difficulty of 5\' cu"',
   'Negative Energy Flood':
     'School=Necromancy ' +
     'Level=K5,W5 ' +
-    'Description="TODO"',
+    'Description="R60\' Living target suffers 5d12 necrotic (Con half), rises as zombie if slain; undead target gains 5d12 temporary HP for 1 hr"',
   'Power Word Pain':
     'School=Enchantment ' +
     'Level=K7,S7,W7 ' +
