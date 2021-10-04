@@ -1055,23 +1055,23 @@ Xanathar.SPELLS = {
   'Power Word Pain':
     'School=Enchantment ' +
     'Level=K7,S7,W7 ' +
-    'Description="TODO"',
+    'Description="R60\' Target up to 100 HP slows to 10\', suffers Disadv attack, ability, and saves, and requires successful Con save to cast until Con save"',
   'Primal Savagery':
     'School=Transmutation ' +
     'Level=D0 ' +
-    'Description="TODO"',
+    'Description="Self next unarmed attack inflicts %{(level+7)//6}d10 HP acid"',
   'Primordial Ward':
     'School=Abjuration ' +
     'Level=D6 ' +
-    'Description="TODO"',
+    'Description="Self gains resistance to acid, cold, fire, lightning, and thunder, and may convert to 1 tn immunity, for conc or 1 min"',
   'Psychic Scream':
     'School=Enchantment ' +
     'Level=B9,K9,S9,W8 ' +
-    'Description="TODO"',
+    'Description="R90\' 10 targets suffer 14d6 HP psychic and become stunned (Int half damage and ends stunning)"',
   'Pyrotechnics':
     'School=Transmutation ' +
     'Level=B2,S2,W2 ' +
-    'Description="TODO"',
+    'Description="R60\' Target fire emits fireworks (R10\' blinded 1 tn (Con neg)) or 20\' smoke for 1 min"',
   'Scatter':
     'School=Conjuration ' +
     'Level=K6,S6,W6 ' +
