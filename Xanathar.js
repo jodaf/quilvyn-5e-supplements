@@ -45,7 +45,7 @@ function Xanathar(edition, rules) {
 
 }
 
-Xanathar.VERSION = '2.2.1.1';
+Xanathar.VERSION = '2.2.1.2';
 
 Xanathar.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
@@ -1135,75 +1135,75 @@ Xanathar.SPELLS = {
   'Temple Of The Gods':
     'School=Conjuration ' +
     'Level=C7 ' +
-    'Description="TODO"',
+    'Description="R120\' Creates 120\' sq temple that bars divination and specified creature types (Cha suffer -1d4 attack, ability, and saving throws) and grants +%{wisdomModifier} bonus to healing for 1 dy"',
   "Tenser's Transformation":
     'School=Transmutation ' +
     'Level=W6 ' +
-    'Description="TODO"',
+    'Description="Self gains 50 temporary HP, +2d12 HP force weapon damage, Armor Proficiency (Heavy/Shield), Weapon Proficiency (Martial), Save Proficiency (Constitution/Strength), Extra Attack for conc or 10 min, exhausted afterward (Con neg)"',
   'Thunderclap':
     'School=Evocation ' +
     'Level=B0,D0,K0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="5\' radius inflicts 1d6 HP thunder"',
   'Thunder Step':
     'School=Conjuration ' +
     'Level=K3,S3,W3 ' +
-    'Description="TODO"',
+    'Description="Self and 1 other teleport 90\', 10\' radius around initial location inflicts 3d10 HP thunder (Con half)"',
   'Tidal Wave':
     'School=Conjuration ' +
     'Level=D3,S3,W3 ' +
-    'Description="TODO"',
+    'Description="R120\' 30\'x10\' inflicts 4d8 HP bludgeoning and knocks prone (Dex half)"',
   'Tiny Servant':
     'School=Transmutation ' +
     'Level=W3 ' +
-    'Description="TODO"',
+    'Description="Touched object sprouts arms and legs, obeys commands for 8 hr"',
   'Toll The Dead':
     'School=Necromancy ' +
     'Level=C0,K0,W0 ' +
-    'Description="TODO"',
+    'Description="R60\' Target suffers 1d8 HP necrotic (damaged target 1d12 HP)"',
   'Transmute Rock':
     'School=Transmutation ' +
     'Level=D5,W5 ' +
-    'Description="TODO"',
+    'Description="R120\' 40\' cu changes between rock and mud"',
   'Vitriolic Sphere':
     'School=Evocation ' +
     'Level=S4,W4 ' +
-    'Description="TODO"',
+    'Description="R150\' 20\' radius inflicts 10d4 acid, then 5d4 acid next tn (Dex half initial and none next tn)"',
   'Wall Of Light':
     'School=Evocation ' +
     'Level=K5,S5,W5 ' +
-    'Description="TODO"',
+    'Description="R120\' 60\'x 10\' wall lights 120\', inflicts 4d8 HP radiant and blinds (Con half and not blind), emits 60\' ray that inflicts 4d8 HP radiant for conc or 10 min"',
   'Wall Of Sand':
     'School=Evocation ' +
     'Level=W3 ' +
-    'Description="TODO"',
+    'Description="R90\' 30\'x10\' wall slow passers to 1/3 and blocks vision for conc or 10 min"',
   'Wall Of Water':
     'School=Evocation ' +
     'Level=D3,S3,W3 ' +
-    'Description="TODO"',
+    'Description="R60\' 30\'x10\' wall inflicts Disadv on ranged attacks and half damage on fire for conc or 10 min"',
   'Warding Wind':
     'School=Evocation ' +
     'Level=B2,D2,S2,W2 ' +
-    'Description="TODO"',
+    'Description="10\' radius deafens, extingushes flames, bars gas and fog, and inflicts difficult terrain and Disadv on ranged attacks"',
   'Watery Sphere':
     'School=Conjuration ' +
     'Level=D4,S4,W4 ' +
-    'Description="TODO"',
+    'Description="R90\' 5\' sphere traps 4 targets (Str ejects) for conc or 1 min"',
   'Whirlwind':
     'School=Evocation ' +
     'Level=D7,S7,W7 ' +
-    'Description="TODO"',
+    'Description="R300\' 10\' radius inflicts 10d6 HP bludgeoning (Dex half) and restrains (Str neg) for conc or 1 min"',
   'Word Of Radiance':
     'School=Evocation ' +
     'Level=C0 ' +
-    'Description="TODO"',
+    'Description="R5\' Targets suffer %{level+7//6}d6 HP radiant (Con neg)"',
   'Wrath Of Nature':
     'School=Evocation ' +
     'Level=D5,R5 ' +
-    'Description="TODO"',
+    'Description="R120\' Animates 60\' cu of trees (inflict 4d6 HP slashing (Dex neg), undergrowth (inflict difficult terrain), vines (restrain (Str neg)), and rocks (ranged spell inflicts 3d8 HP bludgeoning, knocks prone (Dex not prone)) for conc or 1 min"',
   'Zephyr Strike':
     'School=Transmutation ' +
     'Level=R1 ' +
-    'Description="TODO"'
+    'Description="Self move w/out AOO for conc or 1 min, gain Adv, +1d8 HP force, and +30\' speed 1 tn"'
 
 };
 Xanathar.SPELLS_LEVELS_ADDED = {
