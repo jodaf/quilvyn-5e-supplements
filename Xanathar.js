@@ -1075,63 +1075,63 @@ Xanathar.SPELLS = {
   'Scatter':
     'School=Conjuration ' +
     'Level=K6,S6,W6 ' +
-    'Description="TODO"',
+    'Description="R30\' 5 targets teleported 120\' (Wis neg)"',
   'Shadow Blade':
     'School=Illusion ' +
     'Level=K2,S2,W2 ' +
-    'Description="TODO"',
+    'Description="Self wield shadow sword (Attack adv in dim light, 2d8 HP psychic, finesse, light, throw 20/60) for conc or 1 min"',
   'Shadow Of Moil':
     'School=Necromancy ' +
     'Level=K4 ' +
-    'Description="TODO"',
+    'Description="10\' radius dims light, gives self resistance to radiant, inflict 2d8 HP necrotic on successful attacker for conc or 1 min"',
   'Shape Water':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
-    'Description="TODO"',
+    'Description="R30\' 5\' cu water moves 5\' or forms animated shapes, changes color or opacity, or freezes for 1 hr"',
   'Sickening Radiance':
     'School=Evocation ' +
     'Level=K4,S4,W4 ' +
-    'Description="TODO"',
+    'Description="R120\' 30\' radius inflicts 4d10 HP radiant and exhaustion and lights creatures for conc or 10 min (Con neg)"',
   'Skill Empowerment':
     'School=Transmutation ' +
     'Level=B5,S5,W5 ' +
-    'Description="TODO"',
+    'Description="Touched gains dbl proficiency in chosen skill for conc or 1 hr"',
   'Skywrite':
     'School=Transmutation ' +
     'Level=B2,D2,W2 ' +
-    'Description="TODO"',
+    'Description="Clouds form 10 words for conc or 1 hr"',
   'Snare':
     'School=Abjuration ' +
     'Level=D1,R1,W1 ' +
-    'Description="TODO"',
+    'Description="Touched magical trap snares first to cross for 8 hr (Int detects; Dex neg)"',
   "Snilloc's Snowball Storm":
     'School=Evocation ' +
     'Level=S2,W2 ' +
-    'Description="TODO"',
+    'Description="R90\' 5\' radius inflicts 3d6 HP cold (Dex half)"',
   'Soul Cage':
     'School=Necromancy ' +
     'Level=K6,W6 ' +
-    'Description="TODO"',
+    'Description="R60\' Self uses trapped dying soul 6 times to regain 2d8 HP, answer a question, gain Adv on next attack, ability, or saving throw, or scry for 10 min for 8 hr"',
   'Steel Wind Strike':
     'School=Conjuration ' +
     'Level=R5,W5 ' +
-    'Description="TODO"',
+    'Description="R30\' Self attacks 5 targets, inflicting 6d10 force on each, then optionally teleport to within 5\' of one target"',
   'Storm Sphere':
     'School=Evocation ' +
     'Level=S4,W4 ' +
-    'Description="TODO"',
+    'Description="R150\' 20\' radius inflicts 2d6 HP bludgeoning (Str neg) and emits 60\' bolt that inflicts 4d6 lightning 1/tn for conc or 1 min"',
   'Summon Greater Demon':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
-    'Description="TODO"',
-  'Summon Lesser Demon':
+    'Description="R60\' Demon up to CR 5 obeys self until Cha save for conc or 1 hr"',
+  'Summon Lesser Demons':
     'School=Conjuration ' +
     'Level=K3,W3 ' +
-    'Description="TODO"',
+    'Description="R60\' Demons up to CR 1 attack nearest creature for conc or 1 hr"',
   'Synaptic Static':
     'School=Enchantment ' +
     'Level=B5,K5,S5,W5 ' +
-    'Description="TODO"',
+    'Description="R120\' Creatures in 20\' radius suffer 8d6 psychic and -1d6 attack, ability, and concentration for 1 min (Int half, ends other penalties)"',
   'Temple Of The Gods':
     'School=Conjuration ' +
     'Level=C7 ' +
