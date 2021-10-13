@@ -46,7 +46,7 @@ function Xanathar(edition, rules) {
 
 }
 
-Xanathar.VERSION = '2.2.1.3';
+Xanathar.VERSION = '2.3.1.0';
 
 Xanathar.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
