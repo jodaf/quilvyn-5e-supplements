@@ -283,7 +283,7 @@ Xanathar.FEATURES = {
     'Section=skill ' +
     'Note="Bonus Perception check to spot hidden item or Investigation to uncover clue"',
   'Eye For Weakness':
-    'Section=combat Note="+3d6 Sneak Attack during Insightful Fighting"',
+    'Section=combat Note="+3d6 HP Sneak Attack during Insightful Fighting"',
   'Eyes Of The Dark':
     'Section=feature,magic ' +
     'Note="R120\' See normally in darkness",' +
@@ -483,7 +483,7 @@ Xanathar.FEATURES = {
     'Note="Spend 2-%V Ki Points to cast <i>Burning Hands</i> after attack"',
   'Searing Sunburst':
     'Section=magic ' +
-    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (DC %V Con neg), spend 1-3 Ki Point for +2d6 HP each"',
+    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (DC %V Con neg), spend 1-3 Ki Point for +2d6 HP radiant each"',
   'Searing Vengeance':
     'Section=combat ' +
     'Note="Regain %V HP, stand, and inflict R30\' 2d8+%1 radiant damage and blindness for 1 rd upon death saving throw 1/long rest"',
@@ -514,7 +514,7 @@ Xanathar.FEATURES = {
     'Note="Use Reaction to move half speed when foe comes w/in 5\'"',
   'Slashing Flourish':
     'Section=combat ' +
-    'Note="Spend 1 Bardic Inspiration to inflict +1d%V HP damage on target and adjacent foe"',
+    'Note="Spend 1 Bardic Inspiration to inflict +1d%V HP weapon damage on target and adjacent foe"',
   "Slayer's Counter":
     'Section=combat ' +
     'Note="When Slayer\'s Prey target forces saving throw, successful Reaction attack yields success"',
@@ -617,7 +617,7 @@ Xanathar.FEATURES = {
     'Note="R30\' Sense illusions and other deceptions %V/long rest"',
   'Unwavering Mark':
     'Section=combat ' +
-    'Note="Struck foe suffers Disadv on attacks on others and provokes self bonus attack w/Adv and +%V HP damage for 1 rd %1/long rest"',
+    'Note="Struck foe suffers Disadv on attacks on others and provokes self bonus attack w/Adv and +%V HP weapon damage for 1 rd %1/long rest"',
   'Vigilant Defender':
     'Section=combat Note="Use Reaction for OA on every other creature\'s turn"',
   'Warding Maneuver':
@@ -987,7 +987,7 @@ Xanathar.SPELLS = {
   'Create Bonfire':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
-    'Description="R60\' Creates 5\' fire that inflicts ${Lplus7div6}d8 HP (Dex neg) for conc or 1 min"',
+    'Description="R60\' Creates 5\' fire that inflicts ${Lplus7div6}d8 HP fire (Dex neg) for conc or 1 min"',
   'Create Homunculus':
     'School=Transmutation ' +
     'Level=W6 ' +
@@ -1059,7 +1059,7 @@ Xanathar.SPELLS = {
   'Guardian Of Nature':
     'School=Transmutation ' +
     'Level=D4,R4 ' +
-    'Description="Changes self into Primal Beast (+10\' Speed, 120\' Darkvision, Adv on Str, melee inflicts +1d6 force) or Great Tree (10 temporary HP, Adv on Con, Adv on Dex and Wis attack, 15\' radius difficult terrain) for conc or 1 min"',
+    'Description="Changes self into Primal Beast (+10\' Speed, 120\' Darkvision, Adv on Str, melee inflicts +1d6 HP force) or Great Tree (10 temporary HP, Adv on Con, Adv on Dex and Wis attack, 15\' radius difficult terrain) for conc or 1 min"',
   'Gust':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
@@ -1071,7 +1071,7 @@ Xanathar.SPELLS = {
   'Holy Weapon':
     'School=Evocation ' +
     'Level=C5,P5 ' +
-    'Description="Touched weapon emits 30\' bright light, inflicts +2d8 HP radiant for conc or 1 hr; blast at end inflicts 4d8 radiant and blindness for 1 min in 30\' radius (Con half damage, no blindness)"',
+    'Description="Touched weapon emits 30\' bright light, inflicts +2d8 HP radiant for conc or 1 hr; blast at end inflicts 4d8 HP radiant and blindness for 1 min in 30\' radius (Con half damage, no blindness)"',
   'Ice Knife':
     'School=Evocation ' +
     'Level=D1,S1,W1 ' +
@@ -1091,7 +1091,7 @@ Xanathar.SPELLS = {
   'Infestation':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
-    'Description="R30\' Target suffers 1d6 poison and moves randomly 5\' (Con neg)"',
+    'Description="R30\' Target suffers 1d6 HP poison and moves randomly 5\' (Con neg)"',
   'Investiture Of Flame':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
@@ -1143,7 +1143,7 @@ Xanathar.SPELLS = {
   'Mental Prison':
     'School=Illusion ' +
     'Level=K6,S6,W6 ' +
-    'Description="R60\' Target suffers 5d6 HP psychic and becomes trapped by illusionary danger (escape inflicts 10d6 HP psychic) for conc or 1 min (Int 5d6 HP only)"',
+    'Description="R60\' Target suffers 5d6 HP psychic and becomes trapped by illusionary danger (escape inflicts 10d6 HP psychic) for conc or 1 min (Int initial HP only)"',
   'Mighty Fortress':
     'School=Conjuration ' +
     'Level=W8 ' +
@@ -1227,7 +1227,7 @@ Xanathar.SPELLS = {
   'Storm Sphere':
     'School=Evocation ' +
     'Level=S4,W4 ' +
-    'Description="R150\' 20\' radius inflicts 2d6 HP bludgeoning (Str neg) and emits 60\' bolt that inflicts 4d6 lightning 1/rd for conc or 1 min"',
+    'Description="R150\' 20\' radius inflicts 2d6 HP bludgeoning (Str neg) and emits 60\' bolt that inflicts 4d6 HP lightning 1/rd for conc or 1 min"',
   'Summon Greater Demon':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
@@ -1275,7 +1275,7 @@ Xanathar.SPELLS = {
   'Vitriolic Sphere':
     'School=Evocation ' +
     'Level=S4,W4 ' +
-    'Description="R150\' 20\' radius inflicts 10d4 acid, then 5d4 acid next rd (Dex half initial and none next rd)"',
+    'Description="R150\' 20\' radius inflicts 10d4 HP acid, then 5d4 HP acid next rd (Dex half initial and none next rd)"',
   'Wall Of Light':
     'School=Evocation ' +
     'Level=K5,S5,W5 ' +
