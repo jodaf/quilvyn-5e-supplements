@@ -657,14 +657,14 @@ Xanathar.FEATURES = {
   'Dragon Hide':
     'Section=ability,combat ' +
     'Note="+1 Strength, Constitution, or Charisma",' +
-         '"AC +3 in no armor, use claws as natural weapons"',
+         '"AC +3 in no armor, use claws as natural slashing weapon"',
   'Drow High Magic':
     'Section=magic ' +
     'Note="Cast <i>Detect Magic</i> at will, <i>Dispel Magic</i> and <i>Levitate</i> 1/long rest"',
   'Dwarven Fortitude':
     'Section=ability,combat ' +
     'Note="+1 Constitution",' +
-         '"Dodge restores 1 HD + %{constitutionModifier} (min 1) HP"',
+         '"Dodge restores 1 HD + %{constitutionModifier} (minimum 1) HP"',
   'Elven Accuracy':
     'Section=ability,combat ' +
     'Note="+1 Dexterity, Intelligence, Wisdom, or Charisma",' +
@@ -672,7 +672,7 @@ Xanathar.FEATURES = {
   'Fade Away':
     'Section=ability,combat ' +
     'Note="+1 Dexterity or Intelligence",' +
-         '"Become invisible after taking damage for 1 rd"',
+         '"Become invisible after taking damage for 1 rd 1/short rest"',
   'Fey Teleportation':
     'Section=ability,magic,skill ' +
     'Note="+1 Charisma or Intelligence",' +
@@ -681,7 +681,7 @@ Xanathar.FEATURES = {
   'Flames Of Phlegethos':
     'Section=ability,magic ' +
     'Note="+1 Charisma or Intelligence",' +
-         '"Fire spells reroll 1s on damage, inflict 1d4 HP fire on adjacent creatures, and give 30\' light"',
+         '"Fire spells reroll 1s on damage, inflict 1d4 HP fire on adjacent creatures, and give 30\' light for 1 rd"',
   'Infernal Constitution':
     'Section=ability,save ' +
     'Note="+1 Constitution",' +
@@ -697,7 +697,7 @@ Xanathar.FEATURES = {
   'Second Chance':
     'Section=ability,combat ' +
     'Note="+1 Dexterity, Constitution, or Charisma",' +
-         '"Use reaction to force foe attack reroll 1/short rest"',
+         '"Use Reaction to force foe attack reroll 1/short rest"',
   'Squat Nimbleness':
     'Section=ability,feature,combat ' +
     'Note="+1 Strength or Dexterity/+5 Speed",' +
@@ -939,7 +939,7 @@ Xanathar.SPELLS = {
   'Absorb Elements':
     'School=Abjuration ' +
     'Level=D1,R1,S1,W1 ' +
-    'Description="Self reaction reduces energy damage by half, self hit next turn inflicts +1d6 HP"',
+    'Description="Self use Reaction to reduce energy damage by half, self hit next turn inflicts +1d6 HP"',
   "Aganazzar's Scorcher":
     'School=Evocation ' +
     'Level=S2,W2 ' +
@@ -1477,7 +1477,7 @@ Xanathar.featRulesExtra = function(rules, name) {
       ('abilityBoosts', 'abilityNotes.feyTeleportation', '+=', '1');
     rules.defineRule('languageCount', 'skillNotes.feyTeleportation', '+=', '1');
     rules.defineRule
-      ('languages.Sylvan', 'skillNotes.feyTeleportation', '+=', '1');
+      ('languages.Sylvan', 'skillNotes.feyTeleportation', '=', '1');
   } else if(name == 'Flames Of Phlegethos') {
     rules.defineRule
       ('abilityBoosts', 'abilityNotes.flamesOfPhlegethos', '+=', '1');
