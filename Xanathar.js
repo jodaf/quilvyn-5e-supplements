@@ -161,7 +161,7 @@ Xanathar.FEATURES = {
   'Arcane Deflection':
     'Section=magic ' +
     'Note="When hit, use Reaction to trade 1 rd non-cantrip casting for +2 AC or +4 save"',
-  'Arcane Shot':'Section=combat Note="Use 1 of %V effects 1/tn 2/short rest"',
+  'Arcane Shot':'Section=combat Note="Use 1 of %V effects 1/rd 2/short rest"',
   'Armor Of Hexes':
     'Section=combat ' +
     'Note="50% chance to force Hexblade\'s Curse target attack to miss self"',
@@ -254,7 +254,7 @@ Xanathar.FEATURES = {
   'Ear For Deceit':'Section=skill Note="Minimum 8 on Insight checks"',
   'Eldritch Smite':
     'Section=combat ' +
-    'Note="Spend spell slot to infict +(slot level + 1)d8 HP force w/pact weapon and knock prone"',
+    'Note="Spend spell slot to inflict +(slot level + 1)d8 HP force w/pact weapon and knock prone"',
   'Elegant Courtier':
     'Section=save,skill ' +
     // TODO Choice of Int, Cha if already has Wis
@@ -939,7 +939,7 @@ Xanathar.SPELLS = {
   'Absorb Elements':
     'School=Abjuration ' +
     'Level=D1,R1,S1,W1 ' +
-    'Description="Self use Reaction to reduce energy damage by half, self hit next turn inflicts +1d6 HP"',
+    'Description="Self can use Reaction to reduce energy damage by half, self hit next turn inflicts +1d6 HP"',
   "Aganazzar's Scorcher":
     'School=Evocation ' +
     'Level=S2,W2 ' +
@@ -967,7 +967,7 @@ Xanathar.SPELLS = {
   'Ceremony':
     'School=Abjuration ' +
     'Level=C1,P1 ' +
-    'Description="Self perform rites of atonement, bless water, coming of age, dedication, funeral, or wedding"',
+    'Description="Self performs rites of atonement, bless water, coming of age, dedication, funeral, or wedding"',
   'Chaos Bolt':
     'School=Evocation ' +
     'Level=S1 ' +
@@ -991,16 +991,15 @@ Xanathar.SPELLS = {
   'Create Homunculus':
     'School=Transmutation ' +
     'Level=W6 ' +
-    'Description="Self create magical companion, suffer 2d4 HP piercing"',
+    'Description="Self creates magical companion, suffers 2d4 HP piercing"',
   'Crown Of Stars':
     'School=Evocation ' +
     'Level=K7,S7,W7 ' +
-    'Description="Create seven flames around self that give 30\' light, ranged touch w/each inflicts 4d12 HP radiant for 1 hr"',
+    'Description="Creates seven flames around self that give 30\' light, ranged touch w/each inflicts 4d12 HP radiant for 1 hr"',
   'Danse Macabre':
     'School=Necromancy ' +
     'Level=K5,W5 ' +
-    // Note: should be +chaMod for K5, +intMod for W5
-    'Description="R60\' Create from corpses up to 5 skeletons and zombies that obey self and attack at +%{charismaModifier>?intelligenceModifier} for conc or 1 hr"',
+    'Description="R60\' Creates from corpses up to 5 skeletons and zombies that obey self and attack at +$M for conc or 1 hr"',
   'Dawn':
     'School=Evocation ' +
     'Level=C5,W5 ' +
@@ -1008,7 +1007,7 @@ Xanathar.SPELLS = {
   "Dragon's Breath":
     'School=Transmutation ' +
     'Level=S2,W2 ' +
-    'Description="Touched gains ability to breathe acid, code, fire, lightning, or poison that inflicts 3d6 HP in a 15\' code for conc or 1 min"',
+    'Description="Touched gains ability to breathe acid, cold, fire, lightning, or poison, inflicting 3d6 HP in a 15\' cone for conc or 1 min"',
   'Druid Grove':
     'School=Abjuration ' +
     'Level=D6 ' +
@@ -1016,7 +1015,7 @@ Xanathar.SPELLS = {
   'Dust Devil':
     'School=Conjuration ' +
     'Level=D2,S2,W2 ' +
-    'Description="R60\' inflicts 1d8 HP bludgeoning and pushes 10\' (Str half HP, no push) for conc or 1 min"',
+    'Description="R60\' Inflicts 1d8 HP bludgeoning and pushes 10\' (Str half HP, no push) for conc or 1 min"',
   'Earthbind':
     'School=Transmutation ' +
     'Level=D2,K2,S2,W2 ' +
@@ -1024,7 +1023,7 @@ Xanathar.SPELLS = {
   'Earth Tremor':
     'School=Evocation ' +
     'Level=B1,D1,S1,W1 ' +
-    'Description="Creatures in 10\' radius knocked prone and suffer 1d6 HP bludgeoning (Dex neg)"',
+    'Description="10\' radius knocks prone and inflicts 1d6 HP bludgeoning (Dex neg)"',
   'Elemental Bane':
     'School=Transmutation ' +
     'Level=D4,K4,W4 ' +
@@ -1040,11 +1039,11 @@ Xanathar.SPELLS = {
   'Erupting Earth':
     'School=Transmutation ' +
     'Level=D3,S3,W3 ' +
-    'Description="R120\' Fountain of earth inflicts 3d12 HP bludgeoning in 20\' cu (Dex half) and makes terrain difficult"',
+    'Description="R120\' 20\' cu inflicts 3d12 HP bludgeoning (Dex half) and makes terrain difficult"',
   'Far Step':
     'School=Conjuration ' +
     'Level=K5,S5,W5 ' +
-    'Description="Self teleport 60\'/tn for conc or 1 min"',
+    'Description="Self teleports 60\'/rd for conc or 1 min"',
   'Find Greater Steed':
     'School=Conjuration ' +
     'Level=P4 ' +
@@ -1068,7 +1067,7 @@ Xanathar.SPELLS = {
   'Healing Spirit':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
-    'Description="R60\' Allies in 5\' cu heal 1d6/tn for conc, %{wisdomModifier+1>?2} times, or 1 min"',
+    'Description="R60\' Allies in 5\' cu heal 1d6/rd for conc, %{wisdomModifier+1>?2} times, or 1 min"',
   'Holy Weapon':
     'School=Evocation ' +
     'Level=C5,P5 ' +
@@ -1076,15 +1075,15 @@ Xanathar.SPELLS = {
   'Ice Knife':
     'School=Evocation ' +
     'Level=D1,S1,W1 ' +
-    'Description="R60\' Ranged spell attack inflicts 1d10 HP piercing, 2d6 HP cold in 5\' radius (Dex neg)"',
+    'Description="R60\' Ranged spell attack inflicts 1d10 HP piercing and 2d6 HP cold in 5\' radius (Dex neg)"',
   'Illusory Dragon':
     'School=Illusion ' +
     'Level=W8 ' +
-    'Description="R120\' Shadow dragon frightens (Wis neg), moves 60\'/tn, inflicts 7d6 HP from choice of energy in 60\' cone (Save half) for conc or 1 min"',
+    'Description="R120\' Shadow dragon frightens (Wis neg), moves 60\'/rd, inflicts 7d6 HP choice of energy in 60\' cone (Save half) for conc or 1 min"',
   'Immolation':
     'School=Evocation ' +
     'Level=S5,W5 ' +
-    'Description="R90\' Target suffers 8d6 HP fire/tn (Save half, ends spell) for conc or 1 min"',
+    'Description="R90\' Target suffers 8d6 HP fire/rd (Save half, ends spell) for conc or 1 min"',
   'Infernal Calling':
     'School=Conjuration ' +
     'Level=K5,W5 ' +
@@ -1096,19 +1095,19 @@ Xanathar.SPELLS = {
   'Investiture Of Flame':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="Self emits 30\' bright light, gains immunity to fire and Adv on saves vs. cold, inflicts 1d10 fire in 5\' radius, and can create a 15\'x5\' line of fire that inflicts 4d8 HP (Dex half) for conc or 10 min"',
+    'Description="Self emits 30\' bright light, gains immunity to fire and Adv on saves vs. cold, inflicts 1d10 fire in 5\' radius, and can create a 15\'x5\' line of fire that inflicts 4d8 HP fire (Dex half) for conc or 10 min"',
   'Investiture Of Ice':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="Self gains immunity to cold and Adv on saves vs. fire, moves across ice or snow normally, radiates 10\' difficult terrain, and can create a 15\' cone of freezing wind that inflicts 4d6 HP and slows for 1 tn (Dex half, no slow) for conc or 10 min"',
+    'Description="Self gains immunity to cold and Adv on saves vs. fire, moves normally across ice or snow, radiates 10\' difficult terrain, and can create a 15\' cone of freezing wind that inflicts 4d6 HP cold and slows for 1 rd (Dex half, no slow) for conc or 10 min"',
   'Investiture Of Stone':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="Self gains resistance to non-magical bludgeoning, piercing, and slashing, can radiates 15\' radius shaking that knocks prone (Dex neg), and can move through earth and stone for conc or 10 min"',
+    'Description="Self gains resistance to non-magical bludgeoning, piercing, and slashing, can radiate 15\' radius shaking that knocks prone (Dex neg), and can move through earth and stone for conc or 10 min"',
   'Investiture Of Wind':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="Ranged attacks on self suffer Disadv, self fly 60\'/tn and create R60\' 15\' cu swirling wind that inflicts 2d10 HP bludgeoning for conc or 10 min"',
+    'Description="Ranged attacks on self suffer Disadv, self can fly 60\'/rd and can create R60\' 15\' cu swirling wind that inflicts 2d10 HP bludgeoning for conc or 10 min"',
   'Invulnerability':
     'School=Abjuration ' +
     'Level=W9 ' +
@@ -1116,19 +1115,19 @@ Xanathar.SPELLS = {
   'Life Transference':
     'School=Necromancy ' +
     'Level=C3,W3 ' +
-    'Description="R30\' Self takes 4d8 HP necrotic, target regains dbl"',
+    'Description="R30\' Self suffers 4d8 HP necrotic, target regains dbl"',
   'Maddening Darkness':
     'School=Evocation ' +
     'Level=K8,W8 ' +
-    'Description="R150\' 60\' radius magical darkness inflicts 8d8 HP psychic/tn (Wis half) for conc or 10 min"',
+    'Description="R150\' 60\' radius magical darkness inflicts 8d8 HP psychic/rd (Wis half) for conc or 10 min"',
   'Maelstrom':
     'School=Evocation ' +
     'Level=D5 ' +
-    'Description="R120\' 30\' radius swirling water inflicts 6d6 HP bludgeoning/tn and pulls creatures toward center for conc or 1 min"',
+    'Description="R120\' 30\' radius swirling water inflicts 6d6 HP bludgeoning/rd and pulls creatures toward center for conc or 1 min"',
   'Magic Stone':
     'School=Transmutation ' +
     'Level=D0,K0 ' +
-    'Description="3 touched stones attack at +mod, inflict 1d6+mod bludgeoning for 1 min"',
+    'Description="3 touched stones attack at +$M, inflict 1d6+$M HP bludgeoning for 1 min"',
   'Mass Polymorph':
     'School=Transmutation ' +
     'Level=B9,S9,W9 ' +
@@ -1136,15 +1135,15 @@ Xanathar.SPELLS = {
   "Maximilian's Earthen Grasp":
     'School=Transmutation ' +
     'Level=S2,W2 ' +
-    'Description="R30\' Earthen hands inflicts 2d6 HP bludgeoning and restrains (Str neg), inflicts additional 2d6 HP/tn for conc or 1 min (Str escapes)"',
+    'Description="R30\' Inflicts 2d6 HP bludgeoning and restrains (Str neg), inflicts additional 2d6 HP/rd for conc or 1 min (Str escapes)"',
   "Melf's Minute Meteors":
     'School=Evocation ' +
     'Level=S3,W3 ' +
-    'Description="R120\' 6 meteors inflicts 2d6 HP fire 2/tn for conc or 10 min"',
+    'Description="R120\' 6 meteors each inflict 2d6 HP fire 2/rd for conc or 10 min"',
   'Mental Prison':
     'School=Illusion ' +
     'Level=K6,S6,W6 ' +
-    'Description="R60\' Target suffers 5d6 HP psychic, trapped by illusionary danger (inflicting 10d6 HP psychic) for conc or 1 min (Int 5d6 HP only)"',
+    'Description="R60\' Target suffers 5d6 HP psychic and becomes trapped by illusionary danger (escape inflicts 10d6 HP psychic) for conc or 1 min (Int 5d6 HP only)"',
   'Mighty Fortress':
     'School=Conjuration ' +
     'Level=W8 ' +
@@ -1152,7 +1151,7 @@ Xanathar.SPELLS = {
   'Mind Spike':
     'School=Divination ' +
     'Level=K2,S2,W2 ' +
-    'Description="R60\' Target suffers 3d8 HP psychic (Wis half), location known to self for conc or 1 hr"',
+    'Description="R60\' Target suffers 3d8 HP psychic (Wis half) and self knows target location for conc or 1 hr"',
   'Mold Earth':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
@@ -1172,7 +1171,7 @@ Xanathar.SPELLS = {
   'Primordial Ward':
     'School=Abjuration ' +
     'Level=D6 ' +
-    'Description="Self gains resistance to acid, cold, fire, lightning, and thunder, and may convert to 1 tn immunity, for conc or 1 min"',
+    'Description="Self gains resistance to acid, cold, fire, lightning, and thunder and may convert to immunity for 1 turn for conc or 1 min"',
   'Psychic Scream':
     'School=Enchantment ' +
     'Level=B9,K9,S9,W8 ' +
@@ -1180,7 +1179,7 @@ Xanathar.SPELLS = {
   'Pyrotechnics':
     'School=Transmutation ' +
     'Level=B2,S2,W2 ' +
-    'Description="R60\' Target fire emits fireworks (R10\' blinded 1 tn (Con neg)) or 20\' smoke for 1 min"',
+    'Description="R60\' Target fire emits fireworks (R10\' blinded 1 rd (Con neg)) or 20\' smoke for 1 min"',
   'Scatter':
     'School=Conjuration ' +
     'Level=K6,S6,W6 ' +
@@ -1188,11 +1187,11 @@ Xanathar.SPELLS = {
   'Shadow Blade':
     'School=Illusion ' +
     'Level=K2,S2,W2 ' +
-    'Description="Self wield shadow sword (Attack adv in dim light, 2d8 HP psychic, finesse, light, throw 20/60) for conc or 1 min"',
+    'Description="Self wields shadow sword (Adv on attacks in dim light, inflicts 2d8 HP psychic, finesse and light properties, range 20/60) for conc or 1 min"',
   'Shadow Of Moil':
     'School=Necromancy ' +
     'Level=K4 ' +
-    'Description="10\' radius dims light, gives self resistance to radiant, inflict 2d8 HP necrotic on successful attacker for conc or 1 min"',
+    'Description="10\' radius dims light, gives self resistance to radiant, inflicts 2d8 HP necrotic on successful attacker for conc or 1 min"',
   'Shape Water':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
@@ -1224,11 +1223,11 @@ Xanathar.SPELLS = {
   'Steel Wind Strike':
     'School=Conjuration ' +
     'Level=R5,W5 ' +
-    'Description="R30\' Self attacks 5 targets, inflicting 6d10 force on each, then optionally teleport to within 5\' of one target"',
+    'Description="R30\' Self attacks 5 targets, inflicting 6d10 force on each, then optionally teleports to within 5\' of one target"',
   'Storm Sphere':
     'School=Evocation ' +
     'Level=S4,W4 ' +
-    'Description="R150\' 20\' radius inflicts 2d6 HP bludgeoning (Str neg) and emits 60\' bolt that inflicts 4d6 lightning 1/tn for conc or 1 min"',
+    'Description="R150\' 20\' radius inflicts 2d6 HP bludgeoning (Str neg) and emits 60\' bolt that inflicts 4d6 lightning 1/rd for conc or 1 min"',
   'Summon Greater Demon':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
@@ -1240,7 +1239,7 @@ Xanathar.SPELLS = {
   'Synaptic Static':
     'School=Enchantment ' +
     'Level=B5,K5,S5,W5 ' +
-    'Description="R120\' Creatures in 20\' radius suffer 8d6 psychic and -1d6 attack, ability, and concentration for 1 min (Int half, ends other penalties)"',
+    'Description="R120\' Creatures in 20\' radius suffer 8d6 HP psychic and -1d6 attack, ability, and concentration for 1 min (Int half, ends other penalties)"',
   'Temple Of The Gods':
     'School=Conjuration ' +
     'Level=C7 ' +
@@ -1248,7 +1247,7 @@ Xanathar.SPELLS = {
   "Tenser's Transformation":
     'School=Transmutation ' +
     'Level=W6 ' +
-    'Description="Self gains 50 temporary HP, +2d12 HP force weapon damage, Armor Proficiency (Heavy/Shield), Weapon Proficiency (Martial), Save Proficiency (Constitution/Strength), Extra Attack for conc or 10 min, exhausted afterward (Con neg)"',
+    'Description="Self gains 50 temporary HP, +2d12 HP force weapon damage, Armor Proficiency (Heavy/Shield), Weapon Proficiency (Martial), Save Proficiency (Constitution/Strength), Extra Attack for conc or 10 min, suffers exhaustion afterward (Con neg)"',
   'Thunderclap':
     'School=Evocation ' +
     'Level=B0,D0,K0,S0,W0 ' +
@@ -1268,7 +1267,7 @@ Xanathar.SPELLS = {
   'Toll The Dead':
     'School=Necromancy ' +
     'Level=C0,K0,W0 ' +
-    'Description="R60\' Target suffers 1d8 HP necrotic (damaged target 1d12 HP)"',
+    'Description="R60\' Target suffers 1d8 HP necrotic (damaged target 1d12 HP necrotic)"',
   'Transmute Rock':
     'School=Transmutation ' +
     'Level=D5,W5 ' +
@@ -1276,7 +1275,7 @@ Xanathar.SPELLS = {
   'Vitriolic Sphere':
     'School=Evocation ' +
     'Level=S4,W4 ' +
-    'Description="R150\' 20\' radius inflicts 10d4 acid, then 5d4 acid next tn (Dex half initial and none next tn)"',
+    'Description="R150\' 20\' radius inflicts 10d4 acid, then 5d4 acid next rd (Dex half initial and none next rd)"',
   'Wall Of Light':
     'School=Evocation ' +
     'Level=K5,S5,W5 ' +
@@ -1284,7 +1283,7 @@ Xanathar.SPELLS = {
   'Wall Of Sand':
     'School=Evocation ' +
     'Level=W3 ' +
-    'Description="R90\' 30\'x10\' wall slow passers to 1/3 and blocks vision for conc or 10 min"',
+    'Description="R90\' 30\'x10\' wall slows passers to 1/3 Speed and blocks vision for conc or 10 min"',
   'Wall Of Water':
     'School=Evocation ' +
     'Level=D3,S3,W3 ' +
@@ -1292,7 +1291,7 @@ Xanathar.SPELLS = {
   'Warding Wind':
     'School=Evocation ' +
     'Level=B2,D2,S2,W2 ' +
-    'Description="10\' radius deafens, extingushes flames, bars gas and fog, and inflicts difficult terrain and Disadv on ranged attacks"',
+    'Description="10\' radius deafens, extinguishes flames, bars gas and fog, and inflicts difficult terrain and Disadv on ranged attacks"',
   'Watery Sphere':
     'School=Conjuration ' +
     'Level=D4,S4,W4 ' +
@@ -1308,11 +1307,11 @@ Xanathar.SPELLS = {
   'Wrath Of Nature':
     'School=Evocation ' +
     'Level=D5,R5 ' +
-    'Description="R120\' Animates 60\' cu of trees (inflict 4d6 HP slashing (Dex neg), undergrowth (inflict difficult terrain), vines (restrain (Str neg)), and rocks (ranged spell inflicts 3d8 HP bludgeoning, knocks prone (Dex not prone)) for conc or 1 min"',
+    'Description="R120\' Animates 60\' cu of trees (inflict 4d6 HP slashing (Dex neg)), undergrowth (inflict difficult terrain), vines (restrain (Str neg)), and rocks (ranged spell inflicts 3d8 HP bludgeoning, knocks prone (Dex not prone)) for conc or 1 min"',
   'Zephyr Strike':
     'School=Transmutation ' +
     'Level=R1 ' +
-    'Description="Self move w/out OA for conc or 1 min, gain Adv, +1d8 HP force, and +30\' speed 1 tn"'
+    'Description="Self moves w/out OA for conc or 1 min and gains Adv on attacks, +1d8 HP force, and +30\' Speed for 1 rd"'
 
 };
 Xanathar.SPELLS_LEVELS_ADDED = {
