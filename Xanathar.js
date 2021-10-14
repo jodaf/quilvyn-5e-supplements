@@ -1751,7 +1751,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
       "features.Storm's Fury", '?', null,
       'spellDifficultyClass.S', '=', null
     );
-    rules.defineRule('languageCount', 'skillNotes.windSpeaker', '+=', '5');
+    rules.defineRule('languageCount', 'skillNotes.windSpeaker', '+', '5');
     rules.defineRule('languages.Aquan', 'skillNotes.windSpeaker', '=', '1');
     rules.defineRule('languages.Auran', 'skillNotes.windSpeaker', '=', '1');
     rules.defineRule('languages.Ignan', 'skillNotes.windSpeaker', '=', '1');
