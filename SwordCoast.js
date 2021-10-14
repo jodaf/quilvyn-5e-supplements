@@ -56,6 +56,7 @@ function SwordCoast() {
     'background:Background,select-one,backgrounds',
     'race:Race,select-one,races', 'levels:Class Levels,bag,levels');
 
+  SwordCoast.ARMORS = Object.assign({}, SRD5E.ARMORS, SwordCoast.ARMORS_ADDED);
   SwordCoast.BACKGROUNDS =
     Object.assign({}, PHB5E.BACKGROUNDS, SwordCoast.BACKGROUNDS_ADDED);
   SwordCoast.CLASSES = Object.assign({}, PHB5E.CLASSES);
@@ -83,7 +84,7 @@ function SwordCoast() {
   SwordCoast.TOOLS = Object.assign({}, SRD5E.TOOLS, SwordCoast.TOOLS_ADDED);
 
   SRD5E.abilityRules(rules);
-  SRD5E.combatRules(rules, SRD5E.ARMORS, SRD5E.SHIELDS, SRD5E.WEAPONS);
+  SRD5E.combatRules(rules, SwordCoast.ARMORS, SRD5E.SHIELDS, SRD5E.WEAPONS);
   SRD5E.magicRules(rules, SRD5E.SCHOOLS, SwordCoast.SPELLS);
   SRD5E.identityRules(
     rules, SRD5E.ALIGNMENTS, SwordCoast.BACKGROUNDS, SwordCoast.CLASSES,
@@ -106,8 +107,11 @@ function SwordCoast() {
 
 }
 
-SwordCoast.VERSION = '2.2.1.0';
+SwordCoast.VERSION = '2.3.1.0';
 
+SwordCoast.ARMORS_ADDED = {
+  'Spiked Armor':'AC=4 Dex=2 Weight=2'
+};
 SwordCoast.BACKGROUNDS_ADDED = {
   'City Watch':
     'Equipment=' +
@@ -183,7 +187,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
     'Equipment=' +
       'Uniform,Insignia,"Gaming Set","10 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Athletics/Perception)",' +
+      '"1:Skill Proficiency (Athletics/Persuasion)",' +
       '"1:Tool Proficiency (Vehicles (Land)/Choose 1 from any Game)",' +
       '"1:Mercenary Life"',
   'Urban Bounty Hunter':
@@ -192,11 +196,10 @@ SwordCoast.BACKGROUNDS_ADDED = {
     'Features=' +
       '"1:Skill Proficiency (Choose 2 from Deception, Insight, Persuasion, Stealth)",' +
       '"1:Tool Proficiency (Choose 2 from any Game, any Music, Thieves\' Tools)",' +
-      '"1:Language (Choose 1 from any)",' +
       '"1:Ear To The Ground"',
   'Uthgardt Tribe Memver':
     'Equipment=' +
-      '"Hunting Map","Totem or tatoos","Traveler\'s Clothes","10 GP" ' +
+      '"Hunting Map","Totem or tattoos","Traveler\'s Clothes","10 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (Athletics/Survival)",' +
       '"1:Tool Proficiency (Choose 1 from any Game, any Artisan)",' +
@@ -239,6 +242,7 @@ SwordCoast.CLASSES_SELECTABLES_ADDED = {
     '"race =~ \'Elf\' ? 2:Bladesinging:Arcane Tradition"'
 };
 SwordCoast.DEITIES = {
+  // Faerun
   'Akadi':'Alignment=N Domain=Tempest',
   'Amaunator':'Alignment=LN Domain=Life,Light',
   'Asmodeus':'Alignment=LE Domain=Knowledge,Trickery',
@@ -249,7 +253,7 @@ SwordCoast.DEITIES = {
   'Bhaal':'Alignment=NE Domain=Death',
   'Chauntea':'Alignment=NG Domain=Life',
   'Cyric':'Alignment=CE Domain=Trickery',
-  'Deneir':'Alignment=NG Domain=Arcana,Writing',
+  'Deneir':'Alignment=NG Domain=Arcana,Knowledge',
   'Eldath':'Alignment=NG Domain=Life,Nature',
   'Gond':'Alignment=N Domain=knowledge',
   'Grumbar':'Alignment=N Domain=Knowledge',
@@ -269,14 +273,15 @@ SwordCoast.DEITIES = {
   'Mask':'Alignment=CN Domain=Trickery',
   'Mielikki':'Alignment=NG Domain=Nature',
   'Milil':'Alignment=NG Domain=Light',
+  'Myrkul':'Alignment=NE Domain=Death',
   'Mystra':'Alignment=NG Domain=Arcana,Knowledge',
   'Oghma':'Alignment=N Domain=Knowledge',
   'The Red Knight':'Alignment=LN Domain=War',
-  'Savras':'Alignment=CG Domain=Knowledge,Life',
+  'Savras':'Alignment=LN Domain=Arcana,Knowledge',
   'Selune':'Alignment=CG Domain=Knowledge,Life',
   'Shar':'Alignment=NE Domain=Death,Trickery',
   'Silvanus':'Alignment=N Domain=Nature',
-  'Sun':'Alignment=CG Domain=Life,Light',
+  'Sune':'Alignment=CG Domain=Life,Light',
   'Talona':'Alignment=CE Domain=Death',
   'Talos':'Alignment=CE Domain=Tempest',
   'Tempus':'Alignment=N Domain=War',
@@ -285,7 +290,64 @@ SwordCoast.DEITIES = {
   'Tyr':'Alignment=LG Domain=War',
   'Umberlee':'Alignment=CE Domain=Tempest',
   'Valkur':'Alignment=CG Domain=Tempest,War',
-  'Waukeen':'Alignment=N Domain=Knowledge,Trickery'
+  'Waukeen':'Alignment=N Domain=Knowledge,Trickery',
+  // Dwarven
+  'Abbathor':'Alignment=NE Domain=Trickery',
+  'Berronar Truesilver':'Alignment=LG Domain=Life,Light',
+  'Clangeddin Silverbeard':'Alignment=LG Domain=War',
+  'Deep Duerra':'Alignment=LE Domain=Arcana,War',
+  'Dugmaren Brightmantle':'Alignment=CG Domain=Knowledge',
+  'Dumathoin':'Alignment=N Domain=Death,Knowledge',
+  'Gorm Gulthyn':'Alignment=LG Domain=War',
+  'Haela Brightaxe':'Alignment=CG Domain=War',
+  'Laduguer':'Alignment=LE Domain=Arcana,Death',
+  'Marthammor Duin':'Alignment=NG Domain=Nature,Trickery',
+  'Moradin':'Alignment=LG Domain=Knowledge',
+  'Sharindlar':'Alignment=CG Domain=Life',
+  'Vergadain':'Alignment=N Domain=Trickery',
+  // Elven
+  'Aerdrie Faenya':'Alignment=CG Domain=Tempest,Trickery',
+  'Angharradh':'Alignment=CG Domain=Knowledge,Life',
+  'Corellon Larethian':'Alignment=CG Domain=Arcana,Light',
+  'Deep Sashelas':'Alignment=CG Domain=Nature,Tempest',
+  'Erevan Ilesere':'Alignment=CN Domain=Trickery',
+  'Fenmarel Mestarine':'Alignment=CN Domain=Trickery',
+  'Hanali Celanil':'Alignment=CG Domain=Life',
+  'Labelas Enoreth':'Alignment=CG Domain=Arcana,Knowledge',
+  'Rillifane Rallathil':'Alignment=CG Domain=Nature',
+  'Sehanine Moonbow':'Alignment=CG Domain=Knowledge',
+  'Shevarash':'Alignment=CN Domain=War',
+  'Solonor Thelandira':'Alignment=CG Domain=War',
+  // Drow
+  'Eilistraee':'Alignment=CG Domain=Light,Nature',
+  'Kiaransalee':'Alignment=CE Domain=Arcana',
+  'Lolth':'Alignment=CE Domain=Trickery',
+  'Selvetarm':'Alignment=CE Domain=War',
+  'Vhaeraun':'Alignment=CE Domain=Trickery',
+  // Halfling
+  'Arvoreen':'Alignment=LG Domain=War',
+  'Brandobaris':'Alignment=N Domain=Trickery',
+  'Cyrrollalee':'Alignment=LG Domain=Life',
+  'Sheela Peryroyl':'Alignment=N Domain=Nature,Tempest',
+  'Urogalan':'Alignment=LN Domain=Death,Knowledge',
+  'Yondalla':'Alignment=LG Domain=Life',
+  // Gnomish
+  'Baervan Wildwanderer':'Alignment=NG Domain=Nature',
+  'Baravar Cloakshadow':'Alignment=NG Domain=Arcana,Trickery',
+  'Callarduran Smoothhands':'Alignment=N Domain=Knowledge,Nature',
+  'Flandal Steelskin':'Alignment=NG Domain=Knowledge',
+  'Gaerdal Ironhand':'Alignment=LG Domain=War',
+  'Garl Glittergold':'Alignment=LG Domain=Trickery',
+  'Nebelun':'Alignment=CG Domain=Knowledge,Trickery',
+  'Segojan Earthcaller':'Alignment=NG Domain=Light',
+  'Urdlen':'Alignment=CE Domain=Death,War',
+  // Orc
+  'Bahgtru':'Alignment=LE Domain=War',
+  'Gruumsh':'Alignment=CE Domain=Tempest,War',
+  'Ilneval':'Alignment=LE Domain=War',
+  'Luthic':'Alignment=LE Domain=Life,Nature',
+  'Shargaas':'Alignment=NE Domain=Trickery',
+  'Yurtrus':'Alignment=NE Domain=Death'
 };
 SwordCoast.FEATS_ADDED = {
   'Svirfneblin Magic':'Require="race == \'Deep Gnome\'" Type=General'
@@ -300,7 +362,7 @@ SwordCoast.FEATURES_ADDED = {
   'Ear To The Ground':
     'Section=feature Note="Information contacts in every city"',
   'Inheritance':'Section=feature Note="Special item or knowledge from family"',
-  'Kept In Style':'Section=feature Note="-2 GP/day expenses"',
+  'Kept In Style':'Section=feature Note="-2 GP/dy expenses"',
   'Knightly Regard':
     'Section=feature Note="Assistance from fellows and supporters"',
   'Library Access':
@@ -309,10 +371,11 @@ SwordCoast.FEATURES_ADDED = {
   'Mercenary Life':
     'Section=feature Note="Knowledge of mercenary companies and customs"',
   'Respect Of The Stout Folk':
-    'Section=feature Note="Free accommodations from Dwarves"',
+    'Section=feature Note="Free accommodations from dwarves"',
   'Safe Haven':'Section=feature Note="Contacts w/access to safe house"',
   'Uthgardt Heritage':
-    'Section=feature Note="Dbl food from foraging, assistance from tribes"',
+    'Section=feature ' +
+    'Note="Dbl food and water from foraging, assistance from tribes, Harpers, nomadic elves, and First Circle priests"',
   "Watcher's Eye":
     'Section=feature Note="Easily find local watch and criminal dens"',
 
@@ -327,65 +390,61 @@ SwordCoast.FEATURES_ADDED = {
     'Note=' +
       '"Undead attacks diverted to others (DC %V Wis neg)",' +
       '"Learn <i>Spare The Dying</i>",' +
-      '"Adv vs. disease"',
+      '"Adv on saves vs. disease"',
   'Arcane Abjuration':
-    'Section=combat Note="R30\' Action to turn celestial, elemental, fey, or fiend for 1 min"',
-  'Arcane Abjuration (Banishment)':
-    'Section=combat Note="Turned creature up to CR %V banished for 1 min"',
+    'Section=combat Note="R30\' Turn celestial, elemental, fey, or fiend%1 for 1 min (DC %V Wis neg)"',
   'Arcane Initiate':
     'Section=magic,skill ' +
     'Note="Learn two W0 spells","Skill Proficiency (Arcana)"',
   'Arcane Mastery':
     'Section=magic Note="Add 1 each W6, W7, W8, and W9 as domain spells"',
   'Aspect Of The Elk':
-    'Section=ability Note="R60\' Self and 10 allies dbl speed"',
+    'Section=ability Note="R60\' Self and 10 allies dbl travel pace"',
   'Aspect Of The Tiger':
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Athletics, Acrobatics, Stealth, Survival)"',
   'Battlerager Armor':
     'Section=combat ' +
-    'Note="Bonus spike attack 1d4+%1 HP piercing damage during rage, 3 HP from grapple"',
+    'Note="When wearing Spiked Armor, bonus spike attack inflicts 1d4+%1 HP piercing during rage, grapple inflicts 3 HP piercing"',
   'Battlerager Charge':'Section=combat Note="Bonus dash during rage"',
   'Bladesong':
     'Section=ability,combat,magic,skill ' +
     'Note=' +
-      '"+10 Speed in light or no armor for 1 min 2/short rest",' +
-      '"+%V AC in light or no armor for 1 min 2/short rest",' +
-      '"+%V Concentration in light or no armor to retain spell for 1 min 2/short rest",' +
-      '"Adv Acrobatics in light or no armor for 1 min 2/short rest"',
+      '"+10 Speed in light or no armor and no shield for 1 min 2/short rest",' +
+      '"+%V AC in light or no armor and no shield for 1 min 2/short rest",' +
+      '"+%V Concentration to retain spell in light or no armor and no shield for 1 min 2/short rest",' +
+      '"Adv on Acrobatics in light or no armor and no shield for 1 min 2/short rest"',
   'Bulwark':
     'Section=combat ' +
-    'Note="R60\' Indomitable use on Int, Wis, or Cha roll provides ally w/reroll"',
+    'Note="R60\' Indomitable use on Int, Wis, or Cha roll gives ally reroll"',
   'Champion Challenge':
     'Section=combat ' +
     'Note="R30\' Channel Divinity forces targets to stay w/in 30\' of self (DC %V Wis neg)"',
   'Defy Death':
     'Section=combat,magic ' +
     'Note=' +
-      '"Successful death saving throw restores 1d8+%V HP",' +
-      '"<i>Spare The Dying</i> restores 1d8+%V HP"',
+      '"Successful death saving throw restores 1d8+%V HP 1/long rest",' +
+      '"<i>Spare The Dying</i> restores 1d8+%V HP 1/long rest"',
   'Divine Allegiance':'Section=combat Note="R5\' Shift ally\'s damage to self"',
   'Elegant Maneuver':
-    'Section=skill Note="Bonus action for Adv next Acrobatics or Athletics"',
+    'Section=skill Note="Bonus action for Adv on Acrobatics or Athletics"',
   'Elk Totem Spirit':
-    'Section=ability ' +
-    'Note="+15 Speed during rage when not wearing heavy armor"',
+    'Section=ability Note="+15 Speed during rage (heavy armor neg)"',
   'Elk Totemic Attunement':
     'Section=combat ' +
-    'Note="Charge knocks down foe for 1d12+%V HP bludgeoning damage (DC %1 Str neg)"',
+    'Note="Charge inflicts 1d12+%V HP bludgeoning and knocks prone (DC %1 Str neg)"',
   'Exalted Champion':
     'Section=combat,save ' +
     'Note=' +
-      '"Resistance non-magical bludgeoning, piercing, and slashing",' +
-      '"R30\' Self and allies Adv Death, Wisdom"',
+      '"Resistance to non-magical bludgeoning, piercing, and slashing damage",' +
+      '"R30\' Self and allies Adv on Wisdom and saves vs. Death"',
   'Extra Attack':
     'Section=combat Note="+%V Attacks Per Round"',
   'Fancy Footwork':
-    'Section=combat ' +
-    'Note="Struck foe cannot make opportunity attacks against you for 1 tn"',
+    'Section=combat Note="Attacked foe cannot make OA against you for 1 rd"',
   'Heart Of The Storm':
     'Section=magic,save ' +
-    'Note="R10\' %V HP lightning/thunder damage when casting lightning/thunder spell",' +
+    'Note="R10\' Targets suffer %V HP lightning or thunder when self casts lightning or thunder spell",' +
          '"Resistance to lightning and thunder damage"',
   'Hour Of Reaping':
     'Section=combat ' +
@@ -400,71 +459,75 @@ SwordCoast.FEATURES_ADDED = {
     'Section=combat Note="R60\' Action Surge gives bonus attack to %V ally"',
   'Master Duelist':'Section=combat Note="Reroll miss with Adv 1/short rest"',
   'Master Of Intrigue':
-    'Section=skill ' +
-    'Note="Mimic accent and speech patters after listening 1 min"',
+    'Section=feature,skill ' +
+    'Note="Mimic accent and speech patterns after 1 min listening",' +
+         '"+2 Language Count/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Game)"',
   'Master Of Tactics':'Section=combat Note="R30\' Help as bonus action"',
   'Mastery Of Death':
     'Section=combat ' +
-    'Note="Spend 1 Ki Point to remain at 1 HP when brought to 0 HP"',
+    'Note="Spend 1 Ki Point to remain at 1 HP when reduced to 0 HP"',
   'Misdirection':
     'Section=combat ' +
     'Note="Redirect attack on self to creature providing self cover"',
   'Panache':
     'Section=skill ' +
-    'Note="Persuasion vs. Insight gives hostile target Disadv attacks on others, charms non-hostile for 1 min"',
+    'Note="Use Persuasion vs. Insight to give hostile target Disadv on attacks on others or charm non-hostile for 1 min"',
   'Radiant Sun Bolt':
     'Section=combat ' +
-    'Note="R30\' Ranged touch +%V 1d%1+%2 HP radiant damage 1/tn, spend 1 Ki for 2/tn"',
+    'Note="R30\' Ranged touch attack at +%V inflicts 1d%1+%2 HP radiant 1/rd, spend 1 Ki Point for 2/rd"',
   'Rakish Audacity':
     'Section=combat ' +
     'Note="+%1 Initiative, use Sneak Attack w/out Adv vs. solo foe"',
   'Rallying Cry':
     'Section=combat Note="R60\' Second Wind restores %V HP to 3 allies"',
   'Reckless Abandon':
-    'Section=combat Note="%V temporary HP from Reckless Attack during rage"',
+    'Section=combat ' +
+    'Note="Gain %V temporary HP from Reckless Attack during rage"',
   'Royal Envoy':
     'Section=feature,skill ' +
     'Note=' +
-      '"Dbl Prof on Persuasion",' +
+      '"Dbl proficiency on Persuasion",' +
       '"Skill Proficiency (Choose 1 from Animal Handling, Insight, Intimidation, Persuasion)"',
   'Searing Arc Strike':
     'Section=magic ' +
-    'Note="Spend 2-%V Ki to cast <i>Burning Hands</i> after attack"',
+    'Note="Spend 2-%V Ki Points to cast <i>Burning Hands</i> after attack"',
   'Searing Sunburst':
     'Section=magic ' +
-    'Note="R150\' 20\' burst 2d6 HP radiant damage (DC %V Con neg), spend 1-3 Ki for +2d6 HP ea"',
+    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (DC %V Con neg), spend 1-3 Ki Point for +2d6 HP radiant each"',
   'Song Of Defense':
-    'Section=magic Note="Expend spell slot to reduce damage by 5x slot level"',
-  'Song Of Victory':'Section=combat Note="+%V damage for 1 min 2/short rest"',
+    'Section=magic Note="Use Reaction and expend spell slot to reduce damage by 5x slot level"',
+  'Song Of Victory':
+    'Section=combat Note="+%V HP melee weapon damage during Bladesong"',
   'Soul Of Deceit':
     'Section=save ' +
-    'Note="Immunity to telepathy, Deception vs. Insight to present false thoughts, immunity to truth compulsion"',
+    'Note="Immune to telepathy and truth compulsion, use Deception vs. Insight to present false thoughts"',
   'Spell Breaker':
     'Section=magic Note="Healing spell ends spell of equal or lesser level"',
   'Spiked Retribution':
     'Section=combat ' +
-    'Note="Successful melee attacker takes 3 HP piercing damage during rage"',
+    'Note="When wearing Spiked Armor, successful melee attacker suffers 3 HP piercing during rage"',
   'Storm Guide':
     'Section=magic ' +
-    'Note="Stop rain in 20\' radius or direct winds in 100\' radius for 1 tn"',
+    'Note="Stop rain in 20\' radius or direct winds in 100\' radius for 1 rd"',
   "Storm's Fury":
     'Section=combat ' +
-    'Note="Successful attacker takes %V HP lightning damage and pushed 20\' (DC %1 Str neg push)"',
+    'Note="Use Reaction to inflict %V HP lightning and 20\' push on successful melee attacker (DC %1 Str neg push)"',
   'Sun Shield':
     'Section=combat,magic ' +
-    'Note="%V HP radiant damage to foe when hit w/melee attack",' +
-         '"30\' bright light, 30\' dim at will"',
+    'Note="Use Reaction to inflict %V HP radiant on successful melee attacker",' +
+         '"Emit bright light in 30\' radius at will"',
   'Tempestuous Magic':
     'Section=magic Note="Fly 10\' before or after casting spell level 1+"',
   'Tiger Totem Spirit':
-    'Section=feature Note="+10\' long jump, +3\' high jump during rage"',
+    'Section=skill Note="+10\' long jump, +3\' high jump during rage"',
   'Tiger Totemic Attunement':
-    'Section=combat Note="Bonus melee attack after 20\' charge"',
+    'Section=combat Note="Bonus melee attack after 20\' charge during rage"',
   'Touch Of Death':
-    'Section=combat Note="R5\' Taking foe to 0 HP gives self %V temporary HP"',
+    'Section=combat ' +
+    'Note="R5\' Reducing foe to 0 HP gives self %V temporary HP"',
   'Touch Of The Long Death':
     'Section=combat ' +
-    'Note="R5\' Spend 1-10 Ki Points to touch for 2d10 HP necrotic damage per (DC %V Con half)"',
+    'Note="R5\' Spend 1-10 Ki Points to inflict 2d10 HP necrotic per (DC %V Con half) with touch"',
   'Training In War And Song':
     'Section=combat,skill ' +
     'Note=' +
@@ -475,8 +538,8 @@ SwordCoast.FEATURES_ADDED = {
     'Note="R30\' Channel Divinity restores 1d6+%V HP to targets w/fewer than half HP"',
   'Undying Nature':
     'Section=feature ' +
-    'Note="Require no breath, food, water, or sleep, age at 1/10 rate"',
-  'Unyielding Spirit':'Section=save Note="Adv vs. paralysis and stunning"',
+    'Note="Require no breath, food, water, or sleep and age at 1/10 rate"',
+  'Unyielding Spirit':'Section=save Note="Adv on saves vs. paralysis and stunning"',
   'Wind Soul':
     'Section=ability,magic,save ' +
     'Note="60\' Fly",' +
@@ -488,9 +551,9 @@ SwordCoast.FEATURES_ADDED = {
   'Deep Gnome Ability Adjustment':
     'Section=ability Note="+1 Dexterity/+2 Intelligence"',
   'Duergar Magic':
-    'Section=magic Note="<i>Enlarge/Reduce</i>%1 on self 1/long rest"',
+    'Section=magic Note="Cast <i>Enlarge/Reduce</i>%1 on self 1/long rest"',
   'Duergar Resilience':
-    'Section=save Note="Adv vs. illusions, charm, and paralysis"',
+    'Section=save Note="Adv on saves vs. illusions, charm, and paralysis"',
   'Gold Dwarf Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Wisdom"',
   'Gray Dwarf Ability Adjustment':
@@ -500,11 +563,11 @@ SwordCoast.FEATURES_ADDED = {
   'Shield Dwarf Ability Adjustment':
     'Section=ability Note="+2 Constitution/+2 Strength"',
   'Stone Camouflage':
-    'Section=Skill Note="Adv Stealth (rocky terrain)"',
+    'Section=Skill Note="Adv on Stealth to hide in rocky terrain"',
   'Strongheart Halfling Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Constitution"',
   'Strongheart Halfling Resilience':
-    'Section=save Note="Adv and resistance to poison damage"',
+    'Section=save Note="Adv on saves vs. poison, resistance to poison damage"',
   'Sun Elf Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Intelligence"'
 
@@ -514,8 +577,7 @@ SwordCoast.PATHS_ADDED = {
     'Group=Cleric Level=levels.Cleric ' +
     'Features=' +
       '"1:Skill Proficiency (Arcana)",' +
-      '"1:Arcane Initiate","2:Arcane Abjuration",' +
-      '"5:Arcane Abjuration (Banishment)","6:Spell Breaker",' +
+      '"1:Arcane Initiate","2:Arcane Abjuration","6:Spell Breaker",' +
       '"8:Potent Spellcasting","17:Arcane Mastery" ' +
     'SpellAbility=wisdom ' +
     'SpellSlots=' +
@@ -529,10 +591,9 @@ SwordCoast.PATHS_ADDED = {
     'Features=' +
       '"2:Training In War And Song","2:Bladesong","6:Extra Attack",' +
       '"10:Song Of Defense","14:Song Of Victory"',
-  'Mastermind':
+  'Mastermind': // Copied from Xanathar
     'Group=Rogue Level=levels.Rogue ' +
     'Features=' +
-      '"3:Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Game)",' +
       '"3:Master Of Intrigue","3:Master Of Tactics",' +
       '"9:Insightful Manipulator","13:Misdirection","17:Soul Of Deceit"',
   'Oath Of The Crown':
@@ -566,12 +627,12 @@ SwordCoast.PATHS_ADDED = {
     'Group=Fighter Level=levels.Fighter ' +
     'Features=' +
       '"3:Rallying Cry","7:Royal Envoy","10:Inspiring Surge","15:Bulwark"',
-  'Storm Sorcery':
+  'Storm Sorcery': // Copied from Xanathar
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
       '"1:Wind Speaker","1:Tempestuous Magic","6:Heart Of The Storm",' +
       '"6:Storm Guide","14:Storm\'s Fury","18:Wind Soul"',
-  'Swashbuckler':
+  'Swashbuckler': // Copied from Xanathar
     'Group=Rogue Level=levels.Rogue ' +
     'Features=' +
       '"3:Fancy Footwork","3:Rakish Audacity","9:Panache",' +
@@ -586,7 +647,7 @@ SwordCoast.PATHS_ADDED = {
     'Features=' +
       '"3:Touch Of Death","6:Hour Of Reaping","11:Mastery Of Death",' +
       '"17:Touch Of The Long Death"',
-  'Way Of The Sun Soul':
+  'Way Of The Sun Soul': // Copied from Xanathar
     'Group=Monk Level=levels.Monk ' +
     'Features=' +
       '"3:Radiant Sun Bolt","6:Searing Arc Strike","11:Searing Sunburst",' +
@@ -600,11 +661,11 @@ SwordCoast.RACES_ADDED = {
     'Languages=Common,Gnomish,Undercommon',
   'Gray Dwarf':
     'Features=' +
-      '"1:Weapon Proficiency (Battleaxe/Handaxe/Light Hammer/Warhammer)",' +
       '"1:Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
-      '"1:Duergar Resilience","1:Dwarven Resilience",' +
-      '"1:Gray Dwarf Ability Adjustment",1:Slow,1:Steady,1:Stonecunning,' +
-      '"1:Sunlight Sensitivity","1:Superior Darkvision","3:Duergar Magic" ' +
+      '"1:Duergar Resilience","1:Dwarven Combat Training",' +
+      '"1:Dwarven Resilience","1:Gray Dwarf Ability Adjustment",1:Slow,' +
+      '1:Steady,1:Stonecunning,"1:Sunlight Sensitivity",' +
+      '"1:Superior Darkvision","3:Duergar Magic" ' +
     'Languages=Common,Dwarvish,Undercommon'
 };
 SwordCoast.RACES_RENAMED = {
@@ -617,19 +678,19 @@ SwordCoast.SPELLS_ADDED = {
   'Booming Blade':
     'School=Evocation ' +
     'Level=K0,S0,W0 ' +
-    'Description="Struck foe +${Math.floor((lvl+1)/6)}d8 HP damage and takes ${Math.floor((lvl+1)/6)+1}d8 HP thunder damage on move for 1 tn"',
+    'Description="Struck foe suffers +${Math.floor((lvl+1)/6)}d8 HP thunder and ${Math.floor((lvl+1)/6)+1}d8 HP thunder on move for 1 rd"',
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=K0,S0,W0 ' +
-    'Description="Struck foe +%Vd8 HP damage, R5\' foe takes ${Math.floor((lvl+1)/6)}d8+%{charismaModifier>?intelligenceModifier} HP fire damage"',
+    'Description="Struck foe suffers +%Vd8 HP fire, R5\' target suffers ${Math.floor((lvl+1)/6)}d8+%{charismaModifier>?intelligenceModifier} HP fire"',
   'Lightning Lure':
     'School=Evocation ' +
     'Level=K0,S0,W0 ' +
-    'Description="R15\' Target pulled 10\', takes ${Math.floor((lvl+5)/6)}d8 HP lightning damage (Str neg)"',
+    'Description="R15\' Pulls target 10\' and inflicts ${Math.floor((lvl+5)/6)}d8 HP lightning (Str neg)"',
   'Sword Burst':
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
-    'Description="R5\' Spectral blades ${Math.floor((lvl+5)/6)}d6 HP force damage (Dex neg)"'
+    'Description="5\' radius inflicts ${Math.floor((lvl+5)/6)}d6 HP force (Dex neg)"'
 };
 SwordCoast.SPELLS_LEVELS_ADDED = {
   'Arcane Eye':'Arcana4',
@@ -701,10 +762,19 @@ SwordCoast.pathRulesExtra = function(rules, name) {
     'Level';
 
   if(name == 'Arcana Domain') {
-    rules.defineRule('combatNotes.arcaneAbjuration(Banishment)',
-      pathLevel, '=', 'source<8 ? "1/2" : Math.floor((source - 5) / 3)'
+    rules.defineRule
+      ('combatNotes.arcaneAbjuration', 'spellDifficultyClass.C', '=', null);
+    rules.defineRule('combatNotes.arcaneAbjuration.1',
+      'features.Arcane Abjuration', '?', null,
+      pathLevel, '=', 'source>=5 ? ", banish up to CR " + (source<8 ? "1/2" : source>=17 ? 4 : Math.floor((source - 5) / 3)) : ""'
     );
   } else if(name == 'Bladesinging') {
+    // Have to hard-code these proficiencies, since featureRules only handles
+    // notes w/a single type of granted proficiency
+    rules.defineRule
+      ('armorProficiency.Light', 'combatNotes.trainingInWarAndSong', '=', '1');
+    rules.defineRule
+      ('weaponChoiceCount', 'combatNotes.trainingInWarAndSong', '+=', '1');
     rules.defineRule('combatNotes.bladesong',
       'intelligenceModifier', '=', 'Math.max(source, 1)'
     );
@@ -716,8 +786,14 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       'intelligenceModifier', '=', 'Math.max(source, 1)'
     );
   } else if(name == 'Mastermind') {
-    // Copied from Xanathar
-    rules.defineRule('languageCount', 'features.Master Of Intrigue', '+', '2');
+    // Have to hard-code these proficiencies, since featureRules only handles
+    // notes w/a single type of granted proficiency
+    rules.defineRule
+      ('toolProficiency.Disguise Kit', 'skillNotes.masterOfIntrigue', '=', '1');
+    rules.defineRule
+      ('toolProficiency.Forgery Kit', 'skillNotes.masterOfIntrigue', '=', '1');
+    rules.defineRule
+      ('toolChoiceCount', 'skillNotes.masterOfIntrigue', '+=', '1');
   } else if(name == 'Oath Of The Crown') {
     rules.defineRule('combatNotes.championChallenge',
       'spellDifficultyClass.Crown', '=', null
@@ -745,6 +821,12 @@ SwordCoast.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('combatNotes.inspiringSurge', pathLevel, '=', 'source>=18 ? 2 : 1');
     rules.defineRule('combatNotes.rallyingCry', pathLevel, '=', null);
+    rules.defineRule('featureNotes.royalEnvoy.1',
+      'features.Royal Envoy', '?', null,
+      'proficiencyBonus', '=', null
+    );
+    rules.defineRule
+      ('skills.Persuasion', 'featureNotes.royalEnvoy.1', '+', null);
   } else if(name == 'Storm Sorcery') {
     // Copied from Xanathar
     rules.defineRule("combatNotes.storm'sFury", pathLevel, '=', null);
@@ -752,7 +834,7 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       "features.Storm's Fury", '?', null,
       'spellDifficultyClass.S', '=', null
     );
-    rules.defineRule('languageCount', 'skillNotes.windSpeaker', '+=', '5');
+    rules.defineRule('languageCount', 'skillNotes.windSpeaker', '+', '5');
     rules.defineRule('languages.Aquan', 'skillNotes.windSpeaker', '=', '1');
     rules.defineRule('languages.Auran', 'skillNotes.windSpeaker', '=', '1');
     rules.defineRule('languages.Ignan', 'skillNotes.windSpeaker', '=', '1');
@@ -765,6 +847,7 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       ('magicNotes.windSoul', 'charismaModifier', '=', '3 + source');
   } else if(name == 'Swashbuckler') {
     // Copied from Xanathar
+    rules.defineRule('initiative', 'combatNotes.rakishAudacity', '+', '2');
     rules.defineRule('combatNotes.rakishAudacity.1',
       'features.Rakish Audacity', '?', null,
       'charismaModifier', '=', null
