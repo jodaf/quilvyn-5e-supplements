@@ -35,6 +35,7 @@ function Tasha(edition, rules) {
 
   if(rules == null)
     rules = PHB5E.rules
+
   Tasha.identityRules(
     rules, Tasha.CLASSES, Tasha.CLASSES_FEATURES_ADDED,
     Tasha.CLASSES_SELECTABLES_ADDED, Tasha.DEITIES_DOMAINS_ADDED, Tasha.PATHS
@@ -56,14 +57,32 @@ Tasha.CLASSES = {
       '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
       '"1:Tool Proficiency (Thieves\' Tools/Tinker\'s Tools/Choose 1 from any Artisan)",' +
       '"1:Weapon Proficiency (Simple)",' +
-      '"1:Magical Tinkering",1:Spellcasting,"2:Infuse Item",' +
-      '"3:Artificer Specialist","3:The Right Tool For The Job",' +
-      '"6:Tool Expertise","7:Flash Of Genius","10:Magic Item Adept",' +
-      '"11:Spell-Storing Item","14:Magic Item Savant","18:Magic Item Master",' +
-      '"20:Soul Of Artifice" ' +
+      '"1:Magical Tinkering","1:Ritual Casting",1:Spellcasting,' +
+      '"2:Infuse Item","3:Artificer Specialist",' +
+      '"3:The Right Tool For The Job","6:Tool Expertise","7:Flash Of Genius",' +
+      '"10:Magic Item Adept","11:Spell-Storing Item","14:Magic Item Savant",' +
+      '"18:Magic Item Master","20:Soul Of Artifice" ' +
     'Selectables=' +
-      '"3:Alchemist:Artificer Specialist","3:Armorer:Artificer Specialist",' +
-      '"3:Artillerist:Artificer Specialist" ' +
+      '"3:Alchemist:Specialist",' +
+      '"3:Armorer:Specialist",' +
+      '"3:Artillerist:Specialist",' +
+      '"3:Battle Smith:Specialist",' +
+      '"14:Arcane Propulsion Armor:Infusion",' +
+      '"2:Armor Of Magical Strength:Infusion",' +
+      '"6:Boots Of The Winding Path:Infusion",' +
+      '"2:Enhanced Arcane Focus:Infusion",' +
+      '"2:Enhanced Defense:Infusion",' +
+      '"2:Enhanced Weapon:Infusion",' +
+      '"10:Helm Of Awareness:Infusion",' +
+      '"2:Homunculous Servant:Infusion",' +
+      '"2:Mind Sharpener:Infusion",' +
+      '"6:Radiant Weapon:Infusion",' +
+      '"2:Repeating Shot:Infusion",' +
+      '"2:Replicate Magic Item:Infusion",' +
+      '"6:Repulsion Shield:Infusion",' +
+      '"6:Resistant Armor:Infusion",' +
+      '"2:Returning Weapon:Infusion",' +
+      '"6:Spell-Refueling Ring:Infusion" ' +
     'CasterLevelArcane=levels.Artificer ' +
     'SpellAbility=intelligence ' +
     'SpellSlots=' +
@@ -229,6 +248,34 @@ Tasha.FEATS = {
   'Telepathic':''
 };
 Tasha.FEATURES = {
+  // Class
+  'Artificer Specialist':'Section=feature Note="TODO"',
+  'Flash Of Genius':'Section=feature Note="TODO"',
+  'Infuse Item':'Section=feature Note="TODO"',
+  'Magic Item Adept':'Section=feature Note="TODO"',
+  'Magic Item Master':'Section=feature Note="TODO"',
+  'Magic Item Savant':'Section=feature Note="TODO"',
+  'Magical Tinkering':'Section=feature Note="TODO"',
+  'Soul Of Artifice':'Section=feature Note="TODO"',
+  'The Right Tool For The Job':'Section=feature Note="TODO"',
+  'Spell-Storing Item':'Section=feature Note="TODO"',
+  'Tool Expertise':'Section=feature Note="TODO"',
+  'Arcane Propulsion Armor':'Section=feature Note="TODO"',
+  'Armor Of Magical Strength':'Section=feature Note="TODO"',
+  'Boots Of The Winding Path':'Section=feature Note="TODO"',
+  'Enhanced Arcane Focus':'Section=feature Note="TODO"',
+  'Enhanced Defense':'Section=feature Note="TODO"',
+  'Enhanced Weapon':'Section=feature Note="TODO"',
+  'Helm Of Awareness':'Section=feature Note="TODO"',
+  'Homunculous Servant':'Section=feature Note="TODO"',
+  'Mind Sharpener':'Section=feature Note="TODO"',
+  'Radiant Weapon':'Section=feature Note="TODO"',
+  'Repeating Shot':'Section=feature Note="TODO"',
+  'Replicate Magic Item':'Section=feature Note="TODO"',
+  'Repulsion Shield':'Section=feature Note="TODO"',
+  'Resistant Armor':'Section=feature Note="TODO"',
+  'Returning Weapon':'Section=feature Note="TODO"',
+  'Spell-Refueling Ring':'Section=feature Note="TODO"',
   // Feats
   'Artificier Initiate':'Section=feature Note="TODO"',
   'Chef':'Section=feature Note="TODO"',
@@ -258,6 +305,37 @@ Tasha.FEATURES = {
   'Telekinetic':'Section=feature Note="TODO"',
   'Telepathic':'Section=feature Note="TODO"',
   // Paths
+  'Alchemical Savant':
+    'Section=magic ' +
+    'Note="+%{intelligenceModifier>?1} on spell healing or acid, fire, necrotic or poison damage"',
+  'Alchemist Bonus Proficiecy':
+    'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
+  'Alchemist Spells':'Section=feature Note="TODO"',
+  'Arcane Armor':'Section=feature Note="TODO"',
+  'Arcane Firearm':'Section=feature Note="TODO"',
+  'Arcane Jolt':'Section=feature Note="TODO"',
+  'Armor Modifications':'Section=feature Note="TODO"',
+  'Armorer Spells':'Section=feature Note="TODO"',
+  'Artillerist Bonus Proficiency':
+    'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
+  'Artillerist Spells':'Section=feature Note="TODO"',
+  'Battle Ready':'Section=feature Note="TODO"',
+  'Battle Smith Bonus Proficiency':
+    'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
+  'Battle Smith Spells':'Section=feature Note="TODO"',
+  'Chemical Mastery':'Section=feature Note="TODO"',
+  'Eldritch Cannon':'Section=feature Note="TODO"',
+  'Experimental Elixir':'Section=feature Note="TODO"',
+  'Explosive Cannon':'Section=feature Note="TODO"',
+  'Extra Attack':'Section=feature Note="TODO"',
+  'Fortified Position':'Section=feature Note="TODO"',
+  'Improved Defender':'Section=feature Note="TODO"',
+  'Perfected Armor':'Section=feature Note="TODO"',
+  'Restorative Regents':'Section=feature Note="TODO"',
+  'Steel Defender':'Section=feature Note="TODO"',
+  'Tools Of The Trade':
+    'Section=feature ' +
+    'Note="Armor Proficiency (Heavy)/Tool Proficiency (Smith\'s Tools)"',
   'Bladesong':
     'Section=ability,combat,magic,skill ' +
     'Note=' +
@@ -321,6 +399,30 @@ Tasha.PATHS = {
     'Features=' +
       '"1:Telepathic Speech","6:Psionic Sorcery","6:Psychic Defenses",' +
       '"14:Revelation In Flesh","18:Warping Implosion"',
+  'Alchemist':
+    'Group=Artificer Level=levels.Artificer ' +
+    'Features=' +
+      '"3:Alchemist Bonus Proficiecy","3:Alchemist Spells",' +
+      '"3:Experimental Elixir","5:Alchemical Savant","9:Restorative Regents",' +
+      '"15:Chemical Mastery"',
+  'Armorer':
+    'Group=Artificer Level=levels.Artificer ' +
+    'Features=' +
+      '"3:Arcane Armor","3:Armor Model","3:Armorer Spells",' +
+      '"3:Tools Of The Trade","5:Extra Attack","9:Armor Modifications",' +
+      '"15:Perfected Armor"',
+  'Artillerist':
+    'Group=Artificer Level=levels.Artificer ' +
+    'Features=' +
+      '"3:Artillerist Bonus Proficiency","3:Artillerist Spells",' +
+      '"3:Eldritch Cannon","5:Arcane Firearm","9:Explosive Cannon",' +
+      '"15:Fortified Position"',
+  'Battle Smith':
+    'Group=Artificer Level=levels.Artificer ' +
+    'Features=' +
+      '"3:Battle Ready","3:Battle Smith Bonus Proficiency",' +
+      '"3:Battle Smith Spells","3:Steel Defender","5:Extra Attack",' +
+      '"9:Arcane Jolt","15:Improved Defender"',
   'Bladesinging':
     'Group=Wizard Level=levels.Wizard ' +
     'Features=' +
@@ -739,6 +841,7 @@ Tasha.identityRules = function(
 
   for(clas in classes) {
     rules.choiceRules(rules, 'Class', clas, classes[clas]);
+    Tasha.classRulesExtra(rules, clas);
   }
   for(clas in classFeatures) {
     SRD5E.featureListRules
@@ -777,7 +880,25 @@ Tasha.magicRules = function(rules, spellsLevels) {
   }
 };
 
-/* Defines the rules related to character classes. */
+/*
+ * Defines in #rules# the rules associated with class #name# that cannot be
+ * derived directly from the attributes passed to classRules.
+ */
+Tasha.classRulesExtra = function(rules, name) {
+  if(name == 'Artificer') {
+    rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
+      'levels.Artificer', '=', 'source>=2 ? Math.floor((source+6)/4)*2 : null'
+    );
+    rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
+      'levels.Artificer', '=', 'source>=3 ? 1 : null'
+    );
+  }
+};
+
+/*
+ * Defines in #rules# the rules associated with path #name# that cannot be
+ * derived directly from the attributes passed to pathRules.
+ */
 Tasha.pathRulesExtra = function(rules, name) {
 
   var pathLevel =
