@@ -40,9 +40,8 @@ function Xanathar(edition, rules) {
     Xanathar.PATHS
   );
   Xanathar.magicRules(rules, Xanathar.SPELLS, Xanathar.SPELLS_LEVELS_ADDED);
-  Xanathar.talentRules(
-    rules, Xanathar.FEATS, Xanathar.FEATURES, {}, {}, {}, Xanathar.TOOLS_ADDED
-  );
+  Xanathar.talentRules
+    (rules, Xanathar.FEATS, Xanathar.FEATURES, Xanathar.TOOLS_ADDED);
 
 }
 
@@ -1392,40 +1391,30 @@ Xanathar.TOOLS_ADDED = {
 Xanathar.identityRules = function(
   rules, classSelectables, deitiesDomains, paths
 ) {
-
-  QuilvynUtils.checkAttrTable
-    (paths, ['Features', 'Selectables', 'Group', 'Level', 'SpellAbility', 'SpellSlots', 'Spells']);
-
+  SRD5E.identityRules(rules, {}, {}, {}, {}, paths, {});
   for(var clas in classSelectables) {
     SRD5E.featureListRules
       (rules, QuilvynUtils.getAttrValueArray('Selectables=' + classSelectables[clas], 'Selectables'), clas, 'levels.' + clas, true);
   }
   var allDeities = rules.getChoices('deities');
   for(var deity in deitiesDomains) {
-    if(deity in allDeities) {
-      var attrs = allDeities[deity].replace('Domain=', 'Domain="' + deitiesDomains[deity] + '",');
-      delete allDeities[deity];
-      rules.choiceRules(rules, 'Deity', deity, attrs);
+    if(!(deity in allDeities)) {
+      console.log('Unknown deity "' + deity + '"');
+      continue;
     }
+    var attrs = allDeities[deity].replace('Domain=', 'Domain="' + deitiesDomains[deity] + '",');
+    delete allDeities[deity];
+    rules.choiceRules(rules, 'Deity', deity, attrs);
   }
   for(var path in paths) {
-    rules.choiceRules(rules, 'Path', path, paths[path]);
     Xanathar.pathRulesExtra(rules, path);
   }
-
 };
 
 /* Defines rules related to magic use. */
 Xanathar.magicRules = function(rules, spells, spellsLevels) {
-
-  QuilvynUtils.checkAttrTable
-    (spells, ['School', 'Group', 'Level', 'Description']);
-
-  var s;
-  for(s in spells) {
-    rules.choiceRules(rules, 'Spell', s, spells[s]);
-  }
-  for(s in spellsLevels) {
+  SRD5E.magicRules(rules, {}, spells);
+  for(var s in spellsLevels) {
     if(!PHB5E.SPELLS[s]) {
       console.log('Unknown spell "' + s + '"');
       continue;
@@ -1433,14 +1422,11 @@ Xanathar.magicRules = function(rules, spells, spellsLevels) {
     rules.choiceRules
       (rules, 'Spell', s, PHB5E.SPELLS[s] + ' Level=' + spellsLevels[s]);
   }
-
 };
 
 /* Defines rules related to character aptitudes. */
-Xanathar.talentRules = function(
-  rules, feats, features, goodies, languages, skills, tools
-) {
-  SRD5E.talentRules(rules, feats, features, goodies, languages, skills, tools);
+Xanathar.talentRules = function(rules, feats, features, tools) {
+  SRD5E.talentRules(rules, feats, features, {}, {}, {}, tools);
   for(var f in feats) {
     Xanathar.featRulesExtra(rules, f);
   }
