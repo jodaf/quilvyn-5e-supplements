@@ -40,9 +40,8 @@ function Tasha(edition, rules) {
     rules, Tasha.CLASSES, Tasha.CLASSES_FEATURES_ADDED,
     Tasha.CLASSES_SELECTABLES_ADDED, Tasha.DEITIES_DOMAINS_ADDED, Tasha.PATHS
   );
-  SRD5E.magicRules(rules, {}, Tasha.SPELLS);
-  Tasha.magicRules(rules, Tasha.SPELLS_LEVELS_ADDED);
-  SRD5E.talentRules(rules, Tasha.FEATS, Tasha.FEATURES, {}, {}, {}, {});
+  Tasha.magicRules(rules, Tasha.SPELLS, Tasha.SPELLS_LEVELS_ADDED);
+  Tasha.talentRules(rules, Tasha.FEATS, Tasha.FEATURES);
 
 }
 
@@ -233,7 +232,7 @@ if(Window.Dragonlance) {
   Tasha.DEITY_DOMAINS_ADDED['Dragonlance-Paladine'] = 'Peace';
 }
 Tasha.FEATS = {
-  'Artificier Initiate':'',
+  'Artificer Initiate':'',
   'Chef':'',
   'Crusher':'',
   'Eldritch Adept':
@@ -296,33 +295,66 @@ Tasha.FEATURES = {
     'Note="Spend 1 hr to create 1 set of artisan\'s tools 1/short rest"',
   'Tool Expertise':'Section=feature Note="Dbl proficiency when using tools"',
   // Feats
-  'Artificier Initiate':'Section=feature Note="TODO"',
-  'Chef':'Section=feature Note="TODO"',
-  'Crusher':'Section=feature Note="TODO"',
-  'Eldritch Adept':'Section=feature Note="TODO"',
-  'Fey Touched':'Section=feature Note="TODO"',
-  'Fighting Initiate':'Section=feature Note="TODO"',
-  'Gunner':'Section=feature Note="TODO"',
-  'Metamagic Adept':'Section=feature Note="TODO"',
+  'Artificer Initiate':
+    'Section=magic,skill ' +
+    'Note="Know 2 A0 spells, cast 1 A1 spell/long rest",' +
+         '"Tool Proficiency (Choose 1 from any Artisan)"',
+  'Chef':
+    'Section=ability,feature,skill ' +
+    'Note="+1 Constitution or Wisdom",' +
+         '"Food prepared during short rest heals +1d8 HP to %{proficiencyBonus+4}; treats prepared during long rest give %{proficiencyBonus} temporary HP to %{proficiencyBonus}",' +
+         '"Tool Proficiency (Cook\'s Utensils)"',
+  'Crusher':
+    'Section=ability,combat ' +
+    'Note="+1 Constitution or Strength",' +
+         '"Blugeoning hit moves foe 5\' and gives foes Adv on attacks for 1 rd"',
+  'Eldritch Adept':'Section=magic Note="Learn 1 Eldritch Invocation"',
+  'Fey Touched':
+    'Section=ability,magic ' +
+    'Note="+1 Charisma, Intelligence, or Wisdom",' +
+         '"Know <i>Misty Step</i> and 1 level 1 Divination or Enchantment spell"',
+  'Fighting Initiate':'Section=feature Note="Learn 1 Fighting Style"',
+  'Gunner':
+    'Section=ability,combat,feature ' +
+    'Note="+1 Dexterity",' +
+         '"Attacks not slowed by loading, no Disadv on ranged attacks w/in 5\' of foe",' +
+         '"Weapon Proficiency (Firearms)"',
+  'Metamagic Adept':
+    'Section=feature Note="Gain 2 Sorcery Points, learn 2 Metamagic options"',
   'Piercer':
     'Section=ability,combat ' +
     'Note=' +
-      '"Ability Boost (Choose 1 from Strength, Dexterity)",' +
-      '"Additional piercing crit die, reroll 1 piercing damage die 1/tn"',
+      '"+1 Strength or Dexterity",' +
+      '"Additional piercing crit die, reroll 1 piercing damage die 1/rd"',
   'Poisoner':
     'Section=combat,skill ' +
     'Note=' +
-      '"Ignore poison resistance, poison-coated weapon +2d8 HP (DC 14 Con neg)",' +
+      '"Ignore poison resistance, poison-coated weapon inflicts +2d8 HP poison and poisoned for 1 rd (DC 14 Con neg)",' +
       '"Tool Proficiency (Poisoner\'s Kit)"',
   'Shadow Touched':
     'Section=ability,magic ' +
     'Note=' +
-      '"Ability Boost (Choose 1 from Intelligence, Wisdom, Charisma)",' +
-      '"Learn <i>Invisibility</i>, cast chosten 1st-level spell 1/long rest"',
-  'Skill Expert':'Section=feature Note="TODO"',
-  'Slasher':'Section=feature Note="TODO"',
-  'Telekinetic':'Section=feature Note="TODO"',
-  'Telepathic':'Section=feature Note="TODO"',
+      '"+1 Intelligence, Wisdom, or Charisma",' +
+      '"Learn <i>Invisibility</i>, cast chosten 1st-level Illusion or Necromancy spell 1/long rest"',
+  'Skill Expert':
+    'Section=ability,feature,skill ' +
+    'Note="+1 Ability Boosts",' +
+         '"Skill Proficiency (Choose 1 from any)",' +
+         '"Dbl proficiency in chosen skill"',
+  'Slasher':
+    'Section=ability,combat ' +
+    'Note="+1 Strength or Dexterity",' +
+         '"Slashing damage inflicts -10 Speed for 1 rd, slashing crit inflicts Disadv on attacks for 1 rd"',
+  'Telekinetic':
+    'Section=ability,combat,magic ' +
+    'Note="+1 Charisma, Intelligence, or Wisdom",' +
+         '"R30\' Telepathic shove moves target 5\' (Str neg)",' +
+         '"Learn <i>Mage Hand</i>"',
+  'Telepathic':
+    'Section=ability,feature,magic ' +
+    'Note="+1 Charisma, Intelligence, or Wisdom",' +
+         '"R60\' Speak telepathically",' +
+         '"Cast <i>Detect Thoughts</i> 1/long rest"',
   // Paths
   'Alchemical Savant':
     'Section=magic ' +
@@ -642,11 +674,11 @@ Tasha.SPELLS = {
   'Blade Of Disaster':
     'School=Conjuration ' +
     'Level=K9,S9,W9 ' +
-    'Description="Planar blade move 30\'/tn, two attacks 4d12 HP force x3@18 for conc + 1 min"',
+    'Description="Self controls rift blade that moves 30\' and attacks twice/rd, inflicting 4d12 HP force x3@18 each, for conc + 1 min"',
   'Dream Of The Blue Veil':
     'School=Conjuration ' +
     'Level=B7,K7,S7,W7 ' +
-    'Description="Self and 8 willing others travel to another world for 6 hr"',
+    'Description="R20\' Self and 8 willing others travel to another world for 6 hr"',
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
@@ -654,7 +686,7 @@ Tasha.SPELLS = {
   'Intellect Fortress':
     'School=Abjuration ' +
     'Level=A3,B3,K3,S3,W3 ' +
-    'Description="R30\' Willing target Resistance to psychic damage, Adv Int, Wis, and Cha saves for conc or 1 hr"',
+    'Description="R30\' Willing target gains resistance to psychic damage and Adv on Int, Wis, and Cha saves for conc or 1 hr"',
   'Lightning Lure':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
@@ -662,43 +694,43 @@ Tasha.SPELLS = {
   'Mind Sliver':
     'School=Enchantment ' +
     'Level=K0,S0,W0 ' +
-    'Description="R60\' Target %{($L+7)//6}d6 HP psychic, -1d4 next save (Int neg)"',
+    'Description="R60\' Target suffers %{($L+7)//6}d6 HP psychic and -1d4 next save (Int neg) for 1 rd"',
   'Spirit Shroud':
     'School=Necromancy ' +
     'Level=C3,K3,P3,W3 ' +
-    'Description="Self hits +1d8 HP radiant, necrotic, or cold, target w/in 10\' -10\' Speed for conc or 1 min"',
+    'Description="Self hits inflict +1d8 HP radiant, necrotic, or cold; R10\' target suffers -10\' Speed for 1 rd for conc or 1 min"',
   'Summon Aberration':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
-    'Description="R90\' Summoned beholderkin, slaad, or star spawn aberrant spirit obeys commands for conc or 1 hr"',
+    'Description="R90\' Summoned beholderkin, slaad, or star spawn obeys self for conc or 1 hr"',
   'Summon Beast':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
-    'Description="R90\' Summoned air, land, or water bestial spirit obeys commands for conc or 1 hr"',
+    'Description="R90\' Summoned air, land, or water bestial spirit obeys self for conc or 1 hr"',
   'Summon Celestial':
     'School=Conjuration ' +
     'Level=C5,P5 ' +
-    'Description="R90\' Summoned avenger or defender celestial spirit obeys commands for conc or 1 hr"',
+    'Description="R90\' Summoned avenger or defender celestial spirit obeys self for conc or 1 hr"',
   'Summon Construct':
     'School=Conjuration ' +
     'Level=A4,W4 ' +
-    'Description="R90\' Summoned clay, metal, or stone construct spirit obeys commands for conc or 1 hr"',
+    'Description="R90\' Summoned clay, metal, or stone construct spirit obeys self for conc or 1 hr"',
   'Summon Elemental':
     'School=Conjuration ' +
     'Level=D4,R4,W4 ' +
-    'Description="R90\' Summoned air, earth, fire, or water elemental spirit obeys commands for conc or 1 hr"',
+    'Description="R90\' Summoned air, earth, fire, or water elemental spirit obeys self for conc or 1 hr"',
   'Summon Fey':
     'School=Conjuration ' +
     'Level=D3,R3,K3,W3 ' +
-    'Description="R90\' Summoned fuming, mirthful, or ticksy fey spirit obeys commands for conc or 1 hr"',
+    'Description="R90\' Summoned fuming, mirthful, or ticksy fey spirit obeys self for conc or 1 hr"',
   'Summon Fiend':
     'School=Conjuration ' +
     'Level=K6,W6 ' +
-    'Description="R90\' Summoned demon, devil, or yugoloth fiendish spirit obeys commands for conc or 1 hr"',
+    'Description="R90\' Summoned demon, devil, or yugoloth fiendish spirit obeys self for conc or 1 hr"',
   'Summon Shadowspawn':
     'School=Conjuration ' +
     'Level=K3,W3 ' +
-    'Description="R90\' Summoned fury, despair, or fear shadow spirit obeys commands for conc or 1 hr"',
+    'Description="R90\' Summoned fury, despair, or fear shadow spirit obeys self for conc or 1 hr"',
   'Summon Undead':
     'School=Necromancy ' +
     'Level=K3,W3 ' +
@@ -710,15 +742,15 @@ Tasha.SPELLS = {
   "Tasha's Caustic Brew":
     'School=Evocation ' +
     'Level=A1,S1,W1 ' +
-    'Description="30\'x5\' line 2d4 HP/rd acid for conc or 1 min (Dex neg)"',
+    'Description="30\'x5\' line inflicts 2d4 HP/rd acid for conc or 1 min (Dex neg)"',
   "Tasha's Mind Whip":
     'School=Enchantment ' +
     'Level=S2,W2 ' +
-    'Description="R90\' Target 3d6 HP psychic, single action next tn (Int half, no action reduction)"',
+    'Description="R90\' Target suffers 3d6 HP psychic and single action next rd (Int half, normal action)"',
   "Tasha's Otherworldly Guise":
     'School=Transmutation ' +
     'Level=K6,S6,W6 ' +
-    'Description="Self 40\' Fly Speed, +2 AC, attacks magical and use spell ability modifier, extra attack, immune fire, poison, and poisoned (Lower Planes) or radiant, necrotic, and charmed (Upper Planes) for conc or 1 min"'
+    'Description="Self gains immunity to fire and poison damage and poisoned condition or raidant and necrotic damage and charmed condition, 40\' fly, +2 AC, two +%{spellAttackModifier.K||spellAttackModifier.S||spellAttackModifier.W} magical weapon attacks/rd for conc or 1 min"'
 };
 Tasha.SPELLS_LEVELS_ADDED = {
   'Acid Splash':'A0',
@@ -907,16 +939,9 @@ if(window.Xanathar) {
 Tasha.identityRules = function(
   rules, classes, classFeatures, classSelectables, deitiesDomains, paths
 ) {
-
-  QuilvynUtils.checkAttrTable
-    (classes, ['Require', 'HitDie', 'Features', 'Selectables', 'Languages', 'CasterLevelArcane', 'CasterLevelDivine', 'SpellAbility', 'SpellSlots', 'Spells']);
-  QuilvynUtils.checkAttrTable
-    (paths, ['Features', 'Selectables', 'Group', 'Level', 'SpellAbility', 'SpellSlots', 'Spells']);
-
+  SRD5E.identityRules(rules, {}, {}, classes, {}, paths, {});
   var clas;
-
   for(clas in classes) {
-    rules.choiceRules(rules, 'Class', clas, classes[clas]);
     Tasha.classRulesExtra(rules, clas);
   }
   for(clas in classFeatures) {
@@ -941,11 +966,11 @@ Tasha.identityRules = function(
     rules.choiceRules(rules, 'Path', path, paths[path]);
     Tasha.pathRulesExtra(rules, path);
   }
-
 };
 
 /* Defines rules related to magic use. */
-Tasha.magicRules = function(rules, spellsLevels) {
+Tasha.magicRules = function(rules, spells, spellsLevels) {
+  SRD5E.magicRules(rules, {}, spells);
   for(var s in spellsLevels) {
     var defn = PHB5E.SPELLS[s] || (window.Xanathar ? Xanathar.SPELLS[s] : null);
     if(!defn) {
@@ -953,6 +978,14 @@ Tasha.magicRules = function(rules, spellsLevels) {
       continue;
     }
     rules.choiceRules(rules, 'Spell', s, defn + ' Level=' + spellsLevels[s]);
+  }
+};
+
+/* Defines rules related to character aptitudes. */
+Tasha.talentRules = function(rules, feats, features) {
+  SRD5E.talentRules(rules, feats, features, {}, {}, {}, {});
+  for(var f in feats) {
+    Tasha.featRulesExtra(rules, f);
   }
 };
 
@@ -988,6 +1021,51 @@ Tasha.classRulesExtra = function(rules, name) {
     );
   }
 
+};
+
+/*
+ * Defines in #rules# the rules associated with feat #name# that cannot be
+ * derived directly from the attributes passed to featRules.
+ */
+Tasha.featRulesExtra = function(rules, name) {
+  if(name == 'Artificer Initiate') {
+    rules.defineRule
+      ('casterLevels.A', 'magicNotes.artificerInitiate', '^=', '1');
+    rules.defineRule
+      ('spellSlots.A0', 'magicNotes.artificerInitiate', '+=', '2');
+    rules.defineRule
+      ('spellSlots.A1', 'magicNotes.artificerInitiate', '+=', '1');
+  } else if(name == 'Chef') {
+    rules.defineRule('abilityBoosts', 'abilityNotes.chef', '+=', '1');
+  } else if(name == 'Crusher') {
+    rules.defineRule('abilityBoosts', 'abilityNotes.crusher', '+=', '1');
+  } else if(name == 'Eldritch Adept') {
+    rules.defineRule('selectableFeatureCount.Warlock (Eldritch Invocation)',
+      'magicNotes.eldritchAdept', '+=', '1'
+    );
+  } else if(name == 'Fey Touched') {
+    rules.defineRule('abilityBoosts', 'abilityNotes.feyTouched', '+=', '1');
+  } else if(name == 'Fighting Initiate') {
+    rules.defineRule('selectableFeatureCount.Fighter (Fighting Style)',
+      'featureNotes.fightingInitiate', '+=', '1'
+    );
+  } else if(name == 'Metamagic Adept') {
+    rules.defineRule('selectableFeatureCount.Sorcerer (Metamagic)',
+      'featureNotes.metamagicAdept', '+=', '2'
+    );
+    rules.defineRule
+      ('magicNotes.fontOfMagic', 'featureNotes.metamagicAdept', '+=', '2');
+  } else if(name == 'Piercer') {
+    rules.defineRule('abilityBoosts', 'abilityNotes.piercer', '+=', '1');
+  } else if(name == 'Shadow Touched') {
+    rules.defineRule('abilityBoosts', 'abilityNotes.shadowTouched', '+=', '1');
+  } else if(name == 'Slasher') {
+    rules.defineRule('abilityBoosts', 'abilityNotes.slasher', '+=', '1');
+  } else if(name == 'Telekinetic') {
+    rules.defineRule('abilityBoosts', 'abilityNotes.telekinetic', '+=', '1');
+  } else if(name == 'Telepathic') {
+    rules.defineRule('abilityBoosts', 'abilityNotes.telepathic', '+=', '1');
+  }
 };
 
 /*
