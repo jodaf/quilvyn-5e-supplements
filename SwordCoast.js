@@ -239,7 +239,7 @@ SwordCoast.CLASSES_SELECTABLES_ADDED = {
   'Warlock':
     '"1:The Undying:Otherworldly Patron"',
   'Wizard':
-    '"race =~ \'Elf\' ? 2:Bladesinging:Arcane Tradition"'
+    '"race =~ \'Elf\' ? 2:Bladesinging:Arcane Tradition"' // also Tasha
 };
 SwordCoast.DEITIES = {
   // Faerun
@@ -586,7 +586,7 @@ SwordCoast.PATHS_ADDED = {
       'Arcana3:5=2,' +
       'Arcana4:7=2,' +
       'Arcana5:9=2',
-  'Bladesinging':
+  'Bladesinging': // Copied from Tasha
     'Group=Wizard Level=levels.Wizard ' +
     'Features=' +
       '"2:Training In War And Song","2:Bladesong","6:Extra Attack",' +
@@ -675,6 +675,7 @@ SwordCoast.RACES_RENAMED = {
   'Stout Halfling':['Strongheart Halfling']
 };
 SwordCoast.SPELLS_ADDED = {
+  // Copied from Tasha
   'Booming Blade':
     'School=Evocation ' +
     'Level=K0,S0,W0 ' +
@@ -769,6 +770,7 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       pathLevel, '=', 'source>=5 ? ", banish up to CR " + (source<8 ? "1/2" : source>=17 ? 4 : Math.floor((source - 5) / 3)) : ""'
     );
   } else if(name == 'Bladesinging') {
+    // Copied from Tasha's
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
     rules.defineRule
