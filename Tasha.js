@@ -58,15 +58,16 @@ Tasha.CLASSES = {
       '"1:Tool Proficiency (Thieves\' Tools/Tinker\'s Tools/Choose 1 from any Artisan)",' +
       '"1:Weapon Proficiency (Simple)",' +
       '"1:Magical Tinkering","1:Ritual Casting",1:Spellcasting,' +
-      '"2:Infuse Item","3:Artificer Specialist",' +
-      '"3:The Right Tool For The Job","6:Tool Expertise","7:Flash Of Genius",' +
-      '"10:Magic Item Adept","11:Spell-Storing Item","14:Magic Item Savant",' +
-      '"18:Magic Item Master","20:Soul Of Artifice" ' +
+      '"2:Infuse Item","3:The Right Tool For The Job","6:Tool Expertise",' +
+      '"7:Flash Of Genius","10:Magic Item Adept","11:Spell-Storing Item",' +
+      '"14:Magic Item Savant","18:Magic Item Master","20:Soul Of Artifice" ' +
     'Selectables=' +
       '"3:Alchemist:Specialist",' +
       '"3:Armorer:Specialist",' +
       '"3:Artillerist:Specialist",' +
       '"3:Battle Smith:Specialist",' +
+      '"3:Guardian Armor:Armor Model",' +
+      '"3:Infiltrator Armor:Armor Model",' +
       '"14:Arcane Propulsion Armor:Infusion",' +
       '"2:Armor Of Magical Strength:Infusion",' +
       '"6:Boots Of The Winding Path:Infusion",' +
@@ -158,7 +159,11 @@ Tasha.CLASSES_SELECTABLES_ADDED = {
     '"1:Fighting Style (Blind Fighting):Fighting Style",' +
     '"1:Fighting Style (Interception):Fighting Style",' +
     '"1:Fighting Style (Superior Technique):Fighting Style",' +
+    '"1:Fighting Style (Thrown Weapon Fighting):Fighting Style",' +
     '"1:Fighting Style (Unarmed Fighting):Fighting Style",' +
+    '"3:Ambush:Maneuver","3:Bait And Switch:Maneuver","3:Brace:Maneuver",' +
+    '"3:Commanding Presence:Maneuver","3:Grappling Strike:Maneuver",' +
+    '"3:Quick Toss:Maneuver","3:Tactical Assessment:Maneuver",' +
     '"3:Psi Warrior:Martial Archetype",' +
     '"3:Rune Knight:Martial Archetype"',
   'Monk':
@@ -178,14 +183,14 @@ Tasha.CLASSES_SELECTABLES_ADDED = {
     '"3:Swarmkeeper:Ranger Archetype"',
   'Rogue':
     '"3:Phantom:Roguish Archetype",' +
-    '"3:Soul Knife:Roguish Archetype"',
+    '"3:Soulknife:Roguish Archetype"',
   'Sorcerer':
     '"1:Aberrant Mind:Sorcerous Origin",' +
     '"1:Clockwork Soul:Sorcerous Origin",' +
     '"3:Seeking Spell:Metamagic",' +
     '"3:Transmuted Spell:Metamagic"',
   'Warlock':
-    '"1:Fathomless:Otherworldly Patron",' +
+    '"1:The Fathomless:Otherworldly Patron",' +
     '"1:The Genie:Otherworldly Patron",' +
     '"3:Pact Of The Talisman:Pact Boon",' +
     '"features.Pact Of The Talisman ? 12:Bond Of The Talisman:Eldritch Invocation",' +
@@ -197,7 +202,7 @@ Tasha.CLASSES_SELECTABLES_ADDED = {
     '"features.Pact Of The Talisman ? 2:Rebuke Of The Talisman:Eldritch Invocation",' +
     '"2:Undying Servitude:Eldritch Invocation"',
   'Wizard':
-    '"2:Bladesinger:Arcane Tradition",' +
+    '"2:Bladesinging:Arcane Tradition",' +
     '"2:Order Of Scribes:Arcane Tradition"'
 };
 Tasha.DEITIES_DOMAINS_ADDED = {
@@ -249,25 +254,28 @@ Tasha.FEATS = {
 };
 Tasha.FEATURES = {
   // Class
-  'Artificer Specialist':'Section=feature Note="TODO"',
-  'Flash Of Genius':'Section=feature Note="TODO"',
-  'Infuse Item':'Section=feature Note="TODO"',
-  'Magic Item Adept':'Section=feature Note="TODO"',
-  'Magic Item Master':'Section=feature Note="TODO"',
-  'Magic Item Savant':'Section=feature Note="TODO"',
-  'Magical Tinkering':'Section=feature Note="TODO"',
-  'Soul Of Artifice':'Section=feature Note="TODO"',
-  'The Right Tool For The Job':'Section=feature Note="TODO"',
-  'Spell-Storing Item':'Section=feature Note="TODO"',
-  'Tool Expertise':'Section=feature Note="TODO"',
   'Arcane Propulsion Armor':'Section=feature Note="TODO"',
   'Armor Of Magical Strength':'Section=feature Note="TODO"',
   'Boots Of The Winding Path':'Section=feature Note="TODO"',
   'Enhanced Arcane Focus':'Section=feature Note="TODO"',
   'Enhanced Defense':'Section=feature Note="TODO"',
   'Enhanced Weapon':'Section=feature Note="TODO"',
+  'Flash Of Genius':
+    'Section=feature ' +
+    'Note="R30\' Use Reaction to give ally +%{intelligenceModifier} on ability check or saving throw %{intelligenceModifier>?1}/long rest"',
   'Helm Of Awareness':'Section=feature Note="TODO"',
   'Homunculous Servant':'Section=feature Note="TODO"',
+  'Infuse Item':'Section=feature Note="%V selections infused into %1 items"',
+  'Magic Item Adept':
+    'Section=feature ' +
+    'Note="Attune %V items at once, craft uncommon magic items in 1/4 time at 1/2 cost"',
+  'Magic Item Master':'Section=feature Note="Attune 6 items at once"',
+  'Magic Item Savant':
+    'Section=feature ' +
+    'Note="Attune 5 items at once and ignore attunement and use requirements"',
+  'Magical Tinkering':
+   'Section=magic ' +
+   'Note="Imbue %{intelligenceModifier>?1} objects with light, messsage, sound, odor, or picture"',
   'Mind Sharpener':'Section=feature Note="TODO"',
   'Radiant Weapon':'Section=feature Note="TODO"',
   'Repeating Shot':'Section=feature Note="TODO"',
@@ -275,7 +283,18 @@ Tasha.FEATURES = {
   'Repulsion Shield':'Section=feature Note="TODO"',
   'Resistant Armor':'Section=feature Note="TODO"',
   'Returning Weapon':'Section=feature Note="TODO"',
+  'Soul Of Artifice':
+    'Section=combat,save ' +
+    'Note="+1 save bonus for each attunement",' +
+         '"End 1 attunement when reduced to 0 HP to retain 1 HP"',
   'Spell-Refueling Ring':'Section=feature Note="TODO"',
+  'Spell-Storing Item':
+    'Section=feature ' +
+    'Note="Store A1 or A2 spell in item to be cast %{intelligenceModifier*2>?2} times"',
+  'The Right Tool For The Job':
+    'Section=feature ' +
+    'Note="Spend 1 hr to create 1 set of artisan\'s tools 1/short rest"',
+  'Tool Expertise':'Section=feature Note="Dbl proficiency when using tools"',
   // Feats
   'Artificier Initiate':'Section=feature Note="TODO"',
   'Chef':'Section=feature Note="TODO"',
@@ -307,42 +326,75 @@ Tasha.FEATURES = {
   // Paths
   'Alchemical Savant':
     'Section=magic ' +
-    'Note="+%{intelligenceModifier>?1} on spell healing or acid, fire, necrotic or poison damage"',
+    'Note="+%{intelligenceModifier>?1} bonus to spell healing and acid, fire, necrotic or poison damage"',
   'Alchemist Bonus Proficiecy':
     'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
-  'Alchemist Spells':'Section=feature Note="TODO"',
-  'Arcane Armor':'Section=feature Note="TODO"',
-  'Arcane Firearm':'Section=feature Note="TODO"',
-  'Arcane Jolt':'Section=feature Note="TODO"',
-  'Armor Modifications':'Section=feature Note="TODO"',
-  'Armorer Spells':'Section=feature Note="TODO"',
+  'Arcane Armor':
+    'Section=combat ' +
+    'Note="Self armor negates any Str requirement, covers whole body including missing limbs, can be taken on or off in 1 action"',
+  'Arcane Firearm':
+    'Section=magic ' +
+    'Note="Spells cast through prepared wand, staff, or rod inflict +1d8 HP damage"',
+  'Arcane Jolt':
+    'Section=combat ' +
+    'Note="Magic weapon or Steel Defender attack inflicts +%Vd6 HP force or heals 1 target in 30\' radius %Vd6 HP %{intelligenceModifier>?1}/long rest"',
+  'Armor Modifications':
+    'Section=feature Note="+2 Infused Items, infuse into armor sections"',
   'Artillerist Bonus Proficiency':
     'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
-  'Artillerist Spells':'Section=feature Note="TODO"',
-  'Battle Ready':'Section=feature Note="TODO"',
+  'Battle Ready':
+    'Section=combat,feature ' +
+    'Note="+%{intelligenceModifier-strengthModifier} (Int instead of Str) or +%{intelligenceModifier-dexterityModifier} (Int instead of Dex) attack and damage w/magic weapons",' +
+         '"Weapon Proficiency (Martial)"',
   'Battle Smith Bonus Proficiency':
     'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
-  'Battle Smith Spells':'Section=feature Note="TODO"',
-  'Chemical Mastery':'Section=feature Note="TODO"',
-  'Eldritch Cannon':'Section=feature Note="TODO"',
-  'Experimental Elixir':'Section=feature Note="TODO"',
-  'Explosive Cannon':'Section=feature Note="TODO"',
+  'Chemical Mastery':
+    'Section=magic,save ' +
+    'Note="Cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
+         '"Resistance to acid and poison damage, immune to poisoned condition"',
+  'Dampening Field':'Section=skill Note="Armor gives Adv on Stealth"',
+  'Defensive Field':
+    'Section=combat ' +
+    'Note="Armor gives %{level} temporary HP %{proficiencyBonus}/long rest"',
+  'Eldritch Cannon':
+    'Section=combat ' +
+    'Note="Create Eldritch Cannon (AC 18, %{levels.Artificer*5} HP, MV 15\') flamethrower (15\' cone inflicts %Vd8 HP fire (DC %1 Dex half)), force ballista (R120\' inflicts %Vd8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary HP)"',
+  'Experimental Elixir':
+    'Section=magic ' +
+    'Note="After long rest, create %V elixirs of healing, swiftness, resilience, boldness, flight, or transformation"',
+  'Explosive Cannon':
+    'Section=combat ' +
+    'Note="Eldritch Cannon +1d8 HP damage, command explosion to inflict 3d8 HP force (DC %V Dex half) in 20\' radius"',
   'Extra Attack':'Section=feature Note="TODO"',
-  'Fortified Position':'Section=feature Note="TODO"',
-  'Improved Defender':'Section=feature Note="TODO"',
-  'Perfected Armor':'Section=feature Note="TODO"',
-  'Restorative Regents':'Section=feature Note="TODO"',
-  'Steel Defender':'Section=feature Note="TODO"',
+  'Fortified Position':
+    'Section=combat ' +
+     'Note="Create 2nd Eldritch Cannon, half cover w/in 10\' of Eldritch Cannon"',
+  'Lightning Launcher':
+    'Section=combat ' +
+    'Note="Range 90/300 attack inflicts 1d6 HP lightning, +1d6 lightning 1/rd"',
+  'Improved Defender':
+     'Section=combat Note="Arcane Jolt effect +2d6, Steel Defender +2 AC and Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
+  'Perfected Armor (Guardian Armor)':
+    'Section=combat ' +
+    'Note="R30\' Use Reaction to pull creature up to 30\' and attack if w/in 5\' afterward %{proficiencyBonus}/long rest"',
+  'Perfected Armor (Infiltrator Armor)':
+    'Section=combat Note="Lightning Launcher inflicts glow, Disadv attacks, and foe Adv attacks and +1d6 HP lightning for 1 rd"',
+  'Restorative Regents':
+    'Section=magic ' +
+    'Note="Cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest, elixirs give 2d6+%{intelligenceModifier>?1} temporary HP"',
+  'Steel Defender':
+    'Section=combat ' +
+    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier}, Attack +%{proficiencyBonus+intelligenceModifier} inflicts 1d8+%{proficiencyBonus}, MV 40\', Dex Save +%{proficiencyBonus+1}, Con save +%{proficiencyBonus+2}, immune poison, charmed, exhaustion, poisoned, surprise)"',
   'Tools Of The Trade':
     'Section=feature ' +
     'Note="Armor Proficiency (Heavy)/Tool Proficiency (Smith\'s Tools)"',
   'Bladesong':
     'Section=ability,combat,magic,skill ' +
     'Note=' +
-      '"+10 Speed in light or no armor for 1 min 2/short rest",' +
-      '"+%V AC in light or no armor for 1 min 2/short rest",' +
-      '"+%V Concentration in light or no armor to retain spell for 1 min 2/short rest",' +
-      '"Adv Acrobatics in light or no armor for 1 min 2/short rest"',
+      '"+10 Speed in light or no armor and no shield for 1 min 2/short rest",' +
+      '"+%V AC in light or no armor and no shield for 1 min 2/short rest",' +
+      '"+%V Concentration to retain spell in light or no armor and no shield for 1 min 2/short rest",' +
+      '"Adv on Acrobatics in light or no armor and no shield for 1 min 2/short rest"',
   'Extra Attack':
     'Section=combat Note="+%V Attacks Per Round"',
   'Infectious Inspiration':
@@ -351,6 +403,7 @@ Tasha.FEATURES = {
   'Magical Guidance':
     'Section=feature ' +
     'Note="Spend 1 Sorcery Point to reroll failed ability check"',
+  'Powered Steps':'Section=ability Note="Armor gives +5 Speed"',
   'Psionic Sorcery':
     'Section=magic ' +
     'Note="Cast spell using Sorcery Points instead of spell slot"',
@@ -367,13 +420,15 @@ Tasha.FEATURES = {
   'Silver Tongue':
     'Section=skill Note="Min 10 roll on Deception and Persuasion"',
   'Song Of Defense':
-    'Section=magic Note="Expend spell slot to reduce damage by 5x slot level"',
-  'Song Of Victory':'Section=combat Note="+%V damage for 1 min 2/short rest"',
+    'Section=magic Note="Use Reaction and expend spell slot to reduce damage by 5x slot level"',
+  'Song Of Victory':
+    'Section=combat Note="+%V HP melee weapon damage during Bladesong"',
   'Sorcerous Versatility':
     'Section=magic Note="Exchange Metamagic option or Cantrip"',
   'Telepathic Speech':
     'Section=feature ' +
     'Note="R30\' Communicate telepatically w/target for %{levels.Sorcerer} min"',
+  'Thunder Gauntlets':'Section=combat Note="Each gauntlet inflics 1d8 HP thunder and Disadv on attacks on others for 1 rd"',
   'Training In War And Song':
     'Section=combat,skill ' +
     'Note=' +
@@ -402,27 +457,31 @@ Tasha.PATHS = {
   'Alchemist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Alchemist Bonus Proficiecy","3:Alchemist Spells",' +
-      '"3:Experimental Elixir","5:Alchemical Savant","9:Restorative Regents",' +
-      '"15:Chemical Mastery"',
+      '"3:Alchemist Bonus Proficiecy","3:Experimental Elixir",' +
+      '"features.Guardian Armor ? 3:Thunder Gauntlets",' +
+      '"features.Guardian Armor ? 3:Defensive Field",' +
+      '"features.Infiltrator Armor ? 3:Lightning Launcher",' +
+      '"features.Infiltrator Armor ? 3:Powered Steps",' +
+      '"features.Infiltrator Armor ? 3:Dampening Field",' +
+      '"5:Alchemical Savant","9:Restorative Regents","15:Chemical Mastery"',
   'Armorer':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Arcane Armor","3:Armor Model","3:Armorer Spells",' +
-      '"3:Tools Of The Trade","5:Extra Attack","9:Armor Modifications",' +
-      '"15:Perfected Armor"',
+      '"3:Arcane Armor","3:Tools Of The Trade","5:Extra Attack",' +
+      '"9:Armor Modifications",' +
+      '"features.Guardian Armor ? 15:Perfected Armor (Guardian Armor)",' +
+      '"features.Infiltrator Armor ? 15:Perfected Armor (Infiltrator Armor)"',
   'Artillerist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Artillerist Bonus Proficiency","3:Artillerist Spells",' +
-      '"3:Eldritch Cannon","5:Arcane Firearm","9:Explosive Cannon",' +
-      '"15:Fortified Position"',
+      '"3:Artillerist Bonus Proficiency","3:Eldritch Cannon",' +
+      '"5:Arcane Firearm","9:Explosive Cannon","15:Fortified Position"',
   'Battle Smith':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
       '"3:Battle Ready","3:Battle Smith Bonus Proficiency",' +
-      '"3:Battle Smith Spells","3:Steel Defender","5:Extra Attack",' +
-      '"9:Arcane Jolt","15:Improved Defender"',
+      '"3:Steel Defender","5:Extra Attack","9:Arcane Jolt",' +
+      '"15:Improved Defender"',
   'Bladesinging':
     'Group=Wizard Level=levels.Wizard ' +
     'Features=' +
@@ -579,7 +638,7 @@ Tasha.SPELLS = {
   'Booming Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Weapon attack does +%{($L+1)//6}d8 HP thunder +%{($L+7)//6}d8 HP if target moves before next tn"',
+    'Description="Struck foe suffers +${Math.floor((lvl+1)/6)}d8 HP thunder and ${Math.floor((lvl+1)/6)+1}d8 HP thunder on move for 1 rd"',
   'Blade Of Disaster':
     'School=Conjuration ' +
     'Level=K9,S9,W9 ' +
@@ -591,7 +650,7 @@ Tasha.SPELLS = {
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Weapon attack does +%{($L+1)//6}d8 HP fire +abilityModifier+%{($L+7)//6}d8 HP to another target w/in 5\'"',
+    'Description="Struck foe suffers +%Vd8 HP fire, R5\' target suffers ${Math.floor((lvl+1)/6)}d8+%{charismaModifier>?intelligenceModifier} HP fire"',
   'Intellect Fortress':
     'School=Abjuration ' +
     'Level=A3,B3,K3,S3,W3 ' +
@@ -599,7 +658,7 @@ Tasha.SPELLS = {
   'Lightning Lure':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="R15\' Target pulled 10\' and %{($L+7)//6}d8 HP lightning (Str neg)"',
+    'Description="R15\' Pulls target 10\' and inflicts ${Math.floor((lvl+5)/6)}d8 HP lightning (Str neg)"',
   'Mind Sliver':
     'School=Enchantment ' +
     'Level=K0,S0,W0 ' +
@@ -647,7 +706,7 @@ Tasha.SPELLS = {
   'Sword Burst':
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
-    'Description="R5\' %{($L+7)}d6 HP force (Dex neg)"',
+    'Description="5\' radius inflicts ${Math.floor((lvl+5)/6)}d6 HP force (Dex neg)"',
   "Tasha's Caustic Brew":
     'School=Evocation ' +
     'Level=A1,S1,W1 ' +
@@ -678,19 +737,19 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Banishment':'Watchers4',
   'Beacon Of Hope':'Peace3',
   "Bigby's Hand":'A5,S5',
-  'Blight':'Spores4',
+  'Blight':'A4,Spores4',
   'Blindness/Deafness':'Spores2',
   'Blink':'A3',
   'Blur':'A2',
   'Burning Hands':'Wildfire1',
   'Chill Touch':'Spores1',
   'Circle Of Power':'Twilight5',
-  'Cloudkill':'Spores5',
+  'Cloudkill':'A5,Spores5',
   'Color Spray':'B1',
   'Command':'B1,Order1',
   'Commune':'Glory5,Order5',
   'Compulsion':'Glory4,Order4',
-  'Cone Of Cold':'D5',
+  'Cone Of Cold':'A5,D5',
   'Confusion':'Spores4',
   'Contagion':'Spores5',
   'Continual Flame':'A2,D2',
@@ -700,6 +759,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Cure Wounds':'A1,Wildfire1',
   'Dancing Lights':'A0',
   'Darkvision':'A2',
+  'Death Ward':'A4',
   'Demiplane':'S8',
   'Detect Magic':'A1,Watchers1',
   'Disguise Self':'A1',
@@ -715,29 +775,33 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Fabricate':'A4',
   'Faerie Fire':'A1,Twilight1',
   'Fire Bolt':'A0',
-  'Fire Shield':'D4,S4,Wildfire4',
+  'Fire Shield':'A4,D4,S4,Wildfire4',
+  'Fireball':'A3',
   'Flame Blade':'S2',
   'Flame Strike':'Glory5,Wildfire5',
-  'Flaming Sphere':'S2,Wildfire2',
+  'Flaming Sphere':'A2,S2,Wildfire2',
   'Flesh To Stone':'D6,S6',
   'Fly':'A3',
   'Freedom Of Movement':'A4,Glory4',
-  'Gaseous Form':'Spores3',
+  'Gaseous Form':'A3,Spores3',
   'Gate':'K9',
   'Gentle Repose':'P2,Spores2',
   'Glyph Of Warding':'A3',
   'Grease':'A1,S1',
-  'Greater Invisibility':'Twilight4',
+  'Greater Invisibility':'A4,Twilight4',
   'Greater Restoration':'A5,Peace5,R5',
   'Guidance':'A0',
   'Guiding Bolt':'Glory1',
   'Gust Of Wind':'R2',
   'Haste':'A3,Glory3',
+  'Healing Word':'A1',
   'Heat Metal':'A2',
   "Heroes' Feast":'B6',
   'Heroism':'Glory1,Order1,Peace1',
   'Hold Monster':'Watchers5',
   'Hold Person':'Order2',
+  'Hypnotic Pattern':'A3',
+  'Ice Storm':'A4',
   'Identify':'A1',
   'Incendiary Cloud':'D8',
   'Invisibility':'A2',
@@ -747,23 +811,27 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Lesser Restoration':'A2',
   'Levitate':'A2',
   'Light':'A0',
+  'Lightning Bolt':'A3',
   'Locate Creature':'Order4',
   'Longstrider':'A1',
   'Mage Hand':'A0',
   'Magic Mouth':'A2',
+  'Magic Missile':'A1',
   'Magic Weapon':'A2,Glory2,R2,S2',
   'Mass Cure Wounds':'Wildfire5',
-  'Mass Healing Word':'B3,Order3',
+  'Mass Healing Word':'A3,B3,Order3',
   'Meld Into Stone':'R3',
+  "Melf's Acid Arrow":'A2',
   'Mending':'A0',
   'Message':'A0',
-  'Mirror Image':'B2',
+  'Mirror Image':'A2,B2',
   'Mislead':'K5,Twilight5',
   'Moonbeam':'Twilight2,Watchers2',
   "Mordenkainen's Faithful Hound":'A4',
   'Nondetection':'Watchers3',
   "Otiluke's Freezing Sphere":'S6',
   "Otiluke's Resilient Sphere":'A4,Peace4',
+  'Passwall':'A5',
   'Phantasmal Killer':'B4',
   'Planar Binding':'K5',
   'Plant Growth':'Wildfire3',
@@ -777,16 +845,20 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Protection From Energy':'A3,Glory3',
   'Protection From Poison':'A2',
   'Purify Food And Drink':'A1',
+  'Raise Dead':'A5',
   "Rary's Telepathic Bond":'B5,Peace5',
   'Ray Of Frost':'A0',
+  'Ray Of Sickness':'A1',
   'Revivify':'A3,D3,R3,Wildfire3',
   'Rope Trick':'A2',
   'Sanctuary':'A1,Peace1',
-  'Scorching Ray':'Wildfire2',
+  'Scorching Ray':'A2,Wildfire2',
   'Scrying':'Watchers5',
   'Searing Smite':'R1',
   'See Invisibility':'A2,Twilight2,Watchers2',
   'Sending':'Peace3',
+  'Shatter':'A2',
+  'Shield':'A1',
   'Shocking Grasp':'A0',
   'Sleep':'Twilight1',
   'Slow':'B3,Order3',
@@ -800,14 +872,18 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Symbol':'D7',
   'Teleportation Circle':'K5',
   'Thorn Whip':'A0',
+  'Thunderwave':'A1',
   'Vampiric Touch':'S3',
   'Warding Bond':'Peace2',
+  'Wall Of Fire':'A4',
+  'Wall Of Force':'A5',
   'Wall Of Stone':'A5',
   'Warding Bond':'P2',
   'Water Breathing':'A3',
   'Water Walk':'A3',
   'Web':'A2',
   'Weird':'K9',
+  'Wind Wall':'A3',
   'Zone Of Truth':'Order2',
 };
 if(window.Xanathar) {
@@ -885,14 +961,33 @@ Tasha.magicRules = function(rules, spellsLevels) {
  * derived directly from the attributes passed to classRules.
  */
 Tasha.classRulesExtra = function(rules, name) {
+
+  var classLevel = 'levels.' + name;
+
   if(name == 'Artificer') {
+    rules.defineRule('featureNotes.infuseItem',
+      classLevel, '=', 'source>=2 ? Math.floor((source+6)/4)*2 : null'
+    );
+    rules.defineRule('featureNotes.infuseItem.1',
+      'featureNotes.infuseItem', '=', 'source / 2',
+      'featureNotes.armorModifications', '+', '2'
+    );
+    rules.defineRule('featureNotes.magicItemAdept',
+      classLevel, '=', '4',
+      'featureNotes.magicItemSavant', '^', '5',
+      'featureNotes.magicItemMaster', '^', '6'
+    );
+    rules.defineRule('magicNotes.experimentalElixir',
+      classLevel, '=', 'Math.floor(( source + 12) / 9)'
+    );
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
-      'levels.Artificer', '=', 'source>=2 ? Math.floor((source+6)/4)*2 : null'
+      'featureNotes.infuseItem', '=', null
     );
     rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
-      'levels.Artificer', '=', 'source>=3 ? 1 : null'
+      classLevel, '=', 'source>=3 ? 1 : null'
     );
   }
+
 };
 
 /*
@@ -905,7 +1000,40 @@ Tasha.pathRulesExtra = function(rules, name) {
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
     'Level';
 
-  if(name == 'Bladesinging') {
+  if(name == 'Armorer') {
+    rules.defineRule
+      ('combatNotes.extraAttack', pathLevel, '+=', 'source>=5 ? 1 : null');
+    rules.defineRule('speed', 'abilityNotes.poweredSteps', '+', '5');
+    rules.defineRule('selectableFeatureCount.Artificer (Armor Model)',
+      'features.Armorer', '=', '1'
+    );
+  } else if(name == 'Artillerist') {
+    rules.defineRule('combatNotes.eldritchCannon',
+      pathLevel, '=', '2',
+      'combatNotes.explosiveCannon', '+', '1'
+    );
+    rules.defineRule
+      ('combatNotes.eldritchCannon.1', 'spellDifficultyClass.A', '=', null);
+    rules.defineRule
+      ('combatNotes.explosiveCannon', 'spellDifficultyClass.A', '=', null);
+  } else if(name == 'Battle Smith') {
+    rules.defineRule('combatNotes.arcaneJolt',
+      pathLevel, '=', '2',
+      'combatNotes.improvedDefender', '+', '2'
+    );
+    rules.defineRule
+      ('combatNotes.extraAttack', pathLevel, '+=', 'source>=5 ? 1 : null');
+    rules.defineRule('combatNotes.steelDefender',
+      pathLevel, '=', '15',
+      'combatNotes.improvedDefender', '+', '2'
+    );
+  } else if(name == 'Bladesinging') {
+    // Have to hard-code these proficiencies, since featureRules only handles
+    // notes w/a single type of granted proficiency
+    rules.defineRule
+      ('armorProficiency.Light', 'combatNotes.trainingInWarAndSong', '=', '1');
+    rules.defineRule
+      ('weaponChoiceCount', 'combatNotes.trainingInWarAndSong', '+=', '1');
     rules.defineRule('combatNotes.bladesong',
       'intelligenceModifier', '=', 'Math.max(source, 1)'
     );
