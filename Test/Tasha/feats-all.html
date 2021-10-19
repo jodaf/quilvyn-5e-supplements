@@ -59,7 +59,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><b>Experience</b>: 82073/85000</td>
       <td><b>Level</b>: 10</td>
-      <td><b>Speed</b>: 30</td>
+      <td><b>Speed</b>: 35</td>
       <td><b>Carry/Lift:</b> 240/480</td>
     </tr></table>
 </td>
@@ -81,6 +81,8 @@ var attributes = {
       <td><i>Half-Elf Ability Adjustment: +2 Charisma/+1 any two</i></td>
     </tr><tr style="text-align:center">
       <td><i>Piercer: +1 Strength or Dexterity</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Roving: +5 Speed/35' climb/35' swim</i></td>
     </tr><tr style="text-align:center">
       <td><i>Shadow Touched: +1 Intelligence, Wisdom, or Charisma</i></td>
     </tr><tr style="text-align:center">
@@ -119,7 +121,7 @@ var attributes = {
         <td><b>Half-Elf Features</b>: Darkvision; Fey Ancestry; Half-Elf Ability Adjustment; Skill Versatility</td>
         <td><b>Warlock Features</b>: Eldritch Spear</td>
         <td><b>Sorcerer Features</b>: Distant Spell; Subtle Spell</td>
-        <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Beast Master; Canny; Deft Explorer; Exceptional Training; Extra Attack; Favored Enemy; Favored Foe; Fighting Style (Dueling); Hide In Plain Sight; Land's Stride; Martial Versatility; Natural Explorer; Nature's Veil; Primal Awareness; Primeval Awareness; Ranger's Companion; Roving; Save Proficiency (Dexterity/Strength); Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Spellcasting Focus; Spellcasting; Tireless; Weapon Proficiency (Martial)</td>
+        <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Beast Master; Canny; Deft Explorer; Exceptional Training; Extra Attack; Favored Foe; Fighting Style (Dueling); Land's Stride; Martial Versatility; Nature's Veil; Primal Awareness; Ranger's Companion; Roving; Save Proficiency (Dexterity/Strength); Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Spellcasting Focus; Spellcasting; Tireless; Weapon Proficiency (Martial)</td>
         <td><b>Fighter Features</b>: Fighting Style (Blind Fighting)</td>
         <td><b>Entertainer Features</b>: By Popular Demand; Skill Proficiency (Acrobatics/Performance); Tool Proficiency (Disguise Kit/Choose 1 from any Music)</td>
       </tr></table>
@@ -127,6 +129,8 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Feature Notes</b>:       <table id="FeatureNotes" style="width:100%">
       <tr style="text-align:center">
+        <td><i>Deft Explorer: Gain Canny, Roving, and Tireless features</i></td>
+      </tr><tr style="text-align:center">
         <td><i>Fighting Initiate: Learn 1 Fighting Style</i></td>
       </tr><tr style="text-align:center">
         <td><i>Gunner: Weapon Proficiency (Firearms)</i></td>
@@ -142,6 +146,8 @@ var attributes = {
         <td>Darkvision: R60' See one light level better</td>
       </tr><tr style="text-align:center">
         <td>Exceptional Training: Companion can Dash, Disengage, or Help instead of Attack; attacks count as magical</td>
+      </tr><tr style="text-align:center">
+        <td>Martial Versatility: Replace Fighting Style when boosting ability or taking feat</td>
       </tr><tr style="text-align:center">
         <td>Ranger's Companion: Companion beast up to CR 1/4 gains +4 AC, attack, damage, skills, and saving throws and obeys self commands</td>
       </tr><tr style="text-align:center">
@@ -192,17 +198,13 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Artificer Initiate: Tool Proficiency (Choose 1 from any Artisan)</i></td>
     </tr><tr style="text-align:center">
+      <td><i>Canny: +2 Language Count/Dbl proficiency on chosen skill</i></td>
+    </tr><tr style="text-align:center">
       <td><i>Chef: Tool Proficiency (Cook's Utensils)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Poisoner: Tool Proficiency (Poisoner's Kit)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Skill Versatility: Skill Proficiency (Choose 2 from any)</i></td>
-    </tr><tr style="text-align:center">
-      <td>Favored Enemy: Adv on Survival to track, Adv on Intelligence to recall info about, and learn the language of 2 chosen creature types</td>
-    </tr><tr style="text-align:center">
-      <td>Hide In Plain Sight: +10 Stealth to hide using prepared camouflage</td>
-    </tr><tr style="text-align:center">
-      <td>Natural Explorer: Gain dbl Int and Wis Proficiency, move normally through difficult terrain, never become lost, remain always alert, stealth alone at full speed, locate dbl food, and gain extra info from tracking in 3 chosen terrain types</td>
     </tr><tr style="text-align:center">
       <td>Skill Expert: Dbl proficiency in chosen skill</td>
     </tr></table>
@@ -254,7 +256,11 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Strength Damage Adjustment: +3</i></td>
       </tr><tr style="text-align:center">
-        <td>Crusher: Blugeoning hit moves foe 5' and gives foes Adv on attacks for 1 rd</td>
+        <td>Crusher: Bludgeoning hit moves foe 5' and gives foes Adv on attacks for 1 rd</td>
+      </tr><tr style="text-align:center">
+        <td>Favored Foe: Hit on marked foe inflicts +1d6 HP weapon damage for conc or 1 min 4/long rest</td>
+      </tr><tr style="text-align:center">
+        <td>Fighting Style (Blind Fighting): R10' Detect invisible creatures</td>
       </tr><tr style="text-align:center">
         <td>Fighting Style (Dueling): +2 damage with single, one-handed weapon</td>
       </tr><tr style="text-align:center">
@@ -267,6 +273,8 @@ var attributes = {
         <td>Slasher: Slashing damage inflicts -10 Speed for 1 rd, slashing crit inflicts Disadv on attacks for 1 rd</td>
       </tr><tr style="text-align:center">
         <td>Telekinetic: R30' Telepathic shove moves target 5' (Str neg)</td>
+      </tr><tr style="text-align:center">
+        <td>Tireless: Self gains 1d8+2 temporary HP 4/long rest, short rest reduces exhaustion by 1</td>
       </tr></table>
 </td>
     </tr></table>
@@ -344,9 +352,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Fey Touched: Know <i>Misty Step</i> and 1 level 1 Divination or Enchantment spell</td>
     </tr><tr style="text-align:center">
-      <td>Primeval Awareness: Use spell slot to sense creatures in 1 mile (favored terrain 6 miles) for 1 min/spell level</td>
+      <td>Nature's Veil: Self becomes invisible for 1 rd 4/long rest</td>
     </tr><tr style="text-align:center">
-      <td>Shadow Touched: Learn <i>Invisibility</i>, cast chosten 1st-level Illusion or Necromancy spell 1/long rest</td>
+      <td>Primal Awareness: Cast <i>Speak With Animals</i>, <i>Beast Sense</i>, <i>Speak With Plants</i> 1/long rest</td>
+    </tr><tr style="text-align:center">
+      <td>Shadow Touched: Learn <i>Invisibility</i>, cast chosen 1st-level Illusion or Necromancy spell 1/long rest</td>
+    </tr><tr style="text-align:center">
+      <td>Spellcasting Focus: Use druidic focus for ranger spells</td>
     </tr><tr style="text-align:center">
       <td>Subtle Spell: Spend 1 Sorcery Point to cast w/out somatic or verbal components</td>
     </tr><tr style="text-align:center">
@@ -373,6 +385,8 @@ var attributes = {
         <td>Feat Allocation: 2 available vs. 15 allocated</td>
       </tr><tr style="text-align:center">
         <td>Fighter-Fighting Style (Blind Fighting) Selectable Feature: Requires fighter level</td>
+      </tr><tr style="text-align:center">
+        <td>Language Allocation: 5 available vs. 3 allocated</td>
       </tr><tr style="text-align:center">
         <td>Sorcerer-Distant Spell Selectable Feature: Requires sorcerer level >= 3</td>
       </tr><tr style="text-align:center">
