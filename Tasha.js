@@ -257,9 +257,22 @@ Tasha.FEATURES = {
   'Arcane Propulsion Armor':'Section=feature Note="TODO"',
   'Armor Of Magical Strength':'Section=feature Note="TODO"',
   'Boots Of The Winding Path':'Section=feature Note="TODO"',
+  'Canny':
+    'Section=skill Note="+2 Language Count/Dbl proficiency on chosen skill"',
+  'Cantrip Formulas':'Section=magic Note="Replace known cantrip 1/long rest"',
+  'Deft Explorer':'Section=feature Note="Gain Canny%1 feature%2"',
   'Enhanced Arcane Focus':'Section=feature Note="TODO"',
   'Enhanced Defense':'Section=feature Note="TODO"',
   'Enhanced Weapon':'Section=feature Note="TODO"',
+  'Favored Foe':
+    'Section=combat ' +
+    'Note="Hit on marked foe inflicts +1d%V HP weapon damage for conc or 1 min %{proficiencyBonus}/long rest"',
+  'Fighting Style (Blind Fighting)':
+    'Section=combat Note="R10\' Detect invisible creatures"',
+  'Fighting Style (Druidic Warrior)':'Section=magic Note="Know 2 D0 cantrips"',
+  'Fighting Style (Thrown Weapon Fighting)':
+    'Section=combat ' +
+    'Note="Draw thrown weapon as part of Attack, +2 HP weapon damage with thrown weapon"',
   'Flash Of Genius':
     'Section=feature ' +
     'Note="R30\' Use Reaction to give ally +%{intelligenceModifier} on ability check or saving throw %{intelligenceModifier>?1}/long rest"',
@@ -276,13 +289,22 @@ Tasha.FEATURES = {
   'Magical Tinkering':
    'Section=magic ' +
    'Note="Imbue %{intelligenceModifier>?1} objects with light, messsage, sound, odor, or picture"',
+  'Martial Versatility':
+    'Section=feature ' +
+    'Note="Replace Fighting Style when boosting ability or taking feat"',
   'Mind Sharpener':'Section=feature Note="TODO"',
+  "Nature's Veil":
+    'Section=magic ' +
+    'Note="Self becomes invisible for 1 rd %{proficiencyBonus}/long rest"',
+  'Primal Awareness':
+    'Section=magic Note="Cast <i>Speak With Animals</i>%1 1/long rest"',
   'Radiant Weapon':'Section=feature Note="TODO"',
   'Repeating Shot':'Section=feature Note="TODO"',
   'Replicate Magic Item':'Section=feature Note="TODO"',
   'Repulsion Shield':'Section=feature Note="TODO"',
   'Resistant Armor':'Section=feature Note="TODO"',
   'Returning Weapon':'Section=feature Note="TODO"',
+  'Roving':'Section=ability Note="+5 Speed/%{speed}\' climb/%{speed}\' swim"',
   'Soul Of Artifice':
     'Section=combat,save ' +
     'Note="+1 save bonus for each attunement",' +
@@ -291,9 +313,14 @@ Tasha.FEATURES = {
   'Spell-Storing Item':
     'Section=feature ' +
     'Note="Store A1 or A2 spell in item to be cast %{intelligenceModifier*2>?2} times"',
+  'Spellcasting Focus':
+    'Section=magic Note="Use druidic focus for ranger spells"',
   'The Right Tool For The Job':
     'Section=feature ' +
     'Note="Spend 1 hr to create 1 set of artisan\'s tools 1/short rest"',
+  'Tireless':
+    'Section=combat ' +
+    'Note="Self gains 1d8+%{wisdomModifier} temporary HP %{proficiencyBonus}/long rest, short rest reduces exhaustion by 1"',
   'Tool Expertise':'Section=feature Note="Dbl proficiency when using tools"',
 
   // Feats
@@ -389,6 +416,10 @@ Tasha.FEATURES = {
          '"Weapon Proficiency (Martial)"',
   'Battle Smith Bonus Proficiency':
     'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
+  'Beguiling Twist':
+    'Section=combat,save ' +
+    'Note="Use Reaction to redirect saved charm or fright effect to different target for 1 min (DC %V Wis ends)",' +
+         '"Adv on saves vs. charm and fright"',
   'Bladesong':
     'Section=ability,combat,magic,skill ' +
     'Note=' +
@@ -411,6 +442,9 @@ Tasha.FEATURES = {
   'Defensive Field':
     'Section=combat ' +
     'Note="Armor gives %{level} temporary HP %{proficiencyBonus}/long rest"',
+  'Dreadful Strikes':
+    'Section=combat ' +
+    'Note="Weapon hit does +1d%{levels.Ranger<11?4:6} HP psychic 1/rd"',
   'Eldritch Cannon':
     'Section=combat ' +
     'Note="Create Eldritch Cannon (AC 18, %{levels.Artificer*5} HP, MV 15\') flamethrower (15\' cone inflicts %Vd8 HP fire (DC %1 Dex half)), force ballista (R120\' inflicts %Vd8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary HP)"',
@@ -420,13 +454,22 @@ Tasha.FEATURES = {
   'Explosive Cannon':
     'Section=combat ' +
     'Note="Eldritch Cannon +1d8 HP damage, command explosion to inflict 3d8 HP force (DC %V Dex half) in 20\' radius"',
-  'Extra Attack':'Section=feature Note="TODO"',
+  'Fey Reinforcements':
+    'Section=magic Note="Cast <i>Summon Fey</i> 1/long rest, optionally for 1 min instead of conc, 1/long rest"',
+  'Fey Wanderer Magic':
+    'Section=feature,magic ' +
+    'Note="Gain Feywild Gift","Access to additional spells"',
   'Fortified Position':
     'Section=combat ' +
      'Note="Create 2nd Eldritch Cannon, half cover w/in 10\' of Eldritch Cannon"',
+  'Gathered Swarm':
+    'Section=combat Note="After hit, companion swarm moves self 5\', moves foe 15\' (DC %V Str neg), or inflicts 1d%1 HP piercing"',
   'Ghost Walk':
     'Section=feature ' +
     'Note="Spectral form gives 10\' fly, Disadv foe attacks, move through objects for 10 min 1/long rest (destroy Soul Trinket for additional)"',
+  'Homing Strikes':
+    'Section=combat ' +
+    'Note="Spend 1 Psionic Energy Die to change Psychic Blade miss into hit"',
   'Infectious Inspiration':
     'Section=magic ' +
     'Note="R60\' Reaction to grant extra bardic inspiration after successful use %V/long rest"',
@@ -444,26 +487,51 @@ Tasha.FEATURES = {
   'Master Scrivener':
     'Section=magic ' +
     'Note="R5\' After long rest, create enhanced 1st or 2nd level spell scroll from Awakened Spellbook"',
+  'Mighty Swarm':
+    'Section=combat ' +
+    'Note="Gatherered Swarm inflicts 1d8, gives self half cover, or knocks foe prone"',
+  'Misty Wanderer':
+    'Section=magic ' +
+    'Note="Cast R5\' <i>Misty Step</i> targeting self and 1 other %{wisdomModifier>?1}/long rest"',
   'One With The Word':
     'Section=combat,skill ' +
     'Note="Prevent 3d6 HP damage to self by erasing equal spell levels from Awakened Spellbook for 1d6 long rests 1/long rest",' +
          '"Adv on Arcana"',
+  'Otherworldly Glamour':
+    'Section=ability,skill ' +
+    'Note="+%{wisdomModifier>?1} Cha checks",' +
+          '"Skill Proficiency (Choose 1 from Deception, Performance, Persuasion)"',
   'Perfected Armor (Guardian Armor)':
     'Section=combat ' +
     'Note="R30\' Use Reaction to pull creature up to 30\' and attack if w/in 5\' afterward %{proficiencyBonus}/long rest"',
   'Perfected Armor (Infiltrator Armor)':
     'Section=combat Note="Lightning Launcher inflicts glow, Disadv on attacks, and foe Adv on attacks and +1d6 HP lightning for 1 rd"',
   'Powered Steps':'Section=ability Note="Armor gives +5 Speed"',
-  'Psionic Power':'Section=combat Note="TODO"',
+  'Psi-Bolstered Knack':
+    'Section=skill ' +
+    'Note="Spend 1 Psionic Energy Die to turn proficient skill or tool use failure into success"',
+  'Psionic Power':
+    'Section=feature ' +
+    'Note="Use %Vd%1 Psionic Energy Dice/long rest; regain 1d%1/short rest"',
   'Psionic Sorcery':
     'Section=magic ' +
     'Note="Cast spell using Sorcery Points instead of spell slot"',
-  'Psychic Blades':'Section=combat Note="TODO"',
+  'Psychic Blades':
+    'Section=combat ' +
+    'Note="Two psychic blade attacks inflict 1d6+%V HP psychic and 1d4+%V HP psychic"',
   'Psychic Defenses':
     'Section=save ' +
     'Note="Resistance to psychic damage, Adv on saves vs. charm and fright"',
-  'Psychic Veil':'Section=combat Note="TODO"',
-  'Rend Mind':'Section=combat Note="TODO"',
+  'Psychic Teleportation':
+    'Section=combat Note="Spend 1 Psionic Energy Die to teleport 1d%V x 10\'"',
+  'Psychic Veil':
+    'Section=magic ' +
+    'Note="Self becomes invisible for 1 hr or until inflicts damage or forces saving throw 1/long rest (spend 1 Psionic Energy Die for additional)"',
+  'Psychic Whispers':
+    'Section=feature ' +
+    'Note="Establish telepathic communication with %{proficiencyBonus} visible creatures for 1d%V hr 1/long rest (spend 1 Psionic Energy Die for additional)"',
+  'Rend Mind':
+    'Section=combat Note="Sneak Attack with Psychic Blade stuns for 1 min (DC %{8+dexterityModifier+proficiencyBonus} Wis ends) 1/long rest (spend 3 Psionic Energy Dice for additional)"',
   'Restorative Regents':
     'Section=magic ' +
     'Note="Cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest, elixirs give 2d6+%{intelligenceModifier>?1} temporary HP"',
@@ -474,9 +542,6 @@ Tasha.FEATURES = {
     'Note=' +
       '"Spend 1 Sorcery Point for %{speed}\' fly, %{speed*2}\' swim, and water breathing, or squeeze through 1 inch space for 10 min",' +
       '"Spend 1 Sorcery Point for 60\' see invisible for 10 min"',
-  'Steel Defender':
-    'Section=combat ' +
-    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier}, Attack +%{proficiencyBonus+intelligenceModifier} inflicts 1d8+%{proficiencyBonus}, MV 40\', Dex Save +%{proficiencyBonus+1}, Con save +%{proficiencyBonus+2}, immune poison, charmed, exhaustion, poisoned, surprise)"',
   'Seeking Spell':
     'Section=magic Note="Spend 2 Sorcery Points to reroll missed spell attack"',
   'Silver Tongue':
@@ -486,9 +551,18 @@ Tasha.FEATURES = {
   'Song Of Victory':
     'Section=combat Note="+%V HP melee weapon damage during Bladesong"',
   'Sorcerous Versatility':
-    'Section=magic Note="Exchange Metamagic option or Cantrip"',
-  'Soul Blades':'Section=combat Note="TODO"',
+    'Section=magic ' +
+    'Note="Exchange Metamagic option or Cantrip when boosting ability or taking feat"',
+  'Soul Blades':
+    'Section=feature Note="Use Homing Strikes and Psychic Teleportation"',
   'Steady Aim':'Section=combat Note="Forego move for Adv on attack"',
+  'Steel Defender':
+    'Section=combat ' +
+    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier}, Attack +%{proficiencyBonus+intelligenceModifier} inflicts 1d8+%{proficiencyBonus}, MV 40\', Dex Save +%{proficiencyBonus+1}, Con save +%{proficiencyBonus+2}, immune poison, charmed, exhaustion, poisoned, surprise)"',
+  'Swarming Dispersal':
+    'Section=combat Note="When hit, use Reaction to gain resistance and teleport 30\' %{proficiencyBonus}/long rest"',
+  'Swarmkeeper Magic':
+    'Section=magic Note="Know <i>Mage Hand</i> cantrip, access to additional spells"',
   'Telepathic Speech':
     'Section=feature ' +
     'Note="R30\' Communicate telepatically w/target for %{levels.Sorcerer} min"',
@@ -531,7 +605,8 @@ Tasha.FEATURES = {
     'Section=skill Note="Gain proficiency in chosen skill 1/short rest"',
   'Wizardly Quill':
     'Section=magic ' +
-    'Note="Produce multicolored, erasable writing; copy spells at 2 min/level"'
+    'Note="Produce multicolored, erasable writing; copy spells at 2 min/level"',
+  'Writhing Tide':'Section=ability Note="10\' fly for 1 min %{proficiencyBonus}/long rest"'
 
 };
 Tasha.PATHS = {
@@ -679,8 +754,8 @@ Tasha.PATHS = {
   'Soulknife':
     'Group=Rogue Level=levels.Rogue ' +
     'Features=' +
-      '"3:Psionic Power","3:Psychic Blades","9:Soul Blades",' +
-      '"13:Psychic Veil","17:Rend Mind"',
+      '"3:Psi-Bolstered Knack","3:Psionic Power","3:Psychic Blades",' +
+      '"3:Psychic Whispers","9:Soul Blades","13:Psychic Veil","17:Rend Mind"',
   'Swarmkeeper':
     'Group=Ranger Level=levels.Ranger ' +
     'Features=' +
@@ -1001,6 +1076,7 @@ Tasha.identityRules = function(
   for(clas in classFeatures) {
     SRD5E.featureListRules
       (rules, QuilvynUtils.getAttrValueArray('Features=' + classFeatures[clas], 'Features'), clas, 'levels.' + clas, false);
+    Tasha.classRulesExtra(rules, clas);
   }
   for(clas in classSelectables) {
     SRD5E.featureListRules
@@ -1073,6 +1149,31 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
       classLevel, '=', 'source>=3 ? 1 : null'
     );
+  } else if(name == 'Ranger') {
+    // Suppress Ranger features replaced by new Tasha features
+    rules.defineRule('rangerFeatures.Natural Explorer', 'suppress', '?', null);
+    rules.defineRule('rangerFeatures.Favored Enemy', 'suppress', '?', null);
+    rules.defineRule
+      ('rangerFeatures.Primeval Awareness', 'suppress', '?', null);
+    rules.defineRule
+      ('rangerFeatures.Hide In Plain Sight', 'suppress', '?', null);
+    // Rules for new Ranger features
+    rules.defineRule('combatNotes.favoredFoe',
+      'levels.Ranger', '=', 'source<6 ? 4 : source<14 ? 6 : 8'
+    );
+    rules.defineRule('featureNotes.deftExplorer.1',
+      'featureNotes.deftExplorer', '?', null,
+      'levels.Ranger', '=', 'source<6 ? "" : source>=10 ? ", Roving, and Tireless" : " and Roving"'
+    );
+    rules.defineRule('featureNotes.deftExplorer.2',
+      'featureNotes.deftExplorer', '?', null,
+      'levels.Ranger', '=', 'source<6 ? "" : "s"'
+    );
+    rules.defineRule('magicNotes.primalAwareness.1',
+      'levels.Ranger', '=', 'source<5 ? "" : (", <i>Beast Sense</i>" + (source<9 ? "" : (", <i>Speak With Plants</i>" + (source<13 ? "" : (", <i>Locate Creature</i>" + (source<17 ? "" : ", <i>Commune With Nature</i>"))))))'
+    );
+    rules.defineRule
+      ('spellSlots.D0', 'magicNotes.fightingStyle(DruidicWarrior)', '+=', '2');
   }
 
 };
@@ -1183,9 +1284,41 @@ Tasha.pathRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.universalSpeech',
       'charismaModifier', '=', 'Math.max(source, 1)'
     );
+  } else if(name == 'Fey Wanderer') {
+    rules.defineRule
+      ('combatNotes.beguilingTwist', 'spellDifficultyClass.R', '=', null);
   } else if(name == 'Rune Knight') {
     rules.defineRule('languageCount', pathLevel, '+', '1');
     rules.defineRule('languages.Giant', pathLevel, '=', '1');
+  } else if(name == 'Soulknife') {
+    rules.defineRule('combatNotes.psychicBlades',
+      'strengthModifier', '=', null,
+      'dexterityModifier', '^', null
+    );
+    rules.defineRule('combatNotes.psychicTeleportation',
+      'featureNotes.psionicPower.1', '=', null
+    );
+    rules.defineRule
+      ('featureNotes.psionicPower', 'proficiencyBonus', '=', 'source * 2');
+    rules.defineRule('featureNotes.psionicPower.1',
+      'features.Psionic Power', '?', null,
+      pathLevel, '=', 'source<5 ? 6 : source<11 ? 8 : source<17 ? 10 : 12'
+    );
+    rules.defineRule('featureNotes.psychicWhispers',
+      'featureNotes.psionicPower.1', '=', null
+    );
+    rules.defineRule
+      ('features.Homing Strikes', 'featureNotes.soulBlades', '=', '1');
+    rules.defineRule
+      ('features.Psychic Teleportation', 'featureNotes.soulBlades', '=', '1');
+  } else if(name == 'Swarmkeeper') {
+    rules.defineRule
+      ('combatNotes.gatheredSwarm', 'spellDifficultyClass.R', '=', null);
+    rules.defineRule('combatNotes.gatheredSwarm.1',
+      'features.Gathered Swarm', '?', null,
+      'levels.Ranger', '=', '6',
+      'combatNotes.mightySwarm', '^', '8'
+    );
   }
 
 };
