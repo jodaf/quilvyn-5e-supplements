@@ -252,6 +252,7 @@ Tasha.FEATS = {
   'Telepathic':''
 };
 Tasha.FEATURES = {
+
   // Class
   'Arcane Propulsion Armor':'Section=feature Note="TODO"',
   'Armor Of Magical Strength':'Section=feature Note="TODO"',
@@ -294,6 +295,7 @@ Tasha.FEATURES = {
     'Section=feature ' +
     'Note="Spend 1 hr to create 1 set of artisan\'s tools 1/short rest"',
   'Tool Expertise':'Section=feature Note="Dbl proficiency when using tools"',
+
   // Feats
   'Artificer Initiate':
     'Section=magic,skill ' +
@@ -355,6 +357,7 @@ Tasha.FEATURES = {
     'Note="+1 Charisma, Intelligence, or Wisdom",' +
          '"R60\' Speak telepathically",' +
          '"Cast <i>Detect Thoughts</i> 1/long rest"',
+
   // Paths
   'Alchemical Savant':
     'Section=magic ' +
@@ -374,17 +377,37 @@ Tasha.FEATURES = {
     'Section=feature Note="+2 Infused Items, infuse into armor sections"',
   'Artillerist Bonus Proficiency':
     'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
+  'Awakened Spellbook':
+    'Section=magic ' +
+    'Note="Perform ritual casting in normal casting time 1/long rest, use spellbook as focus, change spell damage type"',
+  'Bastion Of Law':
+    'Section=magic ' +
+    'Note="R30\' Spend 1 - 5 Sorcery Points to absorb equal d8 HP damage to target 1/long rest"',
   'Battle Ready':
     'Section=combat,feature ' +
     'Note="+%{intelligenceModifier-strengthModifier} (Int instead of Str) or +%{intelligenceModifier-dexterityModifier} (Int instead of Dex) attack and damage w/magic weapons",' +
          '"Weapon Proficiency (Martial)"',
   'Battle Smith Bonus Proficiency':
     'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
+  'Bladesong':
+    'Section=ability,combat,magic,skill ' +
+    'Note=' +
+      '"+10 Speed in light or no armor and no shield for 1 min 2/short rest",' +
+      '"+%V AC in light or no armor and no shield for 1 min 2/short rest",' +
+      '"+%V Concentration to retain spell in light or no armor and no shield for 1 min 2/short rest",' +
+      '"Adv on Acrobatics in light or no armor and no shield for 1 min 2/short rest"',
   'Chemical Mastery':
     'Section=magic,save ' +
     'Note="Cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
          '"Resistance to acid and poison damage, immune to poisoned condition"',
+  'Clockwork Cavalcade':
+    'Section=magic ' +
+    'Note="30\' cu heals 100 HP total to targets, repairs damaged objects, and dismisses target spells up to 6th level 1/long rest (spend 7 Sorcery Points for additional)"',
   'Dampening Field':'Section=skill Note="Armor gives Adv on Stealth"',
+  "Death's Friend":
+    'Section=combat,feature ' +
+    'Note="Sneak Attack target affected by Wails From The Dead use",' +
+         '"Minimum 1 Soul Trinket after long rest"',
   'Defensive Field':
     'Section=combat ' +
     'Note="Armor gives %{level} temporary HP %{proficiencyBonus}/long rest"',
@@ -401,52 +424,59 @@ Tasha.FEATURES = {
   'Fortified Position':
     'Section=combat ' +
      'Note="Create 2nd Eldritch Cannon, half cover w/in 10\' of Eldritch Cannon"',
+  'Ghost Walk':
+    'Section=feature ' +
+    'Note="Spectral form gives 10\' fly, Disadv foe attacks, move through objects for 10 min 1/long rest (destroy Soul Trinket for additional)"',
+  'Infectious Inspiration':
+    'Section=magic ' +
+    'Note="R60\' Reaction to grant extra bardic inspiration after successful use %V/long rest"',
   'Lightning Launcher':
     'Section=combat ' +
     'Note="Range 90/300 attack inflicts 1d6 HP lightning, +1d6 lightning 1/rd"',
   'Improved Defender':
      'Section=combat Note="Arcane Jolt effect +2d6, Steel Defender +2 AC and Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
+  'Magical Guidance':
+    'Section=feature ' +
+    'Note="Spend 1 Sorcery Point to reroll failed ability check"',
+  'Manifest Mind':
+    'Section=magic ' +
+    'Note="R300\' See, hear, and cast spells through ghostly object that emits 10\' dim light and moves 30\'/rd"',
+  'Master Scrivener':
+    'Section=magic ' +
+    'Note="R5\' After long rest, create enhanced 1st or 2nd level spell scroll from Awakened Spellbook"',
+  'One With The Word':
+    'Section=combat,skill ' +
+    'Note="Prevent 3d6 HP damage to self by erasing equal spell levels from Awakened Spellbook for 1d6 long rests 1/long rest",' +
+         '"Adv on Arcana"',
   'Perfected Armor (Guardian Armor)':
     'Section=combat ' +
     'Note="R30\' Use Reaction to pull creature up to 30\' and attack if w/in 5\' afterward %{proficiencyBonus}/long rest"',
   'Perfected Armor (Infiltrator Armor)':
-    'Section=combat Note="Lightning Launcher inflicts glow, Disadv attacks, and foe Adv attacks and +1d6 HP lightning for 1 rd"',
-  'Restorative Regents':
-    'Section=magic ' +
-    'Note="Cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest, elixirs give 2d6+%{intelligenceModifier>?1} temporary HP"',
-  'Steel Defender':
-    'Section=combat ' +
-    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier}, Attack +%{proficiencyBonus+intelligenceModifier} inflicts 1d8+%{proficiencyBonus}, MV 40\', Dex Save +%{proficiencyBonus+1}, Con save +%{proficiencyBonus+2}, immune poison, charmed, exhaustion, poisoned, surprise)"',
-  'Tools Of The Trade':
-    'Section=feature ' +
-    'Note="Armor Proficiency (Heavy)/Tool Proficiency (Smith\'s Tools)"',
-  'Bladesong':
-    'Section=ability,combat,magic,skill ' +
-    'Note=' +
-      '"+10 Speed in light or no armor and no shield for 1 min 2/short rest",' +
-      '"+%V AC in light or no armor and no shield for 1 min 2/short rest",' +
-      '"+%V Concentration to retain spell in light or no armor and no shield for 1 min 2/short rest",' +
-      '"Adv on Acrobatics in light or no armor and no shield for 1 min 2/short rest"',
-  'Extra Attack':
-    'Section=combat Note="+%V Attacks Per Round"',
-  'Infectious Inspiration':
-    'Section=magic ' +
-    'Note="R60\' Reaction to grant extra bardic inspiration after successful use %V/long rest"',
-  'Magical Guidance':
-    'Section=feature ' +
-    'Note="Spend 1 Sorcery Point to reroll failed ability check"',
+    'Section=combat Note="Lightning Launcher inflicts glow, Disadv on attacks, and foe Adv on attacks and +1d6 HP lightning for 1 rd"',
   'Powered Steps':'Section=ability Note="Armor gives +5 Speed"',
+  'Psionic Power':'Section=combat Note="TODO"',
   'Psionic Sorcery':
     'Section=magic ' +
     'Note="Cast spell using Sorcery Points instead of spell slot"',
+  'Psychic Blades':'Section=combat Note="TODO"',
   'Psychic Defenses':
     'Section=save ' +
-    'Note="Resistance to psychic damage, Adv vs. charm and fright"',
-  'Revelation In The Flesh':
+    'Note="Resistance to psychic damage, Adv on saves vs. charm and fright"',
+  'Psychic Veil':'Section=combat Note="TODO"',
+  'Rend Mind':'Section=combat Note="TODO"',
+  'Restorative Regents':
+    'Section=magic ' +
+    'Note="Cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest, elixirs give 2d6+%{intelligenceModifier>?1} temporary HP"',
+  'Restore Balance':
+    'Section=magic Note="R60\' Cancel target Adv or Disadv on roll %{proficiencyBonus}/long rest"',
+  'Revelation In Flesh':
     'Section=ability,feature ' +
     'Note=' +
-      '"Spend 1 Sorcery Point for Fly %{speed}\', Swim %{speed*2} and water breathing, or squeeze through 1 inch space for 10 min",' +
+      '"Spend 1 Sorcery Point for %{speed}\' fly, %{speed*2}\' swim, and water breathing, or squeeze through 1 inch space for 10 min",' +
       '"Spend 1 Sorcery Point for 60\' see invisible for 10 min"',
+  'Steel Defender':
+    'Section=combat ' +
+    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier}, Attack +%{proficiencyBonus+intelligenceModifier} inflicts 1d8+%{proficiencyBonus}, MV 40\', Dex Save +%{proficiencyBonus+1}, Con save +%{proficiencyBonus+2}, immune poison, charmed, exhaustion, poisoned, surprise)"',
   'Seeking Spell':
     'Section=magic Note="Spend 2 Sorcery Points to reroll missed spell attack"',
   'Silver Tongue':
@@ -457,18 +487,34 @@ Tasha.FEATURES = {
     'Section=combat Note="+%V HP melee weapon damage during Bladesong"',
   'Sorcerous Versatility':
     'Section=magic Note="Exchange Metamagic option or Cantrip"',
+  'Soul Blades':'Section=combat Note="TODO"',
+  'Steady Aim':'Section=combat Note="Forego move for Adv on attack"',
   'Telepathic Speech':
     'Section=feature ' +
     'Note="R30\' Communicate telepatically w/target for %{levels.Sorcerer} min"',
-  'Thunder Gauntlets':'Section=combat Note="Each gauntlet inflics 1d8 HP thunder and Disadv on attacks on others for 1 rd"',
+  'Thunder Gauntlets':
+    'Section=combat ' +
+    'Note="Each gauntlet inflics 1d8 HP thunder and Disadv on attacks on others for 1 rd"',
+  'Tokens Of The Departed':
+    'Section=combat,feature,save ' +
+    'Note="Destroying Soul Trinket gives extra Wails From The Grave use",' +
+         '"Soul released from Soul Trinket answers 1 question",' +
+         '"Adv on Con and saves vs. death"',
+  'Tools Of The Trade':
+    'Section=feature ' +
+    'Note="Armor Proficiency (Heavy)/Tool Proficiency (Smith\'s Tools)"',
   'Training In War And Song':
     'Section=combat,skill ' +
     'Note=' +
       '"Armor Proficiency (Light)/Weapon Proficiency (Choose 1 from any)",' +
       '"Skill Proficiency (Performance)"',
+  'Trance Of Order':
+    'Section=combat,feature ' +
+    'Note="Foes cannot attack self w/Adv for 1 min 1/long rest (spend 5 Sorcery Points for additional)",' +
+         '"Minimum 10 on attack, ability, and saving throws for 1 min 1/long rest (spend 5 Sorcery Points for additional)"',
   'Transmuted Spell':
     'Section=magic ' +
-    'Note="Change spell damage from acid, code, fire, lightning, poison, or thunder to another type"',
+    'Note="Change spell damage from acid, cold, fire, lightning, poison, or thunder to another type"',
   'Unfailing Inspiration':
     'Section=magic Note="Inspiration die kept after failed use"',
   'Universal Speech':
@@ -476,9 +522,17 @@ Tasha.FEATURES = {
   'Unsettling Words':
     'Section=magic ' +
     'Note="R60\' Target subtract Bardic Inspiration roll from next save"',
+  'Wails From The Grave':
+    'Section=combat Note="R30\' Sneak Attack inflicts %{(levels.Rogue+1)//4}d6 HP necrotic on second creature %{proficiencyBonus}/long rest"',
   'Warping Implosion':
     'Section=magic ' +
-    'Note="120\' teleport causes 3d10 HP in 5\' radius of starting position (Str neg) 1/long rest"'
+    'Note="120\' teleport inflicts 3d10 HP in 5\' radius of starting position (Str neg) 1/long rest"',
+  'Whispers Of The Dead':
+    'Section=skill Note="Gain proficiency in chosen skill 1/short rest"',
+  'Wizardly Quill':
+    'Section=magic ' +
+    'Note="Produce multicolored, erasable writing; copy spells at 2 min/level"'
+
 };
 Tasha.PATHS = {
   'Aberrant Mind':
