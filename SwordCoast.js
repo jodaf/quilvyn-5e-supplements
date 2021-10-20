@@ -94,6 +94,8 @@ function SwordCoast() {
     (rules, SwordCoast.FEATS, SwordCoast.FEATURES, SRD5E.GOODIES,
      SRD5E.LANGUAGES, SRD5E.SKILLS, SwordCoast.TOOLS);
 
+  if(window.Tasha != null)
+    Tasha('Tasha', rules);
   if(window.Xanathar != null)
     Xanathar('Xanathar', rules);
   if(window.Volo != null) {
