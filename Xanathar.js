@@ -109,10 +109,8 @@ Xanathar.CLASSES_SELECTABLES_ADDED = {
     '"2:War Magic:Arcane Tradition"'
 };
 Xanathar.DEITIES_DOMAINS_ADDED = {
+  'None':'Forge,Grave',
   'Celtic-Goibhniu':'Forge',
-  'Dragonlance-Reorx':'Forge',
-  'Eberron-Onatar':'Forge',
-  'Eberron-The Undying Court':'Grave',
   'Egyptian-Anubis':'Grave',
   'Egyptian-Osiris':'Grave',
   'FR-Gond':'Forge',
@@ -120,7 +118,15 @@ Xanathar.DEITIES_DOMAINS_ADDED = {
   'Greek-Hades':'Grave',
   'Greek-Hephaestus':'Forge',
   'Greyhawk-Wee Jas':'Grave',
-  'NH-Moradin':'Forge'
+  'NH-Moradin':'Forge',
+  // Dragonlance
+  'Reorx':'Forge',
+  // Eberron
+  'Onatar':'Forge',
+  'The Undying Court':'Grave',
+  // SwordCoast
+  'Gond':'Forge',
+  'Kelemvor':'Grave'
 };
 Xanathar.FEATS = {
   'Bountiful Luck':'Type=General Require="race =~ \'Halfling\'"',
@@ -1398,10 +1404,8 @@ Xanathar.identityRules = function(
   }
   var allDeities = rules.getChoices('deities');
   for(var deity in deitiesDomains) {
-    if(!(deity in allDeities)) {
-      console.log('Unknown deity "' + deity + '"');
+    if(!(deity in allDeities))
       continue;
-    }
     var attrs = allDeities[deity].replace('Domain=', 'Domain="' + deitiesDomains[deity] + '",');
     delete allDeities[deity];
     rules.choiceRules(rules, 'Deity', deity, attrs);
