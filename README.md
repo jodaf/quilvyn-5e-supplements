@@ -18,6 +18,11 @@ To use quilvyn-5E-supplements, unbundle the release package into the plugins/
 subdirectory within the Quilvyn installation directory, then append the
 following lines to the file plugins/plugins.js:
 
+    RULESETS["Tasha's Cauldron supplement to D&D 5E rules"] = {
+      url:'plugins/Tasha.js',
+      group:'5E',
+      supplement:'D&D 5E'
+    };
     RULESETS["Volo's Guide supplement to D&D 5E rules - Character Races"] = {
       url:'plugins/Volo.js',
       group:'5E',
