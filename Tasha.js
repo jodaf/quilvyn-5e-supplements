@@ -380,7 +380,7 @@ Tasha.FEATURES = {
     'Note="Replace Fighting Style when boosting ability or taking feat"',
   'Magical Inspiration':
     'Section=magic ' +
-    'Note="Bardic Inspiration die can be used for magical harm or healing"',
+    'Note="Bardic Inspiration Die roll can be added to magical harm or healing"',
   'Mind Sharpener':
     'Section=magic ' +
     'Note="Gives Reaction to change failed Con save to success; 4 charges regains 1d4/dy"',
@@ -417,7 +417,7 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="Gives +1 AC, use Reaction to push successful attacker 15\'; 4 charges regains 1d4/dy"',
   'Resistant Armor':
-    'Section=magic Note="Gives +1 AC and  resistance to chosen damage type"',
+    'Section=magic Note="Gives +1 AC and resistance to chosen damage type"',
   'Returning Weapon':
     'Section=magic ' +
     'Note="Gives +1 attack and damage, returns after ranged attack"',
@@ -520,7 +520,7 @@ Tasha.FEATURES = {
     'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
   'Animating Performance':
     'Section=magic ' +
-    'Note="R30\' Animated large object obeys self commands for 1 hr 1/long rest (spend level 3 spell slot for additional)"',
+    'Note="R30\' Animated large object (AC 16, HP %{levels.Bard*5+10} MV/Fly 30\', Attack +%{spellAttackModifier.B} inflicts 1d10+%{proficiencyBonus}, Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) obeys self commands for 1 hr 1/long rest (spend level 3 spell slot for additional)"',
   'Arcane Armor':
     'Section=combat ' +
     'Note="Self armor negates any Str requirement, covers whole body, replaces missing limbs, and can be put on or taken off in 1 action"',
@@ -567,10 +567,9 @@ Tasha.FEATURES = {
     'Note="Use Reaction to redirect saved charm or fright effect to different target for 1 min (DC %V Wis ends)",' +
          '"Adv on saves vs. charm and fright"',
   'Bestial Soul':
-    'Section=ability,combat,skill ' +
-    'Note="%{speed}\' swim and climb, breathe water, climb difficult surfaces",' +
-        '"Natural weapons count as magic",' +
-        '"Extend jump by Athletics check roll"',
+    'Section=ability,combat ' +
+    'Note="Gain %{speed}\' swim and breathe water, %{40}\' climb and climb difficult surfaces, or extend jump by Athletics check roll/short rest",' +
+        '"Natural weapon counts as magic"',
   'Bladesong':
     'Section=ability,combat,magic,skill ' +
     'Note=' +
@@ -592,7 +591,7 @@ Tasha.FEATURES = {
     'Section=combat ' +
     'Note="R30\' Give %{intelligenceModifier} targets half cover for 1 min 1/long rest (spend 1 Psionic Energy die for additional)"',
   'Call The Hunt':
-    'Section=combat Note="R30\' %{constitutionModifier>?1} targets gain +1d6 HP damage during rage, self gains 5 temporary HP/target  %{proficiencyBonus}/long rest"',
+    'Section=combat Note="During rage, R30\' %{constitutionModifier>?1} targets gain +1d6 HP damage 1/rd, self gains 5 temporary HP/target %{proficiencyBonus}/long rest"',
   'Cauterizing Flames':
     'Section=magic ' +
     'Note="R30\' Spectral flame created for 1 min when creature dies, can be used to heal or inflict 2d10+%{wisdomModifier} HP fire on another in same space"',
@@ -669,7 +668,7 @@ Tasha.FEATURES = {
     'Note="Use Hand Of Harm and Hand Of Healing once each during Flurry Of Blows w/out spending Ki Points"',
   'Form Of The Beast':
     'Section=combat ' +
-    'Note="Attack w/bite (inflicts 1d8+%{strengthModifier} HP piercing, regain %{proficiencyBonus} HP if below half on hit 1/rd), claws (each inflicts 1d6+%{strengthModifier} HP slashing, additional attack 1/rd), or tail (inflicts 1d8+%{strengthModifier} HP slashing, use Reaction for +1d8 AC) during rage"',
+    'Note="Gain bite (inflicts 1d8+%{strengthModifier} HP piercing, on hit regain %{proficiencyBonus} HP if below %{hitPoints//2} 1/rd), claws (each inflicts 1d6+%{strengthModifier} HP slashing, additional attack 1/rd), or tail (R+5\' inflicts 1d8+%{strengthModifier} HP slashing, use Reaction for +1d8 AC) natural weapon when entering rage"',
   'Fortified Position':
     'Section=combat ' +
      'Note="Create 2nd Eldritch Cannon, gain half cover w/in 10\' of Eldritch Cannon"',
@@ -745,10 +744,10 @@ Tasha.FEATURES = {
      'Section=combat Note="+2d6 Arcane Jolt effect, Steel Defender +2 AC and Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Infectious Fury':
     'Section=combat ' +
-    'Note="Natural weapons cause redirected attack or +2d12 HP psychic (DC %{8+constitutionModifier+proficiencyBonus} Wis neg)"',
+    'Note="Natural weapon causes redirected attack or +2d12 HP psychic (DC %{8+constitutionModifier+proficiencyBonus} Wis neg) %{proficiencyBonus}/long rest"',
   'Infectious Inspiration':
     'Section=magic ' +
-    'Note="R60\' Use Reaction to grant extra bardic inspiration after successful use %V/long rest"',
+    'Note="R60\' Use Reaction to grant extra Bardic Inspiration Die after successful use %V/long rest"',
   'Inspiring Smite':
     'Section=combat ' +
     'Note="R30\' Use Channel Divinity after Divine Smite to distribute 2d8 + %V temporary HP"',
@@ -764,7 +763,7 @@ Tasha.FEATURES = {
          '"Reroll failed saves for 1 min 1/long rest (spend level 5 spell slot for additional)"',
   'Magic Awareness':
     'Section=magic ' +
-    'Note="R60\' Self know presence of spell or magic item for 1 rd %{proficiencyBonus}/long rest"',
+    'Note="R60\' Self knows presence and school of spells and magic items for 1 rd %{proficiencyBonus}/long rest"',
   'Magical Guidance':
     'Section=feature ' +
     'Note="Spend 1 Sorcery Point to reroll failed ability check"',
@@ -788,7 +787,7 @@ Tasha.FEATURES = {
          '"120\' truesight"',
   'Mote Of Potential':
     'Section=magic ' +
-    'Note="Bardic Inspiration die used w/Adv on ability check, inflicts R5\' roll HP thunder (DC %{spellDifficultyClass.B} Con neg) on attack, or gives roll+%{charismaModifier} temporary HP on saving throw"',
+    'Note="Bardic Inspiration Die rolled w/Adv on ability check, inflicts R5\' roll HP thunder (DC %{spellDifficultyClass.B} Con neg) on attack, or gives roll+%{charismaModifier} temporary HP on saving throw"',
   'Oceanic Soul':
     'Section=feature,save ' +
     'Note="Speak to creatures under water",' +
@@ -886,7 +885,7 @@ Tasha.FEATURES = {
   'Seeking Spell':
     'Section=magic Note="Spend 2 Sorcery Points to reroll missed spell attack"',
   'Silver Tongue':
-    'Section=skill Note="Minimum 10 on Deception and Persuasion roll"',
+    'Section=skill Note="Minimum 10 on Deception and Persuasion rolls"',
   'Song Of Defense':
     'Section=magic Note="Use Reaction and expend spell slot to reduce damage by 5x slot level"',
   'Song Of Victory':
@@ -976,12 +975,12 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="Improve Starry Form effects to 2d8, Dragon form gives 20\' fly, switch between forms"',
   'Unfailing Inspiration':
-    'Section=magic Note="Inspiration die kept after failed use"',
+    'Section=magic Note="Bardic Inspiration Die kept after failed use"',
   'Universal Speech':
-    'Section=magic Note="R60\' %V targets understand self for 1 hr 1/long rest"',
+    'Section=magic Note="R60\' %V targets understand self for 1 hr 1/long rest (spend spell slot for additional)"',
   'Unsettling Words':
     'Section=magic ' +
-    'Note="R60\' Spend 1 Bardic Inspiration die to inflict -roll on target next save"',
+    'Note="R60\' Spend 1 Bardic Inspiration Die to inflict -roll on next save by target for 1 rd"',
   'Unstable Backlash':
     'Section=magic ' +
     'Note="Trigger Wild Magic effect when taking damage or failing save"',
