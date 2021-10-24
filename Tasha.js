@@ -352,7 +352,7 @@ Tasha.FEATURES = {
     'Note="Target whose name is written in Book Of Shadows retains 1 HP when reduced to 0 HP 1/long rest"',
   'Harness Divine Power':
      'Section=magic ' +
-     'Note="Regain spell slot up to level %{(proficiencyBonus+1)//2} %V/long rest"',
+     'Note="Use Channel Divinity to regain spell slot up to level %{(proficiencyBonus+1)//2} %V/long rest"',
   'Helm Of Awareness':
     'Section=magic Note="Gives Adv on initiative and cannot be surprised"',
   'Homunculus Servant':
@@ -446,7 +446,7 @@ Tasha.FEATURES = {
     'Section=magic Note="Cast <i>Animate Dead</i> 1/long rest"',
   'Wild Companion':
     'Section=magic ' +
-    'Note="Expend 1 Wild Shape use to cast <i>Find Familiar</i>, lasting %{levels.Druid//2} hr"',
+    'Note="Expend 1 Wild Shape use to cast <i>Find Familiar</i> to summon fey, lasting %{levels.Druid//2} hr"',
 
   // Feats
   'Artificer Initiate':
@@ -579,7 +579,7 @@ Tasha.FEATURES = {
       '"Adv on Acrobatics in light or no armor and no shield for 1 min 2/short rest"',
   'Blazing Revival':
     'Section=magic ' +
-    'Note="R120\' Extinguish Wildfire Spirit to regain %{hitPoints//2} HP when reduced to 0 HP"',
+    'Note="R120\' Extinguish Wildfire Spirit to regain %{hitPoints//2} HP when reduced to 0 HP 1/long rest"',
   'Blessed Strikes':
     'Section=combat Note="Cantrip or weapon hit does +1d8 HP radiant 1/rd"',
   'Body Of The Astral Self':
@@ -594,7 +594,7 @@ Tasha.FEATURES = {
     'Section=combat Note="During rage, R30\' %{constitutionModifier>?1} targets gain +1d6 HP damage 1/rd, self gains 5 temporary HP/target %{proficiencyBonus}/long rest"',
   'Cauterizing Flames':
     'Section=magic ' +
-    'Note="R30\' Spectral flame created for 1 min when creature dies, can be used to heal or inflict 2d10+%{wisdomModifier} HP fire on another in same space"',
+    'Note="R30\' Create spectral flame for 1 min when creature dies; use to heal or inflict 2d10+%{wisdomModifier} HP fire on another in same space %{proficiencyBonus}/long rest"',
   'Chemical Mastery':
     'Section=magic,save ' +
     'Note="Cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
@@ -636,12 +636,12 @@ Tasha.FEATURES = {
     'Note="Cast Enchantment spells as bonus action %{wisdomModifier>?1}/long rest"',
   'Emboldening Bond':
     'Section=magic ' +
-    'Note="R30\' Targets gain +1d4 on 1 attack, ability, or saving throw/rd when w/in 30\' of each other for 10 min %{proficiencyBonus}/long rest"',
+    'Note="R30\' %{proficiencyBonus} willing targets gain +1d4 on 1 attack, ability, or saving throw/rd when w/in 30\' of each other for 10 min %{proficiencyBonus}/long rest"',
   'Expansive Bond':
-    'Section=magic Note="R60\' Protective Bond grants resistance to damage"',
+    'Section=magic Note="Protective Bond works at 60\' and grants resistance to damage"',
   'Enhanced Bond':
     'Section=magic ' +
-    'Note="Cast through Wildfire Spirit, fire spells inflict +1d8 HP fire, healing spells heal +1d8 HP"',
+    'Note="Fire spells inflict +1d8 HP fire, healing spells heal +1d8 HP, can cast through Wildfire Spirit"',
   'Experimental Elixir':
     'Section=magic ' +
     'Note="After a long rest, use alchemist\'s supplies to create %V elixirs of healing, swiftness, resilience, boldness, flight, or transformation (spend spell slot for additional)"',
@@ -685,7 +685,7 @@ Tasha.FEATURES = {
     'Note="Immune to critical hits",' +
          '"Immune to blinded, deafened, frightened, and poisoned conditions"',
   'Fungal Infestation':
-    'Section=magic Note="R10\' Use Reaction to animate 1 HP zombie that obeys self mental commands for 1 hr %{wisdomModifier>?1}/long rest"',
+    'Section=magic Note="R10\' Use Reaction to animate creature that dies into 1 HP zombie that obeys self mental commands for 1 hr %{wisdomModifier>?1}/long rest"',
   'Gathered Swarm':
     'Section=combat Note="After a hit, companion swarm moves self 5\', moves foe 15\' (DC %V Str neg), or inflicts 1d%1 HP piercing"',
   "Genie's Vessel":
@@ -921,14 +921,14 @@ Tasha.FEATURES = {
          '"Adv on Arcana"',
   'Summon Wildfire Spirit':
     'Section=magic ' +
-    'Note="R30\' Expend 1 Wild Shape use to summon Wildfire Spirit, inflicting 2d6 HP fire in 10\' radius (DC %V Dex neg) for 1 hr"',
+    'Note="R30\' Expend 1 Wild Shape use to inflict 2d6 HP fire in 10\' radius (DC %V Dex neg) and summon Wildfire Spirit (AC 13, HP %{levels.Druid*5+5}, MV/Fly 30\', Attack R60\' +%{spellAttackModifier.D} inflicts 1d6+%{proficiencyBonus} HP fire, Teleport targets in 5\' radius) for 1 hr"',
   'Swarming Dispersal':
     'Section=combat Note="When hit, use Reaction to gain resistance and teleport 30\' %{proficiencyBonus}/long rest"',
   'Swarmkeeper Magic':
     'Section=magic Note="Know <i>Mage Hand</i> cantrip, access to additional spells"',
   'Symbiotic Entity':
     'Section=combat ' +
-    'Note="Expend 1 Wild Shape use to gain %V temporary HP, 2d6 HP necrotic Halo Of Spores damage, and melee hit that inflicts +1d6 necrotic 1/rd for 10 min or until temporary HP lost"',
+    'Note="Expend 1 Wild Shape use to gain %V temporary HP, 2d6 HP necrotic Halo Of Spores damage, and +1d6 HP necrotic on melee hits for 10 min or until temporary HP lost"',
   'Telekinetic Adept':
     'Section=feature Note="Psi-Powered Leap and Telekinetic Thrust features"',
   'Telekinetic Master':
@@ -973,7 +973,7 @@ Tasha.FEATURES = {
   'Twilight Shroud':'Section=magic Note="Twilight Sanctuary gives half cover"',
   'Twinkling Constellations':
     'Section=magic ' +
-    'Note="Improve Starry Form effects to 2d8, Dragon form gives 20\' fly, switch between forms"',
+    'Note="Improve Starry Form effects to 2d8, Dragon form gives 20\' fly; switch between forms 1/rd"',
   'Unfailing Inspiration':
     'Section=magic Note="Bardic Inspiration Die kept after failed use"',
   'Universal Speech':
@@ -985,7 +985,7 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="Trigger Wild Magic effect when taking damage or failing save"',
   'Vigilant Blessing':
-    'Section=combat Note="Touch gives 1 creature Adv on initiative"',
+    'Section=combat Note="Touch gives 1 creature Adv on next initiative"',
   'Vigilant Rebuke':
     'Section=combat Note="R30\' Use Reaction to inflict 2d8+%{charismaModifier} HP force on attacker after successful Cha, Int, or Wis save"',
   'Visage Of The Astral Self':
@@ -993,7 +993,7 @@ Tasha.FEATURES = {
     'Note="Spend 1 Ki Point to gain 120\' Darkvision and R600\' voice or R60\' directed voice for 10 min",' +
          '"Spend 1 Ki Point to gain Adv on Insight and Intimidation for 10 min"',
   'Voice Of Authority':
-    'Section=magic Note="Self spell target gains Reaction attack"',
+    'Section=magic Note="Self spell target can use Reaction to make attack"',
   'Wails From The Grave':
     'Section=combat Note="R30\' Sneak Attack inflicts %{(levels.Rogue+1)//4}d6 HP necrotic on second creature %{proficiencyBonus}/long rest"',
   'Warping Implosion':
@@ -1739,7 +1739,7 @@ Tasha.pathRulesExtra = function(rules, name) {
     );
   } else if(name == 'Circle Of Spores') {
     rules.defineRule('combatNotes.haloOfSpores',
-      pathLevel, '=', '2 * Math.floor((source + 6) / 4)'
+      pathLevel, '=', 'source<6 ? 4 : source<10 ? 6 : source<14 ? 8 : 10'
     );
     rules.defineRule('combatNotes.haloOfSpores.1',
       'features.Halo Of Spores', '?', null,
