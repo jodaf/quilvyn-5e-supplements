@@ -14,10 +14,10 @@ var attributes = {
   "intelligence":12, "languages.Abyssal":1, "languages.Celestial":1, "languages.Infernal":1, 
   "languages.Orc":1, "languages.Sylvan":1, "levels.Ranger":20, "name":"Class-Ranger 20", 
   "race":"Human", "selectableFeatures.Ranger - Fey Wanderer":1, 
-  "selectableFeatures.Ranger - Fighting Style (Blind-Fighting)":1, "selectableFeatures.Ranger - Fighting Style (Druidic Warrior)":1, 
-  "selectableFeatures.Ranger - Fighting Style (Thrown Weapon Fighting)":1, "selectableFeatures.Ranger - Swarmkeeper":1, "shield":"None", 
-  "skillsChosen.Athletics":1, "skillsChosen.History":1, "skillsChosen.Perception":1, 
-  "skillsChosen.Stealth":1, "spells.Chill Touch(W0 Necr)":1, 
+  "selectableFeatures.Ranger - Fighting Style (Blind Fighting)":1, "selectableFeatures.Ranger - Fighting Style (Blind-Fighting)":1, 
+  "selectableFeatures.Ranger - Fighting Style (Druidic Warrior)":1, "selectableFeatures.Ranger - Fighting Style (Thrown Weapon Fighting)":1, 
+  "selectableFeatures.Ranger - Swarmkeeper":1, "shield":"None", "skillsChosen.Athletics":1, "skillsChosen.History":1, 
+  "skillsChosen.Perception":1, "skillsChosen.Stealth":1, "spells.Chill Touch(W0 Necr)":1, 
   "spells.Conjure Woodland Beings(R4 Conj)":1, "spells.Cordon Of Arrows(R2 Tran)":1, "spells.Dominate Beast(R4 Ench)":1, 
   "spells.Ensnaring Strike(R1 Conj)":1, "spells.Entangle(R1 Conj)":1, "spells.Fog Cloud(R1 Conj)":1, 
   "spells.Greater Restoration(R5 Abju)":1, "spells.Locate Animals Or Plants(R2 Divi)":1, 
@@ -97,7 +97,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Alert; Dungeon Delver; Healer; Magic Initiate (Wizard); Savage Attacker</td>
         <td><b>Human Features</b>: Human Ability Adjustment</td>
-        <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Beguiling Twist; Canny; Deft Explorer; Dreadful Strikes; Extra Attack; Favored Foe; Feral Senses; Fey Reinforcements; Fey Wanderer Magic; Fey Wanderer; Fighting Style (Druidic Warrior); Fighting Style (Thrown Weapon Fighting); Foe Slayer; Gathered Swarm; Land's Stride; Martial Versatility; Mighty Swarm; Misty Wanderer; Nature's Veil; Otherworldly Glamour; Primal Awareness; Roving; Save Proficiency (Dexterity/Strength); Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Spellcasting Focus; Spellcasting; Swarming Dispersal; Swarmkeeper Magic; Swarmkeeper; Tireless; Vanish; Weapon Proficiency (Martial); Writhing Tide</td>
+        <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Beguiling Twist; Canny; Deft Explorer; Dreadful Strikes; Extra Attack; Favored Foe; Feral Senses; Fey Reinforcements; Fey Wanderer Magic; Fey Wanderer; Fighting Style (Blind Fighting); Fighting Style (Druidic Warrior); Fighting Style (Thrown Weapon Fighting); Foe Slayer; Gathered Swarm; Land's Stride; Martial Versatility; Mighty Swarm; Misty Wanderer; Nature's Veil; Otherworldly Glamour; Primal Awareness; Roving; Save Proficiency (Dexterity/Strength); Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Spellcasting Focus; Spellcasting; Swarming Dispersal; Swarmkeeper Magic; Swarmkeeper; Tireless; Vanish; Weapon Proficiency (Martial); Writhing Tide</td>
         <td><b>Acolyte Features</b>: Languages (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight/Religion)</td>
       </tr></table>
 </td>
@@ -211,7 +211,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Extra Attack: +1 Attacks Per Round</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Mighty Swarm: Gathered Swarm inflicts 1d8, gives self half cover, or knocks foe prone</i></td>
+        <td><i>Mighty Swarm: Gathered Swarm gives self half cover, knocks foe prone, or inflicts 1d8</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Attack Adjustment: +1</i></td>
       </tr><tr style="text-align:center">
@@ -224,6 +224,8 @@ var attributes = {
         <td>Favored Foe: Hit on marked foe inflicts +1d8 HP weapon damage for conc or 1 min 6/long rest</td>
       </tr><tr style="text-align:center">
         <td>Feral Senses: No Disadv vs. invisible foe</td>
+      </tr><tr style="text-align:center">
+        <td>Fighting Style (Blind Fighting): R10' Detect invisible creatures</td>
       </tr><tr style="text-align:center">
         <td>Fighting Style (Thrown Weapon Fighting): Draw thrown weapon as part of Attack action, +2 HP weapon damage with thrown weapon</td>
       </tr><tr style="text-align:center">
@@ -321,7 +323,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Magic Notes</b>:     <table id="MagicNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Fighting Style (Druidic Warrior): Know 2 D0 cantrips</i></td>
+      <td><i>Fighting Style (Druidic Warrior): Know 2 D0 cantrips, replace 1 each level</i></td>
     </tr><tr style="text-align:center">
       <td><i>Magic Initiate (Wizard): Know 2 W0 spells, cast 1 W1 spell/long rest</i></td>
     </tr><tr style="text-align:center">
@@ -347,7 +349,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>: Selectable Feature Allocation: 2 available vs. 5 allocated</td>
+      <td><b>Validation Errors</b>: Selectable Feature Allocation: 2 available vs. 6 allocated</td>
     </tr></table>
 </td>
   </tr></table>
