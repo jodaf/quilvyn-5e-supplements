@@ -563,7 +563,7 @@ Xanathar.FEATURES = {
     'Section=combat Note="Take extra turn when brought to 0 HP 1/long rest"',
   'Strength Of The Grave':
     'Section=combat ' +
-    'Note="DC 5 + damage Cha check to retain 1 HP when reduced to 0 by non-crit, non-radiant damage 1/long rest"',
+    'Note="DC 5 + damage Cha check to retain 1 HP when reduced to 0 by non-critical, non-radiant damage 1/long rest"',
   'Storm Aura (Desert)':
     'Section=magic Note="10\' radius inflicts %V HP fire during rage 1/rd"',
   'Storm Aura (Sea)':
