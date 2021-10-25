@@ -251,26 +251,26 @@ Tasha.DEITIES_DOMAINS_ADDED = {
   'Yondalla':'Twilight'
 };
 Tasha.FEATS = {
-  'Artificer Initiate':'',
-  'Chef':'',
-  'Crusher':'',
+  'Artificer Initiate':'Type=General',
+  'Chef':'Type=General',
+  'Crusher':'Type=General',
   'Eldritch Adept':
-    'Require="features.Spellcasting||features.Pact Magic"',
-  'Fey Touched':'',
+    'Type=General Require="features.Spellcasting||features.Pact Magic"',
+  'Fey Touched':'Type=General',
   'Fighting Initiate':
-    'Require="features.Weapon Proficiency (Martial)"',
-  'Gunner':'',
+    'Type=General Require="features.Weapon Proficiency (Martial)"',
+  'Gunner':'Type=General',
   'Metamagic Adept':
-    'Require="features.Spellcasting||features.Pact Magic"',
-  'Piercer':'',
-  'Poisoner':'',
-  'Shadow Touched':'',
-  'Skill Expert':'',
-  'Slasher':'',
-  'Telekinetic (Charisma)':'',
-  'Telekinetic (Intelligence)':'',
-  'Telekinetic (Wisdom)':'',
-  'Telepathic':''
+    'Type=General Require="features.Spellcasting||features.Pact Magic"',
+  'Piercer':'Type=General',
+  'Poisoner':'Type=General',
+  'Shadow Touched':'Type=General',
+  'Skill Expert':'Type=General',
+  'Slasher':'Type=General',
+  'Telekinetic (Charisma)':'Type=General',
+  'Telekinetic (Intelligence)':'Type=General',
+  'Telekinetic (Wisdom)':'Type=General',
+  'Telepathic':'Type=General'
 };
 Tasha.FEATURES = {
 
@@ -494,7 +494,7 @@ Tasha.FEATURES = {
   'Poisoner':
     'Section=combat,skill ' +
     'Note=' +
-      '"Ignore poison resistance, coat weapon w/poison for 1 min (inflicts +2d8 HP poison and poisoned condition (DC 14 Con neg) for 1 rd",' +
+      '"Ignore poison resistance, coat weapon w/poison for 1 min (inflicts +2d8 HP poison and poisoned condition (DC 14 Con neg) for 1 rd)",' +
       '"Tool Proficiency (Poisoner\'s Kit)"',
   'Shadow Touched':
     'Section=ability,magic ' +
@@ -509,7 +509,7 @@ Tasha.FEATURES = {
   'Slasher':
     'Section=ability,combat ' +
     'Note="+1 Strength or Dexterity",' +
-         '"Slashing damage inflicts -10 Speed for 1 rd, critical hit inflicts Disadv on attacks for 1 rd"',
+         '"Slashing damage inflicts -10 Speed for 1 rd; critical hit inflicts Disadv on attacks for 1 rd"',
   'Telekinetic (Charisma)':
     'Section=ability,combat,magic ' +
     'Note="+1 Charisma",' +
@@ -655,7 +655,7 @@ Tasha.FEATURES = {
          '"Resistance to %{genieEnergy} damage"',
   'Embodiment Of The Law':
     'Section=magic ' +
-    'Note="Cast enchantment spells as bonus action %{wisdomModifier>?1}/long rest"',
+    'Note="Cast Enchantment spells as bonus action %{wisdomModifier>?1}/long rest"',
   'Emboldening Bond':
     'Section=magic ' +
     'Note="R30\' %{proficiencyBonus} willing targets gain +1d4 on 1 attack, ability, or saving throw/rd when w/in 30\' of each other for 10 min %{proficiencyBonus}/long rest"',
@@ -1405,8 +1405,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Lesser Restoration':'A2',
   'Levitate':'A2',
   'Light':'A0',
-  'Lightning Bolt':'A3',
-  'Lightning Storm':'K3',
+  'Lightning Bolt':'A3,K3',
   'Locate Creature':'Order4',
   'Longstrider':'A1',
   'Mage Hand':'A0',
