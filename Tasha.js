@@ -267,7 +267,9 @@ Tasha.FEATS = {
   'Shadow Touched':'',
   'Skill Expert':'',
   'Slasher':'',
-  'Telekinetic':'',
+  'Telekinetic (Charisma)':'',
+  'Telekinetic (Intelligence)':'',
+  'Telekinetic (Wisdom)':'',
   'Telepathic':''
 };
 Tasha.FEATURES = {
@@ -455,45 +457,50 @@ Tasha.FEATURES = {
   // Feats
   'Artificer Initiate':
     'Section=magic,skill ' +
-    'Note="Know 2 A0 spells, cast 1 A1 spell/long rest",' +
+    'Note="Know 1 A0 spell, cast 1 A1 spell 1/long rest",' +
          '"Tool Proficiency (Choose 1 from any Artisan)"',
   'Chef':
-    'Section=ability,feature,skill ' +
+    'Section=ability,feature,magic ' +
     'Note="+1 Constitution or Wisdom",' +
-         '"Food prepared during short rest heals +1d8 HP to %{proficiencyBonus+4}; treats prepared during long rest give %{proficiencyBonus} temporary HP to %{proficiencyBonus}",' +
-         '"Tool Proficiency (Cook\'s Utensils)"',
+         '"Tool Proficiency (Cook\'s Utensils)",' +
+         '"Food prepared during short rest heals 1d8 HP for %{proficiencyBonus+4} targets; treats prepared during long rest give %{proficiencyBonus} temporary HP to %{proficiencyBonus} targets"',
   'Crusher':
     'Section=ability,combat ' +
     'Note="+1 Constitution or Strength",' +
-         '"Bludgeoning hit moves foe 5\' and gives foes Adv on attacks for 1 rd"',
-  'Eldritch Adept':'Section=magic Note="Learn 1 Eldritch Invocation"',
+         '"Bludgeoning hit moves foe 5\'; critical hit gives allies Adv on attacks for 1 rd"',
+  'Eldritch Adept':
+    'Section=magic ' +
+    'Note="Learn 1 Eldritch Invocation, replace when gaining level"',
   'Fey Touched':
     'Section=ability,magic ' +
     'Note="+1 Charisma, Intelligence, or Wisdom",' +
-         '"Know <i>Misty Step</i> and 1 level 1 Divination or Enchantment spell"',
-  'Fighting Initiate':'Section=feature Note="Learn 1 Fighting Style"',
+         '"Cast <i>Misty Step</i> and 1 level 1 Divination or Enchantment spell 1/long rest"',
+  'Fighting Initiate':
+    'Section=feature ' +
+    'Note="Learn 1 Fighting Style, replace when boosting ability or taking feat"',
   'Gunner':
     'Section=ability,combat,feature ' +
     'Note="+1 Dexterity",' +
          '"Attacks not slowed by loading, no Disadv on ranged attacks w/in 5\' of foe",' +
          '"Weapon Proficiency (Firearms)"',
   'Metamagic Adept':
-    'Section=feature Note="Gain 2 Sorcery Points, learn 2 Metamagic options"',
+    'Section=feature ' +
+    'Note="Gain 2 Sorcery Points, learn 2 Metamagic options, replace 1 when boosting ability or taking feat"',
   'Piercer':
     'Section=ability,combat ' +
     'Note=' +
       '"+1 Strength or Dexterity",' +
-      '"Additional piercing crit die, reroll 1 piercing damage die 1/rd"',
+      '"Additional piercing critical hit die, reroll 1 piercing damage die 1/rd"',
   'Poisoner':
     'Section=combat,skill ' +
     'Note=' +
-      '"Ignore poison resistance, poison-coated weapon inflicts +2d8 HP poison and poisoned for 1 rd (DC 14 Con neg)",' +
+      '"Ignore poison resistance, coat weapon w/poison for 1 min (inflicts +2d8 HP poison and poisoned condition (DC 14 Con neg) for 1 rd",' +
       '"Tool Proficiency (Poisoner\'s Kit)"',
   'Shadow Touched':
     'Section=ability,magic ' +
     'Note=' +
       '"+1 Intelligence, Wisdom, or Charisma",' +
-      '"Learn <i>Invisibility</i>, cast chosen 1st-level Illusion or Necromancy spell 1/long rest"',
+      '"Cast <i>Invisibility</i> and 1 level 1 Illusion or Necromancy spell 1/long rest"',
   'Skill Expert':
     'Section=ability,feature,skill ' +
     'Note="+1 Ability Boosts",' +
@@ -502,12 +509,22 @@ Tasha.FEATURES = {
   'Slasher':
     'Section=ability,combat ' +
     'Note="+1 Strength or Dexterity",' +
-         '"Slashing damage inflicts -10 Speed for 1 rd, slashing crit inflicts Disadv on attacks for 1 rd"',
-  'Telekinetic':
+         '"Slashing damage inflicts -10 Speed for 1 rd, critical hit inflicts Disadv on attacks for 1 rd"',
+  'Telekinetic (Charisma)':
     'Section=ability,combat,magic ' +
-    'Note="+1 Charisma, Intelligence, or Wisdom",' +
-         '"R30\' Telepathic shove moves target 5\' (Str neg)",' +
-         '"Learn <i>Mage Hand</i>"',
+    'Note="+1 Charisma",' +
+         '"R30\' Telepathic shove moves target 5\' (DC %{8+proficiencyBonus+charismaModifier} Str neg)",' +
+         '"Cast <i>Mage Hand</i>"',
+  'Telekinetic (Intelligence)':
+    'Section=ability,combat,magic ' +
+    'Note="+1 Intelligence",' +
+         '"R30\' Telepathic shove moves target 5\' (DC %{8+proficiencyBonus+intelligenceModifier} Str neg)",' +
+         '"Cast <i>Mage Hand</i>"',
+  'Telekinetic (Wisdom)':
+    'Section=ability,combat,magic ' +
+    'Note="+1 Wisdom",' +
+         '"R30\' Telepathic shove moves target 5\' (DC %{8+proficiencyBonus+wisdomModifier} Str neg)",' +
+         '"Cast <i>Mage Hand</i>"',
   'Telepathic':
     'Section=ability,feature,magic ' +
     'Note="+1 Charisma, Intelligence, or Wisdom",' +
@@ -638,7 +655,7 @@ Tasha.FEATURES = {
          '"Resistance to %{genieEnergy} damage"',
   'Embodiment Of The Law':
     'Section=magic ' +
-    'Note="Cast Enchantment spells as bonus action %{wisdomModifier>?1}/long rest"',
+    'Note="Cast enchantment spells as bonus action %{wisdomModifier>?1}/long rest"',
   'Emboldening Bond':
     'Section=magic ' +
     'Note="R30\' %{proficiencyBonus} willing targets gain +1d4 on 1 attack, ability, or saving throw/rd when w/in 30\' of each other for 10 min %{proficiencyBonus}/long rest"',
