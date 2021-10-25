@@ -15,14 +15,14 @@ var attributes = {
   "shield":"None", "skillsChosen.Arcana":1, "skillsChosen.Religion":1, 
   "skillsChosen.Sleight Of Hand":1, "skillsChosen.Survival":1, "spells.Blade Of Disaster(W9 Conj)":1, 
   "spells.Booming Blade(W0 Evoc)":1, "spells.Dream Of The Blue Veil(W7 Conj)":1, 
-  "spells.Green-Flame Blade(W0 Evoc)":1, "spells.Intellect Fortress(W3 Abju)":1, "spells.Mind Sliver(W0 Ench)":1, 
-  "spells.Spirit Shroud(W3 Necr)":1, "spells.Summon Aberration(W4 Conj)":1, "spells.Summon Beast(R2 Conj)":1, 
-  "spells.Summon Celestial(C5 Conj)":1, "spells.Summon Construct(W4 Conj)":1, "spells.Summon Elemental(W4 Conj)":1, 
-  "spells.Summon Fey(W3 Conj)":1, "spells.Summon Fiend(W6 Conj)":1, "spells.Summon Shadowspawn(W3 Conj)":1, 
-  "spells.Summon Undead(W3 Necr)":1, "spells.Sword Burst(W0 Conj)":1, "spells.Tasha's Caustic Brew(W1 Evoc)":1, 
-  "spells.Tasha's Mind Whip(W2 Ench)":1, "spells.Tasha's Otherworldly Guise(W6 Tran)":1, "strength":14, 
-  "toolsChosen.Dice Set":1, "weapons.Dagger":1, "weapons.Dart":1, "weapons.Light Crossbow":1, 
-  "weaponsChosen.Longsword":1, "wisdom":13
+  "spells.Green-Flame Blade(W0 Evoc)":1, "spells.Intellect Fortress(W3 Abju)":1, "spells.Lightning Lure(W0 Evoc)":1, 
+  "spells.Mind Sliver(W0 Ench)":1, "spells.Spirit Shroud(W3 Necr)":1, "spells.Summon Aberration(W4 Conj)":1, 
+  "spells.Summon Beast(R2 Conj)":1, "spells.Summon Celestial(C5 Conj)":1, "spells.Summon Construct(W4 Conj)":1, 
+  "spells.Summon Elemental(W4 Conj)":1, "spells.Summon Fey(W3 Conj)":1, "spells.Summon Fiend(W6 Conj)":1, 
+  "spells.Summon Shadowspawn(W3 Conj)":1, "spells.Summon Undead(W3 Necr)":1, "spells.Sword Burst(W0 Conj)":1, 
+  "spells.Tasha's Caustic Brew(W1 Evoc)":1, "spells.Tasha's Mind Whip(W2 Ench)":1, 
+  "spells.Tasha's Otherworldly Guise(W6 Tran)":1, "strength":14, "toolsChosen.Dice Set":1, "weapons.Dagger":1, 
+  "weapons.Dart":1, "weapons.Light Crossbow":1, "weaponsChosen.Longsword":1, "wisdom":13
 };
   </script>
 </head>
@@ -234,19 +234,21 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Spells</b>:     <table id="Spells" style="width:100%">
     <tr style="text-align:left">
-      <td>Blade Of Disaster (W9 Conj): Self controls rift blade that moves 30' and attacks twice/rd, inflicting 4d12 HP force x3@18 each, for conc + 1 min</td>
+      <td>Blade Of Disaster (W9 Conj): R60' Self controls rift blade that moves 30' and attacks 2/rd, inflicting 4d12 HP force x3@18 each, for conc or 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Booming Blade (W0 Evoc): Struck foe suffers +1d8 HP thunder and 2d8 HP thunder on move for 1 rd</td>
+      <td>Booming Blade (W0 Evoc): Struck foe suffers +1d8 HP thunder and 2d8 HP thunder on move w/in 1 rd</td>
     </tr><tr style="text-align:left">
-      <td>Dream Of The Blue Veil (W7 Conj): R20' Self and 8 willing others travel to another world for 6 hr</td>
+      <td>Dream Of The Blue Veil (W7 Conj): R20' Self and 8 willing others view another world for 6 hr, travel at end of spell</td>
     </tr><tr style="text-align:left">
       <td>Green-Flame Blade (W0 Evoc): Struck foe suffers +1d8 HP fire, R5' target suffers 1d8+3 HP fire</td>
     </tr><tr style="text-align:left">
       <td>Intellect Fortress (W3 Abju): R30' Willing target gains resistance to psychic damage and Adv on Int, Wis, and Cha saves for conc or 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Mind Sliver (W0 Ench): R60' Target suffers 2d6 HP psychic and -1d4 next save (Int neg) for 1 rd</td>
+      <td>Lightning Lure (W0 Evoc): R15' Pulls target 10' and inflicts 2d8 HP lightning (Str neg)</td>
     </tr><tr style="text-align:left">
-      <td>Spirit Shroud (W3 Necr): Self hits inflict +1d8 HP radiant, necrotic, or cold; R10' target suffers -10' Speed for 1 rd for conc or 1 min</td>
+      <td>Mind Sliver (W0 Ench): R60' Target suffers 2d6 HP psychic and -1d4 next save (Int neg) w/in 1 rd</td>
+    </tr><tr style="text-align:left">
+      <td>Spirit Shroud (W3 Necr): R10' Self hits inflict +1d8 HP radiant, necrotic, or cold; 1 target/rd suffers -10' Speed for 1 rd for conc or 1 min</td>
     </tr><tr style="text-align:left">
       <td>Summon Aberration (W4 Conj): R90' Summoned beholderkin, slaad, or star spawn obeys self for conc or 1 hr</td>
     </tr><tr style="text-align:left">
@@ -270,9 +272,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Tasha's Caustic Brew (W1 Evoc): 30'x5' line inflicts 2d4 HP/rd acid for conc or 1 min (Dex neg)</td>
     </tr><tr style="text-align:left">
-      <td>Tasha's Mind Whip (W2 Ench): R90' Target suffers 3d6 HP psychic and single action next rd (Int half, normal action)</td>
+      <td>Tasha's Mind Whip (W2 Ench): R90' Target suffers 3d6 HP psychic and single action for 1 rd (Int half, normal action)</td>
     </tr><tr style="text-align:left">
-      <td>Tasha's Otherworldly Guise (W6 Tran): Self gains immunity to fire and poison damage and poisoned condition or radiant and necrotic damage and charmed condition, 40' fly, +2 AC, two +7 magical weapon attacks/rd for conc or 1 min</td>
+      <td>Tasha's Otherworldly Guise (W6 Tran): Self gains immunity to fire and poison damage and poisoned condition (or radiant and necrotic damage and charmed condition), 40' fly, +2 AC, +7 magical weapon attacks 2/rd for conc or 1 min</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
