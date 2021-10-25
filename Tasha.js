@@ -327,7 +327,8 @@ Tasha.FEATURES = {
     'Section=combat Note="R10\' Detect invisible creatures"',
   'Fighting Style (Blessed Warrior)':
     'Section=magic Note="Know 2 C0 cantrips, replace 1 each level"',
-  'Fighting Style (Druidic Warrior)':'Section=magic Note="Know 2 D0 cantrips"',
+  'Fighting Style (Druidic Warrior)':
+    'Section=magic Note="Know 2 D0 cantrips, replace 1 each level"',
   'Fighting Style (Interception)':
     'Section=combat ' +
     'Note="R5\' Use Reaction to negate 1d10+%{proficiencyBonus} HP damage"',
@@ -590,7 +591,7 @@ Tasha.FEATURES = {
     'Note="Touched gains +1d3 attacks and ability checks for 10 min or regains level 1d3 spell slot 1/long rest %{proficiencyBonus}/long rest"',
   'Bulwark Of Force':
     'Section=combat ' +
-    'Note="R30\' Give %{intelligenceModifier} targets half cover for 1 min 1/long rest (spend 1 Psionic Energy Die for additional)"',
+    'Note="R30\' Give %{intelligenceModifier} targets half cover for 1 min 1/long rest (spend 1 Psionic Energy die for additional)"',
   'Call The Hunt':
     'Section=combat Note="During rage, R30\' %{constitutionModifier>?1} targets gain +1d6 HP damage 1/rd, self gains 5 temporary HP/target %{proficiencyBonus}/long rest"',
   'Cauterizing Flames':
@@ -617,7 +618,7 @@ Tasha.FEATURES = {
   'Dampening Field':'Section=skill Note="Armor gives Adv on Stealth"',
   "Death's Friend":
     'Section=combat,feature ' +
-    'Note="Sneak Attack target affected by Wails From The Dead use",' +
+    'Note="Sneak Attack target affected by Wails From The Grave use",' +
          '"Minimum 1 Soul Trinket after long rest"',
   'Defensive Field':
     'Section=combat ' +
@@ -713,7 +714,7 @@ Tasha.FEATURES = {
          '"Grow 3d4 inches"',
   'Guarded Mind':
     'Section=save ' +
-    'Note="Resistance to psychic damage, spend 1 Psionic Energy Die to end charmed and frightened conditions"',
+    'Note="Resistance to psychic damage, spend 1 Psionic Energy die to end charmed and frightened conditions"',
   'Guardian Coil':
     'Section=magic ' +
     'Note="Use Reaction to have Tentacle Of The Deeps reduce damage by %{levels.Warlock<10?1:2}d8"',
@@ -733,7 +734,7 @@ Tasha.FEATURES = {
     'Note="Adv vs. poison and resistance to poison damage; invoke for resistance to bludgeoning, piercing, and slashing for 1 min %V/short rest"',
   'Homing Strikes':
     'Section=combat ' +
-    'Note="Spend 1 Psionic Energy Die to change Psychic Blade miss into hit"',
+    'Note="Add 1d%{featureNotes.psionicPower.1} to failed Psychic Blade attack, spend 1 Psionic Energy die if the sum is enough to hit"',
   'Implement Of Peace':
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 1 from Insight, Performance, Persuasion)"',
@@ -778,7 +779,7 @@ Tasha.FEATURES = {
     'Note="R5\' After a long rest, create enhanced 1st or 2nd level spell scroll from Awakened Spellbook"',
   'Mighty Swarm':
     'Section=combat ' +
-    'Note="Gathered Swarm inflicts 1d8, gives self half cover, or knocks foe prone"',
+    'Note="Gathered Swarm gives self half cover, knocks foe prone, or inflicts 1d8"',
   'Misty Wanderer':
     'Section=magic ' +
     'Note="Cast R5\' <i>Misty Step</i> targeting self and 1 other %{wisdomModifier>?1}/long rest"',
@@ -828,35 +829,35 @@ Tasha.FEATURES = {
   'Protective Bond':
     'Section=magic Note="Emboldening Bond member can use Reaction to teleport 30\' and take another\'s damage"',
   'Protective Field':
-    'Section=combat Note="R30\' Spend 1 Psionic Energy Die to use Reaction to negate 1d%{featureNotes.psionicPower.1}+%{intelligenceModifier>?1} HP damage"',
+    'Section=combat Note="R30\' Spend 1 Psionic Energy die to use Reaction to negate 1d%{featureNotes.psionicPower.1}+%{intelligenceModifier>?1} HP damage"',
   'Psi-Bolstered Knack':
     'Section=skill ' +
-    'Note="Spend 1 Psionic Energy Die to turn proficient skill or tool use failure into success"',
+    'Note="Spend 1 Psionic Energy die to turn proficient skill or tool use failure into success"',
   'Psi-Powered Leap':
     'Section=ability ' +
-    'Note="%{speed*2}\' fly for 1 rd 1/long rest (spend 1 Psionic Energy Die for additional)"',
+    'Note="%{speed*2}\' fly for 1 rd 1/long rest (spend 1 Psionic Energy die for additional)"',
   'Psionic Power':
     'Section=feature ' +
-    'Note="Use %Vd%1 Psionic Energy dice/long rest; regain 1 die as bonus action after short rest"',
+    'Note="Use %Vd%1 Psionic Energy dice/long rest; regain 1 Psionic Energy die as bonus action after short rest"',
   'Psionic Sorcery':
     'Section=magic ' +
     'Note="Cast spell using Sorcery Points instead of spell slot"',
   'Psionic Strike':
-    'Section=combat Note="R30\' Spend 1 Psionic Energy Die after hit to inflict +1d%{featureNotes.psionicPower.1}+%{intelligenceModifier} HP force"',
+    'Section=combat Note="R30\' Spend 1 Psionic Energy die after hit to inflict +1d%{featureNotes.psionicPower.1}+%{intelligenceModifier} HP force"',
   'Psychic Blades':
     'Section=combat ' +
-    'Note="Two psychic blade attacks inflict 1d6+%V HP psychic and 1d4+%V HP psychic"',
+    'Note="Two R60\' magic psychic blade attacks inflict 1d6+%V HP psychic and 1d4+%V HP psychic"',
   'Psychic Defenses':
     'Section=save ' +
     'Note="Resistance to psychic damage, Adv on saves vs. charm and fright"',
   'Psychic Teleportation':
-    'Section=combat Note="Spend 1 Psionic Energy Die to teleport 1d%V x 10\'"',
+    'Section=combat Note="Spend 1 Psionic Energy die to teleport 1d%V x 10\'"',
   'Psychic Veil':
     'Section=magic ' +
-    'Note="Self becomes invisible for 1 hr or until inflicts damage or forces saving throw 1/long rest (spend 1 Psionic Energy Die for additional)"',
+    'Note="Self becomes invisible for 1 hr or until inflicts damage or forces saving throw 1/long rest (spend 1 Psionic Energy die for additional)"',
   'Psychic Whispers':
     'Section=feature ' +
-    'Note="Establish telepathic communication with %{proficiencyBonus} visible creatures for 1d%V hr 1/long rest (spend 1 Psionic Energy Die for additional)"',
+    'Note="Establish telepathic communication with %{proficiencyBonus} visible creatures for 1d%V hr 1/long rest (spend 1 Psionic Energy die for additional)"',
   'Rend Mind':
     'Section=combat Note="Sneak Attack with Psychic Blade stuns for 1 min (DC %{8+dexterityModifier+proficiencyBonus} Wis ends) 1/long rest (spend 3 Psionic Energy dice for additional)"',
   'Restorative Reagents':
@@ -895,7 +896,7 @@ Tasha.FEATURES = {
     'Section=feature ' +
     'Note="Exchange Metamagic option or Cantrip when boosting ability or taking feat"',
   'Soul Blades':
-    'Section=feature Note="Use Homing Strikes and Psychic Teleportation"',
+    'Section=feature Note="Homing Strikes and Psychic Teleportation features"',
   'Spreading Spores':
     'Section=combat Note="R30\' Halo Of Spores (DC %V Con neg)"',
   'Star Map':
@@ -933,8 +934,8 @@ Tasha.FEATURES = {
   'Telekinetic Adept':
     'Section=feature Note="Psi-Powered Leap and Telekinetic Thrust features"',
   'Telekinetic Master':
-    'Section=magic Note="Cast <i>Telekinesis</i> and attack 1/rd while concentrating 1/long rest (spend 1 Psionic Energy Die for additional) "',
-  'Telekinetic Movement':'Section=feature Note="R30\' Move Large target 30\' 1/short rest (spend 1 Psionic Energy Die for additional)"',
+    'Section=magic Note="Cast <i>Telekinesis</i> and attack 1/rd while concentrating 1/long rest (spend 1 Psionic Energy die for additional) "',
+  'Telekinetic Movement':'Section=feature Note="R30\' Move Large target 30\' 1/short rest (spend 1 Psionic Energy die for additional)"',
   'Telekinetic Thrust':
     'Section=combat Note="Psionic Strike knocks prone or pushes 10\' (DC %{8+proficiencyBonus+intelligenceModifier} Str neg)"',
   'Telepathic Speech':
