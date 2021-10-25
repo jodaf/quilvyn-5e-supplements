@@ -15,7 +15,9 @@ this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 Place, Suite 330, Boston, MA 02111-1307 USA.
 */
 
-/*jshint esversion: 6 */
+/* jshint esversion: 6 */
+/* jshint forin: false */
+/* globals SRD5E, PHB5E */
 "use strict";
 
 /*
@@ -36,7 +38,7 @@ function Volo(edition, rules) {
   var features = monstrous ? Volo.MONSTROUS_FEATURES : Volo.CHARACTER_FEATURES;
   var races = monstrous ? Volo.MONSTROUS_RACES : Volo.CHARACTER_RACES;
   if(rules == null)
-    rules = PHB5E.rules
+    rules = PHB5E.rules;
   Volo.identityRules(rules, races);
   Volo.talentRules(rules, features);
   if(monstrous)

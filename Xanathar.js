@@ -15,7 +15,9 @@ this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 Place, Suite 330, Boston, MA 02111-1307 USA.
 */
 
-/*jshint esversion: 6 */
+/* jshint esversion: 6 */
+/* jshint forin: false */
+/* globals SRD5E, PHB5E, QuilvynUtils */
 "use strict";
 
 /*
@@ -34,7 +36,7 @@ function Xanathar(edition, rules) {
   }
 
   if(rules == null)
-    rules = PHB5E.rules
+    rules = PHB5E.rules;
   Xanathar.identityRules(
     rules, Xanathar.CLASSES_SELECTABLES_ADDED, Xanathar.DEITIES_DOMAINS_ADDED,
     Xanathar.PATHS
@@ -1692,7 +1694,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.shieldingStorm',
       'features.Storm Aura (Desert)', '=', '"fire"',
       'features.Storm Aura (Sea)', '=', '"lightning"',
-      'features.Storm Aura (Tundra)', '=', '"cold"',
+      'features.Storm Aura (Tundra)', '=', '"cold"'
     );
     rules.defineRule
       ('selectableFeatureCount.Barbarian (Storm Aura)', pathLevel, '=', '1');

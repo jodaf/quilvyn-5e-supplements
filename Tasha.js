@@ -15,7 +15,9 @@ this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 Place, Suite 330, Boston, MA 02111-1307 USA.
 */
 
-/*jshint esversion: 6 */
+/* jshint esversion: 6 */
+/* jshint forin: false */
+/* globals SRD5E, PHB5E, Xanathar, QuilvynUtils */
 "use strict";
 
 /*
@@ -34,7 +36,7 @@ function Tasha(edition, rules) {
   }
 
   if(rules == null)
-    rules = PHB5E.rules
+    rules = PHB5E.rules;
 
   Tasha.identityRules(
     rules, Tasha.CLASSES, Tasha.CLASSES_FEATURES_ADDED,
@@ -1468,21 +1470,23 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Zone Of Truth':'Order2',
 };
 if(window.Xanathar) {
-  Tasha.SPELLS_LEVELS_ADDED['Absorb Elements'] = 'A1';
-  Tasha.SPELLS_LEVELS_ADDED['Catapult'] = 'A1';
-  Tasha.SPELLS_LEVELS_ADDED['Catnap'] = 'A3';
-  Tasha.SPELLS_LEVELS_ADDED['Create Bonfire'] = 'A0';
-  Tasha.SPELLS_LEVELS_ADDED['Elemental Bane'] = 'A4';
-  Tasha.SPELLS_LEVELS_ADDED['Flame Arrows'] = 'A3';
-  Tasha.SPELLS_LEVELS_ADDED['Frostbite'] = 'A0';
-  Tasha.SPELLS_LEVELS_ADDED['Magic Stone'] = 'A0';
-  Tasha.SPELLS_LEVELS_ADDED['Pyrotechnics'] = 'A2';
-  Tasha.SPELLS_LEVELS_ADDED['Skill Empowerment'] = 'A5';
-  Tasha.SPELLS_LEVELS_ADDED['Snare'] = 'A1';
-  Tasha.SPELLS_LEVELS_ADDED['Thunderclap'] = 'A0';
-  Tasha.SPELLS_LEVELS_ADDED['Tiny Servant'] = 'A3';
-  Tasha.SPELLS_LEVELS_ADDED['Transmute Rock'] = 'A5';
-};
+  Object.assign(Tasha.SPELLS_LEVEL_ADDED, {
+    'Absorb Elements':'A1',
+    'Catapult':'A1',
+    'Catnap':'A3',
+    'Create Bonfire':'A0',
+    'Elemental Bane':'A4',
+    'Flame Arrows':'A3',
+    'Frostbite':'A0',
+    'Magic Stone':'A0',
+    'Pyrotechnics':'A2',
+    'Skill Empowerment':'A5',
+    'Snare':'A1',
+    'Thunderclap':'A0',
+    'Tiny Servant':'A3',
+    'Transmute Rock':'A5'
+  });
+}
 
 /* Defines rules related to basic character identity. */
 Tasha.identityRules = function(
