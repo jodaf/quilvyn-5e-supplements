@@ -297,7 +297,7 @@ Tasha.FEATURES = {
     'Note="Spend 1 Superiority Die to use Reaction to attack creature that moves into range and add roll to damage"',
   'Canny':
     'Section=skill Note="+2 Language Count/Dbl proficiency on chosen skill"',
-  'Cantrip Formulas':'Section=magic Note="Replace known cantrip 1/long rest"',
+  'Cantrip Formulas':'Section=magic Note="Replace cantrip 1/long rest"',
   'Cantrip Versatility':
     'Section=feature ' +
     'Note="Replace 1 cantrip when boosting ability or taking feat"',
@@ -364,7 +364,7 @@ Tasha.FEATURES = {
   'Instinctive Pounce':
     'Section=combat Note="Move %{speed//2}\' when entering rage"',
   'Investment Of The Chain Master':
-    'Section=magic Note="Familiar gains 40\' fly or swim and magical attacks and inflicts DC %{spellDifficultyClass.K} saves; self can command to attack and can use Reaction to give familiar resistance to damage"',
+    'Section=magic Note="Familiar inflicts DC %{spellDifficultyClass.K} saves and gains 40\' fly or swim and magical attacks; self can command familiar to attack and can use Reaction to give it resistance to damage"',
   'Ki-Fueled Attack':
    'Section=combat Note="Spend 1 Ki Point for bonus monk weapon attack"',
   'Magic Item Adept':
@@ -557,7 +557,7 @@ Tasha.FEATURES = {
     'Note="Use Channel Divinity to move %{speed}\' w/out OA and heal 2d6+%{wisdomModifier} HP to each target w/in 5\'"',
   'Bastion Of Law':
     'Section=magic ' +
-    'Note="R30\' Spend 1 - 5 Sorcery Points to absorb equal d8 HP damage to target 1/long rest"',
+    'Note="R30\' Spend 1 - 5 Sorcery Points to absorb equal d8 HP damage to target until next use or long rest"',
   'Battle Ready':
     'Section=combat,feature ' +
     'Note="+%{intelligenceModifier-strengthModifier} (Int instead of Str) or +%{intelligenceModifier-dexterityModifier} (Int instead of Dex) attack and damage w/magic weapons",' +
@@ -604,6 +604,7 @@ Tasha.FEATURES = {
   'Clockwork Cavalcade':
     'Section=magic ' +
     'Note="30\' cu heals 100 HP total to targets, repairs damaged objects, and dismisses target spells up to 6th level 1/long rest (spend 7 Sorcery Points for additional)"',
+  'Clockwork Magic':'Section=magic Note="Access to additional spells"',
   'Cloud Rune':
     'Section=combat,skill ' +
     'Note="R30\' Use Reaction to redirect damage to different target %V/short rest",' +
@@ -692,7 +693,7 @@ Tasha.FEATURES = {
     'Section=combat Note="After a hit, companion swarm moves self 5\', moves foe 15\' (DC %V Str neg), or inflicts 1d%1 HP piercing"',
   "Genie's Vessel":
     'Section=magic ' +
-    'Note="Retreat into vessel for %{proficiencyBonus*2} hr or inflict +%{proficiencyBonus} HP %{genieEnergy} 1/rd"',
+    'Note="Retreat into vessel for %{proficiencyBonus*2} hr 1/long rest, inflict +%{proficiencyBonus} HP %{genieEnergy} 1/rd"',
   'Ghost Walk':
     'Section=feature ' +
     'Note="Spectral form gives 10\' fly, Disadv foe attacks, move through objects for 10 min 1/long rest (destroy Soul Trinket for additional)"',
@@ -707,7 +708,7 @@ Tasha.FEATURES = {
     'Section=combat ' +
     'Note="R10\' Use Reaction to give +%{charismaModifier>?1} AC and attack attacker on miss %{charismaModifier>?1}/long rest"',
   'Grasping Tentacles':
-    'Section=magic Note="Cast <i>Evard\'s Black Tentacles</i> and gain %{levels.Warlock} temporary HP 1/long rest"',
+    'Section=magic Note="Cast <i>Evard\'s Black Tentacles</i> w/unbreakable concentration and gain %{levels.Warlock} temporary HP 1/long rest"',
   'Great Stature':
     'Section=combat,feature ' +
     'Note="Giant\'s Might inflicts +1d8 HP weapon damage",' +
@@ -717,7 +718,7 @@ Tasha.FEATURES = {
     'Note="Resistance to psychic damage, spend 1 Psionic Energy die to end charmed and frightened conditions"',
   'Guardian Coil':
     'Section=magic ' +
-    'Note="Use Reaction to have Tentacle Of The Deeps reduce damage by %{levels.Warlock<10?1:2}d8"',
+    'Note="Use Reaction to use Tentacle Of The Deeps to reduce damage by %{levels.Warlock<10?1:2}d8"',
   'Halo Of Spores':
     'Section=combat Note="R10\' Use Reaction to inflict 1d%V HP necrotic (DC %1 Con neg)"',
   'Hand Of Harm':
@@ -772,6 +773,8 @@ Tasha.FEATURES = {
   'Manifest Mind':
     'Section=magic ' +
     'Note="R300\' See, hear, and cast spells through ghostly object that emits 10\' dim light and moves 30\'/rd"',
+  'Manifestions Of Order':
+    'Section=feature Note="Display physical manifestation of Clockwork Soul"',
   'Master Of Runes':
     'Section=combat Note="Invoke runes 2/short rest"',
   'Master Scrivener':
@@ -842,6 +845,7 @@ Tasha.FEATURES = {
   'Psionic Sorcery':
     'Section=magic ' +
     'Note="Cast spell using Sorcery Points instead of spell slot"',
+  'Psionic Spells':'Section=magic Note="Access to additional spells"',
   'Psionic Strike':
     'Section=combat Note="R30\' Spend 1 Psionic Energy die after hit to inflict +1d%{featureNotes.psionicPower.1}+%{intelligenceModifier} HP force"',
   'Psychic Blades':
@@ -868,7 +872,7 @@ Tasha.FEATURES = {
   'Revelation In Flesh':
     'Section=ability,feature ' +
     'Note=' +
-      '"Spend 1 Sorcery Point for %{speed}\' fly, %{speed*2}\' swim, and water breathing, or squeeze through 1 inch space for 10 min",' +
+      '"Spend 1 Sorcery Point for %{speed}\' fly, %{speed*2}\' swim and water breathing, or squeeze through 1 inch space for 10 min",' +
       '"Spend 1 Sorcery Point for 60\' see invisible for 10 min"',
   'Rune Carver':
     'Section=feature ' +
@@ -889,12 +893,12 @@ Tasha.FEATURES = {
   'Silver Tongue':
     'Section=skill Note="Minimum 10 on Deception and Persuasion rolls"',
   'Song Of Defense':
-    'Section=magic Note="Use Reaction and expend spell slot to reduce damage by 5x slot level"',
+    'Section=magic Note="During Bladesong, use Reaction and expend spell slot to reduce damage by 5x slot level"',
   'Song Of Victory':
     'Section=combat Note="+%V HP melee weapon damage during Bladesong"',
   'Sorcerous Versatility':
     'Section=feature ' +
-    'Note="Exchange Metamagic option or Cantrip when boosting ability or taking feat"',
+    'Note="Replace Metamagic option or Cantrip when boosting ability or taking feat"',
   'Soul Blades':
     'Section=feature Note="Homing Strikes and Psychic Teleportation features"',
   'Spreading Spores':
@@ -1000,7 +1004,7 @@ Tasha.FEATURES = {
     'Section=combat Note="R30\' Sneak Attack inflicts %{(levels.Rogue+1)//4}d6 HP necrotic on second creature %{proficiencyBonus}/long rest"',
   'Warping Implosion':
     'Section=magic ' +
-    'Note="120\' teleport inflicts 3d10 HP in 5\' radius of starting position (Str neg) 1/long rest"',
+    'Note="120\' teleport inflicts 3d10 HP in 30\' radius of starting position and pulls 30\' (Str half, no pull) 1/long rest (spend 5 Sorcery Points for additional)"',
   "Watcher's Will":
     'Section=magic ' +
     'Note="R30\' Use Channel Divinity to give self and %{charismaModifier>?1} others Adv on Cha, Int, and Wis throws for 1 min"',
@@ -1019,8 +1023,8 @@ Tasha.PATHS = {
   'Aberrant Mind':
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
-      '"1:Telepathic Speech","6:Psionic Sorcery","6:Psychic Defenses",' +
-      '"14:Revelation In Flesh","18:Warping Implosion"',
+      '"1:Psionic Spells","1:Telepathic Speech","6:Psionic Sorcery",' +
+      '"6:Psychic Defenses","14:Revelation In Flesh","18:Warping Implosion"',
   'Alchemist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
@@ -1072,8 +1076,8 @@ Tasha.PATHS = {
   'Clockwork Soul':
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
-      '"1:Restore Balance","6:Bastion Of Law","14:Trance Of Order",' +
-      '"18:Clockwork Cavalcade"',
+      '"1:Clockwork Magic","1:Manifestations Of Order","1:Restore Balance",' +
+      '"6:Bastion Of Law","14:Trance Of Order","18:Clockwork Cavalcade"',
   'College Of Creation':
     'Group=Bard Level=levels.Bard ' +
     'Features=' +
@@ -1252,7 +1256,7 @@ Tasha.SPELLS = {
     'Description="R90\' Summoned clay, metal, or stone construct spirit obeys self for conc or 1 hr"',
   'Summon Elemental':
     'School=Conjuration ' +
-    'Level=D4,R4,W4 ' +
+    'Level=D4,K4,R4,W4 ' +
     'Description="R90\' Summoned air, earth, fire, or water elemental spirit obeys self for conc or 1 hr"',
   'Summon Fey':
     'School=Conjuration ' +
@@ -1303,12 +1307,12 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Aura Of Vitality':'C3,D3,Twilight3',
   'Banishment':'Watchers4',
   'Beacon Of Hope':'Peace3',
-  "Bigby's Hand":'A5,S5',
+  "Bigby's Hand":'A5,K5,S5',
   'Blight':'A4,Spores4',
   'Blindness/Deafness':'Spores2',
   'Blink':'A3',
-  'Blur':'A2',
-  'Burning Hands':'Wildfire1',
+  'Blur':'A2,K2',
+  'Burning Hands':'K1,Wildfire1',
   'Chill Touch':'Spores0',
   'Circle Of Power':'Twilight5',
   'Cloudkill':'A5,Spores5',
@@ -1316,18 +1320,21 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Command':'B1,Order1',
   'Commune':'Glory5,Order5',
   'Compulsion':'Glory4,Order4',
-  'Cone Of Cold':'A5,D5',
+  'Cone Of Cold':'A5,D5,K5',
   'Confusion':'Spores4',
   'Contagion':'Spores5',
   'Continual Flame':'A2,D2',
+  'Control Water':'K4',
   'Counterspell':'Watchers3',
-  'Create Food And Water':'A3',
-  'Creation':'A5',
+  'Create Food And Water':'A3,K3',
+  'Create Or Destroy Water':'K1',
+  'Creation':'A5,K5',
   'Cure Wounds':'A1,Wildfire1',
   'Dancing Lights':'A0',
   'Darkvision':'A2',
   'Death Ward':'A4',
   'Demiplane':'S8',
+  'Detect Evil And Good':'K1',
   'Detect Magic':'A1,Watchers1',
   'Disguise Self':'A1',
   'Dispel Magic':'A3',
@@ -1342,24 +1349,25 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Fabricate':'A4',
   'Faerie Fire':'A1,Twilight1',
   'Fire Bolt':'A0',
-  'Fire Shield':'A4,D4,S4,Wildfire4',
-  'Fireball':'A3',
+  'Fire Shield':'A4,D4,K4,S4,Wildfire4',
+  'Fireball':'A3,K3',
   'Flame Blade':'S2',
-  'Flame Strike':'Glory5,Wildfire5',
+  'Flame Strike':'Glory5,K5,Wildfire5',
   'Flaming Sphere':'A2,S2,Wildfire2',
   'Flesh To Stone':'D6,S6',
   'Fly':'A3',
+  'Fog Cloud':'K1',
   'Freedom Of Movement':'A4,Glory4',
   'Gaseous Form':'A3,Spores3',
   'Gate':'K9',
   'Gentle Repose':'P2,Spores2',
   'Glyph Of Warding':'A3',
   'Grease':'A1,S1',
-  'Greater Invisibility':'A4,Twilight4',
+  'Greater Invisibility':'A4,K4,Twilight4',
   'Greater Restoration':'A5,Peace5,R5',
   'Guidance':'A0',
   'Guiding Bolt':'Glory1',
-  'Gust Of Wind':'R2',
+  'Gust Of Wind':'K2,R2',
   'Haste':'A3,Glory3',
   'Healing Word':'A1',
   'Heat Metal':'A2',
@@ -1379,6 +1387,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Levitate':'A2',
   'Light':'A0',
   'Lightning Bolt':'A3',
+  'Lightning Storm':'K3',
   'Locate Creature':'Order4',
   'Longstrider':'A1',
   'Mage Hand':'A0',
@@ -1387,7 +1396,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Magic Weapon':'A2,Glory2,R2,S2',
   'Mass Cure Wounds':'Wildfire5',
   'Mass Healing Word':'A3,B3,Order3',
-  'Meld Into Stone':'R3',
+  'Meld Into Stone':'K3,R3',
   "Melf's Acid Arrow":'A2',
   'Mending':'A0',
   'Message':'A0',
@@ -1399,7 +1408,8 @@ Tasha.SPELLS_LEVELS_ADDED = {
   "Otiluke's Freezing Sphere":'S6',
   "Otiluke's Resilient Sphere":'A4,Peace4',
   'Passwall':'A5',
-  'Phantasmal Killer':'B4',
+  'Phantasmal Force':'K2',
+  'Phantasmal Killer':'B4,K4',
   'Planar Binding':'K5',
   'Plant Growth':'Wildfire3',
   'Poison Spray':'A0',
@@ -1418,38 +1428,43 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Ray Of Sickness':'A1',
   'Revivify':'A3,D3,R3,Wildfire3',
   'Rope Trick':'A2',
-  'Sanctuary':'A1,Peace1',
-  'Scorching Ray':'A2,Wildfire2',
+  'Sanctuary':'A1,K1,Peace1',
+  'Scorching Ray':'A2,K2,Wildfire2',
   'Scrying':'Watchers5',
   'Searing Smite':'R1',
   'See Invisibility':'A2,Twilight2,Watchers2',
+  'Seeming':'K5',
   'Sending':'Peace3',
   'Shatter':'A2',
   'Shield':'A1',
   'Shocking Grasp':'A0',
+  'Silence':'K2',
   'Sleep':'Twilight1',
+  'Sleet Storm':'K3',
   'Slow':'B3,Order3',
   'Speak With Dead':'W3',
   'Spare The Dying':'A0',
   'Spider Climb':'A2',
-  'Stone Shape':'A4',
+  'Spike Growth':'K2',
+  'Stone Shape':'A4,K4',
   'Stoneskin':'A4',
   'Sunbeam':'C6',
   'Sunburst':'C8',
   'Symbol':'D7',
   'Teleportation Circle':'K5',
   'Thorn Whip':'A0',
-  'Thunderwave':'A1',
+  'Thunderwave':'A1,K1',
   'Vampiric Touch':'S3',
   'Wall Of Fire':'A4',
   'Wall Of Force':'A5',
-  'Wall Of Stone':'A5',
+  'Wall Of Stone':'A5,K5',
   'Warding Bond':'P2,Peace2',
   'Water Breathing':'A3',
   'Water Walk':'A3',
   'Web':'A2',
   'Weird':'K9',
-  'Wind Wall':'A3',
+  'Wish':'K9',
+  'Wind Wall':'A3,K3',
   'Zone Of Truth':'Order2',
 };
 if(window.Xanathar) {
@@ -1624,7 +1639,7 @@ Tasha.classRulesExtra = function(rules, name) {
       'features.Marid', '=', '"cold"'
     );
     rules.defineRule('featureNotes.eldritchVersatility',
-       classLevel, '=', 'source<12 ? "cantrip or Pact Boon" : "cantrip, Pact Boon, or Mystic Arcanum spell"'
+       classLevel, '=', 'source<12 ? "cantrip or Pact Boon option" : "cantrip, Pact Boon option, or Mystic Arcanum spell"'
     );
     rules.defineRule('selectableFeatureCount.Warlock (Genie Kind)',
       'features.The Genie', '=', '1'
