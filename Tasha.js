@@ -1225,18 +1225,18 @@ Tasha.PATHS = {
       '"11:Body Of The Astral Self","17:Awakened Astral Self"'
 };
 Tasha.SPELLS = {
-  'Booming Blade':
-    'School=Evocation ' +
-    'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers +${Math.floor((lvl+1)/6)}d8 HP thunder and ${Math.floor((lvl+1)/6)+1}d8 HP thunder on move for 1 rd"',
   'Blade Of Disaster':
     'School=Conjuration ' +
     'Level=K9,S9,W9 ' +
-    'Description="Self controls rift blade that moves 30\' and attacks twice/rd, inflicting 4d12 HP force x3@18 each, for conc + 1 min"',
+    'Description="R60\' Self controls rift blade that moves 30\' and attacks 2/rd, inflicting 4d12 HP force x3@18 each, for conc or 1 min"',
+  'Booming Blade':
+    'School=Evocation ' +
+    'Level=A0,K0,S0,W0 ' +
+    'Description="Struck foe suffers +${Math.floor((lvl+1)/6)}d8 HP thunder and ${Math.floor((lvl+1)/6)+1}d8 HP thunder on move w/in 1 rd"',
   'Dream Of The Blue Veil':
     'School=Conjuration ' +
     'Level=B7,K7,S7,W7 ' +
-    'Description="R20\' Self and 8 willing others travel to another world for 6 hr"',
+    'Description="R20\' Self and 8 willing others view another world for 6 hr, travel at end of spell"',
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
@@ -1252,11 +1252,11 @@ Tasha.SPELLS = {
   'Mind Sliver':
     'School=Enchantment ' +
     'Level=K0,S0,W0 ' +
-    'Description="R60\' Target suffers %{($L+7)//6}d6 HP psychic and -1d4 next save (Int neg) for 1 rd"',
+    'Description="R60\' Target suffers %{($L+7)//6}d6 HP psychic and -1d4 next save (Int neg) w/in 1 rd"',
   'Spirit Shroud':
     'School=Necromancy ' +
     'Level=C3,K3,P3,W3 ' +
-    'Description="Self hits inflict +1d8 HP radiant, necrotic, or cold; R10\' target suffers -10\' Speed for 1 rd for conc or 1 min"',
+    'Description="R10\' Self hits inflict +1d8 HP radiant, necrotic, or cold; 1 target/rd suffers -10\' Speed for 1 rd for conc or 1 min"',
   'Summon Aberration':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
@@ -1304,11 +1304,11 @@ Tasha.SPELLS = {
   "Tasha's Mind Whip":
     'School=Enchantment ' +
     'Level=S2,W2 ' +
-    'Description="R90\' Target suffers 3d6 HP psychic and single action next rd (Int half, normal action)"',
+    'Description="R90\' Target suffers 3d6 HP psychic and single action for 1 rd (Int half, normal action)"',
   "Tasha's Otherworldly Guise":
     'School=Transmutation ' +
     'Level=K6,S6,W6 ' +
-    'Description="Self gains immunity to fire and poison damage and poisoned condition or radiant and necrotic damage and charmed condition, 40\' fly, +2 AC, two +%{spellAttackModifier.K||spellAttackModifier.S||spellAttackModifier.W} magical weapon attacks/rd for conc or 1 min"'
+    'Description="Self gains immunity to fire and poison damage and poisoned condition (or radiant and necrotic damage and charmed condition), 40\' fly, +2 AC, +%{spellAttackModifier.K||spellAttackModifier.S||spellAttackModifier.W} magical weapon attacks 2/rd for conc or 1 min"'
 };
 Tasha.SPELLS_LEVELS_ADDED = {
   'Acid Splash':'A0',
@@ -1331,7 +1331,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Blindness/Deafness':'Spores2',
   'Blink':'A3',
   'Blur':'A2,K2',
-  'Burning Hands':'K1,Wildfire1',
+  'Burning Hands':'Wildfire1', // Already K1
   'Chill Touch':'Spores0',
   'Circle Of Power':'Twilight5',
   'Cloudkill':'A5,Spores5',
@@ -1368,10 +1368,10 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Fabricate':'A4',
   'Faerie Fire':'A1,Twilight1',
   'Fire Bolt':'A0',
-  'Fire Shield':'A4,D4,K4,S4,Wildfire4',
-  'Fireball':'A3,K3',
+  'Fire Shield':'A4,D4,S4,Wildfire4', // Already K4
+  'Fireball':'A3', // Already K3
   'Flame Blade':'S2',
-  'Flame Strike':'Glory5,K5,Wildfire5',
+  'Flame Strike':'Glory5,Wildfire5', // Already K5
   'Flaming Sphere':'A2,S2,Wildfire2',
   'Flesh To Stone':'D6,S6',
   'Fly':'A3',
@@ -1382,7 +1382,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Gentle Repose':'P2,Spores2',
   'Glyph Of Warding':'A3',
   'Grease':'A1,S1',
-  'Greater Invisibility':'A4,K4,Twilight4',
+  'Greater Invisibility':'A4,Twilight4', // Already K4
   'Greater Restoration':'A5,Peace5,R5',
   'Guidance':'A0',
   'Guiding Bolt':'Glory1',
@@ -1426,7 +1426,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   "Otiluke's Freezing Sphere":'S6',
   "Otiluke's Resilient Sphere":'A4,Peace4',
   'Passwall':'A5',
-  'Phantasmal Force':'K2',
+  // 'Phantasmal Force':'K2', // Already K2
   'Phantasmal Killer':'B4,K4',
   'Planar Binding':'K5',
   'Plant Growth':'Wildfire3',
@@ -1447,11 +1447,11 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Revivify':'A3,D3,R3,Wildfire3',
   'Rope Trick':'A2',
   'Sanctuary':'A1,K1,Peace1',
-  'Scorching Ray':'A2,K2,Wildfire2',
+  'Scorching Ray':'A2,Wildfire2', // Already K2
   'Scrying':'Watchers5',
   'Searing Smite':'R1',
   'See Invisibility':'A2,Twilight2,Watchers2',
-  'Seeming':'K5',
+  // 'Seeming':'K5', // Already K5
   'Sending':'Peace3',
   'Shatter':'A2',
   'Shield':'A1',
