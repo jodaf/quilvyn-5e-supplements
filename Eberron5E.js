@@ -65,6 +65,8 @@ function Eberron5E() {
     Object.assign({}, PHB5E.FEATURES, Eberron5E.FEATURES_ADDED);
   Eberron5E.PATHS = Object.assign({}, PHB5E.PATHS, Eberron5E.PATHS_ADDED);
   Eberron5E.RACES = Object.assign({}, PHB5E.RACES, Eberron5E.RACES_ADDED);
+  delete Eberron5E.RACES['High Elf']; // Renamed to Aereni
+  delete Eberron5E.RACES['Wood Elf']; // Renamed to Tairnadal
   Eberron5E.SPELLS = Object.assign({}, PHB5E.SPELLS, Eberron5E.SPELLS_ADDED);
   for(var s in Eberron5E.SPELLS_LEVELS_ADDED) {
     Eberron5E.SPELLS[s] =
@@ -108,30 +110,52 @@ Eberron5E.BACKGROUNDS_ADDED = {
       '"1:Skill Proficiency (Investigation/Persuasion)",' +
       '"1:House Connections"'
 };
-Eberron5E.CLASSES_SELECTABLES_ADDED = {
-// TODO
-  'Barbarian':
-    '"race =~ \'Dwarf\' ? 3:Path Of The Battlerager:Primal Path",' +
-    '"3:Path Of The Totem Warrior (Elk):Primal Path",' +
-    '"3:Path Of The Totem Warrior (Tiger):Primal Path"',
-  'Cleric':
-    '"deityDomains =~ \'Arcana\' ? 1:Arcana Domain:Divine Domain"',
-  'Fighter':
-    '"3:Purple Dragon Knight:Martial Archetype"',
-  'Monk':
-    '"3:Way Of The Long Death:Monastic Tradition",' +
-    '"3:Way Of The Sun Soul:Monastic Tradition"', // also Xanathar
-  'Paladin':
-    '"3:Oath Of The Crown:Sacred Oath"',
-  'Rogue':
-    '"3:Mastermind:Roguish Archetype",' + // also Xanathar
-    '"3:Swashbuckler:Roguish Archetype"', // also Xanathar
-  'Sorcerer':
-    '"1:Storm Sorcery:Sorcerous Origin"', // also Xanathar
-  'Warlock':
-    '"1:The Undying:Otherworldly Patron"',
-  'Wizard':
-    '"race =~ \'Elf\' ? 2:Bladesinging:Arcane Tradition"' // also Tasha
+Eberron5E.CLASSES_ADDED = {
+  // Copied from Tasha's
+  'Artificer':
+    'HitDie=d8 ' +
+    'Features=' +
+      '"1:Armor Proficiency (Medium/Shield)",' +
+      '"1:Save Proficiency (Constitution/Intelligence)",' +
+      '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
+      '"1:Tool Proficiency (Thieves\' Tools/Tinker\'s Tools/Choose 1 from any Artisan)",' +
+      '"1:Weapon Proficiency (Simple)",' +
+      '"1:Magical Tinkering","1:Ritual Casting",1:Spellcasting,' +
+      '"2:Infuse Item","3:The Right Tool For The Job","6:Tool Expertise",' +
+      '"7:Flash Of Genius","10:Magic Item Adept","11:Spell-Storing Item",' +
+      '"14:Magic Item Savant","18:Magic Item Master","20:Soul Of Artifice" ' +
+    'Selectables=' +
+      '"3:Alchemist:Specialist",' +
+      // '"3:Armorer:Specialist",' + Tasha's addition
+      '"3:Artillerist:Specialist",' +
+      '"3:Battle Smith:Specialist",' +
+      // '"3:Guardian Armor:Armor Model",' + Tasha's addition
+      // '"3:Infiltrator Armor:Armor Model",' + Tasha's addition
+      // '"14:Arcane Propulsion Armor:Infusion",' + Tasha's addition
+      // '"2:Armor Of Magical Strength:Infusion",' + Tasha's addition
+      '"6:Boots Of The Winding Path:Infusion",' +
+      '"2:Enhanced Arcane Focus:Infusion",' +
+      '"2:Enhanced Defense:Infusion",' +
+      '"2:Enhanced Weapon:Infusion",' +
+      // '"10:Helm Of Awareness:Infusion",' + Tasha's addition
+      '"2:Homunculus Servant:Infusion",' +
+      // '"2:Mind Sharpener:Infusion",' + Tasha's addition
+      '"6:Radiant Weapon:Infusion",' +
+      '"2:Repeating Shot:Infusion",' +
+      '"2:Replicate Magic Item:Infusion",' +
+      '"6:Repulsion Shield:Infusion",' +
+      '"6:Resistant Armor:Infusion",' +
+      '"2:Returning Weapon:Infusion",' +
+      // '"6:Spell-Refueling Ring:Infusion" ' + Tasha's addition
+    'CasterLevelArcane=levels.Artificer ' +
+    'SpellAbility=intelligence ' +
+    'SpellSlots=' +
+      'A0:1=2;10=3;14=4,' +
+      'A1:1=2;3=3;5=4,' +
+      'A2:5=2;7=3,' +
+      'A3:9=2;11=3,' +
+      'A4:13=1;15=2;17=3,' +
+      'A5:17=1;19=2'
 };
 Eberron5E.DEITIES = {
   'None':'Domain=' + QuilvynUtils.getKeys(Eberron5E.PATHS).filter(x => x.match(/Domain$/)).map(x => '"' + x.replace(' Domain', '') + '"').join(','),
@@ -164,68 +188,290 @@ Eberron5E.FEATURES_ADDED = {
 
   // Backgrounds
   'House Connections':
-    'Section=feature Note="Obtain food and lodging at house enclave"'
+    'Section=feature Note="Obtain food and lodging at house enclave"',
+
+  // Classes
+  // Copied from Tasha's
+  'Boots Of The Winding Path':
+    'Section=magic Note="Gives ability to teleport 15\'"',
+  'Enhanced Arcane Focus':
+    'Section=magic ' +
+    'Note="Rod, staff, or wand gives +%V spell attacks, ignores half cover"',
+  'Enhanced Defense':'Section=magic Note="Shield or armor gives +%V AC"',
+  'Enhanced Weapon':'Section=magic Note="Gives +%V attack and damage"',
+  'Flash Of Genius':
+    'Section=feature ' +
+    'Note="R30\' Use Reaction to give ally +%{intelligenceModifier} on ability check or saving throw %{intelligenceModifier>?1}/long rest"',
+  'Homunculus Servant':
+    'Section=magic ' +
+    'Note="Creates mechanical companion (AC 13, HP %{levels.Artificer+intelligenceModifier+1}, Attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force, Evasion, Channel Magic) that obeys self"',
+  'Infuse Item':'Section=feature Note="%V selections infused into %1 items"',
+  'Magic Item Adept':
+    'Section=feature ' +
+    'Note="Attune %V items at once, craft uncommon magic items in one quarter time at half cost"',
+  'Magic Item Master':'Section=feature Note="Attune 6 items at once"',
+  'Magic Item Savant':
+    'Section=feature ' +
+    'Note="Attune 5 items at once and ignore attunement and use requirements"',
+  'Magical Tinkering':
+    'Section=magic ' +
+    'Note="Imbue %{intelligenceModifier>?1} objects with light, message, sound, odor, or picture"',
+  'Radiant Weapon':
+    'Section=magic ' +
+    'Note="Gives +1 attack and damage, 30\' bright light, blinds successful attacker (DC %{spellDifficultyClass.A} Con neg) for 1 rd; 4 charges regains 1d4/dy"',
+  'Repeating Shot':
+    'Section=magic Note="Gives +1 attack and damage and unlimited ammunition"',
+  'Replicate Magic Item':
+    'Section=magic Note="Allows replication of wondrous item"',
+  'Repulsion Shield':
+    'Section=magic ' +
+    'Note="Gives +1 AC, use Reaction to push successful attacker 15\'; 4 charges regains 1d4/dy"',
+  'Resistant Armor':
+    'Section=magic Note="Gives +1 AC and resistance to chosen damage type"',
+  'Returning Weapon':
+    'Section=magic ' +
+    'Note="Gives +1 attack and damage, returns after ranged attack"',
+  'Soul Of Artifice':
+    'Section=combat,save ' +
+    'Note="End 1 attunement when reduced to 0 HP to retain 1 HP",' +
+         '"+1 per attunement on saves"',
+  'Spell-Storing Item':
+    'Section=feature ' +
+    'Note="After a long rest, store A1 or A2 spell in item to be cast %{intelligenceModifier*2>?2} times"',
+  'The Right Tool For The Job':
+    'Section=feature Note="Spend 1 hr to create 1 set of artisan\'s tools"',
+  'Tool Expertise':'Section=feature Note="Dbl proficiency when using tools"',
 
   // Feats
-  // TODO
+  'Aberrant Dragonmark':'Section=feature Note="TODO"',
+  'Revenant Blade':'Section=feature Note="TODO"',
 
   // Paths
-  // TODO
+  // Copied from Tasha's
+  'Alchemical Savant':
+    'Section=magic ' +
+    'Note="+%{intelligenceModifier>?1} on spell healing and acid, fire, necrotic, or poison damage"',
+  'Alchemist Tool Proficiency':
+    'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
+  'Arcane Firearm':
+    'Section=magic ' +
+    'Note="Spells cast through prepared wand, staff, or rod inflict +1d8 HP damage"',
+  'Arcane Jolt':
+    'Section=combat ' +
+    'Note="Magic weapon or Steel Defender attack inflicts +%Vd6 HP force or heals 1 target in 30\' radius %Vd6 HP %{intelligenceModifier>?1}/long rest"',
+  'Artillerist Tool Proficiency':
+    'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
+  'Battle Ready':
+    'Section=combat,feature ' +
+    'Note="+%{intelligenceModifier-strengthModifier} (Int instead of Str) or +%{intelligenceModifier-dexterityModifier} (Int instead of Dex) attack and damage w/magic weapons",' +
+         '"Weapon Proficiency (Martial)"',
+  'Battle Smith Tool Proficiency':
+    'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
+  'Chemical Mastery':
+    'Section=magic,save ' +
+    'Note="Cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
+         '"Resistance to acid and poison damage, immune to poisoned condition"',
+  'Eldritch Cannon':
+    'Section=combat ' +
+    'Note="Create magical, AC 18, %{levels.Artificer*5} HP (<i>Mending</i> repairs 2d6 HP), MV 15\' flamethrower (15\' cone inflicts %Vd8 HP fire (DC %1 Dex half)), force ballista (R120\' inflicts %Vd8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary HP) for 1 hr"',
+  'Experimental Elixir':
+    'Section=magic ' +
+    'Note="After a long rest, use alchemist\'s supplies to create %V elixirs of healing, swiftness, resilience, boldness, flight, or transformation (spend spell slot for additional)"',
+  'Explosive Cannon':
+    'Section=combat ' +
+    'Note="Eldritch Cannon +1d8 HP damage, command explosion to inflict 3d8 HP force (DC %V Dex half) in 20\' radius"',
+  'Fortified Position':
+    'Section=combat ' +
+     'Note="Create 2nd Eldritch Cannon, gain half cover w/in 10\' of Eldritch Cannon"',
+  'Improved Defender':
+    'Section=combat ' +
+    'Note="+2d6 Arcane Jolt effect, Steel Defender +2 AC and Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
+  'Restorative Reagents':
+    'Section=magic ' +
+    'Note="Cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest, elixirs give 2d6+%{intelligenceModifier>?1} temporary HP"',
+  'Steel Defender':
+    'Section=combat ' +
+    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%{proficiencyBonus} 3/dy), Attack +%{proficiencyBonus+intelligenceModifier} inflicts 1d8+%{proficiencyBonus}, use Reaction for R5\' Deflect Attack (inflicts Disadv on attack), MV 40\', Dex Save +%{proficiencyBonus+1}, Con save +%{proficiencyBonus+2}, immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
 
   // Races
   // TODO
+  "Artisan's Intuition":
+    'Section=skill Note="+1d4 on Arcana and Artisan\'s Tools\'s checks"',
+  'Beasthide Ability Adjustment':
+    'Section=ability Note="+2 Constitution/+1 Strength"',
+  'Beasthide Shifting':'Section=combat Note="+1 AC while shifting"',
+  'Changeling Ability Adjustment':'Section=ability Note="+2 Charisma/+1 any"',
+  'Changeling Instincts':
+    'Section=feature ' +
+    'Note="Skill Proficiency (Choose 2 from Deception, Insight, Intimidation, Persuasion)"',
+  'Constructed Resilience':
+    'Section=feature,save ' +
+    'Note="No need to eat, drink, breathe, or sleep",' +
+         '"Adv on saving throws vs. poison, resistance to poison damage, immune to disease and sleep"',
+  'Deductive Intuition':
+    'Section=skill Note="+1d4 on Investigation and Insight checks"',
+  'Detection Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 any"',
+  'Dual Mind':'Section=save Note="Adv on Wis saving throws"',
+  'Ever Hospitable':
+    'Section=skill Note="+1d4 on Persuasion, Brewer\'s Supplies, and Cook\'s Utensil\'s checks"',
+  'Fierce':'Section=feature Note="Skill Proficiency (Intimidation)"',
+  "Finder's Magic":
+    'Section=magic ' +
+    'Note="Cast <i>Hunter\'s Mark</i>%{level<3?\'\':\' and <i>Locate Object</i>\'} 1/long rest"',
+  'Finding Ability Adjustment':
+    'Section=ability Note="+2 Wisdom/+1 Constitution"',
+  'Graceful':'Section=feature Note="Skill Proficiency (Acrobatics)"',
+  'Handling Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 any"',
+  'Healing Ability Adjustment':'Section=ability Note="+1 Wisdom"',
+  'Healing Touch':
+    'Section=magic ' +
+    'Note="Cast <i>Cure Wounds</i>%{level<3?\'\':\' and <i>Lesser Restoration</i>\'} 1/long rest"',
+  'Hospitality Ability Adjustment':'Section=ability Note="+1 Charisma"',
+  "Hunter's Intuition":
+    'Section=skill Note="+1d4 on Perception and Survival checks"',
+  "Innkeeper's Magic":
+    'Section=magic ' +
+    'Note="Know <i>Prestidigitation</i> cantrip, cast <i>Purify Food And Drink</i> and <i>Unseen Servant</i> 1/long rest"',
+  'Integrated Protection':'Section=combat Note="+1 AC"',
+  'Kalashtar Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Charisma"',
+  'Longtooth Ability Adjustment':
+    'Section=ability Note="+2 Strength/+1 Dexterity"',
+  'Longtooth Shifting':
+    'Section=combat ' +
+    'Note="Bonus fangs attack inflicts 1d6+%{strengthModifier} damage while shifting"',
+  'Magical Detection':
+    'Section=magic ' +
+    'Note="Cast <i>Detect Magic</i>%{level<3?\' and\':\',\'} <i>Detect Poison And Disease</i>%{level<3?\'\':\', and <i>See Invisibility</i>\'} 1/long rest"',
+  "Maker's Gift":
+    'Section=feature Note="Tools Proficiency (Choose 1 from any Artisan)"',
+  'Making Ability Adjustment':'Section=ability Note="+2 Intelligence/+1 any"',
+  'Medical Intuition':
+    'Section=skill Note="+1d4 on Medicine and Herbalism Kit checks"',
+  'Mental Discipline':'Section=save Note="Resistance to psychic damage"',
+  'Mind Link':
+    'Section=feature ' +
+    'Note="R%{level*10}\' Telepathic communication w/1 target for 1 hr"',
+  'Natural Athlete':'Section=feature Note="Skill Proficiency (Athletics)"',
+  'Primal Connection':
+    'Section=magic ' +
+    'Note="Cast <i>Animal Friendship</i> and <i>Speak With Animals</i> 1/long rest"',
+  'Primal Intuition':
+    'Section=feature ' +
+    'Note="Skill Proficiency (Choose 2 from Animal Handling, Insight, Intimidation,Medicine,Nature,Perception,Survival"',
+  "Sentry's Rest":'Section=feature Note="Inert 6 hr during long rest"',
+  'Severed From Dreams':'Section=save Note="Immune to dream effects"',
+  'Shapechanger':
+    'Section=ability Note="Change appearance and voice as action at will"',
+  'Shifting':
+    'Section=feature ' +
+    'Note="Assume bestial appearance, gaining %1%{(level+constitutionModifier)>?1} temporary HP, for 1 min"',
+  'Specialized Design':
+    'Section=feature ' +
+    'Note="Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)"',
+  'Spellsmith':
+    'Section=magic ' +
+    'Note="Know <i>Mending</i> cantrip, cast <i>Magic Weapon</i> w/1 hr duration 1/long rest"',
+  'Swiftstride Ability Adjustment':
+    'Section=ability Note="+2 Dexterity/+1 Charisma"',
+  'Swiftstride Shifting':
+    'Section=ability,combat ' +
+    'Note="+10 Speed while shifting",' +
+         '"Use Reaction to move 10\' w/out OA when creature ends turn w/in 5\'"',
+  'The Bigger They Are':
+    'Section=magic ' +
+    'Note="Cast <i>Animal Friendship</i> and <i>Speak With Animals</i> on monstrous creatures with intelligence up to 3"',
+  'Warforged Ability Adjustment':
+    'Section=ability Note="+2 Constitution/+1 any"',
+  'Wild Intuition':
+    'Section=skill Note="+1d4 on Animal Handling and Nature checks"',
+  'Wildhunt Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Dexterity"',
+  'Wildhunt Shifting':
+    'Section=ability,combat ' +
+    'Note="Adv on Wis checks while shifting",' +
+         '"R30\' no foe Adv on self attack while shifting"',
+  // Copied from Volo's
+  'Aggressive':
+    'Section=combat Note="Bonus action to move up to %{speed}\' toward foe"',
+  'Bugbear Ability Adjustment':
+    'Section=ability Note="+2 Strength/+1 Dexterity"',
+  'Fury Of The Small':
+    'Section=combat Note="+%{level} HP damage to larger creature 1/short rest"',
+  'Goblin Ability Adjustment':
+    'Section=ability Note="+2 Dexterity/+1 Constitution"',
+  'Hobgoblin Ability Adjustment':
+    'Section=ability Note="+2 Constitution/+1 Intelligence"',
+  'Long-Limbed':'Section=combat Note="+5\' melee reach"',
+  'Martial Training':
+    'Section=combat ' +
+    'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any)"',
+  'Nimble Escape':'Section=combat Note="Bonus action to Disengage or Hide"',
+  'Orc Ability Adjustment':
+    // Removed Volo's -2 Intelligence"',
+    'Section=ability Note="+2 Strength/+1 Constitution"',
+  'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
+  'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
+  'Saving Face':
+    'Section=feature ' +
+    'Note="Gain +1 for each ally w/in 30\' on failed roll 1/short rest"',
+  'Surprise Attack':
+    'Section=combat Note="+2d6 HP damage on first surprise hit"'
 
 };
 Eberron5E.PATHS_ADDED = {
-  // TODO
+  // Copied from Tasha's
+  'Alchemist':
+    'Group=Artificer Level=levels.Artificer ' +
+    'Features=' +
+      '"3:Alchemist Tool Proficiency","3:Experimental Elixir",' +
+      '"features.Guardian Armor ? 3:Thunder Gauntlets",' +
+      '"features.Guardian Armor ? 3:Defensive Field",' +
+      '"features.Infiltrator Armor ? 3:Lightning Launcher",' +
+      '"features.Infiltrator Armor ? 3:Powered Steps",' +
+      '"features.Infiltrator Armor ? 3:Dampening Field",' +
+      '"5:Alchemical Savant","9:Restorative Reagents","15:Chemical Mastery"',
+  'Artillerist':
+    'Group=Artificer Level=levels.Artificer ' +
+    'Features=' +
+      '"3:Artillerist Tool Proficiency","3:Eldritch Cannon",' +
+      '"5:Arcane Firearm","9:Explosive Cannon","15:Fortified Position"',
+  'Battle Smith':
+    'Group=Artificer Level=levels.Artificer ' +
+    'Features=' +
+      '"3:Battle Ready","3:Battle Smith Tool Proficiency",' +
+      '"3:Steel Defender","5:Extra Attack","9:Arcane Jolt",' +
+      '"15:Improved Defender"'
 };
 Eberron5E.RACES_ADDED = {
-  'Aereni Elf':SRD5E.RACES['High Elf'],
-  'Tairnadal Elf':PHB5E.RACES['Wood Elf'],
-  'Bugbear': // Copied from Volo's
-    'Features=' +
-      '"Bugbear Ability Adjustment",Darkvision,Long-Limbed,"Powerful Build",' +
-      'Sneaky,"Surprise Attack" ' +
-    'Languages=Common,Goblin',
   'Changeling':
     'Features=' +
       '"Changeling Ability Adjustment",Shapechanger,"Cangeling Instincts" ' +
     'Languages=Common,any,any',
-  'Goblin': // Copied from Volo's
-    'Features=' +
-      'Darkvision,"Fury Of The Small","Goblin Ability Adjustment",' +
-      '"Nimble Escape",Small ' +
-    'Languages=Common,Goblin',
-  'Hobgoblin': // Copied from Volo's
-    'Features=' +
-      'Darkvision,"Hobgoblin Ability Adjustment","Martial Training",' +
-      '"Saving Face" ' +
-    'Languages=Common,Goblin',
+  'Aereni Elf':SRD5E.RACES['High Elf'],
+  'Tairnadal Elf':PHB5E.RACES['Wood Elf'],
   'Kalashtar':
     'Features=' +
       '"Dual Minds","Kalashtar Ability Adjustment","Mental Discipline",' +
       '"Mind Link","Severed From Dreams" ' +
     'Languages=Common,Quori,any',
-  'Orc': // Copied from Volo's, Primal Intuition instead of Menacing
-    'Features=' +
-      'Aggressive,Darkvision,"Orc Ability Adjustment","Powerful Build",' +
-      '"Primal Intuition" ' +
-    'Languages=Common,Orc',
   'Beasthide Shifter':
     'Features=' +
-      'Darkvision,"Shifter Ability Adjustment",Shifting,"Natural Athlete" ' +
+      'Darkvision,"Beasthide Ability Adjustment","Beasthide Shifting",' +
+      'Shifting,"Natural Athlete" ' +
     'Languages=Common',
   'Longtooth Shifter':
     'Features=' +
-      'Darkvision,"Shifter Ability Adjustment",Shifting,Fierce ' +
+      'Darkvision,Fierce,"Longtooth Ability Adjustment","Longtooth Shifting",' +
+      'Shifting ' +
     'Languages=Common',
   'Swiftstride Shifter':
     'Features=' +
-      'Darkvision,"Shifter Ability Adjustment",Shifting,Graceful ' +
+      'Darkvision,Graceful,Shifting,"Swiftstride Ability Adjustment",' +
+      '"Swiftstride Shifting" ' +
     'Languages=Common',
   'Wildhunt Shifter':
     'Features=' +
-      'Darkvision,"Shifter Ability Adjustment",Shifting,"Natural Tracker" ' +
+      'Darkvision,"Natural Tracker",Shifting,"Wildhunt Ability Adjustment",' +
+      '"Wildhunt Shifting" ' +
     'Languages=Common',
   'Warforged':
     'Features=' +
@@ -292,7 +538,28 @@ Eberron5E.RACES_ADDED = {
       'Darkvision,"Dwarven Combat Training","Dwarven Resilience",Slow,Steady,' +
       'Stonecunning,"Warding Ability Adjustment","Warder\'s Intuition",' +
       '"Wards And Shields" ' +
-    'Languages=Common,Dwarvish'
+    'Languages=Common,Dwarvish',
+  // Copied from Volo's
+  'Bugbear':
+    'Features=' +
+      '"Bugbear Ability Adjustment",Darkvision,Long-Limbed,"Powerful Build",' +
+      'Sneaky,"Surprise Attack" ' +
+    'Languages=Common,Goblin',
+  'Goblin':
+    'Features=' +
+      'Darkvision,"Fury Of The Small","Goblin Ability Adjustment",' +
+      '"Nimble Escape",Small ' +
+    'Languages=Common,Goblin',
+  'Hobgoblin':
+    'Features=' +
+      'Darkvision,"Hobgoblin Ability Adjustment","Martial Training",' +
+      '"Saving Face" ' +
+    'Languages=Common,Goblin',
+  'Orc': // Primal Intuition replaces Volo's Menacing
+    'Features=' +
+      'Aggressive,Darkvision,"Orc Ability Adjustment","Powerful Build",' +
+      '"Primal Intuition" ' +
+    'Languages=Common,Orc'
 };
 Eberron5E.SPELLS_ADDED = {
   // TODO
@@ -337,7 +604,19 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
     'Level';
 
-  // TODO
+  if(name.matches(/Shifter/)) {
+    rules.defineRule('features.shifting.1',
+      'race', '=', 'source == "Beasthide Shifter" ? "1d6+" : ""'
+    );
+  }
+  if(name == 'Warforged') {
+    // Have to hard-code these proficiencies, since featureRules only handles
+    // notes w/a single type of granted proficiency
+    rules.defineRule
+      ('skillChoiceCount', 'featureNotes.specializedDesign', '+=', '1');
+    rules.defineRule
+      ('toolChoiceCount', 'featureNotes.specializedDesign', '+=', '1');
+  }
 
 };
 
