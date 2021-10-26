@@ -47,7 +47,7 @@ function Tasha(edition, rules) {
 
 }
 
-Tasha.VERSION = '2.2.1.0';
+Tasha.VERSION = '2.3.1.0';
 
 Tasha.CLASSES = {
   'Artificer':
