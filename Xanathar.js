@@ -696,7 +696,7 @@ Xanathar.FEATURES = {
   'Orcish Fury':
     'Section=ability,combat ' +
     'Note="+1 Strength or Constitution",' +
-         '"Extra damage die 1/short rest, use Reaction after Relentless Edurance for extra attack"',
+         '"Extra damage die 1/short rest, use Reaction after Relentless Endurance for extra attack"',
   'Prodigy':
     'Section=feature,skill ' +
     'Note="Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)/Language (any)",' +

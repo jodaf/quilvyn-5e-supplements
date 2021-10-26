@@ -379,8 +379,8 @@ Tasha.FEATURES = {
     'Section=feature ' +
     'Note="Attune 5 items at once and ignore attunement and use requirements"',
   'Magical Tinkering':
-   'Section=magic ' +
-   'Note="Imbue %{intelligenceModifier>?1} objects with light, message, sound, odor, or picture"',
+    'Section=magic ' +
+    'Note="Imbue %{intelligenceModifier>?1} objects with light, message, sound, odor, or picture"',
   'Martial Versatility':
     'Section=feature ' +
     'Note="Replace Fighting Style or maneuver when boosting ability or taking feat"',
@@ -763,7 +763,8 @@ Tasha.FEATURES = {
     'Note="Own identifying mask",' +
          '"Skill Proficiency (Insight/Medicine)/Tool Proficiency (Herbalism Kit)"',
   'Improved Defender':
-     'Section=combat Note="+2d6 Arcane Jolt effect, Steel Defender +2 AC and Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
+    'Section=combat ' +
+    'Note="+2d6 Arcane Jolt effect, Steel Defender +2 AC and Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Infectious Fury':
     'Section=combat ' +
     'Note="Natural weapon causes redirected attack or +2d12 HP psychic (DC %{8+constitutionModifier+proficiencyBonus} Wis neg) %{proficiencyBonus}/long rest"',
@@ -792,7 +793,7 @@ Tasha.FEATURES = {
   'Manifest Mind':
     'Section=magic ' +
     'Note="R300\' See, hear, and cast spells through ghostly object that emits 10\' dim light and moves 30\'/rd"',
-  'Manifestions Of Order':
+  'Manifestations Of Order':
     'Section=feature Note="Display physical manifestation of Clockwork Soul"',
   'Master Of Runes':
     'Section=combat Note="Invoke runes 2/short rest"',
