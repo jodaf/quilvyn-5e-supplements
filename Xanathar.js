@@ -445,7 +445,7 @@ Xanathar.FEATURES = {
     'Note="Store magic from %V countered spells, use for +%1 HP force spell damage 1/rd"',
   'Protective Spirit':
     'Section=combat Note="Regain 1d6+%V HP at end of turn if below %1 HP"',
-  'Psychic Blades (Bard)':
+  'Psychic Blades (Whispers)':
     'Section=combat ' +
     'Note="Spend 1 Bardic Inspiration to inflict +%Vd6 HP psychic damage 1/rd"',
   'Radiant Soul':
@@ -754,7 +754,7 @@ Xanathar.PATHS = {
   'College Of Whispers':
     'Group=Bard Level=levels.Bard ' +
     'Features=' +
-      '"3:Psychic Blades (Bard)","3:Words Of Terror","6:Mantle Of Whispers",' +
+      '"3:Psychic Blades (Whispers)","3:Words Of Terror","6:Mantle Of Whispers",' +
       '"14:Shadow Lore"',
   'Divine Soul':
     'Group=Sorcerer Level=levels.Sorcerer ' +
@@ -1586,7 +1586,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('selectableFeatureCount.Bard (Fighting Style)', pathLevel, '=', '1');
   } else if(name == 'College Of Whispers') {
-    rules.defineRule('combatNotes.psychicBlades',
+    rules.defineRule('combatNotes.psychicBlades(Whispers)',
       pathLevel, '=', 'source>=15 ? 8 : source>=10 ? 5 : source>=5 ? 3 : 2'
     );
     rules.defineRule
