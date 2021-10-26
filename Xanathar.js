@@ -445,7 +445,7 @@ Xanathar.FEATURES = {
     'Note="Store magic from %V countered spells, use for +%1 HP force spell damage 1/rd"',
   'Protective Spirit':
     'Section=combat Note="Regain 1d6+%V HP at end of turn if below %1 HP"',
-  'Psychic Blades':
+  'Psychic Blades (Bard)':
     'Section=combat ' +
     'Note="Spend 1 Bardic Inspiration to inflict +%Vd6 HP psychic damage 1/rd"',
   'Radiant Soul':
@@ -754,7 +754,7 @@ Xanathar.PATHS = {
   'College Of Whispers':
     'Group=Bard Level=levels.Bard ' +
     'Features=' +
-      '"3:Psychic Blades","3:Words Of Terror","6:Mantle Of Whispers",' +
+      '"3:Psychic Blades (Bard)","3:Words Of Terror","6:Mantle Of Whispers",' +
       '"14:Shadow Lore"',
   'Divine Soul':
     'Group=Sorcerer Level=levels.Sorcerer ' +
@@ -1367,7 +1367,7 @@ Xanathar.SPELLS_LEVELS_ADDED = {
   'Magic Weapon':'Forge2',
   'Misty Step':'Horizon2',
   "Otiluke's Resilient Sphere":'Redemption4',
-  'Phantasmal Killer':'K4',
+  // Already a K4 spell 'Phantasmal Killer':'K4',
   'Protection From Energy':'Forge3',
   'Protection From Evil And Good':'Horizon1,Slayer1',
   'Raise Dead':'Grave5',

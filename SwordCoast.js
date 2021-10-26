@@ -499,7 +499,7 @@ SwordCoast.FEATURES_ADDED = {
     'Section=magic ' +
     'Note="R150\' 20\' radius inflicts 2d6 HP radiant (DC %V Con neg), spend 1-3 Ki Point for +2d6 HP radiant each"',
   'Song Of Defense':
-    'Section=magic Note="Use Reaction and expend spell slot to reduce damage by 5x slot level"',
+    'Section=magic Note="During Bladesong, use Reaction and expend spell slot to reduce damage by 5x slot level"',
   'Song Of Victory':
     'Section=combat Note="+%V HP melee weapon damage during Bladesong"',
   'Soul Of Deceit':
@@ -683,7 +683,7 @@ SwordCoast.SPELLS_ADDED = {
   'Booming Blade':
     'School=Evocation ' +
     'Level=K0,S0,W0 ' +
-    'Description="Struck foe suffers +${Math.floor((lvl+1)/6)}d8 HP thunder and ${Math.floor((lvl+1)/6)+1}d8 HP thunder on move for 1 rd"',
+    'Description="Struck foe suffers +${Math.floor((lvl+1)/6)}d8 HP thunder and ${Math.floor((lvl+1)/6)+1}d8 HP thunder on move w/in 1 rd"',
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=K0,S0,W0 ' +
