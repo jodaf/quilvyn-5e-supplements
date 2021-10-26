@@ -14,10 +14,8 @@ var attributes = {
   "levels.Monk":20, "name":"Class-Monk 20", 
   "notes":"* Ability Boosts: +1 Charisma; +1 Intelligence", "race":"Human", "selectableFeatures.Monk - Way Of The Drunken Master":1, 
   "selectableFeatures.Monk - Way Of The Kensei":1, "selectableFeatures.Monk - Way Of The Sun Soul":1, "shield":"None", 
-  "skillsChosen.Athletics":1, "skillsChosen.History":1, "strength":10, "toolsChosen.Cook's Utensils":1, 
-  "toolsChosen.Painter's Supplies":1, "weapons.Club":1, "weapons.Greatclub":1, "weapons.Unarmed":1, 
-  "weaponsChosen.Battleaxe":1, "weaponsChosen.Blowgun":1, "weaponsChosen.Handaxe":1, 
-  "weaponsChosen.Javelin":1, "weaponsChosen.Light Crossbow":1, "wisdom":14
+  "skillsChosen.Athletics":1, "skillsChosen.History":1, "strength":10, "toolsChosen.Painter's Supplies":1, 
+  "weapons.Club":1, "weapons.Greatclub":1, "weapons.Unarmed":1, "wisdom":14
 };
   </script>
 </head>
@@ -165,7 +163,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Tool Proficiency</b>: Brewer's Supplies; Cook's Utensils; Painter's Supplies</td>
+    <td><b>Tool Proficiency</b>: Brewer's Supplies; Painter's Supplies</td>
   </tr><tr style="text-align:center">
     <td><b>Languages</b>: Common; Draconic; Giant; Halfling</td>
   </tr><tr style="text-align:center">
@@ -196,7 +194,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>      <table id="CombatProfs" style="width:100%">
       <tr style="text-align:center">
-        <td><b>Weapon Proficiency</b>: Battleaxe; Blowgun; Handaxe; Javelin; Light Crossbow; Shortsword; Simple</td>
+        <td><b>Weapon Proficiency</b>: Shortsword; Simple</td>
       </tr></table>
 </td>
     </tr><tr style="text-align:center">
@@ -322,7 +320,15 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>: Selectable Feature Allocation: 1 available vs. 3 allocated</td>
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Selectable Feature Allocation: 1 available vs. 3 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Tool Proficiency Allocation: 2 available vs. 1 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Weapon Proficiency Allocation: 5 available vs. 0 allocated</td>
+      </tr></table>
+</td>
     </tr></table>
 </td>
   </tr></table>

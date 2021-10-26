@@ -11,20 +11,20 @@ var attributes = {
   "constitution":17, "deity":"Egyptian-Nephthys", "dexterity":12, "experience":448810, 
   "feats.Alert":1, "feats.Dungeon Delver":1, "feats.Healer":1, 
   "feats.Magic Initiate (Wizard)":1, "feats.Savage Attacker":1, "gender":"Male", "hitPoints":81, 
-  "intelligence":12, "languages.Celestial":1, "languages.Infernal":1, "languages.Orc":1, 
-  "levels.Ranger":20, "name":"Class-Ranger 20", "race":"Human", 
-  "selectableFeatures.Ranger - Fighting Style (Archery)":1, "selectableFeatures.Ranger - Gloom Stalker":1, 
-  "selectableFeatures.Ranger - Horizon Walker":1, "selectableFeatures.Ranger - Monster Slayer":1, "shield":"None", 
-  "skillsChosen.Athletics":1, "skillsChosen.Perception":1, "skillsChosen.Stealth":1, 
-  "spells.Animal Friendship(R1 Ench)":1, "spells.Banishment(Horizon4 Abju)":1, "spells.Banishment(Slayer4 Abju)":1, 
-  "spells.Beast Sense(R2 Divi)":1, "spells.Color Spray(W1 Illu)":1, "spells.Commune With Nature(R5 Divi)":1, 
-  "spells.Conjure Barrage(R3 Conj)":1, "spells.Conjure Woodland Beings(R4 Conj)":1, 
-  "spells.Cordon Of Arrows(R2 Tran)":1, "spells.Cure Wounds(R1 Evoc)":1, "spells.Disguise Self(Gloom1 Illu)":1, 
-  "spells.Ensnaring Strike(R1 Conj)":1, "spells.Fear(Gloom3 Illu)":1, "spells.Friends(W0 Ench)":1, 
-  "spells.Grasping Vine(R4 Conj)":1, "spells.Greater Invisibility(Gloom4 Illu)":1, 
-  "spells.Haste(Horizon3 Tran)":1, "spells.Hold Monster(Slayer5 Ench)":1, "spells.Jump(R1 Tran)":1, 
-  "spells.Magic Circle(Slayer3 Abju)":1, "spells.Minor Illusion(W0 Illu)":1, "spells.Misty Step(Horizon2 Conj)":1, 
-  "spells.Pass Without Trace(R2 Abju)":1, "spells.Plant Growth(R3 Tran)":1, 
+  "intelligence":12, "languages.Celestial":1, "languages.Dwarvish":1, "languages.Giant":1, 
+  "languages.Infernal":1, "languages.Orc":1, "levels.Ranger":20, "name":"Class-Ranger 20", 
+  "race":"Human", "selectableFeatures.Ranger - Fighting Style (Archery)":1, 
+  "selectableFeatures.Ranger - Gloom Stalker":1, "selectableFeatures.Ranger - Horizon Walker":1, 
+  "selectableFeatures.Ranger - Monster Slayer":1, "shield":"None", "skillsChosen.Athletics":1, "skillsChosen.Perception":1, 
+  "skillsChosen.Stealth":1, "spells.Animal Friendship(R1 Ench)":1, "spells.Banishment(Horizon4 Abju)":1, 
+  "spells.Banishment(Slayer4 Abju)":1, "spells.Beast Sense(R2 Divi)":1, "spells.Color Spray(W1 Illu)":1, 
+  "spells.Commune With Nature(R5 Divi)":1, "spells.Conjure Barrage(R3 Conj)":1, 
+  "spells.Conjure Woodland Beings(R4 Conj)":1, "spells.Cordon Of Arrows(R2 Tran)":1, "spells.Cure Wounds(R1 Evoc)":1, 
+  "spells.Disguise Self(Gloom1 Illu)":1, "spells.Ensnaring Strike(R1 Conj)":1, "spells.Fear(Gloom3 Illu)":1, 
+  "spells.Friends(W0 Ench)":1, "spells.Grasping Vine(R4 Conj)":1, 
+  "spells.Greater Invisibility(Gloom4 Illu)":1, "spells.Haste(Horizon3 Tran)":1, "spells.Hold Monster(Slayer5 Ench)":1, 
+  "spells.Jump(R1 Tran)":1, "spells.Magic Circle(Slayer3 Abju)":1, "spells.Minor Illusion(W0 Illu)":1, 
+  "spells.Misty Step(Horizon2 Conj)":1, "spells.Pass Without Trace(R2 Abju)":1, "spells.Plant Growth(R3 Tran)":1, 
   "spells.Protection From Evil And Good(Horizon1 Abju)":1, "spells.Protection From Evil And Good(Slayer1 Abju)":1, 
   "spells.Rope Trick(Gloom2 Tran)":1, "spells.Seeming(Gloom5 Illu)":1, "spells.Stoneskin(R4 Abju)":1, 
   "spells.Swift Quiver(R5 Tran)":1, "spells.Teleportation Circle(Horizon5 Conj)":1, 
@@ -147,7 +147,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Languages</b>: Celestial; Common; Infernal; Orc</td>
+    <td><b>Languages</b>: Celestial; Common; Dwarvish; Giant; Infernal; Orc</td>
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
@@ -369,7 +369,13 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>: Selectable Feature Allocation: 2 available vs. 4 allocated</td>
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Language Allocation: 4 available vs. 6 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Selectable Feature Allocation: 2 available vs. 4 allocated</td>
+      </tr></table>
+</td>
     </tr></table>
 </td>
   </tr></table>

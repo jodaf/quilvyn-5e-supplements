@@ -11,11 +11,12 @@ var attributes = {
   "constitution":14, "deity":"Greek-Tyche", "dexterity":11, "experience":494361, 
   "feats.Elemental Adept (Cold)":1, "feats.Elemental Adept (Thunder)":1, "feats.Magic Initiate (Wizard)":1, 
   "feats.Mounted Combatant":1, "feats.Tavern Brawler":1, "gender":"Male", "hitPoints":80, "intelligence":9, 
-  "languages.Draconic":1, "languages.Elvish":1, "levels.Druid":20, "name":"Class-Druid 20", 
-  "notes":"* Ability Boosts: +1 Constitution", "race":"Human", "selectableFeatures.Druid - Circle Of Dreams":1, 
-  "selectableFeatures.Druid - Circle Of The Shepherd":1, "shield":"None", "skillsChosen.Medicine":1, "skillsChosen.Survival":1, 
-  "spells.Animal Friendship(D1 Ench)":1, "spells.Awaken(D5 Tran)":1, "spells.Beast Sense(D2 Divi)":1, 
-  "spells.Chill Touch(W0 Necr)":1, "spells.Conjure Animals(D3 Conj)":1, "spells.Conjure Fey(D6 Conj)":1, 
+  "languages.Draconic":1, "languages.Elvish":1, "languages.Orc":1, "levels.Druid":20, 
+  "name":"Class-Druid 20", "notes":"* Ability Boosts: +1 Constitution", "race":"Human", 
+  "selectableFeatures.Druid - Circle Of Dreams":1, "selectableFeatures.Druid - Circle Of The Shepherd":1, "shield":"None", 
+  "skillsChosen.Medicine":1, "skillsChosen.Survival":1, "spells.Animal Friendship(D1 Ench)":1, 
+  "spells.Awaken(D5 Tran)":1, "spells.Beast Sense(D2 Divi)":1, "spells.Chill Touch(W0 Necr)":1, 
+  "spells.Conjure Animals(D3 Conj)":1, "spells.Conjure Fey(D6 Conj)":1, 
   "spells.Conjure Minor Elementals(D4 Conj)":1, "spells.Darkvision(D2 Tran)":1, "spells.Feign Death(D3 Necr)":1, 
   "spells.Fire Storm(D7 Evoc)":1, "spells.Friends(W0 Ench)":1, "spells.Greater Restoration(D5 Abju)":1, 
   "spells.Guidance(D0 Divi)":1, "spells.Gust Of Wind(D2 Evoc)":1, "spells.Healing Word(D1 Evoc)":1, 
@@ -144,7 +145,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Tool Proficiency</b>: Herbalism Kit</td>
   </tr><tr style="text-align:center">
-    <td><b>Languages</b>: Common; Draconic; Elvish; Sylvan</td>
+    <td><b>Languages</b>: Common; Draconic; Elvish; Orc; Sylvan</td>
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
@@ -338,7 +339,13 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>: Selectable Feature Allocation: 1 available vs. 2 allocated</td>
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Language Allocation: 4 available vs. 5 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Selectable Feature Allocation: 1 available vs. 2 allocated</td>
+      </tr></table>
+</td>
     </tr></table>
 </td>
   </tr></table>

@@ -16,9 +16,10 @@ var attributes = {
   "selectableFeatures.Barbarian - Path Of The Ancestral Guardian":1, "selectableFeatures.Barbarian - Path Of The Storm Herald":1, 
   "selectableFeatures.Barbarian - Path Of The Zealot":1, "selectableFeatures.Barbarian - Storm Aura (Desert)":1, 
   "selectableFeatures.Barbarian - Storm Aura (Sea)":1, "selectableFeatures.Barbarian - Storm Aura (Tundra)":1, "shield":"None", 
-  "skillsChosen.Athletics":1, "skillsChosen.Survival":1, "spells.Healing Word(D1 Evoc)":1, 
-  "spells.Produce Flame(D0 Conj)":1, "spells.Thorn Whip(D0 Tran)":1, "strength":14, "weapons.Club":1, 
-  "weapons.Greatsword":1, "weapons.Sling":1, "wisdom":10
+  "skillsChosen.Animal Handling":1, "skillsChosen.Athletics":1, "skillsChosen.Intimidation":1, 
+  "skillsChosen.Survival":1, "spells.Healing Word(D1 Evoc)":1, "spells.Produce Flame(D0 Conj)":1, 
+  "spells.Thorn Whip(D0 Tran)":1, "strength":14, "weapons.Club":1, "weapons.Greatsword":1, "weapons.Sling":1, 
+  "wisdom":10
 };
   </script>
 </head>
@@ -113,7 +114,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Skill Proficiency</b>: Athletics; Insight; Religion; Survival</td>
+    <td><b>Skill Proficiency</b>: Animal Handling; Athletics; Insight; Intimidation; Religion; Survival</td>
   </tr><tr style="text-align:center">
     <td><b>Skills</b>:     <table id="Skills" style="width:100%">
     <col style="width:33%"/>
@@ -124,8 +125,8 @@ var attributes = {
       <td>Insight: (wis) 6</td>
       <td>Performance: (cha) 0</td>
     </tr><tr style="text-align:left">
-      <td>Animal Handling: (wis) 0</td>
-      <td>Intimidation: (cha) 0</td>
+      <td>Animal Handling: (wis) 6</td>
+      <td>Intimidation: (cha) 6</td>
       <td>Persuasion: (cha) 0</td>
     </tr><tr style="text-align:left">
       <td>Arcana: (int) -1</td>
@@ -314,7 +315,13 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>: Selectable Feature Allocation: 2 available vs. 6 allocated</td>
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Selectable Feature Allocation: 2 available vs. 6 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Skill Proficiency Allocation: 2 available vs. 4 allocated</td>
+      </tr></table>
+</td>
     </tr></table>
 </td>
   </tr></table>

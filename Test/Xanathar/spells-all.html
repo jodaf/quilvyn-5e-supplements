@@ -9,17 +9,20 @@ var attributes = {
   "_path":"ztest/5e-xanathar/spells/all", 
   "alignment":"Chaotic Evil", "armor":"Chain Shirt", "background":"Folk Hero", "charisma":11, 
   "constitution":16, "deity":"Greek-Pan", "dexterity":12, "experience":274912, 
-  "feats.Magic Initiate (Wizard)":1, "gender":"Male", "hitPoints":66, "intelligence":12, "levels.Bard":2, 
-  "levels.Cleric":2, "levels.Druid":2, "levels.Paladin":4, "levels.Ranger":2, 
-  "levels.Sorcerer":2, "levels.Warlock":2, "levels.Wizard":2, "name":"Spells-All", "race":"Human", 
+  "feats.Magic Initiate (Wizard)":1, "gender":"Male", "hitPoints":66, "intelligence":12, "languages.Dwarvish":1, 
+  "languages.Gnomish":1, "languages.Infernal":1, "levels.Bard":2, "levels.Cleric":2, 
+  "levels.Druid":2, "levels.Paladin":4, "levels.Ranger":2, "levels.Sorcerer":2, 
+  "levels.Warlock":2, "levels.Wizard":2, "name":"Spells-All", "race":"Human", 
   "selectableFeatures.Cleric - Nature Domain":1, "selectableFeatures.Druid - Circle Of The Shepherd":1, 
   "selectableFeatures.Paladin - Fighting Style (Defense)":1, "selectableFeatures.Paladin - Oath Of The Ancients":1, 
   "selectableFeatures.Ranger - Fighting Style (Archery)":1, "selectableFeatures.Warlock - Devil's Sight":1, 
   "selectableFeatures.Warlock - Grasp Of Hadar":1, "selectableFeatures.Warlock - The Great Old One":1, 
-  "selectableFeatures.Wizard - School Of Conjuration":1, "shield":"\"\"", "skillsChosen.Animal Handling":1, "skillsChosen.Arcana":1, 
+  "selectableFeatures.Wizard - School Of Conjuration":1, "shield":"\"\"", "skillsChosen.Acrobatics":1, 
+  "skillsChosen.Animal Handling":1, "skillsChosen.Arcana":1, "skillsChosen.Athletics":1, 
   "skillsChosen.Deception":1, "skillsChosen.History":1, "skillsChosen.Insight":1, 
   "skillsChosen.Intimidation":1, "skillsChosen.Investigation":1, "skillsChosen.Medicine":1, 
-  "skillsChosen.Perception":1, "skillsChosen.Persuasion":1, "skillsChosen.Religion":1, 
+  "skillsChosen.Nature":1, "skillsChosen.Perception":1, "skillsChosen.Performance":1, 
+  "skillsChosen.Persuasion":1, "skillsChosen.Religion":1, "skillsChosen.Sleight Of Hand":1, 
   "skillsChosen.Stealth":1, "skillsChosen.Survival":1, "spells.Abi-Dalzim's Horrid Wilting(W8 Necr)":1, 
   "spells.Absorb Elements(D1 Abju)":1, "spells.Aganazzar's Scorcher(S2 Evoc)":1, "spells.Beast Bond(D1 Divi)":1, 
   "spells.Bones Of The Earth(D6 Tran)":1, "spells.Catapult(W1 Tran)":1, "spells.Catnap(B3 Ench)":1, 
@@ -148,16 +151,16 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Skill Proficiency</b>: Animal Handling; Arcana; Deception; History; Insight; Intimidation; Investigation; Medicine; Perception; Persuasion; Religion; Stealth; Survival</td>
+    <td><b>Skill Proficiency</b>: Acrobatics; Animal Handling; Arcana; Athletics; Deception; History; Insight; Intimidation; Investigation; Medicine; Nature; Perception; Performance; Persuasion; Religion; Sleight Of Hand; Stealth; Survival</td>
   </tr><tr style="text-align:center">
     <td><b>Skills</b>:     <table id="Skills" style="width:100%">
     <col style="width:33%"/>
     <col style="width:33%"/>
     <col style="width:34%"/>
     <tr style="text-align:left">
-      <td>Acrobatics: (dex) 1</td>
+      <td>Acrobatics: (dex) 3</td>
       <td>Insight: (wis) 4</td>
-      <td>Performance: (cha) 1</td>
+      <td>Performance: (cha) 3</td>
     </tr><tr style="text-align:left">
       <td>Animal Handling: (wis) 4</td>
       <td>Intimidation: (cha) 3</td>
@@ -167,12 +170,12 @@ var attributes = {
       <td>Investigation: (int) 3</td>
       <td>Religion: (int) 3</td>
     </tr><tr style="text-align:left">
-      <td>Athletics: (str) 2</td>
+      <td>Athletics: (str) 4</td>
       <td>Medicine: (wis) 4</td>
-      <td>Sleight Of Hand: (dex) 1</td>
+      <td>Sleight Of Hand: (dex) 3</td>
     </tr><tr style="text-align:left">
       <td>Deception: (cha) 3</td>
-      <td>Nature: (int) 1</td>
+      <td>Nature: (int) 3</td>
       <td>Stealth: (dex) 3</td>
     </tr><tr style="text-align:left">
       <td>History: (int) 3</td>
@@ -183,7 +186,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Tool Proficiency</b>: Herbalism Kit; Jeweler's Tools; Lute; Mason's Tools; Pan Flute; Vehicles (Land)</td>
   </tr><tr style="text-align:center">
-    <td><b>Languages</b>: Common; Sylvan</td>
+    <td><b>Languages</b>: Common; Dwarvish; Gnomish; Infernal; Sylvan</td>
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
@@ -529,7 +532,13 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>: Skill Proficiency Allocation: 19 available vs. 13 allocated</td>
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Language Allocation: 2 available vs. 5 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Skill Proficiency Allocation: 19 available vs. 18 allocated</td>
+      </tr></table>
+</td>
     </tr></table>
 </td>
   </tr></table>
