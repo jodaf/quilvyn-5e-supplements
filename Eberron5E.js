@@ -360,6 +360,10 @@ Eberron5E.ruleNotes = function() {
     '<h2>Eberron 5E Quilvyn Plugin Notes</h2>\n' +
     'Eberron 5E Quilvyn Plugin Version ' + Eberron5E.VERSION + '\n' +
     '<p>\n' +
+    'There are no known bugs, limitations, or usage notes specific to the Eberron 5E Rule Set.\n' +
+    '</p>\n' +
+    '<h3>Copyrights and Licensing</h3>\n' +
+    '<p>\n' +
     'Quilvyn\'s Eberron 5E rule set is unofficial Fan Content permitted ' +
     'under Wizards of the Coast\'s ' +
     '<a href="https://company.wizards.com/en/legal/fancontentpolicy">Fan Content Policy</a>.\n' +
@@ -371,7 +375,5 @@ Eberron5E.ruleNotes = function() {
     'Eberron Rising from the Last War © 2019 Wizards of the Coast LLC.\n' +
     '</p><p>\n' +
     'Dungeons & Dragons Player\'s Handbook © 2014 Wizards of the Coast LLC.\n' +
-    '<p>\n' +
-    'There are no known bugs, limitations, or usage notes specific to the Eberron 5E plugin\n' +
     '</p>\n';
 };

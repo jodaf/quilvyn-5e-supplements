@@ -1887,6 +1887,10 @@ Xanathar.ruleNotes = function() {
     '<h2>Xanathar Quilvyn Plugin Notes</h2>\n' +
     'Xanathar Quilvyn Plugin Version ' + Xanathar.VERSION + '\n' +
     '<p>\n' +
+    'There are no known bugs, limitations, or usage notes specific to the Xanathar Rule Set.\n' +
+    '</p>\n' +
+    '<h3>Copyrights and Licensing</h3>\n' +
+    '<p>\n' +
     'Quilvyn\'s Xanathar\'s Guide supplement is unofficial Fan Content ' +
     'permitted under Wizards of the Coast\'s ' +
     '<a href="https://company.wizards.com/en/legal/fancontentpolicy">Fan Content Policy</a>.\n' +
@@ -1898,8 +1902,5 @@ Xanathar.ruleNotes = function() {
     'Xanathar\'s Guide to Everything © 2017 Wizards of the Coast LLC.\n' +
     '</p><p>\n' +
     'Dungeons & Dragons Player\'s Handbook © 2014 Wizards of the Coast LLC.\n' +
-    '<p>\n' +
-    '<p>\n' +
-    'There are no known bugs, limitations, or usage notes specific to the Xanathar plugin.\n' +
     '</p>\n';
 };

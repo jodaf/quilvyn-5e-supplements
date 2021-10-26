@@ -937,6 +937,10 @@ SwordCoast.ruleNotes = function() {
     '<h2>Sword Coast Quilvyn Plugin Notes</h2>\n' +
     'Sword Coast Quilvyn Plugin Version ' + SwordCoast.VERSION + '\n' +
     '<p>\n' +
+    'There are no known bugs, limitations, or usage notes specific to the Sword Coast Rule Set.\n' +
+    '</p>\n' +
+    '<h3>Copyrights and Licensing</h3>\n' +
+    '<p>\n' +
     'Quilvyn\'s Sword Coast rule set is unofficial Fan Content permitted ' +
     'under Wizards of the Coast\'s ' +
     '<a href="https://company.wizards.com/en/legal/fancontentpolicy">Fan Content Policy</a>.\n' +
@@ -948,7 +952,5 @@ SwordCoast.ruleNotes = function() {
     'Sword Coast Adventurer\'s Guide © 2015 Wizards of the Coast LLC.\n' +
     '</p><p>\n' +
     'Dungeons & Dragons Player\'s Handbook © 2014 Wizards of the Coast LLC.\n' +
-    '<p>\n' +
-    'There are no known bugs, limitations, or usage notes specific to the Sword Coast plugin\n' +
     '</p>\n';
 };

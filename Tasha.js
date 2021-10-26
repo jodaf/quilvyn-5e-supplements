@@ -1948,6 +1948,10 @@ Tasha.ruleNotes = function() {
     '<h2>Tasha Quilvyn Plugin Notes</h2>\n' +
     'Tasha Quilvyn Plugin Version ' + Tasha.VERSION + '\n' +
     '<p>\n' +
+    'There are no known bugs, limitations, or usage notes specific to the Tasha Rule Set.\n' +
+    '</p>\n' +
+    '<h3>Copyrights and Licensing</h3>\n' +
+    '<p>\n' +
     'Quilvyn\'s Tasha\'s Cauldron supplement is unofficial Fan Content ' +
     'permitted under Wizards of the Coast\'s ' +
     '<a href="https://company.wizards.com/en/legal/fancontentpolicy">Fan Content Policy</a>.\n' +
@@ -1959,8 +1963,5 @@ Tasha.ruleNotes = function() {
     'Tasha\'s Cauldron of Everything © 2020 Wizards of the Coast LLC.\n' +
     '</p><p>\n' +
     'Dungeons & Dragons Player\'s Handbook © 2014 Wizards of the Coast LLC.\n' +
-    '<p>\n' +
-    '<p>\n' +
-    'There are no known bugs, limitations, or usage notes specific to the Tasha plugin.\n' +
     '</p>\n';
 };
