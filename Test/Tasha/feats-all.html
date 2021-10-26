@@ -16,7 +16,7 @@ var attributes = {
   "feats.Telepathic":1, "gender":"Female", "hitPoints":40, "intelligence":9, "languages.Abyssal":1, 
   "languages.Halfling":1, "languages.Primordial":1, "levels.Ranger":10, "name":"Feats-All", 
   "notes":"* Ability Boost: +1 charisma; +1 wisdom;", "race":"Half-Elf", 
-  "selectableFeatures.Fighter - Fighting Style (Blind Fighting)":1, "selectableFeatures.Ranger - Beast Master":1, 
+  "selectableFeatures.Fighter - Fighting Style (Archery)":1, "selectableFeatures.Ranger - Beast Master":1, 
   "selectableFeatures.Ranger - Fighting Style (Dueling)":1, "selectableFeatures.Sorcerer - Distant Spell":1, 
   "selectableFeatures.Sorcerer - Subtle Spell":1, "selectableFeatures.Warlock - Eldritch Spear":1, "shield":"None", 
   "skillsChosen.Athletics":1, "skillsChosen.Deception":1, "skillsChosen.Insight":1, 
@@ -126,7 +126,7 @@ var attributes = {
         <td><b>Warlock Features</b>: Eldritch Spear</td>
         <td><b>Sorcerer Features</b>: Distant Spell; Subtle Spell</td>
         <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Beast Master; Canny; Deft Explorer; Exceptional Training; Extra Attack; Favored Foe; Fighting Style (Dueling); Land's Stride; Martial Versatility; Nature's Veil; Primal Awareness; Ranger's Companion; Roving; Save Proficiency (Dexterity/Strength); Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Spellcasting Focus; Spellcasting; Tireless; Weapon Proficiency (Martial)</td>
-        <td><b>Fighter Features</b>: Fighting Style (Blind Fighting)</td>
+        <td><b>Fighter Features</b>: Fighting Style (Archery)</td>
         <td><b>Entertainer Features</b>: By Popular Demand; Skill Proficiency (Acrobatics/Performance); Tool Proficiency (Disguise Kit/Choose 1 from any Music)</td>
       </tr></table>
 </td>
@@ -136,6 +136,8 @@ var attributes = {
         <td><i>Chef: Tool Proficiency (Cook's Utensils)</i></td>
       </tr><tr style="text-align:center">
         <td><i>Deft Explorer: Gain Canny, Roving, and Tireless features</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Eldritch Adept: Learn 1 Eldritch Invocation, replace when gaining level</i></td>
       </tr><tr style="text-align:center">
         <td><i>Fighting Initiate: Learn 1 Fighting Style, replace when boosting ability or taking feat</i></td>
       </tr><tr style="text-align:center">
@@ -238,7 +240,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Armor</b>: None</td>
         <td><b>Shield</b>: None</td>
-        <td><b>Weapons</b>: Blowgun: 1 (+7 1d1+3 R25/100); Greatclub: 1 (+7 1d8+3); Mace: 1 (+7 1d6+3); Unarmed: 1 (+7 1d1+3)</td>
+        <td><b>Weapons</b>: Blowgun: 1 (+9 1d1+3 R25/100); Greatclub: 1 (+7 1d8+3); Mace: 1 (+7 1d6+3); Unarmed: 1 (+7 1d1+3)</td>
       </tr></table>
 </td>
     </tr><tr style="text-align:center">
@@ -254,6 +256,8 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Extra Attack: +1 Attacks Per Round</i></td>
       </tr><tr style="text-align:center">
+        <td><i>Fighting Style (Archery): +2 ranged attacks</i></td>
+      </tr><tr style="text-align:center">
         <td><i>Strength Attack Adjustment: +3</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Damage Adjustment: +3</i></td>
@@ -261,8 +265,6 @@ var attributes = {
         <td>Crusher: Bludgeoning hit moves foe 5'; critical hit gives allies Adv on attacks for 1 rd</td>
       </tr><tr style="text-align:center">
         <td>Favored Foe: Hit on marked foe inflicts +1d6 HP weapon damage for conc or 1 min 4/long rest</td>
-      </tr><tr style="text-align:center">
-        <td>Fighting Style (Blind Fighting): R10' Detect invisible creatures</td>
       </tr><tr style="text-align:center">
         <td>Fighting Style (Dueling): +2 damage with single, one-handed weapon</td>
       </tr><tr style="text-align:center">
@@ -348,8 +350,6 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Artificer Initiate: Know 1 A0 spell, cast 1 A1 spell 1/long rest</i></td>
     </tr><tr style="text-align:center">
-      <td><i>Eldritch Adept: Learn 1 Eldritch Invocation, replace when gaining level</i></td>
-    </tr><tr style="text-align:center">
       <td>Chef: Food prepared during short rest heals 1d8 HP for 8 targets; treats prepared during long rest give 4 temporary HP to 4 targets</td>
     </tr><tr style="text-align:center">
       <td>Distant Spell: Spend 1 Sorcery Point to dbl spell range or touch at 30'</td>
@@ -390,19 +390,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
-      <tr style="text-align:center">
-        <td>Feat Allocation: 2 available vs. 17 allocated</td>
-      </tr><tr style="text-align:center">
-        <td>Fighter-Fighting Style (Blind Fighting) Selectable Feature: Requires fighter level</td>
-      </tr><tr style="text-align:center">
-        <td>Sorcerer-Distant Spell Selectable Feature: Requires sorcerer level >= 3</td>
-      </tr><tr style="text-align:center">
-        <td>Sorcerer-Subtle Spell Selectable Feature: Requires sorcerer level >= 3</td>
-      </tr><tr style="text-align:center">
-        <td>Warlock-Eldritch Spear Selectable Feature: Requires warlock level >= 2</td>
-      </tr></table>
-</td>
+      <td><b>Validation Errors</b>: Feat Allocation: 2 available vs. 17 allocated</td>
     </tr></table>
 </td>
   </tr></table>

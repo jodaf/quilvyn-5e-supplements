@@ -469,7 +469,7 @@ Tasha.FEATURES = {
     'Note="+1 Constitution or Strength",' +
          '"Bludgeoning hit moves foe 5\'; critical hit gives allies Adv on attacks for 1 rd"',
   'Eldritch Adept':
-    'Section=magic ' +
+    'Section=feature ' +
     'Note="Learn 1 Eldritch Invocation, replace when gaining level"',
   'Fey Touched':
     'Section=ability,magic ' +
@@ -1673,6 +1673,8 @@ Tasha.classRulesExtra = function(rules, name) {
  * derived directly from the attributes passed to featRules.
  */
 Tasha.featRulesExtra = function(rules, name) {
+  var f;
+  var features;
   if(name == 'Artificer Initiate') {
     rules.defineRule
       ('casterLevels.A', 'magicNotes.artificerInitiate', '^=', '1');
@@ -1686,20 +1688,50 @@ Tasha.featRulesExtra = function(rules, name) {
     rules.defineRule('abilityBoosts', 'abilityNotes.crusher', '+=', '1');
   } else if(name == 'Eldritch Adept') {
     rules.defineRule('selectableFeatureCount.Warlock (Eldritch Invocation)',
-      'magicNotes.eldritchAdept', '+=', '1'
+      'featureNotes.eldritchAdept', '+=', '1'
     );
+    // Override class requirement for Warlock Eldritch Invocation features
+    features = rules.getChoices('selectableFeatures');
+    for(var f in features) {
+      if(f.match(/^Warlock/) && features[f].match(/Eldritch Invocation/)) {
+        f = f.charAt(0).toLowerCase() + f.substring(1).replaceAll(' ', '');
+        rules.defineRule('validationNotes.' + f + 'SelectableFeature',
+          'features.' + name, '^', '0'
+        );
+      }
+    }
   } else if(name == 'Fey Touched') {
     rules.defineRule('abilityBoosts', 'abilityNotes.feyTouched', '+=', '1');
   } else if(name == 'Fighting Initiate') {
     rules.defineRule('selectableFeatureCount.Fighter (Fighting Style)',
       'featureNotes.fightingInitiate', '+=', '1'
     );
+    // Override class requirement for Fighter Fighting Style features
+    features = rules.getChoices('selectableFeatures');
+    for(var f in features) {
+      if(f.match(/^Fighter/) && features[f].match(/Fighting Style/)) {
+        f = f.charAt(0).toLowerCase() + f.substring(1).replaceAll(' ', '');
+        rules.defineRule('validationNotes.' + f + 'SelectableFeature',
+          'features.' + name, '^', '0'
+        );
+      }
+    }
   } else if(name == 'Metamagic Adept') {
     rules.defineRule('selectableFeatureCount.Sorcerer (Metamagic)',
       'featureNotes.metamagicAdept', '+=', '2'
     );
     rules.defineRule
       ('magicNotes.fontOfMagic', 'featureNotes.metamagicAdept', '+=', '2');
+    // Override class requirement for Sorcerer Metamagic features
+    features = rules.getChoices('selectableFeatures');
+    for(var f in features) {
+      if(f.match(/^Sorcerer/) && features[f].match(/Metamagic/)) {
+        f = f.charAt(0).toLowerCase() + f.substring(1).replaceAll(' ', '');
+        rules.defineRule('validationNotes.' + f + 'SelectableFeature',
+          'features.' + name, '^', '0'
+        );
+      }
+    }
   } else if(name == 'Piercer') {
     rules.defineRule('abilityBoosts', 'abilityNotes.piercer', '+=', '1');
   } else if(name == 'Shadow Touched') {
