@@ -922,6 +922,9 @@ SwordCoast.raceRulesExtra = function(rules, name) {
 /* Returns an array of plugins upon which this one depends. */
 SwordCoast.getPlugins = function() {
   var result = [PHB5E, SRD5E];
+  if(window.Tasha != null &&
+     QuilvynUtils.getKeys(PHB5E.rules.getChoices('selectableFeatures'), /Peace Domain/).length > 0)
+    result.unshift(Tasha);
   if(window.Volo != null &&
      (Volo.CHARACTER_RACES_IN_PLAY || Volo.MONSTROUS_RACES_IN_PLAY))
     result.unshift(Volo);
