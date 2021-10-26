@@ -14,10 +14,10 @@ var attributes = {
   "languages.Primordial":1, "levels.Barbarian":20, "name":"Class-Barbarian 20", "race":"Gold Dwarf", 
   "selectableFeatures.Barbarian - Path Of The Battlerager":1, "selectableFeatures.Barbarian - Path Of The Totem Warrior (Elk)":1, 
   "selectableFeatures.Barbarian - Path Of The Totem Warrior (Tiger)":1, "shield":"None", "skillsChosen.Animal Handling":1, 
-  "skillsChosen.Athletics":1, "skillsChosen.Stealth":1, "skillsChosen.Survival":1, 
-  "spells.Healing Word(D1 Evoc)":1, "spells.Produce Flame(D0 Conj)":1, "spells.Thorn Whip(D0 Tran)":1, 
-  "strength":14, "toolsChosen.Brewer's Supplies":1, "weapons.Club":1, "weapons.Greatsword":1, 
-  "weapons.Sling":1, "wisdom":10
+  "skillsChosen.Athletics":1, "skillsChosen.Investigation":1, "skillsChosen.Nature":1, 
+  "skillsChosen.Stealth":1, "skillsChosen.Survival":1, "spells.Healing Word(D1 Evoc)":1, 
+  "spells.Produce Flame(D0 Conj)":1, "spells.Thorn Whip(D0 Tran)":1, "strength":14, 
+  "toolsChosen.Brewer's Supplies":1, "weapons.Club":1, "weapons.Greatsword":1, "weapons.Sling":1, "wisdom":10
 };
   </script>
 </head>
@@ -116,7 +116,7 @@ var attributes = {
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
-    <td><b>Skill Proficiency</b>: Animal Handling; Athletics; Insight; Religion; Stealth; Survival</td>
+    <td><b>Skill Proficiency</b>: Animal Handling; Athletics; Insight; Investigation; Nature; Religion; Stealth; Survival</td>
   </tr><tr style="text-align:center">
     <td><b>Skills</b>:     <table id="Skills" style="width:100%">
     <col style="width:33%"/>
@@ -132,7 +132,7 @@ var attributes = {
       <td>Persuasion: (cha) 0</td>
     </tr><tr style="text-align:left">
       <td>Arcana: (int) -2</td>
-      <td>Investigation: (int) -2</td>
+      <td>Investigation: (int) 4</td>
       <td>Religion: (int) 4</td>
     </tr><tr style="text-align:left">
       <td>Athletics: (str) 10</td>
@@ -140,7 +140,7 @@ var attributes = {
       <td>Sleight Of Hand: (dex) 3</td>
     </tr><tr style="text-align:left">
       <td>Deception: (cha) 0</td>
-      <td>Nature: (int) -2</td>
+      <td>Nature: (int) 4</td>
       <td>Stealth: (dex) 9</td>
     </tr><tr style="text-align:left">
       <td>History: (int) -2</td>
@@ -311,7 +311,13 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>: Selectable Feature Allocation: 1 available vs. 3 allocated</td>
+      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
+      <tr style="text-align:center">
+        <td>Selectable Feature Allocation: 1 available vs. 3 allocated</td>
+      </tr><tr style="text-align:center">
+        <td>Skill Proficiency Allocation: 4 available vs. 6 allocated</td>
+      </tr></table>
+</td>
     </tr></table>
 </td>
   </tr></table>
