@@ -1368,6 +1368,8 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Expeditious Retreat':'A1',
   'Fabricate':'A4',
   'Faerie Fire':'A1,Twilight1',
+  'False Life':'A1',
+  'Feather Fall':'A1',
   'Fire Bolt':'A0',
   'Fire Shield':'A4,D4,S4,Wildfire4', // Already K4
   'Fireball':'A3', // Already K3
@@ -1423,6 +1425,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Mislead':'K5,Twilight5',
   'Moonbeam':'Twilight2,Watchers2',
   "Mordenkainen's Faithful Hound":'A4',
+  "Mordenkainen's Private Sanctum":'A4',
   'Nondetection':'Watchers3',
   "Otiluke's Freezing Sphere":'S6',
   "Otiluke's Resilient Sphere":'A4,Peace4',
@@ -1445,6 +1448,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   "Rary's Telepathic Bond":'B5,Peace5',
   'Ray Of Frost':'A0',
   'Ray Of Sickness':'A1',
+  'Resistance':'A0',
   'Revivify':'A3,D3,R3,Wildfire3',
   'Rope Trick':'A2',
   'Sanctuary':'A1,K1,Peace1',
