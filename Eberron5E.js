@@ -243,8 +243,15 @@ Eberron5E.FEATURES_ADDED = {
   'Tool Expertise':'Section=feature Note="Dbl proficiency when using tools"',
 
   // Feats
-  'Aberrant Dragonmark':'Section=feature Note="TODO"',
-  'Revenant Blade':'Section=feature Note="TODO"',
+  'Aberrant Dragonmark':
+    'Section=ability,feature,magic ' +
+    'Note="+1 Constitution",' +
+         '"Develop Aberrant Dragonmark flaw",' +
+         '"Know S0 cantrip, casting chosen S1 spell 1/long rest gives self 1d temporary HP or inficts 1d HP force randomly w/in 30\'"',
+  'Revenant Blade':
+    'Section=ability,combat ' +
+    'Note="+1 Dexterity or Strength",' +
+         '"+1 AC when wielding double-bladed scimitar, weapon can be used one- or two-handed"',
 
   // Paths
   // Copied from Tasha's
@@ -294,7 +301,6 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%{proficiencyBonus} 3/dy), Attack +%{proficiencyBonus+intelligenceModifier} inflicts 1d8+%{proficiencyBonus}, use Reaction for R5\' Deflect Attack (inflicts Disadv on attack), MV 40\', Dex Save +%{proficiencyBonus+1}, Con save +%{proficiencyBonus+2}, immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
 
   // Races
-  // TODO
   "Artisan's Intuition":
     'Section=skill Note="+1d4 on Arcana and Artisan\'s Tools\'s checks"',
   'Beasthide Ability Adjustment':
@@ -308,6 +314,9 @@ Eberron5E.FEATURES_ADDED = {
     'Section=feature,save ' +
     'Note="No need to eat, drink, breathe, or sleep",' +
          '"Adv on saving throws vs. poison, resistance to poison damage, immune to disease and sleep"',
+  "Courier's Speed":'Section=ability Note="+5 Speed"',
+  'Cunning Intuition':
+    'Section=skill Note="+1d4 on Performance and Stealth checks"',
   'Deductive Intuition':
     'Section=skill Note="+1d4 on Investigation and Insight checks"',
   'Detection Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 any"',
@@ -320,8 +329,13 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Cast <i>Hunter\'s Mark</i>%{level<3?\'\':\' and <i>Locate Object</i>\'} 1/long rest"',
   'Finding Ability Adjustment':
     'Section=ability Note="+2 Wisdom/+1 Constitution"',
+  'Gifted Scribe':
+    'Section=skill Note="+1d4 on History and Calligrapher\'s Supplies checks"',
   'Graceful':'Section=feature Note="Skill Proficiency (Acrobatics)"',
   'Handling Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 any"',
+  'Headwinds':
+    'Section=magic ' +
+    'Note="Know <i>Gust</i> cantrip%{level<3?\'\':\', cast <i>Gust Of Wind</i> 1/long rest\'}"',
   'Healing Ability Adjustment':'Section=ability Note="+1 Wisdom"',
   'Healing Touch':
     'Section=magic ' +
@@ -333,6 +347,8 @@ Eberron5E.FEATURES_ADDED = {
     'Section=magic ' +
     'Note="Know <i>Prestidigitation</i> cantrip, cast <i>Purify Food And Drink</i> and <i>Unseen Servant</i> 1/long rest"',
   'Integrated Protection':'Section=combat Note="+1 AC"',
+  'Intuitive Motion':
+    'Section=skill Note="+1d4 on Acrobatics and Land Vehicle checks"',
   'Kalashtar Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Charisma"',
   'Longtooth Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Dexterity"',
@@ -342,6 +358,7 @@ Eberron5E.FEATURES_ADDED = {
   'Magical Detection':
     'Section=magic ' +
     'Note="Cast <i>Detect Magic</i>%{level<3?\' and\':\',\'} <i>Detect Poison And Disease</i>%{level<3?\'\':\', and <i>See Invisibility</i>\'} 1/long rest"',
+  'Healing Touch':'Section=magic Note="Cast <i>Misty Step</i> 1/long rest"',
   "Maker's Gift":
     'Section=feature Note="Tools Proficiency (Choose 1 from any Artisan)"',
   'Making Ability Adjustment':'Section=ability Note="+2 Intelligence/+1 any"',
@@ -352,14 +369,27 @@ Eberron5E.FEATURES_ADDED = {
     'Section=feature ' +
     'Note="R%{level*10}\' Telepathic communication w/1 target for 1 hr"',
   'Natural Athlete':'Section=feature Note="Skill Proficiency (Athletics)"',
+  'Passage Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 any"',
   'Primal Connection':
     'Section=magic ' +
     'Note="Cast <i>Animal Friendship</i> and <i>Speak With Animals</i> 1/long rest"',
   'Primal Intuition':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 2 from Animal Handling, Insight, Intimidation,Medicine,Nature,Perception,Survival"',
+  "Scribe's Insight":
+    'Section=magic ' +
+    'Note="Know <i>Message</i> cantrip, cast <i>Comprehend Languages</i>%{level<3?\'\':\' and <i>Magic Mouth</i>\'} 1/long rest"',
+  'Scribing Ability Adjustment':'Section=ability Note="+1 Charisma"',
+  'Sentinel Ability Adjustment':
+    'Section=ability Note="+2 Constitution/+1 Wisdom"',
+  "Sentinel's Intuition":
+    'Section=skill Note="+1d4 on Insight and Perception checks"',
   "Sentry's Rest":'Section=feature Note="Inert 6 hr during long rest"',
   'Severed From Dreams':'Section=save Note="Immune to dream effects"',
+  'Shadow Ability Adjustment':'Section=ability Note="+1 Charisma"',
+  'Shape Shadows':
+    'Section=magic ' +
+    'Note="Know <i>Minor Illusion</i> cantrip%{level<3?\'\':\', cast <i>Invisibility</i> 1/long rest\'}"',
   'Shapechanger':
     'Section=ability Note="Change appearance and voice as action at will"',
   'Shifting':
@@ -371,6 +401,8 @@ Eberron5E.FEATURES_ADDED = {
   'Spellsmith':
     'Section=magic ' +
     'Note="Know <i>Mending</i> cantrip, cast <i>Magic Weapon</i> w/1 hr duration 1/long rest"',
+  'Storm Ability Adjustment':'Section=ability Note="+2 Charisma/+1 Dexterity"',
+  "Storm's Boon":'Section=save Note="Resistance to lightning damage"',
   'Swiftstride Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Charisma"',
   'Swiftstride Shifting':
@@ -380,6 +412,15 @@ Eberron5E.FEATURES_ADDED = {
   'The Bigger They Are':
     'Section=magic ' +
     'Note="Cast <i>Animal Friendship</i> and <i>Speak With Animals</i> on monstrous creatures with intelligence up to 3"',
+  'Vigilant Guardian':
+    'Section=combat ' +
+    'Note="R5\' Swap places with and take damage for struck creature 1/long rest"',
+  "Warder's Intuition":
+    'Section=skill Note="+1d4 on Investigation and Thieves\' Tools checks"',
+  'Warding Ability Adjustment':'Section=ability Note="+1 Intelligence"',
+  'Wards And Seals':
+    'Section=magic ' +
+    'Note="Cast <i>Alarm</i>%{level<3?\' and\':\',\'} <i>Magic Armor</i>%{level<3?\'\':\', and <i>Arcane Lock</i>\'} 1/long rest"',
   'Warforged Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 any"',
   'Wild Intuition':
@@ -389,6 +430,8 @@ Eberron5E.FEATURES_ADDED = {
     'Section=ability,combat ' +
     'Note="Adv on Wis checks while shifting",' +
          '"R30\' no foe Adv on self attack while shifting"',
+  "Windwright's Intuition":
+    'Section=skill Note="+1d4 on Acrobatics and Navigator\'s Tools checks"',
   // Copied from Volo's
   'Aggressive':
     'Section=combat Note="Bonus action to move up to %{speed}\' toward foe"',
@@ -562,10 +605,114 @@ Eberron5E.RACES_ADDED = {
     'Languages=Common,Orc'
 };
 Eberron5E.SPELLS_ADDED = {
-  // TODO
+  'Gust':
+    'School=Transmutation ' +
+    'Level=W0 ' +
+    'Description="R30\' Create harmless air effect or push target 5\' (Str neg) or 5 lb object 10\'"'
 };
 Eberron5E.SPELLS_LEVELS_ADDED = {
-  // TODO
+
+  'Acid Splash':'A0',
+  'Dancing Lights':'A0',
+  'Fire Bolt':'A0',
+  'Guidance':'A0',
+  'Light':'A0',
+  'Mage Hand':'A0',
+  'Mending':'A0',
+  'Message':'A0',
+  'Poison Spray':'A0',
+  'Prestidigitation':'A0',
+  'Ray Of Frost':'A0',
+  'Resistance':'A0',
+  'Shocking Grasp':'A0',
+  'Spare The Dying':'A0',
+  'Thorn Whip':'A0',
+
+  'Alarm':'A1',
+  'Cure Wounds':'A1',
+  'Detect Magic':'A1',
+  'Expeditious Retreat':'A1',
+  'Faerie Fire':'A1',
+  'False Life':'A1',
+  'Feather Fall':'A1',
+  'Grease':'A1',
+  'Identify':'A1',
+  'Jump':'A1',
+  'Longstrider':'A1',
+  'Purify Food And Drink':'A1',
+  'Sanctuary':'A1',
+
+  'Aid':'A2',
+  'Alter Self':'A2',
+  'Arcane Lock':'A2',
+  'Blur':'A2',
+  'Continual Flame':'A2',
+  'Darkvision':'A2',
+  'Enhance Ability':'A2',
+  'Enlarge/Reduce':'A2',
+  'Heat Metal':'A2',
+  'Invisibility':'A2',
+  'Lesser Restoration':'A2',
+  'Levitate':'A2',
+  'Magic Mouth':'A2',
+  'Magic Weapon':'A2',
+  'Protection From Poison':'A2',
+  'Rope Trick':'A2',
+  'See Invisibility':'A2',
+  'Spider Climb':'A2',
+  'Web':'A2',
+
+  'Blink':'A3',
+  'Create Food And Water':'A3',
+  'Dispel Magic':'A3',
+  'Elemental Weapon':'A3',
+  'Fly':'A3',
+  'Glyph Of Warding':'A3',
+  'Haste':'A3',
+  'Protection From Energy':'A3',
+  'Revivify':'A3',
+  'Water Breathing':'A3',
+  'Water Walk':'A3',
+
+  'Arcane Eye':'A4',
+  'Fabricate':'A4',
+  'Freedom Of Movement':'A4',
+  "Leomund's Secret Chest":'A4',
+  "Mordenkainen's Faithful Hound":'A4',
+  "Mordenkainen's Private Sanctum":'A4',
+  "Otiluke's Resilient Sphere":'A4',
+  'Stone Shape':'A4',
+  'Stoneskin':'A4',
+
+  'Animate Objects':'A5',
+  "Bigby's Hand":'A5',
+  'Creation':'A5',
+  'Greater Restoration':'A5',
+  'Wall Of Stone':'A5',
+
+  // Alchemist
+  'Healing Word':'A1',
+  'Ray Of Sickness':'A1',
+  'Flaming Sphere':'A2',
+  "Melf's Acid Arrow":'A2',
+  'Gaseous Form':'A3',
+  'Mass Healing Word':'A3',
+  'Blight':'A4',
+  'Death Ward':'A4',
+  'Cloudkill':'A5',
+  'Raise Dead':'A5',
+  // Artillerist
+  'Shield':'A1',
+  'Thunderwave':'A1',
+  'Scorching Ray':'A2',
+  'Shatter':'A2',
+  'Fireball':'A3',
+  'Wind Wall':'A3',
+  'Ice Storm':'A4',
+  'Wall Of Fire':'A4',
+  'Cone Of Cold':'A5',
+  'Wall Of Force':'A5',
+
 };
 
 /*
@@ -574,24 +721,8 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
  */
 Eberron5E.choiceRules = function(rules, type, name, attrs) {
   PHB5E.choiceRules(rules, type, name, attrs);
-  if(type == 'Path')
-    Eberron5E.pathRulesExtra(rules, name);
-  else if(type == 'Race')
+  if(type == 'Race')
     Eberron5E.raceRulesExtra(rules, name);
-};
-
-/*
- * Defines in #rules# the rules associated with path #name# that cannot be
- * derived directly from the attributes passed to pathRules.
- */
-Eberron5E.pathRulesExtra = function(rules, name) {
-
-  var pathLevel =
-    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
-    'Level';
-
-  // TODO
-
 };
 
 /*
@@ -623,7 +754,9 @@ Eberron5E.raceRulesExtra = function(rules, name) {
 /* Returns an array of plugins upon which this one depends. */
 Eberron5E.getPlugins = function() {
   var result = [PHB5E, SRD5E];
-  // TODO Tasha
+  if(window.Tasha != null &&
+     QuilvynUtils.getKeys(PHB5E.rules.getChoices('selectableFeatures'), /Peace Domain/).length > 0)
+    result.unshift(Tasha);
   if(window.Volo != null &&
      (Volo.CHARACTER_RACES_IN_PLAY || Volo.MONSTROUS_RACES_IN_PLAY))
     result.unshift(Volo);
