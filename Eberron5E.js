@@ -36,15 +36,15 @@ function Eberron5E() {
   var rules = new QuilvynRules('Eberron 5E', Eberron5E.VERSION);
   Eberron5E.rules = rules;
 
-  rules.defineChoice('choices', SRD5E.CHOICES);
+  rules.defineChoice('choices', Eberron5E.CHOICES);
   rules.choiceEditorElements = SRD5E.choiceEditorElements;
   rules.choiceRules = Eberron5E.choiceRules;
   rules.editorElements = SRD5E.initialEditorElements();
   rules.getFormats = SRD5E.getFormats;
   rules.getPlugins = Eberron5E.getPlugins;
   rules.makeValid = SRD5E.makeValid;
-  rules.randomizeOneAttribute = SRD5E.randomizeOneAttribute;
-  rules.defineChoice('random', SRD5E.RANDOMIZABLE_ATTRIBUTES);
+  rules.randomizeOneAttribute = Eberron5E.randomizeOneAttribute;
+  rules.defineChoice('random', Eberron5E.RANDOMIZABLE_ATTRIBUTES);
   rules.ruleNotes = Eberron5E.ruleNotes;
 
   SRD5E.createViewers(rules, SRD5E.VIEWERS);
@@ -77,11 +77,19 @@ function Eberron5E() {
   SRD5E.magicRules(rules, SRD5E.SCHOOLS, Eberron5E.SPELLS);
   Eberron5E.identityRules(
     rules, SRD5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
-    Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES, Eberron5E.HOUSES
+    Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES, Eberron5E.HOUSES,
+    Eberron5E.DRAGONMARKS
   );
   SRD5E.talentRules
     (rules, Eberron5E.FEATS, Eberron5E.FEATURES, SRD5E.GOODIES,
      SRD5E.LANGUAGES, SRD5E.SKILLS, Eberron5E.TOOLS);
+
+  rules.defineSheetElement('Dragonmark', 'Background');
+  rules.defineSheetElement('House', 'Dragonmark');
+  rules.defineEditorElement
+    ('house', 'House/Dragonmarked', 'select-one', 'houses', 'background');
+  rules.defineEditorElement
+    ('dragonmarked', '', 'checkbox', [], 'background');
 
   if(window.Tasha != null)
     Tasha('Tasha', rules);
@@ -100,8 +108,12 @@ function Eberron5E() {
 
 Eberron5E.VERSION = '2.2.1.0';
 
+Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'Dragonmark', 'House');
+Eberron5E.RANDOMIZABLE_ATTRIBUTES =
+  [].concat(SRD5E.RANDOMIZABLE_ATTRIBUTES, 'dragonmark', 'house');
+
 Eberron5E.BACKGROUNDS_ADDED = {
-  'House Agent:
+  'House Agent':
     'Equipment=' +
       '"Fine Clothes","House Signet Ring","Identification Papers","20 GP" ' +
     'Features=' +
@@ -177,6 +189,22 @@ Eberron5E.DEITIES = {
   'The Silver Flame':'Alignment=LG Domain=Life,Light,War',
   'The Traveler':'Alignment=CN Domain=Forge,Knowledge,Trickery',
   'The Undying Court':'Alignment=NG Domain=Grave,Knowledge,Life'
+};
+Eberron5E.DRAGONMARKS = {
+  'None':'',
+  'Detection':'',
+  'Finding':'',
+  'Handling':'',
+  'Hospitality':'',
+  'Jorasco':'',
+  'Making':'',
+  'Passage':'',
+  'Scribing':'',
+  'Sentinel':'',
+  'Shadow':'',
+  'Shadow':'',
+  'Storm':'',
+  'Warding':''
 };
 Eberron5E.FEATS_ADDED = {
   'Aberrant Dragonmark':'Require="race !~ \'Mark\'" Type=General',
@@ -466,6 +494,7 @@ Eberron5E.FEATURES_ADDED = {
 
 };
 Eberron5E.HOUSES = {
+  'None':'',
   'Cannith':
     'Dragonmark=Making ' +
     'Race=Human ' +
@@ -578,71 +607,66 @@ Eberron5E.RACES_ADDED = {
       '"Constructed Resilience","Integrated Protection","Sentry\'s Rest",' +
       '"Specialized Design","Warforged Ability Adjustment" ' +
     'Languages=Common,any',
-  'Medani Half-Elf':
+  'Mark Of Detection Half-Elf':
     SRD5E.RACES['Half-Elf']
       .replace('Half-Elf Ability', 'Detection Ability')
       .replace('Skill Versatility', 'Deductive Intuition","Magical Detection'),
-  'Tharashk Half-Orc':
+  'Mark Of Finding Half-Orc':
     'Features=' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
       '"Finder\'s Magic" ' +
     'Languages=Common,Goblin',
-  'Tharashk Human':
+  'Mark Of Finding Human':
     'Features=' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
       '"Finder\'s Magic" ' +
     'Languages=Common,Goblin',
-  'Vadalis Human':
+  'Mark Of Handling Human':
     'Features=' +
       '"Handling Ability Adjustment","Primal Connection","Wild Intuition",' +
       '"3:The Bigger They Are" ' +
     'Languages=Common,any',
-  'Jorasco Halfling':
+  'Mark Of Healing Halfling':
     'Features=' +
       'Brave,"Halfling Nimbleness","Lucky Halfling",Slow,Small,' +
       '"Healing Ability Adjustment","Healing Touch","Medical Intuition" ' +
     'Languages=Common,Halfling',
-  'Ghallanda Halfling':
+  'Mark Of Hospitality Halfling':
     'Features=' +
       'Brave,"Halfling Nimbleness","Lucky Halfling",Slow,Small,' +
       '"Ever Hospitable","Hospitality Ability Adjustment",' +
       '"Innkeeper\'s Magic" ' +
     'Languages=Common,Halfling',
-  'Cannith Human':
+  'Mark Of Making Human':
     'Features=' +
       '"Making Ability Adjustment","Artisan\'s Intuition","Maker\'s Gift",' +
       'Spellsmith ' +
     'Languages=Common,any',
-  'Orien Human':
+  'Mark Of Passage Human':
     'Features=' +
       '"Passage Ability Adjustment","Courier\'s Speed","Intuitive Motion",' +
       '"Magical Passage" ' +
     'Languages=Common,any',
-  'Sivis Gnome':
+  'Mark Of Scribing Gnome':
     'Features=' +
       'Darkvision,"1:Gnome Cunning","Scribing Ability Adjustment",Slow,Small,' +
       '"Gifted Scribe","Scribe\'s Insight" ' +
     'Languages=Common,Gnomish',
-  'Deneith Human':
+  'Mark Of Sentinel Human':
     'Features=' +
       '"Sentinel Ability Adjustment","Guardian\'s Shield",' +
       '"Sentinel\'s Intuition","Vigilant Guardian" ' +
     'Languages=Common,any',
-  'Pharlian Elf':
+  'Mark Of Shadow Elf':
     'Features=' +
       'Darkvision,"Elf Weapon Training","Fey Ancestry","Keen Senses",Trance,' +
       '"Cunning Intuition","Shadow Ability Adjustment","Shape Shadows" ' +
     'Languages=Common,Elvish',
-  'Thuranni Elf':
-    'Features=' +
-      'Darkvision,"Elf Weapon Training","Fey Ancestry","Keen Senses",Trance,' +
-      '"Cunning Intuition","Shadow Ability Adjustment","Shape Shadows" ' +
-    'Languages=Common,Elvish',
-  'Lyrandar Half-Elf':
+  'Mark Of Storm Half-Elf':
     SRD5E.RACES['Half-Elf']
       .replace('Half-Elf Ability', 'Storm Ability')
       .replace('Skill Versatility', 'Windwright\'s Intuition","Storm\'s Boon","Headwinds'),
-  'Kundarak Dwarf':
+  'Mark Of Warding Dwarf':
     'Features=' +
       '"Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
       'Darkvision,"Dwarven Combat Training","Dwarven Resilience",Slow,Steady,' +
@@ -784,13 +808,17 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
 
 /* Defines rules related to basic character identity. */
 Eberron5E.identityRules = function(
-  rules, alignments, backgrounds, classes, deities, paths, races, houses
+  rules, alignments, backgrounds, classes, deities, paths, races, houses,
+  dragonmarks
 ) {
   SRD5E.identityRules(
     rules, SRD5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
     Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES
   );
+  QuilvynUtils.checkAttrTable(dragonmarks, []);
   QuilvynUtils.checkAttrTable(houses, ['Dragonmark', 'Race', 'Tool']);
+  for(var d in dragonmarks)
+    Eberron5E.choiceRules(rules, 'Dragonmark', d, dragonmarks[d]);
   for(var h in houses)
     Eberron5E.choiceRules(rules, 'House', h, houses[h]);
 };
@@ -800,18 +828,43 @@ Eberron5E.identityRules = function(
  * related to selecting that choice.
  */
 Eberron5E.choiceRules = function(rules, type, name, attrs) {
-  if(type != 'House')
+  if(type != 'Dragonmark' && type != 'House')
     PHB5E.choiceRules(rules, type, name, attrs);
   if(type == 'Background')
     Eberron5E.backgroundRulesExtra(rules, name);
-  else if(type == 'House')
+  else if(type == 'Dragonmark') {
+    Eberron5E.dragonmarkRules(rules, name);
+    rules.addChoice('dragonmarks', name, attrs);
+  } else if(type == 'House') {
     Eberron5E.houseRules(rules, name,
       QuilvynUtils.getAttrValue(attrs, 'Dragonmark'),
       QuilvynUtils.getAttrValueArray(attrs, 'Race'),
       QuilvynUtils.getAttrValueArray(attrs, 'Tool')
     );
-  else if(type == 'Race')
+    rules.addChoice('houses', name, attrs);
+  } else if(type == 'Race')
     Eberron5E.raceRulesExtra(rules, name);
+};
+
+/* Defines in #rules# the rules associated with dragonmark #name#. */
+Eberron5E.dragonmarkRules = function(rules, name) {
+  if(name == 'None')
+    return;
+};
+
+/*
+ * Defines in #rules# the rules associated with house #name#, which is
+ * associated with #dragonmark#, populated by #races# and provides #tools# to
+ * characters with the House Agent background.
+ */
+Eberron5E.houseRules = function(rules, name, dragonmark, races, tools) {
+  // Presently only tools are used in rules
+  if(name == 'None')
+    return;
+  rules.defineRule('dragonmark',
+    'house', '=', 'QuilvynUtils.getAttrValue(Eberron5E.HOUSES[source], "Dragonmark")',
+    'dragonmarked', '=', 'source ? null : "None"'
+  );
 };
 
 /*
@@ -824,15 +877,6 @@ Eberron5E.backgroundRulesExtra = function(rules, name) {
       'background', '=', 'source == "House Agent" ? 1 : null'
     );
   }
-};
-
-/*
- * Defines in #rules# the rules associated with house #name#, which is
- * associated with #dragonmark#, populated by #races# and provides #tools# to
- * characters with the House Agent background.
- */
-Eberron5E.houseRules = function(rules, name, dragonmark, races, tools) {
-  // Presently only tools are used in rules
 };
 
 /*
@@ -898,6 +942,48 @@ Eberron5E.getPlugins = function() {
      QuilvynUtils.getKeys(PHB5E.rules.getChoices('selectableFeatures'), /Forge Domain/).length > 0)
     result.unshift(Xanathar);
   return result;
+};
+
+/*
+ * Returns the list of editing elements needed by #choiceRules# to add a #type#
+ * item to #rules#.
+ */
+Eberron5E.choiceEditorElements = function(rules, type) {
+  var result = [];
+  if(type == 'House')
+    result.push(
+      ['Dragonmark', 'Dragonmark', 'text', [20]],
+      ['Race', 'Race', 'text', [40]],
+      ['Tool', 'Tools', 'text', [80]]
+    );
+  else
+    result = rules.basePlugin.choiceEditorElements(rules, type);
+  return result
+};
+
+/* Sets #attributes#'s #attribute# attribute to a random value. */
+Eberron5E.randomizeOneAttribute = function(attributes, attribute) {
+  var choices;
+  if(attribute == 'dragonmark') {
+    if(attributes.house && attributes.house != 'None') {
+      var houseDragonmark =
+        QuilvynUtils.getAttrValue(Eberron5E.HOUSES[attributes.house], 'House');
+      attributes.dragonmark = Math.random() < 0.5 ? 'None' : houseDragonmark;
+    } else {
+      attributes.dragonmark = 'None';
+    }
+  } else if(attribute == 'house') {
+    var allHouses = this.getChoices('houses');
+    choices = ['None'];
+    var race = attributes.race;
+    for(var house in allHouses) {
+      if(allHouses[house].match(race))
+        choices.push(house);
+    }
+    attributes.house = choices[QuilvynUtils.random(0, choices.length - 1)];
+  } else {
+    SRD5E.randomizeOneAttribute(attributes, attribute);
+  }
 };
 
 /* Returns HTML body content for user notes associated with this rule set. */
