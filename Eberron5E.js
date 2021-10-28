@@ -38,7 +38,7 @@ function Eberron5E() {
 
   rules.defineChoice('choices', SRD5E.CHOICES);
   rules.choiceEditorElements = SRD5E.choiceEditorElements;
-  rules.choiceRules = SRD5E.choiceRules;
+  rules.choiceRules = Eberron5E.choiceRules;
   rules.editorElements = SRD5E.initialEditorElements();
   rules.getFormats = SRD5E.getFormats;
   rules.getPlugins = Eberron5E.getPlugins;
@@ -65,8 +65,6 @@ function Eberron5E() {
     Object.assign({}, PHB5E.FEATURES, Eberron5E.FEATURES_ADDED);
   Eberron5E.PATHS = Object.assign({}, PHB5E.PATHS, Eberron5E.PATHS_ADDED);
   Eberron5E.RACES = Object.assign({}, PHB5E.RACES, Eberron5E.RACES_ADDED);
-  delete Eberron5E.RACES['High Elf']; // Renamed to Aereni
-  delete Eberron5E.RACES['Wood Elf']; // Renamed to Tairnadal
   Eberron5E.SPELLS = Object.assign({}, PHB5E.SPELLS, Eberron5E.SPELLS_ADDED);
   for(var s in Eberron5E.SPELLS_LEVELS_ADDED) {
     Eberron5E.SPELLS[s] =
@@ -77,9 +75,9 @@ function Eberron5E() {
   SRD5E.abilityRules(rules);
   SRD5E.combatRules(rules, SRD5E.ARMORS, SRD5E.SHIELDS, SRD5E.WEAPONS);
   SRD5E.magicRules(rules, SRD5E.SCHOOLS, Eberron5E.SPELLS);
-  SRD5E.identityRules(
+  Eberron5E.identityRules(
     rules, SRD5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
-    Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES
+    Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES, Eberron5E.HOUSES
   );
   SRD5E.talentRules
     (rules, Eberron5E.FEATS, Eberron5E.FEATURES, SRD5E.GOODIES,
@@ -103,12 +101,12 @@ function Eberron5E() {
 Eberron5E.VERSION = '2.2.1.0';
 
 Eberron5E.BACKGROUNDS_ADDED = {
-  'House Agent':
+  'House Agent:
     'Equipment=' +
       '"Fine Clothes","House Signet Ring","Identification Papers","20 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Investigation/Persuasion)",' +
-      '"1:House Connections"'
+      '"Skill Proficiency (Investigation/Persuasion)",' +
+      '"House Connections","House Tool Proficiency"'
 };
 Eberron5E.CLASSES_ADDED = {
   // Copied from Tasha's
@@ -302,7 +300,7 @@ Eberron5E.FEATURES_ADDED = {
 
   // Races
   "Artisan's Intuition":
-    'Section=skill Note="+1d4 on Arcana and Artisan\'s Tools\'s checks"',
+    'Section=skill Note="+1d4 on Arcana and Artisan\'s Tools checks"',
   'Beasthide Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Strength"',
   'Beasthide Shifting':'Section=combat Note="+1 AC while shifting"',
@@ -332,21 +330,25 @@ Eberron5E.FEATURES_ADDED = {
   'Gifted Scribe':
     'Section=skill Note="+1d4 on History and Calligrapher\'s Supplies checks"',
   'Graceful':'Section=feature Note="Skill Proficiency (Acrobatics)"',
+  "Guardian's Shield":'Section=magic Note="Cast <i>Shield</i> 1/long rest"',
   'Handling Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 any"',
   'Headwinds':
     'Section=magic ' +
     'Note="Know <i>Gust</i> cantrip%{level<3?\'\':\', cast <i>Gust Of Wind</i> 1/long rest\'}"',
-  'Healing Ability Adjustment':'Section=ability Note="+1 Wisdom"',
+  'Healing Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Wisdom"',
   'Healing Touch':
     'Section=magic ' +
     'Note="Cast <i>Cure Wounds</i>%{level<3?\'\':\' and <i>Lesser Restoration</i>\'} 1/long rest"',
-  'Hospitality Ability Adjustment':'Section=ability Note="+1 Charisma"',
+  'Hospitality Ability Adjustment':
+    'Section=ability Note="+2 Dexterity/+1 Charisma"',
   "Hunter's Intuition":
     'Section=skill Note="+1d4 on Perception and Survival checks"',
   "Innkeeper's Magic":
     'Section=magic ' +
     'Note="Know <i>Prestidigitation</i> cantrip, cast <i>Purify Food And Drink</i> and <i>Unseen Servant</i> 1/long rest"',
-  'Integrated Protection':'Section=combat Note="+1 AC"',
+  'Integrated Protection':
+    'Section=combat,feature ' +
+    'Note="+1 AC","1 hr required to put on or take off armor"',
   'Intuitive Motion':
     'Section=skill Note="+1d4 on Acrobatics and Land Vehicle checks"',
   'Kalashtar Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Charisma"',
@@ -358,9 +360,9 @@ Eberron5E.FEATURES_ADDED = {
   'Magical Detection':
     'Section=magic ' +
     'Note="Cast <i>Detect Magic</i>%{level<3?\' and\':\',\'} <i>Detect Poison And Disease</i>%{level<3?\'\':\', and <i>See Invisibility</i>\'} 1/long rest"',
-  'Healing Touch':'Section=magic Note="Cast <i>Misty Step</i> 1/long rest"',
+  'Magical Passage':'Section=magic Note="Cast <i>Misty Step</i> 1/long rest"',
   "Maker's Gift":
-    'Section=feature Note="Tools Proficiency (Choose 1 from any Artisan)"',
+    'Section=feature Note="Tool Proficiency (Choose 1 from any Artisan)"',
   'Making Ability Adjustment':'Section=ability Note="+2 Intelligence/+1 any"',
   'Medical Intuition':
     'Section=skill Note="+1d4 on Medicine and Herbalism Kit checks"',
@@ -369,32 +371,34 @@ Eberron5E.FEATURES_ADDED = {
     'Section=feature ' +
     'Note="R%{level*10}\' Telepathic communication w/1 target for 1 hr"',
   'Natural Athlete':'Section=feature Note="Skill Proficiency (Athletics)"',
+  'Natural Tracker':'Section=feature Note="Skill Proficiency (Survival)"',
   'Passage Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 any"',
   'Primal Connection':
     'Section=magic ' +
     'Note="Cast <i>Animal Friendship</i> and <i>Speak With Animals</i> 1/long rest"',
   'Primal Intuition':
     'Section=feature ' +
-    'Note="Skill Proficiency (Choose 2 from Animal Handling, Insight, Intimidation,Medicine,Nature,Perception,Survival"',
+    'Note="Skill Proficiency (Choose 2 from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, Survival)"',
   "Scribe's Insight":
     'Section=magic ' +
     'Note="Know <i>Message</i> cantrip, cast <i>Comprehend Languages</i>%{level<3?\'\':\' and <i>Magic Mouth</i>\'} 1/long rest"',
-  'Scribing Ability Adjustment':'Section=ability Note="+1 Charisma"',
+  'Scribing Ability Adjustment':
+    'Section=ability Note="+2 Intelligence/+1 Charisma"',
   'Sentinel Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Wisdom"',
   "Sentinel's Intuition":
     'Section=skill Note="+1d4 on Insight and Perception checks"',
   "Sentry's Rest":'Section=feature Note="Inert 6 hr during long rest"',
   'Severed From Dreams':'Section=save Note="Immune to dream effects"',
-  'Shadow Ability Adjustment':'Section=ability Note="+1 Charisma"',
+  'Shadow Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
   'Shape Shadows':
     'Section=magic ' +
     'Note="Know <i>Minor Illusion</i> cantrip%{level<3?\'\':\', cast <i>Invisibility</i> 1/long rest\'}"',
   'Shapechanger':
-    'Section=ability Note="Change appearance and voice as action at will"',
+    'Section=ability Note="Use Action to change appearance and voice"',
   'Shifting':
     'Section=feature ' +
-    'Note="Assume bestial appearance, gaining %1%{(level+constitutionModifier)>?1} temporary HP, for 1 min"',
+    'Note="Assume bestial appearance, gaining %1%{(level+constitutionModifier)>?1} temporary HP, for 1 min 1/short rest"',
   'Specialized Design':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)"',
@@ -417,7 +421,8 @@ Eberron5E.FEATURES_ADDED = {
     'Note="R5\' Swap places with and take damage for struck creature 1/long rest"',
   "Warder's Intuition":
     'Section=skill Note="+1d4 on Investigation and Thieves\' Tools checks"',
-  'Warding Ability Adjustment':'Section=ability Note="+1 Intelligence"',
+  'Warding Ability Adjustment':
+    'Section=ability Note="+2 Constitution/+1 Intelligence"',
   'Wards And Seals':
     'Section=magic ' +
     'Note="Cast <i>Alarm</i>%{level<3?\' and\':\',\'} <i>Magic Armor</i>%{level<3?\'\':\', and <i>Arcane Lock</i>\'} 1/long rest"',
@@ -445,7 +450,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=ability Note="+2 Constitution/+1 Intelligence"',
   'Long-Limbed':'Section=combat Note="+5\' melee reach"',
   'Martial Training':
-    'Section=combat ' +
+    'Section=feature ' +
     'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any)"',
   'Nimble Escape':'Section=combat Note="Bonus action to Disengage or Hide"',
   'Orc Ability Adjustment':
@@ -459,6 +464,60 @@ Eberron5E.FEATURES_ADDED = {
   'Surprise Attack':
     'Section=combat Note="+2d6 HP damage on first surprise hit"'
 
+};
+Eberron5E.HOUSES = {
+  'Cannith':
+    'Dragonmark=Making ' +
+    'Race=Human ' +
+    'Tool="Alchemist\'s Supplies","Tinker\'s Tools"',
+  'Deneith':
+    'Dragonmark=Sentinel ' +
+    'Race=Human ' +
+    'Tool="Choose 1 from any Game","Vehicles (Land)"',
+  'Ghallanda':
+    'Dragonmark=Hospitality ' +
+    'Race=Halfling ' +
+    'Tool="Brewer\'s Supplies","Cook\'s Utensils"',
+  'Jorasco':
+    'Dragonmark=Jorasco ' +
+    'Race=Halfling ' +
+    'Tool="Alchemist\'s Supplies","Herbalism Kit"',
+  'Kundarak':
+    'Dragonmark=Warding ' +
+    'Race=Dwarf ' +
+    'Tool="Thieves\' Tools","Tinker\'s Tools"',
+  'Lyrandar':
+    'Dragonmark=Storm ' +
+    'Race=Half-Elf ' +
+    'Tool="Navigator\'s Tools","Vehicles (Air And Sea)"',
+  'Medani':
+    'Dragonmark=Detection ' +
+    'Race=Half-Elf ' +
+    'Tool="Disguise Kit","Thieves\' Tools"',
+  'Orien':
+    'Dragonmark=Passage ' +
+    'Race=Human ' +
+    'Tool="Choose 1 from any Game","Vehicles (Land)"',
+  'Phiarlan':
+    'Dragonmark=Shadow ' +
+    'Race=Elf ' +
+    'Tool="Disguise Kit","Choose 1 from any Music"',
+  'Sivis':
+    'Dragonmark=Scribing ' +
+    'Race=Gnome ' +
+    'Tool="Calligrapher\'s Tools","Forgery Kit"',
+  'Tharashk':
+    'Dragonmark=Finding ' +
+    'Race=Half-Orc,Human ' +
+    'Tool="Choose 1 from any Game","Thieves\' Tools"',
+  'Thuranni':
+    'Dragonmark=Shadow ' +
+    'Race=Elf ' +
+    'Tool="Choose 1 from any Music","Poisoner\'s Kit"',
+  'Vadalis':
+    'Dragonmark=Handling ' +
+    'Race=Human ' +
+    'Tool="Herbalism Kit","Vehicles (Land)"'
 };
 Eberron5E.PATHS_ADDED = {
   // Copied from Tasha's
@@ -487,13 +546,11 @@ Eberron5E.PATHS_ADDED = {
 Eberron5E.RACES_ADDED = {
   'Changeling':
     'Features=' +
-      '"Changeling Ability Adjustment",Shapechanger,"Cangeling Instincts" ' +
+      '"Changeling Ability Adjustment",Shapechanger,"Changeling Instincts" ' +
     'Languages=Common,any,any',
-  'Aereni Elf':SRD5E.RACES['High Elf'],
-  'Tairnadal Elf':PHB5E.RACES['Wood Elf'],
   'Kalashtar':
     'Features=' +
-      '"Dual Minds","Kalashtar Ability Adjustment","Mental Discipline",' +
+      '"Dual Mind","Kalashtar Ability Adjustment","Mental Discipline",' +
       '"Mind Link","Severed From Dreams" ' +
     'Languages=Common,Quori,any',
   'Beasthide Shifter':
@@ -521,66 +578,76 @@ Eberron5E.RACES_ADDED = {
       '"Constructed Resilience","Integrated Protection","Sentry\'s Rest",' +
       '"Specialized Design","Warforged Ability Adjustment" ' +
     'Languages=Common,any',
-  'Mark Of Detection Half-Elf':
+  'Medani Half-Elf':
     SRD5E.RACES['Half-Elf']
       .replace('Half-Elf Ability', 'Detection Ability')
-      .replace('"Skill Versatility"', '"Magical Detection"'),
-  'Mark Of Finding Half-Orc':
+      .replace('Skill Versatility', 'Deductive Intuition","Magical Detection'),
+  'Tharashk Half-Orc':
     'Features=' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
       '"Finder\'s Magic" ' +
     'Languages=Common,Goblin',
-  'Mark Of Finding Human':
+  'Tharashk Human':
     'Features=' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
       '"Finder\'s Magic" ' +
     'Languages=Common,Goblin',
-  'Mark Of Handling Human':
+  'Vadalis Human':
     'Features=' +
-      '"Handling Ability Adjustment","Primal Connection",' +
-      '"The Bigger They Are","Wild Intuition" ' +
+      '"Handling Ability Adjustment","Primal Connection","Wild Intuition",' +
+      '"3:The Bigger They Are" ' +
     'Languages=Common,any',
-  'Mark Of Healing Halfling':
+  'Jorasco Halfling':
     'Features=' +
       'Brave,"Halfling Nimbleness","Lucky Halfling",Slow,Small,' +
       '"Healing Ability Adjustment","Healing Touch","Medical Intuition" ' +
     'Languages=Common,Halfling',
-  'Mark Of Making Halfling':
+  'Ghallanda Halfling':
     'Features=' +
       'Brave,"Halfling Nimbleness","Lucky Halfling",Slow,Small,' +
+      '"Ever Hospitable","Hospitality Ability Adjustment",' +
+      '"Innkeeper\'s Magic" ' +
+    'Languages=Common,Halfling',
+  'Cannith Human':
+    'Features=' +
       '"Making Ability Adjustment","Artisan\'s Intuition","Maker\'s Gift",' +
       'Spellsmith ' +
-    'Languages=Common,Halfling',
-  'Mark Of Passage Human':
+    'Languages=Common,any',
+  'Orien Human':
     'Features=' +
-      '"Passage Ability Adjustment","Courier\'s Speed","Intuitive Speed",' +
+      '"Passage Ability Adjustment","Courier\'s Speed","Intuitive Motion",' +
       '"Magical Passage" ' +
     'Languages=Common,any',
-  'Mark Of Scribing Gnome':
+  'Sivis Gnome':
     'Features=' +
       'Darkvision,"1:Gnome Cunning","Scribing Ability Adjustment",Slow,Small,' +
       '"Gifted Scribe","Scribe\'s Insight" ' +
     'Languages=Common,Gnomish',
-  'Mark Of Sentinel Human':
+  'Deneith Human':
     'Features=' +
       '"Sentinel Ability Adjustment","Guardian\'s Shield",' +
       '"Sentinel\'s Intuition","Vigilant Guardian" ' +
     'Languages=Common,any',
-  'Mark Of Shadow Elf':
+  'Pharlian Elf':
     'Features=' +
       'Darkvision,"Elf Weapon Training","Fey Ancestry","Keen Senses",Trance,' +
-      '"Shadow Ability Adjustment","Cunning Intuition","Shape Shadows" ' +
+      '"Cunning Intuition","Shadow Ability Adjustment","Shape Shadows" ' +
     'Languages=Common,Elvish',
-  'Mark Of Storm Half-Elf':
+  'Thuranni Elf':
+    'Features=' +
+      'Darkvision,"Elf Weapon Training","Fey Ancestry","Keen Senses",Trance,' +
+      '"Cunning Intuition","Shadow Ability Adjustment","Shape Shadows" ' +
+    'Languages=Common,Elvish',
+  'Lyrandar Half-Elf':
     SRD5E.RACES['Half-Elf']
       .replace('Half-Elf Ability', 'Storm Ability')
-      .replace('"Skill Versatility"', '"Windwright\'s Intuition","Storm\'s Boon",Headwinds'),
-  'Mark Of Warding Dwarf':
+      .replace('Skill Versatility', 'Windwright\'s Intuition","Storm\'s Boon","Headwinds'),
+  'Kundarak Dwarf':
     'Features=' +
       '"Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
       'Darkvision,"Dwarven Combat Training","Dwarven Resilience",Slow,Steady,' +
       'Stonecunning,"Warding Ability Adjustment","Warder\'s Intuition",' +
-      '"Wards And Shields" ' +
+      '"Wards And Seals" ' +
     'Languages=Common,Dwarvish',
   // Copied from Volo's
   'Bugbear':
@@ -715,14 +782,57 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
 
 };
 
+/* Defines rules related to basic character identity. */
+Eberron5E.identityRules = function(
+  rules, alignments, backgrounds, classes, deities, paths, races, houses
+) {
+  SRD5E.identityRules(
+    rules, SRD5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
+    Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES
+  );
+  QuilvynUtils.checkAttrTable(houses, ['Dragonmark', 'Race', 'Tool']);
+  for(var h in houses)
+    Eberron5E.choiceRules(rules, 'House', h, houses[h]);
+};
+
 /*
  * Adds #name# as a possible user #type# choice and parses #attrs# to add rules
  * related to selecting that choice.
  */
 Eberron5E.choiceRules = function(rules, type, name, attrs) {
-  PHB5E.choiceRules(rules, type, name, attrs);
-  if(type == 'Race')
+  if(type != 'House')
+    PHB5E.choiceRules(rules, type, name, attrs);
+  if(type == 'Background')
+    Eberron5E.backgroundRulesExtra(rules, name);
+  else if(type == 'House')
+    Eberron5E.houseRules(rules, name,
+      QuilvynUtils.getAttrValue(attrs, 'Dragonmark'),
+      QuilvynUtils.getAttrValueArray(attrs, 'Race'),
+      QuilvynUtils.getAttrValueArray(attrs, 'Tool')
+    );
+  else if(type == 'Race')
     Eberron5E.raceRulesExtra(rules, name);
+};
+
+/*
+ * Defines in #rules# the rules associated with background #name# that cannot be
+ * derived directly from the attributes passed to backgroundRules.
+ */
+Eberron5E.backgroundRulesExtra = function(rules, name) {
+  if(name == 'House Agent') {
+    rules.defineRule('selectableFeatureCount.House Agent',
+      'background', '=', 'source == "House Agent" ? 1 : null'
+    );
+  }
+};
+
+/*
+ * Defines in #rules# the rules associated with house #name#, which is
+ * associated with #dragonmark#, populated by #races# and provides #tools# to
+ * characters with the House Agent background.
+ */
+Eberron5E.houseRules = function(rules, name, dragonmark, races, tools) {
+  // Presently only tools are used in rules
 };
 
 /*
@@ -735,18 +845,42 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
     'Level';
 
-  if(name.matches(/Shifter/)) {
-    rules.defineRule('features.shifting.1',
+  if(name.match(/Shifter/)) {
+    rules.defineRule('featureNotes.shifting.1',
       'race', '=', 'source == "Beasthide Shifter" ? "1d6+" : ""'
     );
   }
-  if(name == 'Warforged') {
+  if(name == 'Changeling') {
+    rules.defineRule
+      ('abilityBoosts', 'abilityNotes.changelingAbilityAdjustment', '+=', '1');
+  } else if(name == 'Hobgoblin') {
+    // Have to hard-code these proficiencies, since featureRules only handles
+    // notes w/a single type of granted proficiency
+    rules.defineRule
+      ('armorProficiency.Light', 'featureNotes.martialTraining', '=', '1');
+    rules.defineRule
+      ('weaponChoiceCount', 'featureNotes.martialTraining', '+=', '2');
+  } else if(name == 'Mark Of Detection Half-Elf') {
+    rules.defineRule
+      ('abilityBoosts', 'abilityNotes.detectionAbilityAdjustment', '+=', '1');
+  } else if(name == 'Mark Of Handling Human') {
+    rules.defineRule
+      ('abilityBoosts', 'abilityNotes.handlingAbilityAdjustment', '+=', '1');
+  } else if(name == 'Mark Of Making Halfling') {
+    rules.defineRule
+      ('abilityBoosts', 'abilityNotes.makingAbilityAdjustment', '+=', '1');
+  } else if(name == 'Mark Of Passage Human') {
+    rules.defineRule
+      ('abilityBoosts', 'abilityNotes.passageAbilityAdjustment', '+=', '1');
+  } else if(name == 'Warforged') {
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
     rules.defineRule
       ('skillChoiceCount', 'featureNotes.specializedDesign', '+=', '1');
     rules.defineRule
       ('toolChoiceCount', 'featureNotes.specializedDesign', '+=', '1');
+    rules.defineRule
+      ('abilityBoosts', 'abilityNotes.warforgedAbilityAdjustment', '+=', '1');
   }
 
 };
