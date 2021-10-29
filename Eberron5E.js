@@ -212,7 +212,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note="R30\' Use Reaction to give ally +%{intelligenceModifier} on ability check or saving throw %{intelligenceModifier>?1}/long rest"',
   'Homunculus Servant':
     'Section=magic ' +
-    'Note="Creates mechanical companion (AC 13, HP %{levels.Artificer+intelligenceModifier+1}, Attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force, Evasion, Channel Magic) that obeys self"',
+    'Note="Creates mechanical companion (AC 13, HP %{levels.Artificer+intelligenceModifier+1}, Attack R30\' +%1 inflicts 1d4+%2 HP force, Evasion, Channel Magic) that obeys self"',
   'Infuse Item':'Section=feature Note="%V selections infused into %1 items"',
   'Magic Item Adept':
     'Section=feature ' +
@@ -306,7 +306,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest, elixirs give 2d6+%{intelligenceModifier>?1} temporary HP"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%{proficiencyBonus} 3/dy), Attack +%{proficiencyBonus+intelligenceModifier} inflicts 1d8+%{proficiencyBonus}, use Reaction for R5\' Deflect Attack (inflicts Disadv on attack), MV 40\', Dex Save +%{proficiencyBonus+1}, Con save +%{proficiencyBonus+2}, immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%1 3/dy), Attack +%2 inflicts 1d8+%1, use Reaction for R5\' Deflect Attack (inflicts Disadv on attack), MV 40\', Dex Save +%3, Con save +%4, immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
 
   // Races
   "Artisan's Intuition":
@@ -705,6 +705,7 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
   'Alarm':'A1',
   'Cure Wounds':'A1',
   'Detect Magic':'A1',
+  'Disguise Self':'A1',
   'Expeditious Retreat':'A1',
   'Faerie Fire':'A1',
   'False Life':'A1',
@@ -786,8 +787,37 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
   'Wall Of Fire':'A4',
   'Cone Of Cold':'A5',
   'Wall Of Force':'A5',
+  // Battle Smith
+  'Heroism':'A1',
+  'Shield':'A1',
+  'Branding Smite':'A2',
+  'Warding Bond':'A2',
+  'Aura Of Vitality':'A3',
+  'Conjure Barrage':'A3',
+  'Aura Of Purity':'A4',
+  'Fire Shield':'A4',
+  'Banishing Smite':'A5',
+  'Mass Cure Wounds':'A5'
 
 };
+if(window.Xanathar != null) {
+  Object.assign(Eberron5E.SPELLS_LEVELS_ADDED, {
+    'Create Bonfire':'A0',
+    'Frostbite':'A0',
+    'Magic Stone':'A0',
+    'Thunderclap':'A0',
+    'Absorb Elements':'A1',
+    'Catapult':'A1',
+    'Snare':'A1',
+    'Pyrotechnics':'A2',
+    'Catnap':'A3',
+    'Flame Arrows':'A3',
+    'Tiny Servant':'A3',
+    'Elemental Bane':'A4',
+    'Skill Empowerment':'A5',
+    'Wall Of Stone':'A5'
+  });
+}
 Eberron5E.TOOLS_ADDED = {
   'Vehicles (Air And Sea)':'Type=General'
 };
@@ -822,6 +852,8 @@ Eberron5E.choiceRules = function(rules, type, name, attrs) {
   }
   if(type == 'Class')
     Eberron5E.classRulesExtra(rules, name);
+  else if(type == 'Path')
+    Eberron5E.pathRulesExtra(rules, name);
   else if(type == 'Race')
     Eberron5E.raceRulesExtra(rules, name);
 };
@@ -832,6 +864,7 @@ Eberron5E.choiceRules = function(rules, type, name, attrs) {
  */
 Eberron5E.classRulesExtra = function(rules, name) {
 
+  // Copied from Tasha's
   var classLevel = 'levels.' + name;
 
   if(name == 'Artificer') {
@@ -859,6 +892,15 @@ Eberron5E.classRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.experimentalElixir',
       classLevel, '=', 'Math.floor(( source + 12) / 9)'
     );
+    rules.defineRule('magicNotes.homunculusServant.1',
+      'features.Homunculus Servant', '?', null,
+      // Tasha 'spellAttackModifier.A', '=', null
+      'proficiencyBonus', '=', 'source + 2' // See Might of the Master
+    );
+    rules.defineRule('magicNotes.homunculusServant.2',
+      'features.Homunculus Servant', '?', null,
+      'proficiencyBonus', '=', null // Same as Tasha due to Might of the Master
+    );
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
       'featureNotes.infuseItem', '=', null
     );
@@ -885,6 +927,57 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools) {
     rules, 'House Tool Proficiency (' + name + ')', ['feature'],
     ['Tool Proficiency (' + tools.join('/') + ')']
   );
+};
+
+/*
+ * Defines in #rules# the rules associated with path #name# that cannot be
+ * derived directly from the attributes passed to pathRules.
+ */
+Eberron5E.pathRulesExtra = function(rules, name) {
+
+  var pathLevel =
+    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
+    'Level';
+
+  // Copied from Tasha's
+  if(name == 'Artillerist') {
+    rules.defineRule('combatNotes.eldritchCannon',
+      pathLevel, '=', '2',
+      'combatNotes.explosiveCannon', '+', '1'
+    );
+    rules.defineRule
+      ('combatNotes.eldritchCannon.1', 'spellDifficultyClass.A', '=', null);
+    rules.defineRule
+      ('combatNotes.explosiveCannon', 'spellDifficultyClass.A', '=', null);
+  } else if(name == 'Battle Smith') {
+    rules.defineRule('combatNotes.arcaneJolt',
+      pathLevel, '=', '2',
+      'combatNotes.improvedDefender', '+', '2'
+    );
+    rules.defineRule
+      ('combatNotes.extraAttack', pathLevel, '+=', 'source>=5 ? 1 : null');
+    rules.defineRule('combatNotes.steelDefender',
+      pathLevel, '=', '15',
+      'combatNotes.improvedDefender', '+', '2'
+    );
+    rules.defineRule('combatNotes.steelDefender.1',
+      'features.Steel Defender', '?', null,
+      'proficiencyBonus', '=', null // Same as Tasha due to Might of the Master
+    );
+    rules.defineRule('combatNotes.steelDefender.2',
+      'features.Steel Defender', '?', null,
+      // Tasha 'spellAttackModifier.A', '=', null
+      'proficiencyBonus', '=', 'source + 2'
+    );
+    rules.defineRule('combatNotes.steelDefender.3',
+      'features.Steel Defender', '?', null,
+      'proficiencyBonus', '=', 'source + 1' // Same as Tasha due to MotM
+    );
+    rules.defineRule('combatNotes.steelDefender.4',
+      'features.Steel Defender', '?', null,
+      'proficiencyBonus', '=', 'source + 2' // Same as Tasha due to MotM
+    );
+  }
 };
 
 /*
