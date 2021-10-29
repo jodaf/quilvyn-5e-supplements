@@ -77,19 +77,15 @@ function Eberron5E() {
   SRD5E.magicRules(rules, SRD5E.SCHOOLS, Eberron5E.SPELLS);
   Eberron5E.identityRules(
     rules, SRD5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
-    Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES, Eberron5E.HOUSES,
-    Eberron5E.DRAGONMARKS
+    Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES, Eberron5E.HOUSES
   );
   SRD5E.talentRules
     (rules, Eberron5E.FEATS, Eberron5E.FEATURES, SRD5E.GOODIES,
      SRD5E.LANGUAGES, SRD5E.SKILLS, Eberron5E.TOOLS);
 
-  rules.defineSheetElement('Dragonmark', 'Background');
-  rules.defineSheetElement('House', 'Dragonmark');
+  rules.defineSheetElement('House', 'Background');
   rules.defineEditorElement
-    ('house', 'House/Dragonmarked', 'select-one', 'houses', 'background');
-  rules.defineEditorElement
-    ('dragonmarked', '', 'checkbox', [], 'background');
+    ('house', 'House', 'select-one', 'houses', 'background');
 
   if(window.Tasha != null)
     Tasha('Tasha', rules);
@@ -108,9 +104,9 @@ function Eberron5E() {
 
 Eberron5E.VERSION = '2.2.1.0';
 
-Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'Dragonmark', 'House');
+Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'House');
 Eberron5E.RANDOMIZABLE_ATTRIBUTES =
-  [].concat(SRD5E.RANDOMIZABLE_ATTRIBUTES, 'dragonmark', 'house');
+  [].concat(SRD5E.RANDOMIZABLE_ATTRIBUTES, 'house');
 
 Eberron5E.BACKGROUNDS_ADDED = {
   'House Agent':
@@ -189,22 +185,6 @@ Eberron5E.DEITIES = {
   'The Silver Flame':'Alignment=LG Domain=Life,Light,War',
   'The Traveler':'Alignment=CN Domain=Forge,Knowledge,Trickery',
   'The Undying Court':'Alignment=NG Domain=Grave,Knowledge,Life'
-};
-Eberron5E.DRAGONMARKS = {
-  'None':'',
-  'Detection':'',
-  'Finding':'',
-  'Handling':'',
-  'Hospitality':'',
-  'Jorasco':'',
-  'Making':'',
-  'Passage':'',
-  'Scribing':'',
-  'Sentinel':'',
-  'Shadow':'',
-  'Shadow':'',
-  'Storm':'',
-  'Warding':''
 };
 Eberron5E.FEATS_ADDED = {
   'Aberrant Dragonmark':'Require="race !~ \'Mark\'" Type=General',
@@ -494,7 +474,8 @@ Eberron5E.FEATURES_ADDED = {
 
 };
 Eberron5E.HOUSES = {
-  'None':'',
+  'None':
+    'Dragonmark=None',
   'Cannith':
     'Dragonmark=Making ' +
     'Race=Human ' +
@@ -808,17 +789,13 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
 
 /* Defines rules related to basic character identity. */
 Eberron5E.identityRules = function(
-  rules, alignments, backgrounds, classes, deities, paths, races, houses,
-  dragonmarks
+  rules, alignments, backgrounds, classes, deities, paths, races, houses
 ) {
   SRD5E.identityRules(
     rules, SRD5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
     Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES
   );
-  QuilvynUtils.checkAttrTable(dragonmarks, []);
   QuilvynUtils.checkAttrTable(houses, ['Dragonmark', 'Race', 'Tool']);
-  for(var d in dragonmarks)
-    Eberron5E.choiceRules(rules, 'Dragonmark', d, dragonmarks[d]);
   for(var h in houses)
     Eberron5E.choiceRules(rules, 'House', h, houses[h]);
 };
@@ -828,14 +805,9 @@ Eberron5E.identityRules = function(
  * related to selecting that choice.
  */
 Eberron5E.choiceRules = function(rules, type, name, attrs) {
-  if(type != 'Dragonmark' && type != 'House')
+  if(type != 'House')
     PHB5E.choiceRules(rules, type, name, attrs);
-  if(type == 'Background')
-    Eberron5E.backgroundRulesExtra(rules, name);
-  else if(type == 'Dragonmark') {
-    Eberron5E.dragonmarkRules(rules, name);
-    rules.addChoice('dragonmarks', name, attrs);
-  } else if(type == 'House') {
+  if(type == 'House') {
     Eberron5E.houseRules(rules, name,
       QuilvynUtils.getAttrValue(attrs, 'Dragonmark'),
       QuilvynUtils.getAttrValueArray(attrs, 'Race'),
@@ -846,37 +818,22 @@ Eberron5E.choiceRules = function(rules, type, name, attrs) {
     Eberron5E.raceRulesExtra(rules, name);
 };
 
-/* Defines in #rules# the rules associated with dragonmark #name#. */
-Eberron5E.dragonmarkRules = function(rules, name) {
-  if(name == 'None')
-    return;
-};
-
 /*
  * Defines in #rules# the rules associated with house #name#, which is
  * associated with #dragonmark#, populated by #races# and provides #tools# to
  * characters with the House Agent background.
  */
 Eberron5E.houseRules = function(rules, name, dragonmark, races, tools) {
-  // Presently only tools are used in rules
   if(name == 'None')
     return;
-  rules.defineRule('dragonmark',
-    'house', '=', 'QuilvynUtils.getAttrValue(Eberron5E.HOUSES[source], "Dragonmark")',
-    'dragonmarked', '=', 'source ? null : "None"'
+  rules.defineRule('features.House Tool Proficiency (' + name + ')',
+    'house', '?', 'source == "' + name + '"',
+    'features.House Tool Proficiency', '=', null
   );
-};
-
-/*
- * Defines in #rules# the rules associated with background #name# that cannot be
- * derived directly from the attributes passed to backgroundRules.
- */
-Eberron5E.backgroundRulesExtra = function(rules, name) {
-  if(name == 'House Agent') {
-    rules.defineRule('selectableFeatureCount.House Agent',
-      'background', '=', 'source == "House Agent" ? 1 : null'
-    );
-  }
+  SRD5E.featureRules(
+    rules, 'House Tool Proficiency (' + name + ')', ['feature'],
+    ['Tool Proficiency (' + tools.join('/') + ')']
+  );
 };
 
 /*
@@ -964,15 +921,8 @@ Eberron5E.choiceEditorElements = function(rules, type) {
 /* Sets #attributes#'s #attribute# attribute to a random value. */
 Eberron5E.randomizeOneAttribute = function(attributes, attribute) {
   var choices;
-  if(attribute == 'dragonmark') {
-    if(attributes.house && attributes.house != 'None') {
-      var houseDragonmark =
-        QuilvynUtils.getAttrValue(Eberron5E.HOUSES[attributes.house], 'House');
-      attributes.dragonmark = Math.random() < 0.5 ? 'None' : houseDragonmark;
-    } else {
-      attributes.dragonmark = 'None';
-    }
-  } else if(attribute == 'house') {
+  if(attribute == 'house') {
+    // TODO Race is wrong here
     var allHouses = this.getChoices('houses');
     choices = ['None'];
     var race = attributes.race;
@@ -982,7 +932,7 @@ Eberron5E.randomizeOneAttribute = function(attributes, attribute) {
     }
     attributes.house = choices[QuilvynUtils.random(0, choices.length - 1)];
   } else {
-    SRD5E.randomizeOneAttribute(attributes, attribute);
+    SRD5E.randomizeOneAttribute.apply(this, [attributes, attribute]);
   }
 };
 
