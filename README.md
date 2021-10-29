@@ -43,6 +43,11 @@ following lines to the file plugins/plugins.js:
       group:'5E',
       require:'PHB5E.js'
     };
+    RULESETS['Eberron Campaign Setting using D&D 5E rules'] = {
+      url:'plugins/Ebrron5E.js',
+      group:'5E',
+      require:'PHB5E.js'
+    };
 
 ### Usage
 
