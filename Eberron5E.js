@@ -104,7 +104,7 @@ function Eberron5E() {
 
 }
 
-Eberron5E.VERSION = '2.2.1.0';
+Eberron5E.VERSION = '2.3.1.0';
 
 Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'House');
 Eberron5E.RANDOMIZABLE_ATTRIBUTES =
@@ -679,10 +679,11 @@ Eberron5E.RACES_ADDED = {
     'Languages=Common,Orc'
 };
 Eberron5E.SPELLS_ADDED = {
+  // Copied from Xanathar's
   'Gust':
     'School=Transmutation ' +
-    'Level=W0 ' +
-    'Description="R30\' Create harmless air effect or push target 5\' (Str neg) or 5 lb object 10\'"'
+    'Level=D0,S0,W0 ' +
+    'Description="R30\' Push creature 5\' (Str neg) or object 10\', or create light breeze"'
 };
 Eberron5E.SPELLS_LEVELS_ADDED = {
 
