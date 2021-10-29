@@ -15,7 +15,9 @@ this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 Place, Suite 330, Boston, MA 02111-1307 USA.
 */
 
-/*jshint esversion: 6 */
+/* jshint esversion: 6 */
+/* jshint forin: false */
+/* globals SRD5E, PHB5E, Tasha, Volo, Xanathar, Quilvyn, QuilvynRules, QuilvynUtils */
 "use strict";
 
 /*
@@ -70,7 +72,7 @@ function Eberron5E() {
     Eberron5E.SPELLS[s] =
       Eberron5E.SPELLS[s].replace('Level=', 'Level=' + Eberron5E.SPELLS_LEVELS_ADDED[s] + ',');
   }
-  Eberron5E.TOOLS = Object.assign({}, SRD5E.TOOLS);
+  Eberron5E.TOOLS = Object.assign({}, SRD5E.TOOLS, Eberron5E.TOOLS_ADDED);
 
   SRD5E.abilityRules(rules);
   SRD5E.combatRules(rules, SRD5E.ARMORS, SRD5E.SHIELDS, SRD5E.WEAPONS);
@@ -151,7 +153,7 @@ Eberron5E.CLASSES_ADDED = {
       '"2:Replicate Magic Item:Infusion",' +
       '"6:Repulsion Shield:Infusion",' +
       '"6:Resistant Armor:Infusion",' +
-      '"2:Returning Weapon:Infusion",' +
+      '"2:Returning Weapon:Infusion" ' +
       // '"6:Spell-Refueling Ring:Infusion" ' + Tasha's addition
     'CasterLevelArcane=levels.Artificer ' +
     'SpellAbility=intelligence ' +
@@ -187,7 +189,7 @@ Eberron5E.DEITIES = {
   'The Undying Court':'Alignment=NG Domain=Grave,Knowledge,Life'
 };
 Eberron5E.FEATS_ADDED = {
-  'Aberrant Dragonmark':'Require="race !~ \'Mark\'" Type=General',
+  'Aberrant Dragonmark':'Require="race !~ \'Mark Of\'" Type=General',
   'Revenant Blade':'Require="race =~ \'Elf\'" Type=General'
 };
 Eberron5E.FEATURES_ADDED = {
@@ -786,6 +788,9 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
   'Wall Of Force':'A5',
 
 };
+Eberron5E.TOOLS_ADDED = {
+  'Vehicles (Air And Sea)':'Type=General'
+};
 
 /* Defines rules related to basic character identity. */
 Eberron5E.identityRules = function(
@@ -797,7 +802,7 @@ Eberron5E.identityRules = function(
   );
   QuilvynUtils.checkAttrTable(houses, ['Dragonmark', 'Race', 'Tool']);
   for(var h in houses)
-    Eberron5E.choiceRules(rules, 'House', h, houses[h]);
+    rules.choiceRules(rules, 'House', h, houses[h]);
 };
 
 /*
@@ -805,8 +810,6 @@ Eberron5E.identityRules = function(
  * related to selecting that choice.
  */
 Eberron5E.choiceRules = function(rules, type, name, attrs) {
-  if(type != 'House')
-    PHB5E.choiceRules(rules, type, name, attrs);
   if(type == 'House') {
     Eberron5E.houseRules(rules, name,
       QuilvynUtils.getAttrValue(attrs, 'Dragonmark'),
@@ -814,8 +817,56 @@ Eberron5E.choiceRules = function(rules, type, name, attrs) {
       QuilvynUtils.getAttrValueArray(attrs, 'Tool')
     );
     rules.addChoice('houses', name, attrs);
-  } else if(type == 'Race')
+  } else {
+    PHB5E.choiceRules(rules, type, name, attrs);
+  }
+  if(type == 'Class')
+    Eberron5E.classRulesExtra(rules, name);
+  else if(type == 'Race')
     Eberron5E.raceRulesExtra(rules, name);
+};
+
+/*
+ * Defines in #rules# the rules associated with class #name# that cannot be
+ * derived directly from the attributes passed to classRules.
+ */
+Eberron5E.classRulesExtra = function(rules, name) {
+
+  var classLevel = 'levels.' + name;
+
+  if(name == 'Artificer') {
+    rules.defineRule('featureNotes.infuseItem',
+      classLevel, '=', 'source>=2 ? Math.floor((source+6)/4)*2 : null'
+    );
+    rules.defineRule('featureNotes.infuseItem.1',
+      'featureNotes.infuseItem', '=', 'source / 2',
+      'featureNotes.armorModifications', '+', '2'
+    );
+    rules.defineRule('featureNotes.magicItemAdept',
+      classLevel, '=', '4',
+      'featureNotes.magicItemSavant', '^', '5',
+      'featureNotes.magicItemMaster', '^', '6'
+    );
+    rules.defineRule('magicNotes.enhancedArcaneFocus',
+      'levels.Artificer', '=', 'source<10 ? 1 : 2'
+    );
+    rules.defineRule('magicNotes.enhancedDefense',
+      'levels.Artificer', '=', 'source<10 ? 1 : 2'
+    );
+    rules.defineRule('magicNotes.enhancedWeapon',
+      'levels.Artificer', '=', 'source<10 ? 1 : 2'
+    );
+    rules.defineRule('magicNotes.experimentalElixir',
+      classLevel, '=', 'Math.floor(( source + 12) / 9)'
+    );
+    rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
+      'featureNotes.infuseItem', '=', null
+    );
+    rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
+      classLevel, '=', 'source>=3 ? 1 : null'
+    );
+  }
+
 };
 
 /*
@@ -841,10 +892,6 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools) {
  * derived directly from the attributes passed to raceRules.
  */
 Eberron5E.raceRulesExtra = function(rules, name) {
-
-  var raceLevel =
-    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
-    'Level';
 
   if(name.match(/Shifter/)) {
     rules.defineRule('featureNotes.shifting.1',
@@ -890,13 +937,13 @@ Eberron5E.raceRulesExtra = function(rules, name) {
 Eberron5E.getPlugins = function() {
   var result = [PHB5E, SRD5E];
   if(window.Tasha != null &&
-     QuilvynUtils.getKeys(PHB5E.rules.getChoices('selectableFeatures'), /Peace Domain/).length > 0)
+     QuilvynUtils.getKeys(Eberron5E.rules.getChoices('selectableFeatures'), /Peace Domain/).length > 0)
     result.unshift(Tasha);
   if(window.Volo != null &&
      (Volo.CHARACTER_RACES_IN_PLAY || Volo.MONSTROUS_RACES_IN_PLAY))
     result.unshift(Volo);
   if(window.Xanathar != null &&
-     QuilvynUtils.getKeys(PHB5E.rules.getChoices('selectableFeatures'), /Forge Domain/).length > 0)
+     QuilvynUtils.getKeys(Eberron5E.rules.getChoices('selectableFeatures'), /Forge Domain/).length > 0)
     result.unshift(Xanathar);
   return result;
 };
@@ -914,20 +961,24 @@ Eberron5E.choiceEditorElements = function(rules, type) {
       ['Tool', 'Tools', 'text', [80]]
     );
   else
-    result = rules.basePlugin.choiceEditorElements(rules, type);
-  return result
+    result = SRD5E.choiceEditorElements(rules, type);
+  return result;
 };
 
 /* Sets #attributes#'s #attribute# attribute to a random value. */
 Eberron5E.randomizeOneAttribute = function(attributes, attribute) {
-  var choices;
   if(attribute == 'house') {
-    // TODO Race is wrong here
     var allHouses = this.getChoices('houses');
-    choices = ['None'];
     var race = attributes.race;
+    var baseRace = race.replace(/.*\s+/, ''); // Get last word of race
+    var dragonmarkRace = race.includes('Mark Of');
+    var choices = [];
     for(var house in allHouses) {
-      if(allHouses[house].match(race))
+      var houseAttrs = allHouses[house];
+      var houseDragonmark = QuilvynUtils.getAttrValue(houseAttrs, 'Dragonmark');
+      if(house == 'None' ||
+         (dragonmarkRace && race.includes(houseDragonmark)) ||
+         (!dragonmarkRace && houseAttrs.includes(baseRace)))
         choices.push(house);
     }
     attributes.house = choices[QuilvynUtils.random(0, choices.length - 1)];
