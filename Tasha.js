@@ -363,7 +363,7 @@ Tasha.FEATURES = {
     'Section=magic Note="Gives Adv on initiative and cannot be surprised"',
   'Homunculus Servant':
     'Section=magic ' +
-    'Note="Creates mechanical companion (AC 13, HP %{levels.Artificer+intelligenceModifier+1}, Attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force, Evasion, Channel Magic) that obeys self"',
+    'Note="Creates mechanical companion (AC 13, HP %{levels.Artificer+intelligenceModifier+1}, Attack R30\' +%1 inflicts 1d4+%2 HP force, Evasion, Channel Magic) that obeys self"',
   'Infuse Item':'Section=feature Note="%V selections infused into %1 items"',
   'Instinctive Pounce':
     'Section=combat Note="Move %{speed//2}\' when entering rage"',
@@ -932,7 +932,7 @@ Tasha.FEATURES = {
   'Steady Aim':'Section=combat Note="Forego move for Adv on attack"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%{proficiencyBonus} 3/dy), Attack +%{proficiencyBonus+intelligenceModifier} inflicts 1d8+%{proficiencyBonus}, use Reaction for R5\' Deflect Attack (inflicts Disadv on attack), MV 40\', Dex Save +%{proficiencyBonus+1}, Con save +%{proficiencyBonus+2}, immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%1 3/dy), Attack +%2 inflicts 1d8+%1, use Reaction for R5\' Deflect Attack (inflicts Disadv on attack), MV 40\', Dex Save +%3, Con save +%4, immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
   'Steps Of Night':
     'Section=ability ' +
     'Note="%{speed}\' fly in dim or no light for 1 min %{proficiencyBonus}/long rest"',
@@ -1595,6 +1595,14 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.experimentalElixir',
       classLevel, '=', 'Math.floor(( source + 12) / 9)'
     );
+    rules.defineRule('magicNotes.homunculusServant.1',
+      'features.Homunculus Servant', '?', null,
+      'spellAttackModifier.A', '=', null
+    );
+    rules.defineRule('magicNotes.homunculusServant.2',
+      'features.Homunculus Servant', '?', null,
+      'proficiencyBonus', '=', null
+    );
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
       'featureNotes.infuseItem', '=', null
     );
@@ -1793,6 +1801,22 @@ Tasha.pathRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.steelDefender',
       pathLevel, '=', '15',
       'combatNotes.improvedDefender', '+', '2'
+    );
+    rules.defineRule('combatNotes.steelDefender.1',
+      'features.Steel Defender', '?', null,
+      'proficiencyBonus', '=', null
+    );
+    rules.defineRule('combatNotes.steelDefender.2',
+      'features.Steel Defender', '?', null,
+      'spellAttackModifier.A', '=', null
+    );
+    rules.defineRule('combatNotes.steelDefender.3',
+      'features.Steel Defender', '?', null,
+      'proficiencyBonus', '=', 'source + 1'
+    );
+    rules.defineRule('combatNotes.steelDefender.4',
+      'features.Steel Defender', '?', null,
+      'proficiencyBonus', '=', 'source + 2'
     );
   } else if(name == 'Bladesinging') {
     // Have to hard-code these proficiencies, since featureRules only handles
