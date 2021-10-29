@@ -38,13 +38,13 @@ following lines to the file plugins/plugins.js:
       group:'5E',
       supplement:'D&D 5E'
     };
-    RULESETS['Sword Coast Campaign Setting using D&D 5E rules'] = {
-      url:'plugins/SwordCoast.js',
+    RULESETS['Eberron Campaign Setting using D&D 5E rules'] = {
+      url:'plugins/Ebrron5E.js',
       group:'5E',
       require:'PHB5E.js'
     };
-    RULESETS['Eberron Campaign Setting using D&D 5E rules'] = {
-      url:'plugins/Ebrron5E.js',
+    RULESETS['Sword Coast Campaign Setting using D&D 5E rules'] = {
+      url:'plugins/SwordCoast.js',
       group:'5E',
       require:'PHB5E.js'
     };
