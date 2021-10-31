@@ -535,7 +535,7 @@ SwordCoast.FEATURES_ADDED = {
   'Training In War And Song':
     'Section=combat,skill ' +
     'Note=' +
-      '"Armor Proficiency (Light)/Weapon Proficiency (Choose 1 from any One-Handed Melee)",' +
+      '"Armor Proficiency (Light)/Weapon Proficiency (Choose 1 from any One-Handed)",' +
       '"Skill Proficiency (Performance)"',
   'Turn The Tide':
     'Section=magic ' +
