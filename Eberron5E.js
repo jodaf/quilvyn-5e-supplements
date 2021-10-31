@@ -461,7 +461,7 @@ Eberron5E.FEATURES_ADDED = {
   'Long-Limbed':'Section=combat Note="+5\' melee reach"',
   'Martial Training':
     'Section=feature ' +
-    'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any)"',
+    'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any Martial)"',
   'Nimble Escape':'Section=combat Note="Bonus action to Disengage or Hide"',
   'Orc Ability Adjustment':
     // Removed Volo's -2 Intelligence"',

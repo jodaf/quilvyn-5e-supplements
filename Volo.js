@@ -198,7 +198,7 @@ Volo.MONSTROUS_FEATURES = {
   'Nimble Escape':'Section=combat Note="Bonus action to Disengage or Hide"',
   'Martial Training':
     'Section=combat ' +
-    'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any)"',
+    'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any Martial)"',
   'Magic Resistance':
     'Section=save Note="Adv on saves vs. spells and other magic effects"',
   'Orc Ability Adjustment':
