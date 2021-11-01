@@ -68,6 +68,8 @@ function Eberron5E() {
   Eberron5E.PATHS = Object.assign({}, PHB5E.PATHS, Eberron5E.PATHS_ADDED);
   Eberron5E.RACES = Object.assign({}, PHB5E.RACES, Eberron5E.RACES_ADDED);
   Eberron5E.SPELLS = Object.assign({}, PHB5E.SPELLS, Eberron5E.SPELLS_ADDED);
+  if(window.Xanathar != null)
+    Object.assign(Eberron5E.SPELLS, Xanathar.SPELLS);
   for(var s in Eberron5E.SPELLS_LEVELS_ADDED) {
     Eberron5E.SPELLS[s] =
       Eberron5E.SPELLS[s].replace('Level=', 'Level=' + Eberron5E.SPELLS_LEVELS_ADDED[s] + ',');
@@ -766,39 +768,38 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
   'Greater Restoration':'A5',
   'Wall Of Stone':'A5',
 
-  // Alchemist
-  'Healing Word':'A1',
-  'Ray Of Sickness':'A1',
-  'Flaming Sphere':'A2',
-  "Melf's Acid Arrow":'A2',
-  'Gaseous Form':'A3',
-  'Mass Healing Word':'A3',
-  'Blight':'A4',
-  'Death Ward':'A4',
-  'Cloudkill':'A5',
-  'Raise Dead':'A5',
-  // Artillerist
-  'Shield':'A1',
-  'Thunderwave':'A1',
-  'Scorching Ray':'A2',
-  'Shatter':'A2',
-  'Fireball':'A3',
-  'Wind Wall':'A3',
-  'Ice Storm':'A4',
-  'Wall Of Fire':'A4',
-  'Cone Of Cold':'A5',
-  'Wall Of Force':'A5',
-  // Battle Smith
-  'Heroism':'A1',
-  'Shield':'A1',
-  'Branding Smite':'A2',
-  'Warding Bond':'A2',
-  'Aura Of Vitality':'A3',
-  'Conjure Barrage':'A3',
-  'Aura Of Purity':'A4',
-  'Fire Shield':'A4',
-  'Banishing Smite':'A5',
-  'Mass Cure Wounds':'A5'
+  'Healing Word':'"A1 [Alchemist]"',
+  'Ray Of Sickness':'"A1 [Alchemist]"',
+  'Flaming Sphere':'"A2 [Alchemist]"',
+  "Melf's Acid Arrow":'"A2 [Alchemist]"',
+  'Gaseous Form':'"A3 [Alchemist]"',
+  'Mass Healing Word':'"A3 [Alchemist]"',
+  'Blight':'"A4 [Alchemist]"',
+  'Death Ward':'"A4 [Alchemist]"',
+  'Cloudkill':'"A5 [Alchemist]"',
+  'Raise Dead':'"A5 [Alchemist]"',
+
+  'Shield':'"A1 [Artillerist]"',
+  'Thunderwave':'"A1 [Artillerist]"',
+  'Scorching Ray':'"A2 [Artillerist]"',
+  'Shatter':'"A2 [Artillerist]"',
+  'Fireball':'"A3 [Artillerist]"',
+  'Wind Wall':'"A3 [Artillerist]"',
+  'Ice Storm':'"A4 [Artillerist]"',
+  'Wall Of Fire':'"A4 [Artillerist]"',
+  'Cone Of Cold':'"A5 [Artillerist]"',
+  'Wall Of Force':'"A5 [Artillerist]"',
+
+  'Heroism':'"A1 [Battle Smith]"',
+  'Shield':'"A1 [Battle Smith]"',
+  'Branding Smite':'"A2 [Battle Smith]"',
+  'Warding Bond':'"A2 [Battle Smith]"',
+  'Aura Of Vitality':'"A3 [Battle Smith]"',
+  'Conjure Barrage':'"A3 [Battle Smith]"',
+  'Aura Of Purity':'"A4 [Battle Smith]"',
+  'Fire Shield':'"A4 [Battle Smith]"',
+  'Banishing Smite':'"A5 [Battle Smith]"',
+  'Mass Cure Wounds':'"A5 [Battle Smith]"'
 
 };
 if(window.Xanathar != null) {
