@@ -950,7 +950,7 @@ Xanathar.SPELLS = {
   "Aganazzar's Scorcher":
     'School=Evocation ' +
     'Level=S2,W2 ' +
-    'Description="Creatures in 5\' by $RS\' path suffer 3d8 HP fire (Dex half)"',
+    'Description="Creatures in 5\' by 30\' path suffer 3d8 HP fire (Dex half)"',
   'Beast Bond':
     'School=Divination ' +
     'Level=D1,R1 ' +
@@ -994,7 +994,7 @@ Xanathar.SPELLS = {
   'Create Bonfire':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
-    'Description="R60\' Creates 5\' fire that inflicts ${Lplus7div6}d8 HP fire (Dex neg) for conc or 1 min"',
+    'Description="R60\' Creates 5\' fire that inflicts %{(?level?+7)//6}d8 HP fire (Dex neg) for conc or 1 min"',
   'Create Homunculus':
     'School=Transmutation ' +
     'Level=W6 ' +
@@ -1006,7 +1006,7 @@ Xanathar.SPELLS = {
   'Danse Macabre':
     'School=Necromancy ' +
     'Level=K5,W5 ' +
-    'Description="R60\' Creates from corpses up to 5 skeletons and zombies that obey self and attack at +$M for conc or 1 hr"',
+    'Description="R60\' Creates from corpses up to 5 skeletons and zombies that obey self and attack at +%{?modifier?} for conc or 1 hr"',
   'Dawn':
     'School=Evocation ' +
     'Level=C5,W5 ' +
@@ -1134,7 +1134,7 @@ Xanathar.SPELLS = {
   'Magic Stone':
     'School=Transmutation ' +
     'Level=D0,K0 ' +
-    'Description="3 touched stones attack at +$M, inflict 1d6+$M HP bludgeoning for 1 min"',
+    'Description="3 touched stones attack at +%{?modifier?}, inflict 1d6+%{?modifier?} HP bludgeoning for 1 min"',
   'Mass Polymorph':
     'School=Transmutation ' +
     'Level=B9,S9,W9 ' +

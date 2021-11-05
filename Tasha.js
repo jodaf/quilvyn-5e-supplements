@@ -1082,7 +1082,13 @@ Tasha.PATHS = {
     'Group=Druid Level=levels.Druid ' +
     'Features=' +
       '"2:Halo Of Spores","2:Symbiotic Entity","6:Fungal Infestation",' +
-      '"10:Spreading Spores","14:Fungal Body"',
+      '"10:Spreading Spores","14:Fungal Body" ' +
+    'SpellAbility=wisdom ' +
+    'SpellSlots=' +
+      'Spores1:3=2,' +
+      'Spores2:5=2,' +
+      'Spores3:7=2,' +
+      'Spores4:9=2',
   'Circle Of Stars':
     'Group=Druid Level=levels.Druid ' +
     'Features=' +
@@ -1092,7 +1098,13 @@ Tasha.PATHS = {
     'Group=Druid Level=levels.Druid ' +
     'Features=' +
       '"2:Summon Wildfire Spirit","6:Enhanced Bond","10:Cauterizing Flames",' +
-      '"14:Blazing Revival"',
+      '"14:Blazing Revival" ' +
+    'SpellAbility=wisdom ' +
+    'SpellSlots=' +
+      'Wildfire1:3=2,' +
+      'Wildfire2:5=2,' +
+      'Wildfire3:7=2,' +
+      'Wildfire4:9=2',
   'Clockwork Soul':
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
@@ -1117,12 +1129,26 @@ Tasha.PATHS = {
     'Group=Paladin Level=levels.Paladin ' +
     'Features=' +
       '"3:Inspiring Smite","3:Peerless Athlete","7:Aura Of Alacrity",' +
-      '"15:Glorious Defense","20:Living Legend"',
+      '"15:Glorious Defense","20:Living Legend" ' +
+    'SpellAbility=charisma ' +
+    'SpellSlots=' +
+      'Glory1:3=2,' +
+      'Glory2:5=2,' +
+      'Glory3:9=2,' +
+      'Glory4:13=2,' +
+      'Glory5:17=2',
   'Oath Of The Watchers':
     'Group=Paladin Level=levels.Paladin ' +
     'Features=' +
       '"3:Abjure The Extraplanar","3:Watcher\'s Will",' +
-      '"7:Aura Of The Sentinel","15:Vigilant Rebuke","20:Mortal Bulwark"',
+      '"7:Aura Of The Sentinel","15:Vigilant Rebuke","20:Mortal Bulwark" ' +
+    'SpellAbility=charisma ' +
+    'SpellSlots=' +
+      'Watchers1:3=2,' +
+      'Watchers2:5=2,' +
+      'Watchers3:9=2,' +
+      'Watchers4:13=2,' +
+      'Watchers5:17=2',
   'Order Domain':
     'Group=Cleric Level=levels.Cleric ' +
     'Features=' +
@@ -1233,7 +1259,7 @@ Tasha.SPELLS = {
   'Booming Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers +${Math.floor((lvl+1)/6)}d8 HP thunder and ${Math.floor((lvl+1)/6)+1}d8 HP thunder on move w/in 1 rd"',
+    'Description="Struck foe suffers +%{(?level?+1)//6}d8 HP thunder and %{(?level?+1)//6+1}d8 HP thunder on move w/in 1 rd"',
   'Dream Of The Blue Veil':
     'School=Conjuration ' +
     'Level=B7,K7,S7,W7 ' +
@@ -1241,7 +1267,7 @@ Tasha.SPELLS = {
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers +%Vd8 HP fire, R5\' target suffers ${Math.floor((lvl+1)/6)}d8+%{charismaModifier>?intelligenceModifier} HP fire"',
+    'Description="Struck foe suffers +%Vd8 HP fire, R5\' target suffers %{(?level?+1)//6}d8+%{charismaModifier>?intelligenceModifier} HP fire"',
   'Intellect Fortress':
     'School=Abjuration ' +
     'Level=A3,B3,K3,S3,W3 ' +
@@ -1249,11 +1275,11 @@ Tasha.SPELLS = {
   'Lightning Lure':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="R15\' Pulls target 10\' and inflicts ${Math.floor((lvl+5)/6)}d8 HP lightning (Str neg)"',
+    'Description="R15\' Pulls target 10\' and inflicts %{(?level?+5)//6}d8 HP lightning (Str neg)"',
   'Mind Sliver':
     'School=Enchantment ' +
     'Level=K0,S0,W0 ' +
-    'Description="R60\' Target suffers %{($L+7)//6}d6 HP psychic and -1d4 next save (Int neg) w/in 1 rd"',
+    'Description="R60\' Target suffers %{(?level?+7)//6}d6 HP psychic and -1d4 next save (Int neg) w/in 1 rd"',
   'Spirit Shroud':
     'School=Necromancy ' +
     'Level=C3,K3,P3,W3 ' +
@@ -1297,7 +1323,7 @@ Tasha.SPELLS = {
   'Sword Burst':
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
-    'Description="5\' radius inflicts ${Math.floor((lvl+5)/6)}d6 HP force (Dex neg)"',
+    'Description="5\' radius inflicts %{(?level?+5)//6}d6 HP force (Dex neg)"',
   "Tasha's Caustic Brew":
     'School=Evocation ' +
     'Level=A1,S1,W1 ' +
@@ -1667,6 +1693,13 @@ Tasha.classRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('spellSlots.D0', 'magicNotes.fightingStyle(DruidicWarrior)', '+=', '2');
+    rules.defineRule('casterLevels.Druidic Warrior',
+      'features.Fighting Style (Druidic Warrior)', '?', null,
+      'casterLevels.R', '=', null
+    );
+    rules.defineRule
+      ('spellCasterLevel.D', 'casterLevels.Druidic Warrior', '=', null);
+    // spellModifier.D already defaults to wisdomModifier, so no need to set
   } else if(name == 'Warlock') {
     rules.defineRule('genieEnergy',
       'features.Dao', '=', '"bludgeoning"',
