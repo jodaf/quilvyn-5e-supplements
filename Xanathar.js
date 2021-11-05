@@ -994,7 +994,7 @@ Xanathar.SPELLS = {
   'Create Bonfire':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
-    'Description="R60\' Creates 5\' fire that inflicts %{(?level?+7)//6}d8 HP fire (Dex neg) for conc or 1 min"',
+    'Description="R60\' Creates 5\' fire that inflicts %{(level+7)//6}d8 HP fire (Dex neg) for conc or 1 min"',
   'Create Homunculus':
     'School=Transmutation ' +
     'Level=W6 ' +

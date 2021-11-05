@@ -1259,7 +1259,7 @@ Tasha.SPELLS = {
   'Booming Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers +%{(?level?+1)//6}d8 HP thunder and %{(?level?+1)//6+1}d8 HP thunder on move w/in 1 rd"',
+    'Description="Struck foe suffers +%{(level+1)//6}d8 HP thunder and %{(level+1)//6+1}d8 HP thunder on move w/in 1 rd"',
   'Dream Of The Blue Veil':
     'School=Conjuration ' +
     'Level=B7,K7,S7,W7 ' +
@@ -1267,7 +1267,7 @@ Tasha.SPELLS = {
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers +%Vd8 HP fire, R5\' target suffers %{(?level?+1)//6}d8+%{charismaModifier>?intelligenceModifier} HP fire"',
+    'Description="Struck foe suffers +%Vd8 HP fire, R5\' target suffers %{(level+1)//6}d8+%{charismaModifier>?intelligenceModifier} HP fire"',
   'Intellect Fortress':
     'School=Abjuration ' +
     'Level=A3,B3,K3,S3,W3 ' +
@@ -1275,11 +1275,11 @@ Tasha.SPELLS = {
   'Lightning Lure':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="R15\' Pulls target 10\' and inflicts %{(?level?+5)//6}d8 HP lightning (Str neg)"',
+    'Description="R15\' Pulls target 10\' and inflicts %{(level+5)//6}d8 HP lightning (Str neg)"',
   'Mind Sliver':
     'School=Enchantment ' +
     'Level=K0,S0,W0 ' +
-    'Description="R60\' Target suffers %{(?level?+7)//6}d6 HP psychic and -1d4 next save (Int neg) w/in 1 rd"',
+    'Description="R60\' Target suffers %{(level+7)//6}d6 HP psychic and -1d4 next save (Int neg) w/in 1 rd"',
   'Spirit Shroud':
     'School=Necromancy ' +
     'Level=C3,K3,P3,W3 ' +
@@ -1323,7 +1323,7 @@ Tasha.SPELLS = {
   'Sword Burst':
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
-    'Description="5\' radius inflicts %{(?level?+5)//6}d6 HP force (Dex neg)"',
+    'Description="5\' radius inflicts %{(level+5)//6}d6 HP force (Dex neg)"',
   "Tasha's Caustic Brew":
     'School=Evocation ' +
     'Level=A1,S1,W1 ' +

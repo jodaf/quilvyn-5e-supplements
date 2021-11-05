@@ -683,19 +683,19 @@ SwordCoast.SPELLS_ADDED = {
   'Booming Blade':
     'School=Evocation ' +
     'Level=K0,S0,W0 ' +
-    'Description="Struck foe suffers +%{(?level?+1)//6}d8 HP thunder and %{(?level?+1)//6+1}d8 HP thunder on move w/in 1 rd"',
+    'Description="Struck foe suffers +%{(level+1)//6}d8 HP thunder and %{(level+1)//6+1}d8 HP thunder on move w/in 1 rd"',
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=K0,S0,W0 ' +
-    'Description="Struck foe suffers +%Vd8 HP fire, R5\' target suffers %{(?level?+1)//6}d8+%{charismaModifier>?intelligenceModifier} HP fire"',
+    'Description="Struck foe suffers +%Vd8 HP fire, R5\' target suffers %{(level+1)//6}d8+%{charismaModifier>?intelligenceModifier} HP fire"',
   'Lightning Lure':
     'School=Evocation ' +
     'Level=K0,S0,W0 ' +
-    'Description="R15\' Pulls target 10\' and inflicts %{(?level?+5)//6}d8 HP lightning (Str neg)"',
+    'Description="R15\' Pulls target 10\' and inflicts %{(level+5)//6}d8 HP lightning (Str neg)"',
   'Sword Burst':
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
-    'Description="5\' radius inflicts %{(?level?+5)//6}d6 HP force (Dex neg)"'
+    'Description="5\' radius inflicts %{(level+5)//6}d6 HP force (Dex neg)"'
 };
 SwordCoast.SPELLS_LEVELS_ADDED = {
   'Detect Magic':'Arcana1',
