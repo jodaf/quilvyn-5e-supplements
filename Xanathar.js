@@ -1181,7 +1181,7 @@ Xanathar.SPELLS = {
     'Description="Self gains resistance to acid, cold, fire, lightning, and thunder and may convert to immunity for 1 turn for conc or 1 min"',
   'Psychic Scream':
     'School=Enchantment ' +
-    'Level=B9,K9,S9,W8 ' +
+    'Level=B9,K9,S9,W9 ' +
     'Description="R90\' 10 targets suffer 14d6 HP psychic and become stunned (Int half damage and ends stunning)"',
   'Pyrotechnics':
     'School=Transmutation ' +
