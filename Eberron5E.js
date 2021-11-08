@@ -427,7 +427,7 @@ Eberron5E.FEATURES_ADDED = {
          '"Use Reaction to move 10\' w/out OA when creature ends turn w/in 5\'"',
   'The Bigger They Are':
     'Section=magic ' +
-    'Note="Cast <i>Animal Friendship</i> and <i>Speak With Animals</i> on monstrous creatures with intelligence up to 3"',
+    'Note="Use Primal Connection on monstrous creatures with intelligence up to 3"',
   'Vigilant Guardian':
     'Section=combat ' +
     'Note="R5\' Swap places with and take damage for struck creature 1/long rest"',
