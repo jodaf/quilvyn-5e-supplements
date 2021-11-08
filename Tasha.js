@@ -1085,10 +1085,11 @@ Tasha.PATHS = {
       '"10:Spreading Spores","14:Fungal Body" ' +
     'SpellAbility=wisdom ' +
     'SpellSlots=' +
-      'Spores1:3=2,' +
-      'Spores2:5=2,' +
-      'Spores3:7=2,' +
-      'Spores4:9=2',
+      'Spores0:2=1,' +
+      'Spores2:3=2,' +
+      'Spores3:5=2,' +
+      'Spores4:7=2,' +
+      'Spores5:9=2',
   'Circle Of Stars':
     'Group=Druid Level=levels.Druid ' +
     'Features=' +
@@ -1101,10 +1102,11 @@ Tasha.PATHS = {
       '"14:Blazing Revival" ' +
     'SpellAbility=wisdom ' +
     'SpellSlots=' +
-      'Wildfire1:3=2,' +
-      'Wildfire2:5=2,' +
-      'Wildfire3:7=2,' +
-      'Wildfire4:9=2',
+      'Wildfire1:2=2,' +
+      'Wildfire2:3=2,' +
+      'Wildfire3:5=2,' +
+      'Wildfire4:7=2,' +
+      'Wildfire5:9=2',
   'Clockwork Soul':
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
