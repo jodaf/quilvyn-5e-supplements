@@ -38,11 +38,11 @@ function Tasha(edition, rules) {
   if(rules == null)
     rules = PHB5E.rules;
 
+  Tasha.magicRules(rules, Tasha.SPELLS, Tasha.SPELLS_LEVELS_ADDED);
   Tasha.identityRules(
     rules, Tasha.CLASSES, Tasha.CLASSES_FEATURES_ADDED,
     Tasha.CLASSES_SELECTABLES_ADDED, Tasha.DEITIES_DOMAINS_ADDED, Tasha.PATHS
   );
-  Tasha.magicRules(rules, Tasha.SPELLS, Tasha.SPELLS_LEVELS_ADDED);
   Tasha.talentRules(rules, Tasha.FEATS, Tasha.FEATURES);
 
 }
@@ -256,7 +256,9 @@ Tasha.FEATS = {
   'Crusher':'Type=General',
   'Eldritch Adept':
     'Type=General Require="features.Spellcasting||features.Pact Magic"',
-  'Fey Touched':'Type=General',
+  'Fey Touched (Charisma)':'Type=General',
+  'Fey Touched (Intelligence)':'Type=General',
+  'Fey Touched (Wisdom)':'Type=General',
   'Fighting Initiate':
     'Type=General Require="features.Weapon Proficiency (Martial)"',
   'Gunner':'Type=General',
@@ -264,13 +266,17 @@ Tasha.FEATS = {
     'Type=General Require="features.Spellcasting||features.Pact Magic"',
   'Piercer':'Type=General',
   'Poisoner':'Type=General',
-  'Shadow Touched':'Type=General',
+  'Shadow Touched (Charisma)':'Type=General',
+  'Shadow Touched (Intelligence)':'Type=General',
+  'Shadow Touched (Wisdom)':'Type=General',
   'Skill Expert':'Type=General',
   'Slasher':'Type=General',
   'Telekinetic (Charisma)':'Type=General',
   'Telekinetic (Intelligence)':'Type=General',
   'Telekinetic (Wisdom)':'Type=General',
-  'Telepathic':'Type=General'
+  'Telepathic (Charisma)':'Type=General',
+  'Telepathic (Intelligence)':'Type=General',
+  'Telepathic (Wisdom)':'Type=General'
 };
 Tasha.FEATURES = {
 
@@ -471,10 +477,18 @@ Tasha.FEATURES = {
   'Eldritch Adept':
     'Section=feature ' +
     'Note="Learn 1 Eldritch Invocation, replace when gaining level"',
-  'Fey Touched':
+  'Fey Touched (Charisma)':
     'Section=ability,magic ' +
-    'Note="+1 Charisma, Intelligence, or Wisdom",' +
-         '"Cast <i>Misty Step</i> and 1 level 1 Divination or Enchantment spell 1/long rest"',
+    'Note="+1 Charisma",' +
+         '"Cast <i>Misty Step</i> and 1 level 1 divination or enchantment spell 1/long rest"',
+  'Fey Touched (Intelligence)':
+    'Section=ability,magic ' +
+    'Note="+1 Intelligence",' +
+         '"Cast <i>Misty Step</i> and 1 level 1 divination or enchantment spell 1/long rest"',
+  'Fey Touched (Wisdom)':
+    'Section=ability,magic ' +
+    'Note="+1 Wisdom",' +
+         '"Cast <i>Misty Step</i> and 1 level 1 divination or enchantment spell 1/long rest"',
   'Fighting Initiate':
     'Section=feature ' +
     'Note="Learn 1 Fighting Style, replace when boosting ability or taking feat"',
@@ -496,11 +510,21 @@ Tasha.FEATURES = {
     'Note=' +
       '"Ignore poison resistance, coat weapon w/poison for 1 min (inflicts +2d8 HP poison and poisoned condition (DC 14 Con neg) for 1 rd)",' +
       '"Tool Proficiency (Poisoner\'s Kit)"',
-  'Shadow Touched':
+  'Shadow Touched (Charisma)':
     'Section=ability,magic ' +
     'Note=' +
-      '"+1 Intelligence, Wisdom, or Charisma",' +
-      '"Cast <i>Invisibility</i> and 1 level 1 Illusion or Necromancy spell 1/long rest"',
+      '"+1 Charisma",' +
+      '"Cast <i>Invisibility</i> and 1 level 1 illusion or necromancy spell 1/long rest"',
+  'Shadow Touched (Intelligence)':
+    'Section=ability,magic ' +
+    'Note=' +
+      '"+1 Intelligence",' +
+      '"Cast <i>Invisibility</i> and 1 level 1 illusion or necromancy spell 1/long rest"',
+  'Shadow Touched (Wisdom)':
+    'Section=ability,magic ' +
+    'Note=' +
+      '"+1 Wisdom",' +
+      '"Cast <i>Invisibility</i> and 1 level 1 illusion or necromancy spell 1/long rest"',
   'Skill Expert':
     'Section=ability,feature,skill ' +
     'Note="+1 Ability Boosts",' +
@@ -525,9 +549,19 @@ Tasha.FEATURES = {
     'Note="+1 Wisdom",' +
          '"R30\' Telepathic shove moves target 5\' (DC %{8+proficiencyBonus+wisdomModifier} Str neg)",' +
          '"Cast <i>Mage Hand</i>"',
-  'Telepathic':
+  'Telepathic (Charisma)':
     'Section=ability,feature,magic ' +
-    'Note="+1 Charisma, Intelligence, or Wisdom",' +
+    'Note="+1 Charisma",' +
+         '"R60\' Speak telepathically",' +
+         '"Cast <i>Detect Thoughts</i> 1/long rest"',
+  'Telepathic (Intelligence)':
+    'Section=ability,feature,magic ' +
+    'Note="+1 Intelligence",' +
+         '"R60\' Speak telepathically",' +
+         '"Cast <i>Detect Thoughts</i> 1/long rest"',
+  'Telepathic (Wisdom)':
+    'Section=ability,feature,magic ' +
+    'Note="+1 Wisdom",' +
          '"R60\' Speak telepathically",' +
          '"Cast <i>Detect Thoughts</i> 1/long rest"',
 
@@ -1640,6 +1674,9 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
       classLevel, '=', 'source>=3 ? 1 : null'
     );
+    SRD5E.featureSpell(rules, 'Lesser Restoration', 'Restorative Reagents', 'A', 2);
+    SRD5E.featureSpell(rules, 'Greater Restoration', 'Chemical Mastery', 'A', 5);
+    SRD5E.featureSpell(rules, 'Heal', 'Chemical Mastery', 'A', 6);
   } else if(name == 'Barbarian') {
     rules.defineRule
       ('featureNotes.primalKnowledge', classLevel, '=', 'source<10 ? 1 : 2');
@@ -1650,6 +1687,8 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.harnessDivinePower',
       'levels.Cleric', '=', 'source<7 ? 1 : source<15 ? 2 : 3'
     );
+  } else if(name == 'Druid') {
+    SRD5E.featureSpell(rules, 'Find Familiar', 'Wild Companion', 'D', 1);
   } else if(name == 'Fighter') {
     rules.defineRule('combatNotes.combatSuperiority',
       'combatNotes.fightingStyle(SuperiorTechnique)', '+=', '1'
@@ -1702,6 +1741,24 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule
       ('spellCasterLevel.D', 'casterLevels.Druidic Warrior', '=', null);
     // spellModifier.D already defaults to wisdomModifier, so no need to set
+    SRD5E.featureSpell(rules, 'Speak With Animals', 'Primal Awareness', 'R', 1);
+    SRD5E.featureSpell(rules, 'Beast Sense', 'Primal Awareness', 'R', 2);
+    SRD5E.featureSpell(rules, 'Speak With Plants', 'Primal Awareness', 'R', 3);
+    SRD5E.featureSpell(rules, 'Locate Creature', 'Primal Awareness', 'R', 4);
+    SRD5E.featureSpell
+      (rules, 'Commune With Nature', 'Primal Awareness', 'R', 5);
+    rules.defineRule('spells.Beast Sense(R2 [Primal Awareness] Divi)',
+      'levels.Ranger', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Speak With Plants(R3 [Primal Awareness] Tran)',
+      'levels.Ranger', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Locate Creature(R4 [Primal Awareness] Divi)',
+      'levels.Ranger', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Locate Creature(R5 [Primal Awareness] Divi)',
+      'levels.Ranger', '?', 'source >= 17'
+    );
   } else if(name == 'Warlock') {
     rules.defineRule('genieEnergy',
       'features.Dao', '=', '"bludgeoning"',
@@ -1715,6 +1772,10 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('selectableFeatureCount.Warlock (Genie Kind)',
       'features.The Genie', '=', '1'
     );
+    SRD5E.featureSpell(rules, 'Sending', 'Far Scribe', 'K', 3);
+    SRD5E.featureSpell(rules, 'Animate Dead', 'Undying Servitude', 'K', 3);
+    SRD5E.featureSpell
+      (rules, "Evard's Black Tentacles", 'Grasping Tentacles', 'K', 4);
   }
 
 };
@@ -1743,7 +1804,7 @@ Tasha.featRulesExtra = function(rules, name) {
     );
     // Override class requirement for Warlock Eldritch Invocation features
     features = rules.getChoices('selectableFeatures');
-    for(var f in features) {
+    for(f in features) {
       if(f.match(/^Warlock/) && features[f].match(/Eldritch Invocation/)) {
         f = f.charAt(0).toLowerCase() + f.substring(1).replaceAll(' ', '');
         rules.defineRule('validationNotes.' + f + 'SelectableFeature',
@@ -1751,15 +1812,41 @@ Tasha.featRulesExtra = function(rules, name) {
         );
       }
     }
-  } else if(name == 'Fey Touched') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.feyTouched', '+=', '1');
+  } else if(name == 'Fey Touched (Charisma)') {
+    SRD5E.featureSpell(rules, 'Misty Step', 'Fey Touched (Charisma)', 'S', 2);
+    rules.defineRule('casterLevels.Fey Touched (Charisma)',
+      'features.Fey Touched (Charisma)', '?', null,
+      'level', '=', null,
+      'levels.Sorcerer', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.S', 'casterLevels.Fey Touched (Charisma)', '^=', null);
+  } else if(name == 'Fey Touched (Intelligence)') {
+    SRD5E.featureSpell
+      (rules, 'Misty Step', 'Fey Touched (Intelligence)', 'W', 2);
+    rules.defineRule('casterLevels.Fey Touched (Intelligence)',
+      'features.Fey Touched (Intelligence)', '?', null,
+      'level', '=', null,
+      'levels.Wizard', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.W', 'casterLevels.Fey Touched (Intelligence)', '^=', null);
+  } else if(name == 'Fey Touched (Wisdom)') {
+    SRD5E.featureSpell(rules, 'Misty Step', 'Fey Touched (Wisdom)', 'S', 2);
+    rules.defineRule('casterLevels.Fey Touched (Wisdom)',
+      'features.Fey Touched (Wisdom)', '?', null,
+      'level', '=', null,
+      'levels.Druid', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.D', 'casterLevels.Fey Touched (Wisdom)', '^=', null);
   } else if(name == 'Fighting Initiate') {
     rules.defineRule('selectableFeatureCount.Fighter (Fighting Style)',
       'featureNotes.fightingInitiate', '+=', '1'
     );
     // Override class requirement for Fighter Fighting Style features
     features = rules.getChoices('selectableFeatures');
-    for(var f in features) {
+    for(f in features) {
       if(f.match(/^Fighter/) && features[f].match(/Fighting Style/)) {
         f = f.charAt(0).toLowerCase() + f.substring(1).replaceAll(' ', '');
         rules.defineRule('validationNotes.' + f + 'SelectableFeature',
@@ -1775,7 +1862,7 @@ Tasha.featRulesExtra = function(rules, name) {
       ('magicNotes.fontOfMagic', 'featureNotes.metamagicAdept', '+=', '2');
     // Override class requirement for Sorcerer Metamagic features
     features = rules.getChoices('selectableFeatures');
-    for(var f in features) {
+    for(f in features) {
       if(f.match(/^Sorcerer/) && features[f].match(/Metamagic/)) {
         f = f.charAt(0).toLowerCase() + f.substring(1).replaceAll(' ', '');
         rules.defineRule('validationNotes.' + f + 'SelectableFeature',
@@ -1785,14 +1872,71 @@ Tasha.featRulesExtra = function(rules, name) {
     }
   } else if(name == 'Piercer') {
     rules.defineRule('abilityBoosts', 'abilityNotes.piercer', '+=', '1');
-  } else if(name == 'Shadow Touched') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.shadowTouched', '+=', '1');
+  } else if(name == 'Shadow Touched (Charisma)') {
+    SRD5E.featureSpell(rules, 'Invisibility', 'Shadow Touched (Charisma)', 'S', 2);
+    rules.defineRule('casterLevels.Shadow Touched (Charisma)',
+      'features.Shadow Touched (Charisma)', '?', null,
+      'level', '=', null,
+      'levels.Sorcerer', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.S', 'casterLevels.Shadow Touched (Charisma)', '^=', null);
+  } else if(name == 'Shadow Touched (Intelligence)') {
+    SRD5E.featureSpell(rules, 'Invisibility', 'Shadow Touched (Intelligence)', 'W', 2);
+    rules.defineRule('casterLevels.Shadow Touched (Intelligence)',
+      'features.Shadow Touched (Intelligence)', '?', null,
+      'level', '=', null,
+      'levels.Wizard', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.W', 'casterLevels.Shadow Touched (Intelligence)', '^=', null);
+  } else if(name == 'Shadow Touched (Wisdom)') {
+    SRD5E.featureSpell(rules, 'Invisibility', 'Shadow Touched (Wisdom)', 'C', 2);
+    rules.defineRule('casterLevels.Shadow Touched (Wisdom)',
+      'features.Shadow Touched (Wisdom)', '?', null,
+      'level', '=', null,
+      'levels.Cleric', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.C', 'casterLevels.Shadow Touched (Wisdom)', '^=', null);
   } else if(name == 'Slasher') {
     rules.defineRule('abilityBoosts', 'abilityNotes.slasher', '+=', '1');
-  } else if(name == 'Telekinetic') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.telekinetic', '+=', '1');
-  } else if(name == 'Telepathic') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.telepathic', '+=', '1');
+  } else if(name == 'Telekinetic (Charisma)') {
+    SRD5E.featureSpell(rules, 'Mage Hand', 'Telekinetic (Charisma)', 'S', 0);
+  } else if(name == 'Telekinetic (Intelligence)') {
+    SRD5E.featureSpell
+      (rules, 'Mage Hand', 'Telekinetic (Intelligence)', 'W', 0);
+  } else if(name == 'Telekinetic (Wisdom)') {
+    SRD5E.featureSpell(rules, 'Mage Hand', 'Telekinetic (Wisdom)', 'W', 0);
+  } else if(name == 'Telepathic (Charisma)') {
+    SRD5E.featureSpell
+      (rules, 'Detect Thoughts', 'Telepathic (Charisma)', 'S', 2);
+    rules.defineRule('casterLevels.Telepathic (Charisma)',
+      'features.Telepathic (Charisma)', '?', null,
+      'level', '=', null,
+      'levels.Sorcerer', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.S', 'casterLevels.Telepathic (Charisma)', '^=', null);
+  } else if(name == 'Telepathic (Intelligence)') {
+    SRD5E.featureSpell
+      (rules, 'Detect Thoughts', 'Telepathic (Intelligence)', 'W', 2);
+    rules.defineRule('casterLevels.Telepathic (Intelligence)',
+      'features.Telepathic (Intelligence)', '?', null,
+      'level', '=', null,
+      'levels.Wizard', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.W', 'casterLevels.Telepathic (Intelligence)', '^=', null);
+  } else if(name == 'Telepathic (Wisdom)') {
+    SRD5E.featureSpell(rules, 'Detect Thoughts', 'Telepathic (Wisdom)', 'C', 2);
+    rules.defineRule('casterLevels.Telepathic (Wisdom)',
+      'features.Telepathic (Wisdom)', '?', null,
+      'level', '=', null,
+      'levels.Cleric', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.C', 'casterLevels.Telepathic (Wisdom)', '^=', null);
   }
 };
 
@@ -1891,6 +2035,8 @@ Tasha.pathRulesExtra = function(rules, name) {
       pathLevel, '=', '1',
       'magicNotes.twinklingConstellations', '^', '2'
     );
+    SRD5E.featureSpell(rules, 'Guidance', 'Star Map', 'D', 0);
+    SRD5E.featureSpell(rules, 'Guiding Bolt', 'Star Map', 'D', 1);
   } else if(name == 'Circle Of Wildfire') {
     rules.defineRule
       ('magicNotes.summonWildfireSpirit', 'spellDifficultyClass.D', '=', null);
@@ -1908,6 +2054,8 @@ Tasha.pathRulesExtra = function(rules, name) {
   } else if(name == 'Fey Wanderer') {
     rules.defineRule
       ('combatNotes.beguilingTwist', 'spellDifficultyClass.R', '=', null);
+    SRD5E.featureSpell(rules, 'Misty Step', 'Misty Wanderer', 'R', 2);
+    SRD5E.featureSpell(rules, 'Summon Fey', 'Fey Reinforcemens', 'R', 3);
   } else if(name == 'Oath Of Glory') {
     rules.defineRule('combatNotes.inspiringSmite', pathLevel, '=', null);
     rules.defineRule
@@ -1943,6 +2091,14 @@ Tasha.pathRulesExtra = function(rules, name) {
       'features.Psionic Power', '?', null,
       pathLevel, '=', 'source<5 ? 6 : source<11 ? 8 : source<17 ? 10 : 12'
     );
+    SRD5E.featureSpell(rules, 'Telekinesis', 'Telekinetic Master', 'W', 5);
+    rules.defineRule('casterLevels.Telekinetic Master',
+      'features.Telekinetic Master', '?', null,
+      'levels.Fighter', '=', null,
+      'levels.Wizard', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.W', 'casterLevels.Telekinetic Master', '^=', null);
   } else if(name == 'Rune Knight') {
     rules.defineRule('combatNotes.cloudRune',
       pathLevel, '=', '1',
@@ -2014,6 +2170,24 @@ Tasha.pathRulesExtra = function(rules, name) {
       'features.Gathered Swarm', '?', null,
       'levels.Ranger', '=', '6',
       'combatNotes.mightySwarm', '^', '8'
+    );
+    SRD5E.featureSpell(rules, 'Mage Hand', 'Swarmkeeper Magic', 'R', 0);
+    SRD5E.featureSpell(rules, 'Faerie Fire', 'Swarmkeeper Magic', 'R', 1);
+    SRD5E.featureSpell(rules, 'Web', 'Swarmkeeper Magic', 'R', 2);
+    SRD5E.featureSpell(rules, 'Gaseous Form', 'Swarmkeeper Magic', 'R', 3);
+    SRD5E.featureSpell(rules, 'Arcane Eye', 'Swarmkeeper Magic', 'R', 4);
+    SRD5E.featureSpell(rules, 'Insect Plague', 'Swarmkeeper Magic', 'R', 5);
+    rules.defineRule('spells.Web(R2 [Swarmkeeper Magic] Conj)',
+      'levels.Ranger', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Gaseous Form(R3 [Swarmkeeper Magic] Tran)',
+      'levels.Ranger', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Arcane Eye(R4 [Swarmkeeper Magic] Divi)',
+      'levels.Ranger', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Insect Plague(R5 [Swarmkeeper Magic] Conj)',
+      'levels.Ranger', '?', 'source >= 17'
     );
   } else if(name == 'Twilight Domain') {
     // Have to hard-code these proficiencies, since featureRules only handles
