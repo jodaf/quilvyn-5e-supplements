@@ -791,6 +791,12 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       'features.Arcane Abjuration', '?', null,
       pathLevel, '=', 'source>=5 ? ", banish up to CR " + (source<8 ? "1/2" : source>=17 ? 4 : Math.floor((source - 5) / 3)) : ""'
     );
+    rules.defineRule('spellSlots.W0', 'magicNotes.arcaneInitiate', '+=', '2');
+    rules.defineRule('spellSlots.W6', 'magicNotes.arcaneMastery', '+=', '1');
+    rules.defineRule('spellSlots.W7', 'magicNotes.arcaneMastery', '+=', '1');
+    rules.defineRule('spellSlots.W8', 'magicNotes.arcaneMastery', '+=', '1');
+    rules.defineRule('spellSlots.W9', 'magicNotes.arcaneMastery', '+=', '1');
+    rules.defineRule('casterLevels.W', 'casterLevels.Arcana', '^=', null);
   } else if(name == 'Bladesinging') {
     // Copied from Tasha's
     // Have to hard-code these proficiencies, since featureRules only handles
