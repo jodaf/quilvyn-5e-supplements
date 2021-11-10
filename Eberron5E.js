@@ -320,6 +320,8 @@ Eberron5E.FEATURES_ADDED = {
   'Changeling Instincts':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 2 from Deception, Insight, Intimidation, Persuasion)"',
+  'Changeling Shapechanger':
+    'Section=ability Note="Use Action to change appearance and voice"',
   'Constructed Resilience':
     'Section=feature,save ' +
     'Note="No need to eat, drink, breathe, or sleep",' +
@@ -416,8 +418,6 @@ Eberron5E.FEATURES_ADDED = {
   'Shape Shadows':
     'Section=magic ' +
     'Note="Know <i>Minor Illusion</i> cantrip%{level<3?\'\':\', cast <i>Invisibility</i> 1/long rest\'}"',
-  'Shapechanger':
-    'Section=ability Note="Use Action to change appearance and voice"',
   'Shifting':
     'Section=feature ' +
     'Note="Assume bestial appearance, gaining %1%{(level+constitutionModifier)>?1} temporary HP, for 1 min 1/short rest"',
@@ -644,7 +644,8 @@ Eberron5E.PATHS_ADDED = {
 Eberron5E.RACES_ADDED = {
   'Changeling':
     'Features=' +
-      '"Changeling Ability Adjustment",Shapechanger,"Changeling Instincts" ' +
+      '"Changeling Ability Adjustment","Changeling Instincts",' +
+      '"Changeling Shapechanger" ' +
     'Languages=Common,any,any',
   'Kalashtar':
     'Features=' +
@@ -865,7 +866,6 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
   'Cloudkill':'"A5 [Alchemist]"',
   'Raise Dead':'"A5 [Alchemist]"',
 
-  'Shield':'"A1 [Artillerist]"',
   'Thunderwave':'"A1 [Artillerist]"',
   'Scorching Ray':'"A2 [Artillerist]"',
   'Shatter':'"A2 [Artillerist]"',
@@ -877,7 +877,6 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
   'Wall Of Force':'"A5 [Artillerist]"',
 
   'Heroism':'"A1 [Battle Smith]"',
-  'Shield':'"A1 [Battle Smith]"',
   'Branding Smite':'"A2 [Battle Smith]"',
   'Warding Bond':'"A2 [Battle Smith]"',
   'Aura Of Vitality':'"A3 [Battle Smith]"',
@@ -885,7 +884,9 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
   'Aura Of Purity':'"A4 [Battle Smith]"',
   'Fire Shield':'"A4 [Battle Smith]"',
   'Banishing Smite':'"A5 [Battle Smith]"',
-  'Mass Cure Wounds':'"A5 [Battle Smith]"'
+  'Mass Cure Wounds':'"A5 [Battle Smith]"',
+
+  'Shield':'"A1 [Artillerist]","A1 [Battle Smith]"'
 
 };
 if(window.Xanathar != null) {
@@ -941,6 +942,8 @@ Eberron5E.choiceRules = function(rules, type, name, attrs) {
   }
   if(type == 'Class')
     Eberron5E.classRulesExtra(rules, name);
+  else if(type == 'Feat')
+    Eberron5E.featRulesExtra(rules, name);
   else if(type == 'Path')
     Eberron5E.pathRulesExtra(rules, name);
   else if(type == 'Race')
@@ -996,8 +999,33 @@ Eberron5E.classRulesExtra = function(rules, name) {
     rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
       classLevel, '=', 'source>=3 ? 1 : null'
     );
+    SRD5E.featureSpell(rules, 'Lesser Restoration', 'Restorative Reagents', 'A', 2);
+    SRD5E.featureSpell(rules, 'Greater Restoration', 'Chemical Mastery', 'A', 5);
+    SRD5E.featureSpell(rules, 'Heal', 'Chemical Mastery', 'A', 6);
   }
 
+};
+
+/*
+ * Defines in #rules# the rules associated with feat #name# that cannot be
+ * derived directly from the attributes passed to featRules.
+ */
+Eberron5E.featRulesExtra = function(rules, name) {
+  if(name == 'Aberrant Dragonmark') {
+    rules.defineRule('spellSlots.S0', 'magicNotes.aberrantDragonmark', '+=', '1');
+    rules.defineRule('spellSlots.S1', 'magicNotes.aberrantDragonmark', '+=', '1');
+    rules.defineRule('spellCasterLevel.Aberrant Dragonmark',
+      'features.Aberrant Dragonmark', '?', null,
+      'level', '=', null
+    );
+    rules.defineRule('spellAbility.Aberrant Dragonmark',
+      'features.Aberrant Dragonmark', '?', null,
+      'constitutionModifier', '=', null,
+      'levels.Sorcerer', 'v', '0'
+    );
+    rules.defineRule
+      ('spellAbility.S', 'spellAbility.Aberrant Dragonmark', '^=', null);
+  }
 };
 
 /*
@@ -1028,7 +1056,7 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools, spells) {
     return;
   }
   if(!Array.isArray(spells)) {
-    console.log('Bad spell list "' + spell + '" for house ' + name);
+    console.log('Bad spell list "' + spells + '" for house ' + name);
     return;
   }
 
@@ -1145,15 +1173,83 @@ Eberron5E.raceRulesExtra = function(rules, name) {
   } else if(name == 'Mark Of Detection Half-Elf') {
     rules.defineRule
       ('abilityBoosts', 'abilityNotes.detectionAbilityAdjustment', '+=', '1');
+    SRD5E.featureSpell(rules, 'Detect Magic', 'Magical Detection', 'W', 1);
+    SRD5E.featureSpell
+      (rules, 'Detect Poison And Disease', 'Magical Detection', 'W', 1);
+    SRD5E.featureSpell(rules, 'See Invisibility', 'Magical Detection', 'W', 2);
+    rules.defineRule('spells.See Invisibility(W2 [Magical Detection] Divi)',
+      'level', '?', 'source >= 3'
+    );
+  } else if(name.startsWith('Mark Of Finding')) {
+    SRD5E.featureSpell(rules, "Hunter's Mark", "Finder's Magic", 'R', 1);
+    SRD5E.featureSpell(rules, 'Locate Object', "Finder's Magic", 'R', 2);
+    rules.defineRule("spells.Locate Object(R2 [Finder's Magic] Divi)",
+      'level', '?', 'source >= 3'
+    );
   } else if(name == 'Mark Of Handling Human') {
     rules.defineRule
       ('abilityBoosts', 'abilityNotes.handlingAbilityAdjustment', '+=', '1');
-  } else if(name == 'Mark Of Making Halfling') {
+    SRD5E.featureSpell(rules, 'Animal Friendship', 'Primal Connection', 'R', 1);
+    SRD5E.featureSpell(rules, 'Speak With Animals', 'Primal Connection', 'R', 1);
+  } else if(name == 'Mark Of Healing Halfling') {
+    SRD5E.featureSpell(rules, 'Cure Wounds', 'Healing Touch', 'C', 1);
+    SRD5E.featureSpell(rules, 'Lesser Restoration', 'Healing Touch', 'C', 2);
+    rules.defineRule('spells.Lesser Restoration(C2 [Healing Touch] Abju)',
+      'level', '?', 'source >= 3'
+    );
+    // Cure Wounds is the only (?) mark spell affected by spell modifier, so
+    // we need to set the related caster level.
+    rules.defineRule('casterLevels.Healing Touch',
+      'features.Healing Touch', '?', null,
+      'level', '=', null,
+      'levels.Cleric', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.C', 'casterLevels.Healing Touch', '^=', null);
+  } else if(name == 'Mark Of Hospitality Halfling') {
+    SRD5E.featureSpell(rules, 'Prestidigitation', "Innkeeper's Magic", 'B', 0);
+    SRD5E.featureSpell
+      (rules, 'Purify Food And Drink', "Innkeeper's Magic", 'B', 1);
+    SRD5E.featureSpell(rules, 'Unseen Servant', "Innkeeper's Magic", 'B', 1);
+  } else if(name == 'Mark Of Making Human') {
     rules.defineRule
       ('abilityBoosts', 'abilityNotes.makingAbilityAdjustment', '+=', '1');
+    SRD5E.featureSpell(rules, 'Mending', 'Spellsmith', 'W', 0);
+    SRD5E.featureSpell(rules, 'Magic Weapon', 'Spellsmith', 'W', 2);
   } else if(name == 'Mark Of Passage Human') {
     rules.defineRule
       ('abilityBoosts', 'abilityNotes.passageAbilityAdjustment', '+=', '1');
+    // NOTE: Dexterity is ability for this spell, but there are no ability-
+    // related effects.
+    SRD5E.featureSpell(rules, 'Misty Step', 'Magical Passage', 'W', 2);
+  } else if(name == 'Mark Of Scribing Gnome') {
+    SRD5E.featureSpell(rules, 'Message', "Scribe's Insight", 'W', 0);
+    SRD5E.featureSpell(rules, 'Comprehend Languages', "Scribe's Insight", 'W', 1);
+    SRD5E.featureSpell(rules, 'Magic Mouth', "Scribe's Insight", 'W', 2);
+    rules.defineRule("spells.Magic Mouth(W2 [Scribe's Insight] Illu)",
+      'level', '?', 'source >= 3'
+    );
+  } else if(name == 'Mark Of Sentinel Human') {
+    SRD5E.featureSpell(rules, 'Shield', "Guardian's Shield", 'P', 1);
+  } else if(name == 'Mark Of Shadow Elf') {
+    SRD5E.featureSpell(rules, 'Minor Illusion', 'Shape Shadows', 'B', 0);
+    SRD5E.featureSpell(rules, 'Invisibility', 'Shape Shadows', 'B', 2);
+    rules.defineRule('spells.Invisibility(B2 [Shape Shadows] Illu)',
+      'level', '?', 'source >= 3'
+    );
+  } else if(name == 'Mark Of Storm Half-Elf') {
+    SRD5E.featureSpell(rules, 'Gust', 'Headwinds', 'S', 0);
+    SRD5E.featureSpell(rules, 'Gust Of Wind', 'Headwinds', 'S', 2);
+    rules.defineRule('spells.Gust Of Wind(S2 [Headwinds] Evoc)',
+      'level', '?', 'source >= 3'
+    );
+  } else if(name == 'Mark Of Warding Dwarf') {
+    SRD5E.featureSpell(rules, 'Alarm', 'Wards And Seals', 'W', 1);
+    SRD5E.featureSpell(rules, 'Mage Armor', 'Wards And Seals', 'W', 1);
+    SRD5E.featureSpell(rules, 'Arcane Lock', 'Wards And Seals', 'W', 2);
+    rules.defineRule('spells.Arcane Lock(W2 [Guards And Wards] Abju)',
+      'level', '?', 'source >= 3'
+    );
   } else if(name == 'Warforged') {
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
@@ -1193,7 +1289,7 @@ Eberron5E.choiceEditorElements = function(rules, type) {
       ['Dragonmark', 'Dragonmark', 'text', [20]],
       ['Race', 'Race', 'text', [40]],
       ['Tool', 'Tools', 'text', [80]],
-      ['Spells', 'Spells', 'text', [80]],
+      ['Spells', 'Spells', 'text', [80]]
     );
   else
     result = SRD5E.choiceEditorElements(rules, type);
