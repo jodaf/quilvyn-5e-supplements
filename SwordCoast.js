@@ -752,10 +752,26 @@ SwordCoast.TOOLS_ADDED = {
  */
 SwordCoast.choiceRules = function(rules, type, name, attrs) {
   PHB5E.choiceRules(rules, type, name, attrs);
-  if(type == 'Path')
+  if(type == 'Feat')
+    SwordCoast.featRulesExtra(rules, name);
+  else if(type == 'Path')
     SwordCoast.pathRulesExtra(rules, name);
   else if(type == 'Race')
     SwordCoast.raceRulesExtra(rules, name);
+};
+
+/*
+ * Defines in #rules# the rules associated with feat #name# that cannot be
+ * derived directly from the attributes passed to featRules.
+ */
+SwordCoast.featRulesExtra = function(rules, name) {
+  if(name == 'Svirfneblin Magic') {
+    SRD5E.featureSpell(rules, 'Disguise Self', 'Svirfneblin Magic', 'W', 1);
+    SRD5E.featureSpell(rules, 'Blur', 'Svirfneblin Magic', 'W', 2);
+    SRD5E.featureSpell
+      (rules, 'Blindness/Deafness', 'Svirfneblin Magic', 'W', 2);
+    SRD5E.featureSpell(rules, 'Nondetection', 'Svirfneblin Magic', 'W', 3);
+  }
 };
 
 /*
@@ -870,6 +886,7 @@ SwordCoast.pathRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.defyDeath',
       'constitutionModifier', '=', 'Math.max(source, 1)'
     );
+    SRD5E.featureSpell(rules, 'Spare The Dying', 'Among The Dead', 'K', 0);
   } else if(name == 'Way Of The Long Death') {
     rules.defineRule('combatNotes.hourOfReaping', 'kiSaveDC', '=', null);
     rules.defineRule('combatNotes.touchOfDeath',
@@ -897,6 +914,7 @@ SwordCoast.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('magicNotes.searingArcStrike', pathLevel, '=', 'Math.floor(source / 2)');
     rules.defineRule('magicNotes.searingSunburst', 'kiSaveDC', '=', null);
+    SRD5E.featureSpell(rules, 'Burning Hands', 'Searing Arc Strike', 'W', 1);
   }
 
 };
@@ -914,9 +932,13 @@ SwordCoast.raceRulesExtra = function(rules, name) {
   if(name == 'Gray Dwarf') {
     rules.defineRule('magicNotes.duergarMagic.1',
       'features.Duergar Magic', '?', null,
-      raceLevel, '=', 'source>=5 ? ", <i>Invisibility</i>" : ""'
+      raceLevel, '=', 'source>=5 ? " and <i>Invisibility</i>" : ""'
     );
-
+    SRD5E.featureSpell(rules, 'Enlarge/Reduce', 'Duergar Magic', 'W', 2);
+    SRD5E.featureSpell(rules, 'Invisibility', 'Duergar Magic', 'W', 2);
+    rules.defineRule('spells.Invisibility(W2 [Duergar Magic] Illu)',
+      'level', '?', 'source >= 5'
+    );
   }
 
 };
