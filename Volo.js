@@ -39,6 +39,7 @@ function Volo(edition, rules) {
   var races = monstrous ? Volo.MONSTROUS_RACES : Volo.CHARACTER_RACES;
   if(rules == null)
     rules = PHB5E.rules;
+  Volo.magicRules(rules, Volo.SPELLS);
   Volo.identityRules(rules, races);
   Volo.talentRules(rules, features);
   if(monstrous)
@@ -72,8 +73,8 @@ Volo.CHARACTER_FEATURES = {
   'Fallen Aasimar Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Strength"',
   'Feline Agility':'Section=combat Note="Dbl speed move 1/skipped move"',
-  'Firlbog Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Strength"',
-  'Firlbog Magic':
+  'Firbolg Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Strength"',
+  'Firbolg Magic':
     'Section=magic ' +
     'Note="Cast <i>Detect Magic</i> and <i>Disguise Self</i> 1/short rest"',
   'Goliath Ability Adjustment':
@@ -134,9 +135,9 @@ Volo.CHARACTER_RACES = {
       '"Fallen Aasimar Ability Adjustment","Light Bearer",' +
       '"3:Necrotic Shroud" ' +
     'Languages=Celestial,Common',
-  'Firlbog':
+  'Firbolg':
     'Features=' +
-      '"Firlbog Ability Adjustment","Firlbog Magic","Hidden Step",' +
+      '"Firbolg Ability Adjustment","Firbolg Magic","Hidden Step",' +
       '"Powerful Build","Speech Of Beast And Leaf" ' +
     'Languages=Common,Elvish,Giant',
   'Lizardfolk':
@@ -248,6 +249,13 @@ Volo.MONSTROUS_RACES = {
       '"Yuan-Ti Ability Adjustment" ' +
     'Languages=Common,Abyssal,Draconic',
 };
+Volo.SPELLS = {
+  // Copied from Xanathar's
+  'Wall Of Water':
+    'School=Evocation ' +
+    'Level=D3,S3,W3 ' +
+    'Description="R60\' 30\'x10\' wall inflicts Disadv on ranged attacks and half damage on fire for conc or 10 min"'
+};
 
 /* Defines rules related to basic character identity. */
 Volo.identityRules = function(rules, races) {
@@ -255,6 +263,11 @@ Volo.identityRules = function(rules, races) {
   for(var r in races) {
     Volo.raceRulesExtra(rules, r);
   }
+};
+
+/* Defines rules related to magic use. */
+Volo.magicRules = function(rules, spells) {
+  SRD5E.magicRules(rules, {}, spells);
 };
 
 /* Defines rules related to character aptitudes. */
@@ -269,6 +282,13 @@ Volo.talentRules = function(rules, features) {
 Volo.raceRulesExtra = function(rules, name) {
   if(name.match(/Aasimar/)) {
     rules.defineRule('magicNotes.healingHands', 'level', '=', null);
+    SRD5E.featureSpell(rules, 'Light', 'Light Bearer', 'S', 0);
+    rules.defineRule('casterLevels.Light Bearer',
+      'features.Light Bearer', '?', null,
+      'level', '=', null,
+      'levels.Sorcerer', 'v', '0'
+    );
+    rules.defineRule('casterLevels.S', 'casterLevels.Light Bearer', '^=', null);
   }
   if(name == 'Fallen Aasimar') {
     rules.defineRule('combatNotes.necroticShroud', 'level', '=', null);
@@ -276,6 +296,16 @@ Volo.raceRulesExtra = function(rules, name) {
       'charismaModifier', '=', '8 + source',
       'proficiencyBonus', '+', null
     );
+  } else if(name == 'Firbolg') {
+    SRD5E.featureSpell(rules, 'Detect Magic', 'Firbolg Magic', 'D', 1);
+    SRD5E.featureSpell(rules, 'Disguise Self', 'Firbolg Magic', 'D', 1);
+    rules.defineRule('casterLevels.Firbolg Magic',
+      'features.Firbolg Magic', '?', null,
+      'level', '=', null,
+      'levels.Druid', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.D', 'casterLevels.Firbolg Magic', '^=', null);
   } else if(name == 'Hobgoblin') {
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
@@ -305,10 +335,40 @@ Volo.raceRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.controlAirAndWater.1',
       'tritonLevel', '=', 'source<3 ? "" : source<5 ? " w/<i>Gust Of Wind</i>" : " w/<i>Gust Of Wind</i> and <i>Wall Of Water</i>"'
     );
+    SRD5E.featureSpell(rules, 'Fog Cloud', 'Control Air And Water', 'S', 1);
+    SRD5E.featureSpell(rules, 'Gust Of Wind', 'Control Air And Water', 'S', 2);
+    SRD5E.featureSpell(rules, 'Wall Of Water', 'Control Air And Water', 'S', 3);
+    rules.defineRule('spells.Gust Of Wind (S2 [Control Air And Water] Evoc)',
+      'level', '?', 'source >= 3'
+    );
+    rules.defineRule('spells.Wall Of Water (S3 [Control Air And Water] Evoc)',
+      'level', '?', 'source >= 5'
+    );
+    rules.defineRule('casterLevels.Control Air And Water',
+      'features.Control Air And Water', '?', null,
+      'level', '=', null,
+      'levels.Sorcerer', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.S', 'casterLevels.Control Air And Water', '^=', null);
   } else if(name == 'Yuan-Ti') {
     rules.defineRule('magicNotes.innateSpellcasting.1',
       'yuan-TiLevel', '=', 'source<3 ? "" : ", cast <i>Suggestion</i> 1/long rest"'
     );
+    SRD5E.featureSpell(rules, 'Poison Spray', 'Innate Spellcasting', 'S', 0);
+    SRD5E.featureSpell
+      (rules, 'Animal Friendship', 'Innate Spellcasting', 'S', 1);
+    SRD5E.featureSpell(rules, 'Suggestion', 'Innate Spellcasting', 'S', 2);
+    rules.defineRule('spells.Suggestion (S2 [Innate Spellcasting] Ench)',
+      'level', '?', 'source >= 3'
+    );
+    rules.defineRule('casterLevels.Innate Spellcasting',
+      'features.Innate Spellcasting', '?', null,
+      'level', '=', null,
+      'levels.Sorcerer', 'v', '0'
+    );
+    rules.defineRule
+      ('casterLevels.S', 'casterLevels.Innate Spellcasting', '^=', null);
   }
 };
 
