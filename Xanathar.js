@@ -712,7 +712,7 @@ Xanathar.FEATURES = {
          '"Adv on Athletics or Acrobatics to break grapple"',
   'Wood Elf Magic':
     'Section=magic ' +
-    'Note="Know 1 Druid cantrip, cast <i>Longstrider</i> and <i>Pass Without Trace</i> 1/long rest"'
+    'Note="Know 1 D0 cantrip, cast <i>Longstrider</i> and <i>Pass Without Trace</i> 1/long rest"'
 };
 Xanathar.PATHS = {
   'Arcane Archer':
@@ -1459,6 +1459,17 @@ Xanathar.featRulesExtra = function(rules, name) {
     );
     SRD5E.weaponRules(rules, 'Claws', 0, ['Un'], '1d4', null);
     rules.defineRule('weapons.Claws', 'combatNotes.dragonHide', '=', '1');
+  } else if(name == 'Drow High Magic') {
+    SRD5E.featureSpell(rules, 'Detect Magic', 'Drow High Magic', 'S', 1);
+    SRD5E.featureSpell(rules, 'Levitate', 'Drow High Magic', 'S', 2);
+    SRD5E.featureSpell(rules, 'Dispel Magic', 'Drow High Magic', 'S', 3);
+    rules.defineRule('casterLevels.Drow High Magic',
+      'features.Drow High Magic', '?', null,
+      'level', '=', null,
+      'levels.Sorcerer', 'v', 0
+    );
+    rules.defineRule
+      ('casterLevels.S', 'casterLevels.Drow High Magic', '^=', null);
   } else if(name == 'Elven Accuracy') {
     rules.defineRule('abilityBoosts', 'abilityNotes.elvenAccuracy', '+=', '1');
   } else if(name == 'Fade Away') {
@@ -1469,6 +1480,14 @@ Xanathar.featRulesExtra = function(rules, name) {
     rules.defineRule('languageCount', 'skillNotes.feyTeleportation', '+=', '1');
     rules.defineRule
       ('languages.Sylvan', 'skillNotes.feyTeleportation', '=', '1');
+    SRD5E.featureSpell(rules, 'Misty Step', 'Fey Teleportation', 'W', 2);
+    rules.defineRule('casterLevels.Fey Teleportation',
+      'features.Fey Teleportation', '?', null,
+      'level', '=', null,
+      'levels.Wizard', 'v', 0
+    );
+    rules.defineRule
+      ('casterLevels.W', 'casterLevels.Fey Teleportation', '^=', null);
   } else if(name == 'Flames Of Phlegethos') {
     rules.defineRule
       ('abilityBoosts', 'abilityNotes.flamesOfPhlegethos', '+=', '1');
@@ -1485,6 +1504,15 @@ Xanathar.featRulesExtra = function(rules, name) {
       ('abilityBoosts', 'abilityNotes.squatNimbleness', '+=', '1');
   } else if(name == 'Wood Elf Magic') {
     rules.defineRule('spellSlots.D0', 'magicNotes.woodElfMagic', '+=', '1');
+    SRD5E.featureSpell(rules, 'Longstrider', 'Wood Elf Magic', 'D', 1);
+    SRD5E.featureSpell(rules, 'Pass Without Trace', 'Wood Elf Magic', 'D', 2);
+    rules.defineRule('casterLevels.Wood Elf Magic',
+      'features.Wood Elf Magic', '?', null,
+      'level', '=', null,
+      'levels.Druid', 'v', 0
+    );
+    rules.defineRule
+      ('casterLevels.D', 'casterLevels.Wood Elf Magic', '^=', null);
   }
 
 };
@@ -1530,6 +1558,10 @@ Xanathar.pathRulesExtra = function(rules, name) {
       pathLevel, '=',
         'source>=18 ? 6 : source>=15 ? 5 : source>=10 ? 4 : source>=7 ? 3 : 2'
     );
+    SRD5E.featureSpell(rules, 'Druidcraft', 'Arcane Archer Lore', 'D', 0);
+    SRD5E.featureSpell(rules, 'Prestidigitation', 'Arcane Archer Lore', 'W', 0);
+    // Don't need to set caster level, since neither of these cantrips has
+    // variable effects.
   } else if(name == 'Cavalier') {
     rules.defineRule('combatNotes.ferociousCharger',
       'proficiencyBonus', '=', '8 + source',
@@ -1549,6 +1581,10 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.balmOfTheSummerCourt', pathLevel, '=', null);
     rules.defineRule
       ('magicNotes.hiddenPaths', 'wisdomModifier', '=', 'Math.max(source, 1)');
+    SRD5E.featureSpell(rules, 'Dream', 'Walker In Dreams', 'D', 5);
+    SRD5E.featureSpell(rules, 'Scrying', 'Walker In Dreams', 'D', 5);
+    SRD5E.featureSpell
+      (rules, 'Teleportation Circle', 'Walker In Dreams', 'D', 5);
   } else if(name == 'Circle Of The Shepherd') {
     rules.defineRule
       ('languages.Sylvan', pathLevel, '=', 'source>=2 ? 1 : null');
@@ -1574,6 +1610,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('magicNotes.unbreakableMajesty', 'spellDifficultyClass.B', '=', null);
+    SRD5E.featureSpell(rules, 'Command', 'Mantle Of Majesty', 'B', 1);
   } else if(name == 'College Of Swords') {
     rules.defineRule
       ('combatNotes.defensiveFlourish', 'bardicInspirationDie', '=', null);
@@ -1629,6 +1666,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule("magicNotes.sentinelAtDeath'sDoor",
       'wisdomModifier', '=', 'Math.max(source, 1)'
     );
+    SRD5E.featureSpell(rules, 'Spare The Dying', 'Circle Of Mortality', 'C', 0);
   } else if(name == 'Horizon Walker') {
     rules.defineRule
       ('combatNotes.planarWarrior', pathLevel, '=', 'source>=11 ? 2 : 1');
@@ -1675,6 +1713,15 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.spiritShield',
       pathLevel, '=', 'source>=14 ? 4 : source>=10 ? 3 : 2'
     );
+    SRD5E.featureSpell(rules, 'Augury', 'Consult The Spirits', 'C', 2);
+    SRD5E.featureSpell(rules, 'Clairvoyance', 'Consult The Spirits', 'C', 3);
+    rules.defineRule('casterLevels.Consult The Spirits',
+      'features.Consult The Spirits', '?', null,
+      pathLevel, '=', null,
+      'levels.Cleric', 'v', 0
+    );
+    rules.defineRule
+      ('casterLevels.C', 'casterLevels.Consult The Spirits', '^=', null);
   } else if(name == 'Path Of The Storm Herald') {
     rules.defineRule('combatNotes.ragingStorm(Desert)',
       pathLevel, '=', 'Math.floor(source / 2)'
@@ -1737,6 +1784,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.eyesOfTheDark', pathLevel, '?', 'source>=3');
     rules.defineRule
       ('combatNotes.houndOfIllOmen', pathLevel, '=', 'Math.floor(source / 2)');
+    SRD5E.featureSpell(rules, 'Darkness', 'Eyes Of Darkness', 'S', 2);
   } else if(name == 'Storm Sorcery') {
     rules.defineRule("combatNotes.storm'sFury", pathLevel, '=', null);
     rules.defineRule("combatNotes.storm'sFury.1",
@@ -1783,6 +1831,15 @@ Xanathar.pathRulesExtra = function(rules, name) {
       pathLevel, '=', 'Math.floor(source / 2)',
       'charismaModifier', '+', null
     );
+    SRD5E.featureSpell(rules, 'Light', 'Bonus Celestial Cantrips', 'K', 0);
+    SRD5E.featureSpell
+      (rules, 'Sacred Flame', 'Bonus Celestial Cantrips', 'K', 0);
+    // Place these Eldritch Invocation spells here, since we don't have a
+    // classRulesExtra function that defines general Warlock rules.
+    SRD5E.featureSpell(rules, 'Invisibility', 'Shroud Of Shadow', 'K', 2);
+    SRD5E.featureSpell(rules, 'Water Breathing', 'Gift Of The Depths', 'K', 3);
+    SRD5E.featureSpell
+      (rules, 'Freedom Of Movement', "Trickster's Escape", 'K', 3);
   } else if(name == 'The Hexblade') {
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
@@ -1877,6 +1934,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('magicNotes.searingArcStrike', pathLevel, '=', 'Math.floor(source / 2)');
     rules.defineRule('magicNotes.searingSunburst', 'kiSaveDC', '=', null);
+    SRD5E.featureSpell(rules, 'Burning Hands', 'Searing Arc Strike', 'W', 1);
   }
 
 };
