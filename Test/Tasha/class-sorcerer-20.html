@@ -16,19 +16,27 @@ var attributes = {
   "selectableFeatures.Sorcerer - Clockwork Soul":1, "selectableFeatures.Sorcerer - Empowered Spell":1, 
   "selectableFeatures.Sorcerer - Heightened Spell":1, "selectableFeatures.Sorcerer - Seeking Spell":1, 
   "selectableFeatures.Sorcerer - Subtle Spell":1, "selectableFeatures.Sorcerer - Transmuted Spell":1, "shield":"None", 
-  "skillsChosen.Arcana":1, "skillsChosen.Intimidation":1, "spells.Blade Ward(S0 Abju)":1, 
-  "spells.Burning Hands(S1 Evoc)":1, "spells.Chromatic Orb(S1 Evoc)":1, "spells.Cone Of Cold(S5 Evoc)":1, 
-  "spells.Confusion(S4 Ench)":1, "spells.Creation(S5 Illu)":1, "spells.Crown Of Madness(S2 Ench)":1, 
-  "spells.Darkvision(S2 Tran)":1, "spells.Disintegrate(S6 Tran)":1, "spells.Dominate Beast(S4 Ench)":1, 
-  "spells.Dominate Person(S5 Ench)":1, "spells.Fire Storm(S7 Evoc)":1, "spells.Friends(S0 Ench)":1, 
-  "spells.Greater Invisibility(S4 Illu)":1, "spells.Incendiary Cloud(S8 Conj)":1, "spells.Mage Armor(S1 Abju)":1, 
-  "spells.Major Image(S3 Illu)":1, "spells.Message(S0 Tran)":1, "spells.Move Earth(S6 Tran)":1, 
-  "spells.Plane Shift(S7 Conj)":1, "spells.Poison Spray(S0 Conj)":1, "spells.Prestidigitation(S0 Tran)":1, 
-  "spells.Protection From Energy(S3 Abju)":1, "spells.Scorching Ray(S2 Evoc)":1, "spells.Shield(S1 Abju)":1, 
-  "spells.Shocking Grasp(S0 Evoc)":1, "spells.Sleet Storm(S3 Conj)":1, "spells.Time Stop(S9 Tran)":1, 
-  "strength":15, "weapons.Dagger":1, "weapons.Light Crossbow":1, "weapons.Unarmed":1, 
-  "weaponsChosen.Maul":1, "weaponsChosen.Morningstar":1, "weaponsChosen.Spear":1, 
-  "weaponsChosen.Warhammer":1, "wisdom":7
+  "skillsChosen.Arcana":1, "skillsChosen.Intimidation":1, "spells.Aid(Clockwork2 Abju)":1, 
+  "spells.Alarm(Clockwork1 Abju)":1, "spells.Arms Of Hadar(Aberrant1 Conj)":1, "spells.Blade Ward(S0 Abju)":1, 
+  "spells.Burning Hands(S1 Evoc)":1, "spells.Calm Emotions(Aberrant2 Ench)":1, "spells.Chromatic Orb(S1 Evoc)":1, 
+  "spells.Cone Of Cold(S5 Evoc)":1, "spells.Confusion(S4 Ench)":1, "spells.Creation(S5 Illu)":1, 
+  "spells.Crown Of Madness(S2 Ench)":1, "spells.Darkvision(S2 Tran)":1, "spells.Detect Thoughts(Aberrant2 Divi)":1, 
+  "spells.Disintegrate(S6 Tran)":1, "spells.Dispel Magic(Clockwork3 Abju)":1, 
+  "spells.Dissonant Whispers(Aberrant1 Ench)":1, "spells.Dominate Beast(S4 Ench)":1, "spells.Dominate Person(S5 Ench)":1, 
+  "spells.Evard's Black Tentacles(Aberrant4 Conj)":1, "spells.Fire Storm(S7 Evoc)":1, 
+  "spells.Freedom Of Movement(Clockwork4 Abju)":1, "spells.Friends(S0 Ench)":1, "spells.Greater Invisibility(S4 Illu)":1, 
+  "spells.Greater Restoration(Clockwork5 Abju)":1, "spells.Hunger Of Hadar(Aberrant3 Conj)":1, 
+  "spells.Incendiary Cloud(S8 Conj)":1, "spells.Lesser Restoration(Clockwork2 Abju)":1, 
+  "spells.Mage Armor(S1 Abju)":1, "spells.Major Image(S3 Illu)":1, "spells.Message(S0 Tran)":1, 
+  "spells.Move Earth(S6 Tran)":1, "spells.Plane Shift(S7 Conj)":1, "spells.Poison Spray(S0 Conj)":1, 
+  "spells.Prestidigitation(S0 Tran)":1, "spells.Protection From Energy(Clockwork3 Abju)":1, 
+  "spells.Protection From Energy(S3 Abju)":1, "spells.Protection From Evil And Good(Clockwork1 Abju)":1, 
+  "spells.Rary's Telepathic Bond(Aberrant5 Divi)":1, "spells.Scorching Ray(S2 Evoc)":1, "spells.Sending(Aberrant3 Evoc)":1, 
+  "spells.Shield(S1 Abju)":1, "spells.Shocking Grasp(S0 Evoc)":1, "spells.Sleet Storm(S3 Conj)":1, 
+  "spells.Summon Aberration(Aberrant4 Conj)":1, "spells.Summon Construct(Clockwork4 Conj)":1, "spells.Time Stop(S9 Tran)":1, 
+  "spells.Wall Of Force(Clockwork5 Evoc)":1, "strength":15, "weapons.Dagger":1, "weapons.Light Crossbow":1, 
+  "weapons.Unarmed":1, "weaponsChosen.Maul":1, "weaponsChosen.Morningstar":1, 
+  "weaponsChosen.Spear":1, "weaponsChosen.Warhammer":1, "wisdom":7
 };
   </script>
 </head>
@@ -229,9 +237,9 @@ var attributes = {
     <tr style="text-align:center">
       <td>      <table id="SpellStats" style="width:100%">
       <tr style="text-align:center">
-        <td><b>Spell Slots</b>: S0: 6; S1: 4; S2: 3; S3: 3; S4: 3; S5: 3; S6: 2; S7: 2; S8: 1; S9: 1</td>
-        <td><b>Attack</b>: S: 9</td>
-        <td><b>Spell DC</b>: S: 17</td>
+        <td><b>Spell Slots</b>: Aberrant1: 2; Aberrant2: 2; Aberrant3: 2; Aberrant4: 2; Aberrant5: 2; Clockwork1: 2; Clockwork2: 2; Clockwork3: 2; Clockwork4: 2; Clockwork5: 2; S0: 6; S1: 4; S2: 3; S3: 3; S4: 3; S5: 3; S6: 2; S7: 2; S8: 1; S9: 1</td>
+        <td><b>Attack</b>: Clockwork: 9; S: 9</td>
+        <td><b>Spell DC</b>: Clockwork: 17; S: 17</td>
       </tr></table>
 </td>
     </tr></table>
@@ -239,9 +247,17 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Spells</b>:     <table id="Spells" style="width:100%">
     <tr style="text-align:left">
+      <td>Aid (Clockwork2 Abju): R30' 3 targets gain +5 temporary HP for 8 hr</td>
+    </tr><tr style="text-align:left">
+      <td>Alarm (Clockwork1 Abju): R30' Entry into 20' cu triggers audible or mental alarm for 8 hr</td>
+    </tr><tr style="text-align:left">
+      <td>Arms Of Hadar (Aberrant1 Conj): 10' radius inflicts 2d6 HP necrotic and no Reaction (Str half, no loss of Reaction) for 1 rd</td>
+    </tr><tr style="text-align:left">
       <td>Blade Ward (S0 Abju): Self gains resistance to bludgeoning, piercing, and slashing damage for 1 rd</td>
     </tr><tr style="text-align:left">
       <td>Burning Hands (S1 Evoc): 15' cone inflicts 3d6 HP fire (Dex half)</td>
+    </tr><tr style="text-align:left">
+      <td>Calm Emotions (Aberrant2 Ench): R60' 20' radius suppresses charm and fright or hostility (Cha neg) for conc or 1 min</td>
     </tr><tr style="text-align:left">
       <td>Chromatic Orb (S1 Evoc): R90' Ranged spell inflicts 3d8 HP acid, cold, fire, lightning, poison, or energy</td>
     </tr><tr style="text-align:left">
@@ -255,19 +271,35 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Darkvision (S2 Tran): Touched sees 60' in dark for 8 hr</td>
     </tr><tr style="text-align:left">
+      <td>Detect Thoughts (Aberrant2 Divi): R30' Self senses target thoughts for conc or 1 min</td>
+    </tr><tr style="text-align:left">
       <td>Disintegrate (S6 Tran): R60' Target suffers 10d6+40 HP force, dusts if reduced to 0 HP (Dex neg)</td>
+    </tr><tr style="text-align:left">
+      <td>Dispel Magic (Clockwork3 Abju): R120' Ends spell effects up to spell level 3 on target, higher levels require DC 10 + spell level check</td>
+    </tr><tr style="text-align:left">
+      <td>Dissonant Whispers (Aberrant1 Ench): R60' Target suffers 3d6 HP psychic and flees (Wis half, need not flee)</td>
     </tr><tr style="text-align:left">
       <td>Dominate Beast (S4 Ench): R60' Target obeys self telepathic commands (Wis neg) for conc or 1 min</td>
     </tr><tr style="text-align:left">
       <td>Dominate Person (S5 Ench): R60' Target obeys self telepathic commands (Wis neg) for conc or 1 min</td>
     </tr><tr style="text-align:left">
+      <td>Evard's Black Tentacles (Aberrant4 Conj): R90' 20' sq inflicts 3d6 HP bludgeoning and restrains (Dex neg, Str or Dex breaks free) for conc or 1 min</td>
+    </tr><tr style="text-align:left">
       <td>Fire Storm (S7 Evoc): R150' 10 10' cu inflicts 7d10 HP fire (Dex half)</td>
+    </tr><tr style="text-align:left">
+      <td>Freedom Of Movement (Clockwork4 Abju): Touched gains immunity to impediments for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Friends (S0 Ench): Self gains on Adv on Cha checks w/target for conc or 1 min</td>
     </tr><tr style="text-align:left">
       <td>Greater Invisibility (S4 Illu): Touched becomes invisible for conc or 1 min</td>
     </tr><tr style="text-align:left">
+      <td>Greater Restoration (Clockwork5 Abju): Touched becomes unexhausted, uncharmed, unpetrified, or uncursed or regains ability or HP</td>
+    </tr><tr style="text-align:left">
+      <td>Hunger Of Hadar (Aberrant3 Conj): R150' 20' void inflicts 2d6 HP cold (start of turn) and 2d6 HP acid (end of turn) for conc or 1 min</td>
+    </tr><tr style="text-align:left">
       <td>Incendiary Cloud (S8 Conj): R150' 20' radius inflicts 10d8 HP fire (Dex half), moves away 10'/rd for conc or 1 min</td>
+    </tr><tr style="text-align:left">
+      <td>Lesser Restoration (Clockwork2 Abju): Touched becomes unblinded, undeafened, undiseased, unparalyzed, or unpoisoned</td>
     </tr><tr style="text-align:left">
       <td>Mage Armor (S1 Abju): Touched gains AC 13 + DexMod in no armor for 8 hr</td>
     </tr><tr style="text-align:left">
@@ -283,9 +315,17 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Prestidigitation (S0 Tran): R10' Self performs minor magic effects for 1 hr</td>
     </tr><tr style="text-align:left">
+      <td>Protection From Energy (Clockwork3 Abju): Touched gains resistance to acid, cold, fire, lightning, or thunder damage for conc or 1 hr</td>
+    </tr><tr style="text-align:left">
       <td>Protection From Energy (S3 Abju): Touched gains resistance to acid, cold, fire, lightning, or thunder damage for conc or 1 hr</td>
     </tr><tr style="text-align:left">
+      <td>Protection From Evil And Good (Clockwork1 Abju): Willing touched gains immunity to charm, fright, and possession from aberrations, celestials, elementals, fey, fiends, and undead, and those creatures suffer Disadv on attack on touched</td>
+    </tr><tr style="text-align:left">
+      <td>Rary's Telepathic Bond (Aberrant5 Divi): R30' 8 targets communicate mentally for 1 hr</td>
+    </tr><tr style="text-align:left">
       <td>Scorching Ray (S2 Evoc): R120' 3 ranged attacks inflict 2d6 HP fire each</td>
+    </tr><tr style="text-align:left">
+      <td>Sending (Aberrant3 Evoc): Self exchanges 25-word message with known target</td>
     </tr><tr style="text-align:left">
       <td>Shield (S1 Abju): Use Reaction to gain +5 AC and immunity to <i>Magic Missile</i> for 1 rd</td>
     </tr><tr style="text-align:left">
@@ -293,7 +333,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Sleet Storm (S3 Conj): R150' 40' radius causes falls (Dex neg)</td>
     </tr><tr style="text-align:left">
+      <td>Summon Aberration (Aberrant4 Conj): R90' Summoned beholderkin, slaad, or star spawn obeys self for conc or 1 hr</td>
+    </tr><tr style="text-align:left">
+      <td>Summon Construct (Clockwork4 Conj): R90' Summoned clay, metal, or stone construct spirit obeys self for conc or 1 hr</td>
+    </tr><tr style="text-align:left">
       <td>Time Stop (S9 Tran): Self gains extra 1d4 + 1 turns, ends if another affected</td>
+    </tr><tr style="text-align:left">
+      <td>Wall Of Force (Clockwork5 Evoc): R120' Creates 10 10'x10' panels that are impassable by objects for conc or 10 min</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">

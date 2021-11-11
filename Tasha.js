@@ -1078,7 +1078,13 @@ Tasha.PATHS = {
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
       '"1:Psionic Spells","1:Telepathic Speech","6:Psionic Sorcery",' +
-      '"6:Psychic Defenses","14:Revelation In Flesh","18:Warping Implosion"',
+      '"6:Psychic Defenses","14:Revelation In Flesh","18:Warping Implosion" ' +
+      'SpellSlots=' +
+        'Aberrant1:1=2,' +
+        'Aberrant2:3=2,' +
+        'Aberrant3:5=2,' +
+        'Aberrant4:7=2,' +
+        'Aberrant5:9=2',
   'Alchemist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
@@ -1145,7 +1151,14 @@ Tasha.PATHS = {
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
       '"1:Clockwork Magic","1:Manifestations Of Order","1:Restore Balance",' +
-      '"6:Bastion Of Law","14:Trance Of Order","18:Clockwork Cavalcade"',
+      '"6:Bastion Of Law","14:Trance Of Order","18:Clockwork Cavalcade" ' +
+      'SpellAbility=charisma ' +
+      'SpellSlots=' +
+        'Clockwork1:1=2,' +
+        'Clockwork2:3=2,' +
+        'Clockwork3:5=2,' +
+        'Clockwork4:7=2,' +
+        'Clockwork5:9=2',
   'College Of Creation':
     'Group=Bard Level=levels.Bard ' +
     'Features=' +
@@ -1314,7 +1327,7 @@ Tasha.SPELLS = {
     'Description="R15\' Pulls target 10\' and inflicts %{(level+5)//6}d8 HP lightning (Str neg)"',
   'Mind Sliver':
     'School=Enchantment ' +
-    'Level=K0,S0,W0 ' +
+    'Level=Aberrant0,K0,S0,W0 ' +
     'Description="R60\' Target suffers %{(level+7)//6}d6 HP psychic and -1d4 next save (Int neg) w/in 1 rd"',
   'Spirit Shroud':
     'School=Necromancy ' +
@@ -1322,7 +1335,7 @@ Tasha.SPELLS = {
     'Description="R10\' Self hits inflict +1d8 HP radiant, necrotic, or cold; 1 target/rd suffers -10\' Speed for 1 rd for conc or 1 min"',
   'Summon Aberration':
     'School=Conjuration ' +
-    'Level=K4,W4 ' +
+    'Level=Aberrant4,K4,W4 ' +
     'Description="R90\' Summoned beholderkin, slaad, or star spawn obeys self for conc or 1 hr"',
   'Summon Beast':
     'School=Conjuration ' +
@@ -1334,7 +1347,7 @@ Tasha.SPELLS = {
     'Description="R90\' Summoned avenger or defender celestial spirit obeys self for conc or 1 hr"',
   'Summon Construct':
     'School=Conjuration ' +
-    'Level=A4,W4 ' +
+    'Level=A4,Clockwork4,W4 ' +
     'Description="R90\' Summoned clay, metal, or stone construct spirit obeys self for conc or 1 hr"',
   'Summon Elemental':
     'School=Conjuration ' +
@@ -1375,14 +1388,15 @@ Tasha.SPELLS = {
 };
 Tasha.SPELLS_LEVELS_ADDED = {
   'Acid Splash':'A0',
-  'Aid':'A2,B2,Peace2,R2',
-  'Alarm':'A1,Watchers1',
+  'Aid':'A2,B2,Clockwork2,Peace2,R2',
+  'Alarm':'A1,Clockwork1,Watchers1',
   'Alter Self':'A2',
   'Animate Dead':'Spores3',
   'Animate Objects':'A5',
   'Antipathy/Sympathy':'B8',
   'Arcane Eye':'A4',
   'Arcane Lock':'A2',
+  'Arms Of Hadar':'Aberrant1',
   'Augury':'D2,W2',
   'Aura Of Life':'C4,Twilight4,Wildfire4',
   'Aura Of Purity':'"A4 [Battle Smith]",C4,Peace4,Watchers4',
@@ -1397,6 +1411,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Blur':'A2,"K2 [Marid]"',
   'Branding Smite':'"A2 [Battle Smith]"',
   'Burning Hands':'"K1 [Efreeti]",Wildfire1',
+  'Calm Emotions':'Aberrant2',
   'Chill Touch':'Spores0',
   'Circle Of Power':'Twilight5',
   'Cloudkill':'"A5 [Artificer]",Spores5',
@@ -1421,8 +1436,10 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Demiplane':'S8',
   'Detect Evil And Good':'"K1 [The Genie]"',
   'Detect Magic':'A1,Watchers1',
+  'Detect Thoughts':'Aberrant2',
   'Disguise Self':'A1',
-  'Dispel Magic':'A3',
+  'Dispel Magic':'A3,Clockwork3',
+  'Dissonant Whispers':'Aberrant1',
   'Divination':'D4,W4',
   'Dominate Beast':'R4',
   'Dominate Person':'Order5',
@@ -1430,6 +1447,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Enhance Ability':'A2,Glory2,R2,W2',
   'Enlarge/Reduce':'A2,B2,D2',
   'Entangle':'R1',
+  "Evard's Black Tentacles":'Aberrant4',
   'Expeditious Retreat':'A1',
   'Fabricate':'A4',
   'Faerie Fire':'A1,Twilight1',
@@ -1444,14 +1462,14 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Flesh To Stone':'D6,S6',
   'Fly':'A3',
   'Fog Cloud':'"K1 [Marid]"',
-  'Freedom Of Movement':'A4,Glory4',
+  'Freedom Of Movement':'A4,Clockwork4,Glory4',
   'Gaseous Form':'"A3 [Artificer]",Spores3',
   'Gate':'K9',
   'Gentle Repose':'P2,Spores2',
   'Glyph Of Warding':'A3',
   'Grease':'A1,S1',
   'Greater Invisibility':'"A4 [Armorer]","K4 [Djinni]",Twilight4',
-  'Greater Restoration':'A5,Peace5,R5',
+  'Greater Restoration':'A5,Clockwork5,Peace5,R5',
   'Guidance':'A0',
   'Guiding Bolt':'Glory1',
   'Gust Of Wind':'"K2 [The Fathomless]","K2 [Djinni]",R2',
@@ -1462,6 +1480,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Heroism':'"A1 [Battle Smith]",Glory1,Order1,Peace1',
   'Hold Monster':'Watchers5',
   'Hold Person':'Order2',
+  'Hunger Of Hadar':'Aberrant3',
   'Hypnotic Pattern':'"A3 [Armorer]"',
   'Ice Storm':'A4',
   'Identify':'A1',
@@ -1470,7 +1489,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Jump':'A1',
   "Leomund's Secret Chest":'A4',
   "Leomund's Tiny Hut":'Twilight3',
-  'Lesser Restoration':'A2',
+  'Lesser Restoration':'A2,Clockwork2',
   'Levitate':'A2',
   'Light':'A0',
   'Lightning Bolt':'"A3 [Armorer]","K3 [The Fathomless]"',
@@ -1505,12 +1524,12 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Prestidigitation':'A0',
   'Prismatic Spray':'B7',
   'Prismatic Wall':'B9',
-  'Protection From Evil And Good':'D1',
-  'Protection From Energy':'A3,Glory3',
+  'Protection From Evil And Good':'Clockwork1,D1',
+  'Protection From Energy':'A3,Clockwork3,Glory3',
   'Protection From Poison':'A2',
   'Purify Food And Drink':'A1',
   'Raise Dead':'"A5 [Artificer]"',
-  "Rary's Telepathic Bond":'B5,Peace5',
+  "Rary's Telepathic Bond":'Aberrant5,B5,Peace5',
   'Ray Of Frost':'A0',
   'Ray Of Sickness':'"A1 [Artificer]"',
   'Resistance':'A0',
@@ -1522,7 +1541,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Searing Smite':'R1',
   'See Invisibility':'A2,Twilight2,Watchers2',
   'Seeming':'"K5 [Djinni]"',
-  'Sending':'Peace3',
+  'Sending':'Aberrant3,Peace3',
   'Shatter':'"A2 [Armorer]"',
   'Shield':'"A1 [Battle Smith]"',
   'Shocking Grasp':'A0',
@@ -1544,7 +1563,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Thunderwave':'"A1 [Armorer]","K1 [The Fathomless]","K1 [Djinni]"',
   'Vampiric Touch':'S3',
   'Wall Of Fire':'A4',
-  'Wall Of Force':'"A5 [Armorer]"',
+  'Wall Of Force':'"A5 [Armorer]",Clockwork5',
   'Wall Of Stone':'A5,"K5 [Dao]"',
   'Warding Bond':'"A2 [Battle Smith]",P2,Peace2',
   'Water Breathing':'A3',
