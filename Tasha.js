@@ -1080,6 +1080,7 @@ Tasha.PATHS = {
       '"1:Psionic Spells","1:Telepathic Speech","6:Psionic Sorcery",' +
       '"6:Psychic Defenses","14:Revelation In Flesh","18:Warping Implosion" ' +
       'SpellSlots=' +
+        'Aberrant0:1=1,' +
         'Aberrant1:1=2,' +
         'Aberrant2:3=2,' +
         'Aberrant3:5=2,' +
@@ -1558,6 +1559,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Sunbeam':'C6',
   'Sunburst':'C8',
   'Symbol':'D7',
+  'Telekinesis':'Aberrant5',
   'Teleportation Circle':'K5',
   'Thorn Whip':'A0',
   'Thunderwave':'"A1 [Armorer]","K1 [The Fathomless]","K1 [Djinni]"',
@@ -2074,7 +2076,7 @@ Tasha.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('combatNotes.beguilingTwist', 'spellDifficultyClass.R', '=', null);
     SRD5E.featureSpell(rules, 'Misty Step', 'Misty Wanderer', 'R', 2);
-    SRD5E.featureSpell(rules, 'Summon Fey', 'Fey Reinforcemens', 'R', 3);
+    SRD5E.featureSpell(rules, 'Summon Fey', 'Fey Reinforcements', 'R', 3);
   } else if(name == 'Oath Of Glory') {
     rules.defineRule('combatNotes.inspiringSmite', pathLevel, '=', null);
     rules.defineRule
