@@ -1784,7 +1784,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.eyesOfTheDark', pathLevel, '?', 'source>=3');
     rules.defineRule
       ('combatNotes.houndOfIllOmen', pathLevel, '=', 'Math.floor(source / 2)');
-    SRD5E.featureSpell(rules, 'Darkness', 'Eyes Of Darkness', 'S', 2);
+    SRD5E.featureSpell(rules, 'Darkness', 'Eyes Of The Dark', 'S', 2);
   } else if(name == 'Storm Sorcery') {
     rules.defineRule("combatNotes.storm'sFury", pathLevel, '=', null);
     rules.defineRule("combatNotes.storm'sFury.1",
