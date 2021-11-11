@@ -257,7 +257,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=ability,feature,magic ' +
     'Note="+1 Constitution",' +
          '"Develop Aberrant Dragonmark flaw",' +
-         '"Know S0 cantrip, casting chosen S1 spell 1/long rest gives self 1d temporary HP or inficts 1d HP force randomly w/in 30\'"',
+         '"Know S0 cantrip, casting chosen S1 spell 1/long rest gives self 1d temporary HP or inflicts 1d HP force randomly w/in 30\'"',
   'Revenant Blade':
     'Section=ability,combat ' +
     'Note="+1 Dexterity or Strength",' +
