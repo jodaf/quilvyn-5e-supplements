@@ -105,7 +105,7 @@ Volo.CHARACTER_FEATURES = {
   'Necrotic Shroud':
     'Section=combat ' +
     'Note="R10\' Appearance frightens (DC %1 neg) for 1 rd, target suffers +%V HP necrotic 1/rd for 1 min 1/long rest"',
-  'Natural Armor':'Section=combat Note="Minimum AC %V"',
+  'Natural Armor':'Section=combat Note="Unarmored AC %V"',
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Protector Aasimar Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Wisdom"',
@@ -122,7 +122,7 @@ Volo.CHARACTER_FEATURES = {
     'Section=skill Note="Speak to beasts and plants, Adv on influence Cha checks w/same"',
   "Stone's Endurance":
     'Section=combat ' +
-    'Note="Use Reaction to reduce damage taken by 1d12 + %{constitutionModifier} HP 1/short rest"',
+    'Note="Use Reaction to reduce damage taken by 1d12+%{constitutionModifier} HP 1/short rest"',
   'Swimmer':'Section=ability Note="30\' swim"',
   'Tabaxi Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
   'Triton Ability Adjustment':
@@ -210,7 +210,7 @@ Volo.MONSTROUS_FEATURES = {
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Saving Face':
     'Section=feature ' +
-    'Note="Gain +1 for each ally w/in 30\' on failed roll 1/short rest"',
+    'Note="Gain +1 for each ally w/in 30\' (+5 maximum) on failed roll 1/short rest"',
   'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Surprise Attack':
     'Section=combat Note="+2d6 HP damage on first surprise hit"',
@@ -316,10 +316,14 @@ Volo.raceRulesExtra = function(rules, name) {
   } else if(name == 'Lizardfolk') {
     SRD5E.weaponRules(rules, 'Bite', 0, ['Un'], '1d6', null);
     rules.defineRule('weapons.Bite', 'combatNotes.bite', '=', '1');
-    rules.defineRule('armorClass', 'combatNotes.naturalArmor', '^', null);
+    rules.defineRule('armorClass', 'combatNotes.naturalArmor.1', '^', null);
     rules.defineRule('combatNotes.naturalArmor',
       'dexterityModifier', '=', '13 + source',
       'shield', '+', 'source=="None" ? 0 : 2'
+    );
+    rules.defineRule('combatNotes.naturalArmor.1',
+      'armor', '?', 'source == "None"',
+      'combatNotes.naturalArmor', '=', null
     );
   } else if(name == 'Protector Aasimar') {
     rules.defineRule('combatNotes.radiantSoul(Aasimar)', 'level', '=', null);
@@ -338,10 +342,10 @@ Volo.raceRulesExtra = function(rules, name) {
     SRD5E.featureSpell(rules, 'Fog Cloud', 'Control Air And Water', 'S', 1);
     SRD5E.featureSpell(rules, 'Gust Of Wind', 'Control Air And Water', 'S', 2);
     SRD5E.featureSpell(rules, 'Wall Of Water', 'Control Air And Water', 'S', 3);
-    rules.defineRule('spells.Gust Of Wind (S2 [Control Air And Water] Evoc)',
+    rules.defineRule('spells.Gust Of Wind(S2 [Control Air And Water] Evoc)',
       'level', '?', 'source >= 3'
     );
-    rules.defineRule('spells.Wall Of Water (S3 [Control Air And Water] Evoc)',
+    rules.defineRule('spells.Wall Of Water(S3 [Control Air And Water] Evoc)',
       'level', '?', 'source >= 5'
     );
     rules.defineRule('casterLevels.Control Air And Water',
@@ -359,7 +363,7 @@ Volo.raceRulesExtra = function(rules, name) {
     SRD5E.featureSpell
       (rules, 'Animal Friendship', 'Innate Spellcasting', 'S', 1);
     SRD5E.featureSpell(rules, 'Suggestion', 'Innate Spellcasting', 'S', 2);
-    rules.defineRule('spells.Suggestion (S2 [Innate Spellcasting] Ench)',
+    rules.defineRule('spells.Suggestion(S2 [Innate Spellcasting] Ench)',
       'level', '?', 'source >= 3'
     );
     rules.defineRule('casterLevels.Innate Spellcasting',
