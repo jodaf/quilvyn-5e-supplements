@@ -393,7 +393,7 @@ SwordCoast.FEATURES_ADDED = {
     'Section=combat,magic,save ' +
     'Note=' +
       '"Undead attacks diverted to others (DC %V Wis neg)",' +
-      '"Learn <i>Spare The Dying</i>",' +
+      '"Know <i>Spare The Dying</i> cantrip",' +
       '"Adv on saves vs. disease"',
   'Arcane Abjuration':
     'Section=combat Note="R30\' Turn celestial, elemental, fey, or fiend%1 for 1 min (DC %V Wis neg)"',
@@ -409,8 +409,8 @@ SwordCoast.FEATURES_ADDED = {
     'Note="Skill Proficiency (Choose 2 from Athletics, Acrobatics, Stealth, Survival)"',
   'Battlerager Armor':
     'Section=combat ' +
-    'Note="When wearing Spiked Armor, bonus spike attack inflicts 1d4+%1 HP piercing during rage, grapple inflicts 3 HP piercing"',
-  'Battlerager Charge':'Section=combat Note="Bonus dash during rage"',
+    'Note="When wearing spiked armor, bonus spike attack inflicts 1d4+%1 HP piercing during rage, grapple inflicts 3 HP piercing"',
+  'Battlerager Charge':'Section=combat Note="Bonus Dash during rage"',
   'Bladesong':
     'Section=ability,combat,magic,skill ' +
     'Note=' +
@@ -429,7 +429,8 @@ SwordCoast.FEATURES_ADDED = {
     'Note=' +
       '"Successful death saving throw restores 1d8+%V HP 1/long rest",' +
       '"<i>Spare The Dying</i> restores 1d8+%V HP 1/long rest"',
-  'Divine Allegiance':'Section=combat Note="R5\' Shift ally\'s damage to self"',
+  'Divine Allegiance':
+    'Section=combat Note="R5\' Shift other creature\'s damage to self"',
   'Elegant Maneuver':
     'Section=skill Note="Bonus action for Adv on Acrobatics or Athletics"',
   'Elk Totem Spirit':
@@ -472,7 +473,7 @@ SwordCoast.FEATURES_ADDED = {
     'Note="Spend 1 Ki Point to remain at 1 HP when reduced to 0 HP"',
   'Misdirection':
     'Section=combat ' +
-    'Note="Redirect attack on self to creature providing self cover"',
+    'Note="Use Reaction to redirect attack on self to creature providing self cover"',
   'Panache':
     'Section=skill ' +
     'Note="Use Persuasion vs. Insight to give hostile target Disadv on attacks on others or charm non-hostile for 1 min"',
@@ -481,7 +482,7 @@ SwordCoast.FEATURES_ADDED = {
     'Note="R30\' Ranged touch attack at +%V inflicts 1d%1+%2 HP radiant 1/rd, spend 1 Ki Point for 2/rd"',
   'Rakish Audacity':
     'Section=combat ' +
-    'Note="+%1 Initiative, use Sneak Attack w/out Adv vs. solo foe"',
+    'Note="+%V Initiative/Use Sneak Attack w/out Adv vs. solo foe"',
   'Rallying Cry':
     'Section=combat Note="R60\' Second Wind restores %V HP to 3 allies"',
   'Reckless Abandon':
@@ -509,7 +510,7 @@ SwordCoast.FEATURES_ADDED = {
     'Section=magic Note="Healing spell ends spell of equal or lesser level"',
   'Spiked Retribution':
     'Section=combat ' +
-    'Note="When wearing Spiked Armor, successful melee attacker suffers 3 HP piercing during rage"',
+    'Note="When wearing spiked armor, successful melee attacker suffers 3 HP piercing during rage"',
   'Storm Guide':
     'Section=magic ' +
     'Note="Stop rain in 20\' radius or direct winds in 100\' radius for 1 rd"',
@@ -555,7 +556,7 @@ SwordCoast.FEATURES_ADDED = {
   'Deep Gnome Ability Adjustment':
     'Section=ability Note="+1 Dexterity/+2 Intelligence"',
   'Duergar Magic':
-    'Section=magic Note="Cast <i>Enlarge/Reduce</i>%1 on self 1/long rest"',
+    'Section=magic Note="Cast <i>Enlarge/Reduce</i> (enlarge only)%1 on self 1/long rest"',
   'Duergar Resilience':
     'Section=save Note="Adv on saves vs. illusions, charm, and paralysis"',
   'Gold Dwarf Ability Adjustment':
@@ -877,11 +878,8 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       ('magicNotes.windSoul', 'charismaModifier', '=', '3 + source');
   } else if(name == 'Swashbuckler') {
     // Copied from Xanathar
-    rules.defineRule('initiative', 'combatNotes.rakishAudacity', '+', '2');
-    rules.defineRule('combatNotes.rakishAudacity.1',
-      'features.Rakish Audacity', '?', null,
-      'charismaModifier', '=', null
-    );
+    rules.defineRule
+      ('combatNotes.rakishAudacity', 'charismaModifier', '=', null);
   } else if(name == 'The Undying') {
     rules.defineRule
       ('combatNotes.amongTheDead', 'spellDifficultyClass.K', '=', null);
