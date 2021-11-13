@@ -482,7 +482,7 @@ SwordCoast.FEATURES_ADDED = {
     'Note="R30\' Ranged touch attack at +%V inflicts 1d%1+%2 HP radiant 1/rd, spend 1 Ki Point for 2/rd"',
   'Rakish Audacity':
     'Section=combat ' +
-    'Note="+%V Initiative/Use Sneak Attack w/out Adv vs. solo foe"',
+    'Note="+%1 Initiative/Use Sneak Attack w/out Adv vs. solo foe"',
   'Rallying Cry':
     'Section=combat Note="R60\' Second Wind restores %V HP to 3 allies"',
   'Reckless Abandon':
@@ -878,8 +878,12 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       ('magicNotes.windSoul', 'charismaModifier', '=', '3 + source');
   } else if(name == 'Swashbuckler') {
     // Copied from Xanathar
-    rules.defineRule
-      ('combatNotes.rakishAudacity', 'charismaModifier', '=', null);
+    rules.defineRule('combatNotes.rakishAudacity.1',
+      'features.Rakish Audacity', '?', null,
+      'charismaModifier', '=', null
+    );
+    // Dummy rule to italicize combatNotes.rakishAudacity
+    rules.defineRule('initiative', 'combatNotes.rakishAudacity', '+', null);
   } else if(name == 'The Undying') {
     rules.defineRule
       ('combatNotes.amongTheDead', 'spellDifficultyClass.K', '=', null);
