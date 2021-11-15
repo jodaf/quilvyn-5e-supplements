@@ -732,7 +732,7 @@ Tasha.FEATURES = {
     'Note="Gain bite (inflicts 1d8+%{strengthModifier} HP piercing, on hit regain %{proficiencyBonus} HP if below %{hitPoints//2} 1/rd), claws (each inflicts 1d6+%{strengthModifier} HP slashing, additional attack 1/rd), or tail (R+5\' inflicts 1d8+%{strengthModifier} HP slashing, use Reaction for +1d8 AC) natural weapon when entering rage"',
   'Fortified Position':
     'Section=combat ' +
-     'Note="Create 2nd Eldritch Cannon, gain half cover w/in 10\' of Eldritch Cannon"',
+    'Note="Create 2nd Eldritch Cannon, gain half cover w/in 10\' of Eldritch Cannon"',
   'Frost Rune':
     'Section=ability,save,skill ' +
     'Note="Invoke for +2 Str and Con checks for 10 min 1/short rest",' +

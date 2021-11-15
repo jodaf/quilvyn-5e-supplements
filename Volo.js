@@ -196,12 +196,12 @@ Volo.MONSTROUS_FEATURES = {
   'Kobold Ability Adjustment':
     'Section=ability Note="+2 Dexterity/-2 Strength"',
   'Long-Limbed':'Section=combat Note="+5\' melee reach"',
-  'Nimble Escape':'Section=combat Note="Bonus action to Disengage or Hide"',
   'Martial Training':
     'Section=combat ' +
     'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any Martial)"',
   'Magic Resistance':
     'Section=save Note="Adv on saves vs. spells and other magic effects"',
+  'Nimble Escape':'Section=combat Note="Bonus action to Disengage or Hide"',
   'Orc Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Constitution/-2 Intelligence"',
   'Pack Tactics':
