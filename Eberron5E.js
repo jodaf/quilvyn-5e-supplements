@@ -299,7 +299,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Eldritch Cannon +1d8 HP damage, command explosion to inflict 3d8 HP force (DC %V Dex half) in 20\' radius"',
   'Fortified Position':
     'Section=combat ' +
-     'Note="Create 2nd Eldritch Cannon, gain half cover w/in 10\' of Eldritch Cannon"',
+    'Note="Create 2nd Eldritch Cannon, gain half cover w/in 10\' of Eldritch Cannon"',
   'Improved Defender':
     'Section=combat ' +
     'Note="+2d6 Arcane Jolt effect, Steel Defender +2 AC and Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
@@ -481,10 +481,10 @@ Eberron5E.FEATURES_ADDED = {
     // Removed Volo's -2 Intelligence"',
     'Section=ability Note="+2 Strength/+1 Constitution"',
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
-  'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Saving Face':
     'Section=feature ' +
     'Note="Gain +1 for each ally w/in 30\' (+5 maximum) on failed roll 1/short rest"',
+  'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Surprise Attack':
     'Section=combat Note="+2d6 HP damage on first surprise hit"'
 
@@ -622,45 +622,26 @@ Eberron5E.PATHS_ADDED = {
   'Alchemist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Alchemist Tool Proficiency","3:Experimental Elixir",' +
+      '"3:Alchemist Spells","3:Alchemist Tool Proficiency",' +
+      '"3:Experimental Elixir",' +
       '"features.Guardian Armor ? 3:Thunder Gauntlets",' +
       '"features.Guardian Armor ? 3:Defensive Field",' +
       '"features.Infiltrator Armor ? 3:Lightning Launcher",' +
       '"features.Infiltrator Armor ? 3:Powered Steps",' +
       '"features.Infiltrator Armor ? 3:Dampening Field",' +
-      '"5:Alchemical Savant","9:Restorative Reagents","15:Chemical Mastery" ' +
-      'SpellAbility=intelligence ' +
-      'SpellSlots=' +
-        '"Alchemist1:3=2",' +
-        '"Alchemist2:5=2",' +
-        '"Alchemist3:9=2",' +
-        '"Alchemist4:13=2",' +
-        '"Alchemist5:17=2"',
+      '"5:Alchemical Savant","9:Restorative Reagents","15:Chemical Mastery"',
   'Artillerist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Artillerist Tool Proficiency","3:Eldritch Cannon",' +
-      '"5:Arcane Firearm","9:Explosive Cannon","15:Fortified Position" ' +
-      'SpellAbility=intelligence ' +
-      'SpellSlots=' +
-        '"Artillerist1:3=2",' +
-        '"Artillerist2:5=2",' +
-        '"Artillerist3:9=2",' +
-        '"Artillerist4:13=2",' +
-        '"Artillerist5:17=2"',
+      '"3:Artillerist Spells","3:Artillerist Tool Proficiency",' +
+      '"3:Eldritch Cannon","5:Arcane Firearm","9:Explosive Cannon",' +
+      '"15:Fortified Position"',
   'Battle Smith':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Battle Ready","3:Battle Smith Tool Proficiency",' +
-      '"3:Steel Defender","5:Extra Attack","9:Arcane Jolt",' +
-      '"15:Improved Defender" ' +
-      'SpellAbility=intelligence ' +
-      'SpellSlots=' +
-        '"Smith1:3=2",' +
-        '"Smith2:5=2",' +
-        '"Smith3:9=2",' +
-        '"Smith4:13=2",' +
-        '"Smith5:17=2"'
+      '"3:Battle Ready","3:Battle Smith Spells",' +
+      '"3:Battle Smith Tool Proficiency","3:Steel Defender","5:Extra Attack",' +
+      '"9:Arcane Jolt","15:Improved Defender"'
 };
 Eberron5E.RACES_ADDED = {
   'Changeling':
@@ -874,40 +855,7 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
   "Bigby's Hand":'A5',
   'Creation':'A5',
   'Greater Restoration':'A5',
-  'Wall Of Stone':'A5',
-
-  'Healing Word':'Alchemist1',
-  'Ray Of Sickness':'Alchemist1',
-  'Flaming Sphere':'Alchemist2',
-  "Melf's Acid Arrow":'Alchemist2',
-  'Gaseous Form':'Alchemist3',
-  'Mass Healing Word':'Alchemist3',
-  'Blight':'Alchemist4',
-  'Death Ward':'Alchemist4',
-  'Cloudkill':'Alchemist5',
-  'Raise Dead':'Alchemist5',
-
-  'Thunderwave':'Artillerist1',
-  'Scorching Ray':'Artillerist2',
-  'Shatter':'Artillerist2',
-  'Fireball':'Artillerist3',
-  'Wind Wall':'Artillerist3',
-  'Ice Storm':'Artillerist4',
-  'Wall Of Fire':'Artillerist4',
-  'Cone Of Cold':'Artillerist5',
-  'Wall Of Force':'Artillerist5',
-
-  'Heroism':'Smith1',
-  'Branding Smite':'Smith2',
-  'Warding Bond':'Smith2',
-  'Aura Of Vitality':'Smith3',
-  'Conjure Barrage':'Smith3',
-  'Aura Of Purity':'Smith4',
-  'Fire Shield':'Smith4',
-  'Banishing Smite':'Smith5',
-  'Mass Cure Wounds':'Smith5',
-
-  'Shield':'Artillerist1,Smith1'
+  'Wall Of Stone':'A5'
 
 };
 if(window.Xanathar != null) {
@@ -1133,7 +1081,42 @@ Eberron5E.pathRulesExtra = function(rules, name) {
     'Level';
 
   // Copied from Tasha's
-  if(name == 'Artillerist') {
+  if(name == 'Alchemist') {
+    SRD5E.featureSpell(rules, 'Healing Word', 'Alchemist Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Ray Of Sickness', 'Alchemist Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Flaming Sphere', 'Alchemist Spells', 'A', 2);
+    SRD5E.featureSpell(rules, "Melf's Acid Arrow", 'Alchemist Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Gaseous Form', 'Alchemist Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Mass Healing Word', 'Alchemist Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Blight', 'Alchemist Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Death Ward', 'Alchemist Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Cloudkill', 'Alchemist Spells', 'A', 5);
+    SRD5E.featureSpell(rules, 'Raise Dead', 'Alchemist Spells', 'A', 5);
+    rules.defineRule('spells.Flaming Sphere(A2 [Alchemist Spells] Conj)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule("spells.Melf's Acid Arrow(A2 [Alchemist Spells] Evoc)",
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Gaseous Form(A3 [Alchemist Spells] Tran)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Mass Healing Word(A3 [Alchemist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Blight(A4 [Alchemist Spells] Necr)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Death Ward(A4 [Alchemist Spells] Abju)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Cloudkill(A5 [Alchemist Spells] Conj)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
+    rules.defineRule('spells.Raise Dead(A5 [Alchemist Spells] Necr)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
+  } else if(name == 'Artillerist') {
     rules.defineRule('combatNotes.eldritchCannon',
       pathLevel, '=', '2',
       'combatNotes.explosiveCannon', '+', '1'
@@ -1142,6 +1125,40 @@ Eberron5E.pathRulesExtra = function(rules, name) {
       ('combatNotes.eldritchCannon.1', 'spellDifficultyClass.A', '=', null);
     rules.defineRule
       ('combatNotes.explosiveCannon', 'spellDifficultyClass.A', '=', null);
+    SRD5E.featureSpell(rules, 'Shield', 'Artillerist Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Thunderwave', 'Artillerist Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Scorching Ray', 'Artillerist Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Shatter', 'Artillerist Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Fireball', 'Artillerist Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Wind Wall', 'Artillerist Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Ice Storm', 'Artillerist Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Wall Of Fire', 'Artillerist Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Cone Of Cold', 'Artillerist Spells', 'A', 5);
+    SRD5E.featureSpell(rules, 'Wall Of Force', 'Artillerist Spells', 'A', 5);
+    rules.defineRule('spells.Scorching Ray(A2 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Shatter(A2 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Fireball(A3 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Wind Wall(A3 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Ice Storm(A4 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Wall Of Fire(A4 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Cone Of Cold(A5 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
+    rules.defineRule('spells.Wall Of Force(A5 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
   } else if(name == 'Battle Smith') {
     rules.defineRule('combatNotes.arcaneJolt',
       pathLevel, '=', '2',
@@ -1155,22 +1172,58 @@ Eberron5E.pathRulesExtra = function(rules, name) {
     );
     rules.defineRule('combatNotes.steelDefender.1',
       'features.Steel Defender', '?', null,
-      'proficiencyBonus', '=', null // Same as Tasha due to Might of the Master
+      'proficiencyBonus', '=', null
     );
     rules.defineRule('combatNotes.steelDefender.2',
       'features.Steel Defender', '?', null,
-      // Tasha 'spellAttackModifier.A', '=', null
-      'proficiencyBonus', '=', 'source + 2'
+      'spellAttackModifier.A', '=', null
     );
     rules.defineRule('combatNotes.steelDefender.3',
       'features.Steel Defender', '?', null,
-      'proficiencyBonus', '=', 'source + 1' // Same as Tasha due to MotM
+      'proficiencyBonus', '=', 'source + 1'
     );
     rules.defineRule('combatNotes.steelDefender.4',
       'features.Steel Defender', '?', null,
-      'proficiencyBonus', '=', 'source + 2' // Same as Tasha due to MotM
+      'proficiencyBonus', '=', 'source + 2'
+    );
+    SRD5E.featureSpell(rules, 'Heroism', 'Battle Smith Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Shield', 'Battle Smith Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Branding Smite', 'Battle Smith Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Warding Bond', 'Battle Smith Spells', 'A', 2);
+    SRD5E.featureSpell
+      (rules, 'Aura Of Vitality', 'Battle Smith Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Conjure Barrage', 'Battle Smith Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Aura Of Purity', 'Battle Smith Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Fire Shield', 'Battle Smith Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Banishing Smite', 'Battle Smith Spells', 'A', 5);
+    SRD5E.featureSpell
+      (rules, 'Mass Cure Wounds', 'Battle Smith Spells', 'A', 5);
+    rules.defineRule('spells.Branding Smite(A2 [Battle Smith Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Warding Bond(A2 [Battle Smith Spells] Abju)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Aura Of Vitality(A3 [Battle Smith Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Conjure Barrage(A3 [Battle Smith Spells] Conj)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Aura Of Purity(A4 [Battle Smith Spells] Abju)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Fire Shield(A4 [Battle Smith Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Banishing Smite(A5 [Battle Smith Spells] Abju)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
+    rules.defineRule('spells.Mass Cure Wounds(A5 [Battle Smith Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 17'
     );
   }
+
 };
 
 /*
