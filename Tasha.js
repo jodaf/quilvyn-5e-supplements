@@ -341,7 +341,7 @@ Tasha.FEATURES = {
     'Section=magic Note="Know 2 D0 cantrips, replace 1 each level"',
   'Fighting Style (Interception)':
     'Section=combat ' +
-    'Note="R5\' Use Reaction to negate 1d10+%{proficiencyBonus} HP damage"',
+    'Note="R5\' Use Reaction to negate 1d10+%{proficiencyBonus} HP damage to another"',
   'Fighting Style (Superior Technique)':
     'Section=combat Note="Combat Superiority (1 maneuver, 1 die)"',
   'Fighting Style (Thrown Weapon Fighting)':
@@ -395,7 +395,7 @@ Tasha.FEATURES = {
     'Note="Bardic Inspiration Die roll can be added to magical harm or healing"',
   'Mind Sharpener':
     'Section=magic ' +
-    'Note="Gives Reaction to change failed Con save to success; 4 charges regains 1d4/dy"',
+    'Note="Gives Reaction to change failed Con save for spell concentration to success; 4 charges regains 1d4/dy"',
   "Nature's Veil":
     'Section=magic ' +
     'Note="Self becomes invisible for 1 rd %{proficiencyBonus}/long rest"',
@@ -571,6 +571,7 @@ Tasha.FEATURES = {
   'Alchemical Savant':
     'Section=magic ' +
     'Note="+%{intelligenceModifier>?1} on spell healing and acid, fire, necrotic, or poison damage"',
+  'Alchemist Spells':'Section=magic Note="Know additional Artificer spells"',
   'Alchemist Tool Proficiency':
     'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
   'Animating Performance':
@@ -588,10 +589,12 @@ Tasha.FEATURES = {
   'Armor Modifications':
     'Section=feature ' +
     'Note="+2 Infused Items, apply 4 infusions to armor pieces"',
+  'Armorer Spells':'Section=magic Note="Know additional Artificer spells"',
   'Arms Of The Astral Self':
     'Section=ability,combat ' +
     'Note="Spend 1 Ki to gain +%{wisdomModifier-strengthModifier} Str checks",' +
          '"Spend 1 Ki for R10\' targets suffer 2d%{combatNotes.martialArts} HP force (DC %{kiSaveDC} Dex neg); self gains +5\' unarmed reach, unarmed +%{wisdomModifier-maxDexOrStrMod} attack and +1 HP force damage for 10 min"',
+  'Artillerist Spells':'Section=magic Note="Know additional Artificer spells"',
   'Artillerist Tool Proficiency':
     'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Aura Of Alacrity':
@@ -615,11 +618,12 @@ Tasha.FEATURES = {
     'Section=combat,feature ' +
     'Note="+%{intelligenceModifier-strengthModifier} (Int instead of Str) or +%{intelligenceModifier-dexterityModifier} (Int instead of Dex) attack and damage w/magic weapons",' +
          '"Weapon Proficiency (Martial)"',
+  'Battle Smith Spells':'Section=magic Note="Know additional Artificer spells"',
   'Battle Smith Tool Proficiency':
     'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
   'Beguiling Twist':
     'Section=combat,save ' +
-    'Note="Use Reaction to redirect saved charm or fright effect to different target for 1 min (DC %V Wis ends)",' +
+    'Note="R120\' Use Reaction to redirect saved charm or fright effect to different target for 1 min (DC %V Wis ends)",' +
          '"Adv on saves vs. charm and fright"',
   'Bestial Soul':
     'Section=ability,combat ' +
@@ -657,7 +661,7 @@ Tasha.FEATURES = {
   'Clockwork Cavalcade':
     'Section=magic ' +
     'Note="30\' cu heals 100 HP total to targets, repairs damaged objects, and dismisses target spells up to 6th level 1/long rest (spend 7 Sorcery Points for additional)"',
-  'Clockwork Magic':'Section=magic Note="Access to additional spells"',
+  'Clockwork Magic':'Section=magic Note="Know additional Sorcerer spells"',
   'Cloud Rune':
     'Section=combat,skill ' +
     'Note="R30\' Use Reaction to redirect damage to different target %V/short rest",' +
@@ -689,7 +693,7 @@ Tasha.FEATURES = {
          '"Resistance to %{genieEnergy} damage"',
   'Embodiment Of The Law':
     'Section=magic ' +
-    'Note="Cast Enchantment spells as bonus action %{wisdomModifier>?1}/long rest"',
+    'Note="Cast enchantment spells as bonus action %{wisdomModifier>?1}/long rest"',
   'Emboldening Bond':
     'Section=magic ' +
     'Note="R30\' %{proficiencyBonus} willing targets gain +1d4 on 1 attack, ability, or saving throw/rd when w/in 30\' of each other for 10 min %{proficiencyBonus}/long rest"',
@@ -714,7 +718,8 @@ Tasha.FEATURES = {
     'Section=magic Note="Cast <i>Summon Fey</i> 1/long rest, optionally for 1 min instead of conc, 1/long rest"',
   'Fey Wanderer Magic':
     'Section=feature,magic ' +
-    'Note="Gain Feywild Gift","Access to additional spells"',
+    'Note="Gain Feywild Gift",' +
+         '"Know additional Ranger spells"',
   'Fire Rune':
     'Section=combat,skill ' +
     'Note="Hit restrains and inflicts +2d6 HP fire/rd (DC %{8+proficiencyBonus+constitutionModifier} Str ends) for 1 min %V/short rest",' +
@@ -807,7 +812,7 @@ Tasha.FEATURES = {
     'Note="R60\' Use Reaction to grant extra Bardic Inspiration Die after successful use %V/long rest"',
   'Inspiring Smite':
     'Section=combat ' +
-    'Note="R30\' Use Channel Divinity after Divine Smite to distribute 2d8 + %V temporary HP"',
+    'Note="R30\' Use Channel Divinity after Divine Smite to distribute 2d8+%V temporary HP"',
   'Lightning Launcher':
     'Section=combat ' +
     'Note="Range 90/300 attack inflicts 1d6 HP lightning, +1d6 HP lightning 1/rd"',
@@ -876,7 +881,7 @@ Tasha.FEATURES = {
     'Section=combat ' +
     'Note="R30\' Use Reaction to pull creature up to 30\' (DC %{spellDifficultyClass.A} Str neg) and attack if w/in 5\' afterward %{proficiencyBonus}/long rest"',
   'Perfected Armor (Infiltrator Armor)':
-    'Section=combat Note="Lightning Launcher inflicts glow giving Disadv on attacks, next foe attack gains Adv and inflicts +1d6 HP lightning for 1 rd"',
+    'Section=combat Note="Lightning Launcher inflicts glow giving Disadv on attacks on self, next foe attack gains Adv and inflicts +1d6 HP lightning for 1 rd"',
   'Performance Of Creation':
     'Section=magic Note="R10\' Create %V object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr 1/long rest (spend level 2 spell slot for additional)"',
   "Physician's Touch":
@@ -899,7 +904,7 @@ Tasha.FEATURES = {
   'Psionic Sorcery':
     'Section=magic ' +
     'Note="Cast spell using Sorcery Points instead of spell slot"',
-  'Psionic Spells':'Section=magic Note="Access to additional spells"',
+  'Psionic Spells':'Section=magic Note="Know additional Sorcerer spells"',
   'Psionic Strike':
     'Section=combat Note="R30\' Spend 1 Psionic Energy die after hit to inflict +1d%{featureNotes.psionicPower.1}+%{intelligenceModifier} HP force"',
   'Psychic Blades':
@@ -985,7 +990,7 @@ Tasha.FEATURES = {
   'Swarming Dispersal':
     'Section=combat Note="When hit, use Reaction to gain resistance and teleport 30\' %{proficiencyBonus}/long rest"',
   'Swarmkeeper Magic':
-    'Section=magic Note="Know <i>Mage Hand</i> cantrip, access to additional spells"',
+    'Section=magic Note="Know <i>Mage Hand</i> cantrip, additional Ranger spells"',
   'Symbiotic Entity':
     'Section=combat ' +
     'Note="Expend 1 Wild Shape use to gain %V temporary HP, 2d6 HP necrotic Halo Of Spores damage, and +1d6 HP necrotic on melee hits for 10 min or until temporary HP lost"',
@@ -1029,7 +1034,7 @@ Tasha.FEATURES = {
     'Note="Armor Proficiency (Heavy)/Weapon Proficiency (Martial)"',
   'Twilight Sanctuary':
     'Section=magic ' +
-    'Note="Use Channel Divinity for 30\' radius that gives 1d6+%{levels.Cleric} temporary HP and ends charm or fright for 1 min"',
+    'Note="Use Channel Divinity for 30\' radius that gives targets 1d6+%{levels.Cleric} temporary HP or ends charm or fright for 1 min"',
   'Twilight Shroud':'Section=magic Note="Twilight Sanctuary gives half cover"',
   'Twinkling Constellations':
     'Section=magic ' +
@@ -1043,7 +1048,7 @@ Tasha.FEATURES = {
     'Note="R60\' Spend 1 Bardic Inspiration Die to inflict -roll on next save by target for 1 rd"',
   'Unstable Backlash':
     'Section=magic ' +
-    'Note="Trigger Wild Magic effect when taking damage or failing save"',
+    'Note="Use Reaction to trigger Wild Magic effect when taking damage or failing save"',
   'Vigilant Blessing':
     'Section=combat Note="Touch gives 1 creature Adv on next initiative"',
   'Vigilant Rebuke':
@@ -1053,7 +1058,8 @@ Tasha.FEATURES = {
     'Note="Spend 1 Ki Point to gain 120\' Darkvision and R600\' voice or R60\' directed voice for 10 min",' +
          '"Spend 1 Ki Point to gain Adv on Insight and Intimidation for 10 min"',
   'Voice Of Authority':
-    'Section=magic Note="Self spell target can use Reaction to make attack"',
+    'Section=magic ' +
+    'Note="Ally self spell target can use Reaction to make attack"',
   'Wails From The Grave':
     'Section=combat Note="R30\' Sneak Attack inflicts %{(levels.Rogue+1)//4}d6 HP necrotic on second creature %{proficiencyBonus}/long rest"',
   'Warping Implosion':
@@ -1078,18 +1084,12 @@ Tasha.PATHS = {
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
       '"1:Psionic Spells","1:Telepathic Speech","6:Psionic Sorcery",' +
-      '"6:Psychic Defenses","14:Revelation In Flesh","18:Warping Implosion" ' +
-      'SpellSlots=' +
-        'Aberrant0:1=1,' +
-        'Aberrant1:1=2,' +
-        'Aberrant2:3=2,' +
-        'Aberrant3:5=2,' +
-        'Aberrant4:7=2,' +
-        'Aberrant5:9=2',
+      '"6:Psychic Defenses","14:Revelation In Flesh","18:Warping Implosion"',
   'Alchemist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Alchemist Tool Proficiency","3:Experimental Elixir",' +
+      '"3:Alchemist Spells","3:Alchemist Tool Proficiency",' +
+      '"3:Experimental Elixir",' +
       '"features.Guardian Armor ? 3:Thunder Gauntlets",' +
       '"features.Guardian Armor ? 3:Defensive Field",' +
       '"features.Infiltrator Armor ? 3:Lightning Launcher",' +
@@ -1099,21 +1099,22 @@ Tasha.PATHS = {
   'Armorer':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Arcane Armor","3:Tools Of The Trade","5:Extra Attack",' +
-      '"9:Armor Modifications",' +
+      '"3:Arcane Armor","3:Armorer Spells","3:Tools Of The Trade",' +
+      '"5:Extra Attack","9:Armor Modifications",' +
       '"features.Guardian Armor ? 15:Perfected Armor (Guardian Armor)",' +
       '"features.Infiltrator Armor ? 15:Perfected Armor (Infiltrator Armor)"',
   'Artillerist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Artillerist Tool Proficiency","3:Eldritch Cannon",' +
-      '"5:Arcane Firearm","9:Explosive Cannon","15:Fortified Position"',
+      '"3:Artillerist Spells","3:Artillerist Tool Proficiency",' +
+      '"3:Eldritch Cannon","5:Arcane Firearm","9:Explosive Cannon",' +
+      '"15:Fortified Position"',
   'Battle Smith':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Battle Ready","3:Battle Smith Tool Proficiency",' +
-      '"3:Steel Defender","5:Extra Attack","9:Arcane Jolt",' +
-      '"15:Improved Defender"',
+      '"3:Battle Ready","3:Battle Smith Spells",' +
+      '"3:Battle Smith Tool Proficiency","3:Steel Defender","5:Extra Attack",' +
+      '"9:Arcane Jolt","15:Improved Defender"',
   'Bladesinging':
     'Group=Wizard Level=levels.Wizard ' +
     'Features=' +
@@ -1152,14 +1153,7 @@ Tasha.PATHS = {
     'Group=Sorcerer Level=levels.Sorcerer ' +
     'Features=' +
       '"1:Clockwork Magic","1:Manifestations Of Order","1:Restore Balance",' +
-      '"6:Bastion Of Law","14:Trance Of Order","18:Clockwork Cavalcade" ' +
-      'SpellAbility=charisma ' +
-      'SpellSlots=' +
-        'Clockwork1:1=2,' +
-        'Clockwork2:3=2,' +
-        'Clockwork3:5=2,' +
-        'Clockwork4:7=2,' +
-        'Clockwork5:9=2',
+      '"6:Bastion Of Law","14:Trance Of Order","18:Clockwork Cavalcade"',
   'College Of Creation':
     'Group=Bard Level=levels.Bard ' +
     'Features=' +
@@ -1328,7 +1322,7 @@ Tasha.SPELLS = {
     'Description="R15\' Pulls target 10\' and inflicts %{(level+5)//6}d8 HP lightning (Str neg)"',
   'Mind Sliver':
     'School=Enchantment ' +
-    'Level=Aberrant0,K0,S0,W0 ' +
+    'Level=K0,S0,W0 ' +
     'Description="R60\' Target suffers %{(level+7)//6}d6 HP psychic and -1d4 next save (Int neg) w/in 1 rd"',
   'Spirit Shroud':
     'School=Necromancy ' +
@@ -1336,7 +1330,7 @@ Tasha.SPELLS = {
     'Description="R10\' Self hits inflict +1d8 HP radiant, necrotic, or cold; 1 target/rd suffers -10\' Speed for 1 rd for conc or 1 min"',
   'Summon Aberration':
     'School=Conjuration ' +
-    'Level=Aberrant4,K4,W4 ' +
+    'Level=K4,W4 ' +
     'Description="R90\' Summoned beholderkin, slaad, or star spawn obeys self for conc or 1 hr"',
   'Summon Beast':
     'School=Conjuration ' +
@@ -1348,7 +1342,7 @@ Tasha.SPELLS = {
     'Description="R90\' Summoned avenger or defender celestial spirit obeys self for conc or 1 hr"',
   'Summon Construct':
     'School=Conjuration ' +
-    'Level=A4,Clockwork4,W4 ' +
+    'Level=A4,W4 ' +
     'Description="R90\' Summoned clay, metal, or stone construct spirit obeys self for conc or 1 hr"',
   'Summon Elemental':
     'School=Conjuration ' +
@@ -1389,39 +1383,34 @@ Tasha.SPELLS = {
 };
 Tasha.SPELLS_LEVELS_ADDED = {
   'Acid Splash':'A0',
-  'Aid':'A2,B2,Clockwork2,Peace2,R2',
-  'Alarm':'A1,Clockwork1,Watchers1',
+  'Aid':'A2,B2,Peace2,R2',
+  'Alarm':'A1,Watchers1',
   'Alter Self':'A2',
   'Animate Dead':'Spores3',
   'Animate Objects':'A5',
   'Antipathy/Sympathy':'B8',
   'Arcane Eye':'A4',
   'Arcane Lock':'A2',
-  'Arms Of Hadar':'Aberrant1',
   'Augury':'D2,W2',
   'Aura Of Life':'C4,Twilight4,Wildfire4',
-  'Aura Of Purity':'"A4 [Battle Smith]",C4,Peace4,Watchers4',
-  'Aura Of Vitality':'"A3 [Battle Smith]",C3,D3,Twilight3',
-  'Banishing Smite':'"A5 [Battle Smith]"',
+  'Aura Of Purity':'C4,Peace4,Watchers4',
+  'Aura Of Vitality':'C3,D3,Twilight3',
   'Banishment':'Watchers4',
   'Beacon Of Hope':'Peace3',
   "Bigby's Hand":'A5,"K5 [The Fathomless]",S5',
-  'Blight':'"A4 [Artificer]",Spores4',
+  'Blight':'Spores4',
   'Blindness/Deafness':'Spores2',
   'Blink':'A3',
   'Blur':'A2,"K2 [Marid]"',
-  'Branding Smite':'"A2 [Battle Smith]"',
   'Burning Hands':'"K1 [Efreeti]",Wildfire1',
-  'Calm Emotions':'Aberrant2',
   'Chill Touch':'Spores0',
   'Circle Of Power':'Twilight5',
-  'Cloudkill':'"A5 [Artificer]",Spores5',
+  'Cloudkill':'Spores5',
   'Color Spray':'B1',
   'Command':'B1,Order1',
   'Commune':'Glory5,Order5',
   'Compulsion':'Glory4,Order4',
   'Cone Of Cold':'A5,D5,"K5 [The Fathomless]","K5 [Marid]"',
-  'Conjure Barrage':'"A3 [Battle Smith]"',
   'Confusion':'Spores4',
   'Contagion':'Spores5',
   'Continual Flame':'A2,D2',
@@ -1433,14 +1422,11 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Cure Wounds':'A1,Wildfire1',
   'Dancing Lights':'A0',
   'Darkvision':'A2',
-  'Death Ward':'"A4 [Artificer]"',
   'Demiplane':'S8',
   'Detect Evil And Good':'"K1 [The Genie]"',
   'Detect Magic':'A1,Watchers1',
-  'Detect Thoughts':'Aberrant2',
   'Disguise Self':'A1',
-  'Dispel Magic':'A3,Clockwork3',
-  'Dissonant Whispers':'Aberrant1',
+  'Dispel Magic':'A3',
   'Divination':'D4,W4',
   'Dominate Beast':'R4',
   'Dominate Person':'Order5',
@@ -1448,41 +1434,37 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Enhance Ability':'A2,Glory2,R2,W2',
   'Enlarge/Reduce':'A2,B2,D2',
   'Entangle':'R1',
-  "Evard's Black Tentacles":'Aberrant4',
   'Expeditious Retreat':'A1',
   'Fabricate':'A4',
   'Faerie Fire':'A1,Twilight1',
   'False Life':'A1',
   'Feather Fall':'A1',
   'Fire Bolt':'A0',
-  'Fire Shield':'"A4 [Armorer]","A4 [Battle Smith]",D4,"K4 [Efreeti]",S4,Wildfire4',
-  'Fireball':'A3,"K3 [Efreeti]"',
+  'Fire Shield':'D4,"K4 [Efreeti]",S4,Wildfire4',
+  'Fireball':'A3,K3 [Efreeti]"',
   'Flame Blade':'S2',
   'Flame Strike':'Glory5,"K5 [Efreeti]",Wildfire5',
-  'Flaming Sphere':'"A2 [Artificer]",S2,Wildfire2',
+  'Flaming Sphere':'S2,Wildfire2',
   'Flesh To Stone':'D6,S6',
   'Fly':'A3',
   'Fog Cloud':'"K1 [Marid]"',
-  'Freedom Of Movement':'A4,Clockwork4,Glory4',
-  'Gaseous Form':'"A3 [Artificer]",Spores3',
+  'Freedom Of Movement':'A4,Glory4',
+  'Gaseous Form':'Spores3',
   'Gate':'K9',
   'Gentle Repose':'P2,Spores2',
   'Glyph Of Warding':'A3',
   'Grease':'A1,S1',
-  'Greater Invisibility':'"A4 [Armorer]","K4 [Djinni]",Twilight4',
-  'Greater Restoration':'A5,Clockwork5,Peace5,R5',
+  'Greater Invisibility':'"K4 [Djinni]",Twilight4',
+  'Greater Restoration':'A5,Peace5,R5',
   'Guidance':'A0',
   'Guiding Bolt':'Glory1',
   'Gust Of Wind':'"K2 [The Fathomless]","K2 [Djinni]",R2',
   'Haste':'A3,Glory3',
-  'Healing Word':'"A1 [Artificer]"',
   'Heat Metal':'A2',
   "Heroes' Feast":'B6',
-  'Heroism':'"A1 [Battle Smith]",Glory1,Order1,Peace1',
+  'Heroism':'Glory1,Order1,Peace1',
   'Hold Monster':'Watchers5',
   'Hold Person':'Order2',
-  'Hunger Of Hadar':'Aberrant3',
-  'Hypnotic Pattern':'"A3 [Armorer]"',
   'Ice Storm':'A4',
   'Identify':'A1',
   'Incendiary Cloud':'D8',
@@ -1490,23 +1472,21 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Jump':'A1',
   "Leomund's Secret Chest":'A4',
   "Leomund's Tiny Hut":'Twilight3',
-  'Lesser Restoration':'A2,Clockwork2',
+  'Lesser Restoration':'A2',
   'Levitate':'A2',
   'Light':'A0',
-  'Lightning Bolt':'"A3 [Armorer]","K3 [The Fathomless]"',
+  'Lightning Bolt':'"K3 [The Fathomless]"',
   'Locate Creature':'Order4',
   'Longstrider':'A1',
   'Mage Hand':'A0',
   'Magic Mouth':'A2',
-  'Magic Missile':'"A1 [Armorer]"',
   'Magic Weapon':'A2,Glory2,R2,S2',
-  'Mass Cure Wounds':'"A5 [Battle Smith]",Wildfire5',
-  'Mass Healing Word':'"A3 [Artificer]",B3,Order3',
+  'Mass Cure Wounds':'Wildfire5',
+  'Mass Healing Word':'B3,Order3',
   'Meld Into Stone':'"K3 [Dao]",R3',
-  "Melf's Acid Arrow":'"A2 [Artificer]"',
   'Mending':'A0',
   'Message':'A0',
-  'Mirror Image':'"A2 [Armorer]",B2',
+  'Mirror Image':'B2',
   'Mislead':'K5,Twilight5',
   'Moonbeam':'Twilight2,Watchers2',
   "Mordenkainen's Faithful Hound":'A4',
@@ -1514,7 +1494,6 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Nondetection':'Watchers3',
   "Otiluke's Freezing Sphere":'S6',
   "Otiluke's Resilient Sphere":'A4,Peace4',
-  'Passwall':'"A5 [Armorer]"',
   'Phantasmal Force':'"K2 [The Genie]"',
   'Phantasmal Killer':'B4,"K4 [The Genie]"',
   'Planar Binding':'K5',
@@ -1525,14 +1504,12 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Prestidigitation':'A0',
   'Prismatic Spray':'B7',
   'Prismatic Wall':'B9',
-  'Protection From Evil And Good':'Clockwork1,D1',
-  'Protection From Energy':'A3,Clockwork3,Glory3',
+  'Protection From Evil And Good':'D1',
+  'Protection From Energy':'A3,Glory3',
   'Protection From Poison':'A2',
   'Purify Food And Drink':'A1',
-  'Raise Dead':'"A5 [Artificer]"',
-  "Rary's Telepathic Bond":'Aberrant5,B5,Peace5',
+  "Rary's Telepathic Bond":'B5,Peace5',
   'Ray Of Frost':'A0',
-  'Ray Of Sickness':'"A1 [Artificer]"',
   'Resistance':'A0',
   'Revivify':'A3,D3,R3,Wildfire3',
   'Rope Trick':'A2',
@@ -1542,9 +1519,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Searing Smite':'R1',
   'See Invisibility':'A2,Twilight2,Watchers2',
   'Seeming':'"K5 [Djinni]"',
-  'Sending':'Aberrant3,Peace3',
-  'Shatter':'"A2 [Armorer]"',
-  'Shield':'"A1 [Battle Smith]"',
+  'Sending':'Peace3',
   'Shocking Grasp':'A0',
   'Silence':'"K2 [The Fathomless]"',
   'Sleep':'Twilight1',
@@ -1559,15 +1534,13 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Sunbeam':'C6',
   'Sunburst':'C8',
   'Symbol':'D7',
-  'Telekinesis':'Aberrant5',
   'Teleportation Circle':'K5',
   'Thorn Whip':'A0',
-  'Thunderwave':'"A1 [Armorer]","K1 [The Fathomless]","K1 [Djinni]"',
+  'Thunderwave':'"K1 [The Fathomless]","K1 [Djinni]"',
   'Vampiric Touch':'S3',
   'Wall Of Fire':'A4',
-  'Wall Of Force':'"A5 [Armorer]",Clockwork5',
   'Wall Of Stone':'A5,"K5 [Dao]"',
-  'Warding Bond':'"A2 [Battle Smith]",P2,Peace2',
+  'Warding Bond':'P2,Peace2',
   'Water Breathing':'A3',
   'Water Walk':'A3',
   'Web':'A2',
@@ -1722,6 +1695,9 @@ Tasha.classRulesExtra = function(rules, name) {
     );
     rules.defineRule('features.Combat Superiority',
       'combatNotes.fightingStyle(SuperiorTechnique)', '=', '1'
+    );
+    rules.defineRule('weapons.Unarmed.2',
+      'combatNotes.fightingStyle(UnarmedFighting)', '^', '"1d6"'
     );
   } else if(name == 'Paladin') {
     rules.defineRule('magicNotes.harnessDivinePower',
@@ -1971,7 +1947,80 @@ Tasha.pathRulesExtra = function(rules, name) {
     name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
     'Level';
 
-  if(name == 'Armorer') {
+  if(name == 'Aberrant Mind') {
+    SRD5E.featureSpell(rules, 'Mind Sliver', 'Psionic Spells', 'S', 0);
+    SRD5E.featureSpell(rules, 'Arms Of Hadar', 'Psionic Spells', 'S', 1);
+    SRD5E.featureSpell(rules, 'Dissonant Whispers', 'Psionic Spells', 'S', 1);
+    SRD5E.featureSpell(rules, 'Calm Emotions', 'Psionic Spells', 'S', 2);
+    SRD5E.featureSpell(rules, 'Detect Thoughts', 'Psionic Spells', 'S', 2);
+    SRD5E.featureSpell(rules, 'Hunger Of Hadar', 'Psionic Spells', 'S', 3);
+    SRD5E.featureSpell(rules, 'Sending', 'Psionic Spells', 'S', 3);
+    SRD5E.featureSpell
+      (rules, "Evard's Black Tentacles", 'Psionic Spells', 'S', 4);
+    SRD5E.featureSpell(rules, 'Summon Aberration', 'Psionic Spells', 'S', 4);
+    SRD5E.featureSpell
+      (rules, "Rary's Telepathic Bond", 'Psionic Spells', 'S', 5);
+    SRD5E.featureSpell(rules, 'Telekinesis', 'Psionic Spells', 'S', 5);
+    rules.defineRule('spells.Calm Emotions(S2 [Psionic Spells] Ench)',
+      'levels.Sorcerer', '?', 'source >= 3'
+    );
+    rules.defineRule('spells.Detect Thoughts(S2 [Psionic Spells] Divi)',
+      'levels.Sorcerer', '?', 'source >= 3'
+    );
+    rules.defineRule('spells.Hunger Of Hadar(S3 [Psionic Spells] Conj)',
+      'levels.Sorcerer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Sending(S3 [Psionic Spells] Evoc)',
+      'levels.Sorcerer', '?', 'source >= 5'
+    );
+    rules.defineRule("spells.Evard's Black Tentacles(S4 [Psionic Spells] Conj)",
+      'levels.Sorcerer', '?', 'source >= 7'
+    );
+    rules.defineRule('spells.Summon Aberration(S4 [Psionic Spells] Conj)',
+      'levels.Sorcerer', '?', 'source >= 7'
+    );
+    rules.defineRule("spells.Rary's Telepathic Bond(S5 [Psionic Spells] Divi)",
+      'levels.Sorcerer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Telekinesis(S5 [Psionic Spells] Tran)',
+      'levels.Sorcerer', '?', 'source >= 9'
+    );
+  } else if(name == 'Alchemist') {
+    SRD5E.featureSpell(rules, 'Healing Word', 'Alchemist Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Ray Of Sickness', 'Alchemist Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Flaming Sphere', 'Alchemist Spells', 'A', 2);
+    SRD5E.featureSpell(rules, "Melf's Acid Arrow", 'Alchemist Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Gaseous Form', 'Alchemist Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Mass Healing Word', 'Alchemist Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Blight', 'Alchemist Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Death Ward', 'Alchemist Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Cloudkill', 'Alchemist Spells', 'A', 5);
+    SRD5E.featureSpell(rules, 'Raise Dead', 'Alchemist Spells', 'A', 5);
+    rules.defineRule('spells.Flaming Sphere(A2 [Alchemist Spells] Conj)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule("spells.Melf's Acid Arrow(A2 [Alchemist Spells] Evoc)",
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Gaseous Form(A3 [Alchemist Spells] Tran)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Mass Healing Word(A3 [Alchemist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Blight(A4 [Alchemist Spells] Necr)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Death Ward(A4 [Alchemist Spells] Abju)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Cloudkill(A5 [Alchemist Spells] Conj)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
+    rules.defineRule('spells.Raise Dead(A5 [Alchemist Spells] Necr)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
+  } else if(name == 'Armorer') {
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
     rules.defineRule
@@ -1981,9 +2030,42 @@ Tasha.pathRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('combatNotes.extraAttack', pathLevel, '+=', 'source>=5 ? 1 : null');
-    rules.defineRule('speed', 'abilityNotes.poweredSteps', '+', '5');
     rules.defineRule('selectableFeatureCount.Artificer (Armor Model)',
       'features.Armorer', '=', '1'
+    );
+    SRD5E.featureSpell(rules, 'Magic Missile', 'Armorer Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Thunderwave', 'Armorer Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Mirror Image', 'Armorer Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Shatter', 'Armorer Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Hypnotic Pattern', 'Armorer Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Lightning Bolt', 'Armorer Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Fire Shield', 'Armorer Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Greater Invisibility', 'Armorer Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Passwall', 'Armorer Spells', 'A', 5);
+    SRD5E.featureSpell(rules, 'Wall Of Force', 'Armorer Spells', 'A', 5);
+    rules.defineRule('spells.Mirror Image(A2 [Armorer Spells] Illu)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Shatter(A2 [Armorer Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Hypnotic Pattern(A3 [Armorer Spells] Illu)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Lightning Bolt(A3 [Armorer Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Fire Shield(A4 [Armorer Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Greater Invisibility(A4 [Armorer Spells] Illu)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Passwall(A5 [Armorer Spells] Tran)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
+    rules.defineRule('spells.Wall Of Force(A5 [Armorer Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 17'
     );
   } else if(name == 'Artillerist') {
     rules.defineRule('combatNotes.eldritchCannon',
@@ -1994,6 +2076,40 @@ Tasha.pathRulesExtra = function(rules, name) {
       ('combatNotes.eldritchCannon.1', 'spellDifficultyClass.A', '=', null);
     rules.defineRule
       ('combatNotes.explosiveCannon', 'spellDifficultyClass.A', '=', null);
+    SRD5E.featureSpell(rules, 'Shield', 'Artillerist Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Thunderwave', 'Artillerist Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Scorching Ray', 'Artillerist Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Shatter', 'Artillerist Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Fireball', 'Artillerist Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Wind Wall', 'Artillerist Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Ice Storm', 'Artillerist Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Wall Of Fire', 'Artillerist Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Cone Of Cold', 'Artillerist Spells', 'A', 5);
+    SRD5E.featureSpell(rules, 'Wall Of Force', 'Artillerist Spells', 'A', 5);
+    rules.defineRule('spells.Scorching Ray(A2 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Shatter(A2 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Fireball(A3 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Wind Wall(A3 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Ice Storm(A4 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Wall Of Fire(A4 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Cone Of Cold(A5 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
+    rules.defineRule('spells.Wall Of Force(A5 [Artillerist Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
   } else if(name == 'Battle Smith') {
     rules.defineRule('combatNotes.arcaneJolt',
       pathLevel, '=', '2',
@@ -2021,6 +2137,42 @@ Tasha.pathRulesExtra = function(rules, name) {
       'features.Steel Defender', '?', null,
       'proficiencyBonus', '=', 'source + 2'
     );
+    SRD5E.featureSpell(rules, 'Heroism', 'Battle Smith Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Shield', 'Battle Smith Spells', 'A', 1);
+    SRD5E.featureSpell(rules, 'Branding Smite', 'Battle Smith Spells', 'A', 2);
+    SRD5E.featureSpell(rules, 'Warding Bond', 'Battle Smith Spells', 'A', 2);
+    SRD5E.featureSpell
+      (rules, 'Aura Of Vitality', 'Battle Smith Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Conjure Barrage', 'Battle Smith Spells', 'A', 3);
+    SRD5E.featureSpell(rules, 'Aura Of Purity', 'Battle Smith Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Fire Shield', 'Battle Smith Spells', 'A', 4);
+    SRD5E.featureSpell(rules, 'Banishing Smite', 'Battle Smith Spells', 'A', 5);
+    SRD5E.featureSpell
+      (rules, 'Mass Cure Wounds', 'Battle Smith Spells', 'A', 5);
+    rules.defineRule('spells.Branding Smite(A2 [Battle Smith Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Warding Bond(A2 [Battle Smith Spells] Abju)',
+      'levels.Artificer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Aura Of Vitality(A3 [Battle Smith Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Conjure Barrage(A3 [Battle Smith Spells] Conj)',
+      'levels.Artificer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Aura Of Purity(A4 [Battle Smith Spells] Abju)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Fire Shield(A4 [Battle Smith Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Banishing Smite(A5 [Battle Smith Spells] Abju)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
+    rules.defineRule('spells.Mass Cure Wounds(A5 [Battle Smith Spells] Evoc)',
+      'levels.Artificer', '?', 'source >= 17'
+    );
   } else if(name == 'Bladesinging') {
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
@@ -2037,6 +2189,43 @@ Tasha.pathRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.extraAttack', pathLevel, '+=', '1');
     rules.defineRule('magicNotes.bladesong',
       'intelligenceModifier', '=', 'Math.max(source, 1)'
+    );
+  } else if(name == 'Clockwork Soul') {
+    SRD5E.featureSpell(rules, 'Alarm', 'Clockwork Magic', 'S', 1);
+    SRD5E.featureSpell
+      (rules, 'Protection From Evil And Good', 'Clockwork Magic', 'S', 1);
+    SRD5E.featureSpell(rules, 'Aid', 'Clockwork Magic', 'S', 2);
+    SRD5E.featureSpell(rules, 'Lesser Restoration', 'Clockwork Magic', 'S', 2);
+    SRD5E.featureSpell(rules, 'Dispel Magic', 'Clockwork Magic', 'S', 3);
+    SRD5E.featureSpell
+      (rules, 'Protection From Energy', 'Clockwork Magic', 'S', 3);
+    SRD5E.featureSpell(rules, 'Freedom Of Movement', 'Clockwork Magic', 'S', 4);
+    SRD5E.featureSpell(rules, 'Summon Construct', 'Clockwork Magic', 'S', 4);
+    SRD5E.featureSpell(rules, 'Greater Restoration', 'Clockwork Magic', 'S', 5);
+    SRD5E.featureSpell(rules, 'Wall Of Force', 'Clockwork Magic', 'S', 5);
+    rules.defineRule('spells.Aid(S2 [Clockwork Magic] Abju)',
+      'levels.Sorcerer', '?', 'source >= 3'
+    );
+    rules.defineRule('spells.Lesser Restoration(S2 [Clockwork Magic] Abju)',
+      'levels.Sorcerer', '?', 'source >= 3'
+    );
+    rules.defineRule('spells.Dispel Magic(S3 [Clockwork Magic] Abju)',
+      'levels.Sorcerer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Protection From Energy(S3 [Clockwork Magic] Abju)',
+      'levels.Sorcerer', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Freedom Of Movement(S4 [Clockwork Magic] Abju)',
+      'levels.Sorcerer', '?', 'source >= 7'
+    );
+    rules.defineRule('spells.Summon Construct(S4 [Clockwork Magic] Conj)',
+      'levels.Sorcerer', '?', 'source >= 7'
+    );
+    rules.defineRule('spells.Greater Restoration(S5 [Clockwork Magic] Abju)',
+      'levels.Sorcerer', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Wall Of Force(S5 [Clockwork Magic] Evoc)',
+      'levels.Sorcerer', '?', 'source >= 9'
     );
   } else if(name == 'Circle Of Spores') {
     rules.defineRule('combatNotes.haloOfSpores',
@@ -2077,6 +2266,23 @@ Tasha.pathRulesExtra = function(rules, name) {
       ('combatNotes.beguilingTwist', 'spellDifficultyClass.R', '=', null);
     SRD5E.featureSpell(rules, 'Misty Step', 'Misty Wanderer', 'R', 2);
     SRD5E.featureSpell(rules, 'Summon Fey', 'Fey Reinforcements', 'R', 3);
+    SRD5E.featureSpell(rules, 'Charm Person', 'Fey Wanderer Magic', 'R', 1);
+    SRD5E.featureSpell(rules, 'Misty Step', 'Fey Wanderer Magic', 'R', 2);
+    SRD5E.featureSpell(rules, 'Dispel Magic', 'Fey Wanderer Magic', 'R', 3);
+    SRD5E.featureSpell(rules, 'Dimension Door', 'Fey Wanderer Magic', 'R', 4);
+    SRD5E.featureSpell(rules, 'Mislead', 'Fey Wanderer Magic', 'R', 5);
+    rules.defineRule('spells.Misty Step(R2 [Fey Wanderer Magic] Conj)',
+      'levels.Ranger', '?', 'source >= 5'
+    );
+    rules.defineRule('spells.Dispel Magic(R3 [Fey Wanderer Magic] Abju)',
+      'levels.Ranger', '?', 'source >= 9'
+    );
+    rules.defineRule('spells.Dimension Door(R4 [Fey Wanderer Magic] Conj)',
+      'levels.Ranger', '?', 'source >= 13'
+    );
+    rules.defineRule('spells.Mislead(R5 [Fey Wanderer Magic] Illu)',
+      'levels.Ranger', '?', 'source >= 17'
+    );
   } else if(name == 'Oath Of Glory') {
     rules.defineRule('combatNotes.inspiringSmite', pathLevel, '=', null);
     rules.defineRule
