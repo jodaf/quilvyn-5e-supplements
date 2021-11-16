@@ -498,7 +498,7 @@ SwordCoast.FEATURES_ADDED = {
     'Note="Spend 2-%V Ki Points to cast <i>Burning Hands</i> after attack"',
   'Searing Sunburst':
     'Section=magic ' +
-    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (DC %V Con neg), spend 1-3 Ki Point for +2d6 HP radiant each"',
+    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (DC %V Con neg), spend 1-3 Ki Points for +2d6 HP radiant each"',
   'Song Of Defense':
     'Section=magic Note="During Bladesong, use Reaction and expend spell slot to reduce damage by 5x slot level"',
   'Song Of Victory':
