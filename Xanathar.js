@@ -774,36 +774,46 @@ Xanathar.PATHS = {
       '"1:Blessing Of The Forge","1:Forge Bonus Proficiencies",' +
       '"2:Artisan\'s Blessing","6:Soul Of The Forge","8:Divine Strike",' +
       '"17:Saint Of Forge And Fire" ' +
-    'SpellAbility=wisdom ' +
-    'SpellSlots=' +
-      'Forge1:1=2,' +
-      'Forge2:3=2,' +
-      'Forge3:5=2,' +
-      'Forge4:7=2,' +
-      'Forge5:9=2',
+    'Spells=' +
+      '"1:Identify,Searing Smite",' +
+      '"3:Heat Metal,Magic Weapon",' +
+      '"5:Elemental Weapon,Protection From Energy",' +
+      '"7:Fabricate,Wall Of Fire",' +
+      '"9:Animate Objects,Creation"',
   'Gloom Stalker':
     'Group=Ranger Level=levels.Ranger ' +
     'Features=' +
-      '"3:Dread Ambusher","3:Gloom Stalker Magic","3:Umbral Sight",' +
-      '"7:Iron Mind","11:Stalker\'s Flurry","15:Shadowy Dodge"',
+      '"3:Dread Ambusher","3:Umbral Sight","7:Iron Mind",' +
+      '"11:Stalker\'s Flurry","15:Shadowy Dodge" ' +
+    'Spells=' +
+      '"3:Disguise Self",' +
+      '"5:Rope Trick",' +
+      '"9:Fear",' +
+      '"13:Greater Invisibility",' +
+      '"17:Seeming"',
   'Grave Domain':
     'Group=Cleric Level=levels.Cleric ' +
     'Features=' +
       '"1:Circle Of Mortality","1:Eyes Of The Grave","2:Path To The Grave",' +
       '"6:Sentinel At Death\'s Door","8:Potent Spellcasting",' +
       '"17:Keeper Of Souls" ' +
-    'SpellAbility=wisdom ' +
-    'SpellSlots=' +
-      'Grave1:1=2,' +
-      'Grave2:3=2,' +
-      'Grave3:5=2,' +
-      'Grave4:7=2,' +
-      'Grave5:9=2',
+    'Spells=' +
+      '"1:Bane,False Life",' +
+      '"3:Gentle Repose,Ray Of Enfeeblement",' +
+      '"5:Revivify,Vampiric Touch",' +
+      '"7:Blight,Death Ward",' +
+      '"9:Antilife Shell,Raise Dead"',
   'Horizon Walker':
     'Group=Ranger Level=levels.Ranger ' +
     'Features=' +
-      '"3:Detect Portal","3:Horizon Walker Magic","3:Planar Warrior",' +
-      '"7:Ethereal Step","11:Distant Strike","15:Spectral Defense"',
+      '"3:Detect Portal","3:Planar Warrior","7:Ethereal Step",' +
+      '"11:Distant Strike","15:Spectral Defense" ' +
+    'Spells=' +
+      '"3:Protection From Evil And Good",' +
+      '"5:Misty Step",' +
+      '"9:Haste",' +
+      '"13:Banishment",' +
+      '"17:Teleportation Circle"',
   'Inquisitive':
     'Group=Rogue Level=levels.Rogue ' +
     'Features=' +
@@ -817,33 +827,36 @@ Xanathar.PATHS = {
   'Monster Slayer':
     'Group=Ranger Level=levels.Ranger ' +
     'Features=' +
-      '"3:Hunter\'s Sense","3:Slayer\'s Prey","3:Monster Slayer Magic",' +
-      '"7:Supernatural Defense","11:Magic-User\'s Nemesis",' +
-      '"15:Slayer\'s Counter"',
+      '"3:Hunter\'s Sense","3:Slayer\'s Prey","7:Supernatural Defense",' +
+      '"11:Magic-User\'s Nemesis","15:Slayer\'s Counter" ' +
+    'Spells=' +
+      '"3:Protection From Evil And Good",' +
+      '"5:Zone Of Truth",' +
+      '"9:Magic Circle",' +
+      '"13:Banishment",' +
+      '"17:Hold Monster"',
   'Oath Of Conquest':
     'Group=Paladin Level=levels.Paladin ' +
     'Features=' +
       '"3:Conquering Presence","3:Guided Strike","7:Aura Of Conquest",' +
       '"15:Scornful Rebuke","20:Invincible Conqueror" ' +
-    'SpellAbility=charisma ' +
-    'SpellSlots=' +
-      'Conquest1:3=2,' +
-      'Conquest2:5=2,' +
-      'Conquest3:9=2,' +
-      'Conquest4:13=2,' +
-      'Conquest5:17=2',
+    'Spells=' +
+      '"3:Armor Of Agathys,Command",' +
+      '"5:Hold Person,Spiritual Weapon",' +
+      '"9:Bestow Curse,Fear",' +
+      '"13:Dominate Beast,Stoneskin",' +
+      '"17:Cloudkill,Dominate Person"',
   'Oath Of Redemption':
     'Group=Paladin Level=levels.Paladin ' +
     'Features=' +
       '"3:Emissary Of Peace","3:Rebuke The Violent","7:Aura Of The Guardian",' +
       '"15:Protective Spirit","20:Emissary Of Redemption" ' +
-    'SpellAbility=charisma ' +
-    'SpellSlots=' +
-      'Redemption1:3=2,' +
-      'Redemption2:5=2,' +
-      'Redemption3:9=2,' +
-      'Redemption4:13=2,' +
-      'Redemption5:17=2',
+    'Spells=' +
+      '"3:Sanctuary,Sleep",' +
+      '"5:Calm Emotions,Hold Person",' +
+      '"9:Counterspell,Hypnotic Pattern",' +
+      '"13:Otiluke\'s Resilient Sphere,Stoneskin",' +
+      '"17:Hold Monster,Wall Of Force"',
   'Path Of The Ancestral Guardian':
     'Group=Barbarian Level=levels.Barbarian ' +
     'Features=' +
@@ -1309,60 +1322,25 @@ Xanathar.SPELLS = {
 
 };
 Xanathar.SPELLS_LEVELS_ADDED = {
-  'Animate Objects':'Forge5',
-  'Antilife Shell':'Grave5',
-  'Armor Of Agathys':'Conquest1',
-  'Bane':'Grave1',
   'Banishing Smite':'"K5 [The Hexblade]"',
-  'Bestow Curse':'Conquest3',
-  'Blight':'Grave4',
   'Blink':'"K3 [The Hexblade]"',
   'Blur':'"K2 [The Hexblade]"',
   'Branding Smite':'"K2 [The Hexblade]"',
-  'Calm Emotions':'Redemption2',
-  'Cloudkill':'Conquest5',
-  'Command':'Conquest1',
   'Cone Of Cold':'"K5 [The Hexblade]"',
-  'Counterspell':'Redemption3',
-  'Creation':'Forge5',
   'Cure Wounds':'"K1 [The Celestial]"',
   'Daylight':'"K3 [The Celestial]"',
-  'Death Ward':'Grave4',
-  'Dominate Beast':'Conquest4',
-  'Dominate Person':'Conquest5',
-  'Elemental Weapon':'Forge3,"K3 [The Hexblade]"',
-  'Fabricate':'Forge4',
-  'False Life':'Grave1',
-  'Fear':'Conquest3',
+  'Elemental Weapon':'"K3 [The Hexblade]"',
   'Flame Strike':'"K5 [The Celestial]"',
   'Flaming Sphere':'"K2 [The Celestial]"',
-  'Gentle Repose':'Grave2',
   'Greater Restoration':'"K5 [The Celestial]"',
   'Guardian Of Faith':'"K4 [The Celestial]"',
   'Guiding Bolt':'"K1 [The Celestial]"',
-  'Heat Metal':'Forge2',
-  'Hold Monster':'Redemption5',
-  'Hold Person':'Conquest2,Redemption2',
-  'Hypnotic Pattern':'Redemption3',
-  'Identify':'Forge1',
   'Lesser Restoration':'"K2 [The Celestial]"',
-  'Magic Weapon':'Forge2',
-  "Otiluke's Resilient Sphere":'Redemption4',
   'Phantasmal Killer':'"K4 [The Hexblade]"',
-  'Protection From Energy':'Forge3',
-  'Raise Dead':'Grave5',
-  'Ray Of Enfeeblement':'Grave2',
-  'Revivify':'"K3 [The Celestial]",Grave3',
-  'Sanctuary':'Redemption1',
+  'Revivify':'"K3 [The Celestial]"',
   'Shield':'"K1 [The Hexblade]"',
-  'Sleep':'Redemption1',
-  'Searing Smite':'Forge1',
-  'Spiritual Weapon':'Conquest2',
   'Staggering Smite':'"K4 [The Hexblade]"',
-  'Stoneskin':'Conquest4,Redemption4',
-  'Vampiric Touch':'Grave3',
-  'Wall Of Fire':'Forge4,"K4 [The Celestial]"',
-  'Wall Of Force':'Redemption5',
+  'Wall Of Fire':'"K4 [The Celestial]"',
   'Wrathful Smite':'"K1 [The Hexblade]"'
 };
 Xanathar.TOOLS_ADDED = {
@@ -1436,9 +1414,10 @@ Xanathar.featRulesExtra = function(rules, name) {
     SRD5E.weaponRules(rules, 'Claws', 0, ['Un'], '1d4', null);
     rules.defineRule('weapons.Claws', 'combatNotes.dragonHide', '=', '1');
   } else if(name == 'Drow High Magic') {
-    SRD5E.featureSpell(rules, 'Detect Magic', 'Drow High Magic', 'S', 1);
-    SRD5E.featureSpell(rules, 'Levitate', 'Drow High Magic', 'S', 2);
-    SRD5E.featureSpell(rules, 'Dispel Magic', 'Drow High Magic', 'S', 3);
+    SRD5E.featureSpells(
+      rules, 'Drow High Magic', 'S', null,
+      ['Detect Magic,Levitate,Dispel Magic']
+    );
     rules.defineRule('casterLevels.Drow High Magic',
       'features.Drow High Magic', '?', null,
       'level', '=', null,
@@ -1456,7 +1435,7 @@ Xanathar.featRulesExtra = function(rules, name) {
     rules.defineRule('languageCount', 'skillNotes.feyTeleportation', '+=', '1');
     rules.defineRule
       ('languages.Sylvan', 'skillNotes.feyTeleportation', '=', '1');
-    SRD5E.featureSpell(rules, 'Misty Step', 'Fey Teleportation', 'W', 2);
+    SRD5E.featureSpells(rules, 'Fey Teleportation', 'W', null, ['Misty Step']);
     rules.defineRule('casterLevels.Fey Teleportation',
       'features.Fey Teleportation', '?', null,
       'level', '=', null,
@@ -1480,8 +1459,8 @@ Xanathar.featRulesExtra = function(rules, name) {
       ('abilityBoosts', 'abilityNotes.squatNimbleness', '+=', '1');
   } else if(name == 'Wood Elf Magic') {
     rules.defineRule('spellSlots.D0', 'magicNotes.woodElfMagic', '+=', '1');
-    SRD5E.featureSpell(rules, 'Longstrider', 'Wood Elf Magic', 'D', 1);
-    SRD5E.featureSpell(rules, 'Pass Without Trace', 'Wood Elf Magic', 'D', 2);
+    SRD5E.featureSpells
+      (rules, 'Wood Elf Magic', 'D', null, ['Longstrider,Pass Without Trace']);
     rules.defineRule('casterLevels.Wood Elf Magic',
       'features.Wood Elf Magic', '?', null,
       'level', '=', null,
@@ -1534,8 +1513,9 @@ Xanathar.pathRulesExtra = function(rules, name) {
       pathLevel, '=',
         'source>=18 ? 6 : source>=15 ? 5 : source>=10 ? 4 : source>=7 ? 3 : 2'
     );
-    SRD5E.featureSpell(rules, 'Druidcraft', 'Arcane Archer Lore', 'D', 0);
-    SRD5E.featureSpell(rules, 'Prestidigitation', 'Arcane Archer Lore', 'W', 0);
+    SRD5E.featureSpells(rules, 'Arcane Archer Lore', 'D', null, ['Druidcraft']);
+    SRD5E.featureSpells
+      (rules, 'Arcane Archer Lore', 'W', null, ['Prestidigitation']);
     // Don't need to set caster level, since neither of these cantrips has
     // variable effects.
   } else if(name == 'Cavalier') {
@@ -1557,10 +1537,10 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.balmOfTheSummerCourt', pathLevel, '=', null);
     rules.defineRule
       ('magicNotes.hiddenPaths', 'wisdomModifier', '=', 'Math.max(source, 1)');
-    SRD5E.featureSpell(rules, 'Dream', 'Walker In Dreams', 'D', 5);
-    SRD5E.featureSpell(rules, 'Scrying', 'Walker In Dreams', 'D', 5);
-    SRD5E.featureSpell
-      (rules, 'Teleportation Circle', 'Walker In Dreams', 'D', 5);
+    SRD5E.featureSpells(
+      rules, 'Walker In Dreams', 'D', null,
+      ['Dream,Scrying,Teleportation Circle']
+    );
   } else if(name == 'Circle Of The Shepherd') {
     rules.defineRule
       ('languages.Sylvan', pathLevel, '=', 'source>=2 ? 1 : null');
@@ -1586,7 +1566,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('magicNotes.unbreakableMajesty', 'spellDifficultyClass.B', '=', null);
-    SRD5E.featureSpell(rules, 'Command', 'Mantle Of Majesty', 'B', 1);
+    SRD5E.featureSpells(rules, 'Mantle Of Majesty', 'B', null, ['Command']);
   } else if(name == 'College Of Swords') {
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
@@ -1641,24 +1621,6 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('features.Darkvision', 'featureNotes.umbralSight', '=', '1');
     rules.defineRule('saveProficiency.Wisdom', 'saveNotes.ironMind', '=', '1');
-    SRD5E.featureSpell(rules, 'Disguise Self', 'Gloom Stalker Magic', 'R', 1);
-    SRD5E.featureSpell(rules, 'Rope Trick', 'Gloom Stalker Magic', 'R', 2);
-    SRD5E.featureSpell(rules, 'Fear', 'Gloom Stalker Magic', 'R', 3);
-    SRD5E.featureSpell
-      (rules, 'Greater Invisibility', 'Gloom Stalker Magic', 'R', 4);
-    SRD5E.featureSpell(rules, 'Seeming', 'Gloom Stalker Magic', 'R', 5);
-    rules.defineRule('spells.Rope Trick(R2 [Gloom Stalker Magic] Tran)',
-      'levels.Ranger', '?', 'source >= 5'
-    );
-    rules.defineRule('spells.Fear(R3 [Gloom Stalker Magic] Illu)',
-      'levels.Ranger', '?', 'source >= 9'
-    );
-    rules.defineRule('spells.Greater Invisibility(R4 [Gloom Stalker Magic] Illu)',
-      'levels.Ranger', '?', 'source >= 13'
-    );
-    rules.defineRule('spells.Seeming(R5 [Gloom Stalker Magic] Illu)',
-      'levels.Ranger', '?', 'source >= 17'
-    );
   } else if(name == 'Grave Domain') {
     rules.defineRule('magicNotes.eyesOfTheGrave',
       'wisdomModifier', '=', 'Math.max(source, 1)'
@@ -1668,51 +1630,15 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule("magicNotes.sentinelAtDeath'sDoor",
       'wisdomModifier', '=', 'Math.max(source, 1)'
     );
-    SRD5E.featureSpell(rules, 'Spare The Dying', 'Circle Of Mortality', 'C', 0);
+    SRD5E.featureSpells
+      (rules, 'Circle Of Mortality', 'C', null, ['Spare The Dying']);
   } else if(name == 'Horizon Walker') {
     rules.defineRule
       ('combatNotes.planarWarrior', pathLevel, '=', 'source>=11 ? 2 : 1');
-    SRD5E.featureSpell
-      (rules, 'Protection From Evil And Good', 'Horizon Walker Magic', 'R', 1);
-    SRD5E.featureSpell(rules, 'Misty Step', 'Horizon Walker Magic', 'R', 2);
-    SRD5E.featureSpell(rules, 'Haste', 'Horizon Walker Magic', 'R', 3);
-    SRD5E.featureSpell(rules, 'Banishment', 'Horizon Walker Magic', 'R', 4);
-    SRD5E.featureSpell
-      (rules, 'Teleportation Circle', 'Horizon Walker Magic', 'R', 5);
-    rules.defineRule('spells.Misty Step(R2 [Horizon Walker Magic] Conj)',
-      'levels.Ranger', '?', 'source >= 5'
-    );
-    rules.defineRule('spells.Haste(R3 [Horizon Walker Magic] Tran)',
-      'levels.Ranger', '?', 'source >= 9'
-    );
-    rules.defineRule('spells.Banishment(R4 [Horizon Walker Magic] Abju)',
-      'levels.Ranger', '?', 'source >= 13'
-    );
-    rules.defineRule('spells.Teleportation Circle(R5 [Horizon Walker Magic] Conj)',
-      'levels.Ranger', '?', 'source >= 17'
-    );
   } else if(name == 'Monster Slayer') {
     rules.defineRule("combatNotes.hunter'sSense", 'wisdomModifier', '=', null);
     rules.defineRule
       ("combatNotes.magic-User'sNemesis", 'spellDifficultyClass.R', '=', null);
-    SRD5E.featureSpell
-      (rules, 'Protection From Evil And Good', 'Monster Slayer Magic', 'R', 1);
-    SRD5E.featureSpell(rules, 'Zone Of Truth', 'Monster Slayer Magic', 'R', 2);
-    SRD5E.featureSpell(rules, 'Magic Circle', 'Monster Slayer Magic', 'R', 3);
-    SRD5E.featureSpell(rules, 'Banishment', 'Monster Slayer Magic', 'R', 4);
-    SRD5E.featureSpell(rules, 'Hold Monster', 'Monster Slayer Magic', 'R', 5);
-    rules.defineRule('spells.Zone Of Truth(R2 [Monster Slayer Magic] Ench)',
-      'levels.Ranger', '?', 'source >= 5'
-    );
-    rules.defineRule('spells.Magic Circle(R3 [Monster Slayer Magic] Abju)',
-      'levels.Ranger', '?', 'source >= 9'
-    );
-    rules.defineRule('spells.Banishment(R4 [Monster Slayer Magic] Abju)',
-      'levels.Ranger', '?', 'source >= 13'
-    );
-    rules.defineRule('spells.Hold Monster(R5 [Monster Slayer Magic] Ench)',
-      'levels.Ranger', '?', 'source >= 17'
-    );
   } else if(name == 'Inquisitive') {
     rules.defineRule('featureNotes.unerringEye',
       'wisdomModifier', '=', 'Math.max(source, 1)'
@@ -1733,7 +1659,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('magicNotes.auraOfConquest', pathLevel, '=', 'source>=18 ? 30 : 10');
     rules.defineRule('magicNotes.conqueringPresence',
-      'spellDifficultyClass.Conquest', '=', null
+      'spellDifficultyClass.P', '=', null
     );
   } else if(name == 'Oath Of Redemption') {
     rules.defineRule('combatNotes.protectiveSpirit',
@@ -1746,14 +1672,14 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('magicNotes.auraOfTheGuardian', pathLevel, '=', 'source>=18 ? 30 : 10');
     rules.defineRule('magicNotes.rebukeTheViolent',
-      'spellDifficultyClass.Redemption', '=', null
+      'spellDifficultyClass.P', '=', null
     );
   } else if(name == 'Path Of The Ancestral Guardian') {
     rules.defineRule('combatNotes.spiritShield',
       pathLevel, '=', 'source>=14 ? 4 : source>=10 ? 3 : 2'
     );
-    SRD5E.featureSpell(rules, 'Augury', 'Consult The Spirits', 'C', 2);
-    SRD5E.featureSpell(rules, 'Clairvoyance', 'Consult The Spirits', 'C', 3);
+    SRD5E.featureSpells
+      (rules, 'Consult The Spirits', 'C', null, ['Augury,Clairvoyance']);
     rules.defineRule('casterLevels.Consult The Spirits',
       'features.Consult The Spirits', '?', null,
       pathLevel, '=', null,
@@ -1823,7 +1749,7 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.eyesOfTheDark', pathLevel, '?', 'source>=3');
     rules.defineRule
       ('combatNotes.houndOfIllOmen', pathLevel, '=', 'Math.floor(source / 2)');
-    SRD5E.featureSpell(rules, 'Darkness', 'Eyes Of The Dark', 'S', 2);
+    SRD5E.featureSpells(rules, 'Eyes Of The Dark', 'S', null, ['Darkness']);
   } else if(name == 'Storm Sorcery') {
     rules.defineRule("combatNotes.storm'sFury", pathLevel, '=', null);
     rules.defineRule("combatNotes.storm'sFury.1",
@@ -1871,15 +1797,15 @@ Xanathar.pathRulesExtra = function(rules, name) {
       pathLevel, '=', 'Math.floor(source / 2)',
       'charismaModifier', '+', null
     );
-    SRD5E.featureSpell(rules, 'Light', 'Bonus Celestial Cantrips', 'K', 0);
-    SRD5E.featureSpell
-      (rules, 'Sacred Flame', 'Bonus Celestial Cantrips', 'K', 0);
+    SRD5E.featureSpells
+      (rules, 'Bonus Celestial Cantrips', 'K', null, ['Light,Sacred Flame']);
     // Place these Eldritch Invocation spells here, since we don't have a
     // classRulesExtra function that defines general Warlock rules.
-    SRD5E.featureSpell(rules, 'Invisibility', 'Shroud Of Shadow', 'K', 2);
-    SRD5E.featureSpell(rules, 'Water Breathing', 'Gift Of The Depths', 'K', 3);
-    SRD5E.featureSpell
-      (rules, 'Freedom Of Movement', "Trickster's Escape", 'K', 3);
+    SRD5E.featureSpells
+      (rules, 'Gift Of The Depths', 'K', null, ['Water Breathing']);
+    SRD5E.featureSpells(rules, 'Shroud Of Shadow', 'K', null, ['Invisibility']);
+    SRD5E.featureSpells
+      (rules, "Trickster's Escape", 'K', null, ['Freedom Of Movement']);
   } else if(name == 'The Hexblade') {
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
@@ -1978,7 +1904,8 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('magicNotes.searingArcStrike', pathLevel, '=', 'Math.floor(source / 2)');
     rules.defineRule('magicNotes.searingSunburst', 'kiSaveDC', '=', null);
-    SRD5E.featureSpell(rules, 'Burning Hands', 'Searing Arc Strike', 'W', 1);
+    SRD5E.featureSpells
+      (rules, 'Searing Arc Strike', 'W', null, ['Burning Hands']);
   }
 
 };

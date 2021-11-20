@@ -497,110 +497,110 @@ Eberron5E.HOUSES = {
     'Race=Human ' +
     'Tool="Alchemist\'s Supplies","Tinker\'s Tools" ' +
     'Spells=' +
-      '"Identify;Tenser\'s Floating Disk",' +
-      '"Continual Flame;Magic Weapon",' +
-      '"Conjure Barrage;Elemental Weapon",' +
-      '"Fabricate;Stone Shape",' +
+      '"Identify,Tenser\'s Floating Disk",' +
+      '"Continual Flame,Magic Weapon",' +
+      '"Conjure Barrage,Elemental Weapon",' +
+      '"Fabricate,Stone Shape",' +
       '"Creation"',
   'Deneith':
     'Dragonmark=Sentinel ' +
     'Race=Human ' +
     'Tool="Choose 1 from any Game","Vehicles (Land)" ' +
     'Spells=' +
-      '"Compelled Duel;Shield Of Faith",' +
-      '"Warding Bond;Zone Of Truth",' +
-      '"Counterspell;Protection From Energy",' +
-      '"Death Ward;Guardian Of Faith",' +
+      '"Compelled Duel,Shield Of Faith",' +
+      '"Warding Bond,Zone Of Truth",' +
+      '"Counterspell,Protection From Energy",' +
+      '"Death Ward,Guardian Of Faith",' +
       '"Bigby\'s Hand"',
   'Ghallanda':
     'Dragonmark=Hospitality ' +
     'Race=Halfling ' +
     'Tool="Brewer\'s Supplies","Cook\'s Utensils" ' +
     'Spells=' +
-      '"Goodberry;Sleep",' +
-      '"Aid;Calm Emotions",' +
-      '"Create Food And Water;Leomund\'s Tiny Hut",' +
-      '"Aura Of Purity;Mordenkainen\'s Private Sanctum",' +
+      '"Goodberry,Sleep",' +
+      '"Aid,Calm Emotions",' +
+      '"Create Food And Water,Leomund\'s Tiny Hut",' +
+      '"Aura Of Purity,Mordenkainen\'s Private Sanctum",' +
       '"Hallow"',
   'Jorasco':
     'Dragonmark=Healing ' +
     'Race=Halfling ' +
     'Tool="Alchemist\'s Supplies","Herbalism Kit" ' +
     'Spells=' +
-      '"Cure Wounds;Healing Word",' +
-      '"Lesser Restoration;Prayer Of Healing",' +
-      '"Aura Of Vitality;Mass Healing Word",' +
-      '"Aura Of Purity;Aura Of Life",' +
+      '"Cure Wounds,Healing Word",' +
+      '"Lesser Restoration,Prayer Of Healing",' +
+      '"Aura Of Vitality,Mass Healing Word",' +
+      '"Aura Of Purity,Aura Of Life",' +
       '"Greater Restoration"',
   'Kundarak':
     'Dragonmark=Warding ' +
     'Race=Dwarf ' +
     'Tool="Thieves\' Tools","Tinker\'s Tools" ' +
     'Spells=' +
-      '"Alarm;Armor Of Agathys",' +
-      '"Arcane Lock;Knock",' +
-      '"Glyph Of Warding;Magic Circle",' +
-      '"Leomund\'s Secret Chest;Mordenkainen\'s Faithful Hound",' +
+      '"Alarm,Armor Of Agathys",' +
+      '"Arcane Lock,Knock",' +
+      '"Glyph Of Warding,Magic Circle",' +
+      '"Leomund\'s Secret Chest,Mordenkainen\'s Faithful Hound",' +
       '"Antilife Shell"',
   'Lyrandar':
     'Dragonmark=Storm ' +
     'Race=Half-Elf ' +
     'Tool="Navigator\'s Tools","Vehicles (Air And Sea)" ' +
     'Spells=' +
-      '"Feather Fall;Fog Cloud",' +
-      '"Gust Of Wind;Levitate",' +
-      '"Sleet Storm;Wind Wall",' +
-      '"Conjure Minor Elementals;Control Water",' +
+      '"Feather Fall,Fog Cloud",' +
+      '"Gust Of Wind,Levitate",' +
+      '"Sleet Storm,Wind Wall",' +
+      '"Conjure Minor Elementals,Control Water",' +
       '"Conjure Elemental"',
   'Medani':
     'Dragonmark=Detection ' +
     'Race=Half-Elf ' +
     'Tool="Disguise Kit","Thieves\' Tools" ' +
     'Spells=' +
-      '"Detect Evil And Good;Detect Poison And Disease",' +
-      '"Detect Thoughts;Find Traps",' +
-      '"Clairvoyance;Nondetection",' +
-      '"Arcane Eye;Divination",' +
+      '"Detect Evil And Good,Detect Poison And Disease",' +
+      '"Detect Thoughts,Find Traps",' +
+      '"Clairvoyance,Nondetection",' +
+      '"Arcane Eye,Divination",' +
       '"Legend Lore"',
   'Orien':
     'Dragonmark=Passage ' +
     'Race=Human ' +
     'Tool="Choose 1 from any Game","Vehicles (Land)" ' +
     'Spells=' +
-      '"Expeditious Retreat;Jump",' +
-      '"Misty Step;Pass Without Trace",' +
-      '"Blink;Phantom Steed",' +
-      '"Dimension Door;Freedom Of Movement",' +
+      '"Expeditious Retreat,Jump",' +
+      '"Misty Step,Pass Without Trace",' +
+      '"Blink,Phantom Steed",' +
+      '"Dimension Door,Freedom Of Movement",' +
       '"Teleportation Circle"',
   'Phiarlan':
     'Dragonmark=Shadow ' +
     'Race=Elf ' +
     'Tool="Disguise Kit","Choose 1 from any Music" ' +
     'Spells=' +
-      '"Disguise Self;Silent Image",' +
-      '"Darkness;Pass Without Trace",' +
-      '"Clairvoyance;Major Image",' +
-      '"Greater Invisibility;Hallucinatory Terrain",' +
+      '"Disguise Self,Silent Image",' +
+      '"Darkness,Pass Without Trace",' +
+      '"Clairvoyance,Major Image",' +
+      '"Greater Invisibility,Hallucinatory Terrain",' +
       '"Mislead"',
   'Sivis':
     'Dragonmark=Scribing ' +
     'Race=Gnome ' +
     'Tool="Calligrapher\'s Tools","Forgery Kit" ' +
     'Spells=' +
-      '"Comprehend Languages;Illusory Script",' +
-      '"Animal Messenger;Silence",' +
-      '"Sending;Tongues",' +
-      '"Arcane Eye;Confusion",' +
+      '"Comprehend Languages,Illusory Script",' +
+      '"Animal Messenger,Silence",' +
+      '"Sending,Tongues",' +
+      '"Arcane Eye,Confusion",' +
       '"Dream"',
   'Tharashk':
     'Dragonmark=Finding ' +
     'Race=Half-Orc,Human ' +
     'Tool="Choose 1 from any Game","Thieves\' Tools" ' +
     'Spells=' +
-      '"Faerie Fire;Longstrider",' +
-      '"Locate Animals Or Plants;Locate Object",' +
-      '"Clairvoyance;Speak With Plants",' +
-      '"Divination;Locate Creature",' +
+      '"Faerie Fire,Longstrider",' +
+      '"Locate Animals Or Plants,Locate Object",' +
+      '"Clairvoyance,Speak With Plants",' +
+      '"Divination,Locate Creature",' +
       '"Commune With Nature"',
   'Thuranni':
     'Dragonmark=Shadow ' +
@@ -611,10 +611,10 @@ Eberron5E.HOUSES = {
     'Race=Human ' +
     'Tool="Herbalism Kit","Vehicles (Land)" ' +
     'Spells=' +
-      '"Animal Friendship;Speak With Animals",' +
-      '"Beast Sense;Calm Emotions",' +
-      '"Beacon Of Hope;Conjure Animals",' +
-      '"Aura Of Life;Dominate Beast",' +
+      '"Animal Friendship,Speak With Animals",' +
+      '"Beast Sense,Calm Emotions",' +
+      '"Beacon Of Hope,Conjure Animals",' +
+      '"Aura Of Life,Dominate Beast",' +
       '"Awaken"',
 };
 Eberron5E.PATHS_ADDED = {
@@ -622,26 +622,41 @@ Eberron5E.PATHS_ADDED = {
   'Alchemist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Alchemist Spells","3:Alchemist Tool Proficiency",' +
-      '"3:Experimental Elixir",' +
+      '"3:Alchemist Tool Proficiency","3:Experimental Elixir",' +
       '"features.Guardian Armor ? 3:Thunder Gauntlets",' +
       '"features.Guardian Armor ? 3:Defensive Field",' +
       '"features.Infiltrator Armor ? 3:Lightning Launcher",' +
       '"features.Infiltrator Armor ? 3:Powered Steps",' +
       '"features.Infiltrator Armor ? 3:Dampening Field",' +
-      '"5:Alchemical Savant","9:Restorative Reagents","15:Chemical Mastery"',
+      '"5:Alchemical Savant","9:Restorative Reagents","15:Chemical Mastery" ' +
+    'Spells=' +
+      '"3:Healing Word,Ray Of Sickness",' +
+      '"5:Flaming Sphere,Melf\'s Acid Arrow",' +
+      '"9:Gaseous Form,Mass Healing Word",' +
+      '"13:Blight,Death Ward",' +
+      '"17:Cloudkill,Raise Dead"',
   'Artillerist':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Artillerist Spells","3:Artillerist Tool Proficiency",' +
-      '"3:Eldritch Cannon","5:Arcane Firearm","9:Explosive Cannon",' +
-      '"15:Fortified Position"',
+      '"3:Artillerist Tool Proficiency","3:Eldritch Cannon",' +
+      '"5:Arcane Firearm","9:Explosive Cannon","15:Fortified Position" ' +
+    'Spells=' +
+      '"3:Shield,Thunderwave",' +
+      '"5:Scorching Ray,Shatter",' +
+      '"9:Fireball,Wind Wall",' +
+      '"13:Ice Storm,Wall Of Fire",' +
+      '"17:Cone Of Cold,Wall Of Force"',
   'Battle Smith':
     'Group=Artificer Level=levels.Artificer ' +
     'Features=' +
-      '"3:Battle Ready","3:Battle Smith Spells",' +
-      '"3:Battle Smith Tool Proficiency","3:Steel Defender","5:Extra Attack",' +
-      '"9:Arcane Jolt","15:Improved Defender"'
+      '"3:Battle Ready","3:Battle Smith Tool Proficiency","3:Steel Defender",' +
+      '"5:Extra Attack","9:Arcane Jolt","15:Improved Defender" ' +
+    'Spells=' +
+      '"3:Heroism,Shield",' +
+      '"5:Branding Smite,Warding Bond",' +
+      '"9:Aura Of Vitality,Conjure Barrage",' +
+      '"13:Aura Of Purity,Fire Shield",' +
+      '"17:Banishing Smite,Mass Cure Wounds"'
 };
 Eberron5E.RACES_ADDED = {
   'Changeling':
@@ -968,9 +983,10 @@ Eberron5E.classRulesExtra = function(rules, name) {
     rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
       classLevel, '=', 'source>=3 ? 1 : null'
     );
-    SRD5E.featureSpell(rules, 'Lesser Restoration', 'Restorative Reagents', 'A', 2);
-    SRD5E.featureSpell(rules, 'Greater Restoration', 'Chemical Mastery', 'A', 5);
-    SRD5E.featureSpell(rules, 'Heal', 'Chemical Mastery', 'A', 6);
+    SRD5E.featureSpells
+      (rules, 'Restorative Reagents', 'A', null, ['Lesser Restoration']);
+    SRD5E.featureSpells
+      (rules, 'Chemical Mastery', 'A', null, ['Greater Restoration', 'Heal']);
   }
 
 };
@@ -1044,7 +1060,7 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools, spells) {
   var allSpells = rules.getChoices('spells');
   for(var i = 0; i < spells.length; i++) {
     var level = i + 1;
-    var spellList = spells[i].split(/\s*;\s*/);
+    var spellList = spells[i].split(/\s*,\s*/);
     for(var j = 0; j < spellList.length; j++) {
       var spellName = spellList[j];
       var fullName = QuilvynUtils.getKeys(allSpells, spellName + '\\(')[0];
@@ -1057,7 +1073,7 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools, spells) {
       var school = QuilvynUtils.getAttrValue(allSpells[fullName], 'School');
       var schoolPrefix = school.substring(0, 4);
       ['A', 'B', 'C', 'D', 'P', 'R', 'S', 'K', 'W'].forEach(group => {
-        if(QuilvynUtils.getKeys(allSpells, spellName + '\\(' + group + level).length == 0) {
+        if(QuilvynUtils.getKeys(allSpells, '^' + spellName + '\\(' + group + level).length == 0) {
           var newName = spellName + '(' + group + level + ' [' + dragonmark + ' Spells] ' + schoolPrefix + ')';
           rules.defineChoice('spells', newName + ':' + allSpells[fullName]);
           SRD5E.spellRules(
@@ -1081,42 +1097,7 @@ Eberron5E.pathRulesExtra = function(rules, name) {
     'Level';
 
   // Copied from Tasha's
-  if(name == 'Alchemist') {
-    SRD5E.featureSpell(rules, 'Healing Word', 'Alchemist Spells', 'A', 1);
-    SRD5E.featureSpell(rules, 'Ray Of Sickness', 'Alchemist Spells', 'A', 1);
-    SRD5E.featureSpell(rules, 'Flaming Sphere', 'Alchemist Spells', 'A', 2);
-    SRD5E.featureSpell(rules, "Melf's Acid Arrow", 'Alchemist Spells', 'A', 2);
-    SRD5E.featureSpell(rules, 'Gaseous Form', 'Alchemist Spells', 'A', 3);
-    SRD5E.featureSpell(rules, 'Mass Healing Word', 'Alchemist Spells', 'A', 3);
-    SRD5E.featureSpell(rules, 'Blight', 'Alchemist Spells', 'A', 4);
-    SRD5E.featureSpell(rules, 'Death Ward', 'Alchemist Spells', 'A', 4);
-    SRD5E.featureSpell(rules, 'Cloudkill', 'Alchemist Spells', 'A', 5);
-    SRD5E.featureSpell(rules, 'Raise Dead', 'Alchemist Spells', 'A', 5);
-    rules.defineRule('spells.Flaming Sphere(A2 [Alchemist Spells] Conj)',
-      'levels.Artificer', '?', 'source >= 5'
-    );
-    rules.defineRule("spells.Melf's Acid Arrow(A2 [Alchemist Spells] Evoc)",
-      'levels.Artificer', '?', 'source >= 5'
-    );
-    rules.defineRule('spells.Gaseous Form(A3 [Alchemist Spells] Tran)',
-      'levels.Artificer', '?', 'source >= 9'
-    );
-    rules.defineRule('spells.Mass Healing Word(A3 [Alchemist Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 9'
-    );
-    rules.defineRule('spells.Blight(A4 [Alchemist Spells] Necr)',
-      'levels.Artificer', '?', 'source >= 13'
-    );
-    rules.defineRule('spells.Death Ward(A4 [Alchemist Spells] Abju)',
-      'levels.Artificer', '?', 'source >= 13'
-    );
-    rules.defineRule('spells.Cloudkill(A5 [Alchemist Spells] Conj)',
-      'levels.Artificer', '?', 'source >= 17'
-    );
-    rules.defineRule('spells.Raise Dead(A5 [Alchemist Spells] Necr)',
-      'levels.Artificer', '?', 'source >= 17'
-    );
-  } else if(name == 'Artillerist') {
+  if(name == 'Artillerist') {
     rules.defineRule('combatNotes.eldritchCannon',
       pathLevel, '=', '2',
       'combatNotes.explosiveCannon', '+', '1'
@@ -1125,40 +1106,6 @@ Eberron5E.pathRulesExtra = function(rules, name) {
       ('combatNotes.eldritchCannon.1', 'spellDifficultyClass.A', '=', null);
     rules.defineRule
       ('combatNotes.explosiveCannon', 'spellDifficultyClass.A', '=', null);
-    SRD5E.featureSpell(rules, 'Shield', 'Artillerist Spells', 'A', 1);
-    SRD5E.featureSpell(rules, 'Thunderwave', 'Artillerist Spells', 'A', 1);
-    SRD5E.featureSpell(rules, 'Scorching Ray', 'Artillerist Spells', 'A', 2);
-    SRD5E.featureSpell(rules, 'Shatter', 'Artillerist Spells', 'A', 2);
-    SRD5E.featureSpell(rules, 'Fireball', 'Artillerist Spells', 'A', 3);
-    SRD5E.featureSpell(rules, 'Wind Wall', 'Artillerist Spells', 'A', 3);
-    SRD5E.featureSpell(rules, 'Ice Storm', 'Artillerist Spells', 'A', 4);
-    SRD5E.featureSpell(rules, 'Wall Of Fire', 'Artillerist Spells', 'A', 4);
-    SRD5E.featureSpell(rules, 'Cone Of Cold', 'Artillerist Spells', 'A', 5);
-    SRD5E.featureSpell(rules, 'Wall Of Force', 'Artillerist Spells', 'A', 5);
-    rules.defineRule('spells.Scorching Ray(A2 [Artillerist Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 5'
-    );
-    rules.defineRule('spells.Shatter(A2 [Artillerist Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 5'
-    );
-    rules.defineRule('spells.Fireball(A3 [Artillerist Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 9'
-    );
-    rules.defineRule('spells.Wind Wall(A3 [Artillerist Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 9'
-    );
-    rules.defineRule('spells.Ice Storm(A4 [Artillerist Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 13'
-    );
-    rules.defineRule('spells.Wall Of Fire(A4 [Artillerist Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 13'
-    );
-    rules.defineRule('spells.Cone Of Cold(A5 [Artillerist Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 17'
-    );
-    rules.defineRule('spells.Wall Of Force(A5 [Artillerist Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 17'
-    );
   } else if(name == 'Battle Smith') {
     rules.defineRule('combatNotes.arcaneJolt',
       pathLevel, '=', '2',
@@ -1185,42 +1132,6 @@ Eberron5E.pathRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.steelDefender.4',
       'features.Steel Defender', '?', null,
       'proficiencyBonus', '=', 'source + 2'
-    );
-    SRD5E.featureSpell(rules, 'Heroism', 'Battle Smith Spells', 'A', 1);
-    SRD5E.featureSpell(rules, 'Shield', 'Battle Smith Spells', 'A', 1);
-    SRD5E.featureSpell(rules, 'Branding Smite', 'Battle Smith Spells', 'A', 2);
-    SRD5E.featureSpell(rules, 'Warding Bond', 'Battle Smith Spells', 'A', 2);
-    SRD5E.featureSpell
-      (rules, 'Aura Of Vitality', 'Battle Smith Spells', 'A', 3);
-    SRD5E.featureSpell(rules, 'Conjure Barrage', 'Battle Smith Spells', 'A', 3);
-    SRD5E.featureSpell(rules, 'Aura Of Purity', 'Battle Smith Spells', 'A', 4);
-    SRD5E.featureSpell(rules, 'Fire Shield', 'Battle Smith Spells', 'A', 4);
-    SRD5E.featureSpell(rules, 'Banishing Smite', 'Battle Smith Spells', 'A', 5);
-    SRD5E.featureSpell
-      (rules, 'Mass Cure Wounds', 'Battle Smith Spells', 'A', 5);
-    rules.defineRule('spells.Branding Smite(A2 [Battle Smith Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 5'
-    );
-    rules.defineRule('spells.Warding Bond(A2 [Battle Smith Spells] Abju)',
-      'levels.Artificer', '?', 'source >= 5'
-    );
-    rules.defineRule('spells.Aura Of Vitality(A3 [Battle Smith Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 9'
-    );
-    rules.defineRule('spells.Conjure Barrage(A3 [Battle Smith Spells] Conj)',
-      'levels.Artificer', '?', 'source >= 9'
-    );
-    rules.defineRule('spells.Aura Of Purity(A4 [Battle Smith Spells] Abju)',
-      'levels.Artificer', '?', 'source >= 13'
-    );
-    rules.defineRule('spells.Fire Shield(A4 [Battle Smith Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 13'
-    );
-    rules.defineRule('spells.Banishing Smite(A5 [Battle Smith Spells] Abju)',
-      'levels.Artificer', '?', 'source >= 17'
-    );
-    rules.defineRule('spells.Mass Cure Wounds(A5 [Battle Smith Spells] Evoc)',
-      'levels.Artificer', '?', 'source >= 17'
     );
   }
 
@@ -1250,12 +1161,9 @@ Eberron5E.raceRulesExtra = function(rules, name) {
   } else if(name == 'Mark Of Detection Half-Elf') {
     rules.defineRule
       ('abilityBoosts', 'abilityNotes.detectionAbilityAdjustment', '+=', '1');
-    SRD5E.featureSpell(rules, 'Detect Magic', 'Magical Detection', 'W', 1);
-    SRD5E.featureSpell
-      (rules, 'Detect Poison And Disease', 'Magical Detection', 'W', 1);
-    SRD5E.featureSpell(rules, 'See Invisibility', 'Magical Detection', 'W', 2);
-    rules.defineRule('spells.See Invisibility(W2 [Magical Detection] Divi)',
-      'level', '?', 'source >= 3'
+    SRD5E.featureSpells(
+      rules, 'Magical Detection', 'W', 'level',
+      ['Detect Magic,Detect Poison And Disease', '3:See Invisibility']
     );
     rules.defineRule('casterLevels.Magical Detection',
       'features.Magical Detection', '?', null,
@@ -1265,10 +1173,9 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.W', 'casterLevels.Magical Detection', '^=', null);
   } else if(name.startsWith('Mark Of Finding')) {
-    SRD5E.featureSpell(rules, "Hunter's Mark", "Finder's Magic", 'R', 1);
-    SRD5E.featureSpell(rules, 'Locate Object', "Finder's Magic", 'R', 2);
-    rules.defineRule("spells.Locate Object(R2 [Finder's Magic] Divi)",
-      'level', '?', 'source >= 3'
+    SRD5E.featureSpells(
+      rules, "Finder's Magic", 'R', 'level',
+      ["Hunter's Mark", '3:Locate Object']
     );
     rules.defineRule("casterLevels.Finder's Magic",
       "features.Finder's Magic", '?', null,
@@ -1280,8 +1187,10 @@ Eberron5E.raceRulesExtra = function(rules, name) {
   } else if(name == 'Mark Of Handling Human') {
     rules.defineRule
       ('abilityBoosts', 'abilityNotes.handlingAbilityAdjustment', '+=', '1');
-    SRD5E.featureSpell(rules, 'Animal Friendship', 'Primal Connection', 'R', 1);
-    SRD5E.featureSpell(rules, 'Speak With Animals', 'Primal Connection', 'R', 1);
+    SRD5E.featureSpells(
+      rules, 'Primal Connection', 'R', 'level',
+      ['Animal Friendship,Speak With Animals']
+    );
     rules.defineRule('casterLevels.Primal Connection',
       'features.Primal Connection', '?', null,
       'level', '=', null,
@@ -1290,10 +1199,9 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.R', 'casterLevels.Primal Connection', '^=', null);
   } else if(name == 'Mark Of Healing Halfling') {
-    SRD5E.featureSpell(rules, 'Cure Wounds', 'Healing Touch', 'C', 1);
-    SRD5E.featureSpell(rules, 'Lesser Restoration', 'Healing Touch', 'C', 2);
-    rules.defineRule('spells.Lesser Restoration(C2 [Healing Touch] Abju)',
-      'level', '?', 'source >= 3'
+    SRD5E.featureSpells(
+      rules, 'Healing Touch', 'C', 'level',
+      ['Cure Wounds', '3:Lesser Restoration']
     );
     rules.defineRule('casterLevels.Healing Touch',
       'features.Healing Touch', '?', null,
@@ -1303,10 +1211,10 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.C', 'casterLevels.Healing Touch', '^=', null);
   } else if(name == 'Mark Of Hospitality Halfling') {
-    SRD5E.featureSpell(rules, 'Prestidigitation', "Innkeeper's Magic", 'B', 0);
-    SRD5E.featureSpell
-      (rules, 'Purify Food And Drink', "Innkeeper's Magic", 'B', 1);
-    SRD5E.featureSpell(rules, 'Unseen Servant', "Innkeeper's Magic", 'B', 1);
+    SRD5E.featureSpells(
+      rules, "Innkeeper's Magic", 'B', 'level',
+      ['Prestidigitation,Purify Food And Drink,Unseen Servant']
+    );
     rules.defineRule("casterLevels.Innkeeper's Magic",
       "features.Innkeeper's Magic", '?', null,
       'level', '=', null,
@@ -1317,8 +1225,8 @@ Eberron5E.raceRulesExtra = function(rules, name) {
   } else if(name == 'Mark Of Making Human') {
     rules.defineRule
       ('abilityBoosts', 'abilityNotes.makingAbilityAdjustment', '+=', '1');
-    SRD5E.featureSpell(rules, 'Mending', 'Spellsmith', 'W', 0);
-    SRD5E.featureSpell(rules, 'Magic Weapon', 'Spellsmith', 'W', 2);
+    SRD5E.featureSpells
+      (rules, 'Spellsmith', 'W', 'level', ['Mending,Magic Weapon']);
     rules.defineRule('casterLevels.Spellsmith',
       'features.Spellsmith', '?', null,
       'level', '=', null,
@@ -1330,7 +1238,7 @@ Eberron5E.raceRulesExtra = function(rules, name) {
       ('abilityBoosts', 'abilityNotes.passageAbilityAdjustment', '+=', '1');
     // NOTE: Dexterity is ability for this spell, but there are no ability-
     // related effects.
-    SRD5E.featureSpell(rules, 'Misty Step', 'Magical Passage', 'W', 2);
+    SRD5E.featureSpells(rules, 'Magical Passage', 'W', 'level', ['Misty Step']);
     rules.defineRule('casterLevels.Magical Passage',
       'features.Magical Passage', '?', null,
       'level', '=', null,
@@ -1339,11 +1247,9 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.W', 'casterLevels.Magical Passage', '^=', null);
   } else if(name == 'Mark Of Scribing Gnome') {
-    SRD5E.featureSpell(rules, 'Message', "Scribe's Insight", 'W', 0);
-    SRD5E.featureSpell(rules, 'Comprehend Languages', "Scribe's Insight", 'W', 1);
-    SRD5E.featureSpell(rules, 'Magic Mouth', "Scribe's Insight", 'W', 2);
-    rules.defineRule("spells.Magic Mouth(W2 [Scribe's Insight] Illu)",
-      'level', '?', 'source >= 3'
+    SRD5E.featureSpells(
+      rules, "Scribe's Insight", 'W', 'level',
+      ['Message,Comprehend Languages', '3:Magic Mouth']
     );
     rules.defineRule("casterLevels.Scribe's Insight",
       "features.Scribe's Insight", '?', null,
@@ -1353,7 +1259,7 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.W', "casterLevels.Scribe's Insight", '^=', null);
   } else if(name == 'Mark Of Sentinel Human') {
-    SRD5E.featureSpell(rules, 'Shield', "Guardian's Shield", 'P', 1);
+    SRD5E.featureSpells(rules, "Guardian's Shield", 'P', 'level', ['Shield']);
     rules.defineRule("casterLevels.Guardian's Shield",
       "features.Guardian's Shield", '?', null,
       'level', '=', null,
@@ -1362,10 +1268,9 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.P', "casterLevels.Guardian's Shield", '^=', null);
   } else if(name == 'Mark Of Shadow Elf') {
-    SRD5E.featureSpell(rules, 'Minor Illusion', 'Shape Shadows', 'B', 0);
-    SRD5E.featureSpell(rules, 'Invisibility', 'Shape Shadows', 'B', 2);
-    rules.defineRule('spells.Invisibility(B2 [Shape Shadows] Illu)',
-      'level', '?', 'source >= 3'
+    SRD5E.featureSpells(
+      rules, 'Shape Shadows', 'B', 'level',
+      ['Minor Illusion', '3:Invisibility']
     );
     rules.defineRule('casterLevels.Shape Shadows',
       'features.Shape Shadows', '?', null,
@@ -1375,10 +1280,9 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.B', 'casterLevels.Shape Shadows', '^=', null);
   } else if(name == 'Mark Of Storm Half-Elf') {
-    SRD5E.featureSpell(rules, 'Gust', 'Headwinds', 'S', 0);
-    SRD5E.featureSpell(rules, 'Gust Of Wind', 'Headwinds', 'S', 2);
-    rules.defineRule('spells.Gust Of Wind(S2 [Headwinds] Evoc)',
-      'level', '?', 'source >= 3'
+    SRD5E.featureSpells(
+      rules, 'Headwinds', 'S', 'level',
+      ['Gust', '3:Gust Of Wind']
     );
     rules.defineRule('casterLevels.Headwinds',
       'features.Headwinds', '?', null,
@@ -1387,11 +1291,9 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     );
     rules.defineRule('casterLevels.S', 'casterLevels.Headwinds', '^=', null);
   } else if(name == 'Mark Of Warding Dwarf') {
-    SRD5E.featureSpell(rules, 'Alarm', 'Wards And Seals', 'W', 1);
-    SRD5E.featureSpell(rules, 'Mage Armor', 'Wards And Seals', 'W', 1);
-    SRD5E.featureSpell(rules, 'Arcane Lock', 'Wards And Seals', 'W', 2);
-    rules.defineRule('spells.Arcane Lock(W2 [Guards And Wards] Abju)',
-      'level', '?', 'source >= 3'
+    SRD5E.featureSpells(
+      rules, 'Wards And Seals', 'W', 'level',
+      ['Alarm,Mage Armor', '3:Arcane Lock']
     );
     rules.defineRule('casterLevels.Wards And Seals',
       'features.Wards And Seals', '?', null,

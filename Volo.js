@@ -282,7 +282,7 @@ Volo.talentRules = function(rules, features) {
 Volo.raceRulesExtra = function(rules, name) {
   if(name.match(/Aasimar/)) {
     rules.defineRule('magicNotes.healingHands', 'level', '=', null);
-    SRD5E.featureSpell(rules, 'Light', 'Light Bearer', 'S', 0);
+    SRD5E.featureSpells(rules, 'Light Bearer', 'S', null, ['Light']);
     rules.defineRule('casterLevels.Light Bearer',
       'features.Light Bearer', '?', null,
       'level', '=', null,
@@ -297,8 +297,8 @@ Volo.raceRulesExtra = function(rules, name) {
       'proficiencyBonus', '+', null
     );
   } else if(name == 'Firbolg') {
-    SRD5E.featureSpell(rules, 'Detect Magic', 'Firbolg Magic', 'D', 1);
-    SRD5E.featureSpell(rules, 'Disguise Self', 'Firbolg Magic', 'D', 1);
+    SRD5E.featureSpells
+      (rules, 'Firbolg Magic', 'D', null, ['Detect Magic,Disguise Self']);
     rules.defineRule('casterLevels.Firbolg Magic',
       'features.Firbolg Magic', '?', null,
       'level', '=', null,
@@ -339,14 +339,11 @@ Volo.raceRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.controlAirAndWater.1',
       'tritonLevel', '=', 'source<3 ? "" : source<5 ? " w/<i>Gust Of Wind</i>" : " w/<i>Gust Of Wind</i> and <i>Wall Of Water</i>"'
     );
-    SRD5E.featureSpell(rules, 'Fog Cloud', 'Control Air And Water', 'S', 1);
-    SRD5E.featureSpell(rules, 'Gust Of Wind', 'Control Air And Water', 'S', 2);
-    SRD5E.featureSpell(rules, 'Wall Of Water', 'Control Air And Water', 'S', 3);
-    rules.defineRule('spells.Gust Of Wind(S2 [Control Air And Water] Evoc)',
-      'level', '?', 'source >= 3'
-    );
-    rules.defineRule('spells.Wall Of Water(S3 [Control Air And Water] Evoc)',
-      'level', '?', 'source >= 5'
+    SRD5E.featureSpells(
+      rules, 'Control Air And Water', 'S', 'level',
+      ['Fog Cloud',
+       '3:Gust Of Wind',
+       '5:Wall Of Water']
     );
     rules.defineRule('casterLevels.Control Air And Water',
       'features.Control Air And Water', '?', null,
@@ -359,12 +356,9 @@ Volo.raceRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.innateSpellcasting.1',
       'yuan-TiLevel', '=', 'source<3 ? "" : ", cast <i>Suggestion</i> 1/long rest"'
     );
-    SRD5E.featureSpell(rules, 'Poison Spray', 'Innate Spellcasting', 'S', 0);
-    SRD5E.featureSpell
-      (rules, 'Animal Friendship', 'Innate Spellcasting', 'S', 1);
-    SRD5E.featureSpell(rules, 'Suggestion', 'Innate Spellcasting', 'S', 2);
-    rules.defineRule('spells.Suggestion(S2 [Innate Spellcasting] Ench)',
-      'level', '?', 'source >= 3'
+    SRD5E.featureSpells(
+      rules, 'Innate Spellcasting', 'S', 'level',
+      ['Poison Spray,Animal Friendship', '3:Suggestion']
     );
     rules.defineRule('casterLevels.Innate Spellcasting',
       'features.Innate Spellcasting', '?', null,

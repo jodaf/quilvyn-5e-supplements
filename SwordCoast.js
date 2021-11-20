@@ -584,13 +584,12 @@ SwordCoast.PATHS_ADDED = {
       '"1:Skill Proficiency (Arcana)",' +
       '"1:Arcane Initiate","2:Arcane Abjuration","6:Spell Breaker",' +
       '"8:Potent Spellcasting","17:Arcane Mastery" ' +
-    'SpellAbility=wisdom ' +
-    'SpellSlots=' +
-      'Arcana1:1=2,' +
-      'Arcana2:3=2,' +
-      'Arcana3:5=2,' +
-      'Arcana4:7=2,' +
-      'Arcana5:9=2',
+    'Spells=' +
+      '"1:Detect Magic,Magic Missile",' +
+      '"2:Magic Weapon,Nystul\'s Magic Aura",' +
+      '"3:Dispel Magic,Magic Circle",' +
+      '"4:Arcane Eye,Leomund\'s Secret Chest",' +
+      '"5:Planar Binding,Teleportation Circle"',
   'Bladesinging': // Copied from Tasha
     'Group=Wizard Level=levels.Wizard ' +
     'Features=' +
@@ -606,13 +605,12 @@ SwordCoast.PATHS_ADDED = {
     'Features=' +
       '"3:Champion Challenge","3:Turn The Tide","7:Divine Allegiance",' +
       '"15:Unyielding Spirit","20:Exalted Champion" ' +
-    'SpellAbility=charisma ' +
-    'SpellSlots=' +
-      'Crown1:3=2,' +
-      'Crown2:5=2,' +
-      'Crown3:9=2,' +
-      'Crown4:13=2,' +
-      'Crown5:17=2',
+    'Spells=' +
+      '"1:Command,Compelled Duel",' +
+      '"2:Warding Bond,Zone Of Truth",' +
+      '"3:Aura Of Vitality,Spirit Guardians",' +
+      '"4:Banishment,Guardian Of Faith",' +
+      '"5:Circle Of Power,Geas"',
   'Path Of The Battlerager':
     'Group=Barbarian Level=levels.Barbarian ' +
     'Features=' +
@@ -699,28 +697,6 @@ SwordCoast.SPELLS_ADDED = {
     'Description="5\' radius inflicts %{(level+5)//6}d6 HP force (Dex neg)"'
 };
 SwordCoast.SPELLS_LEVELS_ADDED = {
-  'Detect Magic':'Arcana1',
-  'Magic Missile':'Arcana1',
-  'Magic Weapon':'Arcana2',
-  "Nystul's Magic Aura":'Arcana2',
-  'Dispel Magic':'Arcana3',
-  'Magic Circle':'Arcana3',
-  'Arcane Eye':'Arcana4',
-  "Leomund's Secret Chest":'Arcana4',
-  'Planar Binding':'Arcana5',
-  'Teleportation Circle':'Arcana5',
-
-  'Command':'Crown1',
-  'Compelled Duel':'Crown1',
-  'Warding Bond':'Crown2',
-  'Zone Of Truth':'Crown2',
-  'Aura Of Vitality':'Crown3',
-  'Spirit Guardians':'Crown3',
-  'Banishment':'Crown4',
-  'Guardian Of Faith':'Crown4',
-  'Circle Of Power':'Crown5',
-  'Geas':'Crown5',
-
   'False Life':'"K1 [The Undying]"',
   'Ray Of Sickness':'"K1 [The Undying]"',
   'Blindness/Deafness':'"K2 [The Undying]"',
@@ -767,11 +743,10 @@ SwordCoast.choiceRules = function(rules, type, name, attrs) {
  */
 SwordCoast.featRulesExtra = function(rules, name) {
   if(name == 'Svirfneblin Magic') {
-    SRD5E.featureSpell(rules, 'Disguise Self', 'Svirfneblin Magic', 'W', 1);
-    SRD5E.featureSpell(rules, 'Blur', 'Svirfneblin Magic', 'W', 2);
-    SRD5E.featureSpell
-      (rules, 'Blindness/Deafness', 'Svirfneblin Magic', 'W', 2);
-    SRD5E.featureSpell(rules, 'Nondetection', 'Svirfneblin Magic', 'W', 3);
+    SRD5E.featureSpells(
+      rules, 'Svirfneblin Magic', 'W', 'level',
+      ['Disguise Self,Blur,Blindness/Deafness,Nondetection']
+    );
   }
 };
 
@@ -827,7 +802,7 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       ('toolChoiceCount', 'skillNotes.masterOfIntrigue', '+=', '1');
   } else if(name == 'Oath Of The Crown') {
     rules.defineRule('combatNotes.championChallenge',
-      'spellDifficultyClass.Crown', '=', null
+      'spellDifficultyClass.P', '=', null
     );
     rules.defineRule('magicNotes.turnTheTide',
       'charismaModifier', '=', 'Math.max(source, 1)'
@@ -883,7 +858,7 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       'charismaModifier', '=', null
     );
     // Dummy rule to italicize combatNotes.rakishAudacity
-    rules.defineRule('initiative', 'combatNotes.rakishAudacity', '+', null);
+    rules.defineRule('initiative', 'combatNotes.rakishAudacity', '+', '0');
   } else if(name == 'The Undying') {
     rules.defineRule
       ('combatNotes.amongTheDead', 'spellDifficultyClass.K', '=', null);
@@ -894,7 +869,8 @@ SwordCoast.pathRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.defyDeath',
       'constitutionModifier', '=', 'Math.max(source, 1)'
     );
-    SRD5E.featureSpell(rules, 'Spare The Dying', 'Among The Dead', 'K', 0);
+    SRD5E.featureSpells
+      (rules, 'Among The Dead', 'K', pathLevel, ['Spare The Dying']);
   } else if(name == 'Way Of The Long Death') {
     rules.defineRule('combatNotes.hourOfReaping', 'kiSaveDC', '=', null);
     rules.defineRule('combatNotes.touchOfDeath',
@@ -922,7 +898,8 @@ SwordCoast.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('magicNotes.searingArcStrike', pathLevel, '=', 'Math.floor(source / 2)');
     rules.defineRule('magicNotes.searingSunburst', 'kiSaveDC', '=', null);
-    SRD5E.featureSpell(rules, 'Burning Hands', 'Searing Arc Strike', 'W', 1);
+    SRD5E.featureSpells
+     (rules, 'Searing Arc Strike', 'W', pathLevel, ['Burning Hands']);
   }
 
 };
@@ -942,10 +919,8 @@ SwordCoast.raceRulesExtra = function(rules, name) {
       'features.Duergar Magic', '?', null,
       raceLevel, '=', 'source>=5 ? " and <i>Invisibility</i>" : ""'
     );
-    SRD5E.featureSpell(rules, 'Enlarge/Reduce', 'Duergar Magic', 'W', 2);
-    SRD5E.featureSpell(rules, 'Invisibility', 'Duergar Magic', 'W', 2);
-    rules.defineRule('spells.Invisibility(W2 [Duergar Magic] Illu)',
-      'level', '?', 'source >= 5'
+    SRD5E.featureSpells(
+      rules, 'Duergar Magic', 'W', 'level', ['Enlarge/Reduce', '5:Invisibility']
     );
   }
 
