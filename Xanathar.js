@@ -47,7 +47,7 @@ function Xanathar(edition, rules) {
 
 }
 
-Xanathar.VERSION = '2.3.1.0';
+Xanathar.VERSION = '2.3.1.1';
 
 Xanathar.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
@@ -667,11 +667,11 @@ Xanathar.FEATURES = {
     'Note="R30\' Use Reaction to allow ally to reroll natural 1 on attack, ability, or saving throw"',
   'Dragon Fear':
     'Section=ability,combat ' +
-    'Note="+1 Strength, Constitution, or Charisma",' +
+    'Note="Ability Boost (Choose 1 from Strength, Constitution, Charisma)",' +
          '"R30\' Targets frightened for 1 min (DC %V Wis neg)"',
   'Dragon Hide':
     'Section=ability,combat ' +
-    'Note="+1 Strength, Constitution, or Charisma",' +
+    'Note="Ability Boost (Choose 1 from Strength, Constitution, Charisma)",' +
          '"AC +3 in no armor, use claws as natural slashing weapon"',
   'Drow High Magic':
     'Section=magic ' +
@@ -682,20 +682,20 @@ Xanathar.FEATURES = {
          '"Dodge restores 1 HD+%{constitutionModifier} (minimum 1) HP"',
   'Elven Accuracy':
     'Section=ability,combat ' +
-    'Note="+1 Dexterity, Intelligence, Wisdom, or Charisma",' +
+    'Note="Ability Boost (Choose 1 from Dexterity, Intelligence, Wisdom, Charisma)",' +
          '"Reroll 1 die when attacking using Dex, Int, Wis, or Cha w/Adv"',
   'Fade Away':
     'Section=ability,combat ' +
-    'Note="+1 Dexterity or Intelligence",' +
+    'Note="Ability Boost (Choose 1 from Dexterity, Intelligence)",' +
          '"Become invisible after taking damage for 1 rd 1/short rest"',
   'Fey Teleportation':
     'Section=ability,magic,skill ' +
-    'Note="+1 Charisma or Intelligence",' +
+    'Note="Ability Boost (Choose 1 from Charisma, Intelligence)",' +
          '"Cast <i>Misty Step</i> 1/short rest",' +
          '"Know Sylvan"',
   'Flames Of Phlegethos':
     'Section=ability,magic ' +
-    'Note="+1 Charisma or Intelligence",' +
+    'Note="Ability Boost (Choose 1 from Charisma, Intelligence)",' +
          '"Fire spells reroll 1s on damage, inflict 1d4 HP fire on adjacent creatures, and give 30\' light for 1 rd"',
   'Infernal Constitution':
     'Section=ability,save ' +
@@ -703,7 +703,7 @@ Xanathar.FEATURES = {
          '"Resistance to cold and poison damage, Adv on saves vs. poison"',
   'Orcish Fury':
     'Section=ability,combat ' +
-    'Note="+1 Strength or Constitution",' +
+    'Note="Ability Boost (Choose 1 from Strength, Constitution)",' +
          '"Extra damage die 1/short rest, use Reaction after Relentless Endurance for extra attack"',
   'Prodigy':
     'Section=feature,skill ' +
@@ -711,11 +711,11 @@ Xanathar.FEATURES = {
          '"Dbl proficiency on chosen skill"',
   'Second Chance':
     'Section=ability,combat ' +
-    'Note="+1 Dexterity, Constitution, or Charisma",' +
+    'Note="Ability Boost (Choose 1 from Dexterity, Constitution, Charisma)",' +
          '"Use Reaction to force foe attack reroll 1/short rest"',
   'Squat Nimbleness':
     'Section=ability,feature,combat ' +
-    'Note="+1 Strength or Dexterity/+5 Speed",' +
+    'Note="Ability Boost (Choose 1 from Strength, Dexterity)/+5 Speed",' +
          '"Skill Proficiency (Choose 1 from Acrobatics, Athletics)",' +
          '"Adv on Athletics or Acrobatics to break grapple"',
   'Wood Elf Magic':
@@ -1399,13 +1399,11 @@ Xanathar.talentRules = function(rules, feats, features, tools) {
 Xanathar.featRulesExtra = function(rules, name) {
 
   if(name == 'Dragon Fear') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.dragonFear', '+=', '1');
     rules.defineRule('combatNotes.dragonFear',
       'proficiencyBonus', '=', '8 + source',
       'charismaModifier', '+', null
     );
   } else if(name == 'Dragon Hide') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.dragonHide', '+=', '1');
     rules.defineRule('armorClass', 'combatNotes.dragonHide.1', '+', null);
     rules.defineRule('combatNotes.dragonHide.1',
       'combatNotes.dragonHide', '?', null,
@@ -1425,13 +1423,7 @@ Xanathar.featRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('casterLevels.S', 'casterLevels.Drow High Magic', '^=', null);
-  } else if(name == 'Elven Accuracy') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.elvenAccuracy', '+=', '1');
-  } else if(name == 'Fade Away') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.fadeAway', '+=', '1');
   } else if(name == 'Fey Teleportation') {
-    rules.defineRule
-      ('abilityBoosts', 'abilityNotes.feyTeleportation', '+=', '1');
     rules.defineRule('languageCount', 'skillNotes.feyTeleportation', '+=', '1');
     rules.defineRule
       ('languages.Sylvan', 'skillNotes.feyTeleportation', '=', '1');
@@ -1443,20 +1435,10 @@ Xanathar.featRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('casterLevels.W', 'casterLevels.Fey Teleportation', '^=', null);
-  } else if(name == 'Flames Of Phlegethos') {
-    rules.defineRule
-      ('abilityBoosts', 'abilityNotes.flamesOfPhlegethos', '+=', '1');
-  } else if(name == 'Orcish Fury') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.orcishFury', '+=', '1');
   } else if(name == 'Prodigy') {
     rules.defineRule('languageCount', 'featureNotes.prodigy', '+=', '1');
     rules.defineRule('skillChoiceCount', 'featureNotes.prodigy', '+=', '1');
     rules.defineRule('toolChoiceCount', 'featureNotes.prodigy', '+=', '1');
-  } else if(name == 'Second Chance') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.secondChance', '+=', '1');
-  } else if(name == 'Squat Nimbleness') {
-    rules.defineRule
-      ('abilityBoosts', 'abilityNotes.squatNimbleness', '+=', '1');
   } else if(name == 'Wood Elf Magic') {
     rules.defineRule('spellSlots.D0', 'magicNotes.woodElfMagic', '+=', '1');
     SRD5E.featureSpells

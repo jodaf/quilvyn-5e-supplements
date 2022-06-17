@@ -106,7 +106,7 @@ function Eberron5E() {
 
 }
 
-Eberron5E.VERSION = '2.3.1.0';
+Eberron5E.VERSION = '2.3.1.1';
 
 Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'House');
 Eberron5E.RANDOMIZABLE_ATTRIBUTES =
@@ -260,7 +260,7 @@ Eberron5E.FEATURES_ADDED = {
          '"Know S0 cantrip, casting chosen S1 spell 1/long rest gives self 1d temporary HP or inflicts 1d HP force randomly w/in 30\'"',
   'Revenant Blade':
     'Section=ability,combat ' +
-    'Note="+1 Dexterity or Strength",' +
+    'Note="Ability Boost (Choose 1 from Dexterity, Strength)",' +
          '"+1 AC when wielding double-bladed scimitar, weapon can be used one- or two-handed"',
 
   // Paths
@@ -316,7 +316,8 @@ Eberron5E.FEATURES_ADDED = {
   'Beasthide Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Strength"',
   'Beasthide Shifting':'Section=combat Note="+1 AC while shifting"',
-  'Changeling Ability Adjustment':'Section=ability Note="+2 Charisma/+1 any"',
+  'Changeling Ability Adjustment':
+    'Section=ability Note="+2 Charisma/Ability Boost (Choose 1 from any)"',
   'Changeling Instincts':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 2 from Deception, Insight, Intimidation, Persuasion)"',
@@ -331,7 +332,8 @@ Eberron5E.FEATURES_ADDED = {
     'Section=skill Note="+1d4 on Performance and Stealth checks"',
   'Deductive Intuition':
     'Section=skill Note="+1d4 on Investigation and Insight checks"',
-  'Detection Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 any"',
+  'Detection Ability Adjustment':
+    'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
   'Detection Spells':'Section=magic Note="Access to additional spells"',
   'Dual Mind':'Section=save Note="Adv on Wis saving throws"',
   'Ever Hospitable':
@@ -347,7 +349,8 @@ Eberron5E.FEATURES_ADDED = {
     'Section=skill Note="+1d4 on History and Calligrapher\'s Supplies checks"',
   'Graceful':'Section=feature Note="Skill Proficiency (Acrobatics)"',
   "Guardian's Shield":'Section=magic Note="Cast <i>Shield</i> 1/long rest"',
-  'Handling Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 any"',
+  'Handling Ability Adjustment':
+    'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
   'Handling Spells':'Section=magic Note="Access to additional spells"',
   'Headwinds':
     'Section=magic ' +
@@ -382,7 +385,8 @@ Eberron5E.FEATURES_ADDED = {
   'Magical Passage':'Section=magic Note="Cast <i>Misty Step</i> 1/long rest"',
   "Maker's Gift":
     'Section=feature Note="Tool Proficiency (Choose 1 from any Artisan)"',
-  'Making Ability Adjustment':'Section=ability Note="+2 Intelligence/+1 any"',
+  'Making Ability Adjustment':
+    'Section=ability Note="+2 Intelligence/Ability Boost (Choose 1 from any)"',
   'Making Spells':'Section=magic Note="Access to additional spells"',
   'Medical Intuition':
     'Section=skill Note="+1d4 on Medicine and Herbalism Kit checks"',
@@ -392,7 +396,8 @@ Eberron5E.FEATURES_ADDED = {
     'Note="R%{level*10}\' Telepathic communication w/1 target for 1 hr"',
   'Natural Athlete':'Section=feature Note="Skill Proficiency (Athletics)"',
   'Natural Tracker':'Section=feature Note="Skill Proficiency (Survival)"',
-  'Passage Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 any"',
+  'Passage Ability Adjustment':
+    'Section=ability Note="+2 Dexterity/Ability Boost (Choose 1 from any)"',
   'Passage Spells':'Section=magic Note="Access to additional spells"',
   'Primal Connection':
     'Section=magic ' +
@@ -451,7 +456,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=magic ' +
     'Note="Cast <i>Alarm</i>%{level<3?\' and\':\',\'} <i>Magic Armor</i>%{level<3?\'\':\', and <i>Arcane Lock</i>\'} 1/long rest"',
   'Warforged Ability Adjustment':
-    'Section=ability Note="+2 Constitution/+1 any"',
+    'Section=ability Note="+2 Constitution/Ability Boost (Choose 1 from any)"',
   'Wild Intuition':
     'Section=skill Note="+1d4 on Animal Handling and Nature checks"',
   'Wildhunt Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Dexterity"',
@@ -1148,10 +1153,7 @@ Eberron5E.raceRulesExtra = function(rules, name) {
       'race', '=', 'source == "Beasthide Shifter" ? "1d6+" : ""'
     );
   }
-  if(name == 'Changeling') {
-    rules.defineRule
-      ('abilityBoosts', 'abilityNotes.changelingAbilityAdjustment', '+=', '1');
-  } else if(name == 'Hobgoblin') {
+  if(name == 'Hobgoblin') {
     // Have to hard-code these proficiencies, since featureRules only handles
     // notes w/a single type of granted proficiency
     rules.defineRule
@@ -1159,8 +1161,6 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('weaponChoiceCount', 'featureNotes.martialTraining', '+=', '2');
   } else if(name == 'Mark Of Detection Half-Elf') {
-    rules.defineRule
-      ('abilityBoosts', 'abilityNotes.detectionAbilityAdjustment', '+=', '1');
     SRD5E.featureSpells(
       rules, 'Magical Detection', 'W', 'level',
       ['Detect Magic,Detect Poison And Disease', '3:See Invisibility']
@@ -1185,8 +1185,6 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.R', "casterLevels.Finder's Magic", '^=', null);
   } else if(name == 'Mark Of Handling Human') {
-    rules.defineRule
-      ('abilityBoosts', 'abilityNotes.handlingAbilityAdjustment', '+=', '1');
     SRD5E.featureSpells(
       rules, 'Primal Connection', 'R', 'level',
       ['Animal Friendship,Speak With Animals']
@@ -1223,8 +1221,6 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.B', "casterLevels.Innkeeper's Magic", '^=', null);
   } else if(name == 'Mark Of Making Human') {
-    rules.defineRule
-      ('abilityBoosts', 'abilityNotes.makingAbilityAdjustment', '+=', '1');
     SRD5E.featureSpells
       (rules, 'Spellsmith', 'W', 'level', ['Mending,Magic Weapon']);
     rules.defineRule('casterLevels.Spellsmith',
@@ -1234,8 +1230,6 @@ Eberron5E.raceRulesExtra = function(rules, name) {
     );
     rules.defineRule('casterLevels.W', 'casterLevels.Spellsmith', '^=', null);
   } else if(name == 'Mark Of Passage Human') {
-    rules.defineRule
-      ('abilityBoosts', 'abilityNotes.passageAbilityAdjustment', '+=', '1');
     // NOTE: Dexterity is ability for this spell, but there are no ability-
     // related effects.
     SRD5E.featureSpells(rules, 'Magical Passage', 'W', 'level', ['Misty Step']);
@@ -1309,8 +1303,6 @@ Eberron5E.raceRulesExtra = function(rules, name) {
       ('skillChoiceCount', 'featureNotes.specializedDesign', '+=', '1');
     rules.defineRule
       ('toolChoiceCount', 'featureNotes.specializedDesign', '+=', '1');
-    rules.defineRule
-      ('abilityBoosts', 'abilityNotes.warforgedAbilityAdjustment', '+=', '1');
   }
 
 };

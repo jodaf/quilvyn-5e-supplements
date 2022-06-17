@@ -47,7 +47,7 @@ function Tasha(edition, rules) {
 
 }
 
-Tasha.VERSION = '2.3.1.0';
+Tasha.VERSION = '2.3.1.1';
 
 Tasha.CLASSES = {
   'Artificer':
@@ -467,12 +467,12 @@ Tasha.FEATURES = {
          '"Tool Proficiency (Choose 1 from any Artisan)"',
   'Chef':
     'Section=ability,feature,magic ' +
-    'Note="+1 Constitution or Wisdom",' +
+    'Note="Ability Boost (Choose 1 from Constitution, Wisdom)",' +
          '"Tool Proficiency (Cook\'s Utensils)",' +
          '"Food prepared during short rest heals 1d8 HP for %{proficiencyBonus+4} targets; treats prepared during long rest give %{proficiencyBonus} temporary HP to %{proficiencyBonus} targets"',
   'Crusher':
     'Section=ability,combat ' +
-    'Note="+1 Constitution or Strength",' +
+    'Note="Ability Boost (Choose 1 from Constitution, Strength)",' +
          '"Bludgeoning hit moves foe 5\'; critical hit gives allies Adv on attacks for 1 rd"',
   'Eldritch Adept':
     'Section=feature ' +
@@ -503,7 +503,7 @@ Tasha.FEATURES = {
   'Piercer':
     'Section=ability,combat ' +
     'Note=' +
-      '"+1 Strength or Dexterity",' +
+      '"Ability Boost (Choose 1 from Strength, Dexterity)",' +
       '"Additional piercing critical hit die, reroll 1 piercing damage die 1/rd"',
   'Poisoner':
     'Section=combat,skill ' +
@@ -527,12 +527,12 @@ Tasha.FEATURES = {
       '"Cast <i>Invisibility</i> and 1 level 1 illusion or necromancy spell 1/long rest"',
   'Skill Expert':
     'Section=ability,feature,skill ' +
-    'Note="+1 Ability Boosts",' +
+    'Note="Ability Boost (Choose 1 from any)",' +
          '"Skill Proficiency (Choose 1 from any)",' +
          '"Dbl proficiency in chosen skill"',
   'Slasher':
     'Section=ability,combat ' +
-    'Note="+1 Strength or Dexterity",' +
+    'Note="Ability Boost (Choose 1 from Strength, Dexterity)",' +
          '"Slashing damage inflicts -10 Speed for 1 rd; critical hit inflicts Disadv on attacks for 1 rd"',
   'Telekinetic (Charisma)':
     'Section=ability,combat,magic ' +
@@ -1780,10 +1780,6 @@ Tasha.featRulesExtra = function(rules, name) {
       ('spellSlots.A0', 'magicNotes.artificerInitiate', '+=', '2');
     rules.defineRule
       ('spellSlots.A1', 'magicNotes.artificerInitiate', '+=', '1');
-  } else if(name == 'Chef') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.chef', '+=', '1');
-  } else if(name == 'Crusher') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.crusher', '+=', '1');
   } else if(name == 'Eldritch Adept') {
     rules.defineRule('selectableFeatureCount.Warlock (Eldritch Invocation)',
       'featureNotes.eldritchAdept', '+=', '1'
@@ -1858,8 +1854,6 @@ Tasha.featRulesExtra = function(rules, name) {
         );
       }
     }
-  } else if(name == 'Piercer') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.piercer', '+=', '1');
   } else if(name == 'Shadow Touched (Charisma)') {
     SRD5E.featureSpells
       (rules, 'Shadow Touched (Charisma)', 'S', null, ['Invisibility']);
@@ -1890,8 +1884,6 @@ Tasha.featRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('casterLevels.C', 'casterLevels.Shadow Touched (Wisdom)', '^=', null);
-  } else if(name == 'Slasher') {
-    rules.defineRule('abilityBoosts', 'abilityNotes.slasher', '+=', '1');
   } else if(name == 'Telekinetic (Charisma)') {
     SRD5E.featureSpells
       (rules, 'Telekinetic (Charisma)', 'S', null, ['Mage Hand']);
