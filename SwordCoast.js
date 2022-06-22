@@ -111,7 +111,7 @@ function SwordCoast() {
 
 }
 
-SwordCoast.VERSION = '2.3.1.0';
+SwordCoast.VERSION = '2.3.1.1';
 
 SwordCoast.ARMORS_ADDED = {
   'Spiked Armor':'AC=4 Dex=2 Weight=2'
@@ -659,11 +659,13 @@ SwordCoast.PATHS_ADDED = {
 SwordCoast.RACES_ADDED = {
   'Deep Gnome':
     'Features=' +
+      '"1:Language (Common/Gnomish/Undercommon)",' +
       '"1:Gnome Cunning","1:Deep Gnome Ability Adjustment",1:Slow,1:Small,' +
       '"1:Stone Camouflage","1:Superior Darkvision" ' +
     'Languages=Common,Gnomish,Undercommon',
   'Gray Dwarf':
     'Features=' +
+      '"1:Language (Common/Dwarvish/Undercommon)",' +
       '"1:Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
       '"1:Duergar Resilience","1:Dwarven Combat Training",' +
       '"1:Dwarven Resilience","1:Gray Dwarf Ability Adjustment",1:Slow,' +

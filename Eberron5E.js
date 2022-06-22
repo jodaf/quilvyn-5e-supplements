@@ -106,7 +106,7 @@ function Eberron5E() {
 
 }
 
-Eberron5E.VERSION = '2.3.1.1';
+Eberron5E.VERSION = '2.3.1.2';
 
 Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'House');
 Eberron5E.RANDOMIZABLE_ATTRIBUTES =
@@ -666,36 +666,43 @@ Eberron5E.PATHS_ADDED = {
 Eberron5E.RACES_ADDED = {
   'Changeling':
     'Features=' +
+      '"Language (Common/Choose 2 from any)",' +
       '"Changeling Ability Adjustment","Changeling Instincts",' +
       '"Changeling Shapechanger" ' +
     'Languages=Common,any,any',
   'Kalashtar':
     'Features=' +
+      '"Language (Common/Quori/Choose 1 from any)",' +
       '"Dual Mind","Kalashtar Ability Adjustment","Mental Discipline",' +
       '"Mind Link","Severed From Dreams" ' +
     'Languages=Common,Quori,any',
   'Beasthide Shifter':
     'Features=' +
+      '"Language (Common)",' +
       'Darkvision,"Beasthide Ability Adjustment","Beasthide Shifting",' +
       'Shifting,"Natural Athlete" ' +
     'Languages=Common',
   'Longtooth Shifter':
     'Features=' +
+      '"Language (Common)",' +
       'Darkvision,Fierce,"Longtooth Ability Adjustment","Longtooth Shifting",' +
       'Shifting ' +
     'Languages=Common',
   'Swiftstride Shifter':
     'Features=' +
+      '"Language (Common)",' +
       'Darkvision,Graceful,Shifting,"Swiftstride Ability Adjustment",' +
       '"Swiftstride Shifting" ' +
     'Languages=Common',
   'Wildhunt Shifter':
     'Features=' +
+      '"Language (Common)",' +
       'Darkvision,"Natural Tracker",Shifting,"Wildhunt Ability Adjustment",' +
       '"Wildhunt Shifting" ' +
     'Languages=Common',
   'Warforged':
     'Features=' +
+      '"Language (Common/Choose 1 from any)",' +
       '"Constructed Resilience","Integrated Protection","Sentry\'s Rest",' +
       '"Specialized Design","Warforged Ability Adjustment" ' +
     'Languages=Common,any',
