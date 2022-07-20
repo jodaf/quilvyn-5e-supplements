@@ -111,7 +111,7 @@ function SwordCoast() {
 
 }
 
-SwordCoast.VERSION = '2.3.1.1';
+SwordCoast.VERSION = '2.3.2.0';
 
 SwordCoast.ARMORS_ADDED = {
   'Spiked Armor':'AC=4 Dex=2 Weight=2'
@@ -123,8 +123,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
     'Features=' +
       '"1:Skill Proficiency (Choose 1 from Athletics, Investigation/Insight)",'+
       '"1:Language (Choose 2 from any)",' +
-      '"1:Watcher\'s Eye" ' +
-    'Languages=any,any',
+      '"1:Watcher\'s Eye"',
   'Clan Crafter':
     'Equipment=' +
       '"Artisan\'s Tools","Maker\'s Mark Chisel","Traveler\'s Clothes",' +
@@ -133,32 +132,28 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"1:Skill Proficiency (History/Insight)",' +
       '"1:Tool Proficiency (Choose 1 from any Artisan)",' +
       '"1:Language (Choose 1 from any)",' +
-      '"1:Respect Of The Stout Folk" ' +
-    'Languages=any',
+      '"1:Respect Of The Stout Folk"',
   'Cloistered Scholar':
     'Equipment=' +
       '"Scholar\'s Robes","Writing Kit","Borrowed Book","10 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (History/Choose 1 from Arcana, Nature, Religion)",' +
       '"1:Language (Choose 2 from any)",' +
-      '"1:Library Access" ' +
-    'Languages=any,any',
+      '"1:Library Access"',
   'Courtier':
     'Equipment=' +
       '"Fine Clothes","5 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (Insight/Persuasion)",' +
       '"1:Language (Choose 2 from any)",' +
-      '"1:Court Functionary" ' +
-    'Languages=any,any',
+      '"1:Court Functionary"',
   'Faction Agent':
     'Equipment=' +
       '"Faction Badge","Faction Book","Common Clothes","15 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (Insight/Choose 1 from any)",' +
       '"1:Language (Choose 2 from any)",' +
-      '"1:Safe Haven" ' +
-    'Languages=any,any',
+      '"1:Safe Haven"',
   'Far Traveler':
     'Equipment=' +
       '"Traveler\'s Clothes","Musical Instrument or Gaming Set",' +
@@ -167,8 +162,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"1:Skill Proficiency (Insight/Perception)",' +
       '"1:Tool Proficiency (Choose 1 from any Game, any Music)",' +
       '"1:Language (Choose 1 from any)",' +
-      '"1:All Eyes On You" ' +
-    'Languages=any',
+      '"1:All Eyes On You"',
   'Inheritor':
     'Equipment=' +
       '"Inheritance","Traveler\'s Clothes",Tool,"15 GP" ' +
@@ -176,8 +170,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"1:Skill Proficiency (Survival/Choose 1 from Arcana, History, Religion)",' +
       '"1:Tool Proficiency (Choose 1 from any Game, any Music)",' +
       '"1:Language (Choose 1 from any)",' +
-      '"1:Inheritance" ' +
-    'Languages=any',
+      '"1:Inheritance"',
   'Knight Of The Order':
     'Equipment=' +
       '"Traveler\'s Clothes",Signet,"10 GP" ' +
@@ -185,8 +178,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"1:Skill Proficiency (Persuasion/Choose 1 from Arcana, History, Nature, Religion)",' +
       '"1:Tool Proficiency (Choose 1 from any Game, any Music)",' +
       '"1:Language (Choose 1 from any)",' +
-      '"1:Knightly Regard" ' +
-    'Languages=any',
+      '"1:Knightly Regard"',
   'Mercenary Veteran':
     'Equipment=' +
       'Uniform,Insignia,"Gaming Set","10 GP" ' +
@@ -208,8 +200,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"1:Skill Proficiency (Athletics/Survival)",' +
       '"1:Tool Proficiency (Choose 1 from any Game, any Artisan)",' +
       '"1:Language (Choose 1 from any)",' +
-      '"1:Uthgardt Heritage" ' +
-    'Languages=any',
+      '"1:Uthgardt Heritage"',
   'Waterdhavian Noble':
     'Equipment=' +
       '"Fine Clothes","Signet Ring","Scroll Of Pedigree",' +
@@ -218,8 +209,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"1:Skill Proficiency (History/Persuasion)",' +
       '"1:Tool Proficiency (Choose 1 from any Game, any Music)",' +
       '"1:Language (Choose 1 from any)",' +
-      '"1:Kept In Style" ' +
-    'Languages=any'
+      '"1:Kept In Style"'
 };
 SwordCoast.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
@@ -466,7 +456,7 @@ SwordCoast.FEATURES_ADDED = {
   'Master Of Intrigue':
     'Section=feature,skill ' +
     'Note="Mimic accent and speech patterns after 1 min listening",' +
-         '"+2 Language Count/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Game)"',
+         '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Game)"',
   'Master Of Tactics':'Section=combat Note="R30\' Help as bonus action"',
   'Mastery Of Death':
     'Section=combat ' +
@@ -550,7 +540,7 @@ SwordCoast.FEATURES_ADDED = {
     'Note="60\' Fly",' +
          '"R30\' Self and %V others fly 30\' for 1 hr 1/long rest",' +
          '"Immunity to lightning and thunder damage"',
-  'Wind Speaker':'Section=skill Note="Speak Primordial and dialects"',
+  'Wind Speaker':'Section=skill Note="Language (Primordial/Aquan/Auran/Ignan/Terran)"',
 
   // Races
   'Deep Gnome Ability Adjustment':
@@ -661,8 +651,7 @@ SwordCoast.RACES_ADDED = {
     'Features=' +
       '"1:Language (Common/Gnomish/Undercommon)",' +
       '"1:Gnome Cunning","1:Deep Gnome Ability Adjustment",1:Slow,1:Small,' +
-      '"1:Stone Camouflage","1:Superior Darkvision" ' +
-    'Languages=Common,Gnomish,Undercommon',
+      '"1:Stone Camouflage","1:Superior Darkvision"',
   'Gray Dwarf':
     'Features=' +
       '"1:Language (Common/Dwarvish/Undercommon)",' +
@@ -670,8 +659,7 @@ SwordCoast.RACES_ADDED = {
       '"1:Duergar Resilience","1:Dwarven Combat Training",' +
       '"1:Dwarven Resilience","1:Gray Dwarf Ability Adjustment",1:Slow,' +
       '1:Steady,1:Stonecunning,"1:Sunlight Sensitivity",' +
-      '"1:Superior Darkvision","3:Duergar Magic" ' +
-    'Languages=Common,Dwarvish,Undercommon'
+      '"1:Superior Darkvision","3:Duergar Magic"',
 };
 SwordCoast.RACES_RENAMED = {
   'Hill Dwarf':['Gold Dwarf'],
@@ -842,13 +830,6 @@ SwordCoast.pathRulesExtra = function(rules, name) {
       "features.Storm's Fury", '?', null,
       'spellDifficultyClass.S', '=', null
     );
-    rules.defineRule('languageCount', 'skillNotes.windSpeaker', '+', '5');
-    rules.defineRule('languages.Aquan', 'skillNotes.windSpeaker', '=', '1');
-    rules.defineRule('languages.Auran', 'skillNotes.windSpeaker', '=', '1');
-    rules.defineRule('languages.Ignan', 'skillNotes.windSpeaker', '=', '1');
-    rules.defineRule
-      ('languages.Primordial', 'skillNotes.windSpeaker', '=', '1');
-    rules.defineRule('languages.Terran', 'skillNotes.windSpeaker', '=', '1');
     rules.defineRule
       ('magicNotes.heartOfTheStorm', pathLevel, '=', 'Math.floor(source / 2)');
     rules.defineRule

@@ -48,7 +48,7 @@ function Volo(edition, rules) {
     Volo.CHARACTER_RACES_IN_PLAY = true;
 }
 
-Volo.VERSION = '2.3.1.1';
+Volo.VERSION = '2.3.2.0';
 
 Volo.CHARACTER_FEATURES = {
   'Amphibious':'Section=feature Note="Breathe air or water"',
@@ -134,56 +134,47 @@ Volo.CHARACTER_RACES = {
       '"Language (Common/Celestial)",' +
       '"Celestial Resistance",Darkvision,"Healing Hands",' +
       '"Fallen Aasimar Ability Adjustment","Light Bearer",' +
-      '"3:Necrotic Shroud" ' +
-    'Languages=Celestial,Common',
+      '"3:Necrotic Shroud"',
   'Firbolg':
     'Features=' +
       '"Language (Common/Elvish/Giant)",' +
       '"Firbolg Ability Adjustment","Firbolg Magic","Hidden Step",' +
-      '"Powerful Build","Speech Of Beast And Leaf" ' +
-    'Languages=Common,Elvish,Giant',
+      '"Powerful Build","Speech Of Beast And Leaf"',
   'Lizardfolk':
     'Features=' +
       '"Language (Common/Draconic)",' +
       'Bite,"Cunning Artisan","Lizardfolk Ability Adjustment","Hold Breath",' +
-      '"Hungry Jaws","Hunter\'s Lore","Natural Armor",Swimmer ' +
-    'Languages=Common,Draconic',
+      '"Hungry Jaws","Hunter\'s Lore","Natural Armor",Swimmer',
   'Goliath':
     'Features=' +
       '"Language (Common/Giant)",' +
       '"Goliath Ability Adjustment","Mountain Born","Natural Athlete",' +
-      '"Powerful Build","Stone\'s Endurance" ' +
-    'Languages=Common,Giant',
+      '"Powerful Build","Stone\'s Endurance"',
   'Kenku':
     'Features=' +
       '"Language (Common/Auran)",' +
-      '"Expert Forgery","Kenku Ability Adjustment","Kenku Training",Mimicry ' +
-    'Languages=Auran,Common',
+      '"Expert Forgery","Kenku Ability Adjustment","Kenku Training",Mimicry',
   'Protector Aasimar':
     'Features=' +
       '"Language (Common/Celestial)",' +
       'Darkvision,"Celestial Resistance","Healing Hands","Light Bearer",' +
-      '"Protector Aasimar Ability Adjustment","3:Radiant Soul (Aasimar)" ' +
-    'Languages=Celestial,Common',
+      '"Protector Aasimar Ability Adjustment","3:Radiant Soul (Aasimar)"',
   'Scourge Aasimar':
     'Features=' +
       '"Language (Common/Celestial)",' +
       'Darkvision,"Celestial Resistance","Healing Hands","Light Bearer",' +
       '"Scourge Aasimar Ability Adjustment",' +
-      '"3:Radiant Consumption" ' +
-    'Languages=Celestial,Common',
+      '"3:Radiant Consumption"',
   'Tabaxi':
     'Features=' +
       '"Language (Common/Choose 1 from any)",' +
       '"Cat\'s Claws","Cat\'s Talent",Darkvision,"Feline Agility",' +
-      '"Tabaxi Ability Adjustment" ' +
-    'Languages=Common,any',
+      '"Tabaxi Ability Adjustment"',
   'Triton':
     'Features=' +
       '"Language (Common/Primordial)",' +
       'Amphibious,"Control Air And Water","Emissary Of The Sea",' +
-      '"Guardians Of The Depths",Swimmer,"Triton Ability Adjustment" ' +
-    'Languages=Common,Primordial'
+      '"Guardians Of The Depths",Swimmer,"Triton Ability Adjustment"'
 };
 Volo.MONSTROUS_FEATURES = {
   'Aggressive':
@@ -231,38 +222,32 @@ Volo.MONSTROUS_RACES = {
     'Features=' +
       '"Language (Common/Goblin)",' +
       '"Bugbear Ability Adjustment",Darkvision,Long-Limbed,"Powerful Build",' +
-      'Sneaky,"Surprise Attack" ' +
-    'Languages=Common,Goblin',
+      'Sneaky,"Surprise Attack"',
   'Goblin':
     'Features=' +
       '"Language (Common/Goblin)",' +
       'Darkvision,"Fury Of The Small","Goblin Ability Adjustment",' +
-      '"Nimble Escape",Small ' +
-    'Languages=Common,Goblin',
+      '"Nimble Escape",Small',
   'Hobgoblin':
     'Features=' +
       '"Language (Common/Goblin)",' +
       'Darkvision,"Hobgoblin Ability Adjustment","Martial Training",' +
-      '"Saving Face" ' +
-    'Languages=Common,Goblin',
+      '"Saving Face"',
   'Kobold':
     'Features=' +
       '"Language (Common/Draconic)",' +
       'Darkvision,"Grovel, Cower, and Beg","Kobold Ability Adjustment",' +
-      '"Pack Tactics",Small,"Sunlight Sensitivity" ' +
-    'Languages=Common,Draconic',
+      '"Pack Tactics",Small,"Sunlight Sensitivity"',
   'Orc':
     'Features=' +
       '"Language (Common/Orc)",' +
       'Aggressive,Darkvision,Menacing,"Orc Ability Adjustment",' +
-      '"Powerful Build" ' +
-    'Languages=Common,Orc',
+      '"Powerful Build"',
   'Yuan-Ti':
     'Features=' +
       '"Language (Common/Abyssal/Draconic)",' +
       'Darkvision,"Innate Spellcasting","Magic Resistance","Poison Immunity",' +
-      '"Yuan-Ti Ability Adjustment" ' +
-    'Languages=Common,Abyssal,Draconic',
+      '"Yuan-Ti Ability Adjustment"'
 };
 Volo.SPELLS = {
   // Copied from Xanathar's

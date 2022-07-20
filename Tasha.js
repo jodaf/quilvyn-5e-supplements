@@ -47,7 +47,7 @@ function Tasha(edition, rules) {
 
 }
 
-Tasha.VERSION = '2.3.1.1';
+Tasha.VERSION = '2.3.2.0';
 
 Tasha.CLASSES = {
   'Artificer':
@@ -306,7 +306,7 @@ Tasha.FEATURES = {
     'Section=combat ' +
     'Note="Spend 1 Superiority Die to use Reaction to attack creature that moves into range and add roll to damage"',
   'Canny':
-    'Section=skill Note="+2 Language Count/Dbl proficiency on chosen skill"',
+    'Section=skill Note="Language (Choose 2 from any)/Dbl proficiency on chosen skill"',
   'Cantrip Formulas':'Section=magic Note="Replace cantrip 1/long rest"',
   'Cantrip Versatility':
     'Section=feature ' +
@@ -927,7 +927,7 @@ Tasha.FEATURES = {
     'Section=feature ' +
     'Note="After a long rest, apply 1 rune each to %V objects worn or held"',
   'Rune Knight Bonus Proficiencies':
-    'Section=skill Note="Tool Proficiency (Smith\'s Tools)/Speak Giant"',
+    'Section=skill Note="Tool Proficiency (Smith\'s Tools)/Language (Giant)"',
   'Runic Juggernaut':
     'Section=combat ' +
     'Note="Giant\'s Might increases size to Huge, inflicts +1d10 weapon damage, extends reach by 5\'"',
@@ -2114,19 +2114,12 @@ Tasha.pathRulesExtra = function(rules, name) {
     rules.defineRule('featureNotes.runeCarver',
       pathLevel, '=', 'source<7 ? 2 : source<10 ? 3 : source<15 ? 4 : 5'
     );
-    rules.defineRule
-      ('languageCount', 'skillNotes.runeKnightBonusProficiencies', '+', '1');
-    rules.defineRule
-      ('languages.Giant', 'skillNotes.runeKnightBonusProficiencies', '=', '1');
     rules.defineRule('selectableFeatureCount.Fighter (Rune)',
       'featureNotes.runeCarver', '=', null
     );
     rules.defineRule('saveNotes.hillRune',
       pathLevel, '=', '1',
       'combatNotes.masterOfRunes', '^', '2'
-    );
-    rules.defineRule("toolProficiency.Smith's Tools",
-      'skillNotes.runeKnightBonusProficiencies', '=', '1'
     );
   } else if(name == 'Soulknife') {
     rules.defineRule('combatNotes.psychicBlades',

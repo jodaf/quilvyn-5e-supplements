@@ -47,7 +47,7 @@ function Xanathar(edition, rules) {
 
 }
 
-Xanathar.VERSION = '2.3.1.1';
+Xanathar.VERSION = '2.3.2.0';
 
 Xanathar.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
@@ -414,7 +414,7 @@ Xanathar.FEATURES = {
   'Master Of Intrigue':
     'Section=feature,skill ' +
     'Note="Mimic accent and speech patterns after 1 min listening",' +
-         '"+2 Language Count/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Game)"',
+         '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Game)"',
   'Master Of Tactics':'Section=combat Note="R30\' Help as bonus action"',
   "Master's Flourish":
     'Section=combat Note="Use 1d6 instead of Bardic Inspiration for flourish"',
@@ -638,7 +638,7 @@ Xanathar.FEATURES = {
   'Warding Maneuver':
     'Section=combat ' +
     'Note="R5\' Give +1d8 AC and damage resistance to ally when struck %V/long rest"',
-  'Wind Speaker':'Section=skill Note="Speak Primordial and dialects"',
+  'Wind Speaker':'Section=skill Note="Language (Primordial/Aquan/Auran/Ignan/Terran)"',
   'Vengeful Ancestors':
     'Section=combat ' +
     'Note="Damage prevented by Spirit Shield rebounds on attacker as force damage"',
@@ -692,7 +692,7 @@ Xanathar.FEATURES = {
     'Section=ability,magic,skill ' +
     'Note="Ability Boost (Choose 1 from Charisma, Intelligence)",' +
          '"Cast <i>Misty Step</i> 1/short rest",' +
-         '"Know Sylvan"',
+         '"Language (Sylvan)"',
   'Flames Of Phlegethos':
     'Section=ability,magic ' +
     'Note="Ability Boost (Choose 1 from Charisma, Intelligence)",' +
@@ -707,7 +707,7 @@ Xanathar.FEATURES = {
          '"Extra damage die 1/short rest, use Reaction after Relentless Endurance for extra attack"',
   'Prodigy':
     'Section=feature,skill ' +
-    'Note="Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)/Language (any)",' +
+    'Note="Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)/Language (Choose 1 from any)",' +
          '"Dbl proficiency on chosen skill"',
   'Second Chance':
     'Section=ability,combat ' +
@@ -742,6 +742,7 @@ Xanathar.PATHS = {
   'Circle Of The Shepherd':
     'Group=Druid Level=levels.Druid ' +
     'Features=' +
+      '"2:Language (Sylvan)",' +
       '"2:Speech Of The Woods","2:Spirit Totem (Bear)",' +
       '"2:Spirit Totem (Hawk)","2:Spirit Totem (Unicorn)",' +
       '"6:Mighty Summoner","10:Guardian Spirit","14:Faithful Summons"',
@@ -1424,9 +1425,6 @@ Xanathar.featRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.S', 'casterLevels.Drow High Magic', '^=', null);
   } else if(name == 'Fey Teleportation') {
-    rules.defineRule('languageCount', 'skillNotes.feyTeleportation', '+=', '1');
-    rules.defineRule
-      ('languages.Sylvan', 'skillNotes.feyTeleportation', '=', '1');
     SRD5E.featureSpells(rules, 'Fey Teleportation', 'W', null, ['Misty Step']);
     rules.defineRule('casterLevels.Fey Teleportation',
       'features.Fey Teleportation', '?', null,
@@ -1435,10 +1433,6 @@ Xanathar.featRulesExtra = function(rules, name) {
     );
     rules.defineRule
       ('casterLevels.W', 'casterLevels.Fey Teleportation', '^=', null);
-  } else if(name == 'Prodigy') {
-    rules.defineRule('languageCount', 'featureNotes.prodigy', '+=', '1');
-    rules.defineRule('skillChoiceCount', 'featureNotes.prodigy', '+=', '1');
-    rules.defineRule('toolChoiceCount', 'featureNotes.prodigy', '+=', '1');
   } else if(name == 'Wood Elf Magic') {
     rules.defineRule('spellSlots.D0', 'magicNotes.woodElfMagic', '+=', '1');
     SRD5E.featureSpells
@@ -1524,8 +1518,6 @@ Xanathar.pathRulesExtra = function(rules, name) {
       ['Dream,Scrying,Teleportation Circle']
     );
   } else if(name == 'Circle Of The Shepherd') {
-    rules.defineRule
-      ('languages.Sylvan', pathLevel, '=', 'source>=2 ? 1 : null');
     rules.defineRule
       ('magicNotes.spiritTotem(Bear)', pathLevel, '=', '5 + source');
     rules.defineRule('magicNotes.spiritTotem(Unicorn)', pathLevel, '=', null);
@@ -1738,13 +1730,6 @@ Xanathar.pathRulesExtra = function(rules, name) {
       "features.Storm's Fury", '?', null,
       'spellDifficultyClass.S', '=', null
     );
-    rules.defineRule('languageCount', 'skillNotes.windSpeaker', '+', '5');
-    rules.defineRule('languages.Aquan', 'skillNotes.windSpeaker', '=', '1');
-    rules.defineRule('languages.Auran', 'skillNotes.windSpeaker', '=', '1');
-    rules.defineRule('languages.Ignan', 'skillNotes.windSpeaker', '=', '1');
-    rules.defineRule
-      ('languages.Primordial', 'skillNotes.windSpeaker', '=', '1');
-    rules.defineRule('languages.Terran', 'skillNotes.windSpeaker', '=', '1');
     rules.defineRule
       ('magicNotes.heartOfTheStorm', pathLevel, '=', 'Math.floor(source / 2)');
     rules.defineRule

@@ -106,7 +106,7 @@ function Eberron5E() {
 
 }
 
-Eberron5E.VERSION = '2.3.1.2';
+Eberron5E.VERSION = '2.3.2.0';
 
 Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'House');
 Eberron5E.RANDOMIZABLE_ATTRIBUTES =
@@ -668,133 +668,126 @@ Eberron5E.RACES_ADDED = {
     'Features=' +
       '"Language (Common/Choose 2 from any)",' +
       '"Changeling Ability Adjustment","Changeling Instincts",' +
-      '"Changeling Shapechanger" ' +
-    'Languages=Common,any,any',
+      '"Changeling Shapechanger"',
   'Kalashtar':
     'Features=' +
       '"Language (Common/Quori/Choose 1 from any)",' +
       '"Dual Mind","Kalashtar Ability Adjustment","Mental Discipline",' +
-      '"Mind Link","Severed From Dreams" ' +
-    'Languages=Common,Quori,any',
+      '"Mind Link","Severed From Dreams"',
   'Beasthide Shifter':
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,"Beasthide Ability Adjustment","Beasthide Shifting",' +
-      'Shifting,"Natural Athlete" ' +
-    'Languages=Common',
+      'Shifting,"Natural Athlete"',
   'Longtooth Shifter':
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,Fierce,"Longtooth Ability Adjustment","Longtooth Shifting",' +
-      'Shifting ' +
-    'Languages=Common',
+      'Shifting',
   'Swiftstride Shifter':
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,Graceful,Shifting,"Swiftstride Ability Adjustment",' +
-      '"Swiftstride Shifting" ' +
-    'Languages=Common',
+      '"Swiftstride Shifting"',
   'Wildhunt Shifter':
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,"Natural Tracker",Shifting,"Wildhunt Ability Adjustment",' +
-      '"Wildhunt Shifting" ' +
-    'Languages=Common',
+      '"Wildhunt Shifting"',
   'Warforged':
     'Features=' +
       '"Language (Common/Choose 1 from any)",' +
       '"Constructed Resilience","Integrated Protection","Sentry\'s Rest",' +
-      '"Specialized Design","Warforged Ability Adjustment" ' +
-    'Languages=Common,any',
+      '"Specialized Design","Warforged Ability Adjustment"',
   'Mark Of Detection Half-Elf':
     SRD5E.RACES['Half-Elf']
       .replace('Half-Elf Ability', 'Detection Ability')
       .replace('Skill Versatility', 'Deductive Intuition","Detection Spells","Magical Detection'),
   'Mark Of Finding Half-Orc':
     'Features=' +
+      '"Language (Common/Goblin)",' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
-      '"Finder\'s Magic","Finding Spells" ' +
-    'Languages=Common,Goblin',
+      '"Finder\'s Magic","Finding Spells"',
   'Mark Of Finding Human':
     'Features=' +
+      '"Language (Common/Goblin)",' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
-      '"Finder\'s Magic","Finding Spells" ' +
-    'Languages=Common,Goblin',
+      '"Finder\'s Magic","Finding Spells"',
   'Mark Of Handling Human':
     'Features=' +
+      '"Language (Common/Choose 1 from any)",' +
       '"Handling Ability Adjustment","Handling Spells","Primal Connection",' +
-      '"Wild Intuition","3:The Bigger They Are" ' +
-    'Languages=Common,any',
+      '"Wild Intuition","3:The Bigger They Are"',
   'Mark Of Healing Halfling':
     'Features=' +
+      '"Language (Common/Halfling)",' +
       'Brave,"Halfling Nimbleness","Lucky Halfling",Slow,Small,' +
       '"Healing Ability Adjustment","Healing Spells","Healing Touch",' +
-      '"Medical Intuition" ' +
-    'Languages=Common,Halfling',
+      '"Medical Intuition"',
   'Mark Of Hospitality Halfling':
     'Features=' +
+      '"Language (Common/Halfling)",' +
       'Brave,"Halfling Nimbleness","Lucky Halfling",Slow,Small,' +
       '"Ever Hospitable","Hospitality Ability Adjustment",' +
-      '"Hospitality Spells","Innkeeper\'s Magic" ' +
-    'Languages=Common,Halfling',
+      '"Hospitality Spells","Innkeeper\'s Magic"',
   'Mark Of Making Human':
     'Features=' +
+      '"Language (Common/Choose 1 from any)",' +
       '"Making Ability Adjustment","Artisan\'s Intuition","Maker\'s Gift",' +
-      '"Making Spells",Spellsmith ' +
-    'Languages=Common,any',
+      '"Making Spells",Spellsmith',
   'Mark Of Passage Human':
     'Features=' +
+      '"Language (Common/Choose 1 from any)",' +
       '"Passage Ability Adjustment","Courier\'s Speed","Intuitive Motion",' +
-      '"Magical Passage","Passage Spells" ' +
-    'Languages=Common,any',
+      '"Magical Passage","Passage Spells"',
   'Mark Of Scribing Gnome':
     'Features=' +
+      '"Language (Common/Gnomish)",' +
       'Darkvision,"1:Gnome Cunning","Scribing Ability Adjustment",Slow,Small,' +
-      '"Gifted Scribe","Scribe\'s Insight","Scribing Spells" ' +
-    'Languages=Common,Gnomish',
+      '"Gifted Scribe","Scribe\'s Insight","Scribing Spells"',
   'Mark Of Sentinel Human':
     'Features=' +
+      '"Language (Common/Choose 1 from any)",' +
       '"Sentinel Ability Adjustment","Guardian\'s Shield",' +
-      '"Sentinel Spells","Sentinel\'s Intuition","Vigilant Guardian" ' +
-    'Languages=Common,any',
+      '"Sentinel Spells","Sentinel\'s Intuition","Vigilant Guardian"',
   'Mark Of Shadow Elf':
     'Features=' +
+      '"Language (Common/Elvish)",' +
       'Darkvision,"Elf Weapon Training","Fey Ancestry","Keen Senses",Trance,' +
       '"Cunning Intuition","Shadow Ability Adjustment","Shadow Spells",' +
-      '"Shape Shadows" ' +
-    'Languages=Common,Elvish',
+      '"Shape Shadows"',
   'Mark Of Storm Half-Elf':
     SRD5E.RACES['Half-Elf']
       .replace('Half-Elf Ability', 'Storm Ability')
       .replace('Skill Versatility', 'Headwinds","Storm Spells","Storm\'s Boon","Windwright\'s Intuition'),
   'Mark Of Warding Dwarf':
     'Features=' +
+      '"Language (Common/Dwarvish)",' +
       '"Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
       'Darkvision,"Dwarven Combat Training","Dwarven Resilience",Slow,Steady,' +
       'Stonecunning,"Warding Ability Adjustment","Warder\'s Intuition",' +
-      '"Warding Spells","Wards And Seals" ' +
-    'Languages=Common,Dwarvish',
+      '"Warding Spells","Wards And Seals"',
   // Copied from Volo's
   'Bugbear':
     'Features=' +
+      '"Language (Common/Goblin)",' +
       '"Bugbear Ability Adjustment",Darkvision,Long-Limbed,"Powerful Build",' +
-      'Sneaky,"Surprise Attack" ' +
-    'Languages=Common,Goblin',
+      'Sneaky,"Surprise Attack"',
   'Goblin':
     'Features=' +
+      '"Language (Common/Goblin)",' +
       'Darkvision,"Fury Of The Small","Goblin Ability Adjustment",' +
-      '"Nimble Escape",Small ' +
-    'Languages=Common,Goblin',
+      '"Nimble Escape",Small',
   'Hobgoblin':
     'Features=' +
+      '"Language (Common/Goblin)",' +
       'Darkvision,"Hobgoblin Ability Adjustment","Martial Training",' +
-      '"Saving Face" ' +
-    'Languages=Common,Goblin',
+      '"Saving Face"',
   'Orc': // Primal Intuition replaces Volo's Menacing
     'Features=' +
+      '"Language (Common/Orc)",' +
       'Aggressive,Darkvision,"Orc Ability Adjustment","Powerful Build",' +
-      '"Primal Intuition" ' +
-    'Languages=Common,Orc'
+      '"Primal Intuition"'
 };
 Eberron5E.SPELLS_ADDED = {
   // Copied from Xanathar's
