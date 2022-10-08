@@ -47,7 +47,7 @@ function Xanathar(edition, rules) {
 
 }
 
-Xanathar.VERSION = '2.3.2.0';
+Xanathar.VERSION = '2.3.2.1';
 
 Xanathar.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
@@ -947,10 +947,12 @@ Xanathar.SPELLS = {
   'Absorb Elements':
     'School=Abjuration ' +
     'Level=D1,R1,S1,W1 ' +
+    'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description="Self can use Reaction to reduce energy damage by half, self hit next turn inflicts +1d6 HP"',
   "Aganazzar's Scorcher":
     'School=Evocation ' +
     'Level=S2,W2 ' +
+    'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description="Creatures in 5\' by 30\' path suffer 3d8 HP fire (Dex half)"',
   'Beast Bond':
     'School=Divination ' +
@@ -959,18 +961,22 @@ Xanathar.SPELLS = {
   'Bones Of The Earth':
     'School=Transmutation ' +
     'Level=D6 ' +
+    'AtHigherLevels="creates +2 pillars" ' +
     'Description="R120\' Six 5\'x30\' pillars burst from the ground, inflict 6d6 HP bludgeoning and pin creatures caught between top and ceiling (Dex neg, Str frees)"',
   'Catapult':
     'School=Transmutation ' +
     'Level=S1,W1 ' +
+    'AtHigherLevels="inflicts +1d8 HP and increases max object weight +5 lb" ' +
     'Description="R60\' Up to 5 lb object flies 90\', strikes for 3d8 HP bludgeoning (Dex neg)"',
   'Catnap':
     'School=Enchantment ' +
     'Level=B3,S3,W3 ' +
+    'AtHigherLevels="affects +1 target" ' +
     'Description="R30\' Three willing targets sleep for 10 min, gain benefits of short rest"',
   'Cause Fear':
     'School=Necromancy ' +
     'Level=K1,W1 ' +
+    'AtHigherLevels="affects +1 target" ' +
     'Description="R60\' Target frightened (Disadv on ability checks and attacks) for conc or 1 min (Wis neg each turn)"',
   'Ceremony':
     'School=Abjuration ' +
@@ -979,10 +985,12 @@ Xanathar.SPELLS = {
   'Chaos Bolt':
     'School=Evocation ' +
     'Level=S1 ' +
+    'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description="R120\' Ranged spell attack inflicts 2d8+1d6 HP of random type"',
   'Charm Monster':
     'School=Enchantment ' +
     'Level=B4,D4,K4,S4,W4 ' +
+    'AtHigherLevels="affects +1 target" ' +
     'Description="R30\' Target regards you as a friend (Wis neg) for 1 hr or until harmed"',
   'Control Flames':
     'School=Transmutation ' +
@@ -1003,10 +1011,12 @@ Xanathar.SPELLS = {
   'Crown Of Stars':
     'School=Evocation ' +
     'Level=K7,S7,W7 ' +
+    'AtHigherLevels="creates +2 flames" ' +
     'Description="Creates seven flames around self that give 30\' light, ranged touch w/each inflicts 4d12 HP radiant for 1 hr"',
   'Danse Macabre':
     'School=Necromancy ' +
     'Level=K5,W5 ' +
+    'AtHigherLevels="creates +2 undead" ' +
     'Description="R60\' Creates from corpses up to 5 skeletons and zombies that obey self and attack at +%{?modifier?} for conc or 1 hr"',
   'Dawn':
     'School=Evocation ' +
@@ -1015,6 +1025,7 @@ Xanathar.SPELLS = {
   "Dragon's Breath":
     'School=Transmutation ' +
     'Level=S2,W2 ' +
+    'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description="Touched gains ability to breathe acid, cold, fire, lightning, or poison, inflicting 3d6 HP in a 15\' cone for conc or 1 min"',
   'Druid Grove':
     'School=Abjuration ' +
@@ -1023,6 +1034,7 @@ Xanathar.SPELLS = {
   'Dust Devil':
     'School=Conjuration ' +
     'Level=D2,S2,W2 ' +
+    'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description="R60\' Inflicts 1d8 HP bludgeoning and pushes 10\' (Str half HP, no push) for conc or 1 min"',
   'Earthbind':
     'School=Transmutation ' +
@@ -1031,10 +1043,12 @@ Xanathar.SPELLS = {
   'Earth Tremor':
     'School=Evocation ' +
     'Level=B1,D1,S1,W1 ' +
+    'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description="10\' radius knocks prone and inflicts 1d6 HP bludgeoning (Dex neg)"',
   'Elemental Bane':
     'School=Transmutation ' +
     'Level=D4,K4,W4 ' +
+    'AtHigherLevels="affects +1 target" ' +
     'Description="R90\' Target loses resistance to and takes +2d6 HP from next hit of chosen energy type for conc or 1 min"',
   'Enemies Abound':
     'School=Enchantment ' +
@@ -1043,10 +1057,12 @@ Xanathar.SPELLS = {
   'Enervation':
     'School=Necromancy ' +
     'Level=K5,S5,W5 ' +
+    'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description="R60\' Target suffers 4d6 HP necrotic/rd and self regains half for conc or 1 min (Dex 2d6 HP for 1 rd)"',
   'Erupting Earth':
     'School=Transmutation ' +
     'Level=D3,S3,W3 ' +
+    'AtHigherLevels="inflicts +1d12 HP" ' +
     'Description="R120\' 20\' cu inflicts 3d12 HP bludgeoning (Dex half) and makes terrain difficult"',
   'Far Step':
     'School=Conjuration ' +
@@ -1059,6 +1075,7 @@ Xanathar.SPELLS = {
   'Flame Arrows':
     'School=Transmutation ' +
     'Level=D3,R3,S3,W3 ' +
+    'AtHigherLevels="affects +2 pieces" ' +
     'Description="Touched 12 pieces ammunition inflict +1d6 HP fire on hit for conc or 1 hr"',
   'Frostbite':
     'School=Evocation ' +
@@ -1075,6 +1092,7 @@ Xanathar.SPELLS = {
   'Healing Spirit':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
+    'AtHigherLevels="heals +1d6 HP" ' +
     'Description="R60\' Allies in 5\' cu heal 1d6/rd for conc, %{wisdomModifier+1>?2} times, or 1 min"',
   'Holy Weapon':
     'School=Evocation ' +
@@ -1083,6 +1101,7 @@ Xanathar.SPELLS = {
   'Ice Knife':
     'School=Evocation ' +
     'Level=D1,S1,W1 ' +
+    'AtHigherLevels="inflicts +1d6 HP cold" ' +
     'Description="R60\' Ranged spell attack inflicts 1d10 HP piercing and 2d6 HP cold in 5\' radius (Dex neg)"',
   'Illusory Dragon':
     'School=Illusion ' +
@@ -1095,7 +1114,8 @@ Xanathar.SPELLS = {
   'Infernal Calling':
     'School=Conjuration ' +
     'Level=K5,W5 ' +
-    'Description="R90\' Summons uncontrolled devil for conc or 1 hr"',
+    'AtHigherLevels="summons +1 CR" ' +
+    'Description="R90\' Summons uncontrolled CR 6 devil for conc or 1 hr"',
   'Infestation':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
@@ -1123,6 +1143,7 @@ Xanathar.SPELLS = {
   'Life Transference':
     'School=Necromancy ' +
     'Level=C3,W3 ' +
+    'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description="R30\' Self suffers 4d8 HP necrotic, target regains dbl"',
   'Maddening Darkness':
     'School=Evocation ' +
@@ -1147,6 +1168,7 @@ Xanathar.SPELLS = {
   "Melf's Minute Meteors":
     'School=Evocation ' +
     'Level=S3,W3 ' +
+    'AtHigherLevels="creates +2 meteors" ' +
     'Description="R120\' 6 meteors each inflict 2d6 HP fire 2/rd for conc or 10 min"',
   'Mental Prison':
     'School=Illusion ' +
@@ -1159,6 +1181,7 @@ Xanathar.SPELLS = {
   'Mind Spike':
     'School=Divination ' +
     'Level=K2,S2,W2 ' +
+    'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description="R60\' Target suffers 3d8 HP psychic (Wis half) and self knows target location for conc or 1 hr"',
   'Mold Earth':
     'School=Transmutation ' +
@@ -1195,6 +1218,7 @@ Xanathar.SPELLS = {
   'Shadow Blade':
     'School=Illusion ' +
     'Level=K2,S2,W2 ' +
+    'AtHigherLevels="increases damage to 3d8/4d8/5d8 HP at level 3/5/7" ' +
     'Description="Self wields shadow sword (Adv on attacks in dim light, inflicts 2d8 HP psychic, finesse and light properties, range 20/60) for conc or 1 min"',
   'Shadow Of Moil':
     'School=Necromancy ' +
@@ -1220,9 +1244,10 @@ Xanathar.SPELLS = {
     'School=Abjuration ' +
     'Level=D1,R1,W1 ' +
     'Description="Touched magical trap snares first to cross for 8 hr (Int detects; Dex neg)"',
-  "Snilloc's Snowball Storm":
+  "Snilloc's Snowball Swarm":
     'School=Evocation ' +
     'Level=S2,W2 ' +
+    'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description="R90\' 5\' radius inflicts 3d6 HP cold (Dex half)"',
   'Soul Cage':
     'School=Necromancy ' +
@@ -1235,14 +1260,17 @@ Xanathar.SPELLS = {
   'Storm Sphere':
     'School=Evocation ' +
     'Level=S4,W4 ' +
+    'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description="R150\' 20\' radius inflicts 2d6 HP bludgeoning (Str neg) and emits 60\' bolt that inflicts 4d6 HP lightning 1/rd for conc or 1 min"',
   'Summon Greater Demon':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
+    'AtHigherLevels="summons +1 CR" ' +
     'Description="R60\' Demon up to CR 5 obeys self until Cha save for conc or 1 hr"',
   'Summon Lesser Demons':
     'School=Conjuration ' +
     'Level=K3,W3 ' +
+    'AtHigherLevels="doubles/triples demon count at level 6/8" ' +
     'Description="R60\' Demons up to CR 1 attack nearest creature for conc or 1 hr"',
   'Synaptic Static':
     'School=Enchantment ' +
@@ -1263,6 +1291,7 @@ Xanathar.SPELLS = {
   'Thunder Step':
     'School=Conjuration ' +
     'Level=K3,S3,W3 ' +
+    'AtHigherLevels="inflicts +1d10 HP" ' +
     'Description="Self and 1 other teleport 90\', 10\' radius around initial location inflicts 3d10 HP thunder (Con half)"',
   'Tidal Wave':
     'School=Conjuration ' +
@@ -1271,6 +1300,7 @@ Xanathar.SPELLS = {
   'Tiny Servant':
     'School=Transmutation ' +
     'Level=W3 ' +
+    'AtHigherLevels="animates +2 objects" ' +
     'Description="Touched object sprouts arms and legs, obeys commands for 8 hr"',
   'Toll The Dead':
     'School=Necromancy ' +
@@ -1283,10 +1313,12 @@ Xanathar.SPELLS = {
   'Vitriolic Sphere':
     'School=Evocation ' +
     'Level=S4,W4 ' +
+    'AtHigherLevels="inflicts +2d4 HP initial" ' +
     'Description="R150\' 20\' radius inflicts 10d4 HP acid, then 5d4 HP acid next rd (Dex half initial and none next rd)"',
   'Wall Of Light':
     'School=Evocation ' +
     'Level=K5,S5,W5 ' +
+    'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description="R120\' 60\'x 10\' wall lights 120\', inflicts 4d8 HP radiant and blinds (Con half and not blind), emits 60\' ray that inflicts 4d8 HP radiant for conc or 10 min"',
   'Wall Of Sand':
     'School=Evocation ' +

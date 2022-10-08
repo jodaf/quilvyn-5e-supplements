@@ -47,7 +47,7 @@ function Tasha(edition, rules) {
 
 }
 
-Tasha.VERSION = '2.3.2.0';
+Tasha.VERSION = '2.3.2.1';
 
 Tasha.CLASSES = {
   'Artificer':
@@ -1341,6 +1341,7 @@ Tasha.SPELLS = {
   'Intellect Fortress':
     'School=Abjuration ' +
     'Level=A3,B3,K3,S3,W3 ' +
+    'AtHigherLevels="affects +1 target" ' +
     'Description="R30\' Willing target gains resistance to psychic damage and Adv on Int, Wis, and Cha saves for conc or 1 hr"',
   'Lightning Lure':
     'School=Evocation ' +
@@ -1353,42 +1354,52 @@ Tasha.SPELLS = {
   'Spirit Shroud':
     'School=Necromancy ' +
     'Level=C3,K3,P3,W3 ' +
+    'AtHigherLevels="inflicts +1d8 HP/2 levels" ' +
     'Description="R10\' Self hits inflict +1d8 HP radiant, necrotic, or cold; 1 target/rd suffers -10\' Speed for 1 rd for conc or 1 min"',
   'Summon Aberration':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
+    'AtHigherLevels="increases summoned\'s AC, HP, number of attacks, and damage" ' +
     'Description="R90\' Summoned beholderkin, slaad, or star spawn obeys self for conc or 1 hr"',
   'Summon Beast':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
+    'AtHigherLevels="increases summoned\'s AC, HP, number of attacks, and damage" ' +
     'Description="R90\' Summoned air, land, or water bestial spirit obeys self for conc or 1 hr"',
   'Summon Celestial':
     'School=Conjuration ' +
     'Level=C5,P5 ' +
+    'AtHigherLevels="increases summoned\'s AC, HP, number of attacks, and damage" ' +
     'Description="R90\' Summoned avenger or defender celestial spirit obeys self for conc or 1 hr"',
   'Summon Construct':
     'School=Conjuration ' +
     'Level=A4,W4 ' +
+    'AtHigherLevels="increases summoned\'s AC, HP, number of attacks, and damage" ' +
     'Description="R90\' Summoned clay, metal, or stone construct spirit obeys self for conc or 1 hr"',
   'Summon Elemental':
     'School=Conjuration ' +
     'Level=D4,"K4 [The Fathomless]",R4,W4 ' +
+    'AtHigherLevels="increases summoned\'s AC, HP, number of attacks, and damage" ' +
     'Description="R90\' Summoned air, earth, fire, or water elemental spirit obeys self for conc or 1 hr"',
   'Summon Fey':
     'School=Conjuration ' +
     'Level=D3,R3,K3,W3 ' +
+    'AtHigherLevels="increases summoned\'s AC, HP, number of attacks, and damage" ' +
     'Description="R90\' Summoned fuming, mirthful, or tricksy fey spirit obeys self for conc or 1 hr"',
   'Summon Fiend':
     'School=Conjuration ' +
     'Level=K6,W6 ' +
+    'AtHigherLevels="increases summoned\'s AC, HP, number of attacks, and damage" ' +
     'Description="R90\' Summoned demon, devil, or yugoloth fiendish spirit obeys self for conc or 1 hr"',
   'Summon Shadowspawn':
     'School=Conjuration ' +
     'Level=K3,W3 ' +
+    'AtHigherLevels="increases summoned\'s AC, HP, number of attacks, and damage" ' +
     'Description="R90\' Summoned fury, despair, or fear shadow spirit obeys self for conc or 1 hr"',
   'Summon Undead':
     'School=Necromancy ' +
     'Level=K3,W3 ' +
+    'AtHigherLevels="increases summoned\'s AC, HP, number of attacks, and damage" ' +
     'Description="R90\' Summoned ghostly, putrid, or skeletal undead spirit obeys commands for conc or 1 hr"',
   'Sword Burst':
     'School=Conjuration ' +
@@ -1397,10 +1408,12 @@ Tasha.SPELLS = {
   "Tasha's Caustic Brew":
     'School=Evocation ' +
     'Level=A1,S1,W1 ' +
+    'AtHigherLevels="inflicts +2d4 HP" ' +
     'Description="30\'x5\' line inflicts 2d4 HP/rd acid for conc or 1 min (Dex neg)"',
   "Tasha's Mind Whip":
     'School=Enchantment ' +
     'Level=S2,W2 ' +
+    'AtHigherLevels="affects +1 target" ' +
     'Description="R90\' Target suffers 3d6 HP psychic and single action for 1 rd (Int half, normal action)"',
   "Tasha's Otherworldly Guise":
     'School=Transmutation ' +
