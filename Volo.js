@@ -48,7 +48,7 @@ function Volo(edition, rules) {
     Volo.CHARACTER_RACES_IN_PLAY = true;
 }
 
-Volo.VERSION = '2.3.2.0';
+Volo.VERSION = '2.3.2.1';
 
 Volo.CHARACTER_FEATURES = {
   'Amphibious':'Section=feature Note="Breathe air or water"',
@@ -314,7 +314,7 @@ Volo.raceRulesExtra = function(rules, name) {
     rules.defineRule
       ('weaponChoiceCount', 'combatNotes.martialTraining', '+=', '2');
   } else if(name == 'Lizardfolk') {
-    SRD5E.weaponRules(rules, 'Bite', 0, ['Un'], '1d6', null);
+    SRD5E.weaponRules(rules, 'Bite', 'Simple Melee', [], '1d6', null);
     rules.defineRule('weapons.Bite', 'combatNotes.bite', '=', '1');
     rules.defineRule('armorClass', 'combatNotes.naturalArmor.1', '^', null);
     rules.defineRule('combatNotes.naturalArmor',
@@ -333,7 +333,7 @@ Volo.raceRulesExtra = function(rules, name) {
       'level', '=', 'Math.ceil(source / 2)'
     );
   } else if(name == 'Tabaxi') {
-    SRD5E.weaponRules(rules, 'Claws', 0, ['Un'], '1d4', null);
+    SRD5E.weaponRules(rules, 'Claws', 'Simple Melee', [], '1d4', null);
     rules.defineRule('weapons.Claws', "combatNotes.cat'sClaws", '=', '1');
   } else if(name == 'Triton') {
     rules.defineRule('magicNotes.controlAirAndWater.1',
