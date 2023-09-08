@@ -1442,7 +1442,7 @@ Xanathar.featRulesExtra = function(rules, name) {
       'combatNotes.dragonHide', '?', null,
       'armor', '=', 'source == "None" ? 3 : null'
     );
-    SRD5E.weaponRules(rules, 'Claws', 'Simple Melee', [], '1d4', null);
+    SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4', null);
     rules.defineRule('weapons.Claws', 'combatNotes.dragonHide', '=', '1');
   } else if(name == 'Drow High Magic') {
     SRD5E.featureSpells(
