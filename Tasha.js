@@ -324,9 +324,13 @@ Tasha.CLASSES_SELECTABLES_ADDED = {
     '"1:Fighting Style (Superior Technique):Fighting Style",' +
     '"1:Fighting Style (Thrown Weapon Fighting):Fighting Style",' +
     '"1:Fighting Style (Unarmed Fighting):Fighting Style",' +
-    '"3:Ambush:Maneuver","3:Bait And Switch:Maneuver","3:Brace:Maneuver",' +
-    '"3:Commanding Presence:Maneuver","3:Grappling Strike:Maneuver",' +
-    '"3:Quick Toss:Maneuver","3:Tactical Assessment:Maneuver",' +
+    '"3:Ambush:Maneuver",' +
+    '"3:Bait And Switch:Maneuver",' +
+    '"3:Brace:Maneuver",' +
+    '"3:Commanding Presence:Maneuver",' +
+    '"3:Grappling Strike:Maneuver",' +
+    '"3:Quick Toss:Maneuver",' +
+    '"3:Tactical Assessment:Maneuver",' +
     '"3:Psi Warrior:Martial Archetype",' +
     '"3:Rune Knight:Martial Archetype",' +
     '"3:Cloud Rune:Rune",' +
@@ -1794,18 +1798,12 @@ Tasha.classRulesExtra = function(rules, name) {
       ('combatNotes.divineStrike.1', classLevel, '=', '"psychic"');
     rules.defineRule
       ('magicNotes.potentSpellcasting.1', 'wisdomModifier', '=', null);
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule('armorProficiency.Heavy',
-      'combatNotes.twilightBonusProficiencies', '=', '1'
-    );
-    rules.defineRule('weaponProficiency.Martial',
-      'combatNotes.twilightBonusProficiencies', '=', '1'
-    );
     rules.defineRule
       ('combatNotes.divineStrike', classLevel, '=', 'source<14 ? 1 : 2');
     rules.defineRule
       ('combatNotes.divineStrike.1', classLevel, '=', '"radiant"');
+    // SRD5E.classRulesExtra removes the domain requirement for None clerics
+    SRD5E.classRulesExtra(rules, 'Cleric');
   } else if(name == 'Druid') {
     rules.defineRule('magicNotes.starryForm', // Italics noop
       'magicNotes.twinklingConstellations', '+', 'null'
