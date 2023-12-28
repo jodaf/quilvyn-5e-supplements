@@ -20,16 +20,16 @@ var attributes = {
   "feats.Telepathic (Wisdom)":1, "gender":"Female", "hitPoints":40, "intelligence":9, 
   "languagesChosen.Abyssal":1, "languagesChosen.Halfling":1, "languagesChosen.Primordial":1, 
   "levels.Ranger":10, "name":"Feats-All", "race":"Half-Elf", 
-  "selectableFeatures.Fighter - Fighting Style (Archery)":1, "selectableFeatures.Ranger - Beast Master":1, 
-  "selectableFeatures.Ranger - Fighting Style (Dueling)":1, "selectableFeatures.Sorcerer - Distant Spell":1, 
-  "selectableFeatures.Sorcerer - Subtle Spell":1, "selectableFeatures.Warlock - Eldritch Spear":1, "shield":"None", 
-  "skillsChosen.Athletics":1, "skillsChosen.Deception":1, "skillsChosen.Insight":1, 
-  "skillsChosen.Investigation":1, "skillsChosen.Religion":1, "skillsChosen.Survival":1, 
-  "spells.Beast Sense(R2 Divi)":1, "spells.Cordon Of Arrows(R2 Tran)":1, "spells.Cure Wounds(R1 Evoc)":1, 
-  "spells.Disguise Self(A1 Illu)":1, "spells.Elemental Weapon(R3 Tran)":1, "spells.Ensnaring Strike(R1 Conj)":1, 
-  "spells.Find Traps(R2 Divi)":1, "spells.Fog Cloud(R1 Conj)":1, "spells.Plant Growth(R3 Tran)":1, 
-  "spells.Ray Of Frost(A0 Evoc)":1, "spells.Searing Smite(R1 Evoc)":1, "strength":16, "toolsChosen.Flute":1, 
-  "toolsChosen.Smith's Tools":1, "weapons.Blowgun":1, "weapons.Greatclub":1, "weapons.Mace":1, "wisdom":14
+  "selectableFeatures.Ranger - Beast Master":1, "selectableFeatures.Ranger - Fighting Style (Dueling)":1, 
+  "selectableFeatures.Sorcerer - Distant Spell":1, "selectableFeatures.Sorcerer - Subtle Spell":1, 
+  "selectableFeatures.Warlock - Eldritch Spear":1, "shield":"None", "skillsChosen.Athletics":1, "skillsChosen.Deception":1, 
+  "skillsChosen.Insight":1, "skillsChosen.Investigation":1, "skillsChosen.Religion":1, 
+  "skillsChosen.Survival":1, "spells.Beast Sense(R2 Divi)":1, "spells.Cordon Of Arrows(R2 Tran)":1, 
+  "spells.Cure Wounds(R1 Evoc)":1, "spells.Disguise Self(A1 Illu)":1, "spells.Elemental Weapon(R3 Tran)":1, 
+  "spells.Ensnaring Strike(R1 Conj)":1, "spells.Find Traps(R2 Divi)":1, "spells.Fog Cloud(R1 Conj)":1, 
+  "spells.Plant Growth(R3 Tran)":1, "spells.Ray Of Frost(A0 Evoc)":1, "spells.Searing Smite(R1 Evoc)":1, 
+  "strength":16, "toolsChosen.Flute":1, "toolsChosen.Smith's Tools":1, "weapons.Blowgun":1, 
+  "weapons.Greatclub":1, "weapons.Mace":1, "wisdom":14
 };
   </script>
 </head>
@@ -139,7 +139,6 @@ var attributes = {
         <td><b>Warlock Features</b>: Eldritch Spear</td>
         <td><b>Sorcerer Features</b>: Distant Spell; Subtle Spell</td>
         <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Beast Master; Canny; Deft Explorer; Exceptional Training; Extra Attack; Favored Foe; Fighting Style (Dueling); Fighting Style; Land's Stride; Martial Versatility; Nature's Veil; Primal Awareness; Ranger Archetype; Ranger's Companion; Roving; Save Proficiency (Dexterity/Strength); Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Spellcasting Focus; Spellcasting; Tireless; Weapon Proficiency (Martial)</td>
-        <td><b>Fighter Features</b>: Fighting Style (Archery)</td>
         <td><b>Entertainer Features</b>: By Popular Demand; Skill Proficiency (Acrobatics/Performance); Tool Proficiency (Disguise Kit/Choose 1 from any Musical)</td>
       </tr></table>
 </td>
@@ -261,7 +260,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Armor</b>: None</td>
         <td><b>Shield</b>: None</td>
-        <td><b>Weapons</b>: Blowgun (+9 1+3 R25/100); Greatclub (+8 1d8+4); Mace (+8 1d6+4); Unarmed (+8 1+4)</td>
+        <td><b>Weapons</b>: Blowgun (+7 1+3 R25/100); Greatclub (+8 1d8+4); Mace (+8 1d6+4); Unarmed (+8 1+4)</td>
       </tr></table>
 </td>
     </tr><tr style="text-align:center">
@@ -276,8 +275,6 @@ var attributes = {
         <td><i>Dexterity Damage Adjustment: +3</i></td>
       </tr><tr style="text-align:center">
         <td><i>Extra Attack: +1 Attacks Per Round</i></td>
-      </tr><tr style="text-align:center">
-        <td><i>Fighting Style (Archery): +2 ranged attacks</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Attack Adjustment: +4</i></td>
       </tr><tr style="text-align:center">
@@ -447,13 +444,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
-      <tr style="text-align:center">
-        <td>Feat Allocation: 2 available vs. 23 allocated</td>
-      </tr><tr style="text-align:center">
-        <td>Selectable Feature Allocation: 5 available vs. 6 allocated</td>
-      </tr></table>
-</td>
+      <td><b>Validation Errors</b>: Feat Allocation: 2 available vs. 23 allocated</td>
     </tr></table>
 </td>
   </tr></table>
