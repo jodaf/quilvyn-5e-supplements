@@ -1745,6 +1745,14 @@ Tasha.classRulesExtra = function(rules, name) {
   let classLevel = 'levels.' + name;
 
   if(name == 'Artificer') {
+    rules.defineRule('armorerLevel',
+      'features.Armorer', '?', null,
+      'level', '=', null
+    );
+    rules.defineRule('battleSmithLevel',
+      'features.Battle Smith', '?', null,
+      'level', '=', null
+    );
     rules.defineRule // Italics noop
       ('combatNotes.arcaneJolt', 'combatNotes.improvedDefender', '+', '0');
     rules.defineRule // Italics noop
@@ -1755,6 +1763,10 @@ Tasha.classRulesExtra = function(rules, name) {
       'featureNotes.magicItemMaster', '+', '0',
       'featureNotes.magicItemSavant', '+', '0'
     );
+    rules.defineRule('combatNotes.extraAttack',
+      'armorerLevel', '+=', 'source>=5 ? 1 : null',
+      'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
+    );
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
       'featureNotes.infuseItem', '?', null,
       classLevel, '=', 'Math.floor((source + 6) / 4) * 2'
@@ -1762,36 +1774,25 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
       classLevel, '=', 'source>=3 ? 1 : null'
     );
+    rules.defineRule('selectableFeatureCount.Artificer (Armor Model)',
+      'features.Armorer', '=', '1'
+    );
     SRD5E.featureSpells
       (rules, 'Restorative Reagents', 'A', null, ['Lesser Restoration']);
     SRD5E.featureSpells
       (rules, 'Chemical Mastery', 'A', null, ['Greater Restoration', 'Heal']);
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule
-      ('armorProficiency.Heavy', 'featureNotes.toolsOfTheTrade', '=', '1');
-    rules.defineRule("toolProficiency.Smith's Tools",
-      'featureNotes.toolsOfTheTrade', '=', '1'
-    );
-    rules.defineRule('armorerLevel',
-      'features.Armorer', '?', null,
-      'level', '=', null
-    );
-    rules.defineRule('battleSmithLevel',
-      'features.Battle Smith', '?', null,
-      'level', '=', null
-    );
-    rules.defineRule('combatNotes.extraAttack',
-      'armorerLevel', '+=', 'source>=5 ? 1 : null',
-      'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
-    );
-    rules.defineRule('selectableFeatureCount.Artificer (Armor Model)',
-      'features.Armorer', '=', '1'
-    );
   } else if(name == 'Barbarian') {
     rules.defineRule
       ('featureNotes.primalKnowledge', classLevel, '=', 'source<10 ? 1 : 2');
   } else if(name == 'Cleric') {
+    rules.defineRule('clericHasDivineStrike',
+      'features.Order Domain', '=', '1',
+      'features.Twilight Domain', '=', '1'
+    );
+    rules.defineRule('divineStrikeDamageType',
+      'features.Order Domain', '=', '"psychic"',
+      'features.Twilight Domain', '=', '"radiant"'
+    );
     rules.defineRule
       ('combatNotes.divineStrike', classLevel, '=', 'source<14 ? 1 : 2');
     rules.defineRule
@@ -1855,16 +1856,6 @@ Tasha.classRulesExtra = function(rules, name) {
       'featureNotes.runeCarver', '?', null,
       classLevel, '=', 'source<7 ? 2 : source<10 ? 3 : source<15 ? 4 : 5'
     );
-  } else if(name == 'Monk') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule
-      ('skillProficiency.Insight', 'skillNotes.implementsOfMercy', '=', '1');
-    rules.defineRule
-      ('skillProficiency.Medicine', 'skillNotes.implementsOfMercy', '=', '1');
-    rules.defineRule('toolProficiency.Herbalism Kit',
-      'skillNotes.implementsOfMercy', '=', '1'
-    );
   } else if(name == 'Paladin') {
     rules.defineRule('spellSlots.C0',
       'magicNotes.fightingStyle(BlessedWarrior)', '+=', '2'
@@ -1926,17 +1917,8 @@ Tasha.classRulesExtra = function(rules, name) {
     SRD5E.featureSpells
       (rules, 'Grasping Tentacles', 'K', null, ["Evard's Black Tentacles"]);
   } else if(name == 'Wizard') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
     rules.defineRule
-      ('armorProficiency.Light', 'combatNotes.trainingInWarAndSong', '=', '1');
-    rules.defineRule
-      ('weaponChoiceCount', 'combatNotes.trainingInWarAndSong', '+=', '1');
-    rules.defineRule('bladesingingLevel',
-      'features.Bladesinging', '?', null,
-      'level', '=', null
-    );
-    rules.defineRule('combatNotes.extraAttack', 'bladesingingLevel', '+=', '1');
+      ('combatNotes.extraAttack', 'features.Bladesinging', '+=', '1');
   }
 
 };
