@@ -59,7 +59,8 @@ Tasha.CLASSES = {
       '"1:Tool Proficiency (Thieves\' Tools/Tinker\'s Tools/Choose 1 from any Artisan)",' +
       '"1:Weapon Proficiency (Simple)",' +
       '"1:Magical Tinkering","1:Ritual Casting",1:Spellcasting,' +
-      '"2:Infuse Item","3:The Right Tool For The Job","6:Tool Expertise",' +
+      '"2:Infuse Item","3:Artificer Specialist",' +
+      '"3:The Right Tool For The Job","6:Tool Expertise",' +
       '"7:Flash Of Genius","10:Magic Item Adept","11:Spell-Storing Item",' +
       '"14:Magic Item Savant","18:Magic Item Master","20:Soul Of Artifice",' +
       '"features.Alchemist ? 3:Alchemist Tool Proficiency",' +
@@ -73,6 +74,7 @@ Tasha.CLASSES = {
       '"features.Alchemist ? 9:Restorative Reagents",' +
       '"features.Alchemist ? 15:Chemical Mastery",' +
       '"features.Armorer ? 3:Arcane Armor",' +
+      '"features.Armorer ? 3:Armor Model",' +
       '"features.Armorer ? 3:Tools Of The Trade",' +
       '"features.Armorer || features.Battle Smith ? 5:Extra Attack",' +
       '"features.Armorer ? 9:Armor Modifications",' +
@@ -114,12 +116,12 @@ Tasha.CLASSES = {
       '"6:Spell-Refueling Ring:Infusion" ' +
     'SpellAbility=intelligence ' +
     'SpellSlots=' +
-      'A0:1=2;10=3;14=4,' +
-      'A1:1=2;3=3;5=4,' +
-      'A2:5=2;7=3,' +
-      'A3:9=2;11=3,' +
-      'A4:13=1;15=2;17=3,' +
-      'A5:17=1;19=2'
+      '"A0:2@1 3@10 4@14",' +
+      '"A1:2@1 3@3 4@5",' +
+      '"A2:2@5 3@7",' +
+      '"A3:2@9 3@11",' +
+      '"A4:1@13 2@15 3@17",' +
+      '"A5:1@17 2@19"'
 };
 Tasha.CLASSES_FEATURES_ADDED = {
   'Barbarian':
@@ -453,10 +455,11 @@ Tasha.FEATURES = {
       '"Spend 1 Superiority Die to add roll to Stealth check"',
   'Arcane Propulsion Armor':
     'Section=magic ' +
-    'Note="Gives +5\' Speed, magical gauntlets inflict 1d8 HP force range 20/60 and returns, replaces missing limbs"',
+    'Note="Infused armor gives +5\' Speed and replaces missing limbs; range 20/60 magical gauntlets inflict 1d8 HP force and return"',
   'Armor Of Magical Strength':
     'Section=magic ' +
-    'Note="Gives +%{intelligenceModifier} Strength check or saving throw or use Reaction to avoid being knocked prone; 6 charges regains 1d6/dy"',
+    'Note="Wearer of infused armor w/6 charges may spend 1 charge to gain +Intelligence Modifier Strength check or save or to use Reaction to avoid being knocked prone; armor regains 1d6 charges each dawn"',
+  'Artificer Specialist':'Section=feature Note="1 selection"',
   'Bait And Switch':
     'Section=combat ' +
     'Note="Spend 1 Superiority Die for R5\' swap w/willing creature; both add rolled value to AC for 1 rd"',
@@ -467,7 +470,8 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="Self or talisman wearer teleport to each other %{proficiencyBonus}/long rest"',
   'Boots Of The Winding Path':
-    'Section=magic Note="Gives ability to teleport 15\'"',
+    'Section=magic ' +
+    'Note="Wearer of infused boots may teleport back to a space w/in 15\'"',
   'Brace':
     'Section=combat ' +
     'Note="Spend 1 Superiority Die to use Reaction to attack creature that moves into range and add roll to damage"',
@@ -494,12 +498,13 @@ Tasha.FEATURES = {
     'Note="Replace %{levels.Warlock<12?\'cantrip or Pact Boon option\':\'cantrip, Pact Boon option, or Mystic Arcanum spell\'} when boosting ability or taking feat"',
   'Enhanced Arcane Focus':
     'Section=magic ' +
-    'Note="Rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks, ignores half cover"',
+    'Note="Infused rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks that ignore half cover"',
   'Enhanced Defense':
     'Section=magic ' +
-    'Note="Shield or armor gives +%{levels.Artificer<10?1:2} AC"',
+    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} AC"',
   'Enhanced Weapon':
-    'Section=magic Note="Gives +%{levels.Artificer<10?1:2} attack and damage"',
+    'Section=magic ' +
+    'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
   'Far Scribe':
     'Section=magic ' +
     'Note="Cast <i>Sending</i> to %{proficiencyBonus} targets whose names are written in Book Of Shadows"',
@@ -528,7 +533,7 @@ Tasha.FEATURES = {
     'Note="After a hit, spend 1 Superiority Die and add roll to grapple check"',
   'Flash Of Genius':
     'Section=feature ' +
-    'Note="R30\' Use Reaction to give ally +%{intelligenceModifier} on ability check or saving throw %{intelligenceModifier>?1}/long rest"',
+    'Note="R30\' May use Reaction to give an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>?1}/long rest"',
   'Focused Aim':
     'Section=combat ' +
     'Note="Spend 1 - 3 Ki Points for +2/Ki Point on missed attack roll"',
@@ -539,13 +544,16 @@ Tasha.FEATURES = {
      'Section=magic ' +
      'Note="Use Channel Divinity to regain spell slot up to level %{(proficiencyBonus+1)//2} %{(!levels.Cleric?0:levels.Cleric<7?1:levels.Cleric<15?2:3)+(!levels.Paladin?0:levels.Paladin<7?1:levels.Paladin<15?2:3)}/long rest"',
   'Helm Of Awareness':
-    'Section=magic Note="Gives Adv on initiative and cannot be surprised"',
+    'Section=magic ' +
+    'Note="Infused helmet gives Adv on initiative, and wearer cannot be surprised"',
   'Homunculus Servant':
     'Section=magic ' +
-    'Note="Creates mechanical companion (AC 13, HP %{levels.Artificer+intelligenceModifier+1}, Attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force, Evasion, Channel Magic) that obeys self"',
+    'Note="May create a mechanical companion (AC 13; HP %{levels.Artificer+intelligenceModifier+1}; Attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
   'Infuse Item':
-    'Section=feature ' +
-    'Note="%{(levels.Artificer+6)//4*2} selections infused into %{(levels.Artificer+6)//4+(featureNotes.armorModifications?2:0)} items"',
+    'Section=feature,magic ' +
+    'Note=' +
+      '"%{(levels.Artificer+6)//4*2} selections",' +
+      '"May infuse %{(levels.Artificer+6)//4+(featureNotes.armorModifications?2:0)} items simultaneously"',
   'Instinctive Pounce':
     'Section=combat Note="Move %{speed//2}\' when entering rage"',
   'Investment Of The Chain Master':
@@ -554,15 +562,17 @@ Tasha.FEATURES = {
   'Ki-Fueled Attack':
     'Section=combat Note="Spend 1 Ki Point for bonus monk weapon attack"',
   'Magic Item Adept':
-    'Section=feature ' +
-    'Note="Attune %{4+(featureNotes.magicItemMaster?2:featureNotes.magicItemSavant?1:0)} items at once, craft uncommon magic items in one quarter time at half cost"',
-  'Magic Item Master':'Section=feature Note="Attune 6 items at once"',
+    'Section=magic ' +
+    'Note="May attune %{4+(magicNotes.magicItemMaster?2:magicNotes.magicItemSavant?1:0)} items simultaneously/May craft uncommon magic items in one quarter time at half cost"',
+  'Magic Item Master':'Section=magic Note="May attune 6 items simultaneously"',
   'Magic Item Savant':
-    'Section=feature ' +
-    'Note="Attune 5 items at once and ignore attunement and use requirements"',
+    'Section=magic,magic ' +
+    'Note=' +
+      '"May attune 5 items simultaneously",' +
+      '"May ignore attunement and use requirements on attuned items"',
   'Magical Tinkering':
     'Section=magic ' +
-    'Note="Imbue %{intelligenceModifier>?1} objects with light, message, sound, odor, or picture"',
+    'Note="May imbue %{intelligenceModifier>?1} objects simultaneously with light, message, sound, odor, or picture"',
   'Martial Versatility':
     'Section=feature ' +
     'Note="Replace Fighting Style or maneuver when boosting ability or taking feat"',
@@ -571,7 +581,7 @@ Tasha.FEATURES = {
     'Note="Bardic Inspiration Die roll can be added to magical harm or healing"',
   'Mind Sharpener':
     'Section=magic ' +
-    'Note="Gives Reaction to change failed Constitution save for spell concentration to success; 4 charges regains 1d4/dy"',
+    'Note="Infused armor or robes w/4 charges allows wearer to use Reaction and 1 charge to change a failed Constitution save for spell concentration to success; item regains 1d4 charges each dawn"',
   "Nature's Veil":
     'Section=magic ' +
     'Note="Self becomes invisible for 1 rd %{proficiencyBonus}/long rest"',
@@ -595,44 +605,48 @@ Tasha.FEATURES = {
     'Note="Spend 2 Ki Points to heal 1d%{combatNotes.martialArts}+%{proficiencyBonus} HP"',
   'Radiant Weapon':
     'Section=magic ' +
-    'Note="Gives +1 attack and damage, 30\' bright light, blinds successful attacker (DC %{spellDifficultyClass.A} Constitution neg) for 1 rd; 4 charges regains 1d4/dy"',
+    'Note="Infused weapon w/4 charges gives +1 attack and damage and emits a 30\' bright light on command; wielder may use Reaction and 1 charge to blind a successful attacker (DC %{spellDifficultyClass.A} Constitution neg) for 1 rd; item regains 1d4 charges each dawn"',
   'Rebuke Of The Talisman':
     'Section=magic ' +
     'Note="R30\' Use Reaction to inflict %{proficiencyBonus} HP psychic and 10\' push on attacker when talisman wearer hit"',
   'Repeating Shot':
-    'Section=magic Note="Gives +1 attack and damage and unlimited ammunition"',
+    'Section=magic ' +
+    'Note="Infused ammunition weapon gives +1 attack and damage and automatically creates its own ammunition"',
   'Replicate Magic Item':
-    'Section=magic Note="Allows replication of wondrous item"',
+    'Section=magic Note="Allows replication of a wondrous item"',
   'Repulsion Shield':
     'Section=magic ' +
-    'Note="Gives +1 AC, use Reaction to push successful attacker 15\'; 4 charges regains 1d4/dy"',
+    'Note="Infused shield w/4 charges gives +1 AC; holder may use Reaction and 1 charge to push a successful attacker 15\'; regains 1d4 charges each dawn"',
   'Resistant Armor':
-    'Section=magic Note="Gives +1 AC and resistance to chosen damage type"',
+    'Section=magic ' +
+    'Note="Infused armor gives +1 AC and resistance to chosen damage type"',
   'Returning Weapon':
     'Section=magic ' +
-    'Note="Gives +1 attack and damage, returns after ranged attack"',
+    'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
   'Roving':'Section=ability Note="+5 Speed/%{speed}\' climb/%{speed}\' swim"',
   'Soul Of Artifice':
     'Section=combat,save ' +
     'Note=' +
-      '"End 1 attunement when reduced to 0 HP to retain 1 HP",' +
+      '"May use Reaction and end 1 infusion when reduced to 0 HP to retain 1 HP",' +
       '"+1 per attunement on saves"',
   'Spell-Refueling Ring':
-    'Section=feature Note="Gives recovered level 3 spell 1/dy"',
+    'Section=feature ' +
+    'Note="Infused ring allows recovery of a level 3 spell 1/dy"',
   'Spell-Storing Item':
     'Section=feature ' +
-    'Note="After a long rest, store A1 or A2 spell in item to be cast %{intelligenceModifier*2>?2} times"',
+    'Note="After a long rest, may store in an item an A1 or A2 spell that can be cast %{intelligenceModifier*2>?2} times"',
   'Spellcasting Focus':
     'Section=magic Note="Use druidic focus for ranger spells"',
   'Tactical Assessment':
     'Section=skill ' +
     'Note="Spend 1 Superiority Die to add roll to Investigation, History, or Insight check"',
   'The Right Tool For The Job':
-    'Section=feature Note="Spend 1 hr to create 1 set of artisan\'s tools"',
+    'Section=feature Note="May spend 1 hr to create a set of artisan\'s tools"',
   'Tireless':
     'Section=combat ' +
     'Note="Self gains 1d8+%{wisdomModifier} temporary HP %{proficiencyBonus}/long rest, short rest reduces exhaustion by 1"',
-  'Tool Expertise':'Section=feature Note="Dbl proficiency when using tools"',
+  'Tool Expertise':
+    'Section=feature Note="Dbl proficiency bonus when using tools"',
   'Undying Servitude':
     'Section=magic Note="Cast <i>Animate Dead</i> 1/long rest"',
   'Wild Companion':
@@ -786,7 +800,7 @@ Tasha.FEATURES = {
     'Note="R30\' Use Channel Divinity to turn aberrations, celestials, elementals, fey, and fiends for 1 min (DC %{spellDifficultyClass.P} Wisdom neg)"',
   'Alchemical Savant':
     'Section=magic ' +
-    'Note="+%{intelligenceModifier>?1} on spell healing and acid, fire, necrotic, or poison damage"',
+    'Note="Spell cast using alchemical supplies gain +%{intelligenceModifier>?1} HP healing or acid, fire, necrotic, or poison damage"',
   'Alchemist':
     'Spells=' +
       '"3:Healing Word","3:Ray Of Sickness",' +
@@ -798,19 +812,22 @@ Tasha.FEATURES = {
     'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
   'Animating Performance':
     'Section=magic ' +
-    'Note="R30\' Animated large object (AC 16, HP %{levels.Bard*5+10} MV/Fly 30\', Attack +%{spellAttackModifier.B} inflicts 1d10+%{proficiencyBonus}, Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) obeys self commands for 1 hr 1/long rest (spend level 3 spell slot for additional)"',
+    'Note="R30\' Animated large object (AC 16, HP %{levels.Bard*5+10} MV/Fly 30\', Attack +%{spellAttackModifier.B} inflicts 1d10+%{proficiencyBonus}, Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) obeys self commands for 1 hr 1/long rest (may spend a level 3 spell slot for additional)"',
   'Arcane Armor':
     'Section=combat ' +
-    'Note="Self armor negates any Strength requirement, covers whole body, replaces missing limbs, and can be put on or taken off in 1 action"',
+    'Note="Self armor has no Strength requirement, covers entire body, replaces missing limbs, and can be put on or taken off in 1 action"',
   'Arcane Firearm':
     'Section=magic ' +
-    'Note="Spells cast through prepared wand, staff, or rod inflict +1d8 HP damage"',
+    'Note="Spells cast through a prepared wand, staff, or rod inflict +1d8 HP damage"',
   'Arcane Jolt':
     'Section=combat ' +
-    'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or heals 1 target in 30\' radius %{2+(combatNotes.improvedDefender?2:0)}d6 HP %{intelligenceModifier>?1}/long rest"',
+    'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or heals %{2+(combatNotes.improvedDefender?2:0)}d6 HP to 1 target in a 30\' radius %{intelligenceModifier>?1}/long rest"',
+  'Armor Model':'Section=feature Note="1 selection"',
   'Armor Modifications':
-    'Section=feature ' +
-    'Note="+2 Infused Items, apply 4 infusions to armor pieces"',
+    'Section=feature,magic ' +
+    'Note=' +
+      '"+2 Infused Items",' +
+      '"May apply 4 infusions to armor pieces"',
   'Armorer':
     'Spells=' +
       '"3:Magic Missile",3:Thunderwave,' +
@@ -893,7 +910,7 @@ Tasha.FEATURES = {
     'Note="Touched gains +1d3 attacks and ability checks for 10 min or regains level 1d3 spell slot 1/long rest %{proficiencyBonus}/long rest"',
   'Bulwark Of Force':
     'Section=combat ' +
-    'Note="R30\' Give %{intelligenceModifier} targets half cover for 1 min 1/long rest (spend 1 Psionic Energy die for additional)"',
+    'Note="R30\' Give %{intelligenceModifier} targets half cover for 1 min 1/long rest (may spend a Psionic Energy die for additional)"',
   'Call The Hunt':
     'Section=combat ' +
     'Note="During rage, R30\' %{constitutionModifier>?1} targets gain +1d6 HP damage 1/rd, self gains 5 temporary HP/target %{proficiencyBonus}/long rest"',
@@ -903,11 +920,11 @@ Tasha.FEATURES = {
   'Chemical Mastery':
     'Section=magic,save ' +
     'Note=' +
-      '"Cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
-      '"Resistance to acid and poison damage, immune to poisoned condition"',
+      '"May use alchemist\'s supplies to cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
+      '"Resistance to acid and poison damage/Immune to poisoned condition"',
   'Clockwork Cavalcade':
     'Section=magic ' +
-    'Note="30\' cu heals 100 HP total to targets, repairs damaged objects, and dismisses target spells up to 6th level 1/long rest (spend 7 Sorcery Points for additional)"',
+    'Note="30\' cu heals 100 HP total to targets, repairs damaged objects, and dismisses target spells up to 6th level 1/long rest (may spend 7 Sorcery Points for additional)"',
   'Clockwork Soul':
     'Spells=' +
       '1:Alarm,"1:Protection From Evil And Good",' +
@@ -927,7 +944,7 @@ Tasha.FEATURES = {
   'Creative Crescendo':
     'Section=magic ' +
     'Note="Use Performance Of Creation to create %{(charismaModifier-1)>?1} additional small objects"',
-  'Dampening Field':'Section=skill Note="Armor gives Adv on Stealth"',
+  'Dampening Field':'Section=skill Note="Adv on Stealth"',
   "Death's Friend":
     'Section=combat,feature ' +
     'Note=' +
@@ -935,13 +952,13 @@ Tasha.FEATURES = {
       '"Minimum 1 Soul Trinket after long rest"',
   'Defensive Field':
     'Section=combat ' +
-    'Note="Armor gives %{level} temporary HP %{proficiencyBonus}/long rest"',
+    'Note="May use a bonus action to gain %{level} temporary HP %{proficiencyBonus}/long rest"',
   'Dreadful Strikes':
     'Section=combat ' +
     'Note="Weapon hit does +1d%{levels.Ranger<11?4:6} HP psychic 1/rd"',
   'Eldritch Cannon':
     'Section=combat ' +
-    'Note="Create magical, AC 18, %{levels.Artificer*5} HP (<i>Mending</i> repairs 2d6 HP), MV 15\' flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary HP) for 1 hr"',
+    'Note="May create a magical cannon (AC 18, %{levels.Artificer*5} HP (<i>Mending</i> repairs 2d6 HP), MV 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary HP) for 1 hr 1/long rest (may spend a spell slot for additional)"',
   'Elemental Gift':
     'Section=ability,save ' +
     'Note=' +
@@ -961,13 +978,15 @@ Tasha.FEATURES = {
     'Note="Fire spells inflict +1d8 HP fire, healing spells heal +1d8 HP, can cast through Wildfire Spirit"',
   'Experimental Elixir':
     'Section=magic ' +
-    'Note="After a long rest, use alchemist\'s supplies to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation (spend spell slot for additional)"',
+    'Note="May use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; may spend spell slots to create additional elixirs"',
   'Explosive Cannon':
-    'Section=combat ' +
-    'Note="Eldritch Cannon +1d8 HP damage, command explosion to inflict 3d8 HP force (DC %{spellDifficultyClass.A} Dexterity half) in 20\' radius"',
+    'Section=combat,combat ' +
+    'Note=' +
+      '"Eldritch Cannon inflicts +1d8 HP damage",' +
+      '"R60\' May destroy eldritch cannon to inflict 3d8 HP force (DC %{spellDifficultyClass.A} Dexterity half) in a 20\' radius"',
   'Eyes Of Night':
     'Section=feature ' +
-    'Note="R300\' Darkvision can be shared w/%{wisdomModifier>?1} others w/in 10\' for 1 hr 1/long rest (spend spell slot for additional)"',
+    'Note="R300\' Darkvision can be shared w/%{wisdomModifier>?1} others w/in 10\' for 1 hr 1/long rest (may spend a spell slot for additional)"',
   'Fathomless Plunge':
     'Section=magic ' +
     'Note="R30\' Teleport self and 5 willing targets 1 mile to body of water 1/short rest"',
@@ -994,7 +1013,8 @@ Tasha.FEATURES = {
     'Note="Gain bite (inflicts 1d8+%{strengthModifier} HP piercing, on hit regain %{proficiencyBonus} HP if below %{hitPoints//2} 1/rd), claws (each inflicts 1d6+%{strengthModifier} HP slashing, additional attack 1/rd), or tail (R+5\' inflicts 1d8+%{strengthModifier} HP slashing, use Reaction for +1d8 AC) natural weapon when entering rage"',
   'Fortified Position':
     'Section=combat ' +
-    'Note="Create 2nd Eldritch Cannon, gain half cover w/in 10\' of Eldritch Cannon"',
+    'Note=' +
+      '"May have 2 Eldritch Cannons simultaneously/Eldritch Cannon gives allies half cover in 10\' radius"',
   'Frost Rune':
     'Section=ability,save,skill ' +
     'Note=' +
@@ -1020,7 +1040,7 @@ Tasha.FEATURES = {
     'Note="Retreat into vessel for %{proficiencyBonus*2} hr 1/long rest, inflict +%{proficiencyBonus} HP %{genieEnergy} 1/rd"',
   'Ghost Walk':
     'Section=feature ' +
-    'Note="Spectral form gives 10\' fly, Disadv foe attacks, move through objects for 10 min 1/long rest (destroy Soul Trinket for additional)"',
+    'Note="Spectral form gives 10\' fly, Disadv foe attacks, move through objects for 10 min 1/long rest (may destroy Soul Trinket for additional)"',
   "Giant's Might":
     'Section=ability,combat,feature,save ' +
     'Note=' +
@@ -1073,8 +1093,10 @@ Tasha.FEATURES = {
       '"Own identifying mask",' +
       '"Skill Proficiency (Insight/Medicine)/Tool Proficiency (Herbalism Kit)"',
   'Improved Defender':
-    'Section=combat ' +
-    'Note="+2d6 Arcane Jolt effect, Steel Defender +2 AC and Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
+    'Section=combat,combat ' +
+    'Note=' +
+      '"+2d6 Arcane Jolt effect/Steel Defender gains +2 Armor Class",' +
+      '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Infectious Fury':
     'Section=combat ' +
     'Note="Natural weapon causes redirected attack or +2d12 HP psychic (DC %{8+constitutionModifier+proficiencyBonus} Wisdom neg) %{proficiencyBonus}/long rest"',
@@ -1092,9 +1114,9 @@ Tasha.FEATURES = {
   'Living Legend':
     'Section=ability,combat,save ' +
     'Note=' +
-      '"Adv on Charisma for 1 min 1/long rest (spend level 5 spell slot for additional)",' +
-      '"Change miss into hit 1/rd for 1 min 1/long rest (spend level 5 spell slot for additional)",' +
-      '"Reroll failed saves for 1 min 1/long rest (spend level 5 spell slot for additional)"',
+      '"Adv on Charisma for 1 min 1/long rest (may spend a level 5 spell slot for additional)",' +
+      '"Change miss into hit 1/rd for 1 min 1/long rest (may spend a level 5 spell slot for additional)",' +
+      '"Reroll failed saves for 1 min 1/long rest (may spend a level 5 spell slot for additional)"',
   'Magic Awareness':
     'Section=magic ' +
     'Note="R60\' Self knows presence and school of spells and magic items for 1 rd %{proficiencyBonus}/long rest"',
@@ -1120,7 +1142,7 @@ Tasha.FEATURES = {
   'Mortal Bulwark':
     'Section=combat,feature ' +
     'Note=' +
-      '"Adv on attacks vs. aberrations, celestials, elementals, fey, and fiends and hit banishes (DC %{spellDifficultyClass.P} Charisma neg) for 1 min 1/long rest (spend level 5 spell slot for additional)",' +
+      '"Adv on attacks vs. aberrations, celestials, elementals, fey, and fiends and hit banishes (DC %{spellDifficultyClass.P} Charisma neg) for 1 min 1/long rest (may spend a level 5 spell slot for additional)",' +
       '"120\' truesight for 1 min 1/long rest"',
   'Mote Of Potential':
     'Section=magic ' +
@@ -1185,17 +1207,17 @@ Tasha.FEATURES = {
       '"Use Channel Divinity for Adv on Athletics and Acrobatics and +10\' high and long jumps"',
   'Perfected Armor (Guardian Armor)':
     'Section=combat ' +
-    'Note="R30\' Use Reaction to pull creature up to 30\' (DC %{spellDifficultyClass.A} Strength neg) and attack if w/in 5\' afterward %{proficiencyBonus}/long rest"',
+    'Note="R30\' May use Reaction to pull a creature up to 30\' (DC %{spellDifficultyClass.A} Strength neg) and attack if w/in 5\' afterward %{proficiencyBonus}/long rest"',
   'Perfected Armor (Infiltrator Armor)':
     'Section=combat ' +
-    'Note="Lightning Launcher inflicts glow giving Disadv on attacks on self, next foe attack gains Adv and inflicts +1d6 HP lightning for 1 rd"',
+    'Note="Lightning Launcher inflicts Disadv on attacks on self, and next attack on target gains Adv and inflicts +1d6 HP lightning, for 1 rd"',
   'Performance Of Creation':
     'Section=magic ' +
-    'Note="R10\' Create %{levels.Bard<6?\'medium\':levels.Bard<14?\'large\':\'huge\'} object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr 1/long rest (spend level 2 spell slot for additional)"',
+    'Note="R10\' Create %{levels.Bard<6?\'medium\':levels.Bard<14?\'large\':\'huge\'} object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr 1/long rest (may spend a level 2 spell slot for additional)"',
   "Physician's Touch":
     'Section=combat ' +
     'Note="Hand Of Heal ends disease or condition; Hand Of Harm poisons for 1 rd"',
-  'Powered Steps':'Section=ability Note="Armor gives +5 Speed"',
+  'Powered Steps':'Section=ability Note="+5 Speed"',
   'Protective Bond':
     'Section=magic ' +
     'Note="Emboldening Bond member can use Reaction to teleport 30\' and take another\'s damage"',
@@ -1207,7 +1229,7 @@ Tasha.FEATURES = {
     'Note="Spend 1 Psionic Energy die to turn proficient skill or tool use failure into success"',
   'Psi-Powered Leap':
     'Section=ability ' +
-    'Note="%{speed*2}\' fly for 1 rd 1/long rest (spend 1 Psionic Energy die for additional)"',
+    'Note="%{speed*2}\' fly for 1 rd 1/long rest (may spend a Psionic Energy die for additional)"',
   'Psionic Power':
     'Section=feature ' +
     'Note="Use %{proficiencyBonus*2}d%1 Psionic Energy dice/long rest; regain 1 Psionic Energy die as bonus action after short rest"',
@@ -1228,16 +1250,16 @@ Tasha.FEATURES = {
     'Note="Spend 1 Psionic Energy die to teleport 1d%{featureNotes.psionicPower.1} x 10\'"',
   'Psychic Veil':
     'Section=magic ' +
-    'Note="Self becomes invisible for 1 hr or until inflicts damage or forces saving throw 1/long rest (spend 1 Psionic Energy die for additional)"',
+    'Note="Self becomes invisible for 1 hr or until inflicts damage or forces saving throw 1/long rest (may spend a Psionic Energy die for additional)"',
   'Psychic Whispers':
     'Section=feature ' +
-    'Note="Establish telepathic communication with %{proficiencyBonus} visible creatures for 1d%{featureNotes.psionicPower.1} hr 1/long rest (spend 1 Psionic Energy die for additional)"',
+    'Note="Establish telepathic communication with %{proficiencyBonus} visible creatures for 1d%{featureNotes.psionicPower.1} hr 1/long rest (may spend a Psionic Energy die for additional)"',
   'Rend Mind':
     'Section=combat ' +
-    'Note="Sneak Attack with Psychic Blade stuns for 1 min (DC %{8+dexterityModifier+proficiencyBonus} Wisdom ends) 1/long rest (spend 3 Psionic Energy dice for additional)"',
+    'Note="Sneak Attack with Psychic Blade stuns for 1 min (DC %{8+dexterityModifier+proficiencyBonus} Wisdom ends) 1/long rest (may spend 3 Psionic Energy dice for additional)"',
   'Restorative Reagents':
     'Section=magic ' +
-    'Note="Cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest, elixirs give 2d6+%{intelligenceModifier>?1} temporary HP"',
+    'Note="May use alchemist\'s supplies to cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest/Elixirs give 2d6+%{intelligenceModifier>?1} temporary HP"',
   'Restore Balance':
     'Section=magic ' +
     'Note="R60\' Cancel target Adv or Disadv on roll %{proficiencyBonus}/long rest"',
@@ -1286,7 +1308,7 @@ Tasha.FEATURES = {
   'Steady Aim':'Section=combat Note="Forego move for Adv on attack"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Create mechanical companion (AC %{15+(combatNotes.improvedDefender?2:0)}, HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%{proficiencyBonus} 3/dy), Attack +%{spellAttackModifier.A} inflicts 1d8+%{proficiencyBonus}, use Reaction for R5\' Deflect Attack (inflicts Disadv on attack), MV 40\', Dexterity Save +%{proficiencyBonus+1}, Constitution save +%{proficiencyBonus+2}, immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="May create a mechanical companion (AC %{15+(combatNotes.improvedDefender?2:0)}; HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%{proficiencyBonus} HP 3/dy); Attack +%{spellAttackModifier.A} inflicts 1d8+%{proficiencyBonus} HP force; may use Reaction for R5\' inflict Disadv on attack; MV 40\'; Dexterity Save +%{proficiencyBonus+1}; Constitution Save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
   'Steps Of Night':
     'Section=ability ' +
     'Note="%{speed}\' fly in dim or no light for 1 min %{proficiencyBonus}/long rest"',
@@ -1321,10 +1343,10 @@ Tasha.FEATURES = {
     'Section=feature Note="Psi-Powered Leap and Telekinetic Thrust features"',
   'Telekinetic Master':
     'Section=magic ' +
-    'Note="Cast <i>Telekinesis</i> and attack 1/rd while concentrating 1/long rest (spend 1 Psionic Energy die for additional) "',
+    'Note="Cast <i>Telekinesis</i> and attack 1/rd while concentrating 1/long rest (may spend a Psionic Energy die for additional) "',
   'Telekinetic Movement':
     'Section=feature ' +
-    'Note="R30\' Move Large target 30\' 1/short rest (spend 1 Psionic Energy die for additional)"',
+    'Note="R30\' Move Large target 30\' 1/short rest (may spend a Psionic Energy die for additional)"',
   'Telekinetic Thrust':
     'Section=combat ' +
     'Note="Psionic Strike knocks prone or pushes 10\' (DC %{8+proficiencyBonus+intelligenceModifier} Strength neg)"',
@@ -1354,8 +1376,8 @@ Tasha.FEATURES = {
   'Trance Of Order':
     'Section=combat,feature ' +
     'Note=' +
-      '"Foes cannot attack self w/Adv for 1 min 1/long rest (spend 5 Sorcery Points for additional)",' +
-      '"Minimum 10 on attack, ability, and saving throws for 1 min 1/long rest (spend 5 Sorcery Points for additional)"',
+      '"Foes cannot attack self w/Adv for 1 min 1/long rest (may spend 5 Sorcery Points for additional)",' +
+      '"Minimum 10 on attack, ability, and saving throws for 1 min 1/long rest (may spend 5 Sorcery Points for additional)"',
   'Transmuted Spell':
     'Section=magic ' +
     'Note="Change spell damage from acid, cold, fire, lightning, poison, or thunder to another type"',
@@ -1380,7 +1402,7 @@ Tasha.FEATURES = {
     'Section=magic Note="Bardic Inspiration Die kept after failed use"',
   'Universal Speech':
     'Section=magic ' +
-    'Note="R60\' %{charismaModifier>?1} targets understand self for 1 hr 1/long rest (spend spell slot for additional)"',
+    'Note="R60\' %{charismaModifier>?1} targets understand self for 1 hr 1/long rest (may spend a spell slot for additional)"',
   'Unsettling Words':
     'Section=magic ' +
     'Note="R60\' Spend 1 Bardic Inspiration Die to inflict -roll on next save by target for 1 rd"',
@@ -1405,7 +1427,7 @@ Tasha.FEATURES = {
     'Note="R30\' Sneak Attack inflicts %{(levels.Rogue+1)//4}d6 HP necrotic on second creature %{proficiencyBonus}/long rest"',
   'Warping Implosion':
     'Section=magic ' +
-    'Note="120\' teleport inflicts 3d10 HP in 30\' radius of starting position and pulls 30\' (Strength half, no pull) 1/long rest (spend 5 Sorcery Points for additional)"',
+    'Note="120\' teleport inflicts 3d10 HP in 30\' radius of starting position and pulls 30\' (Strength half, no pull) 1/long rest (may spend 5 Sorcery Points for additional)"',
   "Watcher's Will":
     'Section=magic ' +
     'Note="R30\' Use Channel Divinity to give self and %{charismaModifier>?1} others Adv on Charisma, Intelligence, and Wisdom throws for 1 min"',
@@ -1759,9 +1781,9 @@ Tasha.classRulesExtra = function(rules, name) {
       ('combatNotes.eldritchCannon', 'combatNotes.explosiveCannon', '+', '0');
     rules.defineRule // Italics noop
       ('featureNotes.infuseItem', 'featureNotes.armorModifications', '+', '0');
-    rules.defineRule('featureNotes.magicItemAdept', // Italics noop
-      'featureNotes.magicItemMaster', '+', '0',
-      'featureNotes.magicItemSavant', '+', '0'
+    rules.defineRule('magicNotes.magicItemAdept', // Italics noop
+      'magicNotes.magicItemMaster', '+', '0',
+      'magicNotes.magicItemSavant', '+', '0'
     );
     rules.defineRule('combatNotes.extraAttack',
       'armorerLevel', '+=', 'source>=5 ? 1 : null',
@@ -1772,10 +1794,10 @@ Tasha.classRulesExtra = function(rules, name) {
       classLevel, '=', 'Math.floor((source + 6) / 4) * 2'
     );
     rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
-      classLevel, '=', 'source>=3 ? 1 : null'
+      'featureNotes.artificerSpecialist', '=', '1'
     );
     rules.defineRule('selectableFeatureCount.Artificer (Armor Model)',
-      'features.Armorer', '=', '1'
+      'featureNotes.armorModel', '=', '1'
     );
     SRD5E.featureSpells
       (rules, 'Restorative Reagents', 'A', null, ['Lesser Restoration']);
