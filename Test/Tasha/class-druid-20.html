@@ -103,7 +103,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><i>Druid Circle: 1 selection</i></td>
       </tr><tr style="text-align:center">
-        <td>Cantrip Versatility: May replace 1 cantrip when boosting an ability or taking a feat</td>
+        <td>Cantrip Versatility: May replace a cantrip when boosting an ability or taking a feat</td>
       </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: May receive aid from temples of Greek-Tyche and fellow believers</td>
       </tr><tr style="text-align:center">
@@ -196,13 +196,13 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Fungal Body: Immune to critical hits</td>
       </tr><tr style="text-align:center">
-        <td>Halo Of Spores: R10' Use Reaction to inflict 1d10 HP necrotic (DC 16 Constitution neg)</td>
+        <td>Halo Of Spores: R10' May use Reaction to inflict 1d10 HP necrotic on target (DC 16 Constitution neg)</td>
       </tr><tr style="text-align:center">
         <td>Mounted Combatant: Adv on melee attacks on an unmounted foe smaller than mount/May redirect attack on mount to self/Mount suffers no damage on a successful Dexterity save and half on failure</td>
       </tr><tr style="text-align:center">
-        <td>Spreading Spores: R30' Halo Of Spores (DC 16 Constitution neg)</td>
+        <td>Spreading Spores: May use a bonus action to move Halo Of Spores 30'</td>
       </tr><tr style="text-align:center">
-        <td>Symbiotic Entity: Expend 1 Wild Shape use to gain 80 temporary HP, 2d6 HP necrotic Halo Of Spores damage, and +1d6 HP necrotic on melee hits for 10 min or until temporary HP lost</td>
+        <td>Symbiotic Entity: May expend 1 Wild Shape use to gain 80 temporary HP, dbl Halo Of Spores damage, and +1d6 HP necrotic on melee hits for 10 min or until temporary HP lost</td>
       </tr><tr style="text-align:center">
         <td>Tavern Brawler: May use a bonus action to grapple after a successful unarmed or improvised attack</td>
       </tr></table>
@@ -354,35 +354,37 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><i>Magic Initiate (Wizard): Knows 2 W0 spells/May cast chosen W1 spell 1/long rest</i></td>
     </tr><tr style="text-align:center">
-      <td><i>Twinkling Constellations: Improve Starry Form effects to 2d8, Dragon form gives 20' fly; switch between forms 1/rd</i></td>
+      <td><i>Twinkling Constellations: Increased Starry Form effects</i></td>
     </tr><tr style="text-align:center">
       <td>Archdruid: Casting spells requires no verbal, somatic, or cost-free material components</td>
     </tr><tr style="text-align:center">
       <td>Beast Spells: May cast spells during Wild Shape</td>
     </tr><tr style="text-align:center">
-      <td>Blazing Revival: R120' Extinguish Wildfire Spirit to regain 70 HP when reduced to 0 HP 1/long rest</td>
+      <td>Blazing Revival: R120' May extinguish Wildfire Spirit to regain 70 HP when reduced to 0 HP 1/long rest</td>
     </tr><tr style="text-align:center">
-      <td>Cauterizing Flames: R30' Create spectral flame for 1 min when creature dies; use to heal or inflict 2d10+2 HP fire on another in same space 6/long rest</td>
+      <td>Cauterizing Flames: R30' May create spectral flame for 1 min upon a creature death and use it to heal 2d102 HP or inflict 2d10+2 HP fire on another in the same space 6/long rest</td>
     </tr><tr style="text-align:center">
-      <td>Cosmic Omen: R30' Use Reaction to impose +1d6 or -1d6 on attack, ability, and saving throws 6/long rest</td>
+      <td>Cosmic Omen: R30' May use Reaction to give +1d6 or inflict -1d6 on an attack, ability, or save 6/long rest</td>
     </tr><tr style="text-align:center">
       <td>Elemental Adept (Cold): Cold spells ignore resistance and treat 1s as 2s on damage dice</td>
     </tr><tr style="text-align:center">
       <td>Elemental Adept (Thunder): Thunder spells ignore resistance and treat 1s as 2s on damage dice</td>
     </tr><tr style="text-align:center">
-      <td>Enhanced Bond: Fire spells inflict +1d8 HP fire, healing spells heal +1d8 HP, can cast through Wildfire Spirit</td>
+      <td>Enhanced Bond: Fire spells inflict +1d8 HP fire and healing spells restore +1d8 HP/May cast through Wildfire Spirit</td>
     </tr><tr style="text-align:center">
-      <td>Fungal Infestation: R10' Use Reaction to animate creature that dies into 1 HP zombie that obeys self mental commands for 1 hr 2/long rest</td>
+      <td>Fungal Infestation: R10' May use Reaction to animate a creature upon death into an obedient 1 HP zombie for 1 hr 2/long rest</td>
     </tr><tr style="text-align:center">
       <td>Ritual Casting: May cast spells marked with [R] using a ritual</td>
     </tr><tr style="text-align:center">
-      <td>Star Map: Know <i>Guidance</i> cantrip, cast <i>Guiding Bolt</i> 6/long rest</td>
+      <td>Star Map: Knows <i>Guidance</i> cantrip/May cast <i>Guiding Bolt</i> 6/long rest</td>
     </tr><tr style="text-align:center">
-      <td>Starry Form: Wild Shape into form of Archer (R60' ranged spell inflicts 2d8+2 HP radiant), Chalice (R30' healing spell restores 2d8+2 to another), or Dragon (minimum 10 on concentration rolls)</td>
+      <td>Starry Form: May Wild Shape into a constellation of an archer (R60' ranged spell as a bonus action inflicts 2d8+2 HP radiant), a chalice (R30' healing spell restores 2d8+2 to another), or a dragon (minimum 10 on concentration rolls)</td>
     </tr><tr style="text-align:center">
-      <td>Summon Wildfire Spirit: R30' Expend 1 Wild Shape use to inflict 2d6 HP fire in 10' radius (DC 16 Dexterity neg) and summon Wildfire Spirit (AC 13, HP 105, MV/Fly 30', Attack R60' +8 inflicts 1d6+6 HP fire, Teleport targets in 5' radius) for 1 hr</td>
+      <td>Summon Wildfire Spirit: R30' May spend 1 Wild Shape use to inflict 2d6 HP fire in a 10' radius (DC 16 Dexterity neg) and summon an obedient Wildfire Spirit (AC 13, HP 105, MV/Fly 30', Attack R60' +8 inflicts 1d6+6 HP fire, Teleport targets in 5' radius 15', inflicting 1d6+6 on those left behind (DC undefined Dexterity neg)) for 1 hr</td>
     </tr><tr style="text-align:center">
-      <td>Wild Companion: Expend 1 Wild Shape use to cast <i>Find Familiar</i> to summon fey, lasting 10 hr</td>
+      <td>Twinkling Constellations: Dragon Starry Form gives 20' fly Speed/May switch between Starry Forms 1/rd</td>
+    </tr><tr style="text-align:center">
+      <td>Wild Companion: May spend 1 Wild Shape use to cast <i>Find Familiar</i> to summon a fey spirit for 10 hr</td>
     </tr><tr style="text-align:center">
       <td>Wild Shape: May transform into a CR 1 creature for 10 hr unlimited/short rest</td>
     </tr></table>
