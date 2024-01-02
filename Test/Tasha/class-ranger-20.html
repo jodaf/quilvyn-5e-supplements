@@ -68,13 +68,15 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Human Ability Adjustment: +1 Charisma/+1 Constitution/+1 Dexterity/+1 Intelligence/+1 Strength/+1 Wisdom</i></td>
     </tr><tr style="text-align:center">
-      <td><i>Roving: +5 Speed/35' climb/35' swim</i></td>
+      <td><i>Roving: +5 Speed</i></td>
     </tr><tr style="text-align:center">
       <td>Land's Stride: May move normally through difficult terrain and nonmagical plants</td>
     </tr><tr style="text-align:center">
       <td>Otherworldly Glamour: +3 Charisma checks</td>
     </tr><tr style="text-align:center">
-      <td>Writhing Tide: 10' fly for 1 min 6/long rest</td>
+      <td>Roving: 35' climb/35' swim</td>
+    </tr><tr style="text-align:center">
+      <td>Writhing Tide: May gain 10' fly Speed and hover for 1 min 6/long rest</td>
     </tr></table>
 </td>
   </tr></table>
@@ -97,14 +99,14 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Alert; Dungeon Delver; Healer; Magic Initiate (Wizard); Savage Attacker</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common/Choose 1 from any)</td>
-        <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Beguiling Twist; Canny; Deft Explorer; Dreadful Strikes; Extra Attack; Favored Foe; Feral Senses; Fey Reinforcements; Fey Wanderer; Feywild Gift; Fighting Style (Blind Fighting); Fighting Style (Druidic Warrior); Fighting Style (Thrown Weapon Fighting); Fighting Style; Foe Slayer; Gathered Swarm; Land's Stride; Martial Versatility; Mighty Swarm; Misty Wanderer; Nature's Veil; Otherworldly Glamour; Primal Awareness; Ranger Archetype; Roving; Save Proficiency (Dexterity/Strength); Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Spellcasting Focus; Spellcasting; Swarming Dispersal; Swarmkeeper; Tireless; Vanish; Weapon Proficiency (Martial); Writhing Tide</td>
+        <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Beguiling Twist; Canny; Deft Explorer; Dreadful Strikes; Extra Attack; Favored Foe; Feral Senses; Fey Reinforcements; Fey Wanderer Magic; Fey Wanderer; Fighting Style (Blind Fighting); Fighting Style (Druidic Warrior); Fighting Style (Thrown Weapon Fighting); Fighting Style; Foe Slayer; Gathered Swarm; Land's Stride; Martial Versatility; Mighty Swarm; Misty Wanderer; Nature's Veil; Otherworldly Glamour; Primal Awareness; Ranger Archetype; Roving; Save Proficiency (Dexterity/Strength); Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Spellcasting Focus; Spellcasting; Swarming Dispersal; Swarmkeeper Magic; Swarmkeeper; Tireless; Vanish; Weapon Proficiency (Martial); Writhing Tide</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight/Religion)</td>
       </tr></table>
 </td>
     </tr><tr style="text-align:center">
       <td><b>Feature Notes</b>:       <table id="FeatureNotes" style="width:100%">
       <tr style="text-align:center">
-        <td><i>Deft Explorer: Gain Canny, Roving, and Tireless features</i></td>
+        <td><i>Deft Explorer: Has Canny, Roving, and Tireless features</i></td>
       </tr><tr style="text-align:center">
         <td><i>Fighting Style: 1 selections</i></td>
       </tr><tr style="text-align:center">
@@ -157,9 +159,11 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Canny: Language (Choose 2 from any)/Dbl proficiency on chosen skill</i></td>
+      <td><i>Canny: Language (Choose 2 from any)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Otherworldly Glamour: Skill Proficiency (Choose 1 from Deception, Performance, Persuasion)</i></td>
+    </tr><tr style="text-align:center">
+      <td>Canny: Dbl proficiency on chosen skill</td>
     </tr><tr style="text-align:center">
       <td>Dungeon Delver: Adv on Perception and Investigation (secret door detection)/May search for traps at full speed</td>
     </tr><tr style="text-align:center">
@@ -213,7 +217,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Extra Attack: +1 Attacks Per Round</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Mighty Swarm: Gathered Swarm gives self half cover, knocks foe prone, or inflicts 1d8</i></td>
+        <td><i>Mighty Swarm: Gathered Swarm inflicts 1d8</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Attack Adjustment: +1</i></td>
       </tr><tr style="text-align:center">
@@ -221,11 +225,11 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Alert: Cannot be surprised/Unseen foes gain no Adv on attacks on self</td>
       </tr><tr style="text-align:center">
-        <td>Beguiling Twist: R120' Use Reaction to redirect saved charm or fright effect to different target for 1 min (DC 17 Wisdom ends)</td>
+        <td>Beguiling Twist: R120' May use Reaction to redirect a saved charm or fright effect to a different target for 1 min (DC 17 Wisdom ends)</td>
       </tr><tr style="text-align:center">
-        <td>Dreadful Strikes: Weapon hit does +1d6 HP psychic 1/rd</td>
+        <td>Dreadful Strikes: May inflict +1d6 HP psychic w/a weapon 1/rd</td>
       </tr><tr style="text-align:center">
-        <td>Favored Foe: Hit on marked foe inflicts +1d8 HP weapon damage for conc or 1 min 6/long rest</td>
+        <td>Favored Foe: May mark foe on hit for conc up to 1 min 6/long rest; first hit each rd on marked foe inflicts +1d8 HP weapon damage</td>
       </tr><tr style="text-align:center">
         <td>Feral Senses: Suffers no Disadv vs. invisible foe</td>
       </tr><tr style="text-align:center">
@@ -235,13 +239,15 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Foe Slayer: May gain choice of +3 attack or damage vs. favored enemy 1/rd</td>
       </tr><tr style="text-align:center">
-        <td>Gathered Swarm: After a hit, companion swarm moves self 5', moves foe 15' (DC 17 Strength neg), or inflicts 1d8 HP piercing</td>
+        <td>Gathered Swarm: After a hit, may have companion swarm move self 5', move foe 15' (DC 17 Strength neg), or inflict 1d8 HP piercing</td>
+      </tr><tr style="text-align:center">
+        <td>Mighty Swarm: Gathered Swarm gives half cover when moving self or knocks prone when moving foe</td>
       </tr><tr style="text-align:center">
         <td>Savage Attacker: May take the best of two melee damage rolls 1/rd</td>
       </tr><tr style="text-align:center">
-        <td>Swarming Dispersal: When hit, use Reaction to gain resistance and teleport 30' 6/long rest</td>
+        <td>Swarming Dispersal: When hit, may use Reaction to gain resistance and teleport 30' 6/long rest</td>
       </tr><tr style="text-align:center">
-        <td>Tireless: Self gains 1d8+3 temporary HP 6/long rest, short rest reduces exhaustion by 1</td>
+        <td>Tireless: May gain 1d8+3 temporary HP 6/long rest/Short rest reduces exhaustion by 1</td>
       </tr></table>
 </td>
     </tr></table>
@@ -283,11 +289,11 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Spells</b>:     <table id="Spells" style="width:100%">
     <tr style="text-align:left">
-      <td>Arcane Eye (R4 [Swarmkeeper] Divi): R30' Self sees w/darkvision through a remote invisible eye that moves 30'/rd for conc up to 1 hr</td>
+      <td>Arcane Eye (R4 [Swarmkeeper Magic] Divi): R30' Self sees w/darkvision through a remote invisible eye that moves 30'/rd for conc up to 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Beast Sense (R2 [Primal Awareness] Divi): Self may perceive through touched willing beast's senses for conc up to 1 hr [R]</td>
     </tr><tr style="text-align:left">
-      <td>Charm Person (R1 [Fey Wanderer] Ench): R30' Target regards you as a friend (Wisdom neg) for 1 hr or until harmed [+Level affects +1 target]</td>
+      <td>Charm Person (R1 [Fey Wanderer Magic] Ench): R30' Target regards you as a friend (Wisdom neg) for 1 hr or until harmed [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
       <td>Chill Touch (W0 Necr): R120' Ranged spell inflicts 4d8 HP necrotic and target cannot heal for 1 rd, undead also suffer Disadv on self attack for 1 rd</td>
     </tr><tr style="text-align:left">
@@ -297,9 +303,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Cordon Of Arrows (R2 Tran): R5' Four pieces of ammo attack non-designated creatures w/in 30', inflicting 1d6 HP piercing each (Dexterity neg), for 8 hr [+Level affects +2 pieces]</td>
     </tr><tr style="text-align:left">
-      <td>Dimension Door (R4 [Fey Wanderer] Conj): Self teleports up to 500'; may bring along 1 willing creature</td>
+      <td>Dimension Door (R4 [Fey Wanderer Magic] Conj): Self teleports up to 500'; may bring along 1 willing creature</td>
     </tr><tr style="text-align:left">
-      <td>Dispel Magic (R3 [Fey Wanderer] Abju): R120' Ends the effects of a spell up to level 3; successful DC 10 + spell level ends a higher-level spell [+Level ends any spell of equal or lesser level]</td>
+      <td>Dispel Magic (R3 [Fey Wanderer Magic] Abju): R120' Ends the effects of a spell up to level 3; successful DC 10 + spell level ends a higher-level spell [+Level ends any spell of equal or lesser level]</td>
     </tr><tr style="text-align:left">
       <td>Dominate Beast (R4 Ench): R60' Target obeys self telepathic commands (Wisdom neg; damage yields another save) for conc up to 1 min [+Level extends duration to 10 min/1 hr/8 hr at level 5/6/7]</td>
     </tr><tr style="text-align:left">
@@ -307,15 +313,15 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Entangle (R1 Conj): R90' 20' sq ensnares creatures (Strength neg) for conc up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Faerie Fire (R1 [Swarmkeeper] Evoc): R60' Objects in a 20' cube glow, giving foes Adv on attacks (Dexterity neg) for conc up to 1 min</td>
+      <td>Faerie Fire (R1 [Swarmkeeper Magic] Evoc): R60' Objects in a 20' cube glow, giving foes Adv on attacks (Dexterity neg) for conc up to 1 min</td>
     </tr><tr style="text-align:left">
       <td>Fog Cloud (R1 Conj): R120' 20' radius obscures vision for conc up to 1 hr [+Level increases radius by 20']</td>
     </tr><tr style="text-align:left">
-      <td>Gaseous Form (R3 [Swarmkeeper] Tran): Touched creature becomes gaseous for conc up to 1 hr</td>
+      <td>Gaseous Form (R3 [Swarmkeeper Magic] Tran): Touched creature becomes gaseous for conc up to 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Greater Restoration (R5 Abju): Touched recovers from exhausted, charmed, petrified, or cursed or regains ability or HP maximum</td>
     </tr><tr style="text-align:left">
-      <td>Insect Plague (R5 [Swarmkeeper] Conj): R300' 20' radius inflicts 4d10 HP piercing (Constitution half) for conc up to 10 min [+Level inflicts +1d10 HP]</td>
+      <td>Insect Plague (R5 [Swarmkeeper Magic] Conj): R300' 20' radius inflicts 4d10 HP piercing (Constitution half) for conc up to 10 min [+Level inflicts +1d10 HP]</td>
     </tr><tr style="text-align:left">
       <td>Locate Animals Or Plants (R2 Divi): Self learns location of specified beast or plant w/in 5 miles [R]</td>
     </tr><tr style="text-align:left">
@@ -325,13 +331,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Mage Armor (W1 Abju): Willing, unarmored touched gains AC 13 + Dexterity modifier for 8 hr (target donning armor ends)</td>
     </tr><tr style="text-align:left">
-      <td>Mage Hand (R0 [Swarmkeeper] Conj): R30' Spectral hand performs minor tasks, moving up to 10 lb, for 1 min</td>
+      <td>Mage Hand (R0 [Swarmkeeper Magic] Conj): R30' Spectral hand performs minor tasks, moving up to 10 lb, for 1 min</td>
     </tr><tr style="text-align:left">
       <td>Meld Into Stone (R3 Tran): Self may step into rock for 8 hr [R]</td>
     </tr><tr style="text-align:left">
-      <td>Mislead (R5 [Fey Wanderer] Illu): Makes self invisible (attacking or casting ends) and creates an illusory duplicate that can move 70' and share senses for conc up to 1 hr</td>
+      <td>Mislead (R5 [Fey Wanderer Magic] Illu): Makes self invisible (attacking or casting ends) and creates an illusory duplicate that can move 70' and share senses for conc up to 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Misty Step (R2 [Fey Wanderer] Conj): Teleports self 30'</td>
+      <td>Misty Step (R2 [Fey Wanderer Magic] Conj): Teleports self 30'</td>
     </tr><tr style="text-align:left">
       <td>Misty Step (R2 [Misty Wanderer] Conj): Teleports self 30'</td>
     </tr><tr style="text-align:left">
@@ -349,33 +355,37 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Stoneskin (R4 Abju): Touched gains resistance to bludgeoning, piercing, and slashing damage for conc up to 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Summon Beast (R2 Conj): R90' Summoned air, land, or water bestial spirit obeys self for conc or 1 hr [+Level increases summoned's AC, HP, number of attacks, and damage]</td>
+      <td>Summon Beast (R2 Conj): R90' Summoned air, land, or water bestial spirit obeys self for conc up to 1 hr [+Level increases summoned's AC, HP, number of attacks, and damage]</td>
     </tr><tr style="text-align:left">
-      <td>Summon Fey (R3 [Fey Reinforcements] Conj): R90' Summoned fuming, mirthful, or tricksy fey spirit obeys self for conc or 1 hr [+Level increases summoned's AC, HP, number of attacks, and damage]</td>
+      <td>Summon Fey (R3 [Fey Reinforcements] Conj): R90' Summoned fuming, mirthful, or tricksy fey spirit obeys self for conc up to 1 hr [+Level increases summoned's AC, HP, number of attacks, and damage]</td>
     </tr><tr style="text-align:left">
       <td>Thorn Whip (D0 Tran): R30' Ranged spell inflicts 4d6 HP and pulls 10'</td>
     </tr><tr style="text-align:left">
       <td>Tree Stride (R5 Conj): Self may teleport 500' between like trees 1/rd for conc up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Web (R2 [Swarmkeeper] Conj): R60' 20' cube restrains creatures (Dexterity neg, Strength frees) for conc up to 1 hr; burning inflicts 2d4 HP fire</td>
+      <td>Web (R2 [Swarmkeeper Magic] Conj): R60' 20' cube restrains creatures (Dexterity neg, Strength frees) for conc up to 1 hr; burning inflicts 2d4 HP fire</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
     <td><b>Magic Notes</b>:     <table id="MagicNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Fighting Style (Druidic Warrior): Know 2 D0 cantrips, replace 1 each level</i></td>
+      <td><i>Fighting Style (Druidic Warrior): Knows 2 D0 cantrips</i></td>
     </tr><tr style="text-align:center">
       <td><i>Magic Initiate (Wizard): Knows 2 W0 spells/May cast chosen W1 spell 1/long rest</i></td>
     </tr><tr style="text-align:center">
-      <td>Fey Reinforcements: Cast <i>Summon Fey</i> 1/long rest, optionally for 1 min instead of conc, 1/long rest</td>
+      <td>Fey Reinforcements: May cast <i>Summon Fey</i> 1/long rest, optionally for 1 min instead of conc, 1/long rest</td>
     </tr><tr style="text-align:center">
-      <td>Misty Wanderer: Cast R5' <i>Misty Step</i> targeting self and 1 other 3/long rest</td>
+      <td>Fey Wanderer Magic: May cast <i>Charm Person</i>, <i>Misty Step</i>, <i>Dispel Magic</i>, <i>Dimension Door</i>, <i>Mislead</i> 1/long rest/Fey association shows minor physical effect</td>
     </tr><tr style="text-align:center">
-      <td>Nature's Veil: Self becomes invisible for 1 rd 6/long rest</td>
+      <td>Fighting Style (Druidic Warrior): May replace a D0 cantrip each level</td>
     </tr><tr style="text-align:center">
-      <td>Primal Awareness: Cast <i>Speak With Animals</i>, <i>Beast Sense</i>, <i>Speak With Plants</i>, <i>Locate Creature</i>, <i>Commune With Nature</i> 1/long rest</td>
+      <td>Misty Wanderer: May cast <i>Misty Step</i> targeting self and 1 willing adjacent target 3/long rest</td>
     </tr><tr style="text-align:center">
-      <td>Spellcasting Focus: Use druidic focus for ranger spells</td>
+      <td>Nature's Veil: May use a bonus action to become invisible for 1 rd 6/long rest</td>
+    </tr><tr style="text-align:center">
+      <td>Primal Awareness: May cast <i>Speak With Animals</i>, <i>Beast Sense</i>, <i>Speak With Plants</i>, <i>Locate Creature</i>, <i>Commune With Nature</i> 1/long rest</td>
+    </tr><tr style="text-align:center">
+      <td>Spellcasting Focus: May use a druidic focus for ranger spells</td>
     </tr></table>
 </td>
   </tr></table>
