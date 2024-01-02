@@ -424,10 +424,8 @@ Tasha.FEATS = {
   'Chef':'Type=General',
   'Crusher':'Type=General',
   'Eldritch Adept':
-    'Type=General Require="features.Spellcasting||features.Pact Magic"',
-  'Fey Touched (Charisma)':'Type=General',
-  'Fey Touched (Intelligence)':'Type=General',
-  'Fey Touched (Wisdom)':'Type=General',
+    'Type=General Require="features.Spellcasting || features.Pact Magic"',
+  'Fey Touched':'Type=General',
   'Fighting Initiate':
     'Type=General Require="features.Weapon Proficiency (Martial)"',
   'Gunner':'Type=General',
@@ -435,17 +433,11 @@ Tasha.FEATS = {
     'Type=General Require="features.Spellcasting||features.Pact Magic"',
   'Piercer':'Type=General',
   'Poisoner':'Type=General',
-  'Shadow Touched (Charisma)':'Type=General',
-  'Shadow Touched (Intelligence)':'Type=General',
-  'Shadow Touched (Wisdom)':'Type=General',
+  'Shadow Touched':'Type=General',
   'Skill Expert':'Type=General',
   'Slasher':'Type=General',
-  'Telekinetic (Charisma)':'Type=General',
-  'Telekinetic (Intelligence)':'Type=General',
-  'Telekinetic (Wisdom)':'Type=General',
-  'Telepathic (Charisma)':'Type=General',
-  'Telepathic (Intelligence)':'Type=General',
-  'Telepathic (Wisdom)':'Type=General'
+  'Telekinetic':'Type=General',
+  'Telepathic':'Type=General'
 };
 Tasha.FEATURES = {
 
@@ -487,6 +479,20 @@ Tasha.FEATURES = {
   'Cantrip Versatility':
     'Section=feature ' +
     'Note="May replace a cantrip when boosting an ability or taking a feat"',
+  'Circle Of Spores':
+    'Spells=' +
+      '"2:Chill Touch",' +
+      '"3:Blindness/Deafness","3:Gentle Repose",' +
+      '"5:Animate Dead","5:Gaseous Form",' +
+      '7:Blight,7:Confusion,' +
+      '9:Cloudkill,9:Contagion',
+  'Circle Of Wildfire':
+    'Spells=' +
+      '"2:Burning Hands","2:Cure Wounds",' +
+      '"3:Flaming Sphere","3:Scorching Ray",' +
+      '"5:Plant Growth",5:Revivify,' +
+      '"7:Aura Of Life","7:Fire Shield",' +
+      '"9:Flame Strike","9:Mass Cure Wounds"',
   'Commanding Presence':
     'Section=skill ' +
     'Note="May spend 1 Superiority Die to add roll to an Intimidation, Performance, or Persuasion check"',
@@ -614,7 +620,7 @@ Tasha.FEATURES = {
        '"13:Locate Creature",' +
        '"17:Commune With Nature"',
   'Primal Knowledge':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="Skill Proficiency (Choose %V from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival)"',
   'Protection Of The Talisman':
     'Section=magic ' +
@@ -688,90 +694,67 @@ Tasha.FEATURES = {
   'Artificer Initiate':
     'Section=magic,skill ' +
     'Note=' +
-      '"Know 1 A0 spell, cast 1 A1 spell 1/long rest",' +
+      '"Knows 1 A0 spell/May cast chosen A1 spell 1/long rest",' +
       '"Tool Proficiency (Choose 1 from any Artisan)"',
   'Chef':
     'Section=ability,feature,magic ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Constitution, Wisdom)",' +
       '"Tool Proficiency (Cook\'s Utensils)",' +
-      '"Food prepared during short rest heals 1d8 HP for %{proficiencyBonus+4} targets; treats prepared during long rest give %{proficiencyBonus} temporary HP to %{proficiencyBonus} targets"',
-  'Circle Of Spores':
-    'Spells=' +
-      '"2:Chill Touch",' +
-      '"3:Blindness/Deafness","3:Gentle Repose",' +
-      '"5:Animate Dead","5:Gaseous Form",' +
-      '7:Blight,7:Confusion,' +
-      '9:Cloudkill,9:Contagion',
-  'Circle Of Wildfire':
-    'Spells=' +
-      '"2:Burning Hands","2:Cure Wounds",' +
-      '"3:Flaming Sphere","3:Scorching Ray",' +
-      '"5:Plant Growth",5:Revivify,' +
-      '"7:Aura Of Life","7:Fire Shield",' +
-      '"9:Flame Strike","9:Mass Cure Wounds"',
+      '"Food prepared during a short rest restores +1d8 HP to %{proficiencyBonus+4} eaters; treats prepared during a long rest give %{proficiencyBonus} eaters %{proficiencyBonus} temporary HP"',
   'Crusher':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Constitution, Strength)",' +
-      '"Bludgeoning hit moves foe 5\'; critical hit gives allies Adv on attacks for 1 rd"',
+      '"May move foe 5\' w/a bludgeoning hit 1/rd; critical bludgeoning hit gives allies Adv on attacks for 1 rd"',
   'Eldritch Adept':
-    'Section=feature ' +
-    'Note="Learn 1 Eldritch Invocation, replace when gaining level"',
-  'Fey Touched (Charisma)':
+    'Section=magic,magic ' +
+    'Note=' +
+      '"Knows 1 Eldritch Invocation",' +
+      '"May replace Eldritch Invocation when gaining a level"',
+  'Fey Touched':
     'Section=ability,magic ' +
     'Note=' +
-      '"+1 Charisma",' +
-      '"Cast <i>Misty Step</i> and 1 level 1 divination or enchantment spell 1/long rest"',
-  'Fey Touched (Intelligence)':
-    'Section=ability,magic ' +
-    'Note=' +
-      '"+1 Intelligence",' +
-      '"Cast <i>Misty Step</i> and 1 level 1 divination or enchantment spell 1/long rest"',
-  'Fey Touched (Wisdom)':
-    'Section=ability,magic ' +
-    'Note=' +
-      '"+1 Wisdom",' +
-      '"Cast <i>Misty Step</i> and 1 level 1 divination or enchantment spell 1/long rest"',
+      '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
+      '"May cast <i>Misty Step</i> and chosen level 1 divination or enchantment spell 1/long rest" ' +
+    'Spells=' +
+      '"Misty Step"',
   'Fighting Initiate':
-    'Section=feature ' +
-    'Note="Learn 1 Fighting Style, replace when boosting ability or taking feat"',
+    'Section=feature,feature ' +
+    'Note=' +
+      '"Knows 1 Fighting Style",' +
+      '"May replace a Fighting Style when boosting an ability or taking a feat"',
   'Gunner':
     'Section=ability,combat,feature ' +
     'Note=' +
       '"+1 Dexterity",' +
-      '"Attacks not slowed by loading, no Disadv on ranged attacks w/in 5\' of foe",' +
+      '"Loading does not slow firearm attacks/Adjacent foe does not inflict Disadv on ranged attacks",' +
       '"Weapon Proficiency (Firearms)"',
   'Metamagic Adept':
-    'Section=feature ' +
-    'Note="Gain 2 Sorcery Points, learn 2 Metamagic options, replace 1 when boosting ability or taking feat"',
+    'Section=feature,feature ' +
+    'Note=' +
+      '"Knows 2 Metamagic options/Has 2 Sorcery Points",' +
+      '"May replace a Metamagic option when boosting an ability or taking a feat"',
   'Piercer':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)",' +
-      '"Additional piercing critical hit die, reroll 1 piercing damage die 1/rd"',
+      '"May reroll 1 piercing damage die 1/rd/Adds 1 die to piercing crit damage"',
   'Poisoner':
-    'Section=combat,skill ' +
+    'Section=combat,skill,skill ' +
     'Note=' +
-      '"Ignore poison resistance, coat weapon w/poison for 1 min (inflicts +2d8 HP poison and poisoned condition (DC 14 Constitution neg) for 1 rd)",' +
-      '"Tool Proficiency (Poisoner\'s Kit)"',
-  'Shadow Touched (Charisma)':
+      '"Attacks negate poison resistance/May coat weapon w/poison lasting 1 min that inflicts 2d8 HP poison and poisoned condition (DC 14 Constitution neg) for 1 rd",' +
+      '"Tool Proficiency (Poisoner\'s Kit)",' +
+      '"1 hr process using Poisoner\'s Kit creates %{proficiencyBonus} poison doses"',
+  'Shadow Touched':
     'Section=ability,magic ' +
     'Note=' +
-      '"+1 Charisma",' +
-      '"Cast <i>Invisibility</i> and 1 level 1 illusion or necromancy spell 1/long rest"',
-  'Shadow Touched (Intelligence)':
-    'Section=ability,magic ' +
-    'Note=' +
-      '"+1 Intelligence",' +
-      '"Cast <i>Invisibility</i> and 1 level 1 illusion or necromancy spell 1/long rest"',
-  'Shadow Touched (Wisdom)':
-    'Section=ability,magic ' +
-    'Note=' +
-      '"+1 Wisdom",' +
-      '"Cast <i>Invisibility</i> and 1 level 1 illusion or necromancy spell 1/long rest"',
+      '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
+      '"May cast <i>Invisibility</i> and chosen level 1 illusion or necromancy spell 1/long rest" ' +
+    'Spells=' +
+      'Invisibility',
   'Skill Expert':
-    'Section=ability,feature,skill ' +
+    'Section=ability,skill,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from any)",' +
       '"Skill Proficiency (Choose 1 from any)",' +
@@ -780,43 +763,19 @@ Tasha.FEATURES = {
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)",' +
-      '"Slashing damage inflicts -10 Speed for 1 rd; critical hit inflicts Disadv on attacks for 1 rd"',
-  'Telekinetic (Charisma)':
+      '"May inflict -10 Speed for 1 rd w/an attack that inflicts slashing damage/Slashing crit inflicts Disadv on foe attacks for 1 rd"',
+  'Telekinetic':
     'Section=ability,combat,magic ' +
     'Note=' +
-      '"+1 Charisma",' +
-      '"R30\' Telepathic shove moves target 5\' (DC %{8+proficiencyBonus+charismaModifier} Strength neg)",' +
-      '"Cast <i>Mage Hand</i>"',
-  'Telekinetic (Intelligence)':
-    'Section=ability,combat,magic ' +
-    'Note=' +
-      '"+1 Intelligence",' +
-      '"R30\' Telepathic shove moves target 5\' (DC %{8+proficiencyBonus+intelligenceModifier} Strength neg)",' +
-      '"Cast <i>Mage Hand</i>"',
-  'Telekinetic (Wisdom)':
-    'Section=ability,combat,magic ' +
-    'Note=' +
-      '"+1 Wisdom",' +
-      '"R30\' Telepathic shove moves target 5\' (DC %{8+proficiencyBonus+wisdomModifier} Strength neg)",' +
-      '"Cast <i>Mage Hand</i>"',
-  'Telepathic (Charisma)':
+      '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
+      '"R30\' May use a bonus action to move target 5\' (DC %{8+proficiencyBonus} + ability modifier Strength neg)",' +
+      '"Knows <i>Mage Hand</i> cantrip"',
+  'Telepathic':
     'Section=ability,feature,magic ' +
     'Note=' +
-      '"+1 Charisma",' +
-      '"R60\' Speak telepathically",' +
-      '"Cast <i>Detect Thoughts</i> 1/long rest"',
-  'Telepathic (Intelligence)':
-    'Section=ability,feature,magic ' +
-    'Note=' +
-      '"+1 Intelligence",' +
-      '"R60\' Speak telepathically",' +
-      '"Cast <i>Detect Thoughts</i> 1/long rest"',
-  'Telepathic (Wisdom)':
-    'Section=ability,feature,magic ' +
-    'Note=' +
-      '"+1 Wisdom",' +
-      '"R60\' Speak telepathically",' +
-      '"Cast <i>Detect Thoughts</i> 1/long rest"',
+      '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
+      '"R60\' May communicate telepathically",' +
+      '"May cast <i>Detect Thoughts</i> (DC %{8+proficiencyBonus} + ability modifier Wisdom neg) 1/long rest"',
 
   // Paths
   'Abjure The Extraplanar':
@@ -1870,7 +1829,7 @@ Tasha.classRulesExtra = function(rules, name) {
     );
   } else if(name == 'Barbarian') {
     rules.defineRule
-      ('featureNotes.primalKnowledge', classLevel, '=', 'source<10 ? 1 : 2');
+      ('skillNotes.primalKnowledge', classLevel, '=', 'source<10 ? 1 : 2');
   } else if(name == 'Cleric') {
     rules.defineRule('clericHasDivineStrike',
       'features.Order Domain', '=', '1',
@@ -1981,8 +1940,6 @@ Tasha.classRulesExtra = function(rules, name) {
  * derived directly from the attributes passed to featRules.
  */
 Tasha.featRulesExtra = function(rules, name) {
-  let f;
-  let features;
   if(name == 'Artificer Initiate') {
     rules.defineRule
       ('casterLevels.A', 'magicNotes.artificerInitiate', '^=', '1');
@@ -1992,11 +1949,11 @@ Tasha.featRulesExtra = function(rules, name) {
       ('spellSlots.A1', 'magicNotes.artificerInitiate', '+=', '1');
   } else if(name == 'Eldritch Adept') {
     rules.defineRule('selectableFeatureCount.Warlock (Eldritch Invocation)',
-      'featureNotes.eldritchAdept', '+=', '1'
+      'magicNotes.eldritchAdept', '+=', '1'
     );
     // Override class requirement for Warlock Eldritch Invocation features
-    features = rules.getChoices('selectableFeatures');
-    for(f in features) {
+    let features = rules.getChoices('selectableFeatures');
+    for(let f in features) {
       if(f.match(/^Warlock/) && features[f].match(/Eldritch Invocation/)) {
         f = f.charAt(0).toLowerCase() + f.substring(1).replaceAll(' ', '');
         rules.defineRule('validationNotes.' + f + 'SelectableFeature',
@@ -2004,43 +1961,13 @@ Tasha.featRulesExtra = function(rules, name) {
         );
       }
     }
-  } else if(name == 'Fey Touched (Charisma)') {
-    SRD5E.featureSpells
-      (rules, 'Fey Touched (Charisma)', 'S', null, ['Misty Step']);
-    rules.defineRule('casterLevels.Fey Touched (Charisma)',
-      'features.Fey Touched (Charisma)', '?', null,
-      'level', '=', null,
-      'levels.Sorcerer', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.S', 'casterLevels.Fey Touched (Charisma)', '^=', null);
-  } else if(name == 'Fey Touched (Intelligence)') {
-    SRD5E.featureSpells
-      (rules, 'Fey Touched (Intelligence)', 'W', null, ['Misty Step']);
-    rules.defineRule('casterLevels.Fey Touched (Intelligence)',
-      'features.Fey Touched (Intelligence)', '?', null,
-      'level', '=', null,
-      'levels.Wizard', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.W', 'casterLevels.Fey Touched (Intelligence)', '^=', null);
-  } else if(name == 'Fey Touched (Wisdom)') {
-    SRD5E.featureSpells
-      (rules, 'Fey Touched (Wisdom)', 'D', null, ['Misty Step']);
-    rules.defineRule('casterLevels.Fey Touched (Wisdom)',
-      'features.Fey Touched (Wisdom)', '?', null,
-      'level', '=', null,
-      'levels.Druid', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.D', 'casterLevels.Fey Touched (Wisdom)', '^=', null);
   } else if(name == 'Fighting Initiate') {
     rules.defineRule('selectableFeatureCount.Fighter (Fighting Style)',
       'featureNotes.fightingInitiate', '+=', '1'
     );
     // Override class requirement for Fighter Fighting Style features
-    features = rules.getChoices('selectableFeatures');
-    for(f in features) {
+    let features = rules.getChoices('selectableFeatures');
+    for(let f in features) {
       if(f.match(/^Fighter/) && features[f].match(/Fighting Style/)) {
         f = f.charAt(0).toLowerCase() + f.substring(1).replaceAll(' ', '');
         rules.defineRule('validationNotes.' + f + 'SelectableFeature',
@@ -2055,8 +1982,8 @@ Tasha.featRulesExtra = function(rules, name) {
     rules.defineRule
       ('magicNotes.fontOfMagic', 'featureNotes.metamagicAdept', '+=', '2');
     // Override class requirement for Sorcerer Metamagic features
-    features = rules.getChoices('selectableFeatures');
-    for(f in features) {
+    let features = rules.getChoices('selectableFeatures');
+    for(let f in features) {
       if(f.match(/^Sorcerer/) && features[f].match(/Metamagic/)) {
         f = f.charAt(0).toLowerCase() + f.substring(1).replaceAll(' ', '');
         rules.defineRule('validationNotes.' + f + 'SelectableFeature',
@@ -2064,75 +1991,14 @@ Tasha.featRulesExtra = function(rules, name) {
         );
       }
     }
-  } else if(name == 'Shadow Touched (Charisma)') {
-    SRD5E.featureSpells
-      (rules, 'Shadow Touched (Charisma)', 'S', null, ['Invisibility']);
-    rules.defineRule('casterLevels.Shadow Touched (Charisma)',
-      'features.Shadow Touched (Charisma)', '?', null,
-      'level', '=', null,
-      'levels.Sorcerer', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.S', 'casterLevels.Shadow Touched (Charisma)', '^=', null);
-  } else if(name == 'Shadow Touched (Intelligence)') {
-    SRD5E.featureSpells
-      (rules, 'Shadow Touched (Intelligence)', 'W', null, ['Invisibility']);
-    rules.defineRule('casterLevels.Shadow Touched (Intelligence)',
-      'features.Shadow Touched (Intelligence)', '?', null,
-      'level', '=', null,
-      'levels.Wizard', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.W', 'casterLevels.Shadow Touched (Intelligence)', '^=', null);
-  } else if(name == 'Shadow Touched (Wisdom)') {
-    SRD5E.featureSpells
-      (rules, 'Shadow Touched (Wisdom)', 'C', null, ['Invisibility']);
-    rules.defineRule('casterLevels.Shadow Touched (Wisdom)',
-      'features.Shadow Touched (Wisdom)', '?', null,
-      'level', '=', null,
-      'levels.Cleric', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.C', 'casterLevels.Shadow Touched (Wisdom)', '^=', null);
-  } else if(name == 'Telekinetic (Charisma)') {
-    SRD5E.featureSpells
-      (rules, 'Telekinetic (Charisma)', 'S', null, ['Mage Hand']);
-  } else if(name == 'Telekinetic (Intelligence)') {
-    SRD5E.featureSpells
-      (rules, 'Telekinetic (Intelligence)', 'W', null, ['Mage Hand']);
-  } else if(name == 'Telekinetic (Wisdom)') {
-    SRD5E.featureSpells
-      (rules, 'Telekinetic (Wisdom)', 'D', null, ['Mage Hand']);
-  } else if(name == 'Telepathic (Charisma)') {
-    SRD5E.featureSpells
-      (rules, 'Telepathic (Charisma)', 'S', null, ['Detect Thoughts']);
-    rules.defineRule('casterLevels.Telepathic (Charisma)',
-      'features.Telepathic (Charisma)', '?', null,
-      'level', '=', null,
-      'levels.Sorcerer', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.S', 'casterLevels.Telepathic (Charisma)', '^=', null);
-  } else if(name == 'Telepathic (Intelligence)') {
-    SRD5E.featureSpells
-      (rules, 'Telepathic (Intelligence)', 'W', null, ['Detect Thoughts']);
-    rules.defineRule('casterLevels.Telepathic (Intelligence)',
-      'features.Telepathic (Intelligence)', '?', null,
-      'level', '=', null,
-      'levels.Wizard', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.W', 'casterLevels.Telepathic (Intelligence)', '^=', null);
-  } else if(name == 'Telepathic (Wisdom)') {
-    SRD5E.featureSpells
-      (rules, 'Telepathic (Wisdom)', 'C', null, ['Detect Thoughts']);
-    rules.defineRule('casterLevels.Telepathic (Wisdom)',
-      'features.Telepathic (Wisdom)', '?', null,
-      'level', '=', null,
-      'levels.Cleric', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.C', 'casterLevels.Telepathic (Wisdom)', '^=', null);
+  } else if(name == 'Telekinetic') {
+    // Use featureSpells here instead of folding into feature definition to
+    // avoid spurious linkage to Fighter class.
+    SRD5E.featureSpells(rules, name, name, 'level', ['Mage Hand']);
+  } else if(name == 'Telepathic') {
+    // Use featureSpells here instead of folding into feature definition to
+    // avoid spurious linkage to Sorcerer class.
+    SRD5E.featureSpells(rules, name, name, 'level', ['Detect Thoughts']);
   }
 };
 
