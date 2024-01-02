@@ -1,5 +1,5 @@
 /*
-Copyright 2021, James J. Hayes
+Copyright 2023, James J. Hayes
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -34,9 +34,9 @@ function Volo(edition, rules) {
     return;
   }
 
-  var monstrous = (edition + '').match(/monster|monstrous/i);
-  var features = monstrous ? Volo.MONSTROUS_FEATURES : Volo.CHARACTER_FEATURES;
-  var races = monstrous ? Volo.MONSTROUS_RACES : Volo.CHARACTER_RACES;
+  let monstrous = (edition + '').match(/monster|monstrous/i);
+  let features = monstrous ? Volo.MONSTROUS_FEATURES : Volo.CHARACTER_FEATURES;
+  let races = monstrous ? Volo.MONSTROUS_RACES : Volo.CHARACTER_RACES;
   if(rules == null)
     rules = PHB5E.rules;
   Volo.magicRules(rules, Volo.SPELLS);
@@ -48,45 +48,49 @@ function Volo(edition, rules) {
     Volo.CHARACTER_RACES_IN_PLAY = true;
 }
 
-Volo.VERSION = '2.3.2.1';
+Volo.VERSION = '2.4.1.0';
 
 Volo.CHARACTER_FEATURES = {
-  'Amphibious':'Section=feature Note="Breathe air or water"',
+  'Amphibious':'Section=feature Note="May breathe water"',
   'Bite':
-    'Section=combat Note="Use Bite as natural piercing weapon"',
+    'Section=combat Note="May use bite as a natural piercing weapon"',
   "Cat's Claws":
     'Section=ability,combat ' +
     'Note=' +
-      '"20\' climb",' +
-      '"Use claws as natural slashing weapon"',
+      '"20\' climb Speed",' +
+      '"May use claws as a natural slashing weapon"',
   "Cat's Talent":'Section=skill Note="Skill Proficiency (Perception/Stealth)"',
   'Celestial Resistance':
     'Section=save Note="Resistance to necrotic and radiant damage"',
   'Control Air And Water':
-    'Section=magic Note="Cast <i>Fog Cloud</i>%1 1/long rest"',
+    'Section=magic ' +
+    'Note="May cast <i>Fog Cloud</i>%{level<3?\'\':level<5?\' w/<i>Gust Of Wind</i>\':\' w/<i>Gust Of Wind</i> and <i>Wall Of Water</i>\'} 1/long rest" ' +
+    'Spells=' +
+      '"Fog Cloud","3:Gust Of Wind","5:Wall Of Water"',
   'Cunning Artisan':
     'Section=skill ' +
-    'Note="Craft shield or weapon from carcass during short rest"',
+    'Note="May craft a shield or weapon from a carcass during a short rest"',
   'Emissary Of The Sea':
-    'Section=skill Note="Speak to water-breathing creatures"',
+    'Section=skill Note="May speak to water-breathing creatures"',
   'Expert Forgery':'Section=skill Note="Adv on forgery and duplication checks"',
   'Fallen Aasimar Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Strength"',
-  'Feline Agility':'Section=combat Note="Dbl speed move 1/skipped move"',
+  'Feline Agility':
+    'Section=combat Note="May skip a move to make a %{speed*2}\' move on next rd"',
   'Firbolg Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Strength"',
   'Firbolg Magic':
     'Section=magic ' +
-    'Note="Cast <i>Detect Magic</i> and <i>Disguise Self</i> 1/short rest"',
+    'Note="May cast <i>Detect Magic</i> and <i>Disguise Self</i> 1/short rest"',
   'Goliath Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Constitution"',
   'Guardians Of The Depths':
-    'Section=save Note="Resistance to cold damage, unaffected by water depth"',
-  'Healing Hands':'Section=magic Note="Heal %V HP 1/long rest"',
-  'Hidden Step':'Section=magic Note="Self invisible for 1 rd 1/short rest"',
-  'Hold Breath':'Section=ability Note="Hold breath for 15 min"',
+    'Section=save Note="Resistance to cold damage/Unaffected by water depth"',
+  'Healing Hands':'Section=magic Note="May heal %{level} HP 1/long rest"',
+  'Hidden Step':'Section=magic Note="May become invisible for 1 rd 1/short rest"',
+  'Hold Breath':'Section=ability Note="May hold breath for 15 min"',
   'Hungry Jaws':
     'Section=combat ' +
-    'Note="Bonus bite gives self %{constitutionModifier>?1} temporary HP on hit 1/short rest"',
+    'Note="Using a bonus action to bite gives self %{constitutionModifier>?1} temporary HP on hit 1/short rest"',
   "Hunter's Lore":
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Animal Handling, Nature, Perception, Stealth, Survival)"',
@@ -94,36 +98,38 @@ Volo.CHARACTER_FEATURES = {
   'Kenku Training':
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Acrobatics, Deception, Stealth, Sleight Of Hand)"',
-  'Light Bearer':'Section=magic Note="Know <i>Light</i> cantrip"',
+  'Light Bearer':'Section=magic Note="Knows <i>Light</i> cantrip"',
   'Lizardfolk Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Wisdom"',
   'Mimicry':
     'Section=skill ' +
-    'Note="Deception vs. Insight to fool others with mimicked sounds"',
+    'Note="Successful Deception vs. Insight fools others with mimicked sounds"',
   'Mountain Born':'Section=feature Note="Adapted to high elevation and cold"',
   'Natural Athlete':'Section=skill Note="Skill Proficiency (Athletics)"',
   'Necrotic Shroud':
     'Section=combat ' +
-    'Note="R10\' Appearance frightens (DC %1 neg) for 1 rd, target suffers +%V HP necrotic 1/rd for 1 min 1/long rest"',
-  'Natural Armor':'Section=combat Note="Unarmored AC %V"',
+    'Note="R10\' Appearance frightens (DC %{8+charismaModifier+proficiencyBonus} neg) for 1 rd, and target suffers +%{level} HP necrotic 1/rd for 1 min 1/long rest"',
+  'Natural Armor':'Section=combat Note="AC %{13+dexterityModifier+(shield==\'None\'?0:2)} in no armor"',
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Protector Aasimar Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Wisdom"',
   'Radiant Consumption':
     'Section=combat ' +
-    'Note="R10\' Light inflicts %1 HP radiant damage to all including self, target suffers +%V HP radiant 1/rd for 1 min 1/long rest"',
+    'Note="R10\' Light inflicts %{(level+1)//2} HP radiant damage to all including self, and target suffers +%{level} HP radiant 1/rd, for 1 min 1/long rest"',
   'Radiant Soul (Aasimar)':
     'Section=ability,combat ' +
-    'Note="30\' Fly for 1 min 1/long rest",' +
-         '"Inflict +%V HP radiant 1/rd for 1 min 1/long rest"',
+    'Note=' +
+      '"May gain 30\' fly Speed for 1 min 1/long rest",' +
+      '"May inflict +%{level} HP radiant 1/rd for 1 min 1/long rest"',
   'Scourge Aasimar Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Constitution"',
   'Speech Of Beast And Leaf':
-    'Section=skill Note="Speak to beasts and plants, Adv on influence Cha checks w/same"',
+    'Section=skill ' +
+    'Note="May speak to beasts and plants and has Adv on influence Cha checks w/same"',
   "Stone's Endurance":
     'Section=combat ' +
-    'Note="Use Reaction to reduce damage taken by 1d12+%{constitutionModifier} HP 1/short rest"',
-  'Swimmer':'Section=ability Note="30\' swim"',
+    'Note="May use Reaction to negate 1d12+%{constitutionModifier} HP damage 1/short rest"',
+  'Swimmer':'Section=ability Note="30\' swim Speed"',
   'Tabaxi Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
   'Triton Ability Adjustment':
     'Section=ability Note="+1 Charisma/+1 Constitution/+1 Strength"'
@@ -178,21 +184,23 @@ Volo.CHARACTER_RACES = {
 };
 Volo.MONSTROUS_FEATURES = {
   'Aggressive':
-    'Section=combat Note="Bonus action to move up to %{speed}\' toward foe"',
+    'Section=combat ' +
+    'Note="May use a bonus action to move %{speed}\' toward foe"',
   'Bugbear Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Dexterity"',
   'Fury Of The Small':
-    'Section=combat Note="+%{level} HP damage to larger creature 1/short rest"',
+    'Section=combat ' +
+    'Note="May inflict +%{level} HP damage to a larger creature 1/short rest"',
   'Goblin Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Constitution"',
   'Grovel, Cower, and Beg':
     'Section=feature ' +
-    'Note="R10\' Distract foes (allies gain Adv on attack) for 1 rd 1/short rest"',
+    'Note="R10\' May distract foes, giving allies Adv on attacks, for 1 rd 1/short rest"',
   'Hobgoblin Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Intelligence"',
   'Innate Spellcasting':
     'Section=magic ' +
-    'Note="Know <i>Poison Spray</i> cantrip, cast <i>Animal Friendship</i> on snakes at will%1"',
+    'Note="Knows <i>Poison Spray</i> cantrip/May cast <i>Animal Friendship</i> on snakes at will%{level<3?\'\':\'/May cast <i>Suggestion</i> 1/long rest\'}"',
   'Kobold Ability Adjustment':
     'Section=ability Note="+2 Dexterity/-2 Strength"',
   'Long-Limbed':'Section=combat Note="+5\' melee reach"',
@@ -201,19 +209,20 @@ Volo.MONSTROUS_FEATURES = {
     'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any Martial)"',
   'Magic Resistance':
     'Section=save Note="Adv on saves vs. spells and other magic effects"',
-  'Nimble Escape':'Section=combat Note="Bonus action to Disengage or Hide"',
+  'Nimble Escape':
+    'Section=combat Note="May use a bonus action to Disengage or Hide"',
   'Orc Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Constitution/-2 Intelligence"',
   'Pack Tactics':
-    'Section=combat Note="Adv on attack when ally w/in 5\' of foe"',
-  'Poison Immunity':'Section=save Note="Cannot be poisoned"',
+    'Section=combat Note="Adv on attacks when an ally is adjacent to target"',
+  'Poison Immunity':'Section=save Note="Immune to poisoned condition"',
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Saving Face':
     'Section=feature ' +
-    'Note="Gain +1 for each ally w/in 30\' (+5 maximum) on failed roll 1/short rest"',
+    'Note="May add 1 for each ally w/in 30\' (+5 maximum) to a failed roll 1/short rest"',
   'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Surprise Attack':
-    'Section=combat Note="+2d6 HP damage on first surprise hit"',
+    'Section=combat Note="Inflicts +2d6 HP damage on first surprise hit"',
   'Yuan-Ti Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Intelligence"'
 };
@@ -260,9 +269,8 @@ Volo.SPELLS = {
 /* Defines rules related to basic character identity. */
 Volo.identityRules = function(rules, races) {
   SRD5E.identityRules(rules, {}, {}, {}, {}, {}, races);
-  for(var r in races) {
+  for(let r in races)
     Volo.raceRulesExtra(rules, r);
-  }
 };
 
 /* Defines rules related to magic use. */
@@ -280,93 +288,74 @@ Volo.talentRules = function(rules, features) {
  * derived directly from the attributes passed to raceRules.
  */
 Volo.raceRulesExtra = function(rules, name) {
+  let raceLevel =
+    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Level';
   if(name.match(/Aasimar/)) {
-    rules.defineRule('magicNotes.healingHands', 'level', '=', null);
-    SRD5E.featureSpells(rules, 'Light Bearer', 'S', null, ['Light']);
-    rules.defineRule('casterLevels.Light Bearer',
-      'features.Light Bearer', '?', null,
-      'level', '=', null,
-      'levels.Sorcerer', 'v', '0'
+    SRD5E.featureSpells
+      (rules, 'Light Bearer', 'Aasimar', raceLevel, ['Light']);
+    rules.defineRule('casterLevels.Aasimar', raceLevel, '=', null);
+    rules.defineRule('spellModifier.Aasimar',
+      'casterLevels.Aasimar', '?', null,
+      'charismaModifier', '=', null
     );
-    rules.defineRule('casterLevels.S', 'casterLevels.Light Bearer', '^=', null);
-  }
-  if(name == 'Fallen Aasimar') {
-    rules.defineRule('combatNotes.necroticShroud', 'level', '=', null);
-    rules.defineRule('combatNotes.necroticShroud.1',
-      'charismaModifier', '=', '8 + source',
+    rules.defineRule('spellAttackModifier.Aasimar',
+      'features.Light Bearer', '=', '0',
+      'spellModifier.Aasimar', '+', null,
       'proficiencyBonus', '+', null
     );
-  } else if(name == 'Firbolg') {
-    SRD5E.featureSpells
-      (rules, 'Firbolg Magic', 'D', null, ['Detect Magic,Disguise Self']);
-    rules.defineRule('casterLevels.Firbolg Magic',
-      'features.Firbolg Magic', '?', null,
-      'level', '=', null,
-      'levels.Druid', 'v', '0'
+    rules.defineRule('spellDifficultyClass.Aasimar',
+      'spellAttackModifier.Aasimar', '=', '8 + source'
     );
-    rules.defineRule
-      ('casterLevels.D', 'casterLevels.Firbolg Magic', '^=', null);
-  } else if(name == 'Hobgoblin') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule
-      ('armorProficiency.Light', 'combatNotes.martialTraining', '=', '1');
-    rules.defineRule
-      ('weaponChoiceCount', 'combatNotes.martialTraining', '+=', '2');
+  } else if(name == 'Firbolg') {
+    SRD5E.featureSpells(
+      rules, 'Firbolg Magic', 'Firbolg', raceLevel,
+      ['Detect Magic', 'Disguise Self']
+    );
+    rules.defineRule('casterLevels.Firbolg', raceLevel, '=', null);
+    rules.defineRule('spellModifier.Firbolg',
+      'casterLevels.Firbolg', '?', null,
+      'wisdomModifier', '=', null
+    );
+    rules.defineRule('spellAttackModifier.Firbolg',
+      'features.Firbolg Magic', '=', '0',
+      'spellModifier.Firbolg', '+', null,
+      'proficiencyBonus', '+', null
+    );
+    rules.defineRule('spellDifficultyClass.Firbolg',
+      'spellAttackModifier.Firbolg', '=', '8 + source'
+    );
   } else if(name == 'Lizardfolk') {
     SRD5E.weaponRules(rules, 'Bite', 'Unarmed', [], '1d6', null);
     rules.defineRule('weapons.Bite', 'combatNotes.bite', '=', '1');
     rules.defineRule('armorClass', 'combatNotes.naturalArmor.1', '^', null);
-    rules.defineRule('combatNotes.naturalArmor',
+    rules.defineRule('combatNotes.naturalArmor.1',
+      'combatNotes.naturalArmor', '?', null,
+      'armor', '?', 'source == "None"',
       'dexterityModifier', '=', '13 + source',
       'shield', '+', 'source=="None" ? 0 : 2'
-    );
-    rules.defineRule('combatNotes.naturalArmor.1',
-      'armor', '?', 'source == "None"',
-      'combatNotes.naturalArmor', '=', null
-    );
-  } else if(name == 'Protector Aasimar') {
-    rules.defineRule('combatNotes.radiantSoul(Aasimar)', 'level', '=', null);
-  } else if(name == 'Scourge Aasimar') {
-    rules.defineRule('combatNotes.radiantConsumption', 'level', '=', null);
-    rules.defineRule('combatNotes.radiantConsumption.1',
-      'level', '=', 'Math.ceil(source / 2)'
     );
   } else if(name == 'Tabaxi') {
     SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4', null);
     rules.defineRule('weapons.Claws', "combatNotes.cat'sClaws", '=', '1');
-  } else if(name == 'Triton') {
-    rules.defineRule('magicNotes.controlAirAndWater.1',
-      'tritonLevel', '=', 'source<3 ? "" : source<5 ? " w/<i>Gust Of Wind</i>" : " w/<i>Gust Of Wind</i> and <i>Wall Of Water</i>"'
-    );
-    SRD5E.featureSpells(
-      rules, 'Control Air And Water', 'S', 'level',
-      ['Fog Cloud',
-       '3:Gust Of Wind',
-       '5:Wall Of Water']
-    );
-    rules.defineRule('casterLevels.Control Air And Water',
-      'features.Control Air And Water', '?', null,
-      'level', '=', null,
-      'levels.Sorcerer', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.S', 'casterLevels.Control Air And Water', '^=', null);
   } else if(name == 'Yuan-Ti') {
-    rules.defineRule('magicNotes.innateSpellcasting.1',
-      'yuan-TiLevel', '=', 'source<3 ? "" : ", cast <i>Suggestion</i> 1/long rest"'
+    // The dash in Yuan-Ti causes problems if spells are given w/the feature
+    SRD5E.featureSpells(rules,
+      'Innate Spellcasting', 'YuanTi', raceLevel,
+      ['Poison Spray', 'Animal Friendship', '3:Suggestion']
     );
-    SRD5E.featureSpells(
-      rules, 'Innate Spellcasting', 'S', 'level',
-      ['Poison Spray,Animal Friendship', '3:Suggestion']
+    rules.defineRule('casterLevels.YuanTi', raceLevel, '=', null);
+    rules.defineRule('spellModifier.YuanTi',
+      'casterLevels.YuanTi', '?', null,
+      'charismaModifier', '=', null
     );
-    rules.defineRule('casterLevels.Innate Spellcasting',
-      'features.Innate Spellcasting', '?', null,
-      'level', '=', null,
-      'levels.Sorcerer', 'v', '0'
+    rules.defineRule('spellAttackModifier.YuanTi',
+      'features.Innate Spellcasting', '=', '0',
+      'spellModifier.YuanTi', '+', null,
+      'proficiencyBonus', '+', null
     );
-    rules.defineRule
-      ('casterLevels.S', 'casterLevels.Innate Spellcasting', '^=', null);
+    rules.defineRule('spellDifficultyClass.YuanTi',
+      'spellAttackModifier.YuanTi', '=', '8 + source'
+    );
   }
 };
 
