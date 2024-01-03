@@ -76,21 +76,25 @@ Volo.CHARACTER_FEATURES = {
   'Fallen Aasimar Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Strength"',
   'Feline Agility':
-    'Section=combat Note="May skip a move to make a %{speed*2}\' move on next rd"',
+    'Section=combat ' +
+    'Note="May move at dbl speed; must forego move for 1 rd before using again"',
   'Firbolg Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Strength"',
   'Firbolg Magic':
     'Section=magic ' +
-    'Note="May cast <i>Detect Magic</i> and <i>Disguise Self</i> 1/short rest"',
+    'Note="May cast <i>Detect Magic</i> and <i>Disguise Self</i> 1/short rest" ' +
+    'SpellAbility=Wisdom ' +
+    'Spells=' +
+      '"Detect Magic","Disguise Self"',
   'Goliath Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Constitution"',
   'Guardians Of The Depths':
     'Section=save Note="Resistance to cold damage/Unaffected by water depth"',
-  'Healing Hands':'Section=magic Note="May heal %{level} HP 1/long rest"',
-  'Hidden Step':'Section=magic Note="May become invisible for 1 rd 1/short rest"',
+  'Healing Hands':'Section=magic Note="Touch may heal %{level} HP 1/long rest"',
+  'Hidden Step':'Section=magic Note="May become invisible for 1 rd (inflicting damage or forcing saving throw ends) 1/short rest"',
   'Hold Breath':'Section=ability Note="May hold breath for 15 min"',
   'Hungry Jaws':
     'Section=combat ' +
-    'Note="Using a bonus action to bite gives self %{constitutionModifier>?1} temporary HP on hit 1/short rest"',
+    'Note="May use a bonus action to bite and gain %{constitutionModifier>?1} temporary HP on a hit 1/short rest"',
   "Hunter's Lore":
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Animal Handling, Nature, Perception, Stealth, Survival)"',
@@ -108,14 +112,14 @@ Volo.CHARACTER_FEATURES = {
   'Natural Athlete':'Section=skill Note="Skill Proficiency (Athletics)"',
   'Necrotic Shroud':
     'Section=combat ' +
-    'Note="R10\' Appearance frightens (DC %{8+charismaModifier+proficiencyBonus} neg) for 1 rd, and target suffers +%{level} HP necrotic 1/rd for 1 min 1/long rest"',
+    'Note="May inflict frightened for 1 rd in a 10\' radius (DC %{8+charismaModifier+proficiencyBonus} neg) and +%{level} HP necrotic 1/rd for 1 min 1/long rest"',
   'Natural Armor':'Section=combat Note="AC %{13+dexterityModifier+(shield==\'None\'?0:2)} in no armor"',
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Protector Aasimar Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Wisdom"',
   'Radiant Consumption':
     'Section=combat ' +
-    'Note="R10\' Light inflicts %{(level+1)//2} HP radiant damage to all including self, and target suffers +%{level} HP radiant 1/rd, for 1 min 1/long rest"',
+    'Note="May inflict %{(level+1)//2} HP radiant in a 10\' radius (including to self) and inflict +%{level} HP radiant 1/rd for 1 min 1/long rest"',
   'Radiant Soul (Aasimar)':
     'Section=ability,combat ' +
     'Note=' +
@@ -125,7 +129,7 @@ Volo.CHARACTER_FEATURES = {
     'Section=ability Note="+2 Charisma/+1 Constitution"',
   'Speech Of Beast And Leaf':
     'Section=skill ' +
-    'Note="May speak to beasts and plants and has Adv on influence Cha checks w/same"',
+    'Note="May speak to beasts and plants and has Adv on influence Charisma checks w/same"',
   "Stone's Endurance":
     'Section=combat ' +
     'Note="May use Reaction to negate 1d12+%{constitutionModifier} HP damage 1/short rest"',
@@ -200,7 +204,10 @@ Volo.MONSTROUS_FEATURES = {
     'Section=ability Note="+2 Constitution/+1 Intelligence"',
   'Innate Spellcasting':
     'Section=magic ' +
-    'Note="Knows <i>Poison Spray</i> cantrip/May cast <i>Animal Friendship</i> on snakes at will%{level<3?\'\':\'/May cast <i>Suggestion</i> 1/long rest\'}"',
+    'Note="Knows <i>Poison Spray</i> cantrip/May cast <i>Animal Friendship</i> on snakes at will%{level<3?\'\':\'/May cast <i>Suggestion</i> 1/long rest\'}" ' +
+    'SpellAbility=Charisma ' +
+    'Spells=' +
+      '"Poison Spray","Animal Friendship","3:Suggestion"',
   'Kobold Ability Adjustment':
     'Section=ability Note="+2 Dexterity/-2 Strength"',
   'Long-Limbed':'Section=combat Note="+5\' melee reach"',
@@ -208,14 +215,15 @@ Volo.MONSTROUS_FEATURES = {
     'Section=combat ' +
     'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any Martial)"',
   'Magic Resistance':
-    'Section=save Note="Adv on saves vs. spells and other magic effects"',
+    'Section=save Note="Adv on saves vs. spells and magical effects"',
   'Nimble Escape':
     'Section=combat Note="May use a bonus action to Disengage or Hide"',
   'Orc Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Constitution/-2 Intelligence"',
   'Pack Tactics':
     'Section=combat Note="Adv on attacks when an ally is adjacent to target"',
-  'Poison Immunity':'Section=save Note="Immune to poisoned condition"',
+  'Poison Immunity':
+    'Section=save Note="Immune to poison damage and poisoned condition"',
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Saving Face':
     'Section=feature ' +
@@ -288,41 +296,21 @@ Volo.talentRules = function(rules, features) {
  * derived directly from the attributes passed to raceRules.
  */
 Volo.raceRulesExtra = function(rules, name) {
-  let raceLevel =
-    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Level';
   if(name.match(/Aasimar/)) {
-    SRD5E.featureSpells
-      (rules, 'Light Bearer', 'Aasimar', raceLevel, ['Light']);
+    let raceLevel =
+      name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Level';
+    SRD5E.featureSpells(rules, 'Light Bearer', 'Aasimar', raceLevel, ['Light']);
     rules.defineRule('casterLevels.Aasimar', raceLevel, '=', null);
     rules.defineRule('spellModifier.Aasimar',
       'casterLevels.Aasimar', '?', null,
       'charismaModifier', '=', null
     );
     rules.defineRule('spellAttackModifier.Aasimar',
-      'features.Light Bearer', '=', '0',
-      'spellModifier.Aasimar', '+', null,
+      'spellModifier.Aasimar', '=', null,
       'proficiencyBonus', '+', null
     );
     rules.defineRule('spellDifficultyClass.Aasimar',
       'spellAttackModifier.Aasimar', '=', '8 + source'
-    );
-  } else if(name == 'Firbolg') {
-    SRD5E.featureSpells(
-      rules, 'Firbolg Magic', 'Firbolg', raceLevel,
-      ['Detect Magic', 'Disguise Self']
-    );
-    rules.defineRule('casterLevels.Firbolg', raceLevel, '=', null);
-    rules.defineRule('spellModifier.Firbolg',
-      'casterLevels.Firbolg', '?', null,
-      'wisdomModifier', '=', null
-    );
-    rules.defineRule('spellAttackModifier.Firbolg',
-      'features.Firbolg Magic', '=', '0',
-      'spellModifier.Firbolg', '+', null,
-      'proficiencyBonus', '+', null
-    );
-    rules.defineRule('spellDifficultyClass.Firbolg',
-      'spellAttackModifier.Firbolg', '=', '8 + source'
     );
   } else if(name == 'Lizardfolk') {
     SRD5E.weaponRules(rules, 'Bite', 'Unarmed', [], '1d6', null);
@@ -337,25 +325,6 @@ Volo.raceRulesExtra = function(rules, name) {
   } else if(name == 'Tabaxi') {
     SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4', null);
     rules.defineRule('weapons.Claws', "combatNotes.cat'sClaws", '=', '1');
-  } else if(name == 'Yuan-Ti') {
-    // The dash in Yuan-Ti causes problems if spells are given w/the feature
-    SRD5E.featureSpells(rules,
-      'Innate Spellcasting', 'YuanTi', raceLevel,
-      ['Poison Spray', 'Animal Friendship', '3:Suggestion']
-    );
-    rules.defineRule('casterLevels.YuanTi', raceLevel, '=', null);
-    rules.defineRule('spellModifier.YuanTi',
-      'casterLevels.YuanTi', '?', null,
-      'charismaModifier', '=', null
-    );
-    rules.defineRule('spellAttackModifier.YuanTi',
-      'features.Innate Spellcasting', '=', '0',
-      'spellModifier.YuanTi', '+', null,
-      'proficiencyBonus', '+', null
-    );
-    rules.defineRule('spellDifficultyClass.YuanTi',
-      'spellAttackModifier.YuanTi', '=', '8 + source'
-    );
   }
 };
 
