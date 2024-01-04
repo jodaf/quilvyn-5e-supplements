@@ -1743,7 +1743,8 @@ Tasha.identityRules = function(
     if(c in classSelectables) {
       SRD5E.featureListRules
         (rules, QuilvynUtils.getAttrValueArray('Selectables=' + classSelectables[c], 'Selectables'), c, 'levels.' + c, true);
-      attrs = attrs.replace('Features=', 'Features=' + classFeatures[c] + ',');
+      attrs =
+        attrs.replace('Selectables=', 'Selectables=' + classSelectables[c] + ',');
     }
     allClasses[c] = attrs;
     if(rules.plugin)
