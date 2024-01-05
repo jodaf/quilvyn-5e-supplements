@@ -26,7 +26,7 @@ Place, Suite 330, Boston, MA 02111-1307 USA.
  * particular parts of the rules; raceRules for character races, magicRules for
  * spells, etc. These member methods can be called independently in order to use
  * a subset of XGTE. Similarly, the constant fields of Xanathar (FEATURES,
- * PATHS, etc.) can be manipulated to modify the choices.
+ * SPELLS, etc.) can be manipulated to modify the choices.
  */
 function Xanathar(edition, rules) {
 
@@ -38,8 +38,8 @@ function Xanathar(edition, rules) {
   if(rules == null)
     rules = PHB5E.rules;
   Xanathar.identityRules(
-    rules, Xanathar.CLASSES_SELECTABLES_ADDED, Xanathar.DEITIES_DOMAINS_ADDED,
-    Xanathar.PATHS
+    rules, Xanathar.CLASSES_FEATURES_ADDED, Xanathar.CLASSES_SELECTABLES_ADDED,
+    Xanathar.DEITIES_DOMAINS_ADDED
   );
   Xanathar.magicRules(rules, Xanathar.SPELLS, Xanathar.SPELLS_LEVELS_ADDED);
   Xanathar.talentRules
@@ -49,15 +49,198 @@ function Xanathar(edition, rules) {
 
 Xanathar.VERSION = '2.3.2.2';
 
+Xanathar.CLASSES_FEATURES_ADDED = {
+  'Barbarian':
+    '"features.Path Of The Ancestral Guardian ? 3:Ancestral Protectors",' +
+    '"features.Path Of The Ancestral Guardian ? 6:Spirit Shield",' +
+    '"features.Path Of The Ancestral Guardian ? 10:Consult The Spirits",' +
+    '"features.Path Of The Ancestral Guardian ? 14:Vengeful Ancestors",' +
+    '"features.Storm Aura (Desert) ? 6:Storm Soul (Desert)",' +
+    '"features.Storm Aura (Sea) ? 6:Storm Soul (Sea)",' +
+    '"features.Storm Aura (Tundra) ? 6:Storm Soul (Tundra)",' +
+    '"features.Path Of The Storm Herald ? 10:Shielding Storm",' +
+    '"features.Storm Aura (Desert) ? 14:Raging Storm (Desert)",' +
+    '"features.Storm Aura (Sea) ? 14:Raging Storm (Sea)",' +
+    '"features.Storm Aura (Tundra) ? 14:Raging Storm (Tundra)",' +
+    '"features.Path Of The Zealot ? 3:Divine Fury",' +
+    '"features.Path Of The Zealot ? 3:Warrior Of The Gods",' +
+    '"features.Path Of The Zealot ? 6:Fanatical Focus",' +
+    '"features.Path Of The Zealot ? 10:Zealous Presence",' +
+    '"features.Path Of The Zealot ? 14:Rage Beyond Death"',
+  'Bard':
+    '"features.College Of Glamour ? 3:Enthralling Performance",' +
+    '"features.College Of Glamour ? 3:Mantle Of Inspiration",' +
+    '"features.College Of Glamour ? 6:Mantle Of Majesty",' +
+    '"features.College Of Glamour ? 14:Unbreakable Majesty",' +
+    '"features.College Of Swords ? 3:Blade Flourish",' +
+    '"features.College Of Swords ? 3:Defensive Flourish",' +
+    '"features.College Of Swords ? 3:Mobile Flourish",' +
+    '"features.College Of Swords ? 3:Slashing Flourish",' +
+    '"features.College Of Swords ? 3:Swords Bonus Proficiencies",' +
+    '"bardHasExtraAttack ? 6:Extra Attack",' +
+    '"features.College Of Swords ? 14:Master\'s Flourish",' +
+    '"features.College Of Whispers ? 3:Psychic Blades (Whispers)",' +
+    '"features.College Of Whispers ? 3:Words Of Terror",' +
+    '"features.College Of Whispers ? 6:Mantle Of Whispers",' +
+    '"features.College Of Whispers ? 14:Shadow Lore"',
+  'Cleric':
+    '"features.Forge Domain ? 1:Blessing Of The Forge",' +
+    '"features.Forge Domain ? 1:Forge Bonus Proficiencies",' +
+    '"features.Forge Domain ? 2:Artisan\'s Blessing",' +
+    '"features.Forge Domain ? 6:Soul Of The Forge",' +
+    '"clericHasDivineStrike ? 8:Divine Strike",' +
+    '"features.Forge Domain ? 17:Saint Of Forge And Fire",' +
+    '"features.Grave Domain ? 1:Circle Of Mortality",' +
+    '"features.Grave Domain ? 1:Eyes Of The Grave",' +
+    '"features.Grave Domain ? 2:Path To The Grave",' +
+    '"features.Grave Domain ? 6:Sentinel At Death\'s Door",' +
+    '"clericHasPotentSpellcasting ? 8:Potent Spellcasting",' +
+    '"features.Grave Domain ? 17:Keeper Of Souls"',
+  'Druid':
+    '"features.Circle Of Dreams ? 2:Balm Of The Summer Court",' +
+    '"features.Circle Of Dreams ? 6:Hearth Of Moonlight And Shadow",' +
+    '"features.Circle Of Dreams ? 10:Hidden Paths",' +
+    '"features.Circle Of Dreams ? 14:Walker In Dreams",' +
+    '"features.Circle Of The Shepherd ? 2:Language (Sylvan)",' +
+    '"features.Circle Of The Shepherd ? 2:Speech Of The Woods",' +
+    '"features.Circle Of The Shepherd ? 2:Spirit Totem (Bear)",' +
+    '"features.Circle Of The Shepherd ? 2:Spirit Totem (Hawk)",' +
+    '"features.Circle Of The Shepherd ? 2:Spirit Totem (Unicorn)",' +
+    '"features.Circle Of The Shepherd ? 6:Mighty Summoner",' +
+    '"features.Circle Of The Shepherd ? 10:Guardian Spirit",' +
+    '"features.Circle Of The Shepherd ? 14:Faithful Summons"',
+  'Fighter':
+    '"features.Arcane Archer ? 3:Arcane Archer Lore",' +
+    '"features.Arcane Archer ? 3:Arcane Shot",' +
+    '"features.Arcane Archer ? 7:Curving Shot",' +
+    '"features.Arcane Archer ? 7:Magic Arrow",' +
+    '"features.Arcane Archer ? 15:Ever-Ready Shot",' +
+    '"features.Arcane Archer ? 18:Improved Shots",' +
+    '"features.Cavalier ? 3:Born To The Saddle",' +
+    '"features.Cavalier ? 3:Cavalier Bonus Proficiency",' +
+    '"features.Cavalier ? 3:Unwavering Mark",' +
+    '"features.Cavalier ? 7:Warding Maneuver",' +
+    '"features.Cavalier ? 10:Hold The Line",' +
+    '"features.Cavalier ? 15:Ferocious Charger",' +
+    '"features.Cavalier ? 18:Vigilant Defender",' +
+    '"features.Samurai ? 3:Fighting Spirit",' +
+    '"features.Samurai ? 3:Samurai Bonus Proficiency",' +
+    '"features.Samurai ? 7:Elegant Courtier",' +
+    '"features.Samurai ? 10:Tireless Spirit",' +
+    '"features.Samurai ? 15:Rapid Strike",' +
+    '"features.Samurai ? 18:Strength Before Death"',
+  'Monk':
+    '"features.Way Of The Drunken Master ? 3:Drunken Master Bonus Proficiencies",' +
+    '"features.Way Of The Drunken Master ? 3:Drunken Technique",' +
+    '"features.Way Of The Drunken Master ? 6:Tipsy Sway",' +
+    '"features.Way Of The Drunken Master ? 11:Drunkard\'s Luck",' +
+    '"features.Way Of The Drunken Master ? 17:Intoxicated Frenzy",' +
+    '"features.Way Of The Kensei ? 3:Path Of The Kensei",' +
+    '"features.Way Of The Kensei ? 6:One With The Blade",' +
+    '"features.Way Of The Kensei ? 11:Sharpen The Blade",' +
+    '"features.Way Of The Kensei ? 17:Unerring Accuracy",' +
+    '"features.Way Of The Sun Soul ? 3:Radiant Sun Bolt",' +
+    '"features.Way Of The Sun Soul ? 6:Searing Arc Strike",' +
+    '"features.Way Of The Sun Soul ? 11:Searing Sunburst",' +
+    '"features.Way Of The Sun Soul ? 17:Sun Shield"',
+  'Paladin':
+    '"features.Oath Of Conquest ? 3:Conquering Presence",' +
+    '"features.Oath Of Conquest ? 3:Guided Strike",' +
+    '"features.Oath Of Conquest ? 7:Aura Of Conquest",' +
+    '"features.Oath Of Conquest ? 15:Scornful Rebuke",' +
+    '"features.Oath Of Conquest ? 20:Invincible Conqueror",' +
+    '"features.Oath Of Redemption ? 3:Emissary Of Peace",' +
+    '"features.Oath Of Redemption ? 3:Rebuke The Violent",' +
+    '"features.Oath Of Redemption ? 7:Aura Of The Guardian",' +
+    '"features.Oath Of Redemption ? 15:Protective Spirit",' +
+    '"features.Oath Of Redemption ? 20:Emissary Of Redemption"',
+  'Ranger':
+    '"features.Gloom Stalker ? 3:Dread Ambusher",' +
+    '"features.Gloom Stalker ? 3:Umbral Sight",' +
+    '"features.Gloom Stalker ? 7:Iron Mind",' +
+    '"features.Gloom Stalker ? 11:Stalker\'s Flurry",' +
+    '"features.Gloom Stalker ? 15:Shadowy Dodge",' +
+    '"features.Horizon Walker ? 3:Detect Portal",' +
+    '"features.Horizon Walker ? 3:Planar Warrior",' +
+    '"features.Horizon Walker ? 7:Ethereal Step",' +
+    '"features.Horizon Walker ? 11:Distant Strike",' +
+    '"features.Horizon Walker ? 15:Spectral Defense",' +
+    '"features.Monster Slayer ? 3:Hunter\'s Sense",' +
+    '"features.Monster Slayer ? 3:Slayer\'s Prey",' +
+    '"features.Monster Slayer ? 7:Supernatural Defense",' +
+    '"features.Monster Slayer ? 11:Magic-User\'s Nemesis",' +
+    '"features.Monster Slayer ? 15:Slayer\'s Counter"',
+  'Rogue':
+    '"features.Inquisitive ? 3:Ear For Deceit",' +
+    '"features.Inquisitive ? 3:Eye For Detail",' +
+    '"features.Inquisitive ? 3:Insightful Fighting",' +
+    '"features.Inquisitive ? 9:Steady Eye",' +
+    '"features.Inquisitive ? 13:Unerring Eye",' +
+    '"features.Inquisitive ? 17:Eye For Weakness",' +
+    '"features.Mastermind ? 3:Master Of Intrigue",' +
+    '"features.Mastermind ? 3:Master Of Tactics",' +
+    '"features.Mastermind ? 9:Insightful Manipulator",' +
+    '"features.Mastermind ? 13:Misdirection",' +
+    '"features.Mastermind ? 17:Soul Of Deceit",' +
+    '"features.Scout ? 3:Skirmisher",' +
+    '"features.Scout ? 3:Survivalist",' +
+    '"features.Scout ? 9:Superior Mobility",' +
+    '"features.Scout ? 13:Ambush Master",' +
+    '"features.Scout ? 17:Sudden Strike",' +
+    '"features.Swashbuckler ? 3:Fancy Footwork",' +
+    '"features.Swashbuckler ? 3:Rakish Audacity",' +
+    '"features.Swashbuckler ? 9:Panache",' +
+    '"features.Swashbuckler ? 13:Elegant Maneuver",' +
+    '"features.Swashbuckler ? 17:Master Duelist"',
+  'Sorcerer':
+    '"features.Divine Soul ? 1:Divine Magic",' +
+    '"features.Divine Soul ? 1:Favored By The Gods",' +
+    '"features.Divine Soul ? 6:Empowered Healing",' +
+    '"features.Divine Soul ? 14:Otherworldly Wings",' +
+    '"features.Divine Soul ? 18:Unearthly Recovery",' +
+    '"features.Shadow Magic ? 1:Eyes Of The Dark",' +
+    '"features.Shadow Magic ? 1:Strength Of The Grave",' +
+    '"features.Shadow Magic ? 6:Hound Of Ill Omen",' +
+    '"features.Shadow Magic ? 14:Shadow Walk",' +
+    '"features.Shadow Magic ? 18:Umbral Form",' +
+    '"features.Storm Sorcery ? 1:Wind Speaker",' +
+    '"features.Storm Sorcery ? 1:Tempestuous Magic",' +
+    '"features.Storm Sorcery ? 6:Heart Of The Storm",' +
+    '"features.Storm Sorcery ? 6:Storm Guide",' +
+    '"features.Storm Sorcery ? 14:Storm\'s Fury",' +
+    '"features.Storm Sorcery ? 18:Wind Soul"',
+  'Warlock':
+    '"features.The Celestial ? 1:Bonus Celestial Cantrips",' +
+    '"features.The Celestial ? 1:Healing Light",' +
+    '"features.The Celestial ? 6:Radiant Soul",' +
+    '"features.The Celestial ? 10:Celestial Resilience",' +
+    '"features.The Celestial ? 14:Searing Vengeance",' +
+    '"features.The Hexblade ? 1:Hexblade\'s Curse",' +
+    '"features.The Hexblade ? 1:Hex Warrior",' +
+    '"features.The Hexblade ? 6:Accursed Specter",' +
+    '"features.The Hexblade ? 10:Armor Of Hexes",' +
+    '"features.The Hexblade ? 14:Master Of Hexes"',
+  'Wizard':
+    '"features.War Magic ? 2:Arcane Deflection",' +
+    '"features.War Magic ? 2:Tactical Wit",' +
+    '"features.War Magic ? 6:Power Surge",' +
+    '"features.War Magic ? 10:Durable Magic",' +
+    '"features.War Magic ? 14:Deflecting Shroud"'
+};
 Xanathar.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
     '"3:Path Of The Ancestral Guardian:Primal Path",' +
     '"3:Path Of The Storm Herald:Primal Path",' +
-    '"3:Path Of The Zealot:Primal Path"',
+    '"3:Path Of The Zealot:Primal Path",' +
+    '"features.Path Of The Storm Herald ? 3:Storm Aura (Desert):Storm Aura",' +
+    '"features.Path Of The Storm Herald ? 3:Storm Aura (Sea):Storm Aura",' +
+    '"features.Path Of The Storm Herald ? 3:Storm Aura (Tundra):Storm Aura"',
   'Bard':
     '"3:College Of Glamour:Bard College",' +
     '"3:College Of Swords:Bard College",' +
-    '"3:College Of Whispers:Bard College"',
+    '"3:College Of Whispers:Bard College",' +
+    '"features.College Of Swords ? 3:Fighting Style (Dueling)",' +
+    '"features.College Of Swords ? 3:Fighting Style (Two-Weapon Fighting)"',
   'Cleric':
     '"deityDomains =~ \'Forge\' ? 1:Forge Domain:Divine Domain",' +
     '"deityDomains =~ \'Grave\' ? 1:Grave Domain:Divine Domain"',
@@ -76,7 +259,8 @@ Xanathar.CLASSES_SELECTABLES_ADDED = {
     '"3:Way Of The Kensei:Monastic Tradition",' +
     '"3:Way Of The Sun Soul:Monastic Tradition"',
   'Paladin':
-    '"3:Oath Of Conquest:Sacred Oath","3:Oath Of Redemption:Sacred Oath"',
+    '"3:Oath Of Conquest:Sacred Oath",' +
+    '"3:Oath Of Redemption:Sacred Oath"',
   'Ranger':
     '"3:Gloom Stalker:Ranger Archetype",' +
     '"3:Horizon Walker:Ranger Archetype",' +
@@ -111,7 +295,6 @@ Xanathar.CLASSES_SELECTABLES_ADDED = {
     '"2:War Magic:Arcane Tradition"'
 };
 Xanathar.DEITIES_DOMAINS_ADDED = {
-  'None':'Forge,Grave',
   'Celtic-Goibhniu':'Forge',
   'Egyptian-Anubis':'Grave',
   'Egyptian-Osiris':'Grave',
@@ -316,6 +499,13 @@ Xanathar.FEATURES = {
   'Forge Bonus Proficiencies':
     'Section=feature ' +
     'Note="Armor Proficiency (Heavy)/Tool Proficiency (Smith\'s Tools)"',
+  'Forge Domain':
+    'Spells=' +
+      '1:Identify,"1:Searing Smite",' +
+      '"3:Heat Metal","3:Magic Weapon",' +
+      '"5:Elemental Weapon","5:Protection From Energy",' +
+      '7:Fabricate,"7:Wall Of Fire",' +
+      '"9:Animate Objects",9:Creation',
   'Ghostly Gaze':
     'Section=magic ' +
     'Note="See 30\' through solid objects for conc or 1 min 1/short rest"',
@@ -326,11 +516,25 @@ Xanathar.FEATURES = {
          '"Cast <i>Water Breathing</i> 1/long rest"',
   'Gift Of The Ever-Living Ones':
     'Section=combat Note="Maximum healing w/in 100\' of familiar"',
+  'Gloom Stalker':
+    'Spells=' +
+      '"3:Disguise Self",' +
+      '"5:Rope Trick",' +
+      '9:Fear,' +
+      '"13:Greater Invisibility",' +
+      '17:Seeming',
   'Grasp Of Hadar':
     'Section=magic Note="<i>Eldritch Blast</i> pulls target 10\'"',
   'Grasping Arrow':
     'Section=combat ' +
     'Note="Arrow inflicts +%Vd6 HP poison damage and -10\' Speed and %Vd6 HP slashing/rd for 1 min (DC %1 Athletics check ends)"',
+  'Grave Domain':
+    'Spells=' +
+      '1:Bane,"1:False Life",' +
+      '"3:Gentle Repose","3:Ray Of Enfeeblement",' +
+      '5:Revivify,"5:Vampiric Touch",' +
+      '7:Blight,"7:Death Ward",' +
+      '"9:Antilife Shell","9:Raise Dead"',
   'Guardian Spirit':
     'Section=magic ' +
     'Note="Summoned creatures in Spirit Totem aura regain %V HP each rd"',
@@ -355,6 +559,13 @@ Xanathar.FEATURES = {
     'Note="Teleport self 60\' or willing touched 30\' %V/long rest"',
   'Hold The Line':
     'Section=combat Note="R5\' Foe move provokes OA; hit negates move"',
+  'Horizon Walker':
+    'Spells=' +
+      '"3:Protection From Evil And Good",' +
+      '"5:Misty Step",' +
+      '9:Haste,' +
+      '13:Banishment,' +
+      '"17:Teleportation Circle"',
   'Hound Of Ill Omen':
     'Section=combat Note="R120\' Spend 3 Sorcery Points to summon hound to attack target as dire wolf w/%V temporary HP, moving through obstacles, for 5 min or until reduced to 0 HP"',
   "Hunter's Sense":
@@ -427,6 +638,27 @@ Xanathar.FEATURES = {
   'Mobile Flourish':
     'Section=combat ' +
     'Note="Spend 1 Bardic Inspiration to inflict +1d%V damage and 5\' + 1d%V\' push"',
+  'Monster Slayer':
+    'Spells=' +
+      '"3:Protection From Evil And Good",' +
+      '"5:Zone Of Truth",' +
+      '"9:Magic Circle",' +
+      '13:Banishment,' +
+      '"17:Hold Monster"',
+  'Oath Of Conquest':
+    'Spells=' +
+      '"3:Armor Of Agathys",3:Command,' +
+      '"5:Hold Person","5:Spiritual Weapon",' +
+      '"9:Bestow Curse",9:Fear,' +
+      '"13:Dominate Beast",13:Stoneskin,' +
+      '17:Cloudkill,"17:Dominate Person"',
+  'Oath Of Redemption':
+    'Spells=' +
+      '3:Sanctuary,3:Sleep,' +
+      '"5:Calm Emotions","5:Hold Person",' +
+      '9:Counterspell,"9:Hypnotic Pattern",' +
+      '"13:Otiluke\'s Resilient Sphere",13:Stoneskin,' +
+      '"17:Hold Monster","17:Wall Of Force"',
   'One With The Blade':
     'Section=feature Note="Magic Kensei Weapons and Deft Strike features"',
   'Otherworldly Wings':'Section=ability Note="30\' Fly"',
@@ -722,222 +954,6 @@ Xanathar.FEATURES = {
     'Section=magic ' +
     'Note="Know 1 D0 cantrip, cast <i>Longstrider</i> and <i>Pass Without Trace</i> 1/long rest"'
 };
-Xanathar.PATHS = {
-  'Arcane Archer':
-    'Group=Fighter Level=levels.Fighter ' +
-    'Features=' +
-      '"3:Arcane Archer Lore","3:Arcane Shot","7:Curving Shot",' +
-      '"7:Magic Arrow","15:Ever-Ready Shot","18:Improved Shots"',
-  'Cavalier':
-    'Group=Fighter Level=levels.Fighter ' +
-    'Features=' +
-      '"3:Born To The Saddle","3:Cavalier Bonus Proficiency",' +
-      '"3:Unwavering Mark","7:Warding Maneuver","10:Hold The Line",' +
-      '"15:Ferocious Charger","18:Vigilant Defender"',
-  'Circle Of Dreams':
-    'Group=Druid Level=levels.Druid ' +
-    'Features=' +
-      '"2:Balm Of The Summer Court","6:Hearth Of Moonlight And Shadow",' +
-      '"10:Hidden Paths","14:Walker In Dreams"',
-  'Circle Of The Shepherd':
-    'Group=Druid Level=levels.Druid ' +
-    'Features=' +
-      '"2:Language (Sylvan)",' +
-      '"2:Speech Of The Woods","2:Spirit Totem (Bear)",' +
-      '"2:Spirit Totem (Hawk)","2:Spirit Totem (Unicorn)",' +
-      '"6:Mighty Summoner","10:Guardian Spirit","14:Faithful Summons"',
-  'College Of Glamour':
-    'Group=Bard Level=levels.Bard ' +
-    'Features=' +
-      '"3:Enthralling Performance","3:Mantle Of Inspiration",' +
-      '"6:Mantle Of Majesty","14:Unbreakable Majesty"',
-  'College Of Swords':
-    'Group=Bard Level=levels.Bard ' +
-    'Features=' +
-      '"3:Blade Flourish","3:Defensive Flourish","3:Mobile Flourish",' +
-      '"3:Slashing Flourish","3:Swords Bonus Proficiencies","6:Extra Attack",' +
-      '"14:Master\'s Flourish" ' +
-    'Selectables=' +
-      '"3:Fighting Style (Dueling)","3:Fighting Style (Two-Weapon Fighting)"',
-  'College Of Whispers':
-    'Group=Bard Level=levels.Bard ' +
-    'Features=' +
-      '"3:Psychic Blades (Whispers)","3:Words Of Terror","6:Mantle Of Whispers",' +
-      '"14:Shadow Lore"',
-  'Divine Soul':
-    'Group=Sorcerer Level=levels.Sorcerer ' +
-    'Features=' +
-      '"1:Divine Magic","1:Favored By The Gods",' +
-      '"6:Empowered Healing","14:Otherworldly Wings","18:Unearthly Recovery"',
-  'Forge Domain':
-    'Group=Cleric Level=levels.Cleric ' +
-    'Features=' +
-      '"1:Blessing Of The Forge","1:Forge Bonus Proficiencies",' +
-      '"2:Artisan\'s Blessing","6:Soul Of The Forge","8:Divine Strike",' +
-      '"17:Saint Of Forge And Fire" ' +
-    'Spells=' +
-      '"1:Identify,Searing Smite",' +
-      '"3:Heat Metal,Magic Weapon",' +
-      '"5:Elemental Weapon,Protection From Energy",' +
-      '"7:Fabricate,Wall Of Fire",' +
-      '"9:Animate Objects,Creation"',
-  'Gloom Stalker':
-    'Group=Ranger Level=levels.Ranger ' +
-    'Features=' +
-      '"3:Dread Ambusher","3:Umbral Sight","7:Iron Mind",' +
-      '"11:Stalker\'s Flurry","15:Shadowy Dodge" ' +
-    'Spells=' +
-      '"3:Disguise Self",' +
-      '"5:Rope Trick",' +
-      '"9:Fear",' +
-      '"13:Greater Invisibility",' +
-      '"17:Seeming"',
-  'Grave Domain':
-    'Group=Cleric Level=levels.Cleric ' +
-    'Features=' +
-      '"1:Circle Of Mortality","1:Eyes Of The Grave","2:Path To The Grave",' +
-      '"6:Sentinel At Death\'s Door","8:Potent Spellcasting",' +
-      '"17:Keeper Of Souls" ' +
-    'Spells=' +
-      '"1:Bane,False Life",' +
-      '"3:Gentle Repose,Ray Of Enfeeblement",' +
-      '"5:Revivify,Vampiric Touch",' +
-      '"7:Blight,Death Ward",' +
-      '"9:Antilife Shell,Raise Dead"',
-  'Horizon Walker':
-    'Group=Ranger Level=levels.Ranger ' +
-    'Features=' +
-      '"3:Detect Portal","3:Planar Warrior","7:Ethereal Step",' +
-      '"11:Distant Strike","15:Spectral Defense" ' +
-    'Spells=' +
-      '"3:Protection From Evil And Good",' +
-      '"5:Misty Step",' +
-      '"9:Haste",' +
-      '"13:Banishment",' +
-      '"17:Teleportation Circle"',
-  'Inquisitive':
-    'Group=Rogue Level=levels.Rogue ' +
-    'Features=' +
-      '"3:Ear For Deceit","3:Eye For Detail","3:Insightful Fighting",' +
-      '"9:Steady Eye","13:Unerring Eye","17:Eye For Weakness"',
-  'Mastermind':
-    'Group=Rogue Level=levels.Rogue ' +
-    'Features=' +
-      '"3:Master Of Intrigue","3:Master Of Tactics",' +
-      '"9:Insightful Manipulator","13:Misdirection","17:Soul Of Deceit"',
-  'Monster Slayer':
-    'Group=Ranger Level=levels.Ranger ' +
-    'Features=' +
-      '"3:Hunter\'s Sense","3:Slayer\'s Prey","7:Supernatural Defense",' +
-      '"11:Magic-User\'s Nemesis","15:Slayer\'s Counter" ' +
-    'Spells=' +
-      '"3:Protection From Evil And Good",' +
-      '"5:Zone Of Truth",' +
-      '"9:Magic Circle",' +
-      '"13:Banishment",' +
-      '"17:Hold Monster"',
-  'Oath Of Conquest':
-    'Group=Paladin Level=levels.Paladin ' +
-    'Features=' +
-      '"3:Conquering Presence","3:Guided Strike","7:Aura Of Conquest",' +
-      '"15:Scornful Rebuke","20:Invincible Conqueror" ' +
-    'Spells=' +
-      '"3:Armor Of Agathys,Command",' +
-      '"5:Hold Person,Spiritual Weapon",' +
-      '"9:Bestow Curse,Fear",' +
-      '"13:Dominate Beast,Stoneskin",' +
-      '"17:Cloudkill,Dominate Person"',
-  'Oath Of Redemption':
-    'Group=Paladin Level=levels.Paladin ' +
-    'Features=' +
-      '"3:Emissary Of Peace","3:Rebuke The Violent","7:Aura Of The Guardian",' +
-      '"15:Protective Spirit","20:Emissary Of Redemption" ' +
-    'Spells=' +
-      '"3:Sanctuary,Sleep",' +
-      '"5:Calm Emotions,Hold Person",' +
-      '"9:Counterspell,Hypnotic Pattern",' +
-      '"13:Otiluke\'s Resilient Sphere,Stoneskin",' +
-      '"17:Hold Monster,Wall Of Force"',
-  'Path Of The Ancestral Guardian':
-    'Group=Barbarian Level=levels.Barbarian ' +
-    'Features=' +
-      '"3:Ancestral Protectors","6:Spirit Shield","10:Consult The Spirits",' +
-      '"14:Vengeful Ancestors"',
-  'Path Of The Storm Herald':
-    'Group=Barbarian Level=levels.Barbarian ' +
-    'Features=' +
-      '"features.Storm Aura (Desert) ? 6:Storm Soul (Desert)",' +
-      '"features.Storm Aura (Sea) ? 6:Storm Soul (Sea)",' +
-      '"features.Storm Aura (Tundra) ? 6:Storm Soul (Tundra)",' +
-      '"10:Shielding Storm",' +
-      '"features.Storm Aura (Desert) ? 14:Raging Storm (Desert)",' +
-      '"features.Storm Aura (Sea) ? 14:Raging Storm (Sea)",' +
-      '"features.Storm Aura (Tundra) ? 14:Raging Storm (Tundra)" ' +
-    'Selectables=' +
-      '"3:Storm Aura (Desert):Storm Aura","3:Storm Aura (Sea):Storm Aura",' +
-      '"3:Storm Aura (Tundra):Storm Aura"',
-  'Path Of The Zealot':
-    'Group=Barbarian Level=levels.Barbarian ' +
-    'Features=' +
-      '"3:Divine Fury","3:Warrior Of The Gods","6:Fanatical Focus",' +
-      '"10:Zealous Presence","14:Rage Beyond Death"',
-  'Samurai':
-    'Group=Fighter Level=levels.Fighter ' +
-    'Features=' +
-      '"3:Fighting Spirit","3:Samurai Bonus Proficiency",' +
-      '"7:Elegant Courtier","10:Tireless Spirit","15:Rapid Strike",' +
-      '"18:Strength Before Death"',
-  'Scout':
-    'Group=Rogue Level=levels.Rogue ' +
-    'Features=' +
-      '"3:Skirmisher","3:Survivalist","9:Superior Mobility",' +
-      '"13:Ambush Master","17:Sudden Strike"',
-  'Shadow Magic':
-    'Group=Sorcerer Level=levels.Sorcerer ' +
-    'Features=' +
-      '"1:Eyes Of The Dark","1:Strength Of The Grave",' +
-      '"6:Hound Of Ill Omen","14:Shadow Walk","18:Umbral Form"',
-  'Storm Sorcery':
-    'Group=Sorcerer Level=levels.Sorcerer ' +
-    'Features=' +
-      '"1:Wind Speaker","1:Tempestuous Magic","6:Heart Of The Storm",' +
-      '"6:Storm Guide","14:Storm\'s Fury","18:Wind Soul"',
-  'Swashbuckler':
-    'Group=Rogue Level=levels.Rogue ' +
-    'Features=' +
-      '"3:Fancy Footwork","3:Rakish Audacity","9:Panache",' +
-      '"13:Elegant Maneuver","17:Master Duelist"',
-  'The Celestial':
-    'Group=Warlock Level=levels.Warlock ' +
-    'Features=' +
-      '"1:Bonus Celestial Cantrips","1:Healing Light","6:Radiant Soul",' +
-      '"10:Celestial Resilience","14:Searing Vengeance"',
-  'The Hexblade':
-    'Group=Warlock Level=levels.Warlock ' +
-    'Features=' +
-      '"1:Hexblade\'s Curse","1:Hex Warrior","6:Accursed Specter",' +
-      '"10:Armor Of Hexes","14:Master Of Hexes"',
-  'War Magic':
-    'Group=Wizard Level=levels.Wizard ' +
-    'Features=' +
-      '"2:Arcane Deflection","2:Tactical Wit","6:Power Surge",' +
-      '"10:Durable Magic","14:Deflecting Shroud"',
-  'Way Of The Drunken Master':
-    'Group=Monk Level=levels.Monk ' +
-    'Features=' +
-      '"3:Drunken Master Bonus Proficiencies","3:Drunken Technique",' +
-      '"6:Tipsy Sway","11:Drunkard\'s Luck","17:Intoxicated Frenzy"',
-  'Way Of The Kensei':
-    'Group=Monk Level=levels.Monk ' +
-    'Features=' +
-      '"3:Path Of The Kensei","6:One With The Blade","11:Sharpen The Blade",' +
-      '"17:Unerring Accuracy"',
-  'Way Of The Sun Soul':
-    'Group=Monk Level=levels.Monk ' +
-    'Features=' +
-      '"3:Radiant Sun Bolt","6:Searing Arc Strike","11:Searing Sunburst",' +
-      '"17:Sun Shield"'
-};
 Xanathar.SPELLS = {
 
   "Abi-Dalzim's Horrid Wilting":
@@ -1017,7 +1033,7 @@ Xanathar.SPELLS = {
     'School=Necromancy ' +
     'Level=K5,W5 ' +
     'AtHigherLevels="creates +2 undead" ' +
-    'Description="R60\' Creates from corpses up to 5 skeletons and zombies that obey self and attack at +%{?modifier?} for conc or 1 hr"',
+    'Description="R60\' Creates from corpses up to 5 skeletons and zombies that obey self and attack at +%{mdf} for conc or 1 hr"',
   'Dawn':
     'School=Evocation ' +
     'Level=C5,W5 ' +
@@ -1156,7 +1172,7 @@ Xanathar.SPELLS = {
   'Magic Stone':
     'School=Transmutation ' +
     'Level=D0,K0 ' +
-    'Description="3 touched stones attack at +%{?modifier?}, inflict 1d6+%{?modifier?} HP bludgeoning for 1 min"',
+    'Description="3 touched stones attack at +%{mdf}, inflict 1d6+%{mdf} HP bludgeoning for 1 min"',
   'Mass Polymorph':
     'School=Transmutation ' +
     'Level=B9,S9,W9 ' +
@@ -1384,30 +1400,42 @@ Xanathar.TOOLS_ADDED = {
 
 /* Defines rules related to basic character identity. */
 Xanathar.identityRules = function(
-  rules, classSelectables, deitiesDomains, paths
+  rules, classFeatures, classSelectables, deitiesDomains
 ) {
-  SRD5E.identityRules(rules, {}, {}, {}, {}, paths, {});
-  for(var clas in classSelectables) {
-    SRD5E.featureListRules
-      (rules, QuilvynUtils.getAttrValueArray('Selectables=' + classSelectables[clas], 'Selectables'), clas, 'levels.' + clas, true);
+  let allClasses = rules.getChoices('levels');
+  for(let c in allClasses) {
+    let attrs = allClasses[c];
+    if(c in classFeatures) {
+      SRD5E.featureListRules
+        (rules, QuilvynUtils.getAttrValueArray('Features=' + classFeatures[c], 'Features'), c, 'levels.' + c, false);
+      attrs = attrs.replace('Features=', 'Features=' + classFeatures[c] + ',');
+    }
+    if(c in classSelectables) {
+      SRD5E.featureListRules
+        (rules, QuilvynUtils.getAttrValueArray('Selectables=' + classSelectables[c], 'Selectables'), c, 'levels.' + c, true);
+      attrs =
+        attrs.replace('Selectables=', 'Selectables=' + classSelectables[c] + ',');
+    }
+    allClasses[c] = attrs;
+    if(rules.plugin)
+      rules.plugin.CLASSES[c] = attrs;
+    Xanathar.classRulesExtra(rules, c);
   }
-  var allDeities = rules.getChoices('deities');
-  for(var deity in deitiesDomains) {
-    if(!(deity in allDeities))
+  let allDeities = rules.getChoices('deitys');
+  for(let d in deitiesDomains) {
+    if(!(d in allDeities))
       continue;
-    var attrs = allDeities[deity].replace('Domain=', 'Domain="' + deitiesDomains[deity] + '",');
-    delete allDeities[deity];
-    rules.choiceRules(rules, 'Deity', deity, attrs);
-  }
-  for(var path in paths) {
-    Xanathar.pathRulesExtra(rules, path);
+    let attrs =
+      allDeities[d].replace('Domain=', 'Domain="' + deitiesDomains[d] + '",');
+    delete allDeities[d];
+    rules.choiceRules(rules, 'Deity', d, attrs);
   }
 };
 
 /* Defines rules related to magic use. */
 Xanathar.magicRules = function(rules, spells, spellsLevels) {
   SRD5E.magicRules(rules, {}, spells);
-  for(var s in spellsLevels) {
+  for(let s in spellsLevels) {
     if(!PHB5E.SPELLS[s]) {
       console.log('Unknown spell "' + s + '"');
       continue;
@@ -1420,7 +1448,7 @@ Xanathar.magicRules = function(rules, spells, spellsLevels) {
 /* Defines rules related to character aptitudes. */
 Xanathar.talentRules = function(rules, feats, features, tools) {
   SRD5E.talentRules(rules, feats, features, {}, {}, {}, tools);
-  for(var f in feats) {
+  for(let f in feats) {
     Xanathar.featRulesExtra(rules, f);
   }
 };
@@ -1480,224 +1508,32 @@ Xanathar.featRulesExtra = function(rules, name) {
 
 };
 
-/* Defines the rules related to character classes. */
-Xanathar.pathRulesExtra = function(rules, name) {
+/*
+ * Defines in #rules# the rules associated with class #name# that cannot be
+ * derived directly from the attributes passed to classRules.
+ */
+Xanathar.classRulesExtra = function(rules, name) {
 
-  var pathLevel =
-    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
-    'Level';
+  let classLevel = 'levels.' + name;
 
-  if(name == 'Arcane Archer') {
-    rules.defineRule('arcaneShotDC',
-      'features.Arcane Shot', '?', null,
-      'proficiencyBonus', '=', '8 + source',
-      'intelligenceModifier', '+', null
-    );
-    rules.defineRule
-      ('combatNotes.banishingArrow', pathLevel, '=', 'source>=18 ? "2" : "0"');
-    rules.defineRule('combatNotes.banishingArrow.1', 'arcaneShotDC', '=', null);
-    rules.defineRule
-      ('combatNotes.beguilingArrow', pathLevel, '=', 'source>= 18 ? "4" : "2"');
-    rules.defineRule('combatNotes.beguilingArrow.1', 'arcaneShotDC', '=', null);
-    rules.defineRule
-      ('combatNotes.burstingArrow', pathLevel, '=', 'source>= 18 ? "4" : "2"');
-    rules.defineRule
-      ('combatNotes.enfeeblingArrow', pathLevel, '=', 'source>=18 ? "4" : "2"');
-    rules.defineRule
-      ('combatNotes.enfeeblingArrow.1', 'arcaneShotDC', '=', null);
-    rules.defineRule
-      ('combatNotes.graspingArrow', pathLevel, '=', 'source>=18 ? "4" : "2"');
-    rules.defineRule('combatNotes.graspingArrow.1', 'arcaneShotDC', '=', null);
-    rules.defineRule
-      ('combatNotes.piercingArrow', pathLevel, '=', 'source>=18 ? "2" : "1"');
-    rules.defineRule('combatNotes.piercingArrow.1', 'arcaneShotDC', '=', null);
-    rules.defineRule
-      ('combatNotes.seekingArrow', pathLevel, '=', 'source>=18 ? "2" : "1"');
-    rules.defineRule('combatNotes.seekingArrow.1', 'arcaneShotDC', '=', null);
-    rules.defineRule
-      ('combatNotes.shadowArrow', pathLevel, '=', 'source>=18 ? "4" : "2"');
-    rules.defineRule('combatNotes.shadowArrow.1', 'arcaneShotDC', '=', null);
-    rules.defineRule('selectableFeatureCount.Fighter (Arcane Shot)',
-      pathLevel, '=',
-        'source>=18 ? 6 : source>=15 ? 5 : source>=10 ? 4 : source>=7 ? 3 : 2'
-    );
-    SRD5E.featureSpells(rules, 'Arcane Archer Lore', 'D', null, ['Druidcraft']);
-    SRD5E.featureSpells
-      (rules, 'Arcane Archer Lore', 'W', null, ['Prestidigitation']);
-    // Don't need to set caster level, since neither of these cantrips has
-    // variable effects.
-  } else if(name == 'Cavalier') {
-    rules.defineRule('combatNotes.ferociousCharger',
-      'proficiencyBonus', '=', '8 + source',
-      'strengthModifier', '+', null
-    );
-    rules.defineRule('combatNotes.unwaveringMark',
-      pathLevel, '=', 'Math.floor(source / 2)'
-    );
-    rules.defineRule('combatNotes.unwaveringMark.1',
-      'features.Unwavering Mark', '?', null,
-      'strengthModifier', '=', 'Math.max(source, 1)'
-    );
-    rules.defineRule('combatNotes.wardingManeuver',
-      'constitutionModifier', '=', 'Math.max(source, 1)'
-    );
-  } else if(name == 'Circle Of Dreams') {
-    rules.defineRule('magicNotes.balmOfTheSummerCourt', pathLevel, '=', null);
-    rules.defineRule
-      ('magicNotes.hiddenPaths', 'wisdomModifier', '=', 'Math.max(source, 1)');
-    SRD5E.featureSpells(
-      rules, 'Walker In Dreams', 'D', null,
-      ['Dream,Scrying,Teleportation Circle']
-    );
-  } else if(name == 'Circle Of The Shepherd') {
-    rules.defineRule
-      ('magicNotes.spiritTotem(Bear)', pathLevel, '=', '5 + source');
-    rules.defineRule('magicNotes.spiritTotem(Unicorn)', pathLevel, '=', null);
-    rules.defineRule
-      ('magicNotes.guardianSpirit', pathLevel, '=', 'Math.floor(source / 2)');
-  } else if(name == 'College Of Glamour') {
-    rules.defineRule('magicNotes.enthrallingPerformance',
-      'charismaModifier', '=', 'Math.max(source, 1)'
-    );
-    rules.defineRule('magicNotes.enthrallingPerformance.1',
-      'features.Enthralling Performance', '?', null,
-      'spellDifficultyClass.B', '=', null
-    );
-    rules.defineRule('magicNotes.mantleOfInspiration',
-      pathLevel, '=', 'Math.min(Math.floor(source / 5) * 3 + 5, 14)'
-    );
-    rules.defineRule('magicNotes.mantleOfInspiration.1',
-      'features.Mantle Of Inspiration', '?', null,
-      'charismaModifier', '=', 'Math.max(source, 1)'
-    );
-    rules.defineRule
-      ('magicNotes.unbreakableMajesty', 'spellDifficultyClass.B', '=', null);
-    SRD5E.featureSpells(rules, 'Mantle Of Majesty', 'B', null, ['Command']);
-  } else if(name == 'College Of Swords') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule('armorProficiency.Medium',
-      'featureNotes.swordsBonusProficiencies', '=', '1'
-    );
-    rules.defineRule('weaponProficiency.Scimitar',
-      'featureNotes.swordsBonusProficiencies', '=', '1'
-    );
-    rules.defineRule
-      ('combatNotes.defensiveFlourish', 'bardicInspirationDie', '=', null);
-    rules.defineRule
-      ('combatNotes.extraAttack', pathLevel, '+=', 'source>=6 ? 1 : null');
-    rules.defineRule
-      ('combatNotes.mobileFlourish', 'bardicInspirationDie', '=', null);
-    rules.defineRule
-      ('combatNotes.slashingFlourish', 'bardicInspirationDie', '=', null);
-    rules.defineRule
-      ('selectableFeatureCount.Bard (Fighting Style)', pathLevel, '=', '1');
-  } else if(name == 'College Of Whispers') {
-    rules.defineRule('combatNotes.psychicBlades(Whispers)',
-      pathLevel, '=', 'source>=15 ? 8 : source>=10 ? 5 : source>=5 ? 3 : 2'
-    );
-    rules.defineRule
-      ('magicNotes.shadowLore', 'spellDifficultyClass.B', '=', null);
-    rules.defineRule
-      ('magicNotes.wordsOfTerror', 'spellDifficultyClass.B', '=', null);
-  } else if(name == 'Divine Soul') {
-    rules.defineRule('magicNotes.unearthlyRecovery',
-      'hitPoints', '=', 'Math.floor(source / 2)'
-    );
-  } else if(name == 'Forge Domain') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule('armorProficiency.Heavy',
-      'featureNotes.forgeBonusProficiencies', '=', '1'
-    );
-    rules.defineRule("toolProficiency.Smith's Tools",
-      'featureNotes.forgeBonusProficiencies', '=', '1'
-    );
-    rules.defineRule('armorClass', 'combatNotes.soulOfTheForge.1', '+', null);
-    rules.defineRule
-      ('combatNotes.divineStrike', pathLevel, '=', 'source<14 ? 1 : 2');
-    rules.defineRule('combatNotes.divineStrike.1', pathLevel, '=', '"fire"');
-    // Show Soul Of The Forge note even when not in heavy armor
-    rules.defineRule('combatNotes.soulOfTheForge.1',
-      'combatNotes.soulOfTheForge', '?', null,
-      'armorWeight', '=', 'source == 3 ? 1 : null'
-    );
-  } else if(name == 'Gloom Stalker') {
-    rules.defineRule('combatNotes.dreadAmbusher', 'wisdomModifier', '=', null);
-    rules.defineRule
-      ('features.Darkvision', 'featureNotes.umbralSight', '=', '1');
-    rules.defineRule('saveProficiency.Wisdom', 'saveNotes.ironMind', '=', '1');
-  } else if(name == 'Grave Domain') {
-    rules.defineRule('magicNotes.eyesOfTheGrave',
-      'wisdomModifier', '=', 'Math.max(source, 1)'
-    );
-    rules.defineRule
-      ('magicNotes.potentSpellcasting.1', 'wisdomModifier', '=', null);
-    rules.defineRule("magicNotes.sentinelAtDeath'sDoor",
-      'wisdomModifier', '=', 'Math.max(source, 1)'
-    );
-    SRD5E.featureSpells
-      (rules, 'Circle Of Mortality', 'C', null, ['Spare The Dying']);
-  } else if(name == 'Horizon Walker') {
-    rules.defineRule
-      ('combatNotes.planarWarrior', pathLevel, '=', 'source>=11 ? 2 : 1');
-  } else if(name == 'Monster Slayer') {
-    rules.defineRule("combatNotes.hunter'sSense", 'wisdomModifier', '=', null);
-    rules.defineRule
-      ("combatNotes.magic-User'sNemesis", 'spellDifficultyClass.R', '=', null);
-  } else if(name == 'Inquisitive') {
-    rules.defineRule('featureNotes.unerringEye',
-      'wisdomModifier', '=', 'Math.max(source, 1)'
-    );
-  } else if(name == 'Mastermind') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule
-      ('toolProficiency.Disguise Kit', 'skillNotes.masterOfIntrigue', '=', '1');
-    rules.defineRule
-      ('toolProficiency.Forgery Kit', 'skillNotes.masterOfIntrigue', '=', '1');
-    rules.defineRule
-      ('toolChoiceCount', 'skillNotes.masterOfIntrigue', '+=', '1');
-  } else if(name == 'Oath Of Conquest') {
-    rules.defineRule('combatNotes.scornfulRebuke',
-      'charismaModifier', '=', 'Math.max(source, 1)'
-    );
-    rules.defineRule
-      ('magicNotes.auraOfConquest', pathLevel, '=', 'source>=18 ? 30 : 10');
-    rules.defineRule('magicNotes.conqueringPresence',
-      'spellDifficultyClass.P', '=', null
-    );
-  } else if(name == 'Oath Of Redemption') {
-    rules.defineRule('combatNotes.protectiveSpirit',
-      pathLevel, '=', 'Math.floor(source / 2)'
-    );
-    rules.defineRule('combatNotes.protectiveSpirit.1',
-      'features.Protective Spirit', '?', null,
-      'hitPoints', '=', 'Math.floor(source / 2)'
-    );
-    rules.defineRule
-      ('magicNotes.auraOfTheGuardian', pathLevel, '=', 'source>=18 ? 30 : 10');
-    rules.defineRule('magicNotes.rebukeTheViolent',
-      'spellDifficultyClass.P', '=', null
-    );
-  } else if(name == 'Path Of The Ancestral Guardian') {
+  if(name == 'Barbarian') {
     rules.defineRule('combatNotes.spiritShield',
-      pathLevel, '=', 'source>=14 ? 4 : source>=10 ? 3 : 2'
+      classLevel, '=', 'source>=14 ? 4 : source>=10 ? 3 : 2'
     );
     SRD5E.featureSpells
-      (rules, 'Consult The Spirits', 'C', null, ['Augury,Clairvoyance']);
+      (rules, 'Consult The Spirits', 'C', null, ['Augury','Clairvoyance']);
     rules.defineRule('casterLevels.Consult The Spirits',
       'features.Consult The Spirits', '?', null,
-      pathLevel, '=', null,
+      classLevel, '=', null,
       'levels.Cleric', 'v', 0
     );
     rules.defineRule
       ('casterLevels.C', 'casterLevels.Consult The Spirits', '^=', null);
-  } else if(name == 'Path Of The Storm Herald') {
     rules.defineRule('combatNotes.ragingStorm(Desert)',
-      pathLevel, '=', 'Math.floor(source / 2)'
+      classLevel, '=', 'Math.floor(source / 2)'
     );
     rules.defineRule('combatNotes.ragingStorm(Desert).1',
+      'features.Raging Storm (Desert)', '?', null,
       'proficiencyBonus', '=', '8 + source',
       'constitutionModifier', '+', null
     );
@@ -1714,13 +1550,14 @@ Xanathar.pathRulesExtra = function(rules, name) {
       'features.Storm Aura (Sea)', '=', '"lightning"',
       'features.Storm Aura (Tundra)', '=', '"cold"'
     );
-    rules.defineRule
-      ('selectableFeatureCount.Barbarian (Storm Aura)', pathLevel, '=', '1');
+    rules.defineRule('selectableFeatureCount.Barbarian (Storm Aura)',
+      'features.Path Of The Storm Herald', '=', '1'
+    );
     rules.defineRule('magicNotes.stormAura(Desert)',
-      pathLevel, '=', 'Math.floor(source / 5) + 2'
+      classLevel, '=', 'Math.floor(source / 5) + 2'
     );
     rules.defineRule('magicNotes.stormAura(Sea)',
-      pathLevel, '=', 'Math.max(Math.floor(source / 5), 1)'
+      classLevel, '=', 'Math.max(Math.floor(source / 5), 1)'
     );
     rules.defineRule('magicNotes.stormAura(Sea).1',
       'features.Storm Aura (Sea)', '?', null,
@@ -1728,144 +1565,149 @@ Xanathar.pathRulesExtra = function(rules, name) {
       'constitutionModifier', '+', null
     );
     rules.defineRule('magicNotes.stormAura(Tundra)',
-      pathLevel, '=', 'Math.floor(source / 5) + 2'
+      classLevel, '=', 'Math.floor(source / 5) + 2'
     );
-  } else if(name == 'Path Of The Zealot') {
     rules.defineRule
-      ('combatNotes.divineFury', pathLevel, '=', 'Math.floor(source / 2)');
-  } else if(name == 'Samurai') {
+      ('combatNotes.divineFury', classLevel, '=', 'Math.floor(source / 2)');
+  } else if(name == 'Bard') {
+    rules.defineRule
+      ('bardHasExtraAttack', 'features.College Of Swords', '=', '1');
+    rules.defineRule
+      ('combatNotes.extraAttack', 'bardFeatures.Extra Attack', '+=', '1');
+    rules.defineRule('magicNotes.enthrallingPerformance',
+      'charismaModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule('magicNotes.enthrallingPerformance.1',
+      'features.Enthralling Performance', '?', null,
+      'spellDifficultyClass.B', '=', null
+    );
+    rules.defineRule('magicNotes.mantleOfInspiration',
+      classLevel, '=', 'Math.min(Math.floor(source / 5) * 3 + 5, 14)'
+    );
+    rules.defineRule('magicNotes.mantleOfInspiration.1',
+      'features.Mantle Of Inspiration', '?', null,
+      'charismaModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule
+      ('magicNotes.unbreakableMajesty', 'spellDifficultyClass.B', '=', null);
+    SRD5E.featureSpells(rules, 'Mantle Of Majesty', 'B', null, ['Command']);
+    rules.defineRule
+      ('combatNotes.defensiveFlourish', 'bardicInspirationDie', '=', null);
+    rules.defineRule
+      ('combatNotes.mobileFlourish', 'bardicInspirationDie', '=', null);
+    rules.defineRule
+      ('combatNotes.slashingFlourish', 'bardicInspirationDie', '=', null);
+    rules.defineRule('selectableFeatureCount.Bard (Fighting Style)',
+      'features.College Of Swords', '=', '1'
+    );
+    rules.defineRule('combatNotes.psychicBlades(Whispers)',
+      classLevel, '=', 'source>=15 ? 8 : source>=10 ? 5 : source>=5 ? 3 : 2'
+    );
+    rules.defineRule
+      ('magicNotes.shadowLore', 'spellDifficultyClass.B', '=', null);
+    rules.defineRule
+      ('magicNotes.wordsOfTerror', 'spellDifficultyClass.B', '=', null);
+  } else if(name == 'Cleric') {
+    rules.defineRule('armorClass', 'combatNotes.soulOfTheForge.1', '+', null);
+    rules.defineRule
+      ('clericHasDivineStrike', 'features.Forge Domain', '=', '1');
+    rules.defineRule
+      ('divineStrikeDamageType', 'features.Forge Domain', '=', '"fire"');
+    // Show Soul Of The Forge note even when not in heavy armor
+    rules.defineRule('combatNotes.soulOfTheForge.1',
+      'combatNotes.soulOfTheForge', '?', null,
+      'armorWeight', '=', 'source == 3 ? 1 : null'
+    );
+    rules.defineRule('magicNotes.eyesOfTheGrave',
+      'wisdomModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule
+      ('magicNotes.potentSpellcasting.1', 'wisdomModifier', '=', null);
+    rules.defineRule("magicNotes.sentinelAtDeath'sDoor",
+      'wisdomModifier', '=', 'Math.max(source, 1)'
+    );
+    SRD5E.featureSpells
+      (rules, 'Circle Of Mortality', 'C', null, ['Spare The Dying']);
+    // SRD5E.classRulesExtra removes the domain requirement for None clerics
+    SRD5E.classRulesExtra(rules, 'Cleric');
+  } else if(name == 'Druid') {
+    rules.defineRule('magicNotes.balmOfTheSummerCourt', classLevel, '=', null);
+    rules.defineRule
+      ('magicNotes.hiddenPaths', 'wisdomModifier', '=', 'Math.max(source, 1)');
+    SRD5E.featureSpells(
+      rules, 'Walker In Dreams', 'D', null,
+      ['Dream,Scrying,Teleportation Circle']
+    );
+    rules.defineRule
+      ('magicNotes.spiritTotem(Bear)', classLevel, '=', '5 + source');
+    rules.defineRule('magicNotes.spiritTotem(Unicorn)', classLevel, '=', null);
+    rules.defineRule
+      ('magicNotes.guardianSpirit', classLevel, '=', 'Math.floor(source / 2)');
+  } else if(name == 'Fighter') {
+    rules.defineRule('arcaneShotDC',
+      'features.Arcane Shot', '?', null,
+      'proficiencyBonus', '=', '8 + source',
+      'intelligenceModifier', '+', null
+    );
+    rules.defineRule
+      ('combatNotes.banishingArrow', classLevel, '=', 'source>=18 ? "2" : "0"');
+    rules.defineRule('combatNotes.banishingArrow.1', 'arcaneShotDC', '=', null);
+    rules.defineRule
+      ('combatNotes.beguilingArrow', classLevel, '=', 'source>= 18 ? "4" : "2"');
+    rules.defineRule('combatNotes.beguilingArrow.1', 'arcaneShotDC', '=', null);
+    rules.defineRule
+      ('combatNotes.burstingArrow', classLevel, '=', 'source>= 18 ? "4" : "2"');
+    rules.defineRule
+      ('combatNotes.enfeeblingArrow', classLevel, '=', 'source>=18 ? "4" : "2"');
+    rules.defineRule
+      ('combatNotes.enfeeblingArrow.1', 'arcaneShotDC', '=', null);
+    rules.defineRule
+      ('combatNotes.graspingArrow', classLevel, '=', 'source>=18 ? "4" : "2"');
+    rules.defineRule('combatNotes.graspingArrow.1', 'arcaneShotDC', '=', null);
+    rules.defineRule
+      ('combatNotes.piercingArrow', classLevel, '=', 'source>=18 ? "2" : "1"');
+    rules.defineRule('combatNotes.piercingArrow.1', 'arcaneShotDC', '=', null);
+    rules.defineRule
+      ('combatNotes.seekingArrow', classLevel, '=', 'source>=18 ? "2" : "1"');
+    rules.defineRule('combatNotes.seekingArrow.1', 'arcaneShotDC', '=', null);
+    rules.defineRule
+      ('combatNotes.shadowArrow', classLevel, '=', 'source>=18 ? "4" : "2"');
+    rules.defineRule('combatNotes.shadowArrow.1', 'arcaneShotDC', '=', null);
+    rules.defineRule('selectableFeatureCount.Fighter (Arcane Shot)',
+      'features.Arcane Archer', '?', null,
+      classLevel, '=',
+        'source>=18 ? 6 : source>=15 ? 5 : source>=10 ? 4 : source>=7 ? 3 : 2'
+    );
+    SRD5E.featureSpells(rules, 'Arcane Archer Lore', 'D', null, ['Druidcraft']);
+    SRD5E.featureSpells
+      (rules, 'Arcane Archer Lore', 'W', null, ['Prestidigitation']);
+    // Don't need to set caster level, since neither of these cantrips has
+    // variable effects.
+    rules.defineRule('combatNotes.ferociousCharger',
+      'proficiencyBonus', '=', '8 + source',
+      'strengthModifier', '+', null
+    );
+    rules.defineRule('combatNotes.unwaveringMark',
+      classLevel, '=', 'Math.floor(source / 2)'
+    );
+    rules.defineRule('combatNotes.unwaveringMark.1',
+      'features.Unwavering Mark', '?', null,
+      'strengthModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule('combatNotes.wardingManeuver',
+      'constitutionModifier', '=', 'Math.max(source, 1)'
+    );
     rules.defineRule('combatNotes.fightingSpirit',
-      pathLevel, '=', 'source>=15 ? 15 : source>=10 ? 10 : 5'
+      classLevel, '=', 'source>=15 ? 15 : source>=10 ? 10 : 5'
     );
     rules.defineRule
       ('saveProficiency.Wisdom', 'saveNotes.elegantCourtier', '=', '1');
     rules.defineRule('skillNotes.elegantCourtier', 'wisdomModifier', '=', null);
-  } else if(name == 'Scout') {
-    rules.defineRule('skillNotes.survivalist.1',
-      'features.Survivalist', '?', null,
-      'proficiencyBonus', '=', null
-    );
-    rules.defineRule('skills.Nature', 'skillNotes.survivalist.1', '+=', null);
-    rules.defineRule('skills.Survival', 'skillNotes.survivalist.1', '+=', null);
-    rules.defineRule
-      ('skillProficiency.Nature', 'skillNotes.survivalist', '=', '1');
-    rules.defineRule
-      ('skillProficiency.Survival', 'skillNotes.survivalist', '=', '1');
-  } else if(name == 'Shadow Magic') {
-    rules.defineRule('magicNotes.eyesOfTheDark', pathLevel, '?', 'source>=3');
-    rules.defineRule
-      ('combatNotes.houndOfIllOmen', pathLevel, '=', 'Math.floor(source / 2)');
-    SRD5E.featureSpells(rules, 'Eyes Of The Dark', 'S', null, ['Darkness']);
-  } else if(name == 'Storm Sorcery') {
-    rules.defineRule("combatNotes.storm'sFury", pathLevel, '=', null);
-    rules.defineRule("combatNotes.storm'sFury.1",
-      "features.Storm's Fury", '?', null,
-      'spellDifficultyClass.S', '=', null
-    );
-    rules.defineRule
-      ('magicNotes.heartOfTheStorm', pathLevel, '=', 'Math.floor(source / 2)');
-    rules.defineRule
-      ('magicNotes.windSoul', 'charismaModifier', '=', '3 + source');
-  } else if(name == 'Swashbuckler') {
-    rules.defineRule('combatNotes.rakishAudacity.1',
-      'features.Rakish Audacity', '?', null,
-      'charismaModifier', '=', null
-    );
-    // Dummy rule to italicize combatNotes.rakishAudacity
-    rules.defineRule('initiative', 'combatNotes.rakishAudacity', '+', '0');
-  } else if(name == 'The Celestial') {
-    rules.defineRule('combatNotes.searingVengeance',
-      'hitPoints', '=', 'Math.floor(source / 2)'
-    );
-    rules.defineRule('combatNotes.searingVengeance.1',
-      'features.Searing Vengeance', '?', null,
-      'charismaModifier', '=', null
-    );
-    rules.defineRule('magicNotes.healingLight', pathLevel, '=', 'source + 1');
-    rules.defineRule('magicNotes.healingLight.1',
-      'features.Healing Light', '?', null,
-      'charismaModifier', '=', 'Math.max(source, 1)'
-    );
-    rules.defineRule('magicNotes.radiantSoul', 'charismaModifier', '=', null);
-    rules.defineRule('magicNotes.celestialResilience',
-      pathLevel, '=', null,
-      'charismaModifier', '+', null
-    );
-    rules.defineRule('magicNotes.celestialResilience.1',
-      'features.Celestial Resilience', '?', null,
-      pathLevel, '=', 'Math.floor(source / 2)',
-      'charismaModifier', '+', null
-    );
-    SRD5E.featureSpells
-      (rules, 'Bonus Celestial Cantrips', 'K', null, ['Light,Sacred Flame']);
-    // Place these Eldritch Invocation spells here, since we don't have a
-    // classRulesExtra function that defines general Warlock rules.
-    SRD5E.featureSpells
-      (rules, 'Gift Of The Depths', 'K', null, ['Water Breathing']);
-    SRD5E.featureSpells(rules, 'Shroud Of Shadow', 'K', null, ['Invisibility']);
-    SRD5E.featureSpells
-      (rules, "Trickster's Escape", 'K', null, ['Freedom Of Movement']);
-  } else if(name == 'The Hexblade') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule
-      ('armorProficiency.Medium', 'featureNotes.hexWarrior', '=', '1');
-    rules.defineRule
-      ('armorProficiency.Shield', 'featureNotes.hexWarrior', '=', '1');
-    rules.defineRule
-      ('weaponProficiency.Martial', 'featureNotes.hexWarrior', '=', '1');
-    rules.defineRule
-      ('combatNotes.accursedSpecter', pathLevel, '=', 'Math.floor(source / 2)');
-    rules.defineRule('combatNotes.accursedSpecter.1',
-      'features.Accursed Specter', '?', null,
-      'charismaModifier', '=', 'Math.max(source, 0)'
-    );
-    rules.defineRule('combatNotes.hexWarrior',
-      'charismaModifier', '=', null,
-      'strengthModifier', '+', '-source'
-    );
-    rules.defineRule
-      ("magicNotes.hexblade'sCurse", 'proficiencyBonus', '=', null);
-    rules.defineRule("magicNotes.hexblade'sCurse.1",
-      pathLevel, '=', null,
-      'charismaModifier', '+', null
-    );
-    // Invocations
-    rules.defineRule('abilityNotes.giftOfTheDepths', 'speed', '=', null);
-    rules.defineRule('magicNotes.cloakOfFlies',
-      'charismaModifier', '=', 'Math.max(source, 0)'
-    );
-    rules.defineRule('magicNotes.maddeningHex',
-      'charismaModifier', '=', 'Math.max(source, 1)'
-    );
-    rules.defineRule
-      ('magicNotes.tombOfLevistus', 'levels.Warlock', '=', 'source * 10');
-  } else if(name == 'War Magic') {
-    rules.defineRule
-      ('combatNotes.tacticalWit', 'intelligenceModifier', '=', null);
-    rules.defineRule
-      ('magicNotes.deflectingShroud', pathLevel, '=', 'Math.floor(source / 2)');
-    rules.defineRule('magicNotes.powerSurge',
-      'intelligenceModifier', '=', 'Math.max(source, 1)'
-    );
-    rules.defineRule('magicNotes.powerSurge.1',
-      'features.Power Surge', '?', null,
-      pathLevel, '=', 'Math.floor(source / 2)'
-    );
-  } else if(name == 'Way Of The Drunken Master') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule('skillProficiency.Performance',
-      'skillNotes.drunkenMasterBonusProficiencies', '=', '1'
-    );
-    rules.defineRule("toolProficiency.Brewer's Supplies",
-      'skillNotes.drunkenMasterBonusProficiencies', '=', '1'
-    );
+  } else if(name == 'Monk') {
     rules.defineRule
       ('features.Leap To Your Feet', 'featureNotes.tipsySway', '=', '1');
     rules.defineRule
       ('features.Redirect Attack', 'featureNotes.tipsySway', '=', '1');
-  } else if(name == 'Way Of The Kensei') {
     rules.defineRule
       ('features.Agile Parry', 'featureNotes.pathOfTheKensei', '=', '1');
     rules.defineRule
@@ -1881,11 +1723,10 @@ Xanathar.pathRulesExtra = function(rules, name) {
       ('features.Way Of The Brush', 'featureNotes.pathOfTheKensei', '=', '1');
     rules.defineRule('combatNotes.deftStrike', 'monkMeleeDieBonus', '=', null);
     rules.defineRule('combatNotes.kenseiWeapons',
-      pathLevel, '=', 'source>=17 ? 5 : source>=11 ? 4 : source>=6 ? 3 : 2'
+      classLevel, '=', 'source>=17 ? 5 : source>=11 ? 4 : source>=6 ? 3 : 2'
     );
     rules.defineRule
       ('weaponChoiceCount', 'combatNotes.kenseiWeapons', '+=', null);
-  } else if(name == 'Way Of The Sun Soul') {
     rules.defineRule('combatNotes.radiantSunBolt',
       'proficiencyBonus', '=', null,
       'dexterityModifier', '+', null
@@ -1901,10 +1742,148 @@ Xanathar.pathRulesExtra = function(rules, name) {
     rules.defineRule
       ('combatNotes.sunShield', 'wisdomModifier', '=', 'source + 5');
     rules.defineRule
-      ('magicNotes.searingArcStrike', pathLevel, '=', 'Math.floor(source / 2)');
+      ('magicNotes.searingArcStrike', classLevel, '=', 'Math.floor(source / 2)');
     rules.defineRule('magicNotes.searingSunburst', 'kiSaveDC', '=', null);
     SRD5E.featureSpells
       (rules, 'Searing Arc Strike', 'W', null, ['Burning Hands']);
+  } else if(name == 'Paladin') {
+    rules.defineRule('combatNotes.scornfulRebuke',
+      'charismaModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule
+      ('magicNotes.auraOfConquest', classLevel, '=', 'source>=18 ? 30 : 10');
+    rules.defineRule('magicNotes.conqueringPresence',
+      'spellDifficultyClass.P', '=', null
+    );
+    rules.defineRule('combatNotes.protectiveSpirit',
+      classLevel, '=', 'Math.floor(source / 2)'
+    );
+    rules.defineRule('combatNotes.protectiveSpirit.1',
+      'features.Protective Spirit', '?', null,
+      'hitPoints', '=', 'Math.floor(source / 2)'
+    );
+    rules.defineRule
+      ('magicNotes.auraOfTheGuardian', classLevel, '=', 'source>=18 ? 30 : 10');
+    rules.defineRule('magicNotes.rebukeTheViolent',
+      'spellDifficultyClass.P', '=', null
+    );
+  } else if(name == 'Ranger') {
+    rules.defineRule('combatNotes.dreadAmbusher', 'wisdomModifier', '=', null);
+    rules.defineRule
+      ('features.Darkvision', 'featureNotes.umbralSight', '=', '1');
+    rules.defineRule('saveProficiency.Wisdom', 'saveNotes.ironMind', '=', '1');
+    rules.defineRule
+      ('combatNotes.planarWarrior', classLevel, '=', 'source>=11 ? 2 : 1');
+    rules.defineRule("combatNotes.hunter'sSense", 'wisdomModifier', '=', null);
+    rules.defineRule
+      ("combatNotes.magic-User'sNemesis", 'spellDifficultyClass.R', '=', null);
+  } else if(name == 'Rogue') {
+    rules.defineRule('featureNotes.unerringEye',
+      'wisdomModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule
+      ('toolChoiceCount', 'skillNotes.masterOfIntrigue', '+=', '1');
+    rules.defineRule('skillNotes.survivalist.1',
+      'features.Survivalist', '?', null,
+      'proficiencyBonus', '=', null
+    );
+    rules.defineRule('skills.Nature', 'skillNotes.survivalist.1', '+=', null);
+    rules.defineRule('skills.Survival', 'skillNotes.survivalist.1', '+=', null);
+    rules.defineRule
+      ('skillProficiency.Nature', 'skillNotes.survivalist', '=', '1');
+    rules.defineRule
+      ('skillProficiency.Survival', 'skillNotes.survivalist', '=', '1');
+    rules.defineRule('combatNotes.rakishAudacity.1',
+      'features.Rakish Audacity', '?', null,
+      'charismaModifier', '=', null
+    );
+    // Dummy rule to italicize combatNotes.rakishAudacity
+    rules.defineRule('initiative', 'combatNotes.rakishAudacity', '+', '0');
+  } else if(name == 'Sorcerer') {
+    rules.defineRule('magicNotes.unearthlyRecovery',
+      'hitPoints', '=', 'Math.floor(source / 2)'
+    );
+    rules.defineRule('magicNotes.eyesOfTheDark', classLevel, '?', 'source>=3');
+    rules.defineRule
+      ('combatNotes.houndOfIllOmen', classLevel, '=', 'Math.floor(source / 2)');
+    SRD5E.featureSpells(rules, 'Eyes Of The Dark', 'S', null, ['Darkness']);
+    rules.defineRule("combatNotes.storm'sFury", classLevel, '=', null);
+    rules.defineRule("combatNotes.storm'sFury.1",
+      "features.Storm's Fury", '?', null,
+      'spellDifficultyClass.S', '=', null
+    );
+    rules.defineRule
+      ('magicNotes.heartOfTheStorm', classLevel, '=', 'Math.floor(source / 2)');
+    rules.defineRule
+      ('magicNotes.windSoul', 'charismaModifier', '=', '3 + source');
+  } else if(name == 'Warlock') {
+    rules.defineRule('combatNotes.searingVengeance',
+      'hitPoints', '=', 'Math.floor(source / 2)'
+    );
+    rules.defineRule('combatNotes.searingVengeance.1',
+      'features.Searing Vengeance', '?', null,
+      'charismaModifier', '=', null
+    );
+    rules.defineRule('magicNotes.healingLight', classLevel, '=', 'source + 1');
+    rules.defineRule('magicNotes.healingLight.1',
+      'features.Healing Light', '?', null,
+      'charismaModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule('magicNotes.radiantSoul', 'charismaModifier', '=', null);
+    rules.defineRule('magicNotes.celestialResilience',
+      classLevel, '=', null,
+      'charismaModifier', '+', null
+    );
+    rules.defineRule('magicNotes.celestialResilience.1',
+      'features.Celestial Resilience', '?', null,
+      classLevel, '=', 'Math.floor(source / 2)',
+      'charismaModifier', '+', null
+    );
+    SRD5E.featureSpells
+      (rules, 'Bonus Celestial Cantrips', 'K', null, ['Light,Sacred Flame']);
+    SRD5E.featureSpells
+      (rules, 'Gift Of The Depths', 'K', null, ['Water Breathing']);
+    SRD5E.featureSpells(rules, 'Shroud Of Shadow', 'K', null, ['Invisibility']);
+    SRD5E.featureSpells
+      (rules, "Trickster's Escape", 'K', null, ['Freedom Of Movement']);
+    rules.defineRule
+      ('combatNotes.accursedSpecter', classLevel, '=', 'Math.floor(source / 2)');
+    rules.defineRule('combatNotes.accursedSpecter.1',
+      'features.Accursed Specter', '?', null,
+      'charismaModifier', '=', 'Math.max(source, 0)'
+    );
+    rules.defineRule('combatNotes.hexWarrior',
+      'charismaModifier', '=', null,
+      'strengthModifier', '+', '-source'
+    );
+    rules.defineRule
+      ("magicNotes.hexblade'sCurse", 'proficiencyBonus', '=', null);
+    rules.defineRule("magicNotes.hexblade'sCurse.1",
+      classLevel, '=', null,
+      'charismaModifier', '+', null
+    );
+    // Invocations
+    rules.defineRule('abilityNotes.giftOfTheDepths', 'speed', '=', null);
+    rules.defineRule('magicNotes.cloakOfFlies',
+      'charismaModifier', '=', 'Math.max(source, 0)'
+    );
+    rules.defineRule('magicNotes.maddeningHex',
+      'charismaModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule
+      ('magicNotes.tombOfLevistus', 'levels.Warlock', '=', 'source * 10');
+  } else if(name == 'Wizard') {
+    rules.defineRule
+      ('combatNotes.tacticalWit', 'intelligenceModifier', '=', null);
+    rules.defineRule
+      ('magicNotes.deflectingShroud', classLevel, '=', 'Math.floor(source / 2)');
+    rules.defineRule('magicNotes.powerSurge',
+      'intelligenceModifier', '=', 'Math.max(source, 1)'
+    );
+    rules.defineRule('magicNotes.powerSurge.1',
+      'features.Power Surge', '?', null,
+      classLevel, '=', 'Math.floor(source / 2)'
+    );
   }
 
 };
