@@ -1479,7 +1479,7 @@ Tasha.SPELLS = {
   'Booming Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers %{(level+7)//6}d8 HP thunder on move w/in 1 rd"',
+    'Description="Struck foe suffers %{(level+7)//6}d8 HP thunder on next move w/in 1 rd"',
   'Dream Of The Blue Veil':
     'School=Conjuration ' +
     'Level=B7,K7,S7,W7 ' +
@@ -1487,7 +1487,7 @@ Tasha.SPELLS = {
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers +%{(level+1)//6}d8 HP fire and an adjacent target suffers %{(level+1)//6}d8+%{mdf} HP fire"',
+    'Description="Struck foe suffers +%{(level+1)//6}d8 HP fire, and an adjacent target suffers %{(level+1)//6}d8+%{mdf} HP fire"',
   'Intellect Fortress':
     'School=Abjuration ' +
     'Level=A3,B3,K3,S3,W3 ' +
@@ -1510,7 +1510,7 @@ Tasha.SPELLS = {
     'School=Conjuration ' +
     'Level=K4,W4 ' +
     'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned beholderkin, slaad, or star spawn obeys self for conc up to 1 hr"',
+    'Description="R90\' Summoned beholderkin, slaad, or star spawn aberrant spirit obeys self for conc up to 1 hr"',
   'Summon Beast':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
@@ -1568,7 +1568,7 @@ Tasha.SPELLS = {
   "Tasha's Otherworldly Guise":
     'School=Transmutation ' +
     'Level=K6,S6,W6 ' +
-    'Description="Self gains immunity to fire damage, poison damage, and poisoned condition (or radiant damage, necrotic damage, and charmed condition), 40\' fly Speed, +2 AC, and magical weapon attacks using spell attack in place of strength or dexterity 2/rd for conc up to 1 min"'
+    'Description="Self gains immunity to choice of fire damage, poison damage, and poisoned condition or radiant damage, necrotic damage, and charmed condition, 40\' fly Speed, +2 AC, and magical weapon attacks using spell attack in place of strength or dexterity 2/rd for conc up to 1 min"'
 };
 Tasha.SPELLS_LEVELS_ADDED = {
   'Acid Splash':'A0',
