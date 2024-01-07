@@ -199,11 +199,11 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Unarmored Defense (Barbarian): +3 Armor Class in no armor</i></td>
       </tr><tr style="text-align:center">
-        <td>Ancestral Protectors: First foe struck during rage suffers Disadv on attack when fighting others, and target also has resistance to damage, for 1 rd</td>
+        <td>Ancestral Protectors: First foe struck each rd during rage suffers Disadv on attacks on others, and target also has resistance to damage, for 1 rd</td>
       </tr><tr style="text-align:center">
         <td>Brutal Critical: Adds 3 dice to crit damage</td>
       </tr><tr style="text-align:center">
-        <td>Divine Fury: First hit each turn during rage inflicts choice of +1d6+10 HP necrotic or radiant</td>
+        <td>Divine Fury: First hit each turn during rage inflicts +1d6+10 HP choice of necrotic or radiant</td>
       </tr><tr style="text-align:center">
         <td>Dual Wielder: +1 Armor Class w/two weapons/May use two-weapon fighting w/any one-handed weapons/May draw or stow two weapons at once</td>
       </tr><tr style="text-align:center">
@@ -211,23 +211,23 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Persistent Rage: May continue raging when unengaged w/a foe</td>
       </tr><tr style="text-align:center">
-        <td>Rage Beyond Death: Remains conscious at 0 HP until rage ends</td>
+        <td>Rage Beyond Death: Remains conscious and alive at 0 HP until rage ends</td>
       </tr><tr style="text-align:center">
         <td>Rage: +4 Strength damage</td>
       </tr><tr style="text-align:center">
         <td>Raging Storm (Desert): R10' May use Reaction to inflict 10 HP fire on a successful attacker (DC 17 Dexterity neg)</td>
       </tr><tr style="text-align:center">
-        <td>Raging Storm (Sea): R10' May use Reaction after a successful attack to knock foe prone (DC 17 Strength neg)</td>
+        <td>Raging Storm (Sea): R10' May use Reaction to inflict knocked prone on a successful attacker (DC 17 Strength neg)</td>
       </tr><tr style="text-align:center">
         <td>Reckless Attack: During rage, may suffer foe Adv on attacks to gain Adv on Strength melee attacks for 1 rd</td>
       </tr><tr style="text-align:center">
         <td>Sentinel: Successful OA halts target/May take an OA when an adjacent foe uses Disengage/May use Reaction to attack when an adjacent foe targets another</td>
       </tr><tr style="text-align:center">
-        <td>Spirit Shield: R30' May use Reaction to reduce damage to an ally by 4d6 HP</td>
+        <td>Spirit Shield: R30' May use Reaction to reduce damage to a creature by 4d6 HP</td>
       </tr><tr style="text-align:center">
-        <td>Vengeful Ancestors: Damage prevented by Spirit Shield rebounds on attacker as force damage</td>
+        <td>Vengeful Ancestors: Attacker suffers force damage equal to that prevented by Spirit Shield</td>
       </tr><tr style="text-align:center">
-        <td>Zealous Presence: R60' Battle cry gives 10 targets Adv on attacks and saving throws for 1 rd 1/long rest</td>
+        <td>Zealous Presence: R60' May use a bonus action to give 10 targets Adv on attacks and saving throws for 1 rd 1/long rest</td>
       </tr></table>
 </td>
     </tr></table>
@@ -268,8 +268,8 @@ var attributes = {
       <td>      <table id="SpellStats" style="width:100%">
       <tr style="text-align:center">
         <td><b>Spell Slots</b>: D0: 2; D1: 1</td>
-        <td><b>Attack</b>: C: 6; D: 6</td>
-        <td><b>Spell DC</b>: C: 14; D: 14</td>
+        <td><b>Attack</b>: Barbarian: 6; D: 6</td>
+        <td><b>Spell DC</b>: Barbarian: 14; D: 14</td>
       </tr></table>
 </td>
     </tr></table>
@@ -277,9 +277,9 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Spells</b>:     <table id="Spells" style="width:100%">
     <tr style="text-align:left">
-      <td>Augury (C2 [Consult The Spirits] Divi): Self learns weal or woe outcome of a proposed act up to 30 min in the future [R]</td>
+      <td>Augury (Barbarian2 [Consult The Spirits] Divi): Self learns weal or woe outcome of a proposed act up to 30 min in the future [R]</td>
     </tr><tr style="text-align:left">
-      <td>Clairvoyance (C3 [Consult The Spirits] Divi): R1 mile Self gains choice of remote sight or hearing through an invisible sensor for conc up to 10 min</td>
+      <td>Clairvoyance (Barbarian3 [Consult The Spirits] Divi): R1 mile Self gains choice of remote sight or hearing through an invisible sensor for conc up to 10 min</td>
     </tr><tr style="text-align:left">
       <td>Healing Word (D1 Evoc): R60' Target regains 1d4+0 HP [+Level restores +1d4 HP]</td>
     </tr><tr style="text-align:left">
@@ -297,7 +297,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Rage: Cannot cast or concentrate during rage</td>
     </tr><tr style="text-align:center">
-      <td>Raging Storm (Tundra): May immobilize target in Storm Aura (DC 17 Strength neg) for 1 rd 1/rd</td>
+      <td>Raging Storm (Tundra): R10; May immobilize target (DC 17 Strength neg) for 1 rd 1/rd</td>
     </tr><tr style="text-align:center">
       <td>Shielding Storm: R10' Targets gain resistance to fire damage</td>
     </tr><tr style="text-align:center">
@@ -307,9 +307,9 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Storm Aura (Tundra): R10' Targets gain 6 temporary HP during rage 1/rd</td>
     </tr><tr style="text-align:center">
-      <td>Storm Soul (Desert): Touch lights unpossessed flammable objects</td>
+      <td>Storm Soul (Desert): Touch may set unattended flammable objects on fire</td>
     </tr><tr style="text-align:center">
-      <td>Storm Soul (Tundra): Touch freezes unoccupied 5' cu water for 1 min</td>
+      <td>Storm Soul (Tundra): Touch may freeze unoccupied 5' cu water for 1 min</td>
     </tr></table>
 </td>
   </tr></table>

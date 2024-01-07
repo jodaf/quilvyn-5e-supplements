@@ -98,7 +98,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Charger; Healer; Magic Initiate (Sorcerer); Observant; Savage Attacker</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common/Choose 1 from any)</td>
-        <td><b>Bard Features</b>: Armor Proficiency (Light); Bard College; Bardic Inspiration; Blade Flourish; College Of Glamour; College Of Swords; College Of Whispers; Countercharm; Defensive Flourish; Enthralling Performance; Expertise (Bard); Extra Attack; Fighting Style (Dueling); Fighting Style (Two-Weapon Fighting); Font Of Inspiration; Jack Of All Trades; Magical Secrets; Mantle Of Inspiration; Mantle Of Majesty; Mantle Of Whispers; Master's Flourish; Mobile Flourish; Psychic Blades (Whispers); Ritual Casting; Save Proficiency (Charisma/Dexterity); Shadow Lore; Skill Proficiency (Choose 3 from any); Slashing Flourish; Song Of Rest; Spellcasting; Superior Inspiration; Swords Bonus Proficiencies; Tool Proficiency (Choose 3 from any Musical); Unbreakable Majesty; Weapon Proficiency (Simple/Hand Crossbow/Longsword/Rapier/Shortsword); Words Of Terror</td>
+        <td><b>Bard Features</b>: Armor Proficiency (Light); Bard College; Bardic Inspiration; Blade Flourish; Bonus Proficiencies (College Of Swords); College Of Glamour; College Of Swords; College Of Whispers; Countercharm; Defensive Flourish; Enthralling Performance; Expertise (Bard); Extra Attack; Fighting Style (Dueling); Fighting Style (Two-Weapon Fighting); Font Of Inspiration; Jack Of All Trades; Magical Secrets; Mantle Of Inspiration; Mantle Of Majesty; Mantle Of Whispers; Master's Flourish; Mobile Flourish; Psychic Blades (College Of Whispers); Ritual Casting; Save Proficiency (Charisma/Dexterity); Shadow Lore; Skill Proficiency (Choose 3 from any); Slashing Flourish; Song Of Rest; Spellcasting; Superior Inspiration; Tool Proficiency (Choose 3 from any Musical); Unbreakable Majesty; Weapon Proficiency (Simple/Hand Crossbow/Longsword/Rapier/Shortsword); Words Of Terror</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight/Religion)</td>
       </tr></table>
 </td>
@@ -107,9 +107,9 @@ var attributes = {
       <tr style="text-align:center">
         <td><i>Bard College: 1 selection</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Font Of Inspiration: Bardic Inspiration refreshes after a short rest</i></td>
+        <td><i>Bonus Proficiencies (College Of Swords): Armor Proficiency (Medium)/Weapon Proficiency (Scimitar)</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Swords Bonus Proficiencies: Armor Proficiency (Medium)/Weapon Proficiency (Scimitar)</i></td>
+        <td><i>Font Of Inspiration: Bardic Inspiration refreshes after a short rest</i></td>
       </tr><tr style="text-align:center">
         <td>Bardic Inspiration: R60' May give an ally a +1d12 bonus on an ability, attack, or saving throw w/in 10 min 2/short rest</td>
       </tr><tr style="text-align:center">
@@ -224,11 +224,11 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Fighting Style (Two-Weapon Fighting): Adds ability modifier to second attack damage</td>
       </tr><tr style="text-align:center">
-        <td>Master's Flourish: May Use 1d6 instead of Bardic Inspiration for flourish</td>
+        <td>Master's Flourish: May use 1d6 instead of Bardic Inspiration for flourish</td>
       </tr><tr style="text-align:center">
         <td>Mobile Flourish: May spend 1 Bardic Inspiration to inflict +1d12 damage and 5' + 1d12' push</td>
       </tr><tr style="text-align:center">
-        <td>Psychic Blades (Whispers): May spend 1 Bardic Inspiration to inflict +8d6 HP psychic damage 1/rd</td>
+        <td>Psychic Blades (College Of Whispers): May spend 1 Bardic Inspiration to inflict +8d6 HP psychic damage 1/rd</td>
       </tr><tr style="text-align:center">
         <td>Savage Attacker: May take the best of two melee damage rolls 1/rd</td>
       </tr><tr style="text-align:center">
@@ -332,27 +332,29 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Magic Initiate (Sorcerer): Knows 2 S0 spells/May cast chosen S1 spell 1/long rest</i></td>
     </tr><tr style="text-align:center">
+      <td>Bonus Proficiencies (College Of Swords): May use a proficient melee weapon as a bard spell focus</td>
+    </tr><tr style="text-align:center">
       <td>Countercharm: R30' Performance gives friendly listeners Adv on saves vs. charm and fright for 1 rd</td>
     </tr><tr style="text-align:center">
-      <td>Enthralling Performance: R60' 1 min performance charms 2 listeners (DC 16 Will neg) for 1 hr 1/short rest</td>
+      <td>Enthralling Performance: R60' May use 1 min performance to charm 2 listeners (DC 16 Will neg) for 1 hr (damage ends) 1/short rest</td>
     </tr><tr style="text-align:center">
       <td>Magical Secrets: May learn 6 additional spells from any class</td>
     </tr><tr style="text-align:center">
-      <td>Mantle Of Inspiration: R60' Bardic Inspiration gives 2 targets 14 temporary HP and an immediate move w/out OA</td>
+      <td>Mantle Of Inspiration: R60' May use a Bardic Inspiration bonus action to give 2 targets 14 temporary HP and an immediate move w/out OA</td>
     </tr><tr style="text-align:center">
-      <td>Mantle Of Majesty: May cast <i>Command</i> 1/rd for conc or 1 min 1/long rest</td>
+      <td>Mantle Of Majesty: May cast <i>Command</i> as a bonus action 1/rd for conc or 1 min 1/long rest</td>
     </tr><tr style="text-align:center">
-      <td>Mantle Of Whispers: R30' May capture a dying person's shadow to use as a disguise (Insight vs. +5 Deception to see through) 1/short rest</td>
+      <td>Mantle Of Whispers: R30' May capture a dying person's shadow to use as a disguise (Insight vs. +5 Deception to see through) for 1 hr 1/short rest</td>
     </tr><tr style="text-align:center">
       <td>Ritual Casting: May cast spells marked with [R] using a ritual</td>
     </tr><tr style="text-align:center">
-      <td>Shadow Lore: R30' Target obeys self commands (DC 16 Wisdom neg) for 8 hr</td>
+      <td>Shadow Lore: R30' Target obeys self commands (DC 16 Wisdom neg) for 8 hr 1/long rest</td>
     </tr><tr style="text-align:center">
       <td>Song Of Rest: Friendly listeners regain +1d12 HP after a short rest</td>
     </tr><tr style="text-align:center">
-      <td>Unbreakable Majesty: Foes cannot attack self for 1 min (DC 16 Charisma suffers Disadv on saves vs. self spells)</td>
+      <td>Unbreakable Majesty: Foes cannot attack self for 1 min (DC 16 Charisma neg and suffers Disadv on saves vs. self spells for 1 rd)</td>
     </tr><tr style="text-align:center">
-      <td>Words Of Terror: 1 min conversation frightens target (DC 16 Wisdom neg) for 1 hr 1/short rest</td>
+      <td>Words Of Terror: 1 min conversation frightens target (DC 16 Wisdom neg; damage ends) for 1 hr 1/short rest</td>
     </tr></table>
 </td>
   </tr></table>
