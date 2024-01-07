@@ -21,7 +21,8 @@ var attributes = {
   "selectableFeatures.Fighter - Grasping Arrow":1, "selectableFeatures.Fighter - Piercing Arrow":1, 
   "selectableFeatures.Fighter - Samurai":1, "selectableFeatures.Fighter - Seeking Arrow":1, 
   "selectableFeatures.Fighter - Shadow Arrow":1, "shield":"None", "skillsChosen.Acrobatics":1, 
-  "skillsChosen.Animal Handling":1, "strength":13, "weapons.Greataxe":1, "weapons.Light Hammer":1, 
+  "skillsChosen.Animal Handling":1, "spells.Druidcraft(Fighter0 [Arcane Archer Lore] Tran)":1, 
+  "spells.Prestidigitation(Fighter0 [Arcane Archer Lore] Tran)":1, "strength":13, "weapons.Greataxe":1, "weapons.Light Hammer":1, 
   "weapons.Rapier":1, "weapons.Shortbow":1, "wisdom":11
 };
   </script>
@@ -95,13 +96,15 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Ability Boost; Actor; Great Weapon Master; Linguist; Lucky; Polearm Master; Savage Attacker</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common/Choose 1 from any)</td>
-        <td><b>Fighter Features</b>: Action Surge; Arcane Archer Lore; Arcane Archer; Arcane Shot; Armor Proficiency (Heavy/Shield); Banishing Arrow; Beguiling Arrow; Born To The Saddle; Bursting Arrow; Cavalier Bonus Proficiency; Cavalier; Curving Shot; Elegant Courtier; Enfeebling Arrow; Ever-Ready Shot; Extra Attack; Ferocious Charger; Fighting Spirit; Fighting Style (Archery); Fighting Style; Grasping Arrow; Hold The Line; Improved Shots; Indomitable; Magic Arrow; Martial Archetype; Piercing Arrow; Rapid Strike; Samurai Bonus Proficiency; Samurai; Save Proficiency (Constitution/Strength); Second Wind; Seeking Arrow; Shadow Arrow; Skill Proficiency (Choose 2 from Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival); Strength Before Death; Tireless Spirit; Unwavering Mark; Vigilant Defender; Warding Maneuver; Weapon Proficiency (Martial)</td>
+        <td><b>Fighter Features</b>: Action Surge; Arcane Archer Lore; Arcane Archer; Arcane Shot; Armor Proficiency (Heavy/Shield); Banishing Arrow; Beguiling Arrow; Bonus Proficiency (Cavalier); Bonus Proficiency (Samurai); Born To The Saddle; Bursting Arrow; Cavalier; Curving Shot; Elegant Courtier; Enfeebling Arrow; Ever-Ready Shot; Extra Attack; Ferocious Charger; Fighting Spirit; Fighting Style (Archery); Fighting Style; Grasping Arrow; Hold The Line; Improved Shots; Indomitable; Magic Arrow; Martial Archetype; Piercing Arrow; Rapid Strike; Samurai; Save Proficiency (Constitution/Strength); Second Wind; Seeking Arrow; Shadow Arrow; Skill Proficiency (Choose 2 from Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival); Strength Before Death; Tireless Spirit; Unwavering Mark; Vigilant Defender; Warding Maneuver; Weapon Proficiency (Martial)</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight/Religion)</td>
       </tr></table>
 </td>
     </tr><tr style="text-align:center">
       <td><b>Feature Notes</b>:       <table id="FeatureNotes" style="width:100%">
       <tr style="text-align:center">
+        <td><i>Arcane Shot: 6 selections</i></td>
+      </tr><tr style="text-align:center">
         <td><i>Fighting Style: 1 selections</i></td>
       </tr><tr style="text-align:center">
         <td><i>Martial Archetype: 1 selection</i></td>
@@ -155,17 +158,17 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Arcane Archer Lore: Skill Proficiency (Choose 1 from Arcana, Nature)</i></td>
     </tr><tr style="text-align:center">
-      <td><i>Cavalier Bonus Proficiency: Skill Proficiency (Choose 1 from Animal Handling, History, Insight, Performance, Persuasion)</i></td>
+      <td><i>Bonus Proficiency (Cavalier): Skill Proficiency (Choose 1 from Animal Handling, History, Insight, Performance, Persuasion)</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Bonus Proficiency (Samurai): Skill Proficiency (Choose 1 from History, Insight, Performance, Persuasion)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Elegant Courtier: +1 Persuasion</i></td>
     </tr><tr style="text-align:center">
       <td><i>Linguist: Language (Choose 3 from any)</i></td>
     </tr><tr style="text-align:center">
-      <td><i>Samurai Bonus Proficiency: Skill Proficiency (Choose 1 from History, Insight, Performance, Persuasion)</i></td>
-    </tr><tr style="text-align:center">
       <td>Actor: Adv on Deception and Performance (impersonation)/May mimic others' speech or sounds</td>
     </tr><tr style="text-align:center">
-      <td>Born To The Saddle: Adv on saves vs. falling off mount/Lands on feet after a 10' fall from mount/Dismount and mount each cost 5' move</td>
+      <td>Born To The Saddle: Adv on saves vs. falling off mount/Lands on feet after a 10' fall from mount/Dismount and mount each cost 5' movement</td>
     </tr><tr style="text-align:center">
       <td>Bulky Armor: Disadv on Stealth</td>
     </tr></table>
@@ -221,53 +224,55 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Action Surge: May take an extra action 2/short rest</td>
       </tr><tr style="text-align:center">
-        <td>Banishing Arrow: Arrow inflicts +2d6 HP force and sends target to Feywild (DC 18 Charisma neg) for 1 rd</td>
+        <td>Arcane Shot: May use an Arcane Shot effect 1/rd 2/short rest</td>
       </tr><tr style="text-align:center">
-        <td>Beguiling Arrow: Arrow inflicts +4d6 HP psychic, and target becomes charmed by an ally w/in 30' (DC 18 Wisdom neg)</td>
+        <td>Banishing Arrow: Arrow inflicts +2d6 HP force and sends target to Feywild (DC 18 Charisma HP only) for 1 rd</td>
       </tr><tr style="text-align:center">
-        <td>Bursting Arrow: Arrow inflicts +4d6 HP force damage in a 10' radius</td>
+        <td>Beguiling Arrow: Arrow inflicts +4d6 HP psychic, and target becomes charmed by an ally w/in 30' (DC 18 Wisdom HP only; attacking target ends)</td>
+      </tr><tr style="text-align:center">
+        <td>Bursting Arrow: Successrul arrow attack inflicts +4d6 HP force damage in a 10' radius</td>
       </tr><tr style="text-align:center">
         <td>Curving Shot: May redirect a magic arrow miss to another target w/in 60'</td>
       </tr><tr style="text-align:center">
-        <td>Enfeebling Arrow: Arrow inflicts +4d6 HP necrotic damage and half damage on attacks by target (DC 18 Constitution neg) for 1 rd</td>
+        <td>Enfeebling Arrow: Arrow inflicts +4d6 HP necrotic damage and half damage on attacks by target (DC 18 Constitution HP only) for 1 rd</td>
       </tr><tr style="text-align:center">
-        <td>Ever-Ready Shot: Minimum 1 Arcane Shot use after initiative</td>
+        <td>Ever-Ready Shot: Has a minimum of 1 Arcane Shot use available after initiative</td>
       </tr><tr style="text-align:center">
-        <td>Ferocious Charger: May knock foe prone w/a hit after a 10' move 1/rd (DC 16 Strength neg)</td>
+        <td>Ferocious Charger: May knock prone w/a hit after a 10' move 1/rd (DC 16 Strength neg)</td>
       </tr><tr style="text-align:center">
-        <td>Fighting Spirit: May gain Adv on attacks and 15 temporary HP for 1 rd 3/long rest</td>
+        <td>Fighting Spirit: May use a bonus action to gain Adv on attacks and 15 temporary HP for 1 rd 3/long rest</td>
       </tr><tr style="text-align:center">
-        <td>Grasping Arrow: Arrow inflicts +4d6 HP poison damage, -10' Speed, and 4d6 HP slashing/rd for 1 min (DC 18 Athletics ends)</td>
+        <td>Grasping Arrow: Arrow inflicts +4d6 HP poison damage, -10' Speed, and 4d6 HP slashing/rd upon target move for 1 min (DC 18 Athletics ends)</td>
       </tr><tr style="text-align:center">
         <td>Great Weapon Master: May make a bonus attack after crit or reducing foe to 0 HP/May suffer -5 attack w/a heavy weapon to gain +10 damage</td>
       </tr><tr style="text-align:center">
-        <td>Hold The Line: R5' Foe move provokes an OA; hit negates move</td>
+        <td>Hold The Line: Foe move w/in reach provokes an OA; hit halts move</td>
       </tr><tr style="text-align:center">
         <td>Magic Arrow: Arrows count as magic weapons</td>
       </tr><tr style="text-align:center">
-        <td>Piercing Arrow: Arrow passes through cover harmlessly and inflicts +2d6 HP piercing damage to targets in a 30'x1' line (DC 18 Dexterity half)</td>
+        <td>Piercing Arrow: Arrow passes through objects harmlessly and inflicts +2d6 HP piercing damage to creatures in a 30'x1' line (DC 18 Dexterity half)</td>
       </tr><tr style="text-align:center">
         <td>Polearm Master: Successful bonus attack w/polearm butt inflicts 1d4 HP bludgeoning/Foe entering polearm reach provokes an OA</td>
       </tr><tr style="text-align:center">
-        <td>Rapid Strike: May lose Adv on attacks for an extra attack 1/rd</td>
+        <td>Rapid Strike: May forego Adv on an attack to gain an extra attack 1/rd</td>
       </tr><tr style="text-align:center">
         <td>Savage Attacker: May take the best of two melee damage rolls 1/rd</td>
       </tr><tr style="text-align:center">
         <td>Second Wind: May use a bonus action to regain 1d10+20 HP 1/short rest</td>
       </tr><tr style="text-align:center">
-        <td>Seeking Arrow: Arrow ignores 3/4 cover, inflicts +2d6 HP force damage, and reveals target (DC 18 Dexterity half HP only)</td>
+        <td>Seeking Arrow: Arrow ignores 3/4 cover, inflicting +2d6 HP force damage and revealing target (DC 18 Dexterity half HP only)</td>
       </tr><tr style="text-align:center">
-        <td>Shadow Arrow: Arrow inflicts +4d6 HP psychic damage and 5' vision (DC 18 Wisdom neg) for 1 rd</td>
+        <td>Shadow Arrow: Arrow inflicts +4d6 HP psychic damage and 5' vision (DC 18 Wisdom HP only) for 1 rd</td>
       </tr><tr style="text-align:center">
         <td>Strength Before Death: May take an extra turn when brought to 0 HP 1/long rest</td>
       </tr><tr style="text-align:center">
-        <td>Tireless Spirit: Minimum 1 Fighting Spirit use after initiative</td>
+        <td>Tireless Spirit: Has a minimum 1 Fighting Spirit use available after initiative</td>
       </tr><tr style="text-align:center">
-        <td>Unwavering Mark: Successful attack inflicts Disadv on attacks on others and gives self a bonus attack w/Adv and +10 HP weapon damage for 1 rd 2/long rest</td>
+        <td>Unwavering Mark: May mark foe w/a successful attack; foe attacks on others while adjacent to self suffer Disadv and allow self a bonus attack w/Adv and +10 HP weapon damage for 1 rd 2/long rest</td>
       </tr><tr style="text-align:center">
         <td>Vigilant Defender: May use Reaction to make an OA on every other creature's turn</td>
       </tr><tr style="text-align:center">
-        <td>Warding Maneuver: R5' May give +1d8 AC and damage resistance to ally when struck 1/long rest</td>
+        <td>Warding Maneuver: May give self or an adjacent ally +1d8 AC and damage resistance when struck 1/long rest</td>
       </tr></table>
 </td>
     </tr></table>
@@ -295,9 +300,9 @@ var attributes = {
   <tr style="text-align:center">
     <td><b>Spells</b>:     <table id="Spells" style="width:100%">
     <tr style="text-align:left">
-      <td>Druidcraft (D0 [Arcane Archer Lore] Tran): R30' Self may predict 1 dy weather, cause a plant to bloom, create a minor sensory effect, or light or snuff a small fire</td>
+      <td>Druidcraft (Fighter0 [Arcane Archer Lore] Tran): R30' Self may predict 1 dy weather, cause a plant to bloom, create a minor sensory effect, or light or snuff a small fire</td>
     </tr><tr style="text-align:left">
-      <td>Prestidigitation (W0 [Arcane Archer Lore] Tran): R10' Self may perform minor magic effects for 1 hr</td>
+      <td>Prestidigitation (Fighter0 [Arcane Archer Lore] Tran): R10' Self may perform minor magic effects for 1 hr</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">

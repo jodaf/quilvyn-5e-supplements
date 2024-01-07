@@ -72,6 +72,8 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Ability Boosts: 2 to distribute</td>
     </tr><tr style="text-align:center">
+      <td>Leap To Your Feet: Standing from prone costs 5' movement</td>
+    </tr><tr style="text-align:center">
       <td>Slow Fall: May use Reaction to negate 100 HP falling damage</td>
     </tr><tr style="text-align:center">
       <td>Unarmored Movement: May move across vertical surfaces and liquids</td>
@@ -97,7 +99,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Keen Mind; Mobile; Mounted Combatant; Observant; Resilient</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common/Choose 1 from any)</td>
-        <td><b>Monk Features</b>: Deflect Missiles; Diamond Soul; Drunkard's Luck; Drunken Master Bonus Proficiencies; Drunken Technique; Empty Body; Evasion; Extra Attack; Flurry Of Blows; Intoxicated Frenzy; Ki-Empowered Strikes; Ki; Martial Arts; Monastic Tradition; One With The Blade; Path Of The Kensei; Patient Defense; Perfect Self; Purity Of Body; Radiant Sun Bolt; Save Proficiency (Dexterity/Strength); Searing Arc Strike; Searing Sunburst; Sharpen The Blade; Skill Proficiency (Choose 2 from Acrobatics, Athletics, History, Insight, Religion, Stealth); Slow Fall; Step Of The Wind; Stillness Of Mind; Stunning Strike; Sun Shield; Timeless Body (Monk); Tipsy Sway; Tongue Of The Sun And Moon; Tool Proficiency (Choose 1 from any Artisan, any Musical); Unarmored Defense (Monk); Unarmored Movement; Unerring Accuracy; Way Of The Drunken Master; Way Of The Kensei; Way Of The Sun Soul; Weapon Proficiency (Simple/Shortsword)</td>
+        <td><b>Monk Features</b>: Bonus Proficiencies (Way Of The Drunken Master); Deflect Missiles; Diamond Soul; Drunkard's Luck; Drunken Technique; Empty Body; Evasion; Extra Attack; Flurry Of Blows; Intoxicated Frenzy; Ki-Empowered Strikes; Ki; Martial Arts; Monastic Tradition; One With The Blade; Path Of The Kensei; Patient Defense; Perfect Self; Purity Of Body; Radiant Sun Bolt; Save Proficiency (Dexterity/Strength); Searing Arc Strike; Searing Sunburst; Sharpen The Blade; Skill Proficiency (Choose 2 from Acrobatics, Athletics, History, Insight, Religion, Stealth); Slow Fall; Step Of The Wind; Stillness Of Mind; Stunning Strike; Sun Shield; Timeless Body (Monk); Tipsy Sway; Tongue Of The Sun And Moon; Tool Proficiency (Choose 1 from any Artisan, any Musical); Unarmored Defense (Monk); Unarmored Movement; Unerring Accuracy; Way Of The Drunken Master; Way Of The Kensei; Way Of The Sun Soul; Weapon Proficiency (Simple/Shortsword)</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight/Religion)</td>
       </tr></table>
 </td>
@@ -110,7 +112,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Path Of The Kensei: Has Kensei Weapons, Agile Parry, Kensei's Shot, and Way Of The Brush features</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Tipsy Sway: Has Leap To Your Feat and Redirect Attack features</i></td>
+        <td><i>Tipsy Sway: Has Leap To Your Feet and Redirect Attack features</i></td>
       </tr><tr style="text-align:center">
         <td>Drunkard's Luck: May spend 2 Ki Points to cancel Disadv on an ability, attack, or save roll</td>
       </tr><tr style="text-align:center">
@@ -169,7 +171,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Drunken Master Bonus Proficiencies: Skill Proficiency (Performance)/Tool Proficiency (Brewer's Supplies)</i></td>
+      <td><i>Bonus Proficiencies (Way Of The Drunken Master): Skill Proficiency (Performance)/Tool Proficiency (Brewer's Supplies)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Way Of The Brush: Tool Proficiency (Choose 1 from Calligrapher's Supplies, Painter's Supplies)</i></td>
     </tr><tr style="text-align:center">
@@ -230,13 +232,13 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Deft Strike: May spend 1 Ki Point to inflict +1d10 damage with a Kensei weapon 1/rd</td>
       </tr><tr style="text-align:center">
-        <td>Drunken Technique: May Disengage and gain +10' Speed during Flurry Of Blows</td>
+        <td>Drunken Technique: Gains +10' Speed and movement provokes no OA during Flurry Of Blows</td>
       </tr><tr style="text-align:center">
         <td>Flurry Of Blows: May spend 1 Ki Point to gain 2 bonus unarmed strikes</td>
       </tr><tr style="text-align:center">
         <td>Intoxicated Frenzy: May make 3 additional Flurry Of Blows attacks on 3 different foes</td>
       </tr><tr style="text-align:center">
-        <td>Kensei's Shot: May inflict +1d4 HP damage with ranged Kensei weapon as bonus action</td>
+        <td>Kensei's Shot: May use a bonus action to inflict +1d4 HP damage with a ranged Kensei weapon</td>
       </tr><tr style="text-align:center">
         <td>Ki-Empowered Strikes: Unarmed attacks count as magical</td>
       </tr><tr style="text-align:center">
@@ -252,17 +254,17 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Perfect Self: Has a minimum of 4 Ki Points available after initiative</td>
       </tr><tr style="text-align:center">
-        <td>Radiant Sun Bolt: R30' +8 ranged touch attack inflicts 1d10+2 HP radiant 1/rd; may spend 1 Ki Point for 2/rd</td>
+        <td>Radiant Sun Bolt: R30' +8 ranged touch attack inflicts 1d10+2 HP radiant 1/rd (may spend 1 Ki Point for a second attack)</td>
       </tr><tr style="text-align:center">
-        <td>Redirect Attack: May spend 1 Ki Point to redirect a foe miss to an adjacent creature</td>
+        <td>Redirect Attack: May use Reaction and spend 1 Ki Point to redirect a foe miss to an adjacent creature</td>
       </tr><tr style="text-align:center">
-        <td>Sharpen The Blade: May spend 1-3 Ki Points to gain an equal bonus on Kensei weapon attack and damage for 1 min</td>
+        <td>Sharpen The Blade: May spend 1-3 Ki Points to gain an equal bonus on attack and damage w/a Kensei weapon for 1 min</td>
       </tr><tr style="text-align:center">
         <td>Step Of The Wind: May spend 1 Ki Point to gain a bonus Disengage or Dash and dbl jump</td>
       </tr><tr style="text-align:center">
         <td>Stunning Strike: After a successful attack, may spend 1 Ki Point to stun foe (DC 16 Constitution neg) for 1 rd</td>
       </tr><tr style="text-align:center">
-        <td>Sun Shield: May use Reaction to inflict 7 HP radiant on a successful melee attacker</td>
+        <td>Sun Shield: While emiting light, may use Reaction to inflict 7 HP radiant on a successful melee attacker</td>
       </tr><tr style="text-align:center">
         <td>Unerring Accuracy: May reroll a monk weapon miss 1/rd</td>
       </tr></table>
@@ -313,7 +315,7 @@ var attributes = {
     <tr style="text-align:left">
       <td>Astral Projection (Monk9 [Empty Body] Necr): R10' Self and 8 willing targets project to astral plane</td>
     </tr><tr style="text-align:left">
-      <td>Burning Hands (W1 [Searing Arc Strike] Evoc): 15' cone inflicts 3d6 HP fire (Dexterity half) [+Level inflicts +1d6 HP]</td>
+      <td>Burning Hands (Monk1 [Searing Arc Strike] Evoc): 15' cone inflicts 3d6 HP fire (Dexterity half) [+Level inflicts +1d6 HP]</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -323,7 +325,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Searing Arc Strike: May spend 2-10 Ki Points to cast <i>Burning Hands</i> after an attack</td>
     </tr><tr style="text-align:center">
-      <td>Searing Sunburst: R150' 20' radius inflicts 2d6 HP radiant (DC 16 Constitution neg); may spend 1/2/3 Ki Points for +2/4/6d6 HP radiant</td>
+      <td>Searing Sunburst: R150' 20' radius inflicts 2d6 HP radiant (DC 16 Constitution neg); may spend 1/2/3 Ki Points for +2/4/6d6 HP</td>
     </tr><tr style="text-align:center">
       <td>Sun Shield: May emit bright light in a 30' radius at will</td>
     </tr></table>
