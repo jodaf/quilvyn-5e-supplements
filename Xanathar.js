@@ -156,16 +156,19 @@ Xanathar.CLASSES_FEATURES_ADDED = {
     '"features.Oath Of Redemption ? 20:Emissary Of Redemption"',
   'Ranger':
     '"features.Gloom Stalker ? 3:Dread Ambusher",' +
+    '"features.Gloom Stalker ? 3:Gloom Stalker Magic",' +
     '"features.Gloom Stalker ? 3:Umbral Sight",' +
     '"features.Gloom Stalker ? 7:Iron Mind",' +
     '"features.Gloom Stalker ? 11:Stalker\'s Flurry",' +
     '"features.Gloom Stalker ? 15:Shadowy Dodge",' +
     '"features.Horizon Walker ? 3:Detect Portal",' +
+    '"features.Horizon Walker ? 3:Horizon Walker Magic",' +
     '"features.Horizon Walker ? 3:Planar Warrior",' +
     '"features.Horizon Walker ? 7:Ethereal Step",' +
     '"features.Horizon Walker ? 11:Distant Strike",' +
     '"features.Horizon Walker ? 15:Spectral Defense",' +
     '"features.Monster Slayer ? 3:Hunter\'s Sense",' +
+    '"features.Monster Slayer ? 3:Monster Slayer Magic",' +
     '"features.Monster Slayer ? 3:Slayer\'s Prey",' +
     '"features.Monster Slayer ? 7:Supernatural Defense",' +
     '"features.Monster Slayer ? 11:Magic-User\'s Nemesis",' +
@@ -210,7 +213,7 @@ Xanathar.CLASSES_FEATURES_ADDED = {
     '"features.Storm Sorcery ? 14:Storm\'s Fury",' +
     '"features.Storm Sorcery ? 18:Wind Soul"',
   'Warlock':
-    '"features.The Celestial ? 1:Bonus Celestial Cantrips",' +
+    '"features.The Celestial ? 1:Bonus Cantrips (The Celestial)",' +
     '"features.The Celestial ? 1:Healing Light",' +
     '"features.The Celestial ? 6:Radiant Soul",' +
     '"features.The Celestial ? 10:Celestial Resilience",' +
@@ -221,11 +224,11 @@ Xanathar.CLASSES_FEATURES_ADDED = {
     '"features.The Hexblade ? 10:Armor Of Hexes",' +
     '"features.The Hexblade ? 14:Master Of Hexes"',
   'Wizard':
-    '"features.War Magic ? 2:Arcane Deflection",' +
-    '"features.War Magic ? 2:Tactical Wit",' +
-    '"features.War Magic ? 6:Power Surge",' +
-    '"features.War Magic ? 10:Durable Magic",' +
-    '"features.War Magic ? 14:Deflecting Shroud"'
+    '"features.War Magic Arcane Tradition ? 2:Arcane Deflection",' +
+    '"features.War Magic Arcane Tradition ? 2:Tactical Wit",' +
+    '"features.War Magic Arcane Tradition ? 6:Power Surge",' +
+    '"features.War Magic Arcane Tradition ? 10:Durable Magic",' +
+    '"features.War Magic Arcane Tradition ? 14:Deflecting Shroud"'
 };
 Xanathar.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
@@ -292,7 +295,7 @@ Xanathar.CLASSES_SELECTABLES_ADDED = {
     '"5:Tomb Of Levistus:Eldritch Invocation",' +
     '"7:Trickster\'s Escape:Eldritch Invocation"',
   'Wizard':
-    '"2:War Magic:Arcane Tradition"'
+    '"2:War Magic Arcane Tradition:Arcane Tradition"'
 };
 Xanathar.DEITIES_DOMAINS_ADDED = {
   'Celtic-Goibhniu':'Forge',
@@ -334,13 +337,13 @@ Xanathar.FEATURES = {
   // Path
   'Accursed Specter':
     'Section=combat ' +
-    'Note="May raise a slain humanoid as an obedient specter w/%{levels.Warlock//2} temporary HP, +%{charismaModifier>?0} attack until a long rest 1/long rest"',
+    'Note="May raise a slain humanoid as an obedient specter w/%{levels.Warlock//2} temporary HP and +%{charismaModifier>?0} attack until a long rest 1/long rest"',
   'Agile Parry':
     'Section=combat ' +
     'Note="+2 AC for 1 rd after an unarmed attack if armed w/a Kensei melee weapon"',
   'Ambush Master':
     'Section=combat ' +
-    'Note="Adv on Initiative, and allies gain Adv on attacks on foe struck in first turn for 1 rd"',
+    'Note="Adv on Initiative/Allies gain Adv on attacks for 1 rd on first foe struck in first rd"',
   'Ancestral Protectors':
     'Section=combat ' +
     'Note="First foe struck each rd during rage suffers Disadv on attacks on others, and target also has resistance to damage, for 1 rd"',
@@ -350,8 +353,8 @@ Xanathar.FEATURES = {
       '"Knows choice of <i>Druidcraft</i> or <i>Prestidigitation</i> cantrip",' +
       '"Skill Proficiency (Choose 1 from Arcana, Nature)"',
   'Arcane Deflection':
-    'Section=magic ' +
-    'Note="When hit, may use Reaction to trade 1 rd non-cantrip casting for +2 AC or +4 save"',
+    'Section=combat ' +
+    'Note="After a hit or failed save, may use Reaction and forego 1 rd of non-cantrip casting to gain +2 AC or +4 save"',
   'Arcane Shot':
     'Section=combat,feature ' +
     'Note=' +
@@ -364,7 +367,8 @@ Xanathar.FEATURES = {
     'Section=magic ' +
     'Note="May use Channel Divinity to craft in 1 hr a metal item worth up to 100 GP"',
   'Aspect Of The Moon':
-    'Section=save Note="Immune to sleep/Has no need for normal sleep"',
+    'Section=save ' +
+    'Note="Immune to sleep/Light activity gives benefits of sleep"',
   'Aura Of Conquest':
     'Section=magic ' +
     'Note="R%{levels.Paladin<18?10:30}\' Frightened foes suffer immobility and %{levels.Paladin//2} HP psychic"',
@@ -385,7 +389,7 @@ Xanathar.FEATURES = {
   'Blessing Of The Forge':
     'Section=magic ' +
     'Note="Touched weapon or armor gains a +1 bonus until next long rest 1/long rest"',
-  'Bonus Celestial Cantrips':
+  'Bonus Cantrips (The Celestial)':
     'Section=magic ' +
     'Note="Knows <i>Light</i> and <i>Sacred Flame</i> cantrips" ' +
     'Spells=Light,"Sacred Flame"',
@@ -410,7 +414,7 @@ Xanathar.FEATURES = {
     'Section=save Note="Resistance to necrotic and radiant damage"',
   'Celestial Resilience':
     'Section=magic ' +
-    'Note="May give self %{levels.Warlock+charismaModifier} temporary HP and 5 others %{levels.Warlock//2+charismaModifier} temporary HP 1/short rest"',
+    'Note="Gains %{levels.Warlock+charismaModifier} temporary HP, and may give 5 others %{levels.Warlock//2+charismaModifier} temporary HP, at the end of a rest"',
   'Circle Of Mortality':
     'Section=magic ' +
     'Note="Cure spells have maximum effect for HP 0 targets/May cast R30\' <i>Spare The Dying</i>" ' +
@@ -418,8 +422,8 @@ Xanathar.FEATURES = {
   'Cloak Of Flies':
     'Section=magic,skill ' +
     'Note=' +
-      '"R5\' May inflict %{charismaModifier>?0} HP poison damage 1/short rest",' +
-      '"May gain Adv on Intimidate and suffer Disadv on other Charisma 1/short rest"',
+      '"May use a bonus action to create a 5\' radius that inflicts %{charismaModifier>?0} HP poison damage 1/short rest",' +
+      '"May use a bonus action to gain Adv on Intimidate and suffer Disadv on other Charisma checks 1/short rest"',
   'Conquering Presence':
     'Section=magic ' +
     'Note="R30\' May use Channel Divinity to frighten target for 1 min (DC %{spellDifficultyClass.P} Wisdom ends)"',
@@ -436,7 +440,7 @@ Xanathar.FEATURES = {
     'Note="May spend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} damage and gain +1d%{bardicInspirationDie} AC for 1 rd"',
   'Deflecting Shroud':
     'Section=magic ' +
-    'Note="R60\' Arcane Deflection strikes 3 targets, inflicting %{levels.Wizard//2} HP force"',
+    'Note="R60\' Arcane Deflection strikes 3 targets, inflicting %{levels.Wizard//2} HP force each"',
   'Deft Strike':
     'Section=combat ' +
     'Note="May spend 1 Ki Point to inflict +%{monkMeleeDieBonus} damage with a Kensei weapon 1/rd"',
@@ -453,7 +457,7 @@ Xanathar.FEATURES = {
     'Section=combat,combat ' +
     'Note=' +
       '"+%V Initiative",' +
-      '"Gains +10\' Speed and an additional weapon attack inflicting +1d8 HP weapon damage on first turn"',
+      '"Gains +10\' Speed and an additional weapon attack inflicting +1d8 HP weapon damage during first rd of combat"',
   "Drunkard's Luck":
     'Section=feature ' +
     'Note="May spend 2 Ki Points to cancel Disadv on an ability, attack, or save roll"',
@@ -465,7 +469,7 @@ Xanathar.FEATURES = {
     'Note=' +
       '"+2 AC during spell concentration",' +
       '"+2 saves during spell concentration"',
-  'Ear For Deceit':'Section=skill Note="Minimum 8 on Insight checks"',
+  'Ear For Deceit':'Section=skill Note="Minimum 8 on Insight rolls"',
   'Eldritch Smite':
     'Section=combat ' +
     'Note="May spend a spell slot to inflict +(slot level + 1)d8 HP force and knock prone w/pact weapon"',
@@ -477,7 +481,7 @@ Xanathar.FEATURES = {
       '"+%V Persuasion"',
   'Elegant Maneuver':
     'Section=skill ' +
-    'Note="May use a bonus action to gain Adv on Acrobatics or Athletics"',
+    'Note="May use a bonus action to gain Adv on next Acrobatics or Athletics for 1 rd"',
   'Emissary Of Peace':
     'Section=skill ' +
     'Note="May use Channel Energy to gain +5 Persuasion for 10 min"',
@@ -486,7 +490,7 @@ Xanathar.FEATURES = {
     'Note="Has resistance to all attack damage, and a successful attacker takes radiant damage equal to half inflicted (attacking neg for target until a long rest)"',
   'Empowered Healing':
     'Section=magic ' +
-    'Note="R5\' May spend 1 Sorcery Point to reroll healing 1/rd"',
+    'Note="R5\' May spend 1 Sorcery Point to reroll self or ally healing 1/rd"',
   'Enfeebling Arrow':
     'Section=combat ' +
     'Note="Arrow inflicts +%{levels.Fighter<18?2:4}d6 HP necrotic damage and half damage on attacks by target (DC %{8+proficiencyBonus+intelligenceModifier} Constitution HP only) for 1 rd"',
@@ -494,7 +498,8 @@ Xanathar.FEATURES = {
     'Section=magic ' +
     'Note="R60\' May use 1 min performance to charm %{charismaModifier>?1} listeners (DC %{spellDifficultyClass.B} Will neg) for 1 hr (damage ends) 1/short rest"',
   'Ethereal Step':
-    'Section=magic Note="May become ethereal until end of turn 1/short rest"',
+    'Section=magic ' +
+    'Note="May use a bonus action to become ethereal until end of turn 1/short rest"',
   'Ever-Ready Shot':
     'Section=combat ' +
     'Note="Has a minimum of 1 Arcane Shot use available after initiative"',
@@ -502,7 +507,8 @@ Xanathar.FEATURES = {
     'Section=skill ' +
     'Note="May use a bonus action to use Perception to a spot hidden item or Investigation to uncover a clue"',
   'Eye For Weakness':
-    'Section=combat Note="+3d6 HP Sneak Attack during Insightful Fighting"',
+    'Section=combat ' +
+    'Note="Insightful Fighting inflicts +3d6 HP Sneak Attack damage"',
   'Eyes Of The Dark':
     'Section=feature,magic ' +
     'Note=' +
@@ -544,7 +550,7 @@ Xanathar.FEATURES = {
       '"9:Animate Objects",9:Creation',
   'Ghostly Gaze':
     'Section=magic ' +
-    'Note="May see 30\' through solid objects for conc or 1 min 1/short rest"',
+    'Note="May see 30\' w/Darkvision through solid objects for conc up to 1 min 1/short rest"',
   'Gift Of The Depths':
     'Section=ability,feature,magic ' +
     'Note=' +
@@ -553,8 +559,9 @@ Xanathar.FEATURES = {
       '"May cast <i>Water Breathing</i> 1/long rest" ' +
     'Spells="Water Breathing"',
   'Gift Of The Ever-Living Ones':
-    'Section=combat Note="Healing has maximum effect w/in 100\' of familiar"',
-  'Gloom Stalker':
+    'Section=combat ' +
+    'Note="Regains maximum HP from healing w/in 100\' of familiar"',
+  'Gloom Stalker Magic':
     'Spells=' +
       '"3:Disguise Self",' +
       '"5:Rope Trick",' +
@@ -579,29 +586,29 @@ Xanathar.FEATURES = {
   'Heart Of The Storm':
     'Section=magic,save ' +
     'Note=' +
-      '"R10\' Lightning and thunder spells inflict +%{levels.Sorcerer//2} HP",' +
+      '"10\' radius inflicts %{levels.Sorcerer//2} HP lightning or thunder on targets when casting a lightning or thunder spell",' +
       '"Resistance to lightning and thunder damage"',
   'Hearth Of Moonlight And Shadow':
     'Section=magic ' +
     'Note="May create a 30\' sphere that gives total cover and +5 Stealth and Perception during a rest"',
   'Healing Light':
     'Section=magic ' +
-    'Note="R60\' May restore %{levels.Warlock+1}d6 HP/long rest, %{charismaModifier>?1}d6/heal"',
+    'Note="R60\' May restore %{levels.Warlock+1}d6 HP/long rest (maximum %{charismaModifier>?1}d6 per healing)"',
   'Hex Warrior':
     'Section=combat,feature ' +
     'Note=' +
-      '"+%{charismaModifier-strengthModifier} attack and damage (Charisma instead of Strength) w/touched weapon until a long rest 1/long rest",' +
+      '"+%{charismaModifier-strengthModifier} attack and damage (Charisma instead of Strength) w/pact weapon or touched non-two-handed weapon until a long rest 1/long rest",' +
       '"Armor Proficiency (Medium/Shield)/Weapon Proficiency (Martial)"',
   "Hexblade's Curse":
     'Section=magic ' +
-    'Note="R30\' Self inflicts +%{proficiencyBonus} damage and crits on 19 vs. target and regains %{levels.Warlock+charismaModifier} HP if target dies for 1 min 1/short rest"',
+    'Note="R30\' Self inflicts +%{proficiencyBonus} damage on target, crits on 19 vs. target, and regains %{levels.Warlock+charismaModifier} HP if target dies, for 1 min 1/short rest"',
   'Hidden Paths':
     'Section=magic ' +
     'Note="May use a bonus action to teleport self 60\' or a willing touched target 30\' %{wisdomModifier>?1}/long rest"',
   'Hold The Line':
     'Section=combat ' +
     'Note="Foe move w/in reach provokes an OA; hit halts move"',
-  'Horizon Walker':
+  'Horizon Walker Magic':
     'Spells=' +
       '"3:Protection From Evil And Good",' +
       '"5:Misty Step",' +
@@ -610,16 +617,16 @@ Xanathar.FEATURES = {
       '"17:Teleportation Circle"',
   'Hound Of Ill Omen':
     'Section=combat ' +
-    'Note="R120\' May spend 3 Sorcery Points to summon a hound to attack target as a dire wolf w/%{levels.Sorcerer//2} temporary HP, moving through obstacles, for 5 min or until reduced to 0 HP"',
+    'Note="R120\' May use a bonus action and spend 3 Sorcery Points to summon a hound to attack target as a dire wolf w/%{levels.Sorcerer//2} temporary HP, moving through obstacles, for 5 min or until reduced to 0 HP; adjacent hound inflicts Disadv on self spell saves on target"',
   "Hunter's Sense":
     'Section=combat ' +
     'Note="R60\' May sense immunities, resistances, and vulnerabilities of target %{wisdomModifier}/long rest"',
   'Improved Pact Weapon':
     'Section=combat ' +
-    'Note="Adds bows and crossbows as possible pact weapons; pact weapon gains +1 attack and damage and can be used as a spell focus"',
+    'Note="May use a bow or crossbow as a pact weapon/Pact weapon gains +1 attack and damage and can be used as a spell focus"',
   'Insightful Fighting':
     'Section=combat ' +
-    'Note="Successful Insight vs. foe Deception gives Sneak Attack w/out Adv for 1 min"',
+    'Note="May use a bonus action and a successful Insight vs. foe Deception to make Sneak Attacks w/out Adv against target for 1 min"',
   'Insightful Manipulator':
     'Section=feature ' +
     'Note="May learn 2 of relative Charisma, Intelligence, Wisdom, and levels of target after 1 min study"',
@@ -647,19 +654,19 @@ Xanathar.FEATURES = {
     'Section=ability Note="Standing from prone costs 5\' movement"',
   'Maddening Hex':
     'Section=magic ' +
-    'Note="R30\' Bonus action inflicts %{charismaModifier>?1} HP psychic damage to targets in a 5\' radius of curse target"',
+    'Note="R30\' May use a bonus action to inflict %{charismaModifier>?1} HP psychic damage to targets in a 5\' radius around curse target"',
   'Magic Arrow':'Section=combat Note="Arrows count as magic weapons"',
   'Magic Kensei Weapons':
     'Section=combat Note="Attacks with Kensei weapons count as magical"',
   "Magic-User's Nemesis":
     'Section=combat ' +
-    'Note="R60\' May use Reaction to foil target cast or to teleport (DC %{spellDifficultyClass.R} Wisdom neg) 1/short rest"',
+    'Note="R60\' May use Reaction to foil target cast or teleportation (DC %{spellDifficultyClass.R} Wisdom neg) 1/short rest"',
   'Mantle Of Inspiration':
     'Section=magic ' +
     'Note="R60\' May use a Bardic Inspiration bonus action to give %{charismaModifier>?1} targets %{levels.Bard//5*3+6<?14} temporary HP and an immediate move w/out OA"',
   'Mantle Of Majesty':
     'Section=magic ' +
-    'Note="May cast <i>Command</i> as a bonus action 1/rd for conc or 1 min 1/long rest" ' +
+    'Note="May cast <i>Command</i> as a bonus action 1/rd for conc up to 1 min 1/long rest" ' +
     'Spells=Command',
   'Mantle Of Whispers':
     'Section=magic ' +
@@ -668,13 +675,14 @@ Xanathar.FEATURES = {
     'Section=combat Note="May reroll a miss with Adv 1/short rest"',
   'Master Of Hexes':
     'Section=magic ' +
-    'Note="R30\' May redirect Hexblade\'s Curse when target dies"',
+    'Note="R30\' May forego regaining HP to redirect Hexblade\'s Curse when target dies"',
   'Master Of Intrigue':
     'Section=feature,skill ' +
     'Note=' +
       '"May mimic accent and speech patterns after listening for 1 min",' +
       '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Game)"',
-  'Master Of Tactics':'Section=combat Note="R30\' May Help as a bonus action"',
+  'Master Of Tactics':
+    'Section=combat Note="R30\' May use Help as a bonus action"',
   "Master's Flourish":
     'Section=combat ' +
     'Note="May use 1d6 instead of Bardic Inspiration die for flourish"',
@@ -683,11 +691,11 @@ Xanathar.FEATURES = {
     'Note="Summoned creatures gain +2 HP per HD and magical natural weapons"',
   'Misdirection':
     'Section=combat ' +
-    'Note="May use Reaction to redirect an attack on self to a creature that provides cover"',
+    'Note="May use Reaction to redirect an attack from self to a creature that provides cover"',
   'Mobile Flourish':
     'Section=combat ' +
     'Note="May spend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} damage and 5\' + 1d%{bardicInspirationDie}\' push"',
-  'Monster Slayer':
+  'Monster Slayer Magic':
     'Spells=' +
       '"3:Protection From Evil And Good",' +
       '"5:Zone Of Truth",' +
@@ -710,10 +718,11 @@ Xanathar.FEATURES = {
       '"17:Hold Monster","17:Wall Of Force"',
   'One With The Blade':
     'Section=feature Note="Has Magic Kensei Weapons and Deft Strike features"',
-  'Otherworldly Wings':'Section=ability Note="30\' fly Speed"',
+  'Otherworldly Wings':
+    'Section=ability Note="May use a bonus action to gain 30\' fly Speed"',
   'Panache':
     'Section=skill ' +
-    'Note="Successful Persuasion vs. Insight gives hostile target Disadv on attacks on others or charms a non-hostile target for 1 min"',
+    'Note="Successful Persuasion vs. Insight gives hostile target Disadv on attacks on others (others attack ends) or charms a non-hostile target (damage ends) for 1 min"',
   'Path To The Grave':
     'Section=magic ' +
     'Note="R30\' May use Channel Divinity to inflict on target vulnerability to all damage for 1 rd"',
@@ -725,7 +734,7 @@ Xanathar.FEATURES = {
     'Note="Arrow passes through objects harmlessly and inflicts +%{levels.Fighter<18?1:2}d6 HP piercing damage to creatures in a 30\'x1\' line (DC %{8+proficiencyBonus+intelligenceModifier} Dexterity half)"',
   'Planar Warrior':
     'Section=combat ' +
-    'Note="R30\' Successful attack inflicts +%{levels.Ranger<11?1:2}d8 HP damage and becomes force damage"',
+    'Note="R30\' May use a bonus action to convert weapon damage to force damage and inflict +%{levels.Ranger<11?1:2}d8 HP 1/rd"',
   'Power Surge':
     'Section=magic ' +
     'Note="May store magic from %{intelligenceModifier>?1} countered spells and use it for +%{levels.Wizard//2} HP force spell damage 1/rd"',
@@ -738,7 +747,7 @@ Xanathar.FEATURES = {
   'Radiant Soul':
     'Section=magic,save ' +
     'Note=' +
-      '"+%{charismaModifier} HP radiant and fire spell damage",' +
+      '"May inflict +%{charismaModifier} HP radiant and fire spell damage on one target",' +
       '"Resistance to radiant damage"',
   'Radiant Sun Bolt':
     'Section=combat ' +
@@ -758,7 +767,7 @@ Xanathar.FEATURES = {
     'Section=combat,combat ' +
     'Note=' +
       '"+%1 Initiative",' +
-      '"May use Sneak Attack w/out Adv vs. a solo foe"',
+      '"May use Sneak Attack w/out Adv when target is only adjacent foe (Disadv neg)"',
   'Rapid Strike':
     'Section=combat ' +
     'Note="May forego Adv on an attack to gain an extra attack 1/rd"',
@@ -769,7 +778,8 @@ Xanathar.FEATURES = {
     'Section=combat ' +
     'Note="May use Reaction and spend 1 Ki Point to redirect a foe miss to an adjacent creature"',
   'Relentless Hex':
-    'Section=magic Note="May teleport 30\' to be adjacent to curse target"',
+    'Section=magic ' +
+    'Note="May teleport 30\' to a space adjacent to curse target"',
   'Saint Of Forge And Fire':
     'Section=combat,save ' +
     'Note=' +
@@ -805,7 +815,8 @@ Xanathar.FEATURES = {
     'Section=magic ' +
     'Note="May use a bonus action to teleport 120\' between dim or dark areas"',
   'Shadowy Dodge':
-    'Section=combat Note="May use Reaction to impose Disadv on attacker"',
+    'Section=combat ' +
+    'Note="May use Reaction to impose Disadv on attacker (attacker Adv neg)"',
   'Sharpen The Blade':
     'Section=combat ' +
     'Note="May spend 1-3 Ki Points to gain an equal bonus on attack and damage w/a Kensei weapon for 1 min"',
@@ -818,19 +829,19 @@ Xanathar.FEATURES = {
     'Spells=Invisibility',
   'Skirmisher':
     'Section=combat ' +
-    'Note="May use Reaction to move half speed when a foe comes w/in 5\'"',
+    'Note="May use Reaction to move half speed w/out provoking an OA when a foe comes w/in 5\'"',
   'Slashing Flourish':
     'Section=combat ' +
     'Note="May spend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} HP weapon damage on target and an adjacent foe"',
   "Slayer's Counter":
     'Section=combat ' +
-    'Note="When Slayer\'s Prey target forces a saving throw, a successful Reaction attack makes it successessful"',
+    'Note="May use Reaction when Slayer\'s Prey target forces self saving throw to attack; attack success also makes the save succeed"',
   "Slayer's Prey":
     'Section=combat ' +
-    'Note="R60\' May inflict +1d6 HP weapon damage on target w/1st attack each rd until a short rest"',
+    'Note="R60\' May use a bonus action to inflict +1d6 HP weapon damage on chosen target w/first attack each rd"',
   'Soul Of Deceit':
     'Section=save ' +
-    'Note="Immune to telepathy and truth compulsion; may use Deception vs. Insight to present false thoughts"',
+    'Note="Immune to telepathy, may use Deception vs. Insight to present false thoughts, and always detects as telling the truth"',
   'Soul Of The Forge':
     'Section=combat,save ' +
     'Note=' +
@@ -855,7 +866,8 @@ Xanathar.FEATURES = {
   'Spirit Totem (Unicorn)':
     'Section=magic ' +
     'Note="R60\' Allies gain Adv to detect creatures in a 30\' radius, and self heal spells restore %{levels.Druid} HP to targets in the same radius, for 1 min 1/short rest"',
-  "Stalker's Flurry":'Section=combat Note="May reroll a weapon miss 1/rd"',
+  "Stalker's Flurry":
+    'Section=combat Note="May follow a weapon miss w/another attack 1/rd"',
   'Steady Eye':
     'Section=skill ' +
     'Note="Adv on Perception and Investigation after moving half speed"',
@@ -864,13 +876,13 @@ Xanathar.FEATURES = {
     'Note="May stop rain in a 20\' radius or direct winds in a 100\' radius for 1 rd"',
   "Storm's Fury":
     'Section=combat ' +
-    'Note="May use Reaction to inflict %{levels.Sorcerer} HP lightning and 20\' push on a successful melee attacker (DC %{spellDifficultyClass.S} Strength neg push)"',
+    'Note="May use Reaction to inflict %{levels.Sorcerer} HP lightning and 20\' push on a successful melee attacker (DC %{spellDifficultyClass.S} Strength HP only)"',
   'Strength Before Death':
     'Section=combat ' +
     'Note="May take an extra turn when brought to 0 HP 1/long rest"',
   'Strength Of The Grave':
     'Section=combat ' +
-    'Note="Sucessful DC 5 + damage Charisma check retains 1 HP when reduced to 0 by non-critical, non-radiant damage 1/long rest"',
+    'Note="Sucessful DC 5 + damage Charisma save retains 1 HP when reduced to 0 by non-critical, non-radiant damage 1/long rest"',
   'Storm Aura (Desert)':
     'Section=magic ' +
     'Note="10\' radius inflicts %{levels.Barbarian//5+2} HP fire during rage 1/rd"',
@@ -897,7 +909,7 @@ Xanathar.FEATURES = {
       '"Resistance to cold damage/Unaffected by extreme cold"',
   'Sudden Strike':
     'Section=combat ' +
-    'Note="Extra attack can use a second Sneak Attack on a different foe"',
+    'Note="May use a bonus action for an extra attack; may use Sneak Attack on a second foe"',
   'Sun Shield':
     'Section=combat,magic ' +
     'Note=' +
@@ -911,7 +923,8 @@ Xanathar.FEATURES = {
     'Section=skill ' +
     'Note="+%{proficiencyBonus} Nature/+%{proficiencyBonus} Survival"',
   'Tempestuous Magic':
-    'Section=magic Note="May fly 10\' before or after casting a spell"',
+    'Section=magic ' +
+    'Note="May use a bonus action to fly 10\' before or after casting a spell w/out provoking an OA"',
   'Tactical Wit':'Section=combat Note="+%V Initiative"',
   'Tipsy Sway':
     'Section=feature Note="Has Leap To Your Feet and Redirect Attack features"',
@@ -920,14 +933,14 @@ Xanathar.FEATURES = {
     'Note="Has a minimum 1 Fighting Spirit use available after initiative"',
   'Tomb Of Levistus':
     'Section=magic ' +
-    'Note="May use Reaction to gain %{levels.Warlock*10} temporary HP for 1 rd 1/short rest"',
+    'Note="May use Reaction upon taking damage to gain %{levels.Warlock*10} temporary HP and suffer vulnerability to fire and immobility for 1 rd 1/short rest"',
   "Trickster's Escape":
     'Section=magic ' +
-    'Note="May cast <i>Freedom Of Movement</i> 1/long rest" ' +
+    'Note="May cast self <i>Freedom Of Movement</i> 1/long rest" ' +
     'Spells="Freedom Of Movement"',
   'Umbral Form':
     'Section=magic ' +
-    'Note="May spend 6 Sorcery Points to gain ability to move through objects and resistance to non-force, non-radiant damage for 1 min"',
+    'Note="May use a bonus action and spend 6 Sorcery Points to gain ability to move through objects and resistance to non-force, non-radiant damage for 1 min"',
   'Umbral Sight':
     'Section=feature,feature ' +
     'Note=' +
@@ -938,7 +951,7 @@ Xanathar.FEATURES = {
     'Note="Foes cannot attack self for 1 min (DC %{spellDifficultyClass.B} Charisma neg and suffers Disadv on saves vs. self spells for 1 rd)"',
   'Unearthly Recovery':
     'Section=magic ' +
-    'Note="May regain %{hitPoints//2} HP when below %{hitPoints//2} HP 1/long rest"',
+    'Note="May use a bonus action to regain %{hitPoints//2} HP when below %{hitPoints//2} HP 1/long rest"',
   'Unerring Accuracy':
     'Section=combat Note="May reroll a monk weapon miss 1/rd"',
   'Unerring Eye':
@@ -972,7 +985,7 @@ Xanathar.FEATURES = {
     'Section=ability,magic,save ' +
     'Note=' +
       '"60\' fly Speed",' +
-      '"R30\' Self and %{charismaModifier+3} others may fly 30\' for 1 hr 1/long rest",' +
+      '"R30\' May slow fly Speed to 30\' to give %{charismaModifier+3} others 30\' fly Speed for 1 hr 1/long rest",' +
       '"Immunity to lightning and thunder damage"',
   'Words Of Terror':
     'Section=magic ' +
@@ -1074,7 +1087,7 @@ Xanathar.SPELLS = {
   'Beast Bond':
     'School=Divination ' +
     'Level=D1,R1 ' +
-    'Description="Touched friendly beast up to 3 HD has telepathic link w/self, Adv on attacks on foes adjacent to self for conc or 10 min"',
+    'Description="Touched friendly beast up to 3 HD has telepathic link w/self, Adv on attacks on foes adjacent to self for conc up to 10 min"',
   'Bones Of The Earth':
     'School=Transmutation ' +
     'Level=D6 ' +
@@ -1094,7 +1107,7 @@ Xanathar.SPELLS = {
     'School=Necromancy ' +
     'Level=K1,W1 ' +
     'AtHigherLevels="affects +1 target" ' +
-    'Description="R60\' Target frightened (Disadv on ability checks and attacks) for conc or 1 min (Wisdom neg each turn)"',
+    'Description="R60\' Target frightened (Disadv on ability checks and attacks) for conc up to 1 min (Wisdom neg each turn)"',
   'Ceremony':
     'School=Abjuration ' +
     'Level=C1,P1 ' +
@@ -1116,11 +1129,11 @@ Xanathar.SPELLS = {
   'Control Winds':
     'School=Transmutation ' +
     'Level=D5,S5,W5 ' +
-    'Description="R300\' Air in 100\' cu creates gusts, downdraft, or updraft for conc or 1 hr"',
+    'Description="R300\' Air in 100\' cu creates gusts, downdraft, or updraft for conc up to 1 hr"',
   'Create Bonfire':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
-    'Description="R60\' Creates 5\' fire that inflicts %{(level+7)//6}d8 HP fire (Dexterity neg) for conc or 1 min"',
+    'Description="R60\' Creates 5\' fire that inflicts %{(level+7)//6}d8 HP fire (Dexterity neg) for conc up to 1 min"',
   'Create Homunculus':
     'School=Transmutation ' +
     'Level=W6 ' +
@@ -1134,16 +1147,16 @@ Xanathar.SPELLS = {
     'School=Necromancy ' +
     'Level=K5,W5 ' +
     'AtHigherLevels="creates +2 undead" ' +
-    'Description="R60\' Creates from corpses up to 5 skeletons and zombies that obey self and attack at +%{mdf} for conc or 1 hr"',
+    'Description="R60\' Creates from corpses up to 5 skeletons and zombies that obey self and attack at +%{mdf} for conc up to 1 hr"',
   'Dawn':
     'School=Evocation ' +
     'Level=C5,W5 ' +
-    'Description="R60\' Sunlight in 30\' radius inflicts 4d10 HP radiant, moves 60\'/rd for conc or 1 min"',
+    'Description="R60\' Sunlight in 30\' radius inflicts 4d10 HP radiant, moves 60\'/rd for conc up to 1 min"',
   "Dragon's Breath":
     'School=Transmutation ' +
     'Level=S2,W2 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
-    'Description="Touched gains ability to breathe acid, cold, fire, lightning, or poison, inflicting 3d6 HP in a 15\' cone for conc or 1 min"',
+    'Description="Touched gains ability to breathe acid, cold, fire, lightning, or poison, inflicting 3d6 HP in a 15\' cone for conc up to 1 min"',
   'Druid Grove':
     'School=Abjuration ' +
     'Level=D6 ' +
@@ -1152,11 +1165,11 @@ Xanathar.SPELLS = {
     'School=Conjuration ' +
     'Level=D2,S2,W2 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
-    'Description="R60\' Inflicts 1d8 HP bludgeoning and pushes 10\' (Strength half HP, no push) for conc or 1 min"',
+    'Description="R60\' Inflicts 1d8 HP bludgeoning and pushes 10\' (Strength half HP, no push) for conc up to 1 min"',
   'Earthbind':
     'School=Transmutation ' +
     'Level=D2,K2,S2,W2 ' +
-    'Description="R300\' Reduces target fly speed to 0 for conc or 1 min (Strength neg)"',
+    'Description="R300\' Reduces target fly speed to 0 for conc up to 1 min (Strength neg)"',
   'Earth Tremor':
     'School=Evocation ' +
     'Level=B1,D1,S1,W1 ' +
@@ -1166,16 +1179,16 @@ Xanathar.SPELLS = {
     'School=Transmutation ' +
     'Level=D4,K4,W4 ' +
     'AtHigherLevels="affects +1 target" ' +
-    'Description="R90\' Target loses resistance to and takes +2d6 HP from next hit of chosen energy type for conc or 1 min"',
+    'Description="R90\' Target loses resistance to and takes +2d6 HP from next hit of chosen energy type for conc up to 1 min"',
   'Enemies Abound':
     'School=Enchantment ' +
     'Level=B3,K3,S3,W3 ' +
-    'Description="R120\' Target regards all creatures as enemies for conc or 1 min (Intelligence neg)"',
+    'Description="R120\' Target regards all creatures as enemies for conc up to 1 min (Intelligence neg)"',
   'Enervation':
     'School=Necromancy ' +
     'Level=K5,S5,W5 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
-    'Description="R60\' Target suffers 4d6 HP necrotic/rd and self regains half for conc or 1 min (Dexterity 2d6 HP for 1 rd)"',
+    'Description="R60\' Target suffers 4d6 HP necrotic/rd and self regains half for conc up to 1 min (Dexterity 2d6 HP for 1 rd)"',
   'Erupting Earth':
     'School=Transmutation ' +
     'Level=D3,S3,W3 ' +
@@ -1184,7 +1197,7 @@ Xanathar.SPELLS = {
   'Far Step':
     'School=Conjuration ' +
     'Level=K5,S5,W5 ' +
-    'Description="Self teleports 60\'/rd for conc or 1 min"',
+    'Description="Self teleports 60\'/rd for conc up to 1 min"',
   'Find Greater Steed':
     'School=Conjuration ' +
     'Level=P4 ' +
@@ -1193,7 +1206,7 @@ Xanathar.SPELLS = {
     'School=Transmutation ' +
     'Level=D3,R3,S3,W3 ' +
     'AtHigherLevels="affects +2 pieces" ' +
-    'Description="Touched 12 pieces ammunition inflict +1d6 HP fire on hit for conc or 1 hr"',
+    'Description="Touched 12 pieces ammunition inflict +1d6 HP fire on hit for conc up to 1 hr"',
   'Frostbite':
     'School=Evocation ' +
     'Level=D0,K0,S0,W0 ' +
@@ -1201,7 +1214,7 @@ Xanathar.SPELLS = {
   'Guardian Of Nature':
     'School=Transmutation ' +
     'Level=D4,R4 ' +
-    'Description="Changes self into Primal Beast (+10\' Speed, 120\' Darkvision, Adv on Strength, melee inflicts +1d6 HP force) or Great Tree (10 temporary HP, Adv on Constitution, Adv on Dexterity and Wisdom attack, 15\' radius difficult terrain) for conc or 1 min"',
+    'Description="Changes self into Primal Beast (+10\' Speed, 120\' Darkvision, Adv on Strength, melee inflicts +1d6 HP force) or Great Tree (10 temporary HP, Adv on Constitution, Adv on Dexterity and Wisdom attack, 15\' radius difficult terrain) for conc up to 1 min"',
   'Gust':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
@@ -1214,7 +1227,7 @@ Xanathar.SPELLS = {
   'Holy Weapon':
     'School=Evocation ' +
     'Level=C5,P5 ' +
-    'Description="Touched weapon emits 30\' bright light, inflicts +2d8 HP radiant for conc or 1 hr; blast at end inflicts 4d8 HP radiant and blindness for 1 min in 30\' radius (Constitution half damage, no blindness)"',
+    'Description="Touched weapon emits 30\' bright light, inflicts +2d8 HP radiant for conc up to 1 hr; blast at end inflicts 4d8 HP radiant and blindness for 1 min in 30\' radius (Constitution half damage, no blindness)"',
   'Ice Knife':
     'School=Evocation ' +
     'Level=D1,S1,W1 ' +
@@ -1223,16 +1236,16 @@ Xanathar.SPELLS = {
   'Illusory Dragon':
     'School=Illusion ' +
     'Level=W8 ' +
-    'Description="R120\' Shadow dragon frightens (Wisdom neg), moves 60\'/rd, inflicts 7d6 HP choice of energy in 60\' cone (Save half) for conc or 1 min"',
+    'Description="R120\' Shadow dragon frightens (Wisdom neg), moves 60\'/rd, inflicts 7d6 HP choice of energy in 60\' cone (Save half) for conc up to 1 min"',
   'Immolation':
     'School=Evocation ' +
     'Level=S5,W5 ' +
-    'Description="R90\' Target suffers 8d6 HP fire/rd (Save half, ends spell) for conc or 1 min"',
+    'Description="R90\' Target suffers 8d6 HP fire/rd (Save half, ends spell) for conc up to 1 min"',
   'Infernal Calling':
     'School=Conjuration ' +
     'Level=K5,W5 ' +
     'AtHigherLevels="summons +1 CR" ' +
-    'Description="R90\' Summons uncontrolled CR 6 devil for conc or 1 hr"',
+    'Description="R90\' Summons uncontrolled CR 6 devil for conc up to 1 hr"',
   'Infestation':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
@@ -1240,23 +1253,23 @@ Xanathar.SPELLS = {
   'Investiture Of Flame':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="Self emits 30\' bright light, gains immunity to fire and Adv on saves vs. cold, inflicts 1d10 fire in 5\' radius, and can create a 15\'x5\' line of fire that inflicts 4d8 HP fire (Dexterity half) for conc or 10 min"',
+    'Description="Self emits 30\' bright light, gains immunity to fire and Adv on saves vs. cold, inflicts 1d10 fire in 5\' radius, and can create a 15\'x5\' line of fire that inflicts 4d8 HP fire (Dexterity half) for conc up to 10 min"',
   'Investiture Of Ice':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="Self gains immunity to cold and Adv on saves vs. fire, moves normally across ice or snow, radiates 10\' difficult terrain, and can create a 15\' cone of freezing wind that inflicts 4d6 HP cold and slows for 1 rd (Dexterity half, no slow) for conc or 10 min"',
+    'Description="Self gains immunity to cold and Adv on saves vs. fire, moves normally across ice or snow, radiates 10\' difficult terrain, and can create a 15\' cone of freezing wind that inflicts 4d6 HP cold and slows for 1 rd (Dexterity half, no slow) for conc up to 10 min"',
   'Investiture Of Stone':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="Self gains resistance to non-magical bludgeoning, piercing, and slashing, can radiate 15\' radius shaking that knocks prone (Dexterity neg), and can move through earth and stone for conc or 10 min"',
+    'Description="Self gains resistance to non-magical bludgeoning, piercing, and slashing, can radiate 15\' radius shaking that knocks prone (Dexterity neg), and can move through earth and stone for conc up to 10 min"',
   'Investiture Of Wind':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
-    'Description="Ranged attacks on self suffer Disadv, self can fly 60\'/rd and can create R60\' 15\' cu swirling wind that inflicts 2d10 HP bludgeoning for conc or 10 min"',
+    'Description="Ranged attacks on self suffer Disadv, self can fly 60\'/rd and can create R60\' 15\' cu swirling wind that inflicts 2d10 HP bludgeoning for conc up to 10 min"',
   'Invulnerability':
     'School=Abjuration ' +
     'Level=W9 ' +
-    'Description="Self gains immunity to all damage for conc or 10 min"',
+    'Description="Self gains immunity to all damage for conc up to 10 min"',
   'Life Transference':
     'School=Necromancy ' +
     'Level=C3,W3 ' +
@@ -1265,11 +1278,11 @@ Xanathar.SPELLS = {
   'Maddening Darkness':
     'School=Evocation ' +
     'Level=K8,W8 ' +
-    'Description="R150\' 60\' radius magical darkness inflicts 8d8 HP psychic/rd (Wisdom half) for conc or 10 min"',
+    'Description="R150\' 60\' radius magical darkness inflicts 8d8 HP psychic/rd (Wisdom half) for conc up to 10 min"',
   'Maelstrom':
     'School=Evocation ' +
     'Level=D5 ' +
-    'Description="R120\' 30\' radius swirling water inflicts 6d6 HP bludgeoning/rd and pulls creatures toward center for conc or 1 min"',
+    'Description="R120\' 30\' radius swirling water inflicts 6d6 HP bludgeoning/rd and pulls creatures toward center for conc up to 1 min"',
   'Magic Stone':
     'School=Transmutation ' +
     'Level=D0,K0 ' +
@@ -1277,20 +1290,20 @@ Xanathar.SPELLS = {
   'Mass Polymorph':
     'School=Transmutation ' +
     'Level=B9,S9,W9 ' +
-    'Description="R120\' 10 targets transform into beasts, gain temporary HP for conc or 1 hr"',
+    'Description="R120\' 10 targets transform into beasts, gain temporary HP for conc up to 1 hr"',
   "Maximilian's Earthen Grasp":
     'School=Transmutation ' +
     'Level=S2,W2 ' +
-    'Description="R30\' Inflicts 2d6 HP bludgeoning and restrains (Strength neg), inflicts additional 2d6 HP/rd for conc or 1 min (Strength escapes)"',
+    'Description="R30\' Inflicts 2d6 HP bludgeoning and restrains (Strength neg), inflicts additional 2d6 HP/rd for conc up to 1 min (Strength escapes)"',
   "Melf's Minute Meteors":
     'School=Evocation ' +
     'Level=S3,W3 ' +
     'AtHigherLevels="creates +2 meteors" ' +
-    'Description="R120\' 6 meteors each inflict 2d6 HP fire 2/rd for conc or 10 min"',
+    'Description="R120\' 6 meteors each inflict 2d6 HP fire 2/rd for conc up to 10 min"',
   'Mental Prison':
     'School=Illusion ' +
     'Level=K6,S6,W6 ' +
-    'Description="R60\' Target suffers 5d6 HP psychic and becomes trapped by illusionary danger (escape inflicts 10d6 HP psychic) for conc or 1 min (Intelligence initial HP only)"',
+    'Description="R60\' Target suffers 5d6 HP psychic and becomes trapped by illusionary danger (escape inflicts 10d6 HP psychic) for conc up to 1 min (Intelligence initial HP only)"',
   'Mighty Fortress':
     'School=Conjuration ' +
     'Level=W8 ' +
@@ -1299,7 +1312,7 @@ Xanathar.SPELLS = {
     'School=Divination ' +
     'Level=K2,S2,W2 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
-    'Description="R60\' Target suffers 3d8 HP psychic (Wisdom half) and self knows target location for conc or 1 hr"',
+    'Description="R60\' Target suffers 3d8 HP psychic (Wisdom half) and self knows target location for conc up to 1 hr"',
   'Mold Earth':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
@@ -1319,7 +1332,7 @@ Xanathar.SPELLS = {
   'Primordial Ward':
     'School=Abjuration ' +
     'Level=D6 ' +
-    'Description="Self gains resistance to acid, cold, fire, lightning, and thunder and may convert to immunity for 1 turn for conc or 1 min"',
+    'Description="Self gains resistance to acid, cold, fire, lightning, and thunder and may convert to immunity for 1 turn for conc up to 1 min"',
   'Psychic Scream':
     'School=Enchantment ' +
     'Level=B9,K9,S9,W9 ' +
@@ -1336,11 +1349,11 @@ Xanathar.SPELLS = {
     'School=Illusion ' +
     'Level=K2,S2,W2 ' +
     'AtHigherLevels="increases damage to 3d8/4d8/5d8 HP at level 3/5/7" ' +
-    'Description="Self wields shadow sword (Adv on attacks in dim light, inflicts 2d8 HP psychic, finesse and light properties, range 20/60) for conc or 1 min"',
+    'Description="Self wields shadow sword (Adv on attacks in dim light, inflicts 2d8 HP psychic, finesse and light properties, range 20/60) for conc up to 1 min"',
   'Shadow Of Moil':
     'School=Necromancy ' +
     'Level=K4 ' +
-    'Description="10\' radius dims light, gives self resistance to radiant, inflicts 2d8 HP necrotic on successful attacker for conc or 1 min"',
+    'Description="10\' radius dims light, gives self resistance to radiant, inflicts 2d8 HP necrotic on successful attacker for conc up to 1 min"',
   'Shape Water':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
@@ -1348,15 +1361,15 @@ Xanathar.SPELLS = {
   'Sickening Radiance':
     'School=Evocation ' +
     'Level=K4,S4,W4 ' +
-    'Description="R120\' 30\' radius inflicts 4d10 HP radiant and exhaustion and lights creatures for conc or 10 min (Constitution neg)"',
+    'Description="R120\' 30\' radius inflicts 4d10 HP radiant and exhaustion and lights creatures for conc up to 10 min (Constitution neg)"',
   'Skill Empowerment':
     'School=Transmutation ' +
     'Level=B5,S5,W5 ' +
-    'Description="Touched gains dbl proficiency in chosen skill for conc or 1 hr"',
+    'Description="Touched gains dbl proficiency in chosen skill for conc up to 1 hr"',
   'Skywrite':
     'School=Transmutation ' +
     'Level=B2,D2,W2 ' +
-    'Description="Clouds form 10 words for conc or 1 hr"',
+    'Description="Clouds form 10 words for conc up to 1 hr"',
   'Snare':
     'School=Abjuration ' +
     'Level=D1,R1,W1 ' +
@@ -1378,17 +1391,17 @@ Xanathar.SPELLS = {
     'School=Evocation ' +
     'Level=S4,W4 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
-    'Description="R150\' 20\' radius inflicts 2d6 HP bludgeoning (Strength neg) and emits 60\' bolt that inflicts 4d6 HP lightning 1/rd for conc or 1 min"',
+    'Description="R150\' 20\' radius inflicts 2d6 HP bludgeoning (Strength neg) and emits 60\' bolt that inflicts 4d6 HP lightning 1/rd for conc up to 1 min"',
   'Summon Greater Demon':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
     'AtHigherLevels="summons +1 CR" ' +
-    'Description="R60\' Demon up to CR 5 obeys self until Charisma save for conc or 1 hr"',
+    'Description="R60\' Demon up to CR 5 obeys self until Charisma save for conc up to 1 hr"',
   'Summon Lesser Demons':
     'School=Conjuration ' +
     'Level=K3,W3 ' +
     'AtHigherLevels="doubles/triples demon count at level 6/8" ' +
-    'Description="R60\' Demons up to CR 1 attack nearest creature for conc or 1 hr"',
+    'Description="R60\' Demons up to CR 1 attack nearest creature for conc up to 1 hr"',
   'Synaptic Static':
     'School=Enchantment ' +
     'Level=B5,K5,S5,W5 ' +
@@ -1400,7 +1413,7 @@ Xanathar.SPELLS = {
   "Tenser's Transformation":
     'School=Transmutation ' +
     'Level=W6 ' +
-    'Description="Self gains 50 temporary HP, +2d12 HP force weapon damage, Armor Proficiency (Heavy/Shield), Weapon Proficiency (Martial), Save Proficiency (Constitution/Strength), Extra Attack for conc or 10 min, suffers exhaustion afterward (Constitution neg)"',
+    'Description="Self gains 50 temporary HP, +2d12 HP force weapon damage, Armor Proficiency (Heavy/Shield), Weapon Proficiency (Martial), Save Proficiency (Constitution/Strength), Extra Attack for conc up to 10 min, suffers exhaustion afterward (Constitution neg)"',
   'Thunderclap':
     'School=Evocation ' +
     'Level=B0,D0,K0,S0,W0 ' +
@@ -1436,15 +1449,15 @@ Xanathar.SPELLS = {
     'School=Evocation ' +
     'Level=K5,S5,W5 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
-    'Description="R120\' 60\'x 10\' wall lights 120\', inflicts 4d8 HP radiant and blinds (Constitution half and not blind), emits 60\' ray that inflicts 4d8 HP radiant for conc or 10 min"',
+    'Description="R120\' 60\'x 10\' wall lights 120\', inflicts 4d8 HP radiant and blinds (Constitution half and not blind), emits 60\' ray that inflicts 4d8 HP radiant for conc up to 10 min"',
   'Wall Of Sand':
     'School=Evocation ' +
     'Level=W3 ' +
-    'Description="R90\' 30\'x10\' wall slows passers to 1/3 Speed and blocks vision for conc or 10 min"',
+    'Description="R90\' 30\'x10\' wall slows passers to 1/3 Speed and blocks vision for conc up to 10 min"',
   'Wall Of Water':
     'School=Evocation ' +
     'Level=D3,S3,W3 ' +
-    'Description="R60\' 30\'x10\' wall inflicts Disadv on ranged attacks and half damage on fire for conc or 10 min"',
+    'Description="R60\' 30\'x10\' wall inflicts Disadv on ranged attacks and half damage on fire for conc up to 10 min"',
   'Warding Wind':
     'School=Evocation ' +
     'Level=B2,D2,S2,W2 ' +
@@ -1452,11 +1465,11 @@ Xanathar.SPELLS = {
   'Watery Sphere':
     'School=Conjuration ' +
     'Level=D4,S4,W4 ' +
-    'Description="R90\' 5\' sphere traps 4 targets (Strength ejects) for conc or 1 min"',
+    'Description="R90\' 5\' sphere traps 4 targets (Strength ejects) for conc up to 1 min"',
   'Whirlwind':
     'School=Evocation ' +
     'Level=D7,S7,W7 ' +
-    'Description="R300\' 10\' radius inflicts 10d6 HP bludgeoning (Dexterity half) and restrains (Strength neg) for conc or 1 min"',
+    'Description="R300\' 10\' radius inflicts 10d6 HP bludgeoning (Dexterity half) and restrains (Strength neg) for conc up to 1 min"',
   'Word Of Radiance':
     'School=Evocation ' +
     'Level=C0 ' +
@@ -1464,11 +1477,11 @@ Xanathar.SPELLS = {
   'Wrath Of Nature':
     'School=Evocation ' +
     'Level=D5,R5 ' +
-    'Description="R120\' Animates 60\' cu of trees (inflict 4d6 HP slashing (Dexterity neg)), undergrowth (inflict difficult terrain), vines (restrain (Strength neg)), and rocks (ranged spell inflicts 3d8 HP bludgeoning, knocks prone (Dexterity not prone)) for conc or 1 min"',
+    'Description="R120\' Animates 60\' cu of trees (inflict 4d6 HP slashing (Dexterity neg)), undergrowth (inflict difficult terrain), vines (restrain (Strength neg)), and rocks (ranged spell inflicts 3d8 HP bludgeoning, knocks prone (Dexterity not prone)) for conc up to 1 min"',
   'Zephyr Strike':
     'School=Transmutation ' +
     'Level=R1 ' +
-    'Description="Self moves w/out OA for conc or 1 min and gains Adv on attacks, +1d8 HP force, and +30\' Speed for 1 rd"'
+    'Description="Self moves w/out OA for conc up to 1 min and gains Adv on attacks, +1d8 HP force, and +30\' Speed for 1 rd"'
 
 };
 Xanathar.SPELLS_LEVELS_ADDED = {

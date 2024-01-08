@@ -951,7 +951,7 @@ Tasha.FEATURES = {
     'Section=combat,feature ' +
     'Note=' +
       '"Sneak Attack target affected by Wails From The Grave use",' +
-      '"Minimum 1 Soul Trinket after long rest"',
+      '"Has a minimum of 1 Soul Trinket available after a long rest"',
   'Defensive Field':
     'Section=combat ' +
     'Note="May use a bonus action to gain %{level} temporary HP %{proficiencyBonus}/long rest"',
