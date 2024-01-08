@@ -24,13 +24,18 @@ var attributes = {
   "selectableFeatures.Warlock - The Hexblade":1, "selectableFeatures.Warlock - Tomb Of Levistus":1, 
   "selectableFeatures.Warlock - Trickster's Escape":1, "shield":"None", "skillsChosen.Animal Handling":1, 
   "skillsChosen.Deception":1, "skillsChosen.History":1, "skillsChosen.Intimidation":1, 
-  "skillsChosen.Investigation":1, "spells.Chill Touch(K0 Necr)":1, 
-  "spells.Cone Of Cold(K5 [The Hexblade] Evoc)":1, "spells.Contact Other Plane(K5 Divi)":1, 
-  "spells.Detect Poison And Disease(C1 Divi)":1, "spells.Eldritch Blast(K0 Evoc)":1, "spells.Friends(K0 Ench)":1, 
-  "spells.Hold Monster(K5 Ench)":1, "spells.Infernal Calling(K5 Conj)":1, "spells.Minor Illusion(K0 Illu)":1, 
-  "spells.Poison Spray(K0 Conj)":1, "spells.Sacred Flame(C0 Evoc)":1, "spells.Thaumaturgy(C0 Tran)":1, 
-  "strength":11, "weapons.Javelin":1, "weapons.Quarterstaff":1, "weapons.Unarmed":1, 
-  "wisdom":11
+  "skillsChosen.Investigation":1, "spells.Banishing Smite(K5 [The Hexblade] Abju)":1, 
+  "spells.Blink(K3 [The Archfey] Tran)":1, "spells.Blur(K2 [The Hexblade] Illu)":1, 
+  "spells.Branding Smite(K2 [The Hexblade] Evoc)":1, "spells.Cone Of Cold(K5 [The Hexblade] Evoc)":1, 
+  "spells.Cure Wounds(K1 [The Celestial] Evoc)":1, "spells.Daylight(K3 [The Celestial] Evoc)":1, 
+  "spells.Elemental Weapon(K3 [The Hexblade] Tran)":1, "spells.Flame Strike(K5 [The Celestial] Evoc)":1, 
+  "spells.Flaming Sphere(K2 [The Celestial] Conj)":1, "spells.Greater Restoration(K5 [The Celestial] Abju)":1, 
+  "spells.Guardian Of Faith(K4 [The Celestial] Conj)":1, "spells.Guiding Bolt(K1 [The Celestial] Evoc)":1, 
+  "spells.Lesser Restoration(K2 [The Celestial] Abju)":1, "spells.Phantasmal Killer(K4 [The Hexblade] Illu)":1, 
+  "spells.Revivify(K3 [The Celestial] Necr)":1, "spells.Shield(K1 [The Hexblade] Abju)":1, 
+  "spells.Staggering Smite(K4 [The Hexblade] Evoc)":1, "spells.Wall Of Fire(K4 [The Celestial] Evoc)":1, 
+  "spells.Wrathful Smite(K1 [The Hexblade] Evoc)":1, "strength":11, "weapons.Javelin":1, "weapons.Quarterstaff":1, 
+  "weapons.Unarmed":1, "wisdom":11
 };
   </script>
 </head>
@@ -96,7 +101,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Great Weapon Master; Magic Initiate (Cleric); Polearm Master; Skilled; Tough</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common/Choose 1 from any)</td>
-        <td><b>Warlock Features</b>: Accursed Specter; Armor Of Hexes; Armor Proficiency (Light); Aspect Of The Moon; Bonus Celestial Cantrips; Celestial Resilience; Cloak Of Flies; Eldritch Invocations; Eldritch Master; Eldritch Smite; Ghostly Gaze; Gift Of The Depths; Gift Of The Ever-Living Ones; Grasp Of Hadar; Healing Light; Hex Warrior; Hexblade's Curse; Improved Pact Weapon; Lance Of Lethargy; Maddening Hex; Master Of Hexes; Mystic Arcanum; Otherworldly Patron; Pact Boon; Pact Magic; Pact Of The Blade; Pact Of The Chain; Pact Of The Tome; Radiant Soul; Relentless Hex; Save Proficiency (Charisma/Wisdom); Searing Vengeance; Shroud Of Shadow; Skill Proficiency (Choose 2 from Arcana, Deception, History, Intimidation, Investigation, Nature, Religion); The Celestial; The Hexblade; Tomb Of Levistus; Trickster's Escape; Weapon Proficiency (Simple)</td>
+        <td><b>Warlock Features</b>: Accursed Specter; Armor Of Hexes; Armor Proficiency (Light); Aspect Of The Moon; Bonus Cantrips (The Celestial); Celestial Resilience; Cloak Of Flies; Eldritch Invocations; Eldritch Master; Eldritch Smite; Ghostly Gaze; Gift Of The Depths; Gift Of The Ever-Living Ones; Grasp Of Hadar; Healing Light; Hex Warrior; Hexblade's Curse; Improved Pact Weapon; Lance Of Lethargy; Maddening Hex; Master Of Hexes; Mystic Arcanum; Otherworldly Patron; Pact Boon; Pact Magic; Pact Of The Blade; Pact Of The Chain; Pact Of The Tome; Radiant Soul; Relentless Hex; Save Proficiency (Charisma/Wisdom); Searing Vengeance; Shroud Of Shadow; Skill Proficiency (Choose 2 from Arcana, Deception, History, Intimidation, Investigation, Nature, Religion); The Celestial; The Hexblade; Tomb Of Levistus; Trickster's Escape; Weapon Proficiency (Simple)</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight/Religion)</td>
       </tr></table>
 </td>
@@ -158,7 +163,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Bulky Armor: Disadv on Stealth</td>
     </tr><tr style="text-align:center">
-      <td>Cloak Of Flies: May gain Adv on Intimidate and suffer Disadv on other Charisma 1/short rest</td>
+      <td>Cloak Of Flies: May use a bonus action to gain Adv on Intimidate and suffer Disadv on other Charisma 1/short rest</td>
     </tr></table>
 </td>
   </tr></table>
@@ -208,19 +213,19 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Tough: +40 Hit Points</i></td>
       </tr><tr style="text-align:center">
-        <td>Accursed Specter: May raise a slain humanoid as an obedient specter w/10 temporary HP, +2 attack until a long rest 1/long rest</td>
+        <td>Accursed Specter: May raise a slain humanoid as an obedient specter w/10 temporary HP and +2 attack until a long rest 1/long rest</td>
       </tr><tr style="text-align:center">
         <td>Armor Of Hexes: Hexblade's Curse target has 50% chance to miss self</td>
       </tr><tr style="text-align:center">
         <td>Eldritch Smite: May spend a spell slot to inflict +(slot level + 1)d8 HP force and knock prone w/pact weapon</td>
       </tr><tr style="text-align:center">
-        <td>Gift Of The Ever-Living Ones: Healing has maximum effect w/in 100' of familiar</td>
+        <td>Gift Of The Ever-Living Ones: Regains maximum HP from healing w/in 100' of familiar</td>
       </tr><tr style="text-align:center">
         <td>Great Weapon Master: May make a bonus attack after crit or reducing foe to 0 HP/May suffer -5 attack w/a heavy weapon to gain +10 damage</td>
       </tr><tr style="text-align:center">
-        <td>Hex Warrior: +1 attack and damage (Charisma instead of Strength) w/touched weapon until a long rest 1/long rest</td>
+        <td>Hex Warrior: +1 attack and damage (Charisma instead of Strength) w/pact weapon or touched non-two-handed weapon until a long rest 1/long rest</td>
       </tr><tr style="text-align:center">
-        <td>Improved Pact Weapon: Adds bows and crossbows as possible pact weapons; pact weapon gains +1 attack and damage and can be used as a spell focus</td>
+        <td>Improved Pact Weapon: May use a bow or crossbow as a pact weapon/Pact weapon gains +1 attack and damage and can be used as a spell focus</td>
       </tr><tr style="text-align:center">
         <td>Pact Of The Chain: May forego one attack to allow familiar to use Reaction to attack</td>
       </tr><tr style="text-align:center">
@@ -240,7 +245,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Save Notes</b>:       <table id="SaveNotes" style="width:100%">
       <tr style="text-align:center">
-        <td>Aspect Of The Moon: Immune to sleep/Has no need for normal sleep</td>
+        <td>Aspect Of The Moon: Immune to sleep/Light activity gives benefits of sleep</td>
       </tr><tr style="text-align:center">
         <td>Radiant Soul: Resistance to radiant damage</td>
       </tr></table>
@@ -266,41 +271,57 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Spells</b>:     <table id="Spells" style="width:100%">
     <tr style="text-align:left">
-      <td>Chill Touch (K0 Necr): R120' Ranged spell inflicts 4d8 HP necrotic and target cannot heal for 1 rd, undead also suffer Disadv on self attack for 1 rd</td>
+      <td>Banishing Smite (K5 [The Hexblade] Abju): Next successful self weapon attack inflicts +5d10 HP force, plus banishment to home plane or a demiplane for conc up to 1 min if foe is reduced to 50 HP</td>
+    </tr><tr style="text-align:left">
+      <td>Blink (K3 [The Archfey] Tran): Self becomes ethereal 50% of time for 1 min</td>
+    </tr><tr style="text-align:left">
+      <td>Blur (K2 [The Hexblade] Illu): Foes suffer Disadv when attacking self for conc up to 1 min</td>
+    </tr><tr style="text-align:left">
+      <td>Branding Smite (K2 [The Hexblade] Evoc): Next successful self weapon attack inflicts +2d6 HP radiant and lights target for conc up to 1 min [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
       <td>Cone Of Cold (K5 [The Hexblade] Evoc): 60' cone inflicts 8d8 HP cold (Constitution half) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Contact Other Plane (K5 Divi): Contact w/an extraplanar being inflicts 6d6 HP psychic and insanity on self until a long rest (DC 15 Intelligence neg and receive 5 one-word answers) [R]</td>
+      <td>Cure Wounds (K1 [The Celestial] Evoc): Touched regains 1d8+2 HP [+Level restores +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Detect Poison And Disease (C1 Divi): R30' Self senses poison, poisonous creatures, and diseases for conc up to 10 min [R]</td>
+      <td>Daylight (K3 [The Celestial] Evoc): R60' Target centers a 60' radius bright light for 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Eldritch Blast (K0 Evoc): R120' Ranged spell creates 4 rays that inflict 1d10 HP force each</td>
+      <td>Elemental Weapon (K3 [The Hexblade] Tran): Touched weapon gains +1 attack and +1d4 HP choice of acid, cold, fire, lightning, or thunder for conc up to 1 hr [+Level gives +2/+3 attack and +2d4/+3d4 damage at level 5/7]</td>
     </tr><tr style="text-align:left">
       <td>Find Familiar (K1 [Pact Of The Chain] Conj): R10' Self gains service from a summoned spirit in animal form [R]</td>
     </tr><tr style="text-align:left">
+      <td>Flame Strike (K5 [The Celestial] Evoc): R60' 10' radius inflicts 4d6 HP fire and 4d6 HP radiant (Dexterity half) [+Level inflicts +1d6 HP choice of fire or radiant]</td>
+    </tr><tr style="text-align:left">
+      <td>Flaming Sphere (K2 [The Celestial] Conj): R60' 5' sphere lights a 20' radius, inflicts 2d6 HP fire (Dexterity half), ignites unattended flammable objects, and moves 30'/rd for conc up to 1 min [+Level inflicts +1d6 HP]</td>
+    </tr><tr style="text-align:left">
       <td>Freedom Of Movement (K4 [Trickster's Escape] Abju): Touched gains immunity to movement impediments for 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Friends (K0 Ench): Self gains on Adv on Charisma w/non-hostile target for conc up to 1 min; target becomes hostile afterward</td>
+      <td>Greater Restoration (K5 [The Celestial] Abju): Touched recovers from exhausted, charmed, petrified, or cursed or regains ability or HP maximum</td>
     </tr><tr style="text-align:left">
-      <td>Hold Monster (K5 Ench): R90' Immobilizes target creature (Wisdom ends) for conc up to 1 min [+Level affects +1 target]</td>
+      <td>Guardian Of Faith (K4 [The Celestial] Conj): R30' 10' radius inflicts 20 HP radiant to hostile creatures (Dexterity half) for 8 hr or 60 HP</td>
     </tr><tr style="text-align:left">
-      <td>Infernal Calling (K5 Conj): R90' Summons uncontrolled CR 6 devil for conc or 1 hr [+Level summons +1 CR]</td>
+      <td>Guiding Bolt (K1 [The Celestial] Evoc): R120' Ranged spell inflicts 4d6 HP radiant and gives Adv on next attack on target w/in 1 rd [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
       <td>Invisibility (K2 [Shroud Of Shadow] Illu): Touched becomes invisible for conc up to 1 hr; target attacking or casting ends [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
-      <td>Light (K0 [Bonus Celestial Cantrips] Evoc): Touched object lights a 20' radius (Dexterity neg) for 1 hr</td>
+      <td>Lesser Restoration (K2 [The Celestial] Abju): Touched recovers from blindness, deafness, disease, paralysis, or poison</td>
     </tr><tr style="text-align:left">
-      <td>Minor Illusion (K0 Illu): R30' Creates the sound of 1 creature or a 5' cube image (Investigation detects) for 1 min</td>
+      <td>Light (K0 [Bonus Cantrips (The Celestial)] Evoc): Touched object lights a 20' radius (Dexterity neg) for 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Poison Spray (K0 Conj): R10' Target suffers 4d12 HP poison (Constitution neg)</td>
+      <td>Phantasmal Killer (K4 [The Hexblade] Illu): R120' Target perceives a personal horror (Wisdom neg) that frightens and inflicts 4d10 HP psychic/rd (Wisdom neg that rd) for conc up to 1 min [+Level inflicts +1d10 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Sacred Flame (C0 Evoc): R60' Target suffers 4d8 HP radiant (Dexterity neg)</td>
+      <td>Revivify (K3 [The Celestial] Necr): Restores life and 1 HP to a touched 1-minute-old corpse</td>
     </tr><tr style="text-align:left">
-      <td>Sacred Flame (K0 [Bonus Celestial Cantrips] Evoc): R60' Target suffers 4d8 HP radiant (Dexterity neg)</td>
+      <td>Sacred Flame (K0 [Bonus Cantrips (The Celestial)] Evoc): R60' Target suffers 4d8 HP radiant (Dexterity neg)</td>
     </tr><tr style="text-align:left">
-      <td>Thaumaturgy (C0 Tran): R30' Creates minor magic effects for 1 min</td>
+      <td>Shield (K1 [The Hexblade] Abju): May cast as a Reaction to gain +5 AC and immunity to <i>Magic Missile</i> until next turn</td>
+    </tr><tr style="text-align:left">
+      <td>Staggering Smite (K4 [The Hexblade] Evoc): Next successful self weapon attack w/in conc up to 1 min inflicts +4d6 HP psychic, Disadv on attacks and ability checks for 1 rd, and no Reaction for 1 rd</td>
+    </tr><tr style="text-align:left">
+      <td>Wall Of Fire (K4 [The Celestial] Evoc): R120' 60'x20'x1' wall inflicts 5d8 HP fire (Dexterity half) w/in 10' of chosen side for conc up to 1 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Water Breathing (K3 [Gift Of The Depths] Tran): R30' 10 targets may breathe underwater for 1 dy [R]</td>
+    </tr><tr style="text-align:left">
+      <td>Wrathful Smite (K1 [The Hexblade] Evoc): Next successful self weapon attack inflicts +1d6 HP psychic and frightens (Wisdom ends) for conc up to 1 min</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -310,29 +331,29 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><i>Magic Initiate (Cleric): Knows 2 C0 spells/May cast chosen C1 spell 1/long rest</i></td>
     </tr><tr style="text-align:center">
-      <td>Bonus Celestial Cantrips: Knows <i>Light</i> and <i>Sacred Flame</i> cantrips</td>
+      <td>Bonus Cantrips (The Celestial): Knows <i>Light</i> and <i>Sacred Flame</i> cantrips</td>
     </tr><tr style="text-align:center">
-      <td>Celestial Resilience: May give self 22 temporary HP and 5 others 12 temporary HP 1/short rest</td>
+      <td>Celestial Resilience: Gains 22 temporary HP, and may give 5 others 12 temporary HP, at the end of a rest</td>
     </tr><tr style="text-align:center">
-      <td>Cloak Of Flies: R5' May inflict 2 HP poison damage 1/short rest</td>
+      <td>Cloak Of Flies: May use a bonus action to create a 5' radius that inflicts 2 HP poison damage 1/short rest</td>
     </tr><tr style="text-align:center">
       <td>Eldritch Master: May recover expended spell slots 1/long rest</td>
     </tr><tr style="text-align:center">
-      <td>Ghostly Gaze: May see 30' through solid objects for conc or 1 min 1/short rest</td>
+      <td>Ghostly Gaze: May see 30' w/Darkvision through solid objects for conc up to 1 min 1/short rest</td>
     </tr><tr style="text-align:center">
       <td>Gift Of The Depths: May cast <i>Water Breathing</i> 1/long rest</td>
     </tr><tr style="text-align:center">
       <td>Grasp Of Hadar: May pull target 10' w/<i>Eldritch Blast</i></td>
     </tr><tr style="text-align:center">
-      <td>Healing Light: R60' May restore 21d6 HP/long rest, 2d6/heal</td>
+      <td>Healing Light: R60' May restore 21d6 HP/long rest (maximum 2d6 per healing)</td>
     </tr><tr style="text-align:center">
-      <td>Hexblade's Curse: R30' Self inflicts +6 damage and crits on 19 vs. target and regains 22 HP if target dies for 1 min 1/short rest</td>
+      <td>Hexblade's Curse: R30' Self inflicts +6 damage on target, crits on 19 vs. target, and regains 22 HP if target dies for 1 min 1/short rest</td>
     </tr><tr style="text-align:center">
       <td>Lance Of Lethargy: May inflict -10' Speed w/<i>Eldritch Blast</i> for 1 rd</td>
     </tr><tr style="text-align:center">
-      <td>Maddening Hex: R30' Bonus action inflicts 2 HP psychic damage to targets in a 5' radius of curse target</td>
+      <td>Maddening Hex: R30' May use a bonus action to inflict 2 HP psychic damage to targets in a 5' radius around curse target</td>
     </tr><tr style="text-align:center">
-      <td>Master Of Hexes: R30' May redirect Hexblade's Curse when target dies</td>
+      <td>Master Of Hexes: R30' May forego regaining HP to redirect Hexblade's Curse when target dies</td>
     </tr><tr style="text-align:center">
       <td>Mystic Arcanum: May cast chosen K6, K7, K8, K9 spells 1/long rest</td>
     </tr><tr style="text-align:center">
@@ -342,15 +363,15 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Pact Of The Tome: Has a <i>Book Of Shadows</i> containing 3 chosen cantrips that can be cast at will</td>
     </tr><tr style="text-align:center">
-      <td>Radiant Soul: +2 HP radiant and fire spell damage</td>
+      <td>Radiant Soul: +2 HP radiant and fire spell damage on one target</td>
     </tr><tr style="text-align:center">
-      <td>Relentless Hex: May teleport 30' to be adjacent to curse target</td>
+      <td>Relentless Hex: May teleport 30' to a space adjacent to curse target</td>
     </tr><tr style="text-align:center">
       <td>Shroud Of Shadow: May cast <i>Invisibility</i> at will</td>
     </tr><tr style="text-align:center">
-      <td>Tomb Of Levistus: May use Reaction to gain 200 temporary HP for 1 rd 1/short rest</td>
+      <td>Tomb Of Levistus: May use Reaction upon taking damage to gain 200 temporary HP and suffer vulnerability to fire and immobility for 1 rd 1/short rest</td>
     </tr><tr style="text-align:center">
-      <td>Trickster's Escape: May cast <i>Freedom Of Movement</i> 1/long rest</td>
+      <td>Trickster's Escape: May cast self <i>Freedom Of Movement</i> 1/long rest</td>
     </tr></table>
 </td>
   </tr></table>
