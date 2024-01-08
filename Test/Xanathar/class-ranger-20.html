@@ -89,7 +89,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Alert; Dungeon Delver; Healer; Magic Initiate (Wizard); Savage Attacker</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common/Choose 1 from any)</td>
-        <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Detect Portal; Distant Strike; Dread Ambusher; Ethereal Step; Extra Attack; Favored Enemy; Feral Senses; Fighting Style (Archery); Fighting Style; Foe Slayer; Gloom Stalker; Hide In Plain Sight; Horizon Walker; Hunter's Sense; Iron Mind; Land's Stride; Magic-User's Nemesis; Monster Slayer; Natural Explorer; Planar Warrior; Primeval Awareness; Ranger Archetype; Save Proficiency (Dexterity/Strength); Shadowy Dodge; Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Slayer's Counter; Slayer's Prey; Spectral Defense; Spellcasting; Stalker's Flurry; Supernatural Defense; Umbral Sight; Vanish; Weapon Proficiency (Martial)</td>
+        <td><b>Ranger Features</b>: Armor Proficiency (Medium/Shield); Detect Portal; Distant Strike; Dread Ambusher; Ethereal Step; Extra Attack; Favored Enemy; Feral Senses; Fighting Style (Archery); Fighting Style; Foe Slayer; Gloom Stalker Magic; Gloom Stalker; Hide In Plain Sight; Horizon Walker Magic; Horizon Walker; Hunter's Sense; Iron Mind; Land's Stride; Magic-User's Nemesis; Monster Slayer Magic; Monster Slayer; Natural Explorer; Planar Warrior; Primeval Awareness; Ranger Archetype; Save Proficiency (Dexterity/Strength); Shadowy Dodge; Skill Proficiency (Choose 3 from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival); Slayer's Counter; Slayer's Prey; Spectral Defense; Spellcasting; Stalker's Flurry; Supernatural Defense; Umbral Sight; Vanish; Weapon Proficiency (Martial)</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight/Religion)</td>
       </tr></table>
 </td>
@@ -221,7 +221,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Distant Strike: May teleport 10' before attack and attack 3 different creatures</td>
       </tr><tr style="text-align:center">
-        <td>Dread Ambusher: Gains +10' Speed and an additional weapon attack inflicting +1d8 HP weapon damage on first turn</td>
+        <td>Dread Ambusher: Gains +10' Speed and an additional weapon attack inflicting +1d8 HP weapon damage on first rd of combat</td>
       </tr><tr style="text-align:center">
         <td>Feral Senses: Suffers no Disadv vs. invisible foe</td>
       </tr><tr style="text-align:center">
@@ -229,21 +229,21 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Hunter's Sense: R60' May sense immunities, resistances, and vulnerabilities of target 3/long rest</td>
       </tr><tr style="text-align:center">
-        <td>Magic-User's Nemesis: R60' May use Reaction to foil target cast or to teleport (DC 17 Wisdom neg) 1/short rest</td>
+        <td>Magic-User's Nemesis: R60' May use Reaction to foil target cast or teleportation (DC 17 Wisdom neg) 1/short rest</td>
       </tr><tr style="text-align:center">
-        <td>Planar Warrior: R30' Successful attack inflicts +2d8 HP damage and becomes force damage</td>
+        <td>Planar Warrior: R30' May use a bonus action to convert weapon damage to force damage and inflict +2d8 HP 1/rd</td>
       </tr><tr style="text-align:center">
         <td>Savage Attacker: May take the best of two melee damage rolls 1/rd</td>
       </tr><tr style="text-align:center">
-        <td>Shadowy Dodge: May use Reaction to impose Disadv on attacker</td>
+        <td>Shadowy Dodge: May use Reaction to impose Disadv on attacker (attacker Adv neg)</td>
       </tr><tr style="text-align:center">
-        <td>Slayer's Counter: When Slayer's Prey target forces a saving throw, a successful Reaction attack makes it successessful</td>
+        <td>Slayer's Counter: May use Reaction when Slayer's Prey target forces self saving throw to attack; attack success also makes the save succeed</td>
       </tr><tr style="text-align:center">
-        <td>Slayer's Prey: R60' May inflict +1d6 HP weapon damage on target w/1st attack each rd until a short rest</td>
+        <td>Slayer's Prey: R60' May use a bonus action to inflict +1d6 HP weapon damage on chosen target w/first attack each rd</td>
       </tr><tr style="text-align:center">
         <td>Spectral Defense: May use Reaction upon damage to gain resistance</td>
       </tr><tr style="text-align:center">
-        <td>Stalker's Flurry: May reroll a weapon miss 1/rd</td>
+        <td>Stalker's Flurry: May follow a weapon miss w/another attack 1/rd</td>
       </tr></table>
 </td>
     </tr></table>
@@ -289,9 +289,9 @@ var attributes = {
     <tr style="text-align:left">
       <td>Animal Friendship (R1 Ench): R30' Target beast becomes convinced of self harmlessness (Wisdom neg; Intelligence 4 or higher immune) for 1 dy [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
-      <td>Banishment (R4 [Horizon Walker] Abju): R60' Banishes target to home or a demiplane (Charisma neg) for conc up to 1 min [+Level affects +1 target]</td>
+      <td>Banishment (R4 [Horizon Walker Magic] Abju): R60' Banishes target to home or a demiplane (Charisma neg) for conc up to 1 min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
-      <td>Banishment (R4 [Monster Slayer] Abju): R60' Banishes target to home or a demiplane (Charisma neg) for conc up to 1 min [+Level affects +1 target]</td>
+      <td>Banishment (R4 [Monster Slayer Magic] Abju): R60' Banishes target to home or a demiplane (Charisma neg) for conc up to 1 min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
       <td>Beast Sense (R2 Divi): Self may perceive through touched willing beast's senses for conc up to 1 hr [R]</td>
     </tr><tr style="text-align:left">
@@ -307,51 +307,51 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Cure Wounds (R1 Evoc): Touched regains 1d8+3 HP [+Level restores +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Disguise Self (R1 [Gloom Stalker] Illu): Self body and clothing appear different (Investigation detects) for 1 hr</td>
+      <td>Disguise Self (R1 [Gloom Stalker Magic] Illu): Self body and clothing appear different (Investigation detects) for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Ensnaring Strike (R1 Conj): Self next successful attack restrains foe and inflicts 1d6 HP/rd piercing (Strength ends) for conc up to 1 min [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Fear (R3 [Gloom Stalker] Illu): Creatures in a 30' cone flee (Wisdom ends) for conc up to 1 min</td>
+      <td>Fear (R3 [Gloom Stalker Magic] Illu): Creatures in a 30' cone flee (Wisdom ends) for conc up to 1 min</td>
     </tr><tr style="text-align:left">
       <td>Friends (W0 Ench): Self gains on Adv on Charisma w/non-hostile target for conc up to 1 min; target becomes hostile afterward</td>
     </tr><tr style="text-align:left">
       <td>Grasping Vine (R4 Conj): R30' 30' vine pulls target 20' each rd (Dexterity neg) for conc up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Greater Invisibility (R4 [Gloom Stalker] Illu): Touched becomes invisible for conc up to 1 min</td>
+      <td>Greater Invisibility (R4 [Gloom Stalker Magic] Illu): Touched becomes invisible for conc up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Haste (R3 [Horizon Walker] Tran): R30' Willing target gains dbl Speed, +2 AC, Adv on Dexterity, and an additional action for conc up to 1 min</td>
+      <td>Haste (R3 [Horizon Walker Magic] Tran): R30' Willing target gains dbl Speed, +2 AC, Adv on Dexterity, and an additional action for conc up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Hold Monster (R5 [Monster Slayer] Ench): R90' Immobilizes target creature (Wisdom ends) for conc up to 1 min [+Level affects +1 target]</td>
+      <td>Hold Monster (R5 [Monster Slayer Magic] Ench): R90' Immobilizes target creature (Wisdom ends) for conc up to 1 min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
       <td>Jump (R1 Tran): Touched gains triple jump distance for 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Magic Circle (R3 [Monster Slayer] Abju): R10' 10' radius prevents choice of entry or exit (Charisma allows magical transit), inflicts Disadv on attacks, and negates charm, fright, and possession by choice of celestials, fey, fiends, or undead for 1 hr [+Level extends duration +1 hr]</td>
+      <td>Magic Circle (R3 [Monster Slayer Magic] Abju): R10' 10' radius prevents choice of entry or exit (Charisma allows magical transit), inflicts Disadv on attacks, and negates charm, fright, and possession by choice of celestials, fey, fiends, or undead for 1 hr [+Level extends duration +1 hr]</td>
     </tr><tr style="text-align:left">
       <td>Minor Illusion (W0 Illu): R30' Creates the sound of 1 creature or a 5' cube image (Investigation detects) for 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Misty Step (R2 [Horizon Walker] Conj): Teleports self 30'</td>
+      <td>Misty Step (R2 [Horizon Walker Magic] Conj): Teleports self 30'</td>
     </tr><tr style="text-align:left">
       <td>Pass Without Trace (R2 Abju): Targets in a 30' radius gain +10 Stealth and become trackable only by magic for conc up to 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Plant Growth (R3 Tran): R150' Causes plants to overgrow in a 100' radius or enriches a 1/2 mile radius for 1 yr</td>
     </tr><tr style="text-align:left">
-      <td>Protection From Evil And Good (R1 [Horizon Walker] Abju): Willing touched gains immunity to charm, fright, and possession from aberrations, celestials, elementals, fey, fiends, and undead; those creatures suffer Disadv on attacks on target</td>
+      <td>Protection From Evil And Good (R1 [Horizon Walker Magic] Abju): Willing touched gains immunity to charm, fright, and possession from aberrations, celestials, elementals, fey, fiends, and undead; those creatures suffer Disadv on attacks on target</td>
     </tr><tr style="text-align:left">
-      <td>Protection From Evil And Good (R1 [Monster Slayer] Abju): Willing touched gains immunity to charm, fright, and possession from aberrations, celestials, elementals, fey, fiends, and undead; those creatures suffer Disadv on attacks on target</td>
+      <td>Protection From Evil And Good (R1 [Monster Slayer Magic] Abju): Willing touched gains immunity to charm, fright, and possession from aberrations, celestials, elementals, fey, fiends, and undead; those creatures suffer Disadv on attacks on target</td>
     </tr><tr style="text-align:left">
-      <td>Rope Trick (R2 [Gloom Stalker] Tran): Touched rope leads to an extradimensional space w/room for 8 creatures for 1 hr</td>
+      <td>Rope Trick (R2 [Gloom Stalker Magic] Tran): Touched rope leads to an extradimensional space w/room for 8 creatures for 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Seeming (R5 [Gloom Stalker] Illu): R30' Changes appearance of targets (Charisma neg; Investigation detects) for 8 hr</td>
+      <td>Seeming (R5 [Gloom Stalker Magic] Illu): R30' Changes appearance of targets (Charisma neg; Investigation detects) for 8 hr</td>
     </tr><tr style="text-align:left">
       <td>Stoneskin (R4 Abju): Touched gains resistance to bludgeoning, piercing, and slashing damage for conc up to 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Swift Quiver (R5 Tran): Touched quiver dispenses ammo endlessly and allows two ranged attacks in a bonus action for conc up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Teleportation Circle (R5 [Horizon Walker] Conj): R10' Creates a portal that provides access to similar circles for 1 rd</td>
+      <td>Teleportation Circle (R5 [Horizon Walker Magic] Conj): R10' Creates a portal that provides access to similar circles for 1 rd</td>
     </tr><tr style="text-align:left">
       <td>Water Breathing (R3 Tran): R30' 10 targets may breathe underwater for 1 dy [R]</td>
     </tr><tr style="text-align:left">
-      <td>Zone Of Truth (R2 [Monster Slayer] Ench): R60' Creatures in a 15' radius cannot lie (Charisma neg) for 10 min</td>
+      <td>Zone Of Truth (R2 [Monster Slayer Magic] Ench): R60' Creatures in a 15' radius cannot lie (Charisma neg) for 10 min</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
@@ -361,7 +361,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Detect Portal: R1 mile May sense planar portals 1/short rest</td>
     </tr><tr style="text-align:center">
-      <td>Ethereal Step: May become ethereal until end of turn 1/short rest</td>
+      <td>Ethereal Step: May use a bonus action to become ethereal until end of turn 1/short rest</td>
     </tr><tr style="text-align:center">
       <td>Primeval Awareness: May spend a spell slot to sense creatures in a 1 mile radius (favored terrain 6 mile radius) for 1 min/slot level</td>
     </tr></table>
