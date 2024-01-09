@@ -90,7 +90,9 @@ Volo.CHARACTER_FEATURES = {
   'Guardians Of The Depths':
     'Section=save Note="Resistance to cold damage/Unaffected by water depth"',
   'Healing Hands':'Section=magic Note="Touch may heal %{level} HP 1/long rest"',
-  'Hidden Step':'Section=magic Note="May become invisible for 1 rd (inflicting damage or forcing saving throw ends) 1/short rest"',
+  'Hidden Step':
+    'Section=magic ' +
+    'Note="May use a bonus action to become invisible for 1 rd (inflicting damage or forcing saving throw ends) 1/short rest"',
   'Hold Breath':'Section=ability Note="May hold breath for 15 min"',
   'Hungry Jaws':
     'Section=combat ' +
@@ -112,19 +114,19 @@ Volo.CHARACTER_FEATURES = {
   'Natural Athlete':'Section=skill Note="Skill Proficiency (Athletics)"',
   'Necrotic Shroud':
     'Section=combat ' +
-    'Note="May inflict frightened for 1 rd in a 10\' radius (DC %{8+charismaModifier+proficiencyBonus} neg) and +%{level} HP necrotic 1/rd for 1 min 1/long rest"',
+    'Note="May use a bonus action to inflict frightened for 1 rd in a 10\' radius (DC %{8+charismaModifier+proficiencyBonus} neg) and +%{level} HP necrotic 1/rd for 1 min 1/long rest"',
   'Natural Armor':'Section=combat Note="AC %{13+dexterityModifier+(shield==\'None\'?0:2)} in no armor"',
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Protector Aasimar Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Wisdom"',
   'Radiant Consumption':
     'Section=combat ' +
-    'Note="May inflict %{(level+1)//2} HP radiant in a 10\' radius (including to self) and inflict +%{level} HP radiant 1/rd for 1 min 1/long rest"',
+    'Note="May use a bonus action to inflict %{(level+1)//2} HP radiant in a 10\' radius (including to self) and inflict +%{level} HP radiant 1/rd for 1 min 1/long rest"',
   'Radiant Soul (Aasimar)':
     'Section=ability,combat ' +
     'Note=' +
-      '"May gain 30\' fly Speed for 1 min 1/long rest",' +
-      '"May inflict +%{level} HP radiant 1/rd for 1 min 1/long rest"',
+      '"May use a bonus action to gain 30\' fly Speed for 1 min 1/long rest",' +
+      '"May use a bonus action to inflict +%{level} HP radiant 1/rd for 1 min 1/long rest"',
   'Scourge Aasimar Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Constitution"',
   'Speech Of Beast And Leaf':

@@ -318,15 +318,15 @@ Xanathar.DEITIES_DOMAINS_ADDED = {
 };
 Xanathar.FEATS = {
   'Bountiful Luck':'Type=General Require="race =~ \'Halfling\'"',
-  'Dragon Fear':'Type=General Require="race == \'Dragonborn\'"',
-  'Dragon Hide':'Type=General Require="race == \'Dragonborn\'"',
+  'Dragon Fear':'Type=General Require="race =~ \'Dragonborn\'"',
+  'Dragon Hide':'Type=General Require="race =~ \'Dragonborn\'"',
   'Drow High Magic':'Type=General Require="race == \'Dark Elf\'"',
   'Dwarven Fortitude':'Type=General Require="race =~ \'Dwarf\'"',
   'Elven Accuracy':'Type=General Require="race =~ \'Elf\'"',
   'Fade Away':'Type=General Require="race =~ \'Gnome\'"',
   'Fey Teleportation':'Type=General Require="race == \'High Elf\'"',
-  'Flames Of Phlegethos':'Type=General Require="race == \'Tiefling\'"',
-  'Infernal Constitution':'Type=General Require="race == \'Tiefling\'"',
+  'Flames Of Phlegethos':'Type=General Require="race =~ \'Tiefling\'"',
+  'Infernal Constitution':'Type=General Require="race =~ \'Tiefling\'"',
   'Orcish Fury':'Type=General Require="race == \'Half-Orc\'"',
   'Prodigy':'Type=General Require="race =~ \'Half-Elf|Half-Orc|Human\'"',
   'Second Chance':'Type=General Require="race =~ \'Halfling\'"',
@@ -377,7 +377,7 @@ Xanathar.FEATURES = {
     'Note="R%{levels.Paladin<18?10:30}\' May use Reaction to transfer damage from another to self"',
   'Balm Of The Summer Court':
     'Section=magic ' +
-    'Note="R120\' May restore up to %{levels.Druid//2}d6 HP and give target 1 temporary HP per HD 1/rd until %{levels.Druid}d6 HP restored/long rest"',
+    'Note="R120\' May use a bonus action to restore up to %{levels.Druid//2}d6 HP and give target 1 temporary HP per HD 1/rd until %{levels.Druid}d6 HP restored/long rest"',
   'Banishing Arrow':
     'Section=combat ' +
     'Note="Arrow inflicts +%{levels.Fighter<18?0:2}d6 HP force and sends target to Feywild (DC %{8+proficiencyBonus+intelligenceModifier} Charisma HP only) for 1 rd"',
@@ -417,7 +417,7 @@ Xanathar.FEATURES = {
     'Note="Gains %{levels.Warlock+charismaModifier} temporary HP, and may give 5 others %{levels.Warlock//2+charismaModifier} temporary HP, at the end of a rest"',
   'Circle Of Mortality':
     'Section=magic ' +
-    'Note="Cure spells have maximum effect for HP 0 targets/May cast R30\' <i>Spare The Dying</i>" ' +
+    'Note="Cure spells have maximum effect for HP 0 targets/May cast R30\' <i>Spare The Dying</i> as a bonus action" ' +
     'Spells="Spare The Dying"',
   'Cloak Of Flies':
     'Section=magic,skill ' +
@@ -434,7 +434,7 @@ Xanathar.FEATURES = {
     'Spells=Augury,Clairvoyance',
   'Curving Shot':
     'Section=combat ' +
-    'Note="May redirect a magic arrow miss to another target w/in 60\'"',
+    'Note="May use a bonus action to redirect a magic arrow miss to another target w/in 60\'"',
   'Defensive Flourish':
     'Section=combat ' +
     'Note="May spend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} damage and gain +1d%{bardicInspirationDie} AC for 1 rd"',
@@ -484,7 +484,7 @@ Xanathar.FEATURES = {
     'Note="May use a bonus action to gain Adv on next Acrobatics or Athletics for 1 rd"',
   'Emissary Of Peace':
     'Section=skill ' +
-    'Note="May use Channel Energy to gain +5 Persuasion for 10 min"',
+    'Note="May use Channel Energy and a bonus action to gain +5 Persuasion for 10 min"',
   'Emissary Of Redemption':
     'Section=combat ' +
     'Note="Has resistance to all attack damage, and a successful attacker takes radiant damage equal to half inflicted (attacking neg for target until a long rest)"',
@@ -499,7 +499,8 @@ Xanathar.FEATURES = {
     'Note="R60\' May use 1 min performance to charm %{charismaModifier>?1} listeners (DC %{spellDifficultyClass.B} Will neg) for 1 hr (damage ends) 1/short rest"',
   'Ethereal Step':
     'Section=magic ' +
-    'Note="May use a bonus action to become ethereal until end of turn 1/short rest"',
+    'Note="May use a bonus action to cast <i>Etherealness</i>, lasting until end of turn, 1/short rest" ' +
+    'Spells=Etherealness',
   'Ever-Ready Shot':
     'Section=combat ' +
     'Note="Has a minimum of 1 Arcane Shot use available after initiative"',
@@ -593,7 +594,7 @@ Xanathar.FEATURES = {
     'Note="May create a 30\' sphere that gives total cover and +5 Stealth and Perception during a rest"',
   'Healing Light':
     'Section=magic ' +
-    'Note="R60\' May restore %{levels.Warlock+1}d6 HP/long rest (maximum %{charismaModifier>?1}d6 per healing)"',
+    'Note="R60\' May use a bonus action to restore %{levels.Warlock+1}d6 HP/long rest (maximum %{charismaModifier>?1}d6 per healing)"',
   'Hex Warrior':
     'Section=combat,feature ' +
     'Note=' +
@@ -601,7 +602,7 @@ Xanathar.FEATURES = {
       '"Armor Proficiency (Medium/Shield)/Weapon Proficiency (Martial)"',
   "Hexblade's Curse":
     'Section=magic ' +
-    'Note="R30\' Self inflicts +%{proficiencyBonus} damage on target, crits on 19 vs. target, and regains %{levels.Warlock+charismaModifier} HP if target dies, for 1 min 1/short rest"',
+    'Note="R30\' May use a bonus action to curse target; self gains +%{proficiencyBonus} damage on target, crits on 19 vs. target, and regains %{levels.Warlock+charismaModifier} HP if target dies, for 1 min 1/short rest"',
   'Hidden Paths':
     'Section=magic ' +
     'Note="May use a bonus action to teleport self 60\' or a willing touched target 30\' %{wisdomModifier>?1}/long rest"',
@@ -663,10 +664,10 @@ Xanathar.FEATURES = {
     'Note="R60\' May use Reaction to foil target cast or teleportation (DC %{spellDifficultyClass.R} Wisdom neg) 1/short rest"',
   'Mantle Of Inspiration':
     'Section=magic ' +
-    'Note="R60\' May use a Bardic Inspiration bonus action to give %{charismaModifier>?1} targets %{levels.Bard//5*3+6<?14} temporary HP and an immediate move w/out OA"',
+    'Note="R60\' May spend a Bardic Inspiration use and use a bonus action to give %{charismaModifier>?1} targets %{levels.Bard//5*3+6<?14} temporary HP and an immediate move w/out OA"',
   'Mantle Of Majesty':
     'Section=magic ' +
-    'Note="May cast <i>Command</i> as a bonus action 1/rd for conc up to 1 min 1/long rest" ' +
+    'Note="May use a bonus action to cast <i>Command</i> 1/rd for conc up to 1 min 1/long rest" ' +
     'Spells=Command',
   'Mantle Of Whispers':
     'Section=magic ' +
@@ -751,7 +752,7 @@ Xanathar.FEATURES = {
       '"Resistance to radiant damage"',
   'Radiant Sun Bolt':
     'Section=combat ' +
-    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant 1/rd (may spend 1 Ki Point for a second attack)"',
+    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant 1/rd (may spend 1 Ki Point and use a bonus action for a second attack)"',
   'Rage Beyond Death':
     'Section=combat Note="Remains conscious and alive at 0 HP until rage ends"',
   'Raging Storm (Desert)':
@@ -779,7 +780,7 @@ Xanathar.FEATURES = {
     'Note="May use Reaction and spend 1 Ki Point to redirect a foe miss to an adjacent creature"',
   'Relentless Hex':
     'Section=magic ' +
-    'Note="May teleport 30\' to a space adjacent to curse target"',
+    'Note="May use a bonus action to teleport 30\' to a space adjacent to curse target"',
   'Saint Of Forge And Fire':
     'Section=combat,save ' +
     'Note=' +
@@ -790,7 +791,7 @@ Xanathar.FEATURES = {
     'Note="Successful attackers suffer %{charismaModifier>?1} HP psychic"',
   'Searing Arc Strike':
     'Section=magic ' +
-    'Note="May spend 2-%{levels.Monk//2} Ki Points to cast <i>Burning Hands</i> after an attack" ' +
+    'Note="May spend 2-%{levels.Monk//2} Ki Points to cast <i>Burning Hands</i> after an attack as a bonus action" ' +
     'SpellAbility=Wisdom ' +
     'Spells="Burning Hands"',
   'Searing Sunburst':
@@ -819,7 +820,7 @@ Xanathar.FEATURES = {
     'Note="May use Reaction to impose Disadv on attacker (attacker Adv neg)"',
   'Sharpen The Blade':
     'Section=combat ' +
-    'Note="May spend 1-3 Ki Points to gain an equal bonus on attack and damage w/a Kensei weapon for 1 min"',
+    'Note="May spend 1-3 Ki Points and use a bonus action to gain an equal bonus on attack and damage w/a Kensei weapon for 1 min"',
   'Shielding Storm':
     'Section=magic ' +
     'Note="R10\' Targets gain resistance to %{$\'features.Storm Aura (Desert)\' ? \'fire\' : $\'features.Storm Aura (Sea)\' ? \'lightning\' : \'cold\'} damage"',
@@ -859,13 +860,13 @@ Xanathar.FEATURES = {
     'Note="R30\' May use Reaction to reduce damage to a creature by %{levels.Barbarian<10?2:levels.Barbarian<14?3:4}d6 HP"',
   'Spirit Totem (Bear)':
     'Section=magic ' +
-    'Note="R60\' Targets in a 30\' radius gain %{levels.Druid+5} temporary HP and Adv on Strength for 1 min 1/short rest"',
+    'Note="R60\' May use a bonus action to give targets in a 30\' radius %{levels.Druid+5} temporary HP and Adv on Strength for 1 min 1/short rest"',
   'Spirit Totem (Hawk)':
     'Section=magic ' +
-    'Note="R60\' Targets in a 30\' radius gain Adv on Perception, and self may use Reaction to give Adv on an attack for 1 min 1/short rest"',
+    'Note="R60\' May use a bonus action to give targets in a 30\' radius Adv on Perception, and self may use Reaction to give Adv on an attack for 1 min 1/short rest"',
   'Spirit Totem (Unicorn)':
     'Section=magic ' +
-    'Note="R60\' Allies gain Adv to detect creatures in a 30\' radius, and self heal spells restore %{levels.Druid} HP to targets in the same radius, for 1 min 1/short rest"',
+    'Note="R60\' May use a bonus action to give allies Adv to detect creatures in a 30\' radius, and self heal spells restore %{levels.Druid} HP to targets in the same radius, for 1 min 1/short rest"',
   "Stalker's Flurry":
     'Section=combat Note="May follow a weapon miss w/another attack 1/rd"',
   'Steady Eye':
@@ -885,13 +886,13 @@ Xanathar.FEATURES = {
     'Note="Sucessful DC 5 + damage Charisma save retains 1 HP when reduced to 0 by non-critical, non-radiant damage 1/long rest"',
   'Storm Aura (Desert)':
     'Section=magic ' +
-    'Note="10\' radius inflicts %{levels.Barbarian//5+2} HP fire during rage 1/rd"',
+    'Note="During first rd of rage, a 10\' radius inflicts %{levels.Barbarian//5+2} HP fire; may use a bonus action to reactivate while rage lasts"',
   'Storm Aura (Sea)':
     'Section=magic ' +
-    'Note="R10\' Target suffers %{levels.Barbarian//5>?1}d6 HP lightning (DC %{8+proficiencyBonus+constitutionModifier} Dexterity half) during rage 1/rd"',
+    'Note="During first rd of rage, R10\' target suffers %{levels.Barbarian//5>?1}d6 HP lightning (DC %{8+proficiencyBonus+constitutionModifier} Dexterity half); may use a bonus action to reactivate while rage lasts"',
   'Storm Aura (Tundra)':
     'Section=magic ' +
-    'Note="R10\' Targets gain %{levels.Barbarian//5+2} temporary HP during rage 1/rd"',
+    'Note="During first rd of rage, R10\' targets gain %{levels.Barbarian//5+2} temporary HP; may use a bonus action to reactivate while rage lasts"',
   'Storm Soul (Desert)':
     'Section=magic,save ' +
     'Note=' +
@@ -909,7 +910,7 @@ Xanathar.FEATURES = {
       '"Resistance to cold damage/Unaffected by extreme cold"',
   'Sudden Strike':
     'Section=combat ' +
-    'Note="May use a bonus action for an extra attack; may use Sneak Attack on a second foe"',
+    'Note="May use a bonus action for an extra attack, which may be a Sneak Attack on a second foe"',
   'Sun Shield':
     'Section=combat,magic ' +
     'Note=' +
@@ -948,7 +949,7 @@ Xanathar.FEATURES = {
       '"Invisible to darkvision"',
   'Unbreakable Majesty':
     'Section=magic ' +
-    'Note="Foes cannot attack self for 1 min (DC %{spellDifficultyClass.B} Charisma neg and suffers Disadv on saves vs. self spells for 1 rd)"',
+    'Note="May use a bonus action to prevent foes from attacking self for 1 min (DC %{spellDifficultyClass.B} Charisma neg and inflicts Disadv on saves vs. self spells for 1 rd)"',
   'Unearthly Recovery':
     'Section=magic ' +
     'Note="May use a bonus action to regain %{hitPoints//2} HP when below %{hitPoints//2} HP 1/long rest"',
@@ -959,7 +960,7 @@ Xanathar.FEATURES = {
     'Note="R30\' May sense illusions and other deceptions %{wisdomModifier>?1}/long rest"',
   'Unwavering Mark':
     'Section=combat ' +
-    'Note="May mark foe w/a successful attack; foe attacks on others while adjacent to self suffer Disadv and allow self a bonus attack w/Adv and +%{levels.Fighter//2} HP weapon damage for 1 rd %{strengthModifier>?1}/long rest"',
+    'Note="May mark foe w/a successful attack; foe attacks on others while adjacent to self suffer Disadv and allow self to use a bonus action to attack w/Adv and +%{levels.Fighter//2} HP weapon damage for 1 rd %{strengthModifier>?1}/long rest"',
   'Vigilant Defender':
     'Section=combat ' +
     'Note="May use Reaction to make an OA on every other creature\'s turn"',
@@ -1097,7 +1098,7 @@ Xanathar.SPELLS = {
     'School=Transmutation ' +
     'Level=S1,W1 ' +
     'AtHigherLevels="inflicts +1d8 HP and increases max object weight +5 lb" ' +
-    'Description="R60\' Up to 5 lb object flies 90\', strikes for 3d8 HP bludgeoning (Dexterity neg)"',
+    'Description="R60\' Target object up to 5 lb flies 90\' and strikes for 3d8 HP bludgeoning (Dexterity neg)"',
   'Catnap':
     'School=Enchantment ' +
     'Level=B3,S3,W3 ' +
@@ -1218,7 +1219,7 @@ Xanathar.SPELLS = {
   'Gust':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
-    'Description="R30\' Push creature 5\' (Strength neg) or object 10\', or create light breeze"',
+    'Description="R30\' Pushes creature 5\' (Strength neg) or object 10\', or creates a light breeze"',
   'Healing Spirit':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
