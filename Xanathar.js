@@ -997,46 +997,51 @@ Xanathar.FEATURES = {
   // Feats
   'Bountiful Luck':
     'Section=feature ' +
-    'Note="R30\' May use Reaction to allow an ally to reroll a natural 1 on an attack, ability, or saving throw"',
+    'Note="R30\' May use Reaction and forego using Lucky racial trait to allow an ally to reroll a natural 1 on an attack, ability, or saving throw"',
   'Dragon Fear':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Constitution, Charisma)",' +
-      '"R30\' Targets frightened for 1 min (DC %{8+proficiencyBonus+charismaModifier} Wisdom neg)"',
+      '"R30\' May use Breath Weapon to frighten targets for 1 min (DC %{8+proficiencyBonus+charismaModifier} Wisdom neg)"',
   'Dragon Hide':
-    'Section=ability,combat ' +
+    'Section=ability,combat,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Constitution, Charisma)",' +
-      '"+3 AC in no armor/May use claws as a natural slashing weapon"',
+      '"+3 AC in no armor",' +
+      '"May use claws as a natural slashing weapon"',
   'Drow High Magic':
     'Section=magic ' +
-    'Note="May cast <i>Detect Magic</i> at will, <i>Dispel Magic</i> and <i>Levitate</i> 1/long rest"',
+    'Note="May cast <i>Detect Magic</i> at will, <i>Dispel Magic</i> and <i>Levitate</i> 1/long rest" ' +
+    'SpellAbility=Charisma ' +
+    'Spells="Detect Magic","Dispel Magic",Levitate',
   'Dwarven Fortitude':
     'Section=ability,combat ' +
     'Note=' +
       '"+1 Constitution",' +
-      '"Dodge restores 1 HD+%{constitutionModifier} (minimum 1) HP"',
+      '"May spend one Hit Die to regain HD + %{constitutionModifier} HP during Dodge action"',
   'Elven Accuracy':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Intelligence, Wisdom, Charisma)",' +
-      '"May reroll 1 die when attacking using Dexterity, Intelligence, Wisdom, or Charisma w/Adv"',
+      '"May reroll 1 die when attacking w/Adv using Dexterity, Intelligence, Wisdom, or Charisma"',
   'Fade Away':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Intelligence)",' +
-      '"After taking damage, may become invisible for 1 rd 1/short rest"',
+      '"May use Reaction upon taking damage to become invisible for 1 rd (attacking ends) 1/short rest"',
   'Fey Teleportation':
     'Section=ability,magic,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence)",' +
       '"May cast <i>Misty Step</i> 1/short rest",' +
-      '"Language (Sylvan)"',
+      '"Language (Sylvan)" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells="Misty Step"',
   'Flames Of Phlegethos':
     'Section=ability,magic ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence)",' +
-      '"Fire spell allow rerolling 1s on damage, inflict 1d4 HP fire on adjacent creatures, and give 30\' light for 1 rd"',
+      '"May reroll 1s on fire spell damage/When casting a fire spell, may inflict 1d4 HP fire on adjacent creatures and give 30\' light for 1 rd"',
   'Infernal Constitution':
     'Section=ability,save ' +
     'Note=' +
@@ -1046,28 +1051,30 @@ Xanathar.FEATURES = {
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Constitution)",' +
-      '"May add an extra damage die 1/short rest/May use Reaction after Relentless Endurance for an extra attack"',
+      '"May add a die to weapon damage 1/short rest/May use Reaction immediately after Relentless Endurance for an extra attack"',
   'Prodigy':
     'Section=feature,skill ' +
     'Note=' +
       '"Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)/Language (Choose 1 from any)",' +
-      '"Dbl proficiency on chosen skill"',
+      '"Dbl proficiency bonus (+%{proficiencyBonus}) on chosen skill"',
   'Second Chance':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Constitution, Charisma)",' +
-      '"May use Reaction to force a foe attack reroll 1/short rest"',
+      '"May use Reaction to force a foe attack reroll 1/encounter or short rest"',
   'Squat Nimbleness':
     'Section=ability,feature,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)/+5 Speed",' +
       '"Skill Proficiency (Choose 1 from Acrobatics, Athletics)",' +
-      '"Adv on Athletics or Acrobatics to break grapple"',
+      '"Adv on Athletics or Acrobatics to break a grapple"',
   'Wood Elf Magic':
     'Section=magic,magic ' +
     'Note=' +
       '"Knows 1 D0 cantrip",' +
-      '"May cast <i>Longstrider</i> and <i>Pass Without Trace</i> 1/long rest"'
+      '"May cast <i>Longstrider</i> and <i>Pass Without Trace</i> 1/long rest" ' +
+      'SpellAbility=Wisdom ' +
+      'Spells=Longstrider,"Pass Without Trace"'
 };
 Xanathar.SPELLS = {
 
@@ -1584,36 +1591,8 @@ Xanathar.featRulesExtra = function(rules, name) {
     );
     SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4', null);
     rules.defineRule('weapons.Claws', 'combatNotes.dragonHide', '=', '1');
-  } else if(name == 'Drow High Magic') {
-    SRD5E.featureSpells(
-      rules, 'Drow High Magic', 'S', null,
-      ['Detect Magic,Levitate,Dispel Magic']
-    );
-    rules.defineRule('casterLevels.Drow High Magic',
-      'features.Drow High Magic', '?', null,
-      'level', '=', null,
-      'levels.Sorcerer', 'v', 0
-    );
-    rules.defineRule
-      ('casterLevels.S', 'casterLevels.Drow High Magic', '^=', null);
-  } else if(name == 'Fey Teleportation') {
-    SRD5E.featureSpells(rules, 'Fey Teleportation', 'W', null, ['Misty Step']);
-    rules.defineRule('casterLevels.Fey Teleportation',
-      'features.Fey Teleportation', '?', null,
-      'level', '=', null,
-      'levels.Wizard', 'v', 0
-    );
-    rules.defineRule
-      ('casterLevels.W', 'casterLevels.Fey Teleportation', '^=', null);
   } else if(name == 'Wood Elf Magic') {
     rules.defineRule('spellSlots.D0', 'magicNotes.woodElfMagic', '+=', '1');
-    SRD5E.featureSpells
-      (rules, 'Wood Elf Magic', 'D', null, ['Longstrider,Pass Without Trace']);
-    rules.defineRule('casterLevels.Wood Elf Magic',
-      'features.Wood Elf Magic', '?', null,
-      'level', '=', null,
-      'levels.Druid', 'v', 0
-    );
     rules.defineRule
       ('casterLevels.D', 'casterLevels.Wood Elf Magic', '^=', null);
   }
