@@ -473,7 +473,7 @@ Tasha.FEATURES = {
     'Section=skill,skill ' +
     'Note=' +
       '"Language (Choose 2 from any)",' +
-      '"Dbl proficiency on chosen skill"',
+      '"Dbl proficiency bonus (+%{proficiencyBonus}) on chosen skill"',
   'Cantrip Formulas':
     'Section=magic Note="May replace a W0 cantrip 1/long rest"',
   'Cantrip Versatility':
@@ -678,7 +678,8 @@ Tasha.FEATURES = {
     'Section=combat ' +
     'Note="May gain 1d8+%{wisdomModifier} temporary HP %{proficiencyBonus}/long rest/Short rest reduces exhaustion by 1"',
   'Tool Expertise':
-    'Section=feature Note="Dbl proficiency bonus when using tools"',
+    'Section=feature ' +
+    'Note="Dbl proficiency bonus (+%{proficiencyBonus}) when using tools"',
   'Undying Servitude':
     'Section=magic ' +
     'Note="May cast <i>Animate Dead</i> 1/long rest" ' +
@@ -758,7 +759,7 @@ Tasha.FEATURES = {
     'Note=' +
       '"Ability Boost (Choose 1 from any)",' +
       '"Skill Proficiency (Choose 1 from any)",' +
-      '"Dbl proficiency in chosen skill"',
+      '"Dbl proficiency bonus (+%{proficiencyBonus}) in chosen skill"',
   'Slasher':
     'Section=ability,combat ' +
     'Note=' +
@@ -1011,7 +1012,7 @@ Tasha.FEATURES = {
     'Section=combat,skill ' +
     'Note=' +
       '"Hit restrains and inflicts +2d6 HP fire/rd (DC %{8+proficiencyBonus+constitutionModifier} Strength ends) for 1 min %{1+(combatNotes.masterOfRunes?1:0)}/short rest",' +
-      '"Dbl proficiency when using tools"',
+      '"Dbl proficiency bonus (+%{proficiencyBonus}) when using tools"',
   'Flurry Of Healing And Harm':
     'Section=combat ' +
     'Note="May substitute Hand Of Healing for each Flurry Of Blows strike/May add Hand Of Harm to one Flurry Of Blows strike"',
