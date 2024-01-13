@@ -99,7 +99,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Aberrant Dragonmark; Actor; Durable; Elemental Adept (Lightning); Healer</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common/Choose 1 from any)</td>
-        <td><b>Artificer Features</b>: Alchemical Savant; Alchemist Tool Proficiency; Alchemist; Arcane Firearm; Arcane Jolt; Armor Proficiency (Medium/Shield); Artificer Specialist; Artillerist Tool Proficiency; Artillerist; Battle Ready; Battle Smith Tool Proficiency; Battle Smith; Boots Of The Winding Path; Chemical Mastery; Eldritch Cannon; Enhanced Arcane Focus; Enhanced Defense; Enhanced Weapon; Experimental Elixir; Explosive Cannon; Extra Attack; Flash Of Genius; Fortified Position; Homunculus Servant; Improved Defender; Infuse Item; Magic Item Adept; Magic Item Master; Magic Item Savant; Magical Tinkering; Radiant Weapon; Repeating Shot; Replicate Magic Item; Repulsion Shield; Resistant Armor; Restorative Reagents; Returning Weapon; Ritual Casting; Save Proficiency (Constitution/Intelligence); Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand); Soul Of Artifice; Spell-Storing Item; Spellcasting; Steel Defender; The Right Tool For The Job; Tool Expertise; Tool Proficiency (Thieves' Tools/Tinker's Tools/Choose 1 from any Artisan); Weapon Proficiency (Simple)</td>
+        <td><b>Artificer Features</b>: Alchemical Savant; Alchemist Spells; Alchemist Tool Proficiency; Alchemist; Arcane Firearm; Arcane Jolt; Armor Proficiency (Medium/Shield); Artificer Specialist; Artillerist Spells; Artillerist Tool Proficiency; Artillerist; Battle Ready; Battle Smith Spells; Battle Smith Tool Proficiency; Battle Smith; Boots Of The Winding Path; Chemical Mastery; Eldritch Cannon; Enhanced Arcane Focus; Enhanced Defense; Enhanced Weapon; Experimental Elixir; Explosive Cannon; Extra Attack; Flash Of Genius; Fortified Position; Homunculus Servant; Improved Defender; Infuse Item; Magic Item Adept; Magic Item Master; Magic Item Savant; Magical Tinkering; Radiant Weapon; Repeating Shot; Replicate Magic Item; Repulsion Shield; Resistant Armor; Restorative Reagents; Returning Weapon; Ritual Casting; Save Proficiency (Constitution/Intelligence); Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand); Soul Of Artifice; Spell-Storing Item; Spellcasting; Steel Defender; The Right Tool For The Job; Tool Expertise; Tool Proficiency (Thieves' Tools/Tinker's Tools/Choose 1 from any Artisan); Weapon Proficiency (Simple)</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight/Religion)</td>
       </tr></table>
 </td>
@@ -272,8 +272,8 @@ var attributes = {
       <td>      <table id="SpellStats" style="width:100%">
       <tr style="text-align:center">
         <td><b>Spell Slots</b>: A0: 4; A1: 4; A2: 3; A3: 3; A4: 3; A5: 2; S0: 1; S1: 1</td>
-        <td><b>Attack</b>: A: 9</td>
-        <td><b>Spell DC</b>: A: 17</td>
+        <td><b>Attack</b>: A: 9; S: 10</td>
+        <td><b>Spell DC</b>: A: 17; S: 18</td>
       </tr></table>
 </td>
     </tr></table>
@@ -285,25 +285,43 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Arcane Lock (A2 Abju): Touched barrier opens only for designated creatures or specified password (<i>Knock</i> suppresses for 10 min)</td>
     </tr><tr style="text-align:left">
+      <td>Aura Of Purity (A4 [Battle Smith Spells] Abju): 30' radius gives nonhostile creatures resistance to poison damage, immunity to disease, and Adv on saves vs. conditions for conc up to 10 min</td>
+    </tr><tr style="text-align:left">
       <td>Aura Of Purity (A4 [Battle Smith] Abju): 30' radius gives nonhostile creatures resistance to poison damage, immunity to disease, and Adv on saves vs. conditions for conc up to 10 min</td>
     </tr><tr style="text-align:left">
+      <td>Aura Of Vitality (A3 [Battle Smith Spells] Evoc): R30' Self may use a bonus action to restore 2d6 HP to target 1/rd for conc up to 1 min</td>
+    </tr><tr style="text-align:left">
       <td>Aura Of Vitality (A3 [Battle Smith] Evoc): R30' Self may use a bonus action to restore 2d6 HP to target 1/rd for conc up to 1 min</td>
+    </tr><tr style="text-align:left">
+      <td>Banishing Smite (A5 [Battle Smith Spells] Abju): Next successful self weapon attack inflicts +5d10 HP force, plus banishment to home plane or a demiplane for conc up to 1 min if foe is reduced to 50 HP</td>
     </tr><tr style="text-align:left">
       <td>Banishing Smite (A5 [Battle Smith] Abju): Next successful self weapon attack inflicts +5d10 HP force, plus banishment to home plane or a demiplane for conc up to 1 min if foe is reduced to 50 HP</td>
     </tr><tr style="text-align:left">
       <td>Bigby's Hand (A5 Evoc): R120' Large force hand (AC 20, 158 HP, Strength 26, Dexterity 10) moves 60'/rd and can punch (inflicts 4d8 HP force), push 5' (DC 26 Athletics neg), grapple (may crush, inflicting 2d6+3 HP bludgeoning), and block for conc up to 1 min [+Level inflicts +2d8 HP force and +2d6 HP bludgeoning]</td>
     </tr><tr style="text-align:left">
+      <td>Blight (A4 [Alchemist Spells] Necr): R30' target suffers 8d8 HP necrotic (Constitution half; plant target suffers Disadv and maximum damage on failure) [+Level inflicts +1d8 HP]</td>
+    </tr><tr style="text-align:left">
       <td>Blight (A4 [Alchemist] Necr): R30' target suffers 8d8 HP necrotic (Constitution half; plant target suffers Disadv and maximum damage on failure) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Blink (A3 Tran): Self becomes ethereal 50% of time for 1 min</td>
     </tr><tr style="text-align:left">
+      <td>Branding Smite (A2 [Battle Smith Spells] Evoc): Next successful self weapon attack inflicts +2d6 HP radiant and lights target for conc up to 1 min [+Level inflicts +1d6 HP]</td>
+    </tr><tr style="text-align:left">
       <td>Branding Smite (A2 [Battle Smith] Evoc): Next successful self weapon attack inflicts +2d6 HP radiant and lights target for conc up to 1 min [+Level inflicts +1d6 HP]</td>
+    </tr><tr style="text-align:left">
+      <td>Cloudkill (A5 [Alchemist Spells] Conj): R120' 20' radius inflicts 5d8 HP poison (Constitution half) and moves away 10'/rd for conc up to 10 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Cloudkill (A5 [Alchemist] Conj): R120' 20' radius inflicts 5d8 HP poison (Constitution half) and moves away 10'/rd for conc up to 10 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
+      <td>Cone Of Cold (A5 [Artillerist Spells] Evoc): 60' cone inflicts 8d8 HP cold (Constitution half) [+Level inflicts +1d8 HP]</td>
+    </tr><tr style="text-align:left">
       <td>Cone Of Cold (A5 [Artillerist] Evoc): 60' cone inflicts 8d8 HP cold (Constitution half) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
+      <td>Conjure Barrage (A3 [Battle Smith Spells] Conj): 60' cone inflicts 3d8 HP weapon type (Dexterity half)</td>
+    </tr><tr style="text-align:left">
       <td>Conjure Barrage (A3 [Battle Smith] Conj): 60' cone inflicts 3d8 HP weapon type (Dexterity half)</td>
+    </tr><tr style="text-align:left">
+      <td>Death Ward (A4 [Alchemist Spells] Abju): Touched retains 1 HP when next reduced to 0 HP for 8 hrs</td>
     </tr><tr style="text-align:left">
       <td>Death Ward (A4 [Alchemist] Abju): Touched retains 1 HP when next reduced to 0 HP for 8 hrs</td>
     </tr><tr style="text-align:left">
@@ -317,13 +335,21 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Feather Fall (A1 Tran): R60' 5 falling targets slow to 60'/rd for 1 min</td>
     </tr><tr style="text-align:left">
+      <td>Fire Shield (A4 [Battle Smith Spells] Evoc): Self gains resistance to heat or cold damage, and a successful adjacent attacker suffers 2d8 HP fire or cold for 10 min</td>
+    </tr><tr style="text-align:left">
       <td>Fire Shield (A4 [Battle Smith] Evoc): Self gains resistance to heat or cold damage, and a successful adjacent attacker suffers 2d8 HP fire or cold for 10 min</td>
     </tr><tr style="text-align:left">
+      <td>Fireball (A3 [Artillerist Spells] Evoc): R150' 20' radius inflicts 8d6 HP fire (Dexterity half) [+Level inflicts +1d6 HP]</td>
+    </tr><tr style="text-align:left">
       <td>Fireball (A3 [Artillerist] Evoc): R150' 20' radius inflicts 8d6 HP fire (Dexterity half) [+Level inflicts +1d6 HP]</td>
+    </tr><tr style="text-align:left">
+      <td>Flaming Sphere (A2 [Alchemist Spells] Conj): R60' 5' sphere lights a 20' radius, inflicts 2d6 HP fire (Dexterity half), ignites unattended flammable objects, and moves 30'/rd for conc up to 1 min [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
       <td>Flaming Sphere (A2 [Alchemist] Conj): R60' 5' sphere lights a 20' radius, inflicts 2d6 HP fire (Dexterity half), ignites unattended flammable objects, and moves 30'/rd for conc up to 1 min [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
       <td>Freedom Of Movement (A4 Abju): Touched gains immunity to movement impediments for 1 hr</td>
+    </tr><tr style="text-align:left">
+      <td>Gaseous Form (A3 [Alchemist Spells] Tran): Touched creature becomes gaseous for conc up to 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Gaseous Form (A3 [Alchemist] Tran): Touched creature becomes gaseous for conc up to 1 hr</td>
     </tr><tr style="text-align:left">
@@ -335,11 +361,17 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Heal (A6 [Chemical Mastery] Evoc): R60' Target regains 70 HP and recovers from blinded, deafened, and diseased [+Level restores +10 HP]</td>
     </tr><tr style="text-align:left">
+      <td>Healing Word (A1 [Alchemist Spells] Evoc): R60' Target regains 1d4+3 HP [+Level restores +1d4 HP]</td>
+    </tr><tr style="text-align:left">
       <td>Healing Word (A1 [Alchemist] Evoc): R60' Target regains 1d4+3 HP [+Level restores +1d4 HP]</td>
     </tr><tr style="text-align:left">
       <td>Heat Metal (A2 Tran): R60' Touching target metal inflicts 2d8 HP fire, plus attack Disadv if the target is held, for conc up to 1 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
+      <td>Heroism (A1 [Battle Smith Spells] Ench): Touched gains immunity to fright and +3 temporary HP each rd for conc up to 1 min [+Level affects +1 target]</td>
+    </tr><tr style="text-align:left">
       <td>Heroism (A1 [Battle Smith] Ench): Touched gains immunity to fright and +3 temporary HP each rd for conc up to 1 min [+Level affects +1 target]</td>
+    </tr><tr style="text-align:left">
+      <td>Ice Storm (A4 [Artillerist Spells] Evoc): R300' 20' radius inflicts 2d8 HP bludgeoning and 4d6 HP cold (Dexterity half) [+Level inflicts +1d8 HP bludgeoning]</td>
     </tr><tr style="text-align:left">
       <td>Ice Storm (A4 [Artillerist] Evoc): R300' 20' radius inflicts 2d8 HP bludgeoning and 4d6 HP cold (Dexterity half) [+Level inflicts +1d8 HP bludgeoning]</td>
     </tr><tr style="text-align:left">
@@ -347,9 +379,15 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Longstrider (A1 Tran): Touched gains +10' Speed for 1 hr [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
+      <td>Mass Cure Wounds (A5 [Battle Smith Spells] Evoc): R60' 6 targets in a 30' radius regain 3d8+3 HP [+Level restores +1d8 HP]</td>
+    </tr><tr style="text-align:left">
       <td>Mass Cure Wounds (A5 [Battle Smith] Evoc): R60' 6 targets in a 30' radius regain 3d8+3 HP [+Level restores +1d8 HP]</td>
     </tr><tr style="text-align:left">
+      <td>Mass Healing Word (A3 [Alchemist Spells] Evoc): R60' 6 targets regain 1d4+3 HP [+Level restores +1d4 HP]</td>
+    </tr><tr style="text-align:left">
       <td>Mass Healing Word (A3 [Alchemist] Evoc): R60' 6 targets regain 1d4+3 HP [+Level restores +1d4 HP]</td>
+    </tr><tr style="text-align:left">
+      <td>Melf's Acid Arrow (A2 [Alchemist Spells] Evoc): R90' Ranged spell inflicts 4d4 HP acid, plus 2d4 HP next rd (miss half 1st rd only) [+Level inflicts +1d4 HP]</td>
     </tr><tr style="text-align:left">
       <td>Melf's Acid Arrow (A2 [Alchemist] Evoc): R90' Ranged spell inflicts 4d4 HP acid, plus 2d4 HP next rd (miss half 1st rd only) [+Level inflicts +1d4 HP]</td>
     </tr><tr style="text-align:left">
@@ -359,9 +397,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Protection From Energy (A3 Abju): Touched gains resistance to choice of acid, cold, fire, lightning, or thunder damage for conc up to 1 hr</td>
     </tr><tr style="text-align:left">
+      <td>Raise Dead (A5 [Alchemist Spells] Necr): Restores life to and removes diseases and poisons from a willing touched 10-day-old corpse</td>
+    </tr><tr style="text-align:left">
       <td>Raise Dead (A5 [Alchemist] Necr): Restores life to and removes diseases and poisons from a willing touched 10-day-old corpse</td>
     </tr><tr style="text-align:left">
       <td>Ray Of Frost (A0 Evoc): R60' Ranged spell inflicts 4d8 HP cold and -10' Speed for 1 rd</td>
+    </tr><tr style="text-align:left">
+      <td>Ray Of Sickness (A1 [Alchemist Spells] Necr): R60' Ranged spell inflicts 2d8 HP poison and poisoned 1 rd (Constitution HP only) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Ray Of Sickness (A1 [Alchemist] Necr): R60' Ranged spell inflicts 2d8 HP poison and poisoned 1 rd (Constitution HP only) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
@@ -369,23 +411,41 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Rope Trick (A2 Tran): Touched rope leads to an extradimensional space w/room for 8 creatures for 1 hr</td>
     </tr><tr style="text-align:left">
+      <td>Scorching Ray (A2 [Artillerist Spells] Evoc): R120' 3 ranged attacks inflict 2d6 HP fire each [+Level gives +1 ranged attack]</td>
+    </tr><tr style="text-align:left">
       <td>Scorching Ray (A2 [Artillerist] Evoc): R120' 3 ranged attacks inflict 2d6 HP fire each [+Level gives +1 ranged attack]</td>
+    </tr><tr style="text-align:left">
+      <td>Shatter (A2 [Artillerist Spells] Evoc): R60' 10' radius inflicts 3d8 HP thunder (Constitution half) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Shatter (A2 [Artillerist] Evoc): R60' 10' radius inflicts 3d8 HP thunder (Constitution half) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
+      <td>Shield (A1 [Artillerist Spells] Abju): May cast as a Reaction to gain +5 AC and immunity to <i>Magic Missile</i> until next turn</td>
+    </tr><tr style="text-align:left">
       <td>Shield (A1 [Artillerist] Abju): May cast as a Reaction to gain +5 AC and immunity to <i>Magic Missile</i> until next turn</td>
+    </tr><tr style="text-align:left">
+      <td>Shield (A1 [Battle Smith Spells] Abju): May cast as a Reaction to gain +5 AC and immunity to <i>Magic Missile</i> until next turn</td>
     </tr><tr style="text-align:left">
       <td>Shield (A1 [Battle Smith] Abju): May cast as a Reaction to gain +5 AC and immunity to <i>Magic Missile</i> until next turn</td>
     </tr><tr style="text-align:left">
+      <td>Thunderwave (A1 [Artillerist Spells] Evoc): 15' cube inflicts 2d8 HP thunder and pushes 10' (Constitution half HP only) [+Level inflicts +1d8 HP]</td>
+    </tr><tr style="text-align:left">
       <td>Thunderwave (A1 [Artillerist] Evoc): 15' cube inflicts 2d8 HP thunder and pushes 10' (Constitution half HP only) [+Level inflicts +1d8 HP]</td>
+    </tr><tr style="text-align:left">
+      <td>Wall Of Fire (A4 [Artillerist Spells] Evoc): R120' 60'x20'x1' wall inflicts 5d8 HP fire (Dexterity half) w/in 10' of chosen side for conc up to 1 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Fire (A4 [Artillerist] Evoc): R120' 60'x20'x1' wall inflicts 5d8 HP fire (Dexterity half) w/in 10' of chosen side for conc up to 1 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
+      <td>Wall Of Force (A5 [Artillerist Spells] Evoc): R120' Creates 10 10'x10' impassable force panels for conc up to 10 min</td>
+    </tr><tr style="text-align:left">
       <td>Wall Of Force (A5 [Artillerist] Evoc): R120' Creates 10 10'x10' impassable force panels for conc up to 10 min</td>
+    </tr><tr style="text-align:left">
+      <td>Warding Bond (A2 [Battle Smith Spells] Abju): Touched gains +1 AC, +1 saves, and resistance to all damage while within 60' of self, and self also suffers any damage to touched, for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Warding Bond (A2 [Battle Smith] Abju): Touched gains +1 AC, +1 saves, and resistance to all damage while within 60' of self, and self also suffers any damage to touched, for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Water Breathing (A3 Tran): R30' 10 targets may breathe underwater for 1 dy [R]</td>
+    </tr><tr style="text-align:left">
+      <td>Wind Wall (A3 [Artillerist Spells] Evoc): R120' 50'x15'x1' area inflicts 3d8 HP bludgeoning (Strength half) and deflects lightweight creatures and objects for conc up to 1 min</td>
     </tr><tr style="text-align:left">
       <td>Wind Wall (A3 [Artillerist] Evoc): R120' 50'x15'x1' area inflicts 3d8 HP bludgeoning (Strength half) and deflects lightweight creatures and objects for conc up to 1 min</td>
     </tr></table>
@@ -393,7 +453,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Magic Notes</b>:     <table id="MagicNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Aberrant Dragonmark: Knows 1 S0 cantrip and may cast a chosen S1 spell 1/long rest, randomly gaining 1 HD temporary HP or inflicting 1 HD force to a creature w/in 30'</i></td>
+      <td><i>Aberrant Dragonmark: Knows 1 S0 cantrip and may cast a chosen S1 spell 1/long rest, optionally randomly gaining 1 HD temporary HP or inflicting 1 HD force to a creature w/in 30'</i></td>
     </tr><tr style="text-align:center">
       <td><i>Magic Item Master: May attune 6 items simultaneously</i></td>
     </tr><tr style="text-align:center">
