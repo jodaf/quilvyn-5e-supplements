@@ -1,5 +1,5 @@
 /*
-Copyright 2021, James J. Hayes
+Copyright 2023, James J. Hayes
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -25,7 +25,7 @@ Place, Suite 330, Boston, MA 02111-1307 USA.
  * Eberron5E function contains methods that load rules for particular parts of
  * the rules; raceRules for character races, magicRules for spells, etc. These
  * member methods can be called independently in order to use a subset of the
- * rules.  Similarly, the constant fields of Eberron5E (PATHS, RACES, etc.)
+ * rules.  Similarly, the constant fields of Eberron5E (FEATS, RACES, etc.)
  * can be manipulated to modify the choices.
  */
 function Eberron5E() {
@@ -35,7 +35,7 @@ function Eberron5E() {
     return;
   }
 
-  var rules = new QuilvynRules('Eberron 5E', Eberron5E.VERSION);
+  let rules = new QuilvynRules('Eberron 5E', Eberron5E.VERSION);
   Eberron5E.rules = rules;
 
   rules.defineChoice('choices', Eberron5E.CHOICES);
@@ -59,33 +59,16 @@ function Eberron5E() {
     'race:Race,select-one,races', 'levels:Class Levels,bag,levels'
   );
 
-  Eberron5E.BACKGROUNDS =
-    Object.assign({}, PHB5E.BACKGROUNDS, Eberron5E.BACKGROUNDS_ADDED);
-  Eberron5E.CLASSES = Object.assign({}, PHB5E.CLASSES, Eberron5E.CLASSES_ADDED);
-  Eberron5E.FEATS = Object.assign({}, PHB5E.FEATS, Eberron5E.FEATS_ADDED);
-  Eberron5E.FEATURES =
-    Object.assign({}, PHB5E.FEATURES, Eberron5E.FEATURES_ADDED);
-  Eberron5E.PATHS = Object.assign({}, PHB5E.PATHS, Eberron5E.PATHS_ADDED);
-  Eberron5E.RACES = Object.assign({}, PHB5E.RACES, Eberron5E.RACES_ADDED);
-  Eberron5E.SPELLS = Object.assign({}, PHB5E.SPELLS, Eberron5E.SPELLS_ADDED);
-  if(window.Xanathar != null)
-    Object.assign(Eberron5E.SPELLS, Xanathar.SPELLS);
-  for(var s in Eberron5E.SPELLS_LEVELS_ADDED) {
-    Eberron5E.SPELLS[s] =
-      Eberron5E.SPELLS[s].replace('Level=', 'Level=' + Eberron5E.SPELLS_LEVELS_ADDED[s] + ',');
-  }
-  Eberron5E.TOOLS = Object.assign({}, SRD5E.TOOLS, Eberron5E.TOOLS_ADDED);
-
   SRD5E.abilityRules(rules);
-  SRD5E.combatRules(rules, SRD5E.ARMORS, SRD5E.SHIELDS, SRD5E.WEAPONS);
-  SRD5E.magicRules(rules, SRD5E.SCHOOLS, Eberron5E.SPELLS);
+  SRD5E.combatRules(rules, PHB5E.ARMORS, PHB5E.SHIELDS, Eberron5E.WEAPONS);
+  SRD5E.magicRules(rules, PHB5E.SCHOOLS, Eberron5E.SPELLS);
   Eberron5E.identityRules(
-    rules, SRD5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
-    Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES, Eberron5E.HOUSES
+    rules, PHB5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
+    Eberron5E.DEITIES, {}, Eberron5E.RACES, Eberron5E.HOUSES
   );
   SRD5E.talentRules
-    (rules, Eberron5E.FEATS, Eberron5E.FEATURES, SRD5E.GOODIES,
-     SRD5E.LANGUAGES, SRD5E.SKILLS, Eberron5E.TOOLS);
+    (rules, Eberron5E.FEATS, Eberron5E.FEATURES, PHB5E.GOODIES,
+     PHB5E.LANGUAGES, PHB5E.SKILLS, Eberron5E.TOOLS);
 
   rules.defineSheetElement('House', 'Background');
   rules.defineEditorElement
@@ -106,7 +89,7 @@ function Eberron5E() {
 
 }
 
-Eberron5E.VERSION = '2.3.2.0';
+Eberron5E.VERSION = '2.4.1.0';
 
 Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'House');
 Eberron5E.RANDOMIZABLE_ATTRIBUTES =
@@ -120,8 +103,9 @@ Eberron5E.BACKGROUNDS_ADDED = {
       '"Skill Proficiency (Investigation/Persuasion)",' +
       '"House Connections","House Tool Proficiency"'
 };
+Eberron5E.BACKGROUNDS =
+  Object.assign({}, (window.PHB5E||window.SRD5E).BACKGROUNDS, Eberron5E.BACKGROUNDS_ADDED);
 Eberron5E.CLASSES_ADDED = {
-  // Copied from Tasha's
   'Artificer':
     'HitDie=d8 ' +
     'Features=' +
@@ -131,44 +115,69 @@ Eberron5E.CLASSES_ADDED = {
       '"1:Tool Proficiency (Thieves\' Tools/Tinker\'s Tools/Choose 1 from any Artisan)",' +
       '"1:Weapon Proficiency (Simple)",' +
       '"1:Magical Tinkering","1:Ritual Casting",1:Spellcasting,' +
-      '"2:Infuse Item","3:The Right Tool For The Job","6:Tool Expertise",' +
-      '"7:Flash Of Genius","10:Magic Item Adept","11:Spell-Storing Item",' +
-      '"14:Magic Item Savant","18:Magic Item Master","20:Soul Of Artifice" ' +
+      '"2:Infuse Item","3:Artificer Specialist",' +
+      '"3:The Right Tool For The Job","6:Tool Expertise","7:Flash Of Genius",' +
+      '"10:Magic Item Adept","11:Spell-Storing Item","14:Magic Item Savant",' +
+      '"18:Magic Item Master","20:Soul Of Artifice",' +
+      '"features.Alchemist ? 3:Alchemist Tool Proficiency",' +
+      '"features.Alchemist ? 3:Experimental Elixir",' +
+      '"features.Alchemist ? 5:Alchemical Savant",' +
+      '"features.Alchemist ? 9:Restorative Reagents",' +
+      '"features.Alchemist ? 15:Chemical Mastery",' +
+      // Tasha: '"features.Armorer ? 3:Arcane Armor",' +
+      // Tasha: '"features.Armorer ? 3:Armor Model",' +
+      // Tasha: '"features.Armorer ? 3:Tools Of The Trade",' +
+      // Tasha: '"features.Armorer ? 5:Extra Attack",' +
+      // Tasha: '"features.Armorer ? 9:Armor Modifications",' +
+      '"features.Artillerist ? 3:Artillerist Tool Proficiency",' +
+      '"features.Artillerist ? 3:Eldritch Cannon",' +
+      '"features.Artillerist ? 5:Arcane Firearm",' +
+      '"features.Artillerist ? 9:Explosive Cannon",' +
+      '"features.Artillerist ? 15:Fortified Position",' +
+      '"features.Battle Smith ? 3:Battle Smith Tool Proficiency",' +
+      '"features.Battle Smith ? 3:Battle Ready",' +
+      '"features.Battle Smith ? 3:Steel Defender",' +
+      '"features.Battle Smith ? 5:Extra Attack",' +
+      '"features.Battle Smith ? 9:Arcane Jolt",' +
+      '"features.Battle Smith ? 15:Improved Defender" ' +
     'Selectables=' +
       '"3:Alchemist:Specialist",' +
-      // '"3:Armorer:Specialist",' + Tasha's addition
       '"3:Artillerist:Specialist",' +
+      // Tasha: 3:Armorer:Specialist
       '"3:Battle Smith:Specialist",' +
-      // '"3:Guardian Armor:Armor Model",' + Tasha's addition
-      // '"3:Infiltrator Armor:Armor Model",' + Tasha's addition
-      // '"14:Arcane Propulsion Armor:Infusion",' + Tasha's addition
-      // '"2:Armor Of Magical Strength:Infusion",' + Tasha's addition
+      // Tasha: '"3:Guardian Armor:Armor Model",' +
+      // Tasha: '"3:Infiltrator Armor:Armor Model",' +
+      // Tasha: '"14:Arcane Propulsion Armor:Infusion",' +
+      // Tasha: '"2:Armor Of Magical Strength:Infusion",' +
       '"6:Boots Of The Winding Path:Infusion",' +
       '"2:Enhanced Arcane Focus:Infusion",' +
       '"2:Enhanced Defense:Infusion",' +
       '"2:Enhanced Weapon:Infusion",' +
-      // '"10:Helm Of Awareness:Infusion",' + Tasha's addition
+      // Tasha: '"10:Helm Of Awareness:Infusion",' +
       '"2:Homunculus Servant:Infusion",' +
-      // '"2:Mind Sharpener:Infusion",' + Tasha's addition
+      // Tasha: '"2:Mind Sharpener:Infusion",' +
       '"6:Radiant Weapon:Infusion",' +
       '"2:Repeating Shot:Infusion",' +
       '"2:Replicate Magic Item:Infusion",' +
       '"6:Repulsion Shield:Infusion",' +
       '"6:Resistant Armor:Infusion",' +
       '"2:Returning Weapon:Infusion" ' +
-      // '"6:Spell-Refueling Ring:Infusion" ' + Tasha's addition
-    'CasterLevelArcane=levels.Artificer ' +
+      // Tasha: '"6:Spell-Refueling Ring:Infusion" ' +
     'SpellAbility=intelligence ' +
     'SpellSlots=' +
-      'A0:1=2;10=3;14=4,' +
-      'A1:1=2;3=3;5=4,' +
-      'A2:5=2;7=3,' +
-      'A3:9=2;11=3,' +
-      'A4:13=1;15=2;17=3,' +
-      'A5:17=1;19=2'
+      '"A0:2@1 3@10 4@14",' +
+      '"A1:2@1 3@3 4@5",' +
+      '"A2:2@5 3@7",' +
+      '"A3:2@9 3@11",' +
+      '"A4:1@13 2@15 3@17",' +
+      '"A5:1@17 2@19"'
 };
+if(window.Tasha != null)
+  Eberron5E.CLASSES_ADDED.Artificer = Tasha.CLASSES.Artificer;
+Eberron5E.CLASSES =
+  Object.assign({}, (window.PHB5E||window.SRD5E).CLASSES, Eberron5E.CLASSES_ADDED);
 Eberron5E.DEITIES = {
-  'None':'Domain=' + QuilvynUtils.getKeys(Eberron5E.PATHS).filter(x => x.match(/Domain$/)).map(x => '"' + x.replace(' Domain', '') + '"').join(','),
+  'None':'',
   'Arawai':'Alignment=NG Domain=Life,Nature',
   'Aureon':'Alignment=LN Domain=Knowledge,Order',
   'Balinor':'Alignment=N Domain=Nature,War',
@@ -194,306 +203,380 @@ Eberron5E.FEATS_ADDED = {
   'Aberrant Dragonmark':'Require="race !~ \'Mark Of\'" Type=General',
   'Revenant Blade':'Require="race =~ \'Elf\'" Type=General'
 };
+Eberron5E.FEATS =
+  Object.assign({}, (window.PHB5E||window.SRD5E).FEATS, Eberron5E.FEATS_ADDED);
 Eberron5E.FEATURES_ADDED = {
 
   // Backgrounds
   'House Connections':
-    'Section=feature Note="Obtain food and lodging at house enclave"',
+    'Section=feature Note="May obtain food and lodging at a house enclave"',
 
-  // Classes
-  // Copied from Tasha's
+  // Classes - Copied from Tasha's
+  'Artificer Specialist':'Section=feature Note="1 selection"',
   'Boots Of The Winding Path':
-    'Section=magic Note="Gives ability to teleport 15\'"',
+    'Section=magic ' +
+    'Note="Wearer of infused boots may teleport back to a space w/in 15\'"',
   'Enhanced Arcane Focus':
     'Section=magic ' +
-    'Note="Rod, staff, or wand gives +%V spell attacks, ignores half cover"',
-  'Enhanced Defense':'Section=magic Note="Shield or armor gives +%V AC"',
-  'Enhanced Weapon':'Section=magic Note="Gives +%V attack and damage"',
+    'Note="Infused rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks that ignore half cover"',
+  'Enhanced Defense':
+    'Section=magic ' +
+    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} AC"',
+  'Enhanced Weapon':
+    'Section=magic ' +
+    'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
   'Flash Of Genius':
     'Section=feature ' +
-    'Note="R30\' Use Reaction to give ally +%{intelligenceModifier} on ability check or saving throw %{intelligenceModifier>?1}/long rest"',
+    'Note="R30\' May use Reaction to give an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>?1}/long rest"',
   'Homunculus Servant':
     'Section=magic ' +
-    'Note="Creates mechanical companion (AC 13, HP %{levels.Artificer+intelligenceModifier+1}, Attack R30\' +%1 inflicts 1d4+%2 HP force, Evasion, Channel Magic) that obeys self"',
-  'Infuse Item':'Section=feature Note="%V selections infused into %1 items"',
+    'Note="May create a mechanical companion (AC 13; HP %{levels.Artificer+intelligenceModifier+1}; Attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
+  'Infuse Item':
+    'Section=feature,magic ' +
+    'Note=' +
+      '"%{(levels.Artificer+6)//4*2} selections",' +
+      '"May infuse %{(levels.Artificer+6)//4+(featureNotes.armorModifications?2:0)} items simultaneously"',
   'Magic Item Adept':
-    'Section=feature ' +
-    'Note="Attune %V items at once, craft uncommon magic items in one quarter time at half cost"',
-  'Magic Item Master':'Section=feature Note="Attune 6 items at once"',
+    'Section=magic ' +
+    'Note="May attune %{4+(magicNotes.magicItemMaster?2:magicNotes.magicItemSavant?1:0)} items simultaneously/May craft uncommon magic items in one quarter time at half cost"',
+  'Magic Item Master':'Section=magic Note="May attune 6 items simultaneously"',
   'Magic Item Savant':
-    'Section=feature ' +
-    'Note="Attune 5 items at once and ignore attunement and use requirements"',
+    'Section=magic,magic ' +
+    'Note=' +
+      '"May attune 5 items simultaneously",' +
+      '"May ignore attunement and use requirements on attuned items"',
   'Magical Tinkering':
     'Section=magic ' +
-    'Note="Imbue %{intelligenceModifier>?1} objects with light, message, sound, odor, or picture"',
+    'Note="May imbue %{intelligenceModifier>?1} objects simultaneously with light, message, sound, odor, or picture"',
   'Radiant Weapon':
     'Section=magic ' +
-    'Note="Gives +1 attack and damage, 30\' bright light, blinds successful attacker (DC %{spellDifficultyClass.A} Con neg) for 1 rd; 4 charges regains 1d4/dy"',
+    'Note="Infused weapon w/4 charges gives +1 attack and damage and emits a 30\' bright light on command; wielder may use Reaction and 1 charge to blind a successful attacker (DC %{spellDifficultyClass.A} Constitution neg) for 1 rd; item regains 1d4 charges each dawn"',
   'Repeating Shot':
-    'Section=magic Note="Gives +1 attack and damage and unlimited ammunition"',
+    'Section=magic ' +
+    'Note="Infused ammunition weapon gives +1 attack and damage and automatically creates its own ammunition"',
   'Replicate Magic Item':
-    'Section=magic Note="Allows replication of wondrous item"',
+    'Section=magic Note="Allows replication of a wondrous item"',
   'Repulsion Shield':
     'Section=magic ' +
-    'Note="Gives +1 AC, use Reaction to push successful attacker 15\'; 4 charges regains 1d4/dy"',
+    'Note="Infused shield w/4 charges gives +1 AC; holder may use Reaction and 1 charge to push a successful attacker 15\'; regains 1d4 charges each dawn"',
   'Resistant Armor':
-    'Section=magic Note="Gives +1 AC and resistance to chosen damage type"',
+    'Section=magic ' +
+    'Note="Infused armor gives +1 AC and resistance to chosen damage type"',
   'Returning Weapon':
     'Section=magic ' +
-    'Note="Gives +1 attack and damage, returns after ranged attack"',
+    'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
   'Soul Of Artifice':
     'Section=combat,save ' +
-    'Note="End 1 attunement when reduced to 0 HP to retain 1 HP",' +
-         '"+1 per attunement on saves"',
+    'Note=' +
+      '"May use Reaction and end 1 infusion when reduced to 0 HP to retain 1 HP",' +
+      '"+1 per attunement on saves"',
   'Spell-Storing Item':
     'Section=feature ' +
-    'Note="After a long rest, store A1 or A2 spell in item to be cast %{intelligenceModifier*2>?2} times"',
+    'Note="After a long rest, may store in an item an A1 or A2 spell that can be cast %{intelligenceModifier*2>?2} times"',
   'The Right Tool For The Job':
-    'Section=feature Note="Spend 1 hr to create 1 set of artisan\'s tools"',
-  'Tool Expertise':'Section=feature Note="Dbl proficiency when using tools"',
+    'Section=feature Note="May spend 1 hr to create a set of artisan\'s tools"',
+  'Tool Expertise':
+    'Section=feature ' +
+    'Note="Dbl proficiency bonus (+%{proficiencyBonus}) when using tools"',
 
   // Feats
   'Aberrant Dragonmark':
     'Section=ability,feature,magic ' +
-    'Note="+1 Constitution",' +
-         '"Develop Aberrant Dragonmark flaw",' +
-         '"Know S0 cantrip, casting chosen S1 spell 1/long rest gives self 1d temporary HP or inflicts 1d HP force randomly w/in 30\'"',
+    'Note=' +
+      '"+1 Constitution",' +
+      '"Has an Aberrant Dragonmark flaw",' +
+      '"Knows 1 S0 cantrip and may cast a chosen S1 spell 1/long rest, randomly gaining 1 HD temporary HP or inflicting 1 HD force to a creature w/in 30\'"',
   'Revenant Blade':
     'Section=ability,combat ' +
-    'Note="Ability Boost (Choose 1 from Dexterity, Strength)",' +
-         '"+1 AC when wielding double-bladed scimitar, weapon can be used one- or two-handed"',
+    'Note=' +
+      '"Ability Boost (Choose 1 from Dexterity, Strength)",' +
+      '"+1 Armor Class when wielding a double-bladed scimitar two-handed/May used a double-bladed scimitar one-handed"',
 
-  // Paths
-  // Copied from Tasha's
+  // Paths - Copied from Tasha's
   'Alchemical Savant':
     'Section=magic ' +
-    'Note="+%{intelligenceModifier>?1} on spell healing and acid, fire, necrotic, or poison damage"',
+    'Note="Spell cast using alchemical supplies gain +%{intelligenceModifier>?1} HP healing or acid, fire, necrotic, or poison damage"',
+  'Alchemist':
+    'Spells=' +
+      '"3:Healing Word","3:Ray Of Sickness",' +
+      '"5:Flaming Sphere","5:Melf\'s Acid Arrow",' +
+      '"9:Gaseous Form","9:Mass Healing Word",' +
+      '13:Blight,"13:Death Ward",' +
+      '17:Cloudkill,"17:Raise Dead"',
   'Alchemist Tool Proficiency':
     'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
   'Arcane Firearm':
     'Section=magic ' +
-    'Note="Spells cast through prepared wand, staff, or rod inflict +1d8 HP damage"',
+    'Note="Spells cast through a prepared wand, staff, or rod inflict +1d8 HP damage"',
   'Arcane Jolt':
     'Section=combat ' +
-    'Note="Magic weapon or Steel Defender attack inflicts +%Vd6 HP force or heals 1 target in 30\' radius %Vd6 HP %{intelligenceModifier>?1}/long rest"',
+    'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or heals %{2+(combatNotes.improvedDefender?2:0)}d6 HP to 1 target in a 30\' radius %{intelligenceModifier>?1}/long rest"',
+  'Artillerist':
+    'Spells=' +
+      '3:Shield,3:Thunderwave,' +
+      '"5:Scorching Ray",5:Shatter,' +
+      '9:Fireball,"9:Wind Wall",' +
+      '"13:Ice Storm","13:Wall Of Fire",' +
+      '"17:Cone Of Cold","17:Wall Of Force"',
   'Artillerist Tool Proficiency':
     'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Battle Ready':
     'Section=combat,feature ' +
-    'Note="+%{intelligenceModifier-strengthModifier} (Int instead of Str) or +%{intelligenceModifier-dexterityModifier} (Int instead of Dex) attack and damage w/magic weapons",' +
-         '"Weapon Proficiency (Martial)"',
+    'Note=' +
+      '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage w/magic weapons",' +
+      '"Weapon Proficiency (Martial)"',
+  'Battle Smith':
+    'Spells=' +
+      '3:Heroism,3:Shield,' +
+      '"5:Branding Smite","5:Warding Bond",' +
+      '"9:Aura Of Vitality","9:Conjure Barrage",' +
+      '"13:Aura Of Purity","13:Fire Shield",' +
+      '"17:Banishing Smite","17:Mass Cure Wounds"',
   'Battle Smith Tool Proficiency':
     'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
   'Chemical Mastery':
     'Section=magic,save ' +
-    'Note="Cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
-         '"Resistance to acid and poison damage, immune to poisoned condition"',
+    'Note=' +
+      '"May use alchemist\'s supplies to cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
+      '"Resistance to acid and poison damage/Immune to poisoned condition" ' +
+    'Spells=' +
+      '"Greater Restoration",Heal',
   'Eldritch Cannon':
     'Section=combat ' +
-    'Note="Create magical, AC 18, %{levels.Artificer*5} HP (<i>Mending</i> repairs 2d6 HP), MV 15\' flamethrower (15\' cone inflicts %Vd8 HP fire (DC %1 Dex half)), force ballista (R120\' inflicts %Vd8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary HP) for 1 hr"',
+    'Note="May create a magical cannon (AC 18, %{levels.Artificer*5} HP (<i>Mending</i> repairs 2d6 HP), MV 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary HP) for 1 hr 1/long rest (may spend a spell slot for additional)"',
   'Experimental Elixir':
     'Section=magic ' +
-    'Note="After a long rest, use alchemist\'s supplies to create %V elixirs of healing, swiftness, resilience, boldness, flight, or transformation (spend spell slot for additional)"',
+    'Note="May use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; may spend spell slots to create additional elixirs"',
   'Explosive Cannon':
-    'Section=combat ' +
-    'Note="Eldritch Cannon +1d8 HP damage, command explosion to inflict 3d8 HP force (DC %V Dex half) in 20\' radius"',
+    'Section=combat,combat ' +
+    'Note=' +
+      '"Eldritch Cannon inflicts +1d8 HP damage",' +
+      '"R60\' May destroy eldritch cannon to inflict 3d8 HP force (DC %{spellDifficultyClass.A} Dexterity half) in a 20\' radius"',
   'Fortified Position':
     'Section=combat ' +
-    'Note="Create 2nd Eldritch Cannon, gain half cover w/in 10\' of Eldritch Cannon"',
+    'Note=' +
+      '"May have 2 Eldritch Cannons simultaneously/Eldritch Cannon gives allies half cover in 10\' radius"',
   'Improved Defender':
-    'Section=combat ' +
-    'Note="+2d6 Arcane Jolt effect, Steel Defender +2 AC and Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
+    'Section=combat,combat ' +
+    'Note=' +
+      '"+2d6 Arcane Jolt effect/Steel Defender gains +2 Armor Class",' +
+      '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Restorative Reagents':
     'Section=magic ' +
-    'Note="Cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest, elixirs give 2d6+%{intelligenceModifier>?1} temporary HP"',
+    'Note="May use alchemist\'s supplies to cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest/Elixirs give 2d6+%{intelligenceModifier>?1} temporary HP" ' +
+    'Spells="Lesser Restoration"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Create mechanical companion (AC %V, HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%1 3/dy), Attack +%2 inflicts 1d8+%1, use Reaction for R5\' Deflect Attack (inflicts Disadv on attack), MV 40\', Dex Save +%3, Con save +%4, immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="May create a mechanical companion (AC %{15+(combatNotes.improvedDefender?2:0)}; HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%{proficiencyBonus} HP 3/dy); Attack +%{spellAttackModifier.A} inflicts 1d8+%{proficiencyBonus} HP force; may use Reaction for R5\' inflict Disadv on attack; MV 40\'; Dexterity Save +%{proficiencyBonus+1}; Constitution Save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
 
   // Races
   "Artisan's Intuition":
-    'Section=skill Note="+1d4 on Arcana and Artisan\'s Tools checks"',
+    'Section=skill Note="+1d4 Arcana/+1d4 Artisan\'s Tools checks"',
   'Beasthide Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Strength"',
-  'Beasthide Shifting':'Section=combat Note="+1 AC while shifting"',
   'Changeling Ability Adjustment':
     'Section=ability Note="+2 Charisma/Ability Boost (Choose 1 from any)"',
   'Changeling Instincts':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 2 from Deception, Insight, Intimidation, Persuasion)"',
-  'Changeling Shapechanger':
-    'Section=ability Note="Use Action to change appearance and voice"',
   'Constructed Resilience':
     'Section=feature,save ' +
-    'Note="No need to eat, drink, breathe, or sleep",' +
-         '"Adv on saving throws vs. poison, resistance to poison damage, immune to disease and sleep"',
+    'Note=' +
+      '"Has no need to eat, drink, breathe, or sleep",' +
+      '"Adv on saves vs. poison/Resistance to poison damage/Immune to disease and sleep"',
   "Courier's Speed":'Section=ability Note="+5 Speed"',
-  'Cunning Intuition':
-    'Section=skill Note="+1d4 on Performance and Stealth checks"',
-  'Deductive Intuition':
-    'Section=skill Note="+1d4 on Investigation and Insight checks"',
+  'Cunning Intuition':'Section=skill Note="+1d4 Performance/+1d4 Stealth"',
+  'Deductive Intuition':'Section=skill Note="+1d4 Investigation/+1d4 Insight"',
   'Detection Ability Adjustment':
     'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
-  'Detection Spells':'Section=magic Note="Access to additional spells"',
-  'Dual Mind':'Section=save Note="Adv on Wis saving throws"',
+  'Dual Mind':'Section=save Note="Adv on Wisdom saves"',
   'Ever Hospitable':
-    'Section=skill Note="+1d4 on Persuasion, Brewer\'s Supplies, and Cook\'s Utensil\'s checks"',
+    'Section=skill ' +
+    'Note="+1d4 Persuasion/+1d4 Brewer\'s Supplies and Cook\'s Utensil\'s checks"',
   'Fierce':'Section=feature Note="Skill Proficiency (Intimidation)"',
   "Finder's Magic":
     'Section=magic ' +
-    'Note="Cast <i>Hunter\'s Mark</i>%{level<3?\'\':\' and <i>Locate Object</i>\'} 1/long rest"',
+    'Note="May cast <i>Hunter\'s Mark</i>%{level<3?\'\':\' and <i>Locate Object</i>\'} 1/long rest"',
   'Finding Ability Adjustment':
     'Section=ability Note="+2 Wisdom/+1 Constitution"',
-  'Finding Spells':'Section=magic Note="Access to additional spells"',
   'Gifted Scribe':
-    'Section=skill Note="+1d4 on History and Calligrapher\'s Supplies checks"',
+    'Section=skill Note="+1d4 History/+1d4 Calligrapher\'s Supplies checks"',
   'Graceful':'Section=feature Note="Skill Proficiency (Acrobatics)"',
-  "Guardian's Shield":'Section=magic Note="Cast <i>Shield</i> 1/long rest"',
+  "Guardian's Shield":
+    'Section=magic ' +
+    'Note="May cast <i>Shield</i> 1/long rest" ' +
+    'SpellAbility=Charisma ' +
+    'Spells=Shield',
   'Handling Ability Adjustment':
     'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
-  'Handling Spells':'Section=magic Note="Access to additional spells"',
   'Headwinds':
     'Section=magic ' +
-    'Note="Know <i>Gust</i> cantrip%{level<3?\'\':\', cast <i>Gust Of Wind</i> 1/long rest\'}"',
+    'Note="Knows <i>Gust</i> cantrip%{level<3?\'\':\' and may cast <i>Gust Of Wind</i> 1/long rest\'}" ' +
+    'SpellAbility=Charisma ' +
+    'Spells=Gust,"3:Gust Of Wind"',
   'Healing Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Wisdom"',
-  'Healing Spells':'Section=magic Note="Access to additional spells"',
   'Healing Touch':
     'Section=magic ' +
-    'Note="Cast <i>Cure Wounds</i>%{level<3?\'\':\' and <i>Lesser Restoration</i>\'} 1/long rest"',
+    'Note="May cast <i>Cure Wounds</i>%{level<3?\'\':\' and <i>Lesser Restoration</i>\'} 1/long rest" ' +
+    'SpellAbility=Wisdom ' +
+    'Spells="Cure Wounds","3:Lesser Restoration"',
   'Hospitality Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Charisma"',
-  'Hospitality Spells':'Section=magic Note="Access to additional spells"',
   "Hunter's Intuition":
-    'Section=skill Note="+1d4 on Perception and Survival checks"',
+    'Section=skill Note="+1d4 Perception/+1d4 Survival"',
   "Innkeeper's Magic":
     'Section=magic ' +
-    'Note="Know <i>Prestidigitation</i> cantrip, cast <i>Purify Food And Drink</i> and <i>Unseen Servant</i> 1/long rest"',
+    'Note="Knows <i>Prestidigitation</i> cantrip and may cast <i>Purify Food And Drink</i> and <i>Unseen Servant</i> 1/long rest" ' +
+    'SpellAbility=Charisma ' +
+    'Spells=Prestidigitation,"Purify Food And Drink","Unseen Servant"',
   'Integrated Protection':
     'Section=combat,feature ' +
-    'Note="+1 AC","1 hr required to put on or take off armor"',
+    'Note="+1 Armor Class","Requires 1 hr to put on or take off armor"',
   'Intuitive Motion':
-    'Section=skill Note="+1d4 on Acrobatics and Land Vehicle checks"',
+    'Section=skill Note="+1d4 Acrobatics/+1d4 Land Vehicle checks"',
   'Kalashtar Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Charisma"',
   'Longtooth Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Dexterity"',
-  'Longtooth Shifting':
-    'Section=combat ' +
-    'Note="Bonus fangs attack inflicts 1d6+%{strengthModifier} HP piercing damage while shifting"',
   'Magical Detection':
     'Section=magic ' +
-    'Note="Cast <i>Detect Magic</i>%{level<3?\' and\':\',\'} <i>Detect Poison And Disease</i>%{level<3?\'\':\', and <i>See Invisibility</i>\'} 1/long rest"',
-  'Magical Passage':'Section=magic Note="Cast <i>Misty Step</i> 1/long rest"',
+    'Note="May cast <i>Detect Magic</i>%{level<3?\' and\':\',\'} <i>Detect Poison And Disease</i>%{level<3?\'\':\', and <i>See Invisibility</i>\'} 1/long rest" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells="Detect Magic","Detect Poison And Disease","3:See Invisibility"',
+  'Magical Passage':
+    'Section=magic ' +
+    'Note="May cast <i>Misty Step</i> 1/long rest" ' +
+    'SpellAbility=Dexterity ' +
+    'Spells="Misty Step"',
   "Maker's Gift":
     'Section=feature Note="Tool Proficiency (Choose 1 from any Artisan)"',
   'Making Ability Adjustment':
     'Section=ability Note="+2 Intelligence/Ability Boost (Choose 1 from any)"',
-  'Making Spells':'Section=magic Note="Access to additional spells"',
   'Medical Intuition':
-    'Section=skill Note="+1d4 on Medicine and Herbalism Kit checks"',
+    'Section=skill Note="+1d4 Medicine/+1d4 Herbalism Kit checks"',
   'Mental Discipline':'Section=save Note="Resistance to psychic damage"',
   'Mind Link':
     'Section=feature ' +
-    'Note="R%{level*10}\' Telepathic communication w/1 target for 1 hr"',
+    'Note="R%{level*10}\' May communicate telepathically w/target for 1 hr"',
   'Natural Athlete':'Section=feature Note="Skill Proficiency (Athletics)"',
   'Natural Tracker':'Section=feature Note="Skill Proficiency (Survival)"',
   'Passage Ability Adjustment':
     'Section=ability Note="+2 Dexterity/Ability Boost (Choose 1 from any)"',
-  'Passage Spells':'Section=magic Note="Access to additional spells"',
   'Primal Connection':
     'Section=magic ' +
-    'Note="Cast <i>Animal Friendship</i> and <i>Speak With Animals</i> 1/long rest"',
+    'Note="May cast <i>Animal Friendship</i> and <i>Speak With Animals</i> 1/long rest" ' +
+    'SpellAbility=Wisdom ' +
+    'Spells="Animal Friendship","Speak With Animals"',
   'Primal Intuition':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 2 from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, Survival)"',
   "Scribe's Insight":
     'Section=magic ' +
-    'Note="Know <i>Message</i> cantrip, cast <i>Comprehend Languages</i>%{level<3?\'\':\' and <i>Magic Mouth</i>\'} 1/long rest"',
+    'Note="Knows <i>Message</i> cantrip and may cast <i>Comprehend Languages</i> 1/short rest%{level<3?\'\':\' and <i>Magic Mouth</i> 1/long rest\'}" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells=Message,"Comprehend Languages","3:Magic Mouth"',
   'Scribing Ability Adjustment':
     'Section=ability Note="+2 Intelligence/+1 Charisma"',
-  'Scribing Spells':'Section=magic Note="Access to additional spells"',
   'Sentinel Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Wisdom"',
-  'Sentinel Spells':'Section=magic Note="Access to additional spells"',
-  "Sentinel's Intuition":
-    'Section=skill Note="+1d4 on Insight and Perception checks"',
-  "Sentry's Rest":'Section=feature Note="Inert 6 hr during long rest"',
+  "Sentinel's Intuition":'Section=skill Note="+1d4 Insight/+1d4 Perception"',
+  "Sentry's Rest":
+    'Section=feature ' +
+    'Note="Becomes inactive but alert for 6 hr during a long rest"',
   'Severed From Dreams':'Section=save Note="Immune to dream effects"',
   'Shadow Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
-  'Shadow Spells':'Section=magic Note="Access to additional spells"',
   'Shape Shadows':
     'Section=magic ' +
-    'Note="Know <i>Minor Illusion</i> cantrip%{level<3?\'\':\', cast <i>Invisibility</i> 1/long rest\'}"',
+    'Note="Knows <i>Minor Illusion</i> cantrip%{level<3?\'\':\' and may cast <i>Invisibility</i> 1/long rest\'}" ' +
+    'SpellAbility=Charisma ' +
+    'Spells="Minor Illusion",3:Invisibility',
+  'Shapechanger (Changeling)':
+    'Section=feature Note="May change appearance and voice"',
   'Shifting':
     'Section=feature ' +
-    'Note="Assume bestial appearance, gaining %1%{(level+constitutionModifier)>?1} temporary HP, for 1 min 1/short rest"',
+    'Note="May assume a bestial appearance, gaining %{level+constitutionModifier>?1} temporary HP, for 1 min 1/short rest"',
+  'Shifting (Beasthide)':
+    'Section=combat ' +
+    'Note="While shifted, gains +1 Armor Class and +1d6 temporary HP"',
+  'Shifting (Longtooth)':
+    'Section=combat ' +
+    'Note="While shifted, may attck w/fangs (1d6+%{strengthModifier} HP piercing) as a bonus action"',
+  'Shifting (Swiftstride)':
+    'Section=ability,combat ' +
+    'Note=' +
+      '"+10 Speed while shifted",' +
+      '"While shifted, may use Reaction to move 10\' w/out provoking OA when a creature ends its turn w/in 5\'"',
+  'Shifting (Wildhunt)':
+    'Section=ability,combat ' +
+    'Note=' +
+      '"Adv on Wisdom while shifted",' +
+      '"While shifted, foes w/in 30\' gain no Adv on attacks on self"',
   'Specialized Design':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)"',
   'Spellsmith':
     'Section=magic ' +
-    'Note="Know <i>Mending</i> cantrip, cast <i>Magic Weapon</i> w/1 hr duration 1/long rest"',
+    'Note="Knows <i>Mending</i> cantrip and may cast <i>Magic Weapon</i> w/1 hr duration 1/long rest" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells=Mending,"Magic Weapon"',
+  'Spells Of The Mark':'Section=magic Note="Has access to additional spells"',
   'Storm Ability Adjustment':'Section=ability Note="+2 Charisma/+1 Dexterity"',
-  'Storm Spells':'Section=magic Note="Access to additional spells"',
   "Storm's Boon":'Section=save Note="Resistance to lightning damage"',
   'Swiftstride Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Charisma"',
-  'Swiftstride Shifting':
-    'Section=ability,combat ' +
-    'Note="+10 Speed while shifting",' +
-         '"Use Reaction to move 10\' w/out OA when creature ends turn w/in 5\'"',
   'The Bigger They Are':
     'Section=magic ' +
-    'Note="Use Primal Connection on monstrous creatures with intelligence up to 3"',
+    'Note="May use Primal Connection on monstrous creatures with Intelligence up to 3"',
   'Vigilant Guardian':
     'Section=combat ' +
-    'Note="R5\' Use Reaction to swap places with and take damage for struck creature 1/long rest"',
+    'Note="R5\' May use Reaction to swap places with and take damage for a struck creature 1/long rest"',
   "Warder's Intuition":
-    'Section=skill Note="+1d4 on Investigation and Thieves\' Tools checks"',
+    'Section=skill Note="+1d4 Investigation/+1d4 Thieves\' Tools checks"',
   'Warding Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Intelligence"',
-  'Warding Spells':'Section=magic Note="Access to additional spells"',
   'Wards And Seals':
     'Section=magic ' +
-    'Note="Cast <i>Alarm</i>%{level<3?\' and\':\',\'} <i>Magic Armor</i>%{level<3?\'\':\', and <i>Arcane Lock</i>\'} 1/long rest"',
+    'Note="May cast <i>Alarm</i>%{level<3?\' and\':\',\'} <i>Magic Armor</i>%{level<3?\'\':\', and <i>Arcane Lock</i>\'} 1/long rest" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells=Alarm,"Mage Armor","3:Arcane Lock"',
   'Warforged Ability Adjustment':
     'Section=ability Note="+2 Constitution/Ability Boost (Choose 1 from any)"',
-  'Wild Intuition':
-    'Section=skill Note="+1d4 on Animal Handling and Nature checks"',
+  'Wild Intuition':'Section=skill Note="+1d4 Animal Handling/+1d4 Nature"',
   'Wildhunt Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Dexterity"',
-  'Wildhunt Shifting':
-    'Section=ability,combat ' +
-    'Note="Adv on Wis checks while shifting",' +
-         '"R30\' no foe Adv on self attack while shifting"',
   "Windwright's Intuition":
-    'Section=skill Note="+1d4 on Acrobatics and Navigator\'s Tools checks"',
+    'Section=skill Note="+1d4 Acrobatics/+1d4 Navigator\'s Tools checks"',
   // Copied from Volo's
   'Aggressive':
-    'Section=combat Note="Bonus action to move up to %{speed}\' toward foe"',
+    'Section=combat ' +
+    'Note="May use a bonus action to move %{speed}\' toward foe"',
   'Bugbear Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Dexterity"',
   'Fury Of The Small':
-    'Section=combat Note="+%{level} HP damage to larger creature 1/short rest"',
+    'Section=combat ' +
+    'Note="May inflict +%{level} HP damage to a larger creature 1/short rest"',
   'Goblin Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Constitution"',
   'Hobgoblin Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Intelligence"',
   'Long-Limbed':'Section=combat Note="+5\' melee reach"',
   'Martial Training':
-    'Section=feature ' +
+    'Section=combat ' +
     'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any Martial)"',
-  'Nimble Escape':'Section=combat Note="Bonus action to Disengage or Hide"',
+  'Nimble Escape':
+    'Section=combat Note="May use a bonus action to Disengage or Hide"',
   'Orc Ability Adjustment':
     // Removed Volo's -2 Intelligence"',
     'Section=ability Note="+2 Strength/+1 Constitution"',
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Saving Face':
     'Section=feature ' +
-    'Note="Gain +1 for each ally w/in 30\' (+5 maximum) on failed roll 1/short rest"',
+    'Note="May add 1 for each ally w/in 30\' (+5 maximum) to a failed roll 1/short rest"',
   'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Surprise Attack':
-    'Section=combat Note="+2d6 HP damage on first surprise hit"'
+    'Section=combat Note="Inflicts +2d6 HP damage on first surprise hit"'
 
 };
+Eberron5E.FEATURES =
+  Object.assign({}, (window.PHB5E||window.SRD5E).FEATURES, Eberron5E.FEATURES_ADDED);
 Eberron5E.HOUSES = {
   'None':
     'Dragonmark=None',
@@ -622,53 +705,12 @@ Eberron5E.HOUSES = {
       '"Aura Of Life,Dominate Beast",' +
       '"Awaken"',
 };
-Eberron5E.PATHS_ADDED = {
-  // Copied from Tasha's
-  'Alchemist':
-    'Group=Artificer Level=levels.Artificer ' +
-    'Features=' +
-      '"3:Alchemist Tool Proficiency","3:Experimental Elixir",' +
-      '"features.Guardian Armor ? 3:Thunder Gauntlets",' +
-      '"features.Guardian Armor ? 3:Defensive Field",' +
-      '"features.Infiltrator Armor ? 3:Lightning Launcher",' +
-      '"features.Infiltrator Armor ? 3:Powered Steps",' +
-      '"features.Infiltrator Armor ? 3:Dampening Field",' +
-      '"5:Alchemical Savant","9:Restorative Reagents","15:Chemical Mastery" ' +
-    'Spells=' +
-      '"3:Healing Word,Ray Of Sickness",' +
-      '"5:Flaming Sphere,Melf\'s Acid Arrow",' +
-      '"9:Gaseous Form,Mass Healing Word",' +
-      '"13:Blight,Death Ward",' +
-      '"17:Cloudkill,Raise Dead"',
-  'Artillerist':
-    'Group=Artificer Level=levels.Artificer ' +
-    'Features=' +
-      '"3:Artillerist Tool Proficiency","3:Eldritch Cannon",' +
-      '"5:Arcane Firearm","9:Explosive Cannon","15:Fortified Position" ' +
-    'Spells=' +
-      '"3:Shield,Thunderwave",' +
-      '"5:Scorching Ray,Shatter",' +
-      '"9:Fireball,Wind Wall",' +
-      '"13:Ice Storm,Wall Of Fire",' +
-      '"17:Cone Of Cold,Wall Of Force"',
-  'Battle Smith':
-    'Group=Artificer Level=levels.Artificer ' +
-    'Features=' +
-      '"3:Battle Ready","3:Battle Smith Tool Proficiency","3:Steel Defender",' +
-      '"5:Extra Attack","9:Arcane Jolt","15:Improved Defender" ' +
-    'Spells=' +
-      '"3:Heroism,Shield",' +
-      '"5:Branding Smite,Warding Bond",' +
-      '"9:Aura Of Vitality,Conjure Barrage",' +
-      '"13:Aura Of Purity,Fire Shield",' +
-      '"17:Banishing Smite,Mass Cure Wounds"'
-};
 Eberron5E.RACES_ADDED = {
   'Changeling':
     'Features=' +
       '"Language (Common/Choose 2 from any)",' +
       '"Changeling Ability Adjustment","Changeling Instincts",' +
-      '"Changeling Shapechanger"',
+      '"Shapechanger (Changeling)"',
   'Kalashtar':
     'Features=' +
       '"Language (Common/Quori/Choose 1 from any)",' +
@@ -677,23 +719,23 @@ Eberron5E.RACES_ADDED = {
   'Beasthide Shifter':
     'Features=' +
       '"Language (Common)",' +
-      'Darkvision,"Beasthide Ability Adjustment","Beasthide Shifting",' +
+      'Darkvision,"Beasthide Ability Adjustment","Shifting (Beasthide)",' +
       'Shifting,"Natural Athlete"',
   'Longtooth Shifter':
     'Features=' +
       '"Language (Common)",' +
-      'Darkvision,Fierce,"Longtooth Ability Adjustment","Longtooth Shifting",' +
-      'Shifting',
+      'Darkvision,Fierce,"Longtooth Ability Adjustment",' +
+      '"Shifting (Longtooth)",Shifting',
   'Swiftstride Shifter':
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,Graceful,Shifting,"Swiftstride Ability Adjustment",' +
-      '"Swiftstride Shifting"',
+      '"Shifting (Swiftstride)"',
   'Wildhunt Shifter':
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,"Natural Tracker",Shifting,"Wildhunt Ability Adjustment",' +
-      '"Wildhunt Shifting"',
+      '"Shifting (Wildhunt)"',
   'Warforged':
     'Features=' +
       '"Language (Common/Choose 1 from any)",' +
@@ -702,71 +744,63 @@ Eberron5E.RACES_ADDED = {
   'Mark Of Detection Half-Elf':
     SRD5E.RACES['Half-Elf']
       .replace('Half-Elf Ability', 'Detection Ability')
-      .replace('Skill Versatility', 'Deductive Intuition","Detection Spells","Magical Detection'),
+      .replace('Skill Versatility', 'Deductive Intuition","Spells Of The Mark","Magical Detection'),
   'Mark Of Finding Half-Orc':
     'Features=' +
       '"Language (Common/Goblin)",' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
-      '"Finder\'s Magic","Finding Spells"',
+      '"Finder\'s Magic","Spells Of The Mark"',
   'Mark Of Finding Human':
     'Features=' +
       '"Language (Common/Goblin)",' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
-      '"Finder\'s Magic","Finding Spells"',
+      '"Finder\'s Magic","Spells Of The Mark"',
   'Mark Of Handling Human':
-    'Features=' +
-      '"Language (Common/Choose 1 from any)",' +
-      '"Handling Ability Adjustment","Handling Spells","Primal Connection",' +
-      '"Wild Intuition","3:The Bigger They Are"',
+    SRD5E.RACES.Human
+      .replace('Human Ability Adjustment','Handling Ability Adjustment","Spells Of The Mark","Primal Connection","Wild Intuition","3:The Bigger They Are'),
   'Mark Of Healing Halfling':
     'Features=' +
       '"Language (Common/Halfling)",' +
-      'Brave,"Halfling Nimbleness","Lucky Halfling",Slow,Small,' +
-      '"Healing Ability Adjustment","Healing Spells","Healing Touch",' +
+      'Brave,"Halfling Nimbleness","Lucky (Halfling)",Slow,Small,' +
+      '"Healing Ability Adjustment","Spells Of The Mark","Healing Touch",' +
       '"Medical Intuition"',
   'Mark Of Hospitality Halfling':
     'Features=' +
       '"Language (Common/Halfling)",' +
-      'Brave,"Halfling Nimbleness","Lucky Halfling",Slow,Small,' +
+      'Brave,"Halfling Nimbleness","Lucky (Halfling)",Slow,Small,' +
       '"Ever Hospitable","Hospitality Ability Adjustment",' +
-      '"Hospitality Spells","Innkeeper\'s Magic"',
+      '"Spells Of The Mark","Innkeeper\'s Magic"',
   'Mark Of Making Human':
-    'Features=' +
-      '"Language (Common/Choose 1 from any)",' +
-      '"Making Ability Adjustment","Artisan\'s Intuition","Maker\'s Gift",' +
-      '"Making Spells",Spellsmith',
+    SRD5E.RACES.Human
+      .replace('Human Ability Adjustment', 'Making Ability Adjustment","Artisan\'s Intuition","Maker\'s Gift","Spells Of The Mark","Spellsmith'),
   'Mark Of Passage Human':
-    'Features=' +
-      '"Language (Common/Choose 1 from any)",' +
-      '"Passage Ability Adjustment","Courier\'s Speed","Intuitive Motion",' +
-      '"Magical Passage","Passage Spells"',
+    SRD5E.RACES.Human
+      .replace('Human Ability Adjustment', 'Passage Ability Adjustment","Courier\'s Speed","Intuitive Motion","Magical Passage","Spells Of The Mark'),
   'Mark Of Scribing Gnome':
     'Features=' +
       '"Language (Common/Gnomish)",' +
       'Darkvision,"1:Gnome Cunning","Scribing Ability Adjustment",Slow,Small,' +
-      '"Gifted Scribe","Scribe\'s Insight","Scribing Spells"',
+      '"Gifted Scribe","Scribe\'s Insight","Spells Of The Mark"',
   'Mark Of Sentinel Human':
-    'Features=' +
-      '"Language (Common/Choose 1 from any)",' +
-      '"Sentinel Ability Adjustment","Guardian\'s Shield",' +
-      '"Sentinel Spells","Sentinel\'s Intuition","Vigilant Guardian"',
+    SRD5E.RACES.Human
+      .replace('Human Ability Adjustment', 'Sentinel Ability Adjustment","Guardian\'s Shield","Spells Of The Mark","Sentinel\'s Intuition","Vigilant Guardian'),
   'Mark Of Shadow Elf':
     'Features=' +
       '"Language (Common/Elvish)",' +
       'Darkvision,"Elf Weapon Training","Fey Ancestry","Keen Senses",Trance,' +
-      '"Cunning Intuition","Shadow Ability Adjustment","Shadow Spells",' +
+      '"Cunning Intuition","Shadow Ability Adjustment","Spells Of The Mark",' +
       '"Shape Shadows"',
   'Mark Of Storm Half-Elf':
     SRD5E.RACES['Half-Elf']
       .replace('Half-Elf Ability', 'Storm Ability')
-      .replace('Skill Versatility', 'Headwinds","Storm Spells","Storm\'s Boon","Windwright\'s Intuition'),
+      .replace('Skill Versatility', 'Headwinds","Spells Of The Mark","Storm\'s Boon","Windwright\'s Intuition'),
   'Mark Of Warding Dwarf':
     'Features=' +
       '"Language (Common/Dwarvish)",' +
       '"Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
       'Darkvision,"Dwarven Combat Training","Dwarven Resilience",Slow,Steady,' +
       'Stonecunning,"Warding Ability Adjustment","Warder\'s Intuition",' +
-      '"Warding Spells","Wards And Seals"',
+      '"Spells Of The Mark","Wards And Seals"',
   // Copied from Volo's
   'Bugbear':
     'Features=' +
@@ -789,12 +823,15 @@ Eberron5E.RACES_ADDED = {
       'Aggressive,Darkvision,"Orc Ability Adjustment","Powerful Build",' +
       '"Primal Intuition"'
 };
+Eberron5E.RACES =
+  Object.assign({}, (window.PHB5E||window.SRD5E).RACES, Eberron5E.RACES_ADDED);
 Eberron5E.SPELLS_ADDED = {
   // Copied from Xanathar's
   'Gust':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
-    'Description="R30\' Push creature 5\' (Str neg) or object 10\', or create light breeze"'
+    'Description=' +
+      '"R30\' Pushes target creature 5\' (Strength neg), pushes unattended 5 lb object 10\', or creates a light breeze"',
 };
 Eberron5E.SPELLS_LEVELS_ADDED = {
 
@@ -878,7 +915,7 @@ Eberron5E.SPELLS_LEVELS_ADDED = {
   'Wall Of Stone':'A5'
 
 };
-if(window.Xanathar != null) {
+if(window.Xanathar != null)
   Object.assign(Eberron5E.SPELLS_LEVELS_ADDED, {
     'Create Bonfire':'A0',
     'Frostbite':'A0',
@@ -895,10 +932,24 @@ if(window.Xanathar != null) {
     'Skill Empowerment':'A5',
     'Wall Of Stone':'A5'
   });
-}
+Eberron5E.SPELLS =
+  Object.assign({}, (window.PHB5E||window.SRD5E).SPELLS, Eberron5E.SPELLS_ADDED);
+if(window.Xanathar != null)
+  Object.assign(Eberron5E.SPELLS, Xanathar.SPELLS);
+for(let s in Eberron5E.SPELLS_LEVELS_ADDED)
+  Eberron5E.SPELLS[s] =
+    Eberron5E.SPELLS[s].replace('Level=', 'Level=' + Eberron5E.SPELLS_LEVELS_ADDED[s] + ',');
 Eberron5E.TOOLS_ADDED = {
   'Vehicles (Air And Sea)':'Type=General'
 };
+Eberron5E.TOOLS =
+  Object.assign({}, (window.PHB5E||window.SRD5E).TOOLS, Eberron5E.TOOLS_ADDED);
+Eberron5E.WEAPONS_ADDED = {
+  'Double-Bladed Scimitar':
+    'Category="Martial Melee" Property=Two-Handed Damage=2d4'
+};
+Eberron5E.WEAPONS =
+  Object.assign({}, (window.PHB5E||window.SRD5E).WEAPONS, Eberron5E.WEAPONS_ADDED);
 
 /* Defines rules related to basic character identity. */
 Eberron5E.identityRules = function(
@@ -906,10 +957,10 @@ Eberron5E.identityRules = function(
 ) {
   SRD5E.identityRules(
     rules, SRD5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
-    Eberron5E.DEITIES, Eberron5E.PATHS, Eberron5E.RACES
+    Eberron5E.DEITIES, {}, Eberron5E.RACES
   );
   QuilvynUtils.checkAttrTable(houses, ['Dragonmark', 'Race', 'Tool', 'Spells']);
-  for(var h in houses)
+  for(let h in houses)
     rules.choiceRules(rules, 'House', h, houses[h]);
 };
 
@@ -933,10 +984,6 @@ Eberron5E.choiceRules = function(rules, type, name, attrs) {
     Eberron5E.classRulesExtra(rules, name);
   else if(type == 'Feat')
     Eberron5E.featRulesExtra(rules, name);
-  else if(type == 'Path')
-    Eberron5E.pathRulesExtra(rules, name);
-  else if(type == 'Race')
-    Eberron5E.raceRulesExtra(rules, name);
 };
 
 /*
@@ -945,53 +992,42 @@ Eberron5E.choiceRules = function(rules, type, name, attrs) {
  */
 Eberron5E.classRulesExtra = function(rules, name) {
 
-  // Copied from Tasha's
-  var classLevel = 'levels.' + name;
+  let classLevel = 'levels.' + name;
 
   if(name == 'Artificer') {
-    rules.defineRule('featureNotes.infuseItem',
-      classLevel, '=', 'source>=2 ? Math.floor((source+6)/4)*2 : null'
+    // Copied from Tasha's
+    rules.defineRule('armorerLevel',
+      'features.Armorer', '?', null,
+      'level', '=', null
     );
-    rules.defineRule('featureNotes.infuseItem.1',
-      'featureNotes.infuseItem', '=', 'source / 2',
-      'featureNotes.armorModifications', '+', '2'
+    rules.defineRule('battleSmithLevel',
+      'features.Battle Smith', '?', null,
+      'level', '=', null
     );
-    rules.defineRule('featureNotes.magicItemAdept',
-      classLevel, '=', '4',
-      'featureNotes.magicItemSavant', '^', '5',
-      'featureNotes.magicItemMaster', '^', '6'
+    rules.defineRule // Italics noop
+      ('combatNotes.arcaneJolt', 'combatNotes.improvedDefender', '+', '0');
+    rules.defineRule // Italics noop
+      ('combatNotes.eldritchCannon', 'combatNotes.explosiveCannon', '+', '0');
+    rules.defineRule // Italics noop
+      ('featureNotes.infuseItem', 'featureNotes.armorModifications', '+', '0');
+    rules.defineRule('magicNotes.magicItemAdept', // Italics noop
+      'magicNotes.magicItemMaster', '+', '0',
+      'magicNotes.magicItemSavant', '+', '0'
     );
-    rules.defineRule('magicNotes.enhancedArcaneFocus',
-      'levels.Artificer', '=', 'source<10 ? 1 : 2'
-    );
-    rules.defineRule('magicNotes.enhancedDefense',
-      'levels.Artificer', '=', 'source<10 ? 1 : 2'
-    );
-    rules.defineRule('magicNotes.enhancedWeapon',
-      'levels.Artificer', '=', 'source<10 ? 1 : 2'
-    );
-    rules.defineRule('magicNotes.experimentalElixir',
-      classLevel, '=', 'Math.floor(( source + 12) / 9)'
-    );
-    rules.defineRule('magicNotes.homunculusServant.1',
-      'features.Homunculus Servant', '?', null,
-      // Tasha 'spellAttackModifier.A', '=', null
-      'proficiencyBonus', '=', 'source + 2' // See Might of the Master
-    );
-    rules.defineRule('magicNotes.homunculusServant.2',
-      'features.Homunculus Servant', '?', null,
-      'proficiencyBonus', '=', null // Same as Tasha due to Might of the Master
+    rules.defineRule('combatNotes.extraAttack',
+      'armorerLevel', '+=', 'source>=5 ? 1 : null',
+      'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
     );
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
-      'featureNotes.infuseItem', '=', null
+      'featureNotes.infuseItem', '?', null,
+      classLevel, '=', 'Math.floor((source + 6) / 4) * 2'
     );
     rules.defineRule('selectableFeatureCount.Artificer (Specialist)',
-      classLevel, '=', 'source>=3 ? 1 : null'
+      'featureNotes.artificerSpecialist', '=', '1'
     );
-    SRD5E.featureSpells
-      (rules, 'Restorative Reagents', 'A', null, ['Lesser Restoration']);
-    SRD5E.featureSpells
-      (rules, 'Chemical Mastery', 'A', null, ['Greater Restoration', 'Heal']);
+    rules.defineRule('selectableFeatureCount.Artificer (Armor Model)',
+      'featureNotes.armorModel', '=', '1'
+    );
   }
 
 };
@@ -1062,24 +1098,24 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools, spells) {
     ['Tool Proficiency (' + tools.join('/') + ')']
   );
 
-  var allSpells = rules.getChoices('spells');
-  for(var i = 0; i < spells.length; i++) {
-    var level = i + 1;
-    var spellList = spells[i].split(/\s*,\s*/);
-    for(var j = 0; j < spellList.length; j++) {
-      var spellName = spellList[j];
-      var fullName = QuilvynUtils.getKeys(allSpells, spellName + '\\(')[0];
+  let allSpells = rules.getChoices('spells');
+  for(let i = 0; i < spells.length; i++) {
+    let level = i + 1;
+    let spellList = spells[i].split(/\s*,\s*/);
+    for(let j = 0; j < spellList.length; j++) {
+      let spellName = spellList[j];
+      let fullName = QuilvynUtils.getKeys(allSpells, spellName + '\\(')[0];
       if(!fullName) {
         console.log('Unknown mark spell "' + spellName + '"');
         continue;
       }
-      var description =
+      let description =
         QuilvynUtils.getAttrValue(allSpells[fullName], 'Description');
-      var school = QuilvynUtils.getAttrValue(allSpells[fullName], 'School');
-      var schoolPrefix = school.substring(0, 4);
+      let school = QuilvynUtils.getAttrValue(allSpells[fullName], 'School');
+      let schoolPrefix = school.substring(0, 4);
       ['A', 'B', 'C', 'D', 'P', 'R', 'S', 'K', 'W'].forEach(group => {
         if(QuilvynUtils.getKeys(allSpells, '^' + spellName + '\\(' + group + level).length == 0) {
-          var newName = spellName + '(' + group + level + ' [' + dragonmark + ' Spells] ' + schoolPrefix + ')';
+          let newName = spellName + '(' + group + level + ' [' + dragonmark + ' Spells] ' + schoolPrefix + ')';
           rules.defineChoice('spells', newName + ':' + allSpells[fullName]);
           SRD5E.spellRules(
             rules, newName, school, group, level, description, false
@@ -1089,227 +1125,27 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools, spells) {
     }
   }
 
-};
-
-/*
- * Defines in #rules# the rules associated with path #name# that cannot be
- * derived directly from the attributes passed to pathRules.
- */
-Eberron5E.pathRulesExtra = function(rules, name) {
-
-  var pathLevel =
-    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') +
-    'Level';
-
-  // Copied from Tasha's
-  if(name == 'Artillerist') {
-    rules.defineRule('combatNotes.eldritchCannon',
-      pathLevel, '=', '2',
-      'combatNotes.explosiveCannon', '+', '1'
+  // TODO note
+  if(name == 'Tharashk') {
+    rules.defineRule("spellAttackModifier.MarkOfFinding",
+      "features.Finder's Magic", '?', null,
+      'wisdomModifier', '=', null,
+      'proficiencyBonus', '+', null
     );
-    rules.defineRule
-      ('combatNotes.eldritchCannon.1', 'spellDifficultyClass.A', '=', null);
-    rules.defineRule
-      ('combatNotes.explosiveCannon', 'spellDifficultyClass.A', '=', null);
-  } else if(name == 'Battle Smith') {
-    rules.defineRule('combatNotes.arcaneJolt',
-      pathLevel, '=', '2',
-      'combatNotes.improvedDefender', '+', '2'
+    rules.defineRule("spellDifficultyClass.MarkOfFinding",
+      "spellAttackModifier.MarkOfFinding", '=', '8 + source'
     );
-    rules.defineRule
-      ('combatNotes.extraAttack', pathLevel, '+=', 'source>=5 ? 1 : null');
-    rules.defineRule('combatNotes.steelDefender',
-      pathLevel, '=', '15',
-      'combatNotes.improvedDefender', '+', '2'
-    );
-    rules.defineRule('combatNotes.steelDefender.1',
-      'features.Steel Defender', '?', null,
-      'proficiencyBonus', '=', null
-    );
-    rules.defineRule('combatNotes.steelDefender.2',
-      'features.Steel Defender', '?', null,
-      'spellAttackModifier.A', '=', null
-    );
-    rules.defineRule('combatNotes.steelDefender.3',
-      'features.Steel Defender', '?', null,
-      'proficiencyBonus', '=', 'source + 1'
-    );
-    rules.defineRule('combatNotes.steelDefender.4',
-      'features.Steel Defender', '?', null,
-      'proficiencyBonus', '=', 'source + 2'
-    );
-  }
-
-};
-
-/*
- * Defines in #rules# the rules associated with path #name# that cannot be
- * derived directly from the attributes passed to raceRules.
- */
-Eberron5E.raceRulesExtra = function(rules, name) {
-
-  if(name.match(/Shifter/)) {
-    rules.defineRule('featureNotes.shifting.1',
-      'race', '=', 'source == "Beasthide Shifter" ? "1d6+" : ""'
-    );
-  }
-  if(name == 'Hobgoblin') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule
-      ('armorProficiency.Light', 'featureNotes.martialTraining', '=', '1');
-    rules.defineRule
-      ('weaponChoiceCount', 'featureNotes.martialTraining', '+=', '2');
-  } else if(name == 'Mark Of Detection Half-Elf') {
-    SRD5E.featureSpells(
-      rules, 'Magical Detection', 'W', 'level',
-      ['Detect Magic,Detect Poison And Disease', '3:See Invisibility']
-    );
-    rules.defineRule('casterLevels.Magical Detection',
-      'features.Magical Detection', '?', null,
-      'level', '=', null,
-      'levels.Wizard', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.W', 'casterLevels.Magical Detection', '^=', null);
-  } else if(name.startsWith('Mark Of Finding')) {
-    SRD5E.featureSpells(
-      rules, "Finder's Magic", 'R', 'level',
+    SRD5E.featureSpells(rules,
+      "Finder's Magic", "MarkOfFinding", 'level',
       ["Hunter's Mark", '3:Locate Object']
     );
-    rules.defineRule("casterLevels.Finder's Magic",
-      "features.Finder's Magic", '?', null,
-      'level', '=', null,
-      'levels.Ranger', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.R', "casterLevels.Finder's Magic", '^=', null);
-  } else if(name == 'Mark Of Handling Human') {
-    SRD5E.featureSpells(
-      rules, 'Primal Connection', 'R', 'level',
-      ['Animal Friendship,Speak With Animals']
-    );
-    rules.defineRule('casterLevels.Primal Connection',
-      'features.Primal Connection', '?', null,
-      'level', '=', null,
-      'levels.Ranger', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.R', 'casterLevels.Primal Connection', '^=', null);
-  } else if(name == 'Mark Of Healing Halfling') {
-    SRD5E.featureSpells(
-      rules, 'Healing Touch', 'C', 'level',
-      ['Cure Wounds', '3:Lesser Restoration']
-    );
-    rules.defineRule('casterLevels.Healing Touch',
-      'features.Healing Touch', '?', null,
-      'level', '=', null,
-      'levels.Cleric', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.C', 'casterLevels.Healing Touch', '^=', null);
-  } else if(name == 'Mark Of Hospitality Halfling') {
-    SRD5E.featureSpells(
-      rules, "Innkeeper's Magic", 'B', 'level',
-      ['Prestidigitation,Purify Food And Drink,Unseen Servant']
-    );
-    rules.defineRule("casterLevels.Innkeeper's Magic",
-      "features.Innkeeper's Magic", '?', null,
-      'level', '=', null,
-      'levels.Bard', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.B', "casterLevels.Innkeeper's Magic", '^=', null);
-  } else if(name == 'Mark Of Making Human') {
-    SRD5E.featureSpells
-      (rules, 'Spellsmith', 'W', 'level', ['Mending,Magic Weapon']);
-    rules.defineRule('casterLevels.Spellsmith',
-      'features.Spellsmith', '?', null,
-      'level', '=', null,
-      'levels.Wizard', 'v', '0'
-    );
-    rules.defineRule('casterLevels.W', 'casterLevels.Spellsmith', '^=', null);
-  } else if(name == 'Mark Of Passage Human') {
-    // NOTE: Dexterity is ability for this spell, but there are no ability-
-    // related effects.
-    SRD5E.featureSpells(rules, 'Magical Passage', 'W', 'level', ['Misty Step']);
-    rules.defineRule('casterLevels.Magical Passage',
-      'features.Magical Passage', '?', null,
-      'level', '=', null,
-      'levels.Wizard', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.W', 'casterLevels.Magical Passage', '^=', null);
-  } else if(name == 'Mark Of Scribing Gnome') {
-    SRD5E.featureSpells(
-      rules, "Scribe's Insight", 'W', 'level',
-      ['Message,Comprehend Languages', '3:Magic Mouth']
-    );
-    rules.defineRule("casterLevels.Scribe's Insight",
-      "features.Scribe's Insight", '?', null,
-      'level', '=', null,
-      'levels.Wizard', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.W', "casterLevels.Scribe's Insight", '^=', null);
-  } else if(name == 'Mark Of Sentinel Human') {
-    SRD5E.featureSpells(rules, "Guardian's Shield", 'P', 'level', ['Shield']);
-    rules.defineRule("casterLevels.Guardian's Shield",
-      "features.Guardian's Shield", '?', null,
-      'level', '=', null,
-      'levels.Paladin', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.P', "casterLevels.Guardian's Shield", '^=', null);
-  } else if(name == 'Mark Of Shadow Elf') {
-    SRD5E.featureSpells(
-      rules, 'Shape Shadows', 'B', 'level',
-      ['Minor Illusion', '3:Invisibility']
-    );
-    rules.defineRule('casterLevels.Shape Shadows',
-      'features.Shape Shadows', '?', null,
-      'level', '=', null,
-      'levels.Bard', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.B', 'casterLevels.Shape Shadows', '^=', null);
-  } else if(name == 'Mark Of Storm Half-Elf') {
-    SRD5E.featureSpells(
-      rules, 'Headwinds', 'S', 'level',
-      ['Gust', '3:Gust Of Wind']
-    );
-    rules.defineRule('casterLevels.Headwinds',
-      'features.Headwinds', '?', null,
-      'level', '=', null,
-      'levels.Sorcerer', 'v', '0'
-    );
-    rules.defineRule('casterLevels.S', 'casterLevels.Headwinds', '^=', null);
-  } else if(name == 'Mark Of Warding Dwarf') {
-    SRD5E.featureSpells(
-      rules, 'Wards And Seals', 'W', 'level',
-      ['Alarm,Mage Armor', '3:Arcane Lock']
-    );
-    rules.defineRule('casterLevels.Wards And Seals',
-      'features.Wards And Seals', '?', null,
-      'level', '=', null,
-      'levels.Wizard', 'v', '0'
-    );
-    rules.defineRule
-      ('casterLevels.W', 'casterLevels.Wards And Seals', '^=', null);
-  } else if(name == 'Warforged') {
-    // Have to hard-code these proficiencies, since featureRules only handles
-    // notes w/a single type of granted proficiency
-    rules.defineRule
-      ('skillChoiceCount', 'featureNotes.specializedDesign', '+=', '1');
-    rules.defineRule
-      ('toolChoiceCount', 'featureNotes.specializedDesign', '+=', '1');
   }
 
 };
 
 /* Returns an array of plugins upon which this one depends. */
 Eberron5E.getPlugins = function() {
-  var result = [PHB5E, SRD5E];
+  let result = [PHB5E, SRD5E];
   if(window.Tasha != null &&
      QuilvynUtils.getKeys(Eberron5E.rules.getChoices('selectableFeatures'), /Peace Domain/).length > 0)
     result.unshift(Tasha);
@@ -1327,7 +1163,7 @@ Eberron5E.getPlugins = function() {
  * item to #rules#.
  */
 Eberron5E.choiceEditorElements = function(rules, type) {
-  var result = [];
+  let result = [];
   if(type == 'House')
     result.push(
       ['Dragonmark', 'Dragonmark', 'text', [20]],
@@ -1343,14 +1179,14 @@ Eberron5E.choiceEditorElements = function(rules, type) {
 /* Sets #attributes#'s #attribute# attribute to a random value. */
 Eberron5E.randomizeOneAttribute = function(attributes, attribute) {
   if(attribute == 'house') {
-    var allHouses = this.getChoices('houses');
-    var race = attributes.race;
-    var baseRace = race.replace(/.*\s+/, ''); // Get last word of race
-    var dragonmarkRace = race.includes('Mark Of');
-    var choices = [];
-    for(var house in allHouses) {
-      var houseAttrs = allHouses[house];
-      var houseDragonmark = QuilvynUtils.getAttrValue(houseAttrs, 'Dragonmark');
+    let allHouses = this.getChoices('houses');
+    let race = attributes.race;
+    let baseRace = race.replace(/.*\s+/, ''); // Get last word of race
+    let dragonmarkRace = race.includes('Mark Of');
+    let choices = [];
+    for(let house in allHouses) {
+      let houseAttrs = allHouses[house];
+      let houseDragonmark = QuilvynUtils.getAttrValue(houseAttrs, 'Dragonmark');
       if(house == 'None' ||
          (dragonmarkRace && race.includes(houseDragonmark)) ||
          (!dragonmarkRace && houseAttrs.includes(baseRace)))
