@@ -63,29 +63,33 @@ Tasha.CLASSES = {
       '"3:The Right Tool For The Job","6:Tool Expertise",' +
       '"7:Flash Of Genius","10:Magic Item Adept","11:Spell-Storing Item",' +
       '"14:Magic Item Savant","18:Magic Item Master","20:Soul Of Artifice",' +
+      '"features.Alchemist ? 3:Alchemist Spells",' +
       '"features.Alchemist ? 3:Alchemist Tool Proficiency",' +
       '"features.Alchemist ? 3:Experimental Elixir",' +
-      '"features.Guardian Armor ? 3:Thunder Gauntlets",' +
-      '"features.Guardian Armor ? 3:Defensive Field",' +
-      '"features.Infiltrator Armor ? 3:Lightning Launcher",' +
-      '"features.Infiltrator Armor ? 3:Powered Steps",' +
-      '"features.Infiltrator Armor ? 3:Dampening Field",' +
       '"features.Alchemist ? 5:Alchemical Savant",' +
       '"features.Alchemist ? 9:Restorative Reagents",' +
       '"features.Alchemist ? 15:Chemical Mastery",' +
+      '"features.Armorer ? 3:Armorer Spells",' +
       '"features.Armorer ? 3:Arcane Armor",' +
       '"features.Armorer ? 3:Armor Model",' +
       '"features.Armorer ? 3:Tools Of The Trade",' +
       '"features.Armorer || features.Battle Smith ? 5:Extra Attack",' +
       '"features.Armorer ? 9:Armor Modifications",' +
+      '"features.Guardian Armor ? 3:Thunder Gauntlets",' +
+      '"features.Guardian Armor ? 3:Defensive Field",' +
       '"features.Guardian Armor ? 15:Perfected Armor (Guardian Armor)",' +
+      '"features.Infiltrator Armor ? 3:Lightning Launcher",' +
+      '"features.Infiltrator Armor ? 3:Powered Steps",' +
+      '"features.Infiltrator Armor ? 3:Dampening Field",' +
       '"features.Infiltrator Armor ? 15:Perfected Armor (Infiltrator Armor)",' +
+      '"features.Artillerist ? 3:Artillerist Spells",' +
       '"features.Artillerist ? 3:Artillerist Tool Proficiency",' +
       '"features.Artillerist ? 3:Eldritch Cannon",' +
       '"features.Artillerist ? 5:Arcane Firearm",' +
       '"features.Artillerist ? 9:Explosive Cannon",' +
       '"features.Artillerist ? 15:Fortified Position",' +
       '"features.Battle Smith ? 3:Battle Ready",' +
+      '"features.Battle Smith ? 3:Battle Smith Spells",' +
       '"features.Battle Smith ? 3:Battle Smith Tool Proficiency",' +
       '"features.Battle Smith ? 3:Steel Defender",' +
       // Handled above '"features.Battle Smith ? 5:Extra Attack",' +
@@ -784,8 +788,8 @@ Tasha.FEATURES = {
     'Note="R30\' May use Channel Divinity to turn aberrations, celestials, elementals, fey, and fiends for 1 min (DC %{spellDifficultyClass.P} Wisdom neg)"',
   'Alchemical Savant':
     'Section=magic ' +
-    'Note="Spell cast using alchemical supplies gain +%{intelligenceModifier>?1} HP healing or acid, fire, necrotic, or poison damage"',
-  'Alchemist':
+    'Note="Spells cast using alchemical supplies gain +%{intelligenceModifier>?1} HP healing or acid, fire, necrotic, or poison damage"',
+  'Alchemist Spells':
     'Spells=' +
       '"3:Healing Word","3:Ray Of Sickness",' +
       '"5:Flaming Sphere","5:Melf\'s Acid Arrow",' +
@@ -812,7 +816,7 @@ Tasha.FEATURES = {
     'Note=' +
       '"+2 Infused Items",' +
       '"May apply 4 infusions to armor pieces"',
-  'Armorer':
+  'Armorer Spells':
     'Spells=' +
       '"3:Magic Missile",3:Thunderwave,' +
       '"5:Mirror Image",5:Shatter,' +
@@ -824,7 +828,7 @@ Tasha.FEATURES = {
     'Note=' +
       '"May spend 1 Ki Point and use a bonus action to gain +%{wisdomModifier-strengthModifier} on Strength checks for 10 min",' +
       '"May spend 1 Ki and use a bonus action to inflict 2d%{combatNotes.martialArts} HP force (DC %{kiSaveDC} Dexterity neg) to targets in a 10\' radius; self gains +5\' unarmed reach, +%{wisdomModifier-maxDexOrStrMod} unarmed attack, and +%{wisdomModifier-maxDexOrStrMod} HP force unarmed damage for 10 min"',
-  'Artillerist':
+  'Artillerist Spells':
     'Spells=' +
       '3:Shield,3:Thunderwave,' +
       '"5:Scorching Ray",5:Shatter,' +
@@ -858,7 +862,7 @@ Tasha.FEATURES = {
     'Note=' +
       '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage w/magic weapons",' +
       '"Weapon Proficiency (Martial)"',
-  'Battle Smith':
+  'Battle Smith Spells':
     'Spells=' +
       '3:Heroism,3:Shield,' +
       '"5:Branding Smite","5:Warding Bond",' +

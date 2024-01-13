@@ -119,23 +119,27 @@ Eberron5E.CLASSES_ADDED = {
       '"3:The Right Tool For The Job","6:Tool Expertise","7:Flash Of Genius",' +
       '"10:Magic Item Adept","11:Spell-Storing Item","14:Magic Item Savant",' +
       '"18:Magic Item Master","20:Soul Of Artifice",' +
+      '"features.Alchemist ? 3:Alchemist Spells",' +
       '"features.Alchemist ? 3:Alchemist Tool Proficiency",' +
       '"features.Alchemist ? 3:Experimental Elixir",' +
       '"features.Alchemist ? 5:Alchemical Savant",' +
       '"features.Alchemist ? 9:Restorative Reagents",' +
       '"features.Alchemist ? 15:Chemical Mastery",' +
+      // Tasha: '"features.Armorer ? 3:Armorer Spells",' +
       // Tasha: '"features.Armorer ? 3:Arcane Armor",' +
       // Tasha: '"features.Armorer ? 3:Armor Model",' +
       // Tasha: '"features.Armorer ? 3:Tools Of The Trade",' +
       // Tasha: '"features.Armorer ? 5:Extra Attack",' +
       // Tasha: '"features.Armorer ? 9:Armor Modifications",' +
+      '"features.Artillerist ? 3:Artillerist Spells",' +
       '"features.Artillerist ? 3:Artillerist Tool Proficiency",' +
       '"features.Artillerist ? 3:Eldritch Cannon",' +
       '"features.Artillerist ? 5:Arcane Firearm",' +
       '"features.Artillerist ? 9:Explosive Cannon",' +
       '"features.Artillerist ? 15:Fortified Position",' +
-      '"features.Battle Smith ? 3:Battle Smith Tool Proficiency",' +
       '"features.Battle Smith ? 3:Battle Ready",' +
+      '"features.Battle Smith ? 3:Battle Smith Spells",' +
+      '"features.Battle Smith ? 3:Battle Smith Tool Proficiency",' +
       '"features.Battle Smith ? 3:Steel Defender",' +
       '"features.Battle Smith ? 5:Extra Attack",' +
       '"features.Battle Smith ? 9:Arcane Jolt",' +
@@ -209,10 +213,38 @@ Eberron5E.FEATURES_ADDED = {
 
   // Backgrounds
   'House Connections':
-    'Section=feature Note="May obtain food and lodging at a house enclave"',
+    'Section=feature ' +
+    'Note="May obtain food and lodging at a house enclave and assistance from and supplies from house contacts"',
 
   // Classes - Copied from Tasha's
+  'Alchemist Spells':
+    'Spells=' +
+      '"3:Healing Word","3:Ray Of Sickness",' +
+      '"5:Flaming Sphere","5:Melf\'s Acid Arrow",' +
+      '"9:Gaseous Form","9:Mass Healing Word",' +
+      '13:Blight,"13:Death Ward",' +
+      '17:Cloudkill,"17:Raise Dead"',
+  'Alchemist Tool Proficiency':
+    'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
   'Artificer Specialist':'Section=feature Note="1 selection"',
+  'Artillerist Spells':
+    'Spells=' +
+      '3:Shield,3:Thunderwave,' +
+      '"5:Scorching Ray",5:Shatter,' +
+      '9:Fireball,"9:Wind Wall",' +
+      '"13:Ice Storm","13:Wall Of Fire",' +
+      '"17:Cone Of Cold","17:Wall Of Force"',
+  'Artillerist Tool Proficiency':
+    'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
+  'Battle Smith Spells':
+    'Spells=' +
+      '3:Heroism,3:Shield,' +
+      '"5:Branding Smite","5:Warding Bond",' +
+      '"9:Aura Of Vitality","9:Conjure Barrage",' +
+      '"13:Aura Of Purity","13:Fire Shield",' +
+      '"17:Banishing Smite","17:Mass Cure Wounds"',
+  'Battle Smith Tool Proficiency':
+    'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
   'Boots Of The Winding Path':
     'Section=magic ' +
     'Note="Wearer of infused boots may teleport back to a space w/in 15\'"',
@@ -285,7 +317,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note=' +
       '"+1 Constitution",' +
       '"Has an Aberrant Dragonmark flaw",' +
-      '"Knows 1 S0 cantrip and may cast a chosen S1 spell 1/long rest, randomly gaining 1 HD temporary HP or inflicting 1 HD force to a creature w/in 30\'"',
+      '"Knows 1 S0 cantrip and may cast a chosen S1 spell 1/long rest, optionally randomly gaining 1 HD temporary HP or inflicting 1 HD force to a creature w/in 30\'"',
   'Revenant Blade':
     'Section=ability,combat ' +
     'Note=' +
@@ -295,7 +327,7 @@ Eberron5E.FEATURES_ADDED = {
   // Paths - Copied from Tasha's
   'Alchemical Savant':
     'Section=magic ' +
-    'Note="Spell cast using alchemical supplies gain +%{intelligenceModifier>?1} HP healing or acid, fire, necrotic, or poison damage"',
+    'Note="Spells cast using alchemical supplies gain +%{intelligenceModifier>?1} HP healing or acid, fire, necrotic, or poison damage"',
   'Alchemist':
     'Spells=' +
       '"3:Healing Word","3:Ray Of Sickness",' +
@@ -303,8 +335,6 @@ Eberron5E.FEATURES_ADDED = {
       '"9:Gaseous Form","9:Mass Healing Word",' +
       '13:Blight,"13:Death Ward",' +
       '17:Cloudkill,"17:Raise Dead"',
-  'Alchemist Tool Proficiency':
-    'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
   'Arcane Firearm':
     'Section=magic ' +
     'Note="Spells cast through a prepared wand, staff, or rod inflict +1d8 HP damage"',
@@ -318,8 +348,6 @@ Eberron5E.FEATURES_ADDED = {
       '9:Fireball,"9:Wind Wall",' +
       '"13:Ice Storm","13:Wall Of Fire",' +
       '"17:Cone Of Cold","17:Wall Of Force"',
-  'Artillerist Tool Proficiency':
-    'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Battle Ready':
     'Section=combat,feature ' +
     'Note=' +
@@ -332,8 +360,6 @@ Eberron5E.FEATURES_ADDED = {
       '"9:Aura Of Vitality","9:Conjure Barrage",' +
       '"13:Aura Of Purity","13:Fire Shield",' +
       '"17:Banishing Smite","17:Mass Cure Wounds"',
-  'Battle Smith Tool Proficiency':
-    'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
   'Chemical Mastery':
     'Section=magic,save ' +
     'Note=' +
@@ -593,7 +619,7 @@ Eberron5E.HOUSES = {
   'Deneith':
     'Dragonmark=Sentinel ' +
     'Race=Human ' +
-    'Tool="Choose 1 from any Game","Vehicles (Land)" ' +
+    'Tool="Choose 1 from any Gaming","Vehicles (Land)" ' +
     'Spells=' +
       '"Compelled Duel,Shield Of Faith",' +
       '"Warding Bond,Zone Of Truth",' +
@@ -653,7 +679,7 @@ Eberron5E.HOUSES = {
   'Orien':
     'Dragonmark=Passage ' +
     'Race=Human ' +
-    'Tool="Choose 1 from any Game","Vehicles (Land)" ' +
+    'Tool="Choose 1 from any Gaming","Vehicles (Land)" ' +
     'Spells=' +
       '"Expeditious Retreat,Jump",' +
       '"Misty Step,Pass Without Trace",' +
@@ -663,7 +689,7 @@ Eberron5E.HOUSES = {
   'Phiarlan':
     'Dragonmark=Shadow ' +
     'Race=Elf ' +
-    'Tool="Disguise Kit","Choose 1 from any Music" ' +
+    'Tool="Disguise Kit","Choose 1 from any Musical" ' +
     'Spells=' +
       '"Disguise Self,Silent Image",' +
       '"Darkness,Pass Without Trace",' +
@@ -683,7 +709,7 @@ Eberron5E.HOUSES = {
   'Tharashk':
     'Dragonmark=Finding ' +
     'Race=Half-Orc,Human ' +
-    'Tool="Choose 1 from any Game","Thieves\' Tools" ' +
+    'Tool="Choose 1 from any Gaming","Thieves\' Tools" ' +
     'Spells=' +
       '"Faerie Fire,Longstrider",' +
       '"Locate Animals Or Plants,Locate Object",' +
@@ -693,7 +719,7 @@ Eberron5E.HOUSES = {
   'Thuranni':
     'Dragonmark=Shadow ' +
     'Race=Elf ' +
-    'Tool="Choose 1 from any Music","Poisoner\'s Kit"',
+    'Tool="Choose 1 from any Musical","Poisoner\'s Kit"',
   'Vadalis':
     'Dragonmark=Handling ' +
     'Race=Human ' +
@@ -1040,20 +1066,20 @@ Eberron5E.featRulesExtra = function(rules, name) {
   if(name == 'Aberrant Dragonmark') {
     rules.defineRule('spellSlots.S0', 'magicNotes.aberrantDragonmark', '+=', '1');
     rules.defineRule('spellSlots.S1', 'magicNotes.aberrantDragonmark', '+=', '1');
-    rules.defineRule('casterLevel.Aberrant Dragonmark',
+    rules.defineRule('casterLevels.AberrantDragonmark',
       'features.Aberrant Dragonmark', '?', null,
       'level', '=', null,
       'levels.Sorcerer', 'v', '0'
     );
-    rules.defineRule('spellAbility.Aberrant Dragonmark',
-      'features.Aberrant Dragonmark', '?', null,
+    rules.defineRule('spellModifier.AberrantDragonmark',
+      'casterLevels.AberrantDragonmark', '?', null,
       'constitutionModifier', '=', null,
       'levels.Sorcerer', 'v', '0'
     );
     rules.defineRule
-      ('casterLevel.S', 'casterLevel.Aberrant Dragonmark', '^=', null);
+      ('casterLevels.S', 'casterLevels.AberrantDragonmark', '^=', null);
     rules.defineRule
-      ('spellAbility.S', 'spellAbility.Aberrant Dragonmark', '^=', null);
+      ('spellModifier.S', 'spellModifier.AberrantDragonmark', '^=', null);
   }
 };
 
