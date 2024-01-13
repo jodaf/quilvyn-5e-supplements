@@ -1124,34 +1124,39 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools, spells) {
     ['Tool Proficiency (' + tools.join('/') + ')']
   );
 
-  let allSpells = rules.getChoices('spells');
-  for(let i = 0; i < spells.length; i++) {
-    let level = i + 1;
-    let spellList = spells[i].split(/\s*,\s*/);
-    for(let j = 0; j < spellList.length; j++) {
-      let spellName = spellList[j];
-      let fullName = QuilvynUtils.getKeys(allSpells, spellName + '\\(')[0];
-      if(!fullName) {
-        console.log('Unknown mark spell "' + spellName + '"');
-        continue;
-      }
-      let description =
-        QuilvynUtils.getAttrValue(allSpells[fullName], 'Description');
-      let school = QuilvynUtils.getAttrValue(allSpells[fullName], 'School');
-      let schoolPrefix = school.substring(0, 4);
-      ['A', 'B', 'C', 'D', 'P', 'R', 'S', 'K', 'W'].forEach(group => {
-        if(QuilvynUtils.getKeys(allSpells, '^' + spellName + '\\(' + group + level).length == 0) {
-          let newName = spellName + '(' + group + level + ' [' + dragonmark + ' Spells] ' + schoolPrefix + ')';
-          rules.defineChoice('spells', newName + ':' + allSpells[fullName]);
-          SRD5E.spellRules(
-            rules, newName, school, group, level, description, false
-          );
-        }
-      });
-    }
-  }
+  // This creates new spells for all the classes to cover those added by the
+  // house spell lists. Arguably nice for Q to handle this, but disabled
+  // because it bloats the spell list. Probably easier to let the user add
+  // homebrew spells as needed.
+  //
+  // let allSpells = rules.getChoices('spells');
+  // for(let i = 0; i < spells.length; i++) {
+  //   let level = i + 1;
+  //   let spellList = spells[i].split(/\s*,\s*/);
+  //   for(let j = 0; j < spellList.length; j++) {
+  //     let spellName = spellList[j];
+  //     let fullName = QuilvynUtils.getKeys(allSpells, spellName + '\\(')[0];
+  //     if(!fullName) {
+  //       console.log('Unknown mark spell "' + spellName + '"');
+  //       continue;
+  //     }
+  //     let description =
+  //       QuilvynUtils.getAttrValue(allSpells[fullName], 'Description');
+  //     let school = QuilvynUtils.getAttrValue(allSpells[fullName], 'School');
+  //     let schoolPrefix = school.substring(0, 4);
+  //     ['A', 'B', 'C', 'D', 'P', 'R', 'S', 'K', 'W'].forEach(group => {
+  //       if(QuilvynUtils.getKeys(allSpells, '^' + spellName + '\\(' + group + level).length == 0) {
+  //         let newName = spellName + '(' + group + level + ' [' + dragonmark + ' Spells] ' + schoolPrefix + ')';
+  //         rules.defineChoice('spells', newName + ':' + allSpells[fullName]);
+  //         SRD5E.spellRules(
+  //           rules, newName, school, group, level, description, false
+  //         );
+  //       }
+  //     });
+  //   }
+  // }
 
-  // TODO note
+  // House feature spells that affect multiple races
   if(name == 'Tharashk') {
     rules.defineRule("spellAttackModifier.MarkOfFinding",
       "features.Finder's Magic", '?', null,
