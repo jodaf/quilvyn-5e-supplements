@@ -767,7 +767,7 @@ Xanathar.FEATURES = {
   'Rakish Audacity':
     'Section=combat,combat ' +
     'Note=' +
-      '"+%1 Initiative",' +
+      '"+%{charismaModifier} Initiative",' +
       '"May use Sneak Attack w/out Adv when target is only adjacent foe (Disadv neg)"',
   'Rapid Strike':
     'Section=combat ' +
@@ -1771,12 +1771,6 @@ Xanathar.classRulesExtra = function(rules, name) {
       ('skillProficiency.Nature', 'skillNotes.survivalist', '=', '1');
     rules.defineRule
       ('skillProficiency.Survival', 'skillNotes.survivalist', '=', '1');
-    rules.defineRule('combatNotes.rakishAudacity.1',
-      'features.Rakish Audacity', '?', null,
-      'charismaModifier', '=', null
-    );
-    // Dummy rule to italicize combatNotes.rakishAudacity
-    rules.defineRule('initiative', 'combatNotes.rakishAudacity', '+', 'null');
   } else if(name == 'Sorcerer') {
     rules.defineRule('magicNotes.eyesOfTheDark', classLevel, '?', 'source>=3');
   } else if(name == 'Wizard') {
