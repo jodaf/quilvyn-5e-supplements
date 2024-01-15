@@ -192,12 +192,12 @@ SwordCoast.CLASSES_FEATURES_ADDED = {
     '"features.Path Of The Battlerager ? 6:Reckless Abandon",' +
     '"features.Path Of The Battlerager ? 10:Battlerager Charge",' +
     '"features.Path Of The Battlerager ? 14:Spiked Retribution",' +
-    '"features.Path Of The Totem Warrior (Elk) ? 3:Elk Totem Spirit",' +
-    '"features.Path Of The Totem Warrior (Elk) ? 6:Aspect Of The Elk",' +
-    '"features.Path Of The Totem Warrior (Elk) ? 14:Elk Totemic Attunement",' +
-    '"features.Path Of The Totem Warrior (Tiger) ? 3:Tiger Totem Spirit",' +
-    '"features.Path Of The Totem Warrior (Tiger) ? 6:Aspect Of The Tiger",' +
-    '"features.Path Of The Totem Warrior (Tiger) ? 14:Tiger Totemic Attunement"',
+    '"features.Path Of The Totem Warrior (Elk) ? 3:Totem Spirit (Elk)",' +
+    '"features.Path Of The Totem Warrior (Elk) ? 6:Aspect Of The Beast (Elk)",' +
+    '"features.Path Of The Totem Warrior (Elk) ? 14:Totemic Attunement (Elk)",' +
+    '"features.Path Of The Totem Warrior (Tiger) ? 3:Totem Spirit (Tiger)",' +
+    '"features.Path Of The Totem Warrior (Tiger) ? 6:Aspect Of The Beast (Tiger)",' +
+    '"features.Path Of The Totem Warrior (Tiger) ? 14:Totemic Attunement (Tiger)"',
   'Cleric':
     '"features.Arcana Domain ? 1:Skill Proficiency (Arcana)",' +
     '"features.Arcana Domain ? 1:Arcane Initiate",' +
@@ -442,13 +442,15 @@ SwordCoast.FEATURES_ADDED = {
   // Feats
   'Svirfneblin Magic':
     'Section=magic ' +
-    'Note="May cast self <i>Nondetection</i> at will and <i>Blindness/Deafness</i>, <i>Blur</i>, and <i>Disguise Self</i> 1/long rest"',
+    'Note="May cast self <i>Nondetection</i> at will and <i>Blindness/Deafness</i>, <i>Blur</i>, and <i>Disguise Self</i> 1/long rest" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells=Nondetection,Blindness/Deafness,Blur,"Disguise Self"',
 
   // Paths
   'Among The Dead':
     'Section=combat,magic,save ' +
     'Note=' +
-      '"May divert attacks by undead to others (DC %{spellDifficultyClass.K} Wisdom neg)",' +
+      '"Each undead must divert attacks on self to others (DC %{spellDifficultyClass.K} Wisdom neg) 1/dy",' +
       '"Knows <i>Spare The Dying</i> cantrip",' +
       '"Adv on saves vs. disease" ' +
     'Spells="Spare The Dying"',
@@ -465,45 +467,39 @@ SwordCoast.FEATURES_ADDED = {
   'Arcane Initiate':
     'Section=magic,skill ' +
     'Note=' +
-      '"Knows two wizard cantrips",' +
+      '"Knows two W0 cantrips",' +
       '"Skill Proficiency (Arcana)"',
   'Arcane Mastery':
     'Section=magic ' +
     'Note="May add 1 each W6, W7, W8, and W9 spells as domain spells"',
-  'Aspect Of The Elk':
+  'Aspect Of The Beast (Elk)':
     'Section=ability ' +
-    'Note="R60\' Self and 10 allies may travel at dbl normal pace"',
-  'Aspect Of The Tiger':
+    'Note="R60\' Self and 10 companions may travel at dbl normal pace"',
+  'Aspect Of The Beast (Tiger)':
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Athletics, Acrobatics, Stealth, Survival)"',
   'Battlerager Armor':
     'Section=combat ' +
-    'Note="When wearing spiked armor during rage, may use a bonus action to make a spike attack that inflicts 1d4+%{strengthModifier} HP piercing, and grapple inflicts 3 HP piercing"',
+    'Note="When wearing spiked armor during rage, may use a bonus action to make a spike attack that inflicts 1d4+%{strengthModifier} HP piercing, and a successful grapple inflicts 3 HP piercing"',
   'Battlerager Charge':
     'Section=combat Note="May use a bonus action to Dash during rage"',
   'Bulwark':
     'Section=combat ' +
-    'Note="R60\' Indomitable use on an Intelligence, Wisdom, or Charisma roll also allows an ally to reroll"',
+    'Note="R60\' Indomitable use on an Intelligence, Wisdom, or Charisma save also allows an ally to reroll"',
   'Champion Challenge':
     'Section=combat ' +
     'Note="R30\' May use Channel Divinity to force targets to stay w/in 30\' of self (DC %{spellDifficultyClass.P} Wisdom neg)"',
   'Defy Death':
-    'Section=combat,magic ' +
-    'Note=' +
-      '"Successful death saving throw restores 1d8+%{constitutionModifier>?1} HP 1/long rest",' +
-      '"<i>Spare The Dying</i> restores 1d8+%{constitutionModifier>?1} HP 1/long rest"',
-  'Divine Allegiance':
-    'Section=combat Note="R5\' may shift another creature\'s damage to self"',
-  'Elk Totem Spirit':
-    'Section=ability Note="+15 Speed during rage (heavy armor neg)"',
-  'Elk Totemic Attunement':
     'Section=combat ' +
-    'Note="Charge inflicts 1d12+%{strengthModifier} HP bludgeoning and knocks prone (DC %{8+strengthModifier+proficiencyBonus} Strength neg)"',
+    'Note="Successful death saving throw or <i>Spare The Dying</i> casting restores 1d8+%{constitutionModifier>?1} HP to self 1/long rest"',
+  'Divine Allegiance':
+    'Section=combat ' +
+    'Note="R5\' May use Reaction to shift to self damage inflicted on another creature"',
   'Exalted Champion':
     'Section=combat,save ' +
     'Note=' +
-      '"Resistance to non-magical bludgeoning, piercing, and slashing damage",' +
-      '"R30\' Self and allies gain Adv on Wisdom and saves vs. Death"',
+      '"May gain resistance to non-magical bludgeoning, piercing, and slashing damage for 1 hr 1/long rest",' +
+      '"R30\' May give self and allies gain Adv on Wisdom and saves vs. Death for 1 hr 1/long rest"',
   'Hour Of Reaping':
     'Section=combat ' +
     'Note="R30\' May frighten all who can see self (DC %{kiSaveDC} Wisdom neg)"',
@@ -528,21 +524,24 @@ SwordCoast.FEATURES_ADDED = {
     'Note="R60\' Second Wind restores %{levels.Fighter} HP to 3 allies"',
   'Reckless Abandon':
     'Section=combat ' +
-    'Note="Gains %{constitutionModifier>?1} temporary HP from Reckless Attack during rage"',
+    'Note="Reckless Attack during rage gives %{constitutionModifier>?1} temporary HP"',
   'Royal Envoy':
-    'Section=feature,skill ' +
-    'Note=' +
-      '"+%{proficiencyBonus} Persuasion",' +
-      '"Skill Proficiency (Choose 1 from Animal Handling, Insight, Intimidation, Persuasion)"',
+    'Section=skill ' +
+    'Note="Skill Proficiency (Choose 1 from Animal Handling, Insight, Intimidation, Persuasion)/+%{proficiencyBonus} Persuasion"',
   'Spell Breaker':
     'Section=magic ' +
-    'Note="Casting a healing spell also dispels a spell of equal or lesser level"',
+    'Note="Casting a healing spell also dispels a spell of equal or lesser level affecting target"',
   'Spiked Retribution':
     'Section=combat ' +
     'Note="When wearing spiked armor during rage, a successful melee attacker suffers 3 HP piercing"',
-  'Tiger Totem Spirit':
+  'Totem Spirit (Tiger)':
     'Section=skill Note="+10\' long jump and +3\' high jump during rage"',
-  'Tiger Totemic Attunement':
+  'Totem Spirit (Elk)':
+    'Section=ability Note="+15 Speed during rage (heavy armor neg)"',
+  'Totemic Attunement (Elk)':
+    'Section=combat ' +
+    'Note="Charge inflicts 1d12+%{strengthModifier} HP bludgeoning and knocks prone (DC %{8+strengthModifier+proficiencyBonus} Strength neg)"',
+  'Totemic Attunement (Tiger)':
     'Section=combat ' +
     'Note="During rage, may use a bonus action to make a melee attack after a 20\' charge"',
   'Touch Of Death':
@@ -550,7 +549,7 @@ SwordCoast.FEATURES_ADDED = {
     'Note="R5\' Gains %{levels.Monk+wisdomModifier>?1} temporary HP from reducing a foe to 0 HP"',
   'Touch Of The Long Death':
     'Section=combat ' +
-    'Note="R5\' May spend 1-10 Ki Points to inflict 2d10 HP necrotic per (DC %{kiSaveDC} Constitution half) with touch"',
+    'Note="May spend 1-10 Ki Points to have touch inflict 2d10 HP necrotic per (DC %{kiSaveDC} Constitution half)"',
   'Turn The Tide':
     'Section=magic ' +
     'Note="R30\' May use Channel Divinity to restore 1d6+%{charismaModifier>?1} HP to targets w/fewer than half HP"',
@@ -564,7 +563,7 @@ SwordCoast.FEATURES_ADDED = {
   'Cantrip (Moon Elf)':'Section=Magic Note="Knows 1 Wizard cantrip"',
   'Cantrip (Sun Elf)':'Section=Magic Note="Knows 1 Wizard cantrip"',
   'Deep Gnome Ability Adjustment':
-    'Section=ability Note="+1 Dexterity/+2 Intelligence"',
+    'Section=ability Note="+2 Intelligence/+1 Dexterity"',
   'Duergar Magic':
     'Section=magic ' +
     'Note="May cast self <i>Enlarge/Reduce</i> (enlarge only)%{level<5?\'\':\' and <i>Invisibility</i>\'} 1/long rest" ' +
@@ -778,13 +777,13 @@ SwordCoast.choiceRules = function(rules, type, name, attrs) {
   PHB5E.choiceRules(rules, type, name, attrs);
   if(type == 'Class')
     SwordCoast.classRulesExtra(rules, name);
-  else if(type == 'Feat')
-    SwordCoast.featRulesExtra(rules, name);
+  else if(type == 'Race')
+    SwordCoast.raceRulesExtra(rules, name);
 };
 
 /*
  * Defines in #rules# the rules associated with path #name# that cannot be
- * derived directly from the attributes passed to pathRules.
+ * derived directly from the attributes passed to classRules.
  */
 SwordCoast.classRulesExtra = function(rules, name) {
 
@@ -798,19 +797,6 @@ SwordCoast.classRulesExtra = function(rules, name) {
   } else if(name == 'Cleric') {
     rules.defineRule
       ('clericHasPotentSpellcasting', 'features.Arcana Domain', '=', '1');
-    rules.defineRule('spellSlots.W0', 'magicNotes.arcaneInitiate', '+=', '2');
-    rules.defineRule('spellSlots.W6', 'magicNotes.arcaneMastery', '+=', '1');
-    rules.defineRule('spellSlots.W7', 'magicNotes.arcaneMastery', '+=', '1');
-    rules.defineRule('spellSlots.W8', 'magicNotes.arcaneMastery', '+=', '1');
-    rules.defineRule('spellSlots.W9', 'magicNotes.arcaneMastery', '+=', '1');
-    rules.defineRule('casterLevels.W', 'casterLevels.Arcana', '^=', null);
-  } else if(name == 'Fighter') {
-    rules.defineRule('featureNotes.royalEnvoy.1',
-      'features.Royal Envoy', '?', null,
-      'proficiencyBonus', '=', null
-    );
-    rules.defineRule
-      ('skills.Persuasion', 'featureNotes.royalEnvoy.1', '+', null);
   } else if(name == 'Rogue') {
     rules.defineRule
       ('toolChoiceCount', 'skillNotes.masterOfIntrigue', '+=', '1');
@@ -823,15 +809,18 @@ SwordCoast.classRulesExtra = function(rules, name) {
 };
 
 /*
- * Defines in #rules# the rules associated with feat #name# that cannot be
- * derived directly from the attributes passed to featRules.
+ * Defines in #rules# the rules associated with path #name# that cannot be
+ * derived directly from the attributes passed to raceRules.
  */
-SwordCoast.featRulesExtra = function(rules, name) {
-  if(name == 'Svirfneblin Magic') {
-    SRD5E.featureSpells(
-      rules, 'Svirfneblin Magic', 'W', 'level',
-      ['Disguise Self,Blur,Blindness/Deafness,Nondetection']
-    );
+SwordCoast.raceRulesExtra = function(rules, name) {
+  if(name == 'Moon Elf') {
+    rules.defineRule
+      ('casterLevels.W', 'magicNotes.cantrip(MoonElf)', '^=', '1');
+    rules.defineRule('spellSlots.W0', 'magicNotes.cantrip(MoonElf)', '+=', '1');
+  } else if(name == 'Sun Elf') {
+    rules.defineRule
+      ('casterLevels.W', 'magicNotes.cantrip(SunElf)', '^=', '1');
+    rules.defineRule('spellSlots.W0', 'magicNotes.cantrip(SunElf)', '+=', '1');
   }
 };
 
