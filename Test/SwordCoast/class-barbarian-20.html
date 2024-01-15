@@ -68,13 +68,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><i>Steady: Suffers no speed penalty in heavy armor</i></td>
     </tr><tr style="text-align:center">
-      <td>Aspect Of The Elk: R60' Self and 10 allies may travel at dbl normal pace</td>
-    </tr><tr style="text-align:center">
-      <td>Elk Totem Spirit: +15 Speed during rage (heavy armor neg)</td>
+      <td>Aspect Of The Beast (Elk): R60' Self and 10 companions may travel at dbl normal pace</td>
     </tr><tr style="text-align:center">
       <td>Indomitable Might: Minimum 18 on Strength checks</td>
     </tr><tr style="text-align:center">
       <td>Rage: Adv on Strength</td>
+    </tr><tr style="text-align:center">
+      <td>Totem Spirit (Elk): +15 Speed during rage (heavy armor neg)</td>
     </tr></table>
 </td>
   </tr></table>
@@ -97,7 +97,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Dual Wielder; Healer; Magic Initiate (Druid); Sentinel; Tough</td>
         <td><b>Gold Dwarf Features</b>: Darkvision; Dwarven Combat Training; Dwarven Resilience; Dwarven Toughness; Gold Dwarf Ability Adjustment; Language (Common/Dwarvish); Slow; Steady; Stonecunning; Tool Proficiency (Choose 1 from Brewer's Supplies, Mason's Tools, Smith's Tools)</td>
-        <td><b>Barbarian Features</b>: Armor Proficiency (Medium/Shield); Aspect Of The Elk; Aspect Of The Tiger; Battlerager Armor; Battlerager Charge; Brutal Critical; Danger Sense; Elk Totem Spirit; Elk Totemic Attunement; Extra Attack; Fast Movement; Feral Instinct; Indomitable Might; Path Of The Battlerager; Path Of The Totem Warrior (Elk); Path Of The Totem Warrior (Tiger); Persistent Rage; Primal Champion; Primal Path; Rage; Reckless Abandon; Reckless Attack; Relentless Rage; Save Proficiency (Constitution/Strength); Skill Proficiency (Choose 2 from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival); Spiked Retribution; Spirit Seeker; Spirit Walker; Tiger Totem Spirit; Tiger Totemic Attunement; Unarmored Defense (Barbarian); Weapon Proficiency (Martial)</td>
+        <td><b>Barbarian Features</b>: Armor Proficiency (Medium/Shield); Aspect Of The Beast (Elk); Aspect Of The Beast (Tiger); Battlerager Armor; Battlerager Charge; Brutal Critical; Danger Sense; Extra Attack; Fast Movement; Feral Instinct; Indomitable Might; Path Of The Battlerager; Path Of The Totem Warrior (Elk); Path Of The Totem Warrior (Tiger); Persistent Rage; Primal Champion; Primal Path; Rage; Reckless Abandon; Reckless Attack; Relentless Rage; Save Proficiency (Constitution/Strength); Skill Proficiency (Choose 2 from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival); Spiked Retribution; Spirit Seeker; Spirit Walker; Totem Spirit (Elk); Totem Spirit (Tiger); Totemic Attunement (Elk); Totemic Attunement (Tiger); Unarmored Defense (Barbarian); Weapon Proficiency (Martial)</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight/Religion)</td>
       </tr></table>
 </td>
@@ -157,11 +157,11 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Aspect Of The Tiger: Skill Proficiency (Choose 2 from Athletics, Acrobatics, Stealth, Survival)</i></td>
+      <td><i>Aspect Of The Beast (Tiger): Skill Proficiency (Choose 2 from Athletics, Acrobatics, Stealth, Survival)</i></td>
     </tr><tr style="text-align:center">
       <td>Stonecunning: +12 History (stonework)</td>
     </tr><tr style="text-align:center">
-      <td>Tiger Totem Spirit: +10' long jump and +3' high jump during rage</td>
+      <td>Totem Spirit (Tiger): +10' long jump and +3' high jump during rage</td>
     </tr></table>
 </td>
   </tr></table>
@@ -219,7 +219,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Unarmored Defense (Barbarian): +3 Armor Class in no armor</i></td>
       </tr><tr style="text-align:center">
-        <td>Battlerager Armor: When wearing spiked armor during rage, may use a bonus action to make a spike attack that inflicts 1d4+4 HP piercing, and grapple inflicts 3 HP piercing</td>
+        <td>Battlerager Armor: When wearing spiked armor during rage, may use a bonus action to make a spike attack that inflicts 1d4+4 HP piercing, and a successful grapple inflicts 3 HP piercing</td>
       </tr><tr style="text-align:center">
         <td>Battlerager Charge: May use a bonus action to Dash during rage</td>
       </tr><tr style="text-align:center">
@@ -227,15 +227,13 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Dual Wielder: +1 Armor Class w/two weapons/May use two-weapon fighting w/any one-handed weapons/May draw or stow two weapons at once</td>
       </tr><tr style="text-align:center">
-        <td>Elk Totemic Attunement: Charge inflicts 1d12+4 HP bludgeoning and knocks prone (DC 18 Strength neg)</td>
-      </tr><tr style="text-align:center">
         <td>Feral Instinct: Adv on Initiative/May rage and then act when surprised</td>
       </tr><tr style="text-align:center">
         <td>Persistent Rage: May continue raging when unengaged w/a foe</td>
       </tr><tr style="text-align:center">
         <td>Rage: +4 Strength damage</td>
       </tr><tr style="text-align:center">
-        <td>Reckless Abandon: Gains 3 temporary HP from Reckless Attack during rage</td>
+        <td>Reckless Abandon: Reckless Attack during rage gives 3 temporary HP</td>
       </tr><tr style="text-align:center">
         <td>Reckless Attack: During rage, may suffer foe Adv on attacks to gain Adv on Strength melee attacks for 1 rd</td>
       </tr><tr style="text-align:center">
@@ -243,7 +241,9 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Spiked Retribution: When wearing spiked armor during rage, a successful melee attacker suffers 3 HP piercing</td>
       </tr><tr style="text-align:center">
-        <td>Tiger Totemic Attunement: During rage, may use a bonus action to make a melee attack after a 20' charge</td>
+        <td>Totemic Attunement (Elk): Charge inflicts 1d12+4 HP bludgeoning and knocks prone (DC 18 Strength neg)</td>
+      </tr><tr style="text-align:center">
+        <td>Totemic Attunement (Tiger): During rage, may use a bonus action to make a melee attack after a 20' charge</td>
       </tr></table>
 </td>
     </tr></table>
