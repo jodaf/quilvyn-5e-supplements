@@ -1759,8 +1759,6 @@ Xanathar.classRulesExtra = function(rules, name) {
       ('features.Darkvision', 'featureNotes.umbralSight', '=', '1');
     rules.defineRule('saveProficiency.Wisdom', 'saveNotes.ironMind', '=', '1');
   } else if(name == 'Rogue') {
-    rules.defineRule
-      ('toolChoiceCount', 'skillNotes.masterOfIntrigue', '+=', '1');
     rules.defineRule('skillNotes.survivalist.1',
       'features.Survivalist', '?', null,
       'proficiencyBonus', '=', null

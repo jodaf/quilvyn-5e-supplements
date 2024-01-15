@@ -525,7 +525,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note="While shifted, gains +1 Armor Class and +1d6 temporary HP"',
   'Shifting (Longtooth)':
     'Section=combat ' +
-    'Note="While shifted, may attck w/fangs (1d6+%{strengthModifier} HP piercing) as a bonus action"',
+    'Note="While shifted, may attack w/fangs (1d6+%{strengthModifier} HP piercing) as a bonus action"',
   'Shifting (Swiftstride)':
     'Section=ability,combat ' +
     'Note=' +

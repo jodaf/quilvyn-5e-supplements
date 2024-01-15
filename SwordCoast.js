@@ -134,7 +134,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       'Maps,"15 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (Insight/Perception)",' +
-      '"1:Tool Proficiency (Choose 1 from any Game, any Music)",' +
+      '"1:Tool Proficiency (Choose 1 from any Gaming, any Musical)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:All Eyes On You"',
   'Inheritor':
@@ -142,7 +142,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"Inheritance","Traveler\'s Clothes",Tool,"15 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (Survival/Choose 1 from Arcana, History, Religion)",' +
-      '"1:Tool Proficiency (Choose 1 from any Game, any Music)",' +
+      '"1:Tool Proficiency (Choose 1 from any Gaming, any Musical)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:Inheritance"',
   'Knight Of The Order':
@@ -150,7 +150,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"Traveler\'s Clothes",Signet,"10 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (Persuasion/Choose 1 from Arcana, History, Nature, Religion)",' +
-      '"1:Tool Proficiency (Choose 1 from any Game, any Music)",' +
+      '"1:Tool Proficiency (Choose 1 from any Gaming, any Musical)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:Knightly Regard"',
   'Mercenary Veteran':
@@ -158,21 +158,21 @@ SwordCoast.BACKGROUNDS_ADDED = {
       'Uniform,Insignia,"Gaming Set","10 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (Athletics/Persuasion)",' +
-      '"1:Tool Proficiency (Vehicles (Land)/Choose 1 from any Game)",' +
+      '"1:Tool Proficiency (Vehicles (Land)/Choose 1 from any Gaming)",' +
       '"1:Mercenary Life"',
   'Urban Bounty Hunter':
     'Equipment=' +
       'Clothes,"20 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (Choose 2 from Deception, Insight, Persuasion, Stealth)",' +
-      '"1:Tool Proficiency (Choose 2 from any Game, any Music, Thieves\' Tools)",' +
+      '"1:Tool Proficiency (Choose 2 from any Gaming, any Musical, Thieves\' Tools)",' +
       '"1:Ear To The Ground"',
   'Uthgardt Tribe Memver':
     'Equipment=' +
       '"Hunting Map","Totem or tattoos","Traveler\'s Clothes","10 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (Athletics/Survival)",' +
-      '"1:Tool Proficiency (Choose 1 from any Game, any Artisan)",' +
+      '"1:Tool Proficiency (Choose 1 from any Gaming, any Artisan)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:Uthgardt Heritage"',
   'Waterdhavian Noble':
@@ -181,7 +181,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"Skin Of Fine Wine","20 GP" ' +
     'Features=' +
       '"1:Skill Proficiency (History/Persuasion)",' +
-      '"1:Tool Proficiency (Choose 1 from any Game, any Music)",' +
+      '"1:Tool Proficiency (Choose 1 from any Gaming, any Musical)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:Kept In Style"'
 };
@@ -421,9 +421,12 @@ SwordCoast.FEATURES_ADDED = {
     'Section=feature Note="Has information contacts in every city"',
   'Inheritance':
     'Section=feature Note="Received a special item or knowledge from family"',
-  'Kept In Style':'Section=feature Note="Daily expenses cost -2 GP"',
+  'Kept In Style':
+    'Section=feature ' +
+    'Note="Line of credit reduces lifestyle expenses by 2 GP/dy"',
   'Knightly Regard':
-    'Section=feature Note="May gain assistance from fellows and supporters"',
+    'Section=feature ' +
+    'Note="May gain shelter and assistance from fellows and supporters"',
   'Library Access':
     'Section=feature ' +
     'Note="Has knowledge of cloister bureaucracy and broad access to libraries"',
@@ -434,10 +437,10 @@ SwordCoast.FEATURES_ADDED = {
   'Safe Haven':'Section=feature Note="Has contacts w/access to a safe house"',
   'Uthgardt Heritage':
     'Section=feature ' +
-    'Note="My find dbl normal food and water when foraging/May receive assistance from tribes, Harpers, nomadic elves, and First Circle priests"',
+    'Note="May find dbl normal food and water when foraging/May receive assistance from tribal allies"',
   "Watcher's Eye":
     'Section=feature ' +
-    'Note="May easily locate the local watch and criminal dens"',
+    'Note="May easily locate the local watchpost and criminal dens"',
 
   // Feats
   'Svirfneblin Magic':
@@ -628,7 +631,7 @@ SwordCoast.FEATURES_ADDED = {
     'Section=feature,skill ' +
     'Note=' +
       '"May mimic accent and speech patterns after listening for 1 min",' +
-      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Game)"',
+      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Gaming)"',
   'Master Of Tactics':
     'Section=combat Note="R30\' May use Help as a bonus action"',
   'Misdirection':
@@ -787,8 +790,6 @@ SwordCoast.choiceRules = function(rules, type, name, attrs) {
  */
 SwordCoast.classRulesExtra = function(rules, name) {
 
-  let classLevel = 'levels.' + name;
-
   if(name == 'Barbarian') {
     rules.defineRule('features.Path Of The Totem Warrior',
       'features.Path Of The Totem Warrior (Elk)', '=', '1',
@@ -797,9 +798,6 @@ SwordCoast.classRulesExtra = function(rules, name) {
   } else if(name == 'Cleric') {
     rules.defineRule
       ('clericHasPotentSpellcasting', 'features.Arcana Domain', '=', '1');
-  } else if(name == 'Rogue') {
-    rules.defineRule
-      ('toolChoiceCount', 'skillNotes.masterOfIntrigue', '+=', '1');
   } else if(name == 'Wizard') {
     // Copied from Tasha
     rules.defineRule
