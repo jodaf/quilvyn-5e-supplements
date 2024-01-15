@@ -1917,6 +1917,8 @@ Tasha.classRulesExtra = function(rules, name) {
       ('skillNotes.canny', 'featureNotes.deftExplorer', '?', null);
     rules.defineRule
       ('spellSlots.D0', 'magicNotes.fightingStyle(DruidicWarrior)', '+=', '2');
+    rules.defineRule
+      ('casterLevels.D', 'magicNotes.fightingStyle(DruidicWarrior)', '^=', '1');
   } else if(name == 'Rogue') {
     rules.defineRule('featureNotes.psionicPower',
       classLevel, '=', 'source<5 ? 6 : source<11 ? 8 : source<17 ? 10 : 12'
