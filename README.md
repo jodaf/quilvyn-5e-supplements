@@ -18,9 +18,9 @@ quilvyn-5E package and the core modules installed by the quilvyn-core package.
 ### Installation
 
 To use quilvyn-5e-supplements, unbundle the release package, making sure that
-the contents of the plugins/ and Images/ subdirectories are placed into the
-corresponding Quilvyn installation subdirectories, then append the following
-lines to the file plugins/plugins.js:
+the contents of the plugins/ subdirectory are placed into the corresponding
+Quilvyn installation subdirectory, then append the following lines to the file
+plugins/plugins.js:
 
     RULESETS["Tasha's Cauldron supplement to D&D 5E rules"] = {
       url:'plugins/Tasha.js',
