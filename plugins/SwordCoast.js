@@ -37,16 +37,19 @@ function SwordCoast() {
 
   let rules = new QuilvynRules('Sword Coast', SwordCoast.VERSION);
   SwordCoast.rules = rules;
+  rules.plugin = SwordCoast;
 
   rules.defineChoice('choices', SRD5E.CHOICES);
   rules.choiceEditorElements = SRD5E.choiceEditorElements;
   rules.choiceRules = SwordCoast.choiceRules;
+  rules.removeChoice = SRD5E.removeChoice;
   rules.editorElements = SRD5E.initialEditorElements();
   rules.getFormats = SRD5E.getFormats;
   rules.getPlugins = SwordCoast.getPlugins;
   rules.makeValid = SRD5E.makeValid;
   rules.randomizeOneAttribute = SRD5E.randomizeOneAttribute;
   rules.defineChoice('random', SRD5E.RANDOMIZABLE_ATTRIBUTES);
+  rules.getChoices = SRD5E.getChoices;
   rules.ruleNotes = SwordCoast.ruleNotes;
 
   SRD5E.createViewers(rules, SRD5E.VIEWERS);
@@ -842,9 +845,13 @@ SwordCoast.ruleNotes = function() {
   return '' +
     '<h2>Sword Coast Quilvyn Plugin Notes</h2>\n' +
     'Sword Coast Quilvyn Plugin Version ' + SwordCoast.VERSION + '\n' +
-    '<p>\n' +
-    'There are no known bugs, limitations, or usage notes specific to the Sword Coast Rule Set.\n' +
-    '</p>\n' +
+    '<h3>Usage Notes</h3>\n' +
+    '<ul>\n' +
+    '  <li>\n' +
+    '  The Sword Coast rule set allows you to add homebrew choices for' +
+    '  all of the same types discussed in the <a href="plugins/homebrew-srd5e.html">SRD 5E Homebrew Examples document</a>.' +
+    '  </li>\n' +
+    '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
     '<p>\n' +
     'Quilvyn\'s Sword Coast rule set is unofficial Fan Content permitted ' +

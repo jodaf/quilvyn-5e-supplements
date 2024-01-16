@@ -37,16 +37,19 @@ function Eberron5E() {
 
   let rules = new QuilvynRules('Eberron 5E', Eberron5E.VERSION);
   Eberron5E.rules = rules;
+  rules.plugin = Eberron5E;
 
   rules.defineChoice('choices', Eberron5E.CHOICES);
   rules.choiceEditorElements = SRD5E.choiceEditorElements;
   rules.choiceRules = Eberron5E.choiceRules;
+  rules.removeChoice = SRD5E.removeChoice;
   rules.editorElements = SRD5E.initialEditorElements();
   rules.getFormats = SRD5E.getFormats;
   rules.getPlugins = Eberron5E.getPlugins;
   rules.makeValid = SRD5E.makeValid;
   rules.randomizeOneAttribute = Eberron5E.randomizeOneAttribute;
   rules.defineChoice('random', Eberron5E.RANDOMIZABLE_ATTRIBUTES);
+  rules.getChoices = SRD5E.getChoices;
   rules.ruleNotes = Eberron5E.ruleNotes;
 
   SRD5E.createViewers(rules, SRD5E.VIEWERS);
@@ -1234,9 +1237,13 @@ Eberron5E.ruleNotes = function() {
   return '' +
     '<h2>Eberron 5E Quilvyn Plugin Notes</h2>\n' +
     'Eberron 5E Quilvyn Plugin Version ' + Eberron5E.VERSION + '\n' +
-    '<p>\n' +
-    'There are no known bugs, limitations, or usage notes specific to the Eberron 5E Rule Set.\n' +
-    '</p>\n' +
+    '<h3>Usage Notes</h3>\n' +
+    '<ul>\n' +
+    '  <li>\n' +
+    '  The Eberron 5E rule set allows you to add homebrew choices for' +
+    '  all of the same types discussed in the <a href="plugins/homebrew-srd5e.html">SRD 5E Homebrew Examples document</a>.' +
+    '  </li>\n' +
+    '</ul>\n' +
     '<h3>Copyrights and Licensing</h3>\n' +
     '<p>\n' +
     'Quilvyn\'s Eberron 5E rule set is unofficial Fan Content permitted ' +
