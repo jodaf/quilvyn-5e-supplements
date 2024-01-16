@@ -1057,7 +1057,7 @@ Tasha.FEATURES = {
     'Section=ability,combat,feature,save ' +
     'Note=' +
       '"May gain Adv on Strength checks for 1 min %{proficiencyBonus}/long rest",' +
-      '"May inflict +1d%{combatNotes.runicJuggernaut?10:combatNotes.greatStaure?8:6} HP damage w/a weapon or unarmed strike 1/rd for 1 min %{proficiencyBonus}/long rest",' +
+      '"May inflict +1d%{combatNotes.runicJuggernaut?10:combatNotes.greatStature?8:6} HP damage w/a weapon or unarmed strike 1/rd for 1 min %{proficiencyBonus}/long rest",' +
       '"May grow to %{combatNotes.runicJuggernaut?\'Huge\':\'Large\'} for 1 min %{proficiencyBonus}/long rest",' +
       '"May gain Adv on Strength saves for 1 min %{proficiencyBonus}/long rest"',
   'Gift Of The Sea':'Section=ability Note="40\' swim Speed/May breathe water"',
