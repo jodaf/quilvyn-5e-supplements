@@ -92,7 +92,7 @@ function Eberron5E() {
 
 }
 
-Eberron5E.VERSION = '2.4.1.0';
+Eberron5E.VERSION = '2.4.2.0';
 
 Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'House');
 Eberron5E.RANDOMIZABLE_ATTRIBUTES =
@@ -103,7 +103,7 @@ Eberron5E.BACKGROUNDS_ADDED = {
     'Equipment=' +
       '"Fine Clothes","House Signet Ring","Identification Papers","20 GP" ' +
     'Features=' +
-      '"Skill Proficiency (Investigation/Persuasion)",' +
+      '"Skill Proficiency (Investigation; Persuasion)",' +
       '"House Connections","House Tool Proficiency"'
 };
 Eberron5E.BACKGROUNDS =
@@ -112,11 +112,11 @@ Eberron5E.CLASSES_ADDED = {
   'Artificer':
     'HitDie=d8 ' +
     'Features=' +
-      '"1:Armor Proficiency (Medium/Shield)",' +
-      '"1:Save Proficiency (Constitution/Intelligence)",' +
+      '"1:Armor Proficiency (Medium; Shield)",' +
+      '"1:Save Proficiency (Constitution; Intelligence)",' +
       '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
-      '"1:Tool Proficiency (Thieves\' Tools/Tinker\'s Tools/Choose 1 from any Artisan)",' +
-      '"1:Weapon Proficiency (Simple)",' +
+      '"1:Tool Proficiency (Thieves\' Tools; Tinker\'s Tools; Choose 1 from any Artisan)",' +
+      '"1:Weapon Proficiency (Simple Weapons)",' +
       '"1:Magical Tinkering","1:Ritual Casting",1:Spellcasting,' +
       '"2:Infuse Item","3:Artificer Specialist",' +
       '"3:The Right Tool For The Job","6:Tool Expertise","7:Flash Of Genius",' +
@@ -736,38 +736,52 @@ Eberron5E.HOUSES = {
 };
 Eberron5E.RACES_ADDED = {
   'Changeling':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Choose 2 from any)",' +
+      '"Language (Common; Choose 2 from any)",' +
       '"Changeling Ability Adjustment","Changeling Instincts",' +
       '"Shapechanger (Changeling)"',
   'Kalashtar':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Quori/Choose 1 from any)",' +
+      '"Language (Common; Quori; Choose 1 from any)",' +
       '"Dual Mind","Kalashtar Ability Adjustment","Mental Discipline",' +
       '"Mind Link","Severed From Dreams"',
   'Beasthide Shifter':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,"Beasthide Ability Adjustment","Shifting (Beasthide)",' +
       'Shifting,"Natural Athlete"',
   'Longtooth Shifter':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,Fierce,"Longtooth Ability Adjustment",' +
       '"Shifting (Longtooth)",Shifting',
   'Swiftstride Shifter':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,Graceful,Shifting,"Swiftstride Ability Adjustment",' +
       '"Shifting (Swiftstride)"',
   'Wildhunt Shifter':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
       '"Language (Common)",' +
       'Darkvision,"Natural Tracker",Shifting,"Wildhunt Ability Adjustment",' +
       '"Shifting (Wildhunt)"',
   'Warforged':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Choose 1 from any)",' +
+      '"Language (Common; Choose 1 from any)",' +
       '"Constructed Resilience","Integrated Protection","Sentry\'s Rest",' +
       '"Specialized Design","Warforged Ability Adjustment"',
   'Mark Of Detection Half-Elf':
@@ -775,28 +789,36 @@ Eberron5E.RACES_ADDED = {
       .replace('Half-Elf Ability', 'Detection Ability')
       .replace('Skill Versatility', 'Deductive Intuition","Spells Of The Mark","Magical Detection'),
   'Mark Of Finding Half-Orc':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Goblin)",' +
+      '"Language (Common; Goblin)",' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
       '"Finder\'s Magic","Spells Of The Mark"',
   'Mark Of Finding Human':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Goblin)",' +
+      '"Language (Common; Goblin)",' +
       '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
       '"Finder\'s Magic","Spells Of The Mark"',
   'Mark Of Handling Human':
     SRD5E.RACES.Human
       .replace('Human Ability Adjustment','Handling Ability Adjustment","Spells Of The Mark","Primal Connection","Wild Intuition","3:The Bigger They Are'),
   'Mark Of Healing Halfling':
+    'Size=Small ' +
+    'Speed=25 ' +
     'Features=' +
-      '"Language (Common/Halfling)",' +
-      'Brave,"Halfling Nimbleness","Lucky (Halfling)",Slow,Small,' +
+      '"Language (Common; Halfling)",' +
+      'Brave,"Halfling Nimbleness","Lucky (Halfling)",' +
       '"Healing Ability Adjustment","Spells Of The Mark","Healing Touch",' +
       '"Medical Intuition"',
   'Mark Of Hospitality Halfling':
+    'Size=Small ' +
+    'Speed=25 ' +
     'Features=' +
-      '"Language (Common/Halfling)",' +
-      'Brave,"Halfling Nimbleness","Lucky (Halfling)",Slow,Small,' +
+      '"Language (Common; Halfling)",' +
+      'Brave,"Halfling Nimbleness","Lucky (Halfling)",' +
       '"Ever Hospitable","Hospitality Ability Adjustment",' +
       '"Spells Of The Mark","Innkeeper\'s Magic"',
   'Mark Of Making Human':
@@ -806,16 +828,20 @@ Eberron5E.RACES_ADDED = {
     SRD5E.RACES.Human
       .replace('Human Ability Adjustment', 'Passage Ability Adjustment","Courier\'s Speed","Intuitive Motion","Magical Passage","Spells Of The Mark'),
   'Mark Of Scribing Gnome':
+    'Size=Small ' +
+    'Speed=25 ' +
     'Features=' +
-      '"Language (Common/Gnomish)",' +
-      'Darkvision,"1:Gnome Cunning","Scribing Ability Adjustment",Slow,Small,' +
+      '"Language (Common; Gnomish)",' +
+      'Darkvision,"1:Gnome Cunning","Scribing Ability Adjustment",' +
       '"Gifted Scribe","Scribe\'s Insight","Spells Of The Mark"',
   'Mark Of Sentinel Human':
     SRD5E.RACES.Human
       .replace('Human Ability Adjustment', 'Sentinel Ability Adjustment","Guardian\'s Shield","Spells Of The Mark","Sentinel\'s Intuition","Vigilant Guardian'),
   'Mark Of Shadow Elf':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Elvish)",' +
+      '"Language (Common; Elvish)",' +
       'Darkvision,"Elf Weapon Training","Fey Ancestry","Keen Senses",Trance,' +
       '"Cunning Intuition","Shadow Ability Adjustment","Spells Of The Mark",' +
       '"Shape Shadows"',
@@ -824,31 +850,35 @@ Eberron5E.RACES_ADDED = {
       .replace('Half-Elf Ability', 'Storm Ability')
       .replace('Skill Versatility', 'Headwinds","Spells Of The Mark","Storm\'s Boon","Windwright\'s Intuition'),
   'Mark Of Warding Dwarf':
+    'Size=Medium ' +
+    'Speed=25 ' +
     'Features=' +
-      '"Language (Common/Dwarvish)",' +
+      '"Language (Common; Dwarvish)",' +
       '"Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
-      'Darkvision,"Dwarven Combat Training","Dwarven Resilience",Slow,Steady,' +
+      'Darkvision,"Dwarven Combat Training","Dwarven Resilience",Steady,' +
       'Stonecunning,"Warding Ability Adjustment","Warder\'s Intuition",' +
       '"Spells Of The Mark","Wards And Seals"',
   // Copied from Volo's
   'Bugbear':
     'Features=' +
-      '"Language (Common/Goblin)",' +
+      '"Language (Common; Goblin)",' +
       '"Bugbear Ability Adjustment",Darkvision,Long-Limbed,"Powerful Build",' +
       'Sneaky,"Surprise Attack"',
   'Goblin':
+    'Size=Small ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Goblin)",' +
+      '"Language (Common; Goblin)",' +
       'Darkvision,"Fury Of The Small","Goblin Ability Adjustment",' +
-      '"Nimble Escape",Small',
+      '"Nimble Escape"',
   'Hobgoblin':
     'Features=' +
-      '"Language (Common/Goblin)",' +
+      '"Language (Common; Goblin)",' +
       'Darkvision,"Hobgoblin Ability Adjustment","Martial Training",' +
       '"Saving Face"',
   'Orc': // Primal Intuition replaces Volo's Menacing
     'Features=' +
-      '"Language (Common/Orc)",' +
+      '"Language (Common; Orc)",' +
       'Aggressive,Darkvision,"Orc Ability Adjustment","Powerful Build",' +
       '"Primal Intuition"'
 };
@@ -1043,6 +1073,7 @@ Eberron5E.classRulesExtra = function(rules, name) {
       'magicNotes.magicItemMaster', '+', '0',
       'magicNotes.magicItemSavant', '+', '0'
     );
+    rules.defineRule('magicNotes.spellcasting.1', classLevel, '=', '1');
     rules.defineRule('combatNotes.extraAttack',
       'armorerLevel', '+=', 'source>=5 ? 1 : null',
       'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
@@ -1124,7 +1155,7 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools, spells) {
   );
   SRD5E.featureRules(
     rules, 'House Tool Proficiency (' + name + ')', ['feature'],
-    ['Tool Proficiency (' + tools.join('/') + ')']
+    ['Tool Proficiency (' + tools.join('; ') + ')']
   );
 
   // This creates new spells for all the classes to cover those added by the
