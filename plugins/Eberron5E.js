@@ -117,11 +117,11 @@ Eberron5E.CLASSES_ADDED = {
       '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
       '"1:Tool Proficiency (Thieves\' Tools; Tinker\'s Tools; Choose 1 from any Artisan)",' +
       '"1:Weapon Proficiency (Simple Weapons)",' +
-      '"1:Magical Tinkering","1:Ritual Casting",1:Spellcasting,' +
-      '"2:Infuse Item","3:Artificer Specialist",' +
-      '"3:The Right Tool For The Job","6:Tool Expertise","7:Flash Of Genius",' +
-      '"10:Magic Item Adept","11:Spell-Storing Item","14:Magic Item Savant",' +
-      '"18:Magic Item Master","20:Soul Of Artifice",' +
+      '"1:Magical Tinkering","1:Spellcasting","2:Infuse Item",' +
+      '"3:Artificer Specialist","3:The Right Tool For The Job",' +
+      '"6:Tool Expertise","7:Flash Of Genius","10:Magic Item Adept",' +
+      '"11:Spell-Storing Item","14:Magic Item Savant","18:Magic Item Master",' +
+      '"20:Soul Of Artifice",' +
       '"features.Alchemist ? 3:Alchemist Spells",' +
       '"features.Alchemist ? 3:Alchemist Tool Proficiency",' +
       '"features.Alchemist ? 3:Experimental Elixir",' +
@@ -217,40 +217,124 @@ Eberron5E.FEATURES_ADDED = {
   // Backgrounds
   'House Connections':
     'Section=feature ' +
-    'Note="May obtain food and lodging at a house enclave and assistance from and supplies from house contacts"',
+    'Note="Can obtain food and lodging at a house enclave and assistance and supplies from house contacts"',
 
-  // Classes - Copied from Tasha's
+  // Classes - Artificer
+  'Artificer Specialist':'Section=feature Note="1 selection"',
+  'Flash Of Genius':
+    'Section=feature ' +
+    'Note="R30\' Can use a reaction to give an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
+  'Infuse Item':
+    'Section=feature,magic ' +
+    'Note=' +
+      '"%{(levels.Artificer+6)//4*2} selections",' +
+      '"Can infuse %{(levels.Artificer+6)//4+(featureNotes.armorModifications?2:0)} items simultaneously"',
+  'Magic Item Adept':
+    'Section=magic ' +
+    'Note="Can attune %{4+(magicNotes.magicItemMaster?2:magicNotes.magicItemSavant?1:0)} items simultaneously and craft uncommon magic items in 1/4 time at 1/2 cost"',
+  'Magic Item Master':'Section=magic Note="Can attune 6 items simultaneously"',
+  'Magic Item Savant':
+    'Section=magic ' +
+    'Note="Can attune 5 items simultaneously and ignore attunement and use requirements on attuned items"',
+  'Magical Tinkering':
+    'Section=magic ' +
+    'Note="Can imbue %{intelligenceModifier>?1} objects simultaneously to emit light, a message, sound, an odor, or a picture"',
+  'Soul Of Artifice':
+    'Section=combat,save ' +
+    'Note=' +
+      '"Can use a reaction and end 1 infusion when reduced to 0 hit points to retain 1 hit point",' +
+      '"+1 per attunement on saves"',
+  'Spell-Storing Item':
+    'Section=feature ' +
+    'Note="After a long rest, can store in an item an A1 or A2 spell that can be cast %{intelligenceModifier*2>?2} times"',
+  // Spellcasting as SRD5E
+  'The Right Tool For The Job':
+    'Section=feature Note="Can spend 1 hr to create a set of artisan\'s tools"',
+  'Tool Expertise':
+    'Section=skill Note="+%{proficiencyBonus} with proficient tools"',
+  // Alchemist
+  'Alchemical Savant':
+    'Section=magic ' +
+    'Note="Spells cast using alchemical supplies inflict +%{intelligenceModifier>?1} HP acid, fire, necrotic, or poison or restore an equal number of additional hit points"',
   'Alchemist Spells':
     'Spells=' +
       '"3:Healing Word","3:Ray Of Sickness",' +
       '"5:Flaming Sphere","5:Melf\'s Acid Arrow",' +
       '"9:Gaseous Form","9:Mass Healing Word",' +
-      '13:Blight,"13:Death Ward",' +
-      '17:Cloudkill,"17:Raise Dead"',
+      '"13:Blight","13:Death Ward",' +
+      '"17:Cloudkill","17:Raise Dead"',
   'Alchemist Tool Proficiency':
     'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
-  'Artificer Specialist':'Section=feature Note="1 selection"',
+  'Chemical Mastery':
+    'Section=magic,save ' +
+    'Note=' +
+      '"Can use alchemist\'s supplies to cast <i>Greater Restoration</i> and <i>Heal</i> once per long rest",' +
+      '"Has resistance to acid and poison damage and immunity to the poisoned condition" ' +
+    'Spells=' +
+      '"Greater Restoration","Heal"',
+  'Experimental Elixir':
+    'Section=magic ' +
+    'Note="Can use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; can spend spell slots to create additional elixirs"',
+  'Restorative Reagents':
+    'Section=magic ' +
+    'Note="Can use alchemist\'s supplies to cast <i>Lesser Restoration</i> %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest, and elixirs give 2d6+%{intelligenceModifier>?1} temporary hit points" ' +
+    'Spells="Lesser Restoration"',
+  // Artillerist
+  'Arcane Firearm':
+    'Section=magic ' +
+    'Note="Spells cast through a prepared wand, staff, or rod inflict +1d8 HP"',
   'Artillerist Spells':
     'Spells=' +
-      '3:Shield,3:Thunderwave,' +
-      '"5:Scorching Ray",5:Shatter,' +
-      '9:Fireball,"9:Wind Wall",' +
+      '"3:Shield","3:Thunderwave",' +
+      '"5:Scorching Ray","5:Shatter",' +
+      '"9:Fireball","9:Wind Wall",' +
       '"13:Ice Storm","13:Wall Of Fire",' +
       '"17:Cone Of Cold","17:Wall Of Force"',
   'Artillerist Tool Proficiency':
     'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
+  'Eldritch Cannon':
+    'Section=combat ' +
+    'Note="Can create a magical cannon (Armor Class 18, %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points), can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
+  'Explosive Cannon':
+    'Section=combat,combat ' +
+    'Note=' +
+      '"Eldritch Cannon inflicts +1d8 HP damage",' +
+      '"R60\' Can destroy an eldritch cannon to inflict 3d8 HP force (save DC %{spellDifficultyClass.A} Dexterity half) in a 20\' radius"',
+  'Fortified Position':
+    'Section=combat ' +
+    'Note=' +
+      '"Can have 2 Eldritch Cannons simultaneously, and Eldritch Cannons give allies half cover in 10\' radius"',
+  // Battle Smith
+  'Arcane Jolt':
+    'Section=combat ' +
+    'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or restores %{2+(combatNotes.improvedDefender?2:0)}d6 hit points to 1 target in a 30\' radius %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
+  'Battle Ready':
+    'Section=combat,feature ' +
+    'Note=' +
+      '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage with magic weapons",' +
+      '"Weapon Proficiency (Martial)"',
   'Battle Smith Spells':
     'Spells=' +
-      '3:Heroism,3:Shield,' +
+      '"3:Heroism","3:Shield",' +
       '"5:Branding Smite","5:Warding Bond",' +
       '"9:Aura Of Vitality","9:Conjure Barrage",' +
       '"13:Aura Of Purity","13:Fire Shield",' +
       '"17:Banishing Smite","17:Mass Cure Wounds"',
   'Battle Smith Tool Proficiency':
     'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
+  // Extra Attack as SRD5E
+  'Improved Defender':
+    'Section=combat,combat ' +
+    'Note=' +
+      '"Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 Armor Class",' +
+      '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
+  'Steel Defender':
+    'Section=combat ' +
+    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points, can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); attack +%{spellAttackModifier.A} inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+  // Infusions
   'Boots Of The Winding Path':
     'Section=magic ' +
-    'Note="Wearer of infused boots may teleport back to a space w/in 15\'"',
+    'Note="Wearer of infused boots can teleport back to a space within 15\'"',
   'Enhanced Arcane Focus':
     'Section=magic ' +
     'Note="Infused rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks that ignore half cover"',
@@ -260,59 +344,26 @@ Eberron5E.FEATURES_ADDED = {
   'Enhanced Weapon':
     'Section=magic ' +
     'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
-  'Flash Of Genius':
-    'Section=feature ' +
-    'Note="R30\' May use Reaction to give an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>?1}/long rest"',
   'Homunculus Servant':
     'Section=magic ' +
-    'Note="May create a mechanical companion (AC 13; HP %{levels.Artificer+intelligenceModifier+1}; Attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
-  'Infuse Item':
-    'Section=feature,magic ' +
-    'Note=' +
-      '"%{(levels.Artificer+6)//4*2} selections",' +
-      '"May infuse %{(levels.Artificer+6)//4+(featureNotes.armorModifications?2:0)} items simultaneously"',
-  'Magic Item Adept':
-    'Section=magic ' +
-    'Note="May attune %{4+(magicNotes.magicItemMaster?2:magicNotes.magicItemSavant?1:0)} items simultaneously/May craft uncommon magic items in one quarter time at half cost"',
-  'Magic Item Master':'Section=magic Note="May attune 6 items simultaneously"',
-  'Magic Item Savant':
-    'Section=magic,magic ' +
-    'Note=' +
-      '"May attune 5 items simultaneously",' +
-      '"May ignore attunement and use requirements on attuned items"',
-  'Magical Tinkering':
-    'Section=magic ' +
-    'Note="May imbue %{intelligenceModifier>?1} objects simultaneously with light, message, sound, odor, or picture"',
+    'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points; attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
   'Radiant Weapon':
     'Section=magic ' +
-    'Note="Infused weapon w/4 charges gives +1 attack and damage and emits a 30\' bright light on command; wielder may use Reaction and 1 charge to blind a successful attacker (DC %{spellDifficultyClass.A} Constitution neg) for 1 rd; item regains 1d4 charges each dawn"',
+    'Note="Infused weapon with 4 charges gives +1 attack and damage and emits a 30\' bright light on command; the wielder can use a reaction and 1 charge to blind a successful attacker (save DC %{spellDifficultyClass.A} Constitution negates) for 1 rd; the weapon regains 1d4 charges each dawn"',
   'Repeating Shot':
     'Section=magic ' +
     'Note="Infused ammunition weapon gives +1 attack and damage and automatically creates its own ammunition"',
   'Replicate Magic Item':
-    'Section=magic Note="Allows replication of a wondrous item"',
+    'Section=magic Note="Can replicate wondrous items"',
   'Repulsion Shield':
     'Section=magic ' +
-    'Note="Infused shield w/4 charges gives +1 AC; holder may use Reaction and 1 charge to push a successful attacker 15\'; regains 1d4 charges each dawn"',
+    'Note="Infused shield with 4 charges gives +1 AC; the holder can use a reaction and 1 charge to push a successful attacker 15\'; regains 1d4 charges each dawn"',
   'Resistant Armor':
     'Section=magic ' +
-    'Note="Infused armor gives +1 AC and resistance to chosen damage type"',
+    'Note="Infused armor gives +1 AC and resistance to a chosen damage type"',
   'Returning Weapon':
     'Section=magic ' +
     'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
-  'Soul Of Artifice':
-    'Section=combat,save ' +
-    'Note=' +
-      '"May use Reaction and end 1 infusion when reduced to 0 HP to retain 1 HP",' +
-      '"+1 per attunement on saves"',
-  'Spell-Storing Item':
-    'Section=feature ' +
-    'Note="After a long rest, may store in an item an A1 or A2 spell that can be cast %{intelligenceModifier*2>?2} times"',
-  'The Right Tool For The Job':
-    'Section=feature Note="May spend 1 hr to create a set of artisan\'s tools"',
-  'Tool Expertise':
-    'Section=feature ' +
-    'Note="Dbl proficiency bonus (+%{proficiencyBonus}) when using tools"',
 
   // Feats
   'Aberrant Dragonmark':
@@ -320,288 +371,280 @@ Eberron5E.FEATURES_ADDED = {
     'Note=' +
       '"+1 Constitution",' +
       '"Has an Aberrant Dragonmark flaw",' +
-      '"Knows 1 S0 cantrip and may cast a chosen S1 spell 1/long rest, optionally randomly gaining 1 HD temporary HP or inflicting 1 HD force to a creature w/in 30\'"',
+      '"Knows 1 S0 cantrip and can cast a chosen S1 spell once per long rest, optionally randomly gaining 1 HD temporary hit points or inflicting 1 HD force to a creature within 30\'"',
   'Revenant Blade':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Strength)",' +
-      '"+1 Armor Class when wielding a double-bladed scimitar two-handed/May used a double-bladed scimitar one-handed"',
-
-  // Paths - Copied from Tasha's
-  'Alchemical Savant':
-    'Section=magic ' +
-    'Note="Spells cast using alchemical supplies gain +%{intelligenceModifier>?1} HP healing or acid, fire, necrotic, or poison damage"',
-  'Alchemist':
-    'Spells=' +
-      '"3:Healing Word","3:Ray Of Sickness",' +
-      '"5:Flaming Sphere","5:Melf\'s Acid Arrow",' +
-      '"9:Gaseous Form","9:Mass Healing Word",' +
-      '13:Blight,"13:Death Ward",' +
-      '17:Cloudkill,"17:Raise Dead"',
-  'Arcane Firearm':
-    'Section=magic ' +
-    'Note="Spells cast through a prepared wand, staff, or rod inflict +1d8 HP damage"',
-  'Arcane Jolt':
-    'Section=combat ' +
-    'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or heals %{2+(combatNotes.improvedDefender?2:0)}d6 HP to 1 target in a 30\' radius %{intelligenceModifier>?1}/long rest"',
-  'Artillerist':
-    'Spells=' +
-      '3:Shield,3:Thunderwave,' +
-      '"5:Scorching Ray",5:Shatter,' +
-      '9:Fireball,"9:Wind Wall",' +
-      '"13:Ice Storm","13:Wall Of Fire",' +
-      '"17:Cone Of Cold","17:Wall Of Force"',
-  'Battle Ready':
-    'Section=combat,feature ' +
-    'Note=' +
-      '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage w/magic weapons",' +
-      '"Weapon Proficiency (Martial)"',
-  'Battle Smith':
-    'Spells=' +
-      '3:Heroism,3:Shield,' +
-      '"5:Branding Smite","5:Warding Bond",' +
-      '"9:Aura Of Vitality","9:Conjure Barrage",' +
-      '"13:Aura Of Purity","13:Fire Shield",' +
-      '"17:Banishing Smite","17:Mass Cure Wounds"',
-  'Chemical Mastery':
-    'Section=magic,save ' +
-    'Note=' +
-      '"May use alchemist\'s supplies to cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
-      '"Resistance to acid and poison damage/Immune to poisoned condition" ' +
-    'Spells=' +
-      '"Greater Restoration",Heal',
-  'Eldritch Cannon':
-    'Section=combat ' +
-    'Note="May create a magical cannon (AC 18, %{levels.Artificer*5} HP (<i>Mending</i> repairs 2d6 HP), MV 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary HP) for 1 hr 1/long rest (may spend a spell slot for additional)"',
-  'Experimental Elixir':
-    'Section=magic ' +
-    'Note="May use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; may spend spell slots to create additional elixirs"',
-  'Explosive Cannon':
-    'Section=combat,combat ' +
-    'Note=' +
-      '"Eldritch Cannon inflicts +1d8 HP damage",' +
-      '"R60\' May destroy eldritch cannon to inflict 3d8 HP force (DC %{spellDifficultyClass.A} Dexterity half) in a 20\' radius"',
-  'Fortified Position':
-    'Section=combat ' +
-    'Note=' +
-      '"May have 2 Eldritch Cannons simultaneously/Eldritch Cannon gives allies half cover in 10\' radius"',
-  'Improved Defender':
-    'Section=combat,combat ' +
-    'Note=' +
-      '"+2d6 Arcane Jolt effect/Steel Defender gains +2 Armor Class",' +
-      '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
-  'Restorative Reagents':
-    'Section=magic ' +
-    'Note="May use alchemist\'s supplies to cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest/Elixirs give 2d6+%{intelligenceModifier>?1} temporary HP" ' +
-    'Spells="Lesser Restoration"',
-  'Steel Defender':
-    'Section=combat ' +
-    'Note="May create a mechanical companion (AC %{15+(combatNotes.improvedDefender?2:0)}; HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%{proficiencyBonus} HP 3/dy); Attack +%{spellAttackModifier.A} inflicts 1d8+%{proficiencyBonus} HP force; may use Reaction for R5\' inflict Disadv on attack; MV 40\'; Dexterity Save +%{proficiencyBonus+1}; Constitution Save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+      '"Can use a double-bladed scimitar one-handed and gains +1 Armor Class when wielding one two-handed"',
 
   // Races
-  "Artisan's Intuition":
-    'Section=skill Note="+1d4 Arcana/+1d4 Artisan\'s Tools checks"',
-  'Beasthide Ability Adjustment':
-    'Section=ability Note="+2 Constitution/+1 Strength"',
+
+  // Changeling
   'Changeling Ability Adjustment':
     'Section=ability Note="+2 Charisma/Ability Boost (Choose 1 from any)"',
   'Changeling Instincts':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 2 from Deception, Insight, Intimidation, Persuasion)"',
-  'Constructed Resilience':
-    'Section=feature,save ' +
-    'Note=' +
-      '"Has no need to eat, drink, breathe, or sleep",' +
-      '"Adv on saves vs. poison/Resistance to poison damage/Immune to disease and sleep"',
-  "Courier's Speed":'Section=ability Note="+5 Speed"',
-  'Cunning Intuition':'Section=skill Note="+1d4 Performance/+1d4 Stealth"',
-  'Deductive Intuition':'Section=skill Note="+1d4 Investigation/+1d4 Insight"',
-  'Detection Ability Adjustment':
-    'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
-  'Dual Mind':'Section=save Note="Adv on Wisdom saves"',
-  'Ever Hospitable':
-    'Section=skill ' +
-    'Note="+1d4 Persuasion/+1d4 Brewer\'s Supplies and Cook\'s Utensil\'s checks"',
-  'Fierce':'Section=feature Note="Skill Proficiency (Intimidation)"',
-  "Finder's Magic":
-    'Section=magic ' +
-    'Note="May cast <i>Hunter\'s Mark</i>%{level<3?\'\':\' and <i>Locate Object</i>\'} 1/long rest"',
-  'Finding Ability Adjustment':
-    'Section=ability Note="+2 Wisdom/+1 Constitution"',
-  'Gifted Scribe':
-    'Section=skill Note="+1d4 History/+1d4 Calligrapher\'s Supplies checks"',
-  'Graceful':'Section=feature Note="Skill Proficiency (Acrobatics)"',
-  "Guardian's Shield":
-    'Section=magic ' +
-    'Note="May cast <i>Shield</i> 1/long rest" ' +
-    'SpellAbility=Charisma ' +
-    'Spells=Shield',
-  'Handling Ability Adjustment':
-    'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
-  'Headwinds':
-    'Section=magic ' +
-    'Note="Knows <i>Gust</i> cantrip%{level<3?\'\':\' and may cast <i>Gust Of Wind</i> 1/long rest\'}" ' +
-    'SpellAbility=Charisma ' +
-    'Spells=Gust,"3:Gust Of Wind"',
-  'Healing Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Wisdom"',
-  'Healing Touch':
-    'Section=magic ' +
-    'Note="May cast <i>Cure Wounds</i>%{level<3?\'\':\' and <i>Lesser Restoration</i>\'} 1/long rest" ' +
-    'SpellAbility=Wisdom ' +
-    'Spells="Cure Wounds","3:Lesser Restoration"',
-  'Hospitality Ability Adjustment':
-    'Section=ability Note="+2 Dexterity/+1 Charisma"',
-  "Hunter's Intuition":
-    'Section=skill Note="+1d4 Perception/+1d4 Survival"',
-  "Innkeeper's Magic":
-    'Section=magic ' +
-    'Note="Knows <i>Prestidigitation</i> cantrip and may cast <i>Purify Food And Drink</i> and <i>Unseen Servant</i> 1/long rest" ' +
-    'SpellAbility=Charisma ' +
-    'Spells=Prestidigitation,"Purify Food And Drink","Unseen Servant"',
-  'Integrated Protection':
-    'Section=combat,feature ' +
-    'Note="+1 Armor Class","Requires 1 hr to put on or take off armor"',
-  'Intuitive Motion':
-    'Section=skill Note="+1d4 Acrobatics/+1d4 Land Vehicle checks"',
-  'Kalashtar Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Charisma"',
-  'Longtooth Ability Adjustment':
+  'Shapechanger (Changeling)':
+    'Section=feature Note="Can use an action to change appearance and voice"',
+
+  // Bugbear
+  'Bugbear Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Dexterity"',
-  'Magical Detection':
-    'Section=magic ' +
-    'Note="May cast <i>Detect Magic</i>%{level<3?\' and\':\',\'} <i>Detect Poison And Disease</i>%{level<3?\'\':\', and <i>See Invisibility</i>\'} 1/long rest" ' +
-    'SpellAbility=Intelligence ' +
-    'Spells="Detect Magic","Detect Poison And Disease","3:See Invisibility"',
-  'Magical Passage':
-    'Section=magic ' +
-    'Note="May cast <i>Misty Step</i> 1/long rest" ' +
-    'SpellAbility=Dexterity ' +
-    'Spells="Misty Step"',
-  "Maker's Gift":
-    'Section=feature Note="Tool Proficiency (Choose 1 from any Artisan)"',
-  'Making Ability Adjustment':
-    'Section=ability Note="+2 Intelligence/Ability Boost (Choose 1 from any)"',
-  'Medical Intuition':
-    'Section=skill Note="+1d4 Medicine/+1d4 Herbalism Kit checks"',
-  'Mental Discipline':'Section=save Note="Resistance to psychic damage"',
+  // Darkvision as SRD5E
+  'Long-Limbed':'Section=combat Note="+5\' melee reach"',
+  'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
+  'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
+  'Surprise Attack':
+    'Section=combat Note="Inflicts +2d6 HP on first surprise hit"',
+
+  // Goblin
+  // Darkvision as SRD5E
+  'Fury Of The Small':
+    'Section=combat ' +
+    'Note="Can inflict +%{level} HP to a larger creature once per short rest"',
+  'Goblin Ability Adjustment':
+    'Section=ability Note="+2 Dexterity/+1 Constitution"',
+  'Nimble Escape':
+    'Section=combat Note="Can use a bonus action to Disengage or Hide"',
+
+  // Hobgoblin
+  // Darkvision as SRD5E
+  'Hobgoblin Ability Adjustment':
+    'Section=ability Note="+2 Constitution/+1 Intelligence"',
+  'Martial Training':
+    'Section=combat ' +
+    'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any Martial)"',
+  'Saving Face':
+    'Section=feature ' +
+    'Note="Can add 1 for each ally within 30\' (+5 maximum) to a failed roll once per short rest"',
+
+  // Kalashtar
+  'Dual Mind':'Section=save Note="Has advantage on Wisdom saves"',
+  'Kalashtar Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Charisma"',
+  'Mental Discipline':'Section=save Note="Has resistance to psychic damage"',
   'Mind Link':
     'Section=feature ' +
-    'Note="R%{level*10}\' May communicate telepathically w/target for 1 hr"',
-  'Natural Athlete':'Section=feature Note="Skill Proficiency (Athletics)"',
-  'Natural Tracker':'Section=feature Note="Skill Proficiency (Survival)"',
-  'Passage Ability Adjustment':
-    'Section=ability Note="+2 Dexterity/Ability Boost (Choose 1 from any)"',
-  'Primal Connection':
-    'Section=magic ' +
-    'Note="May cast <i>Animal Friendship</i> and <i>Speak With Animals</i> 1/long rest" ' +
-    'SpellAbility=Wisdom ' +
-    'Spells="Animal Friendship","Speak With Animals"',
+    'Note="R%{level*10}\' Can communicate telepathically with a chosen creature for 1 hr"',
+  'Severed From Dreams':'Section=save Note="Has immunity to dream effects"',
+
+  // Orc
+  'Aggressive':
+    'Section=combat ' +
+    'Note="Can use a bonus action to move %{speed}\' toward foe"',
+  // Darkvision as SRD5E
+  'Orc Ability Adjustment':
+    // Does not share Volo's -2 Intelligence
+    'Section=ability Note="+2 Strength/+1 Constitution"',
+  // Powerful Build as above
   'Primal Intuition':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 2 from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, Survival)"',
-  "Scribe's Insight":
-    'Section=magic ' +
-    'Note="Knows <i>Message</i> cantrip and may cast <i>Comprehend Languages</i> 1/short rest%{level<3?\'\':\' and <i>Magic Mouth</i> 1/long rest\'}" ' +
-    'SpellAbility=Intelligence ' +
-    'Spells=Message,"Comprehend Languages","3:Magic Mouth"',
-  'Scribing Ability Adjustment':
-    'Section=ability Note="+2 Intelligence/+1 Charisma"',
-  'Sentinel Ability Adjustment':
-    'Section=ability Note="+2 Constitution/+1 Wisdom"',
-  "Sentinel's Intuition":'Section=skill Note="+1d4 Insight/+1d4 Perception"',
-  "Sentry's Rest":
-    'Section=feature ' +
-    'Note="Becomes inactive but alert for 6 hr during a long rest"',
-  'Severed From Dreams':'Section=save Note="Immune to dream effects"',
-  'Shadow Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
-  'Shape Shadows':
-    'Section=magic ' +
-    'Note="Knows <i>Minor Illusion</i> cantrip%{level<3?\'\':\' and may cast <i>Invisibility</i> 1/long rest\'}" ' +
-    'SpellAbility=Charisma ' +
-    'Spells="Minor Illusion",3:Invisibility',
-  'Shapechanger (Changeling)':
-    'Section=feature Note="May change appearance and voice"',
+
+  // Shifter
+  // Darkvision as SRD5E
   'Shifting':
     'Section=feature ' +
-    'Note="May assume a bestial appearance, gaining %{level+constitutionModifier>?1} temporary HP, for 1 min 1/short rest"',
+    'Note="Can assume a bestial appearance, gaining %{level+constitutionModifier>?1} temporary hit points, for 1 min once per short rest"',
+  // Beasthide Shifter
+  'Beasthide Ability Adjustment':
+    'Section=ability Note="+2 Constitution/+1 Strength"',
+  'Natural Athlete':'Section=feature Note="Skill Proficiency (Athletics)"',
   'Shifting (Beasthide)':
     'Section=combat ' +
-    'Note="While shifted, gains +1 Armor Class and +1d6 temporary HP"',
+    'Note="Gains +1 Armor Class and +1d6 temporary hit points while shifted"',
+  // Longtooth Shifter
+  'Fierce':'Section=feature Note="Skill Proficiency (Intimidation)"',
+  'Longtooth Ability Adjustment':
+    'Section=ability Note="+2 Strength/+1 Dexterity"',
   'Shifting (Longtooth)':
     'Section=combat ' +
-    'Note="While shifted, may attack w/fangs (1d6+%{strengthModifier} HP piercing) as a bonus action"',
+    'Note="Can attack with fangs, inflicting 1d6+%{strengthModifier} HP piercing, as a bonus action while shifted"',
+  // Swiftstride Shifter
+  'Graceful':'Section=feature Note="Skill Proficiency (Acrobatics)"',
   'Shifting (Swiftstride)':
     'Section=ability,combat ' +
     'Note=' +
       '"+10 Speed while shifted",' +
-      '"While shifted, may use Reaction to move 10\' w/out provoking OA when a creature ends its turn w/in 5\'"',
+      '"Can use a reaction while shifted to move 10\' without provoking opportunity attacks when a creature ends its turn within 5\'"',
+  'Swiftstride Ability Adjustment':
+    'Section=ability Note="+2 Dexterity/+1 Charisma"',
+  // Wildhunt Shifter
+  'Natural Tracker':'Section=feature Note="Skill Proficiency (Survival)"',
   'Shifting (Wildhunt)':
     'Section=ability,combat ' +
     'Note=' +
-      '"Adv on Wisdom while shifted",' +
-      '"While shifted, foes w/in 30\' gain no Adv on attacks on self"',
+      '"Has advantage on Wisdom while shifted",' +
+      '"While shifted, foes within 30\' gain no advantage on attacks on self"',
+  'Wildhunt Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Dexterity"',
+
+  // Warforged
+  'Constructed Resilience':
+    'Section=feature,save ' +
+    'Note=' +
+      '"Has no need to eat, drink, breathe, or sleep",' +
+      '"Has advantage on poison, resistance to poison, and immunity to disease and sleep"',
+  'Integrated Protection':
+    'Section=combat,combat ' +
+    'Note=' +
+      '"+1 Armor Class",' +
+      '"Requires 1 hr to put on or take off armor"',
+  "Sentry's Rest":
+    'Section=feature ' +
+    'Note="Becomes inactive but alert for 6 hr during a long rest"',
   'Specialized Design':
     'Section=feature ' +
     'Note="Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)"',
-  'Spellsmith':
+  'Warforged Ability Adjustment':
+    'Section=ability Note="+2 Constitution/Ability Boost (Choose 1 from any)"',
+
+  // Mark Of Detection Half-Elf
+  'Deductive Intuition':'Section=skill Note="+1d4 Investigation and Insight"',
+  'Detection Ability Adjustment':
+    'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
+  'Magical Detection':
     'Section=magic ' +
-    'Note="Knows <i>Mending</i> cantrip and may cast <i>Magic Weapon</i> w/1 hr duration 1/long rest" ' +
+    'Note="Can cast <i>Detect Magic</i>%{level<3?\' and\':\',\'} <i>Detect Poison And Disease</i>%{level<3?\'\':\', and <i>See Invisibility</i>\'} once per long rest" ' +
     'SpellAbility=Intelligence ' +
-    'Spells=Mending,"Magic Weapon"',
+    'Spells="Detect Magic","Detect Poison And Disease","3:See Invisibility"',
   'Spells Of The Mark':'Section=magic Note="Has access to additional spells"',
-  'Storm Ability Adjustment':'Section=ability Note="+2 Charisma/+1 Dexterity"',
-  "Storm's Boon":'Section=save Note="Resistance to lightning damage"',
-  'Swiftstride Ability Adjustment':
-    'Section=ability Note="+2 Dexterity/+1 Charisma"',
+
+  // Mark Of Finding Half-Elf and Half-Orc
+  // Darkvision as SRD5E
+  "Finder's Magic":
+    // Leave off Spells and SpellAbility attributes to avoid showing both stats
+    // for both races; handled separately in houseRules.
+    'Section=magic ' +
+    'Note="Can cast <i>Hunter\'s Mark</i>%{level<3?\'\':\' and <i>Locate Object</i>\'} once per long rest"',
+  'Finding Ability Adjustment':
+    'Section=ability Note="+2 Wisdom/+1 Constitution"',
+  "Hunter's Intuition":'Section=skill Note="+1d4 Perception and Survival"',
+  // Spells Of The Mark as above
+
+  // Mark Of Handling Human
+  'Handling Ability Adjustment':
+    'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
+  'Primal Connection':
+    'Section=magic ' +
+    'Note="Can cast <i>Animal Friendship</i> and <i>Speak With Animals</i> once per long rest" ' +
+    'SpellAbility=Wisdom ' +
+    'Spells="Animal Friendship","Speak With Animals"',
+  // Spells Of The Mark as above
   'The Bigger They Are':
     'Section=magic ' +
-    'Note="May use Primal Connection on monstrous creatures with Intelligence up to 3"',
+    'Note="Can use Primal Connection on monstrous creatures with Intelligence up to 3"',
+  'Wild Intuition':'Section=skill Note="+1d4 Animal Handling and Nature"',
+
+  // Mark Of Healing Halfling
+  'Healing Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Wisdom"',
+  'Medical Intuition':
+    'Section=skill Note="+1d4 Medicine and Herbalism Kit checks"',
+  'Healing Touch':
+    'Section=magic ' +
+    'Note="Can cast <i>Cure Wounds</i>%{level<3?\'\':\' and <i>Lesser Restoration</i>\'} once per long rest" ' +
+    'SpellAbility=Wisdom ' +
+    'Spells="Cure Wounds","3:Lesser Restoration"',
+  // Spells Of The Mark as above
+
+  // Mark Of Hospitality Halfling
+  'Ever Hospitable':
+    'Section=skill ' +
+    'Note="+1d4 Persuasion, Brewer\'s Supplies, and Cook\'s Utensil\'s checks"',
+  'Hospitality Ability Adjustment':
+    'Section=ability Note="+2 Dexterity/+1 Charisma"',
+  "Innkeeper's Magic":
+    'Section=magic ' +
+    'Note="Knows the <i>Prestidigitation</i> cantrip and can cast <i>Purify Food And Drink</i> and <i>Unseen Servant</i> once long rest" ' +
+    'SpellAbility=Charisma ' +
+    'Spells=Prestidigitation,"Purify Food And Drink","Unseen Servant"',
+  // Spells Of The Mark as above
+
+  // Mark Of Making Human
+  "Artisan's Intuition":
+    'Section=skill Note="+1d4 Arcana and Artisan\'s Tools checks"',
+  "Maker's Gift":
+    'Section=feature Note="Tool Proficiency (Choose 1 from any Artisan)"',
+  'Making Ability Adjustment':
+    'Section=ability Note="+2 Intelligence/Ability Boost (Choose 1 from any)"',
+  // Spells Of The Mark as above
+  'Spellsmith':
+    'Section=magic ' +
+    'Note="Knows the <i>Mending</i> cantrip and can cast <i>Magic Weapon</i> with 1 hr duration once per long rest" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells="Mending","Magic Weapon"',
+
+  // Mark Of Passage Human
+  "Courier's Speed":'Section=ability Note="+5 Speed"',
+  'Intuitive Motion':
+    'Section=skill Note="+1d4 Acrobatics and Land Vehicle checks"',
+  'Magical Passage':
+    'Section=magic ' +
+    'Note="Can cast <i>Misty Step</i> once per long rest" ' +
+    'SpellAbility=Dexterity ' +
+    'Spells="Misty Step"',
+  'Passage Ability Adjustment':
+    'Section=ability Note="+2 Dexterity/Ability Boost (Choose 1 from any)"',
+  // Spells Of The Mark as above
+
+  // Mark Of Scribing Gnome
+  'Gifted Scribe':
+    'Section=skill Note="+1d4 History and Calligrapher\'s Supplies checks"',
+  "Scribe's Insight":
+    'Section=magic ' +
+    'Note="Knows the <i>Message</i> cantrip and can cast <i>Comprehend Languages</i> once per short rest%{level<3?\'\':\' and <i>Magic Mouth</i> once per long rest\'}" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells=Message,"Comprehend Languages","3:Magic Mouth"',
+  'Scribing Ability Adjustment':
+    'Section=ability Note="+2 Intelligence/+1 Charisma"',
+
+  // Mark Of Sentinel Human
+  "Guardian's Shield":
+    'Section=magic ' +
+    'Note="Can cast <i>Shield</i> once per long rest" ' +
+    'SpellAbility=Charisma ' +
+    'Spells=Shield',
+  'Sentinel Ability Adjustment':
+    'Section=ability Note="+2 Constitution/+1 Wisdom"',
+  "Sentinel's Intuition":'Section=skill Note="+1d4 Insight and Perception"',
+  // Spells Of The Mark as above
   'Vigilant Guardian':
     'Section=combat ' +
-    'Note="R5\' May use Reaction to swap places with and take damage for a struck creature 1/long rest"',
+    'Note="R5\' Can use a reaction to swap places with and take damage for a struck creature once per long rest"',
+
+  // Mark Of Shadow Elf
+  'Cunning Intuition':'Section=skill Note="+1d4 Performance and Stealth"',
+  'Shadow Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
+  'Shape Shadows':
+    'Section=magic ' +
+    'Note="Knows the <i>Minor Illusion</i> cantrip%{level<3?\'\':\' and can cast <i>Invisibility</i> once per long rest\'}" ' +
+    'SpellAbility=Charisma ' +
+    'Spells="Minor Illusion","3:Invisibility"',
+  // Spells Of The Mark as above
+
+  // Mark Of Storm Half-Elf
+  'Headwinds':
+    'Section=magic ' +
+    'Note="Knows the <i>Gust</i> cantrip%{level<3?\'\':\' and can cast <i>Gust Of Wind</i> once per long rest\'}" ' +
+    'SpellAbility=Charisma ' +
+    'Spells=Gust,"3:Gust Of Wind"',
+  // Spells Of The Mark as above
+  'Storm Ability Adjustment':'Section=ability Note="+2 Charisma/+1 Dexterity"',
+  "Storm's Boon":'Section=save Note="Has resistance to lightning"',
+  "Windwright's Intuition":
+    'Section=skill Note="+1d4 Acrobatics and Navigator\'s Tools checks"',
+
+  // Mark Of Warding Dwarf
+  // Spells Of The Mark as above
   "Warder's Intuition":
-    'Section=skill Note="+1d4 Investigation/+1d4 Thieves\' Tools checks"',
+    'Section=skill Note="+1d4 Investigation and Thieves\' Tools checks"',
   'Warding Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Intelligence"',
   'Wards And Seals':
     'Section=magic ' +
-    'Note="May cast <i>Alarm</i>%{level<3?\' and\':\',\'} <i>Magic Armor</i>%{level<3?\'\':\', and <i>Arcane Lock</i>\'} 1/long rest" ' +
+    'Note="Can cast <i>Alarm</i>%{level<3?\' and\':\',\'} <i>Magic Armor</i>%{level<3?\'\':\', and <i>Arcane Lock</i>\'} once per long rest" ' +
     'SpellAbility=Intelligence ' +
-    'Spells=Alarm,"Mage Armor","3:Arcane Lock"',
-  'Warforged Ability Adjustment':
-    'Section=ability Note="+2 Constitution/Ability Boost (Choose 1 from any)"',
-  'Wild Intuition':'Section=skill Note="+1d4 Animal Handling/+1d4 Nature"',
-  'Wildhunt Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Dexterity"',
-  "Windwright's Intuition":
-    'Section=skill Note="+1d4 Acrobatics/+1d4 Navigator\'s Tools checks"',
-  // Copied from Volo's
-  'Aggressive':
-    'Section=combat ' +
-    'Note="May use a bonus action to move %{speed}\' toward foe"',
-  'Bugbear Ability Adjustment':
-    'Section=ability Note="+2 Strength/+1 Dexterity"',
-  'Fury Of The Small':
-    'Section=combat ' +
-    'Note="May inflict +%{level} HP damage to a larger creature 1/short rest"',
-  'Goblin Ability Adjustment':
-    'Section=ability Note="+2 Dexterity/+1 Constitution"',
-  'Hobgoblin Ability Adjustment':
-    'Section=ability Note="+2 Constitution/+1 Intelligence"',
-  'Long-Limbed':'Section=combat Note="+5\' melee reach"',
-  'Martial Training':
-    'Section=combat ' +
-    'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any Martial)"',
-  'Nimble Escape':
-    'Section=combat Note="May use a bonus action to Disengage or Hide"',
-  'Orc Ability Adjustment':
-    // Removed Volo's -2 Intelligence"',
-    'Section=ability Note="+2 Strength/+1 Constitution"',
-  'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
-  'Saving Face':
-    'Section=feature ' +
-    'Note="May add 1 for each ally w/in 30\' (+5 maximum) to a failed roll 1/short rest"',
-  'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
-  'Surprise Attack':
-    'Section=combat Note="Inflicts +2d6 HP damage on first surprise hit"'
+    'Spells="Alarm","Mage Armor","3:Arcane Lock"'
 
 };
 Eberron5E.FEATURES =
@@ -890,7 +933,7 @@ Eberron5E.SPELLS_ADDED = {
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
-      '"R30\' Pushes target creature 5\' (Strength neg), pushes unattended 5 lb object 10\', or creates a light breeze"',
+      '"R30\' Pushes the target creature 5\' (save Strength negates), pushes an unattended 5 lb object 10\', or creates a light breeze"'
 };
 Eberron5E.SPELLS_LEVELS_ADDED = {
 

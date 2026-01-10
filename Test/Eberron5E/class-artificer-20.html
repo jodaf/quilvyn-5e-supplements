@@ -100,7 +100,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Aberrant Dragonmark; Actor; Durable; Elemental Adept (Lightning); Healer</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common; Choose 1 from any)</td>
-        <td><b>Artificer Features</b>: Alchemical Savant; Alchemist Spells; Alchemist Tool Proficiency; Alchemist; Arcane Firearm; Arcane Jolt; Armor Proficiency (Medium; Shield); Artificer Specialist; Artillerist Spells; Artillerist Tool Proficiency; Artillerist; Battle Ready; Battle Smith Spells; Battle Smith Tool Proficiency; Battle Smith; Boots Of The Winding Path; Chemical Mastery; Eldritch Cannon; Enhanced Arcane Focus; Enhanced Defense; Enhanced Weapon; Experimental Elixir; Explosive Cannon; Extra Attack; Flash Of Genius; Fortified Position; Homunculus Servant; Improved Defender; Infuse Item; Magic Item Adept; Magic Item Master; Magic Item Savant; Magical Tinkering; Radiant Weapon; Repeating Shot; Replicate Magic Item; Repulsion Shield; Resistant Armor; Restorative Reagents; Returning Weapon; Ritual Casting; Save Proficiency (Constitution; Intelligence); Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand); Soul Of Artifice; Spell-Storing Item; Spellcasting; Steel Defender; The Right Tool For The Job; Tool Expertise; Tool Proficiency (Thieves' Tools; Tinker's Tools; Choose 1 from any Artisan); Weapon Proficiency (Simple Weapons)</td>
+        <td><b>Artificer Features</b>: Alchemical Savant; Alchemist Spells; Alchemist Tool Proficiency; Alchemist; Arcane Firearm; Arcane Jolt; Armor Proficiency (Medium; Shield); Artificer Specialist; Artillerist Spells; Artillerist Tool Proficiency; Artillerist; Battle Ready; Battle Smith Spells; Battle Smith Tool Proficiency; Battle Smith; Boots Of The Winding Path; Chemical Mastery; Eldritch Cannon; Enhanced Arcane Focus; Enhanced Defense; Enhanced Weapon; Experimental Elixir; Explosive Cannon; Extra Attack; Flash Of Genius; Fortified Position; Homunculus Servant; Improved Defender; Infuse Item; Magic Item Adept; Magic Item Master; Magic Item Savant; Magical Tinkering; Radiant Weapon; Repeating Shot; Replicate Magic Item; Repulsion Shield; Resistant Armor; Restorative Reagents; Returning Weapon; Save Proficiency (Constitution; Intelligence); Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand); Soul Of Artifice; Spell-Storing Item; Spellcasting; Steel Defender; The Right Tool For The Job; Tool Expertise; Tool Proficiency (Thieves' Tools; Tinker's Tools; Choose 1 from any Artisan); Weapon Proficiency (Simple Weapons)</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight; Religion)</td>
       </tr></table>
 </td>
@@ -121,17 +121,15 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Aberrant Dragonmark: Has an Aberrant Dragonmark flaw</td>
       </tr><tr style="text-align:center">
-        <td>Flash Of Genius: R30' May use Reaction to give an ally +3 on an ability check or save 3/long rest</td>
+        <td>Flash Of Genius: R30' Can use a reaction to give an ally +3 on an ability check or save 3 times per long rest</td>
       </tr><tr style="text-align:center">
         <td>Healer: Using a healer's kit to stabilize also restores 1 hit point/Can use a healer's kit to restore 1d6+4 + target HD hit points once per creature per short rest</td>
       </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: Can receive aid from temples of The Undying Court and fellow believers</td>
       </tr><tr style="text-align:center">
-        <td>Spell-Storing Item: After a long rest, may store in an item an A1 or A2 spell that can be cast 6 times</td>
+        <td>Spell-Storing Item: After a long rest, can store in an item an A1 or A2 spell that can be cast 6 times</td>
       </tr><tr style="text-align:center">
-        <td>The Right Tool For The Job: May spend 1 hr to create a set of artisan's tools</td>
-      </tr><tr style="text-align:center">
-        <td>Tool Expertise: Dbl proficiency bonus (+6) when using tools</td>
+        <td>The Right Tool For The Job: Can spend 1 hr to create a set of artisan's tools</td>
       </tr></table>
 </td>
     </tr></table>
@@ -174,7 +172,13 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Languages</b>: Common; Draconic; Infernal; Primordial</td>
   </tr><tr style="text-align:center">
-    <td><b>Skill Notes</b>: Actor: Has advantage on Deception and Performance to impersonate another person and can mimic others' speech or sounds</td>
+    <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
+    <tr style="text-align:center">
+      <td>Actor: Has advantage on Deception and Performance to impersonate another person and can mimic others' speech or sounds</td>
+    </tr><tr style="text-align:center">
+      <td>Tool Expertise: +6 with proficient tools</td>
+    </tr></table>
+</td>
   </tr></table>
 </td>
 </tr><tr style="text-align:center">
@@ -220,29 +224,29 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Extra Attack: +1 Attacks Per Round</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Improved Defender: +2d6 Arcane Jolt effect/Steel Defender gains +2 Armor Class</i></td>
+        <td><i>Improved Defender: Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 Armor Class</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Attack Adjustment: -1</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Damage Adjustment: -1</i></td>
       </tr><tr style="text-align:center">
-        <td>Arcane Jolt: Magic weapon or Steel Defender attack inflicts +4d6 HP force or heals 4d6 HP to 1 target in a 30' radius 3/long rest</td>
+        <td>Arcane Jolt: Magic weapon or Steel Defender attack inflicts +4d6 HP force or restores 4d6 hit points to 1 target in a 30' radius 3 times per long rest</td>
       </tr><tr style="text-align:center">
-        <td>Battle Ready: +4 (Intelligence instead of Strength) or +0 (Intelligence instead of Dexterity) attack and damage w/magic weapons</td>
+        <td>Battle Ready: +4 (Intelligence instead of Strength) or +0 (Intelligence instead of Dexterity) attack and damage with magic weapons</td>
       </tr><tr style="text-align:center">
         <td>Durable: Regains a minimum of 8 hit points from a Hit Die roll</td>
       </tr><tr style="text-align:center">
-        <td>Eldritch Cannon: May create a magical cannon (AC 18, 100 HP (<i>Mending</i> repairs 2d6 HP), MV 15') flamethrower (15' cone inflicts 3d8 HP fire (DC 17 Dexterity half)), force ballista (R120' inflicts 3d8 force and pushes 5'), or protector (R10' targets gain 1d8+3 temporary HP) for 1 hr 1/long rest (may spend a spell slot for additional)</td>
+        <td>Eldritch Cannon: Can create a magical cannon (Armor Class 18, 100 hit points (<i>Mending</i> repairs 2d6 hit points), can move 15') flamethrower (15' cone inflicts 3d8 HP fire (save DC 17 Dexterity half)), force ballista (R120' inflicts 3d8 force and pushes 5'), or protector (R10' targets gain 1d8+3 temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons</td>
       </tr><tr style="text-align:center">
-        <td>Explosive Cannon: R60' May destroy eldritch cannon to inflict 3d8 HP force (DC 17 Dexterity half) in a 20' radius</td>
+        <td>Explosive Cannon: R60' Can destroy an eldritch cannon to inflict 3d8 HP force (save DC 17 Dexterity half) in a 20' radius</td>
       </tr><tr style="text-align:center">
-        <td>Fortified Position: May have 2 Eldritch Cannons simultaneously/Eldritch Cannon gives allies half cover in 10' radius</td>
+        <td>Fortified Position: Can have 2 Eldritch Cannons simultaneously, and Eldritch Cannons give allies half cover in 10' radius</td>
       </tr><tr style="text-align:center">
         <td>Improved Defender: Steel Defender Deflect Attack inflicts 1d4+3 HP force</td>
       </tr><tr style="text-align:center">
-        <td>Soul Of Artifice: May use Reaction and end 1 infusion when reduced to 0 HP to retain 1 HP</td>
+        <td>Soul Of Artifice: Can use a reaction and end 1 infusion when reduced to 0 hit points to retain 1 hit point</td>
       </tr><tr style="text-align:center">
-        <td>Steel Defender: May create a mechanical companion (AC 17; HP 105 (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+6 HP 3/dy); Attack +9 inflicts 1d8+6 HP force; may use Reaction for R5' inflict Disadv on attack; MV 40'; Dexterity Save +7; Constitution Save +8; immune to poison and charmed, exhausted, poisoned, and surprised conditions)</td>
+        <td>Steel Defender: Can create a mechanical companion (Armor Class 17; 105 hit points (<i>Mending</i> repairs 2d6 hit points, can self-repair 2d8+6 hit points 3 times per day); attack +9 inflicts 1d8+6 HP force; can use a reaction to inflict disadvantage on attack in a 5' radius; can move 40'; Dexterity save +7; Constitution save +8; immune to poison and charmed, exhausted, poisoned, and surprised conditions)</td>
       </tr></table>
 </td>
     </tr></table>
@@ -256,7 +260,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Save Notes</b>:       <table id="SaveNotes" style="width:100%">
       <tr style="text-align:center">
-        <td>Chemical Mastery: Resistance to acid and poison damage/Immune to poisoned condition</td>
+        <td>Chemical Mastery: Has resistance to acid and poison damage and immunity to the poisoned condition</td>
       </tr><tr style="text-align:center">
         <td>Soul Of Artifice: +1 per attunement on saves</td>
       </tr></table>
@@ -288,43 +292,25 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Aura Of Purity (A4 [Battle Smith Spells] Abju): 30' radius gives nonhostile creatures resistance to poison damage, immunity to disease, and advantage on saves vs. conditions for concentration up to 10 min</td>
     </tr><tr style="text-align:left">
-      <td>Aura Of Purity (A4 [Battle Smith] Abju): 30' radius gives nonhostile creatures resistance to poison damage, immunity to disease, and advantage on saves vs. conditions for concentration up to 10 min</td>
-    </tr><tr style="text-align:left">
       <td>Aura Of Vitality (A3 [Battle Smith Spells] Evoc): R30' Self can use a bonus action to restore 2d6 hit points to a target once per rd for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Aura Of Vitality (A3 [Battle Smith] Evoc): R30' Self can use a bonus action to restore 2d6 hit points to a target once per rd for concentration up to 1 min</td>
-    </tr><tr style="text-align:left">
       <td>Banishing Smite (A5 [Battle Smith Spells] Abju): Next successful self weapon attack inflicts +5d10 HP force, plus banishment to home plane or a demiplane for concentration up to 1 min if the attack reduces the target below 51 hit points</td>
-    </tr><tr style="text-align:left">
-      <td>Banishing Smite (A5 [Battle Smith] Abju): Next successful self weapon attack inflicts +5d10 HP force, plus banishment to home plane or a demiplane for concentration up to 1 min if the attack reduces the target below 51 hit points</td>
     </tr><tr style="text-align:left">
       <td>Bigby's Hand (A5 Evoc): R120' Large force hand (Armor Class 20, 158 hit points, Strength 26, Dexterity 10) can move 60' per rd and can punch (inflicts 4d8 HP force), push 5' (save DC 26 Athletics negates), grapple (may crush, inflicting 2d6+3 HP bludgeoning), and block for concentration up to 1 min [+Level inflicts +2d8 HP force and +2d6 HP bludgeoning]</td>
     </tr><tr style="text-align:left">
       <td>Blight (A4 [Alchemist Spells] Necr): R30' Inflicts 8d8 HP necrotic (save Constitution half; plant target has disadvantage on the save and suffers maximum damage on failure) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Blight (A4 [Alchemist] Necr): R30' Inflicts 8d8 HP necrotic (save Constitution half; plant target has disadvantage on the save and suffers maximum damage on failure) [+Level inflicts +1d8 HP]</td>
-    </tr><tr style="text-align:left">
       <td>Blink (A3 Tran): Self has a 50% chance of becoming ethereal at the end each turn, returning to a spot within 10' at the start of the next turn, for 1 min</td>
     </tr><tr style="text-align:left">
       <td>Branding Smite (A2 [Battle Smith Spells] Evoc): Next successful self weapon attack inflicts +2d6 HP radiant and lights the target for concentration up to 1 min [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Branding Smite (A2 [Battle Smith] Evoc): Next successful self weapon attack inflicts +2d6 HP radiant and lights the target for concentration up to 1 min [+Level inflicts +1d6 HP]</td>
-    </tr><tr style="text-align:left">
       <td>Cloudkill (A5 [Alchemist Spells] Conj): R120' 20' radius inflicts 5d8 HP poison (save Constitution half) and moves away 10' per rd for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
-    </tr><tr style="text-align:left">
-      <td>Cloudkill (A5 [Alchemist] Conj): R120' 20' radius inflicts 5d8 HP poison (save Constitution half) and moves away 10' per rd for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Cone Of Cold (A5 [Artillerist Spells] Evoc): 60' cone inflicts 8d8 HP cold (save Constitution half) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Cone Of Cold (A5 [Artillerist] Evoc): 60' cone inflicts 8d8 HP cold (save Constitution half) [+Level inflicts +1d8 HP]</td>
-    </tr><tr style="text-align:left">
       <td>Conjure Barrage (A3 [Battle Smith Spells] Conj): 60' cone inflicts 3d8 HP weapon type damage (save Dexterity half)</td>
     </tr><tr style="text-align:left">
-      <td>Conjure Barrage (A3 [Battle Smith] Conj): 60' cone inflicts 3d8 HP weapon type damage (save Dexterity half)</td>
-    </tr><tr style="text-align:left">
       <td>Death Ward (A4 [Alchemist Spells] Abju): Touched retains 1 HP when next reduced to 0 HP or survives next death effect within 8 hrs</td>
-    </tr><tr style="text-align:left">
-      <td>Death Ward (A4 [Alchemist] Abju): Touched retains 1 HP when next reduced to 0 HP or survives next death effect within 8 hrs</td>
     </tr><tr style="text-align:left">
       <td>Disguise Self (S1 Illu): Changes the appearance of self body and clothing for 1 hr; physical investigation detects the illusion</td>
     </tr><tr style="text-align:left">
@@ -338,43 +324,29 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Fire Shield (A4 [Battle Smith Spells] Evoc): Self gains resistance to a choice of heat or cold damage, and a successful adjacent attacker suffers 2d8 HP fire or cold for 10 min</td>
     </tr><tr style="text-align:left">
-      <td>Fire Shield (A4 [Battle Smith] Evoc): Self gains resistance to a choice of heat or cold damage, and a successful adjacent attacker suffers 2d8 HP fire or cold for 10 min</td>
-    </tr><tr style="text-align:left">
       <td>Fireball (A3 [Artillerist Spells] Evoc): R150' 20' radius inflicts 8d6 HP fire (save Dexterity half) [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Fireball (A3 [Artillerist] Evoc): R150' 20' radius inflicts 8d6 HP fire (save Dexterity half) [+Level inflicts +1d6 HP]</td>
-    </tr><tr style="text-align:left">
       <td>Flaming Sphere (A2 [Alchemist Spells] Conj): R60' 5' sphere lights a 20' radius, inflicts 2d6 HP fire (save Dexterity half), ignites unattended flammable objects, and can move 30' per rd for concentration up to 1 min [+Level inflicts +1d6 HP]</td>
-    </tr><tr style="text-align:left">
-      <td>Flaming Sphere (A2 [Alchemist] Conj): R60' 5' sphere lights a 20' radius, inflicts 2d6 HP fire (save Dexterity half), ignites unattended flammable objects, and can move 30' per rd for concentration up to 1 min [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
       <td>Freedom Of Movement (A4 Abju): Touched gains immunity to movement impediments and can escape from restraints for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Gaseous Form (A3 [Alchemist Spells] Tran): Touched creature becomes gaseous, gaining a 10' fly Speed and advantage on Strength, Dexterity, and Constitution saves, for concentration up to 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Gaseous Form (A3 [Alchemist] Tran): Touched creature becomes gaseous, gaining a 10' fly Speed and advantage on Strength, Dexterity, and Constitution saves, for concentration up to 1 hr</td>
-    </tr><tr style="text-align:left">
       <td>Greater Restoration (A5 Abju): Touched recovers from exhausted, charmed, petrified, cursed, or ability damage or regains hit point maximum</td>
     </tr><tr style="text-align:left">
       <td>Greater Restoration (A5 [Chemical Mastery] Abju): Touched recovers from exhausted, charmed, petrified, cursed, or ability damage or regains hit point maximum</td>
     </tr><tr style="text-align:left">
-      <td>Gust (S0 Tran): R30' Pushes target creature 5' (Strength neg), pushes unattended 5 lb object 10', or creates a light breeze</td>
+      <td>Gust (S0 Tran): R30' Pushes the target creature 5' (save Strength negates), pushes an unattended 5 lb object 10', or creates a light breeze</td>
     </tr><tr style="text-align:left">
       <td>Heal (A6 [Chemical Mastery] Evoc): R60' Target regains 70 hit points and recovers from blinded, deafened, and diseased [+Level restores +10 hit points]</td>
     </tr><tr style="text-align:left">
       <td>Healing Word (A1 [Alchemist Spells] Evoc): R60' Target regains 1d4+3 hit points [+Level restores +1d4 hit points]</td>
     </tr><tr style="text-align:left">
-      <td>Healing Word (A1 [Alchemist] Evoc): R60' Target regains 1d4+3 hit points [+Level restores +1d4 hit points]</td>
-    </tr><tr style="text-align:left">
       <td>Heat Metal (A2 Tran): R60' Touching the target metal inflicts 2d8 HP fire, plus attack and ability disadvantage if the the target is worn or held (save Constitution allows dropping), for concentration up to 1 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Heroism (A1 [Battle Smith Spells] Ench): Touched gains immunity to fright and +3 temporary hit points each rd for concentration up to 1 min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
-      <td>Heroism (A1 [Battle Smith] Ench): Touched gains immunity to fright and +3 temporary hit points each rd for concentration up to 1 min [+Level affects +1 target]</td>
-    </tr><tr style="text-align:left">
       <td>Ice Storm (A4 [Artillerist Spells] Evoc): R300' 20' radius inflicts 2d8 HP bludgeoning and 4d6 HP cold (save Dexterity half) and becomes difficult terrain for 1 rd [+Level inflicts +1d8 HP bludgeoning]</td>
-    </tr><tr style="text-align:left">
-      <td>Ice Storm (A4 [Artillerist] Evoc): R300' 20' radius inflicts 2d8 HP bludgeoning and 4d6 HP cold (save Dexterity half) and becomes difficult terrain for 1 rd [+Level inflicts +1d8 HP bludgeoning]</td>
     </tr><tr style="text-align:left">
       <td>Lesser Restoration (A2 [Restorative Reagents] Abju): Touched recovers from a choice of blindness, deafness, disease, paralysis, or poison</td>
     </tr><tr style="text-align:left">
@@ -382,15 +354,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Mass Cure Wounds (A5 [Battle Smith Spells] Evoc): R60' 6 targets in a 30' radius regain 3d8+3 HP [+Level restores +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Mass Cure Wounds (A5 [Battle Smith] Evoc): R60' 6 targets in a 30' radius regain 3d8+3 HP [+Level restores +1d8 HP]</td>
-    </tr><tr style="text-align:left">
       <td>Mass Healing Word (A3 [Alchemist Spells] Evoc): R60' 6 targets regain 1d4+3 HP [+Level restores +1d4 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Mass Healing Word (A3 [Alchemist] Evoc): R60' 6 targets regain 1d4+3 HP [+Level restores +1d4 HP]</td>
-    </tr><tr style="text-align:left">
       <td>Melf's Acid Arrow (A2 [Alchemist Spells] Evoc): R90' Ranged spell inflicts 4d4 HP acid, plus 2d4 HP the following rd (miss half initial HP only) [+Level inflicts +1d4 HP initial and secondary]</td>
-    </tr><tr style="text-align:left">
-      <td>Melf's Acid Arrow (A2 [Alchemist] Evoc): R90' Ranged spell inflicts 4d4 HP acid, plus 2d4 HP the following rd (miss half initial HP only) [+Level inflicts +1d4 HP initial and secondary]</td>
     </tr><tr style="text-align:left">
       <td>Mending (A0 Tran): Touch repairs a break or tear up to 1 ft</td>
     </tr><tr style="text-align:left">
@@ -400,13 +366,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Raise Dead (A5 [Alchemist Spells] Necr): Restores life with 1 hit point to and removes nonmagical diseases and poisons from a willing touched 10-day-old corpse; target suffers -4 attacks, saves, and ability checks, reduced by 1 for each long rest</td>
     </tr><tr style="text-align:left">
-      <td>Raise Dead (A5 [Alchemist] Necr): Restores life with 1 hit point to and removes nonmagical diseases and poisons from a willing touched 10-day-old corpse; target suffers -4 attacks, saves, and ability checks, reduced by 1 for each long rest</td>
-    </tr><tr style="text-align:left">
       <td>Ray Of Frost (A0 Evoc): R60' Ranged spell inflicts 4d8 HP cold and -10' Speed for 1 rd</td>
     </tr><tr style="text-align:left">
       <td>Ray Of Sickness (A1 [Alchemist Spells] Necr): R60' Ranged spell inflicts 2d8 HP poison and poisoned for 1 rd (save Constitution HP only) [+Level inflicts +1d8 HP]</td>
-    </tr><tr style="text-align:left">
-      <td>Ray Of Sickness (A1 [Alchemist] Necr): R60' Ranged spell inflicts 2d8 HP poison and poisoned for 1 rd (save Constitution HP only) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Resistance (A0 Abju): Touched gains +1d4 on 1 save within concentration up to 1 min</td>
     </tr><tr style="text-align:left">
@@ -414,59 +376,41 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Scorching Ray (A2 [Artillerist Spells] Evoc): R120' 3 ranged attacks inflict 2d6 HP fire each [+Level gives +1 ranged attack]</td>
     </tr><tr style="text-align:left">
-      <td>Scorching Ray (A2 [Artillerist] Evoc): R120' 3 ranged attacks inflict 2d6 HP fire each [+Level gives +1 ranged attack]</td>
-    </tr><tr style="text-align:left">
       <td>Shatter (A2 [Artillerist Spells] Evoc): R60' 10' radius inflicts 3d8 HP thunder (save Constitution half; inorganic creatures have disadvantage) [+Level inflicts +1d8 HP]</td>
-    </tr><tr style="text-align:left">
-      <td>Shatter (A2 [Artillerist] Evoc): R60' 10' radius inflicts 3d8 HP thunder (save Constitution half; inorganic creatures have disadvantage) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Shield (A1 [Artillerist Spells] Abju): Reaction gives +5 AC and immunity to <i>Magic Missile</i> until the next turn</td>
     </tr><tr style="text-align:left">
-      <td>Shield (A1 [Artillerist] Abju): Reaction gives +5 AC and immunity to <i>Magic Missile</i> until the next turn</td>
-    </tr><tr style="text-align:left">
       <td>Shield (A1 [Battle Smith Spells] Abju): Reaction gives +5 AC and immunity to <i>Magic Missile</i> until the next turn</td>
-    </tr><tr style="text-align:left">
-      <td>Shield (A1 [Battle Smith] Abju): Reaction gives +5 AC and immunity to <i>Magic Missile</i> until the next turn</td>
     </tr><tr style="text-align:left">
       <td>Thunderwave (A1 [Artillerist Spells] Evoc): 15' cube inflicts 2d8 HP thunder and pushes 10' (save Constitution half HP only) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Thunderwave (A1 [Artillerist] Evoc): 15' cube inflicts 2d8 HP thunder and pushes 10' (save Constitution half HP only) [+Level inflicts +1d8 HP]</td>
-    </tr><tr style="text-align:left">
       <td>Wall Of Fire (A4 [Artillerist Spells] Evoc): R120' Creates a 60'x20'x1' wall or a 20'x20'x1' ring that inflicts 5d8 HP fire (save Dexterity half) within 10' of a chosen side for concentration up to 1 min [+Level inflicts +1d8 HP]</td>
-    </tr><tr style="text-align:left">
-      <td>Wall Of Fire (A4 [Artillerist] Evoc): R120' Creates a 60'x20'x1' wall or a 20'x20'x1' ring that inflicts 5d8 HP fire (save Dexterity half) within 10' of a chosen side for concentration up to 1 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Force (A5 [Artillerist Spells] Evoc): R120' Creates 10 10'x10' impassable force panels for concentration up to 10 min</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Force (A5 [Artillerist] Evoc): R120' Creates 10 10'x10' impassable force panels for concentration up to 10 min</td>
-    </tr><tr style="text-align:left">
       <td>Warding Bond (A2 [Battle Smith Spells] Abju): Touched gains +1 AC, +1 saves, and resistance to all damage while within 60' of self, and any damage to the target also affects self, for 1 hr</td>
-    </tr><tr style="text-align:left">
-      <td>Warding Bond (A2 [Battle Smith] Abju): Touched gains +1 AC, +1 saves, and resistance to all damage while within 60' of self, and any damage to the target also affects self, for 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Water Breathing (A3 Tran): R30' 10 targets can breathe underwater for 24 hr [R]</td>
     </tr><tr style="text-align:left">
       <td>Wind Wall (A3 [Artillerist Spells] Evoc): R120' Creates a 50'x15'x1' area that inflicts 3d8 HP bludgeoning (save Strength half) and deflects lightweight creatures and objects for concentration up to 1 min</td>
-    </tr><tr style="text-align:left">
-      <td>Wind Wall (A3 [Artillerist] Evoc): R120' Creates a 50'x15'x1' area that inflicts 3d8 HP bludgeoning (save Strength half) and deflects lightweight creatures and objects for concentration up to 1 min</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
     <td><b>Magic Notes</b>:     <table id="MagicNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Aberrant Dragonmark: Knows 1 S0 cantrip and may cast a chosen S1 spell 1/long rest, optionally randomly gaining 1 HD temporary HP or inflicting 1 HD force to a creature w/in 30'</i></td>
+      <td><i>Aberrant Dragonmark: Knows 1 S0 cantrip and can cast a chosen S1 spell once per long rest, optionally randomly gaining 1 HD temporary hit points or inflicting 1 HD force to a creature within 30'</i></td>
     </tr><tr style="text-align:center">
-      <td><i>Magic Item Master: May attune 6 items simultaneously</i></td>
+      <td><i>Magic Item Master: Can attune 6 items simultaneously</i></td>
     </tr><tr style="text-align:center">
-      <td><i>Magic Item Savant: May attune 5 items simultaneously</i></td>
+      <td><i>Magic Item Savant: Can attune 5 items simultaneously and ignore attunement and use requirements on attuned items</i></td>
     </tr><tr style="text-align:center">
-      <td>Alchemical Savant: Spells cast using alchemical supplies gain +3 HP healing or acid, fire, necrotic, or poison damage</td>
+      <td>Alchemical Savant: Spells cast using alchemical supplies inflict +3 HP acid, fire, necrotic, or poison or restore an equal number of additional hit points</td>
     </tr><tr style="text-align:center">
-      <td>Arcane Firearm: Spells cast through a prepared wand, staff, or rod inflict +1d8 HP damage</td>
+      <td>Arcane Firearm: Spells cast through a prepared wand, staff, or rod inflict +1d8 HP</td>
     </tr><tr style="text-align:center">
-      <td>Boots Of The Winding Path: Wearer of infused boots may teleport back to a space w/in 15'</td>
+      <td>Boots Of The Winding Path: Wearer of infused boots can teleport back to a space within 15'</td>
     </tr><tr style="text-align:center">
-      <td>Chemical Mastery: May use alchemist's supplies to cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest</td>
+      <td>Chemical Mastery: Can use alchemist's supplies to cast <i>Greater Restoration</i> and <i>Heal</i> once per long rest</td>
     </tr><tr style="text-align:center">
       <td>Elemental Adept (Lightning): Spells that inflict lightning damage ignore resistance and treat 1s as 2s on damage dice</td>
     </tr><tr style="text-align:center">
@@ -476,29 +420,27 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Enhanced Weapon: Infused weapon gives +2 attack and damage</td>
     </tr><tr style="text-align:center">
-      <td>Experimental Elixir: May use alchemist's supplies after a long rest to create 3 elixirs of healing, swiftness, resilience, boldness, flight, or transformation; may spend spell slots to create additional elixirs</td>
+      <td>Experimental Elixir: Can use alchemist's supplies after a long rest to create 3 elixirs of healing, swiftness, resilience, boldness, flight, or transformation; can spend spell slots to create additional elixirs</td>
     </tr><tr style="text-align:center">
-      <td>Homunculus Servant: May create a mechanical companion (AC 13; HP 24; Attack R30' +9 inflicts 1d4+6 HP force; Evasion; Channel Magic)</td>
+      <td>Homunculus Servant: Can create a mechanical companion (Armor Class 13; 24 hit points; attack R30' +9 inflicts 1d4+6 HP force; Evasion; Channel Magic)</td>
     </tr><tr style="text-align:center">
-      <td>Infuse Item: May infuse 6 items simultaneously</td>
+      <td>Infuse Item: Can infuse 6 items simultaneously</td>
     </tr><tr style="text-align:center">
-      <td>Magic Item Adept: May attune 6 items simultaneously/May craft uncommon magic items in one quarter time at half cost</td>
+      <td>Magic Item Adept: Can attune 6 items simultaneously and craft uncommon magic items in 1/4 time at 1/2 cost</td>
     </tr><tr style="text-align:center">
-      <td>Magic Item Savant: May ignore attunement and use requirements on attuned items</td>
+      <td>Magical Tinkering: Can imbue 3 objects simultaneously to emit light, a message, sound, an odor, or a picture</td>
     </tr><tr style="text-align:center">
-      <td>Magical Tinkering: May imbue 3 objects simultaneously with light, message, sound, odor, or picture</td>
-    </tr><tr style="text-align:center">
-      <td>Radiant Weapon: Infused weapon w/4 charges gives +1 attack and damage and emits a 30' bright light on command; wielder may use Reaction and 1 charge to blind a successful attacker (DC 17 Constitution neg) for 1 rd; item regains 1d4 charges each dawn</td>
+      <td>Radiant Weapon: Infused weapon with 4 charges gives +1 attack and damage and emits a 30' bright light on command; the wielder can use a reaction and 1 charge to blind a successful attacker (save DC 17 Constitution negates) for 1 rd; the weapon regains 1d4 charges each dawn</td>
     </tr><tr style="text-align:center">
       <td>Repeating Shot: Infused ammunition weapon gives +1 attack and damage and automatically creates its own ammunition</td>
     </tr><tr style="text-align:center">
-      <td>Replicate Magic Item: Allows replication of a wondrous item</td>
+      <td>Replicate Magic Item: Can replicate wondrous items</td>
     </tr><tr style="text-align:center">
-      <td>Repulsion Shield: Infused shield w/4 charges gives +1 AC; holder may use Reaction and 1 charge to push a successful attacker 15'; regains 1d4 charges each dawn</td>
+      <td>Repulsion Shield: Infused shield with 4 charges gives +1 AC; the holder can use a reaction and 1 charge to push a successful attacker 15'; regains 1d4 charges each dawn</td>
     </tr><tr style="text-align:center">
-      <td>Resistant Armor: Infused armor gives +1 AC and resistance to chosen damage type</td>
+      <td>Resistant Armor: Infused armor gives +1 AC and resistance to a chosen damage type</td>
     </tr><tr style="text-align:center">
-      <td>Restorative Reagents: May use alchemist's supplies to cast <i>Lesser Restoration</i> 3/long rest/Elixirs give 2d6+3 temporary HP</td>
+      <td>Restorative Reagents: Can use alchemist's supplies to cast <i>Lesser Restoration</i> 3 times per long rest, and elixirs give 2d6+3 temporary hit points</td>
     </tr><tr style="text-align:center">
       <td>Returning Weapon: Infused thrown weapon gives +1 attack and damage and returns after being thrown</td>
     </tr><tr style="text-align:center">
