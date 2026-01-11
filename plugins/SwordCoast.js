@@ -414,9 +414,42 @@ SwordCoast.FEATS_ADDED = {
 SwordCoast.FEATS = Object.assign({}, (window.PHB5E||window.SRD5E).FEATS, SwordCoast.FEATS_ADDED);
 SwordCoast.FEATURES_ADDED = {
 
+  // Races
+  // Dwarf
+  'Duergar Magic':
+    'Section=magic ' +
+    'Note="Can cast self <i>Enlarge/Reduce</i> (enlarge only)%{level<5?\'\':\' and <i>Invisibility</i>\'} once per long rest" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells=Enlarge/Reduce,5:Invisibility',
+  'Duergar Resilience':
+    'Section=save Note="Has advantage vs. illusions, charm, and paralysis"',
+  'Gold Dwarf Ability Adjustment':'Section=ability Note="+1 Wisdom"',
+  'Gray Dwarf Ability Adjustment':'Section=ability Note="+1 Strength"',
+  'Shield Dwarf Ability Adjustment':'Section=ability Note="+2 Strength"',
+  // Sunlight Sensitivity from SRD5E
+  // Superior Darkvision from SRD5E
+
+  // Elf
+  'Cantrip (Moon Elf)':'Section=magic Note="Knows 1 Wizard cantrip"',
+  'Cantrip (Sun Elf)':'Section=magic Note="Knows 1 Wizard cantrip"',
+  'Moon Elf Ability Adjustment':'Section=ability Note="+1 Intelligence"',
+  'Sun Elf Ability Adjustment':'Section=ability Note="+1 Intelligence"',
+
+  // Halfling
+  'Strongheart Resilience':
+    'Section=save ' +
+    'Note="Has advantage vs. poison and resistance to poison damage"',
+  'Strongheart Halfling Ability Adjustment':
+    'Section=ability Note="+1 Constitution"',
+
+  // Gnome
+  'Deep Gnome Ability Adjustment':'Section=ability Note="+1 Dexterity"',
+  'Stone Camouflage':
+    'Section=skill Note="Has advantage on Stealth to hide in rocky terrain"',
+
   // Backgrounds
   'All Eyes On You':
-    'Section=feature Note="May draw curiosity and interest from locals"',
+    'Section=feature Note="Can draw curiosity and interest from locals"',
   'Court Functionary':
     'Section=feature ' +
     'Note="Has knowledge of government bureaucracy and access to records"',
@@ -426,29 +459,30 @@ SwordCoast.FEATURES_ADDED = {
     'Section=feature Note="Received a special item or knowledge from family"',
   'Kept In Style':
     'Section=feature ' +
-    'Note="Line of credit reduces lifestyle expenses by 2 GP/dy"',
+    'Note="Line of credit reduces lifestyle expenses by 2 GP per day"',
   'Knightly Regard':
     'Section=feature ' +
-    'Note="May gain shelter and assistance from fellows and supporters"',
+    'Note="Can gain shelter and assistance from fellows and supporters"',
   'Library Access':
     'Section=feature ' +
     'Note="Has knowledge of cloister bureaucracy and broad access to libraries"',
   'Mercenary Life':
     'Section=feature Note="Has knowledge of mercenary companies and customs"',
   'Respect Of The Stout Folk':
-    'Section=feature Note="May receive free accommodations from dwarves"',
-  'Safe Haven':'Section=feature Note="Has contacts w/access to a safe house"',
+    'Section=feature Note="Can receive free accommodations from dwarves"',
+  'Safe Haven':
+    'Section=feature Note="Has contacts with access to a safe house"',
   'Uthgardt Heritage':
     'Section=feature ' +
-    'Note="May find dbl normal food and water when foraging/May receive assistance from tribal allies"',
+    'Note="Can find twice the normal amount of food and water when foraging/Can receive assistance from tribal allies"',
   "Watcher's Eye":
     'Section=feature ' +
-    'Note="May easily locate the local watchpost and criminal dens"',
+    'Note="Can easily locate the local watchpost and criminal dens"',
 
   // Feats
   'Svirfneblin Magic':
     'Section=magic ' +
-    'Note="May cast self <i>Nondetection</i> at will and <i>Blindness/Deafness</i>, <i>Blur</i>, and <i>Disguise Self</i> 1/long rest" ' +
+    'Note="Can cast self <i>Nondetection</i> at will and <i>Blindness/Deafness</i>, <i>Blur</i>, and <i>Disguise Self</i> 1/long rest" ' +
     'SpellAbility=Intelligence ' +
     'Spells=Nondetection,Blindness/Deafness,Blur,"Disguise Self"',
 
@@ -565,27 +599,6 @@ SwordCoast.FEATURES_ADDED = {
   'Unyielding Spirit':
     'Section=save Note="Adv on saves vs. paralysis and stunning"',
 
-  // Races
-  'Cantrip (Moon Elf)':'Section=Magic Note="Knows 1 Wizard cantrip"',
-  'Cantrip (Sun Elf)':'Section=Magic Note="Knows 1 Wizard cantrip"',
-  'Deep Gnome Ability Adjustment':'Section=ability Note="+1 Dexterity"',
-  'Duergar Magic':
-    'Section=magic ' +
-    'Note="May cast self <i>Enlarge/Reduce</i> (enlarge only)%{level<5?\'\':\' and <i>Invisibility</i>\'} 1/long rest" ' +
-    'SpellAbility=Intelligence ' +
-    'Spells=Enlarge/Reduce,5:Invisibility',
-  'Duergar Resilience':
-    'Section=save Note="Adv on saves vs. illusions, charm, and paralysis"',
-  'Gold Dwarf Ability Adjustment':'Section=ability Note="+1 Wisdom"',
-  'Gray Dwarf Ability Adjustment':'Section=ability Note="+1 Strength"',
-  'Moon Elf Ability Adjustment':'Section=ability Note="+1 Intelligence"',
-  'Shield Dwarf Ability Adjustment':'Section=ability Note="+2 Strength"',
-  'Stone Camouflage':
-    'Section=Skill Note="Adv on Stealth to hide in rocky terrain"',
-  'Strongheart Halfling Ability Adjustment':
-    'Section=ability Note="+1 Constitution"',
-  'Sun Elf Ability Adjustment':'Section=ability Note="+1 Intelligence"',
-
   // Copied from Tasha
   'Bladesong':
     'Section=ability,combat,feature,magic,skill ' +
@@ -682,45 +695,46 @@ SwordCoast.FEATURES_ADDED = {
 };
 SwordCoast.FEATURES =
   Object.assign({}, (window.PHB5E||window.SRD5E).FEATURES, SwordCoast.FEATURES_ADDED);
-SwordCoast.RACES_ADDED = {
-  'Deep Gnome':
-    'Size=Small ' +
-    'Speed=25 ' +
-    'Features=' +
-      '"1:Language (Common/Gnomish/Undercommon)",' +
-      '"1:Gnome Ability Adjustment","1:Gnome Cunning",' +
-      '"1:Deep Gnome Ability Adjustment","1:Stone Camouflage",' +
-      '"1:Superior Darkvision"',
+SwordCoast.RACES = {
+  'Gold Dwarf':
+     SRD5E.RACES['Hill Dwarf']
+    .replaceAll('Hill Dwarf', 'Gold Dwarf'),
   'Gray Dwarf':
-    'Size=Medium ' +
-    'Speed=25 ' +
-    'Features=' +
-      '"1:Language (Common/Dwarvish/Undercommon)",' +
-      '"1:Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
-      '"1:Duergar Resilience","1:Dwarven Combat Training",' +
-      '"1:Dwarf Ability Adjustment","1:Dwarven Resilience",' +
-      '"1:Gray Dwarf Ability Adjustment","1:Steady",1:Stonecunning,' +
-      '"1:Sunlight Sensitivity","1:Superior Darkvision","3:Duergar Magic"',
+    SRD5E.RACES['Hill Dwarf']
+    .replace('Hill Dwarf Ability Adjustment', 'Gray Dwarf Ability Adjustment')
+    .replace('Darkvision', 'Superior Darkvision')
+    .replace('Dwarven Toughness', 'Duergar Resilience')
+    .replace('Features=', 'Features="1:Sunlight Sensitivity","1:Language (Undercommon)","3:Duergar Magic",'),
+  'Moon Elf':
+    SRD5E.RACES['High Elf']
+    .replaceAll('High Elf', 'Moon Elf'),
+  'Sun Elf':
+    SRD5E.RACES['High Elf']
+    .replaceAll('High Elf', 'Sun Elf'),
+  'Lightfoot Halfling':SRD5E.RACES['Lightfoot Halfling'],
+  'Human':SRD5E.RACES['Human'],
+  'Dragonborn':SRD5E.RACES.Dragonborn,
+  'Rock Gnome':SRD5E.RACES['Rock Gnome'],
+  'Deep Gnome':
+    SRD5E.RACES['Rock Gnome']
+    .replace('Rock Gnome Ability Adjustment', 'Deep Gnome Ability Adjustment')
+    .replace('Darkvision', 'Superior Darkvision')
+    .replace("Artificer's Lore", 'Stone Camouflage')
+    .replace('Tinker', 'Language (Undercommon)'),
+  'Half-Elf':SRD5E.RACES['Half-Elf'],
+  'Half-Orc':SRD5E.RACES['Half-Orc'],
+  'Tiefling':SRD5E.RACES.Tiefling
 };
-SwordCoast.RACES =
-  Object.assign({}, (window.PHB5E||window.SRD5E).RACES, SwordCoast.RACES_ADDED);
-if('Mountain Dwarf' in SwordCoast.RACES) {
-  SwordCoast.RACES['Shield Dwarf'] = SwordCoast.RACES['Mountain Dwarf'].replaceAll('Mountain Dwarf', 'Shield Dwarf');
-  delete SwordCoast.RACES['Mountain Dwarf'];
-}
-if('Hill Dwarf' in SwordCoast.RACES) {
-  SwordCoast.RACES['Gold Dwarf'] = SwordCoast.RACES['Hill Dwarf'].replaceAll('Hill Dwarf', 'Gold Dwarf');
-  delete SwordCoast.RACES['Hill Dwarf'];
-}
-if('High Elf' in SwordCoast.RACES) {
-  SwordCoast.RACES['Moon Elf'] = SwordCoast.RACES['High Elf'].replaceAll('High Elf', 'Moon Elf');
-  SwordCoast.RACES['Sun Elf'] = SwordCoast.RACES['High Elf'].replaceAll('High Elf', 'Sun Elf');
-  delete SwordCoast.RACES['High Elf'];
-}
-if('Stout Halfling' in SwordCoast.RACES) {
-  // Leave Stout Resilience feature as-is, since it's descriptive
-  SwordCoast.RACES['Strongheart Halfling'] = SwordCoast.RACES['Stout Halfling'].replaceAll('Stout Halfling', 'Strongheart Halfling');
-  delete SwordCoast.RACES['Stout Halfling'];
+if(PHB5E != null) {
+  SwordCoast.RACES['Dark Elf'] = PHB5E.RACES['Dark Elf'],
+  SwordCoast.RACES['Shield Dwarf'] =
+    PHB5E.RACES['Mountain Dwarf']
+    .replaceAll('Mountain Dwarf', 'Shield Dwarf'),
+  SwordCoast.RACES['Wood Elf'] = PHB5E.RACES['Wood Elf'],
+  SwordCoast.RACES['Strongheart Halfling'] =
+    PHB5E.RACES['Stout Halfling']
+    .replaceAll('Stout', 'Strongheart'),
+  SwordCoast.RACES['Forest Gnome'] = PHB5E.RACES['Forest Gnome']
 }
 SwordCoast.SPELLS_ADDED = {
   // Copied from Tasha
