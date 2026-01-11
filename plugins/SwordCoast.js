@@ -87,7 +87,7 @@ function SwordCoast() {
 
 }
 
-SwordCoast.VERSION = '2.4.1.0';
+SwordCoast.VERSION = '2.4.2.0';
 
 SwordCoast.ARMORS_ADDED = {
   'Spiked Armor':'AC=4 Bulky=true Dex=2 Weight=Medium'
@@ -568,8 +568,7 @@ SwordCoast.FEATURES_ADDED = {
   // Races
   'Cantrip (Moon Elf)':'Section=Magic Note="Knows 1 Wizard cantrip"',
   'Cantrip (Sun Elf)':'Section=Magic Note="Knows 1 Wizard cantrip"',
-  'Deep Gnome Ability Adjustment':
-    'Section=ability Note="+2 Intelligence/+1 Dexterity"',
+  'Deep Gnome Ability Adjustment':'Section=ability Note="+1 Dexterity"',
   'Duergar Magic':
     'Section=magic ' +
     'Note="May cast self <i>Enlarge/Reduce</i> (enlarge only)%{level<5?\'\':\' and <i>Invisibility</i>\'} 1/long rest" ' +
@@ -577,20 +576,15 @@ SwordCoast.FEATURES_ADDED = {
     'Spells=Enlarge/Reduce,5:Invisibility',
   'Duergar Resilience':
     'Section=save Note="Adv on saves vs. illusions, charm, and paralysis"',
-  'Gold Dwarf Ability Adjustment':
-    'Section=ability Note="+2 Constitution/+1 Wisdom"',
-  'Gray Dwarf Ability Adjustment':
-    'Section=ability Note="+2 Constitution/+1 Strength"',
-  'Moon Elf Ability Adjustment':
-    'Section=ability Note="+2 Dexterity/+1 Intelligence"',
-  'Shield Dwarf Ability Adjustment':
-    'Section=ability Note="+2 Constitution/+2 Strength"',
+  'Gold Dwarf Ability Adjustment':'Section=ability Note="+1 Wisdom"',
+  'Gray Dwarf Ability Adjustment':'Section=ability Note="+1 Strength"',
+  'Moon Elf Ability Adjustment':'Section=ability Note="+1 Intelligence"',
+  'Shield Dwarf Ability Adjustment':'Section=ability Note="+2 Strength"',
   'Stone Camouflage':
     'Section=Skill Note="Adv on Stealth to hide in rocky terrain"',
   'Strongheart Halfling Ability Adjustment':
-    'Section=ability Note="+2 Dexterity/+1 Constitution"',
-  'Sun Elf Ability Adjustment':
-    'Section=ability Note="+2 Dexterity/+1 Intelligence"',
+    'Section=ability Note="+1 Constitution"',
+  'Sun Elf Ability Adjustment':'Section=ability Note="+1 Intelligence"',
 
   // Copied from Tasha
   'Bladesong':
@@ -690,18 +684,23 @@ SwordCoast.FEATURES =
   Object.assign({}, (window.PHB5E||window.SRD5E).FEATURES, SwordCoast.FEATURES_ADDED);
 SwordCoast.RACES_ADDED = {
   'Deep Gnome':
+    'Size=Small ' +
+    'Speed=25 ' +
     'Features=' +
       '"1:Language (Common/Gnomish/Undercommon)",' +
-      '"1:Gnome Cunning","1:Deep Gnome Ability Adjustment",1:Slow,1:Small,' +
-      '"1:Stone Camouflage","1:Superior Darkvision"',
+      '"1:Gnome Ability Adjustment","1:Gnome Cunning",' +
+      '"1:Deep Gnome Ability Adjustment","1:Stone Camouflage",' +
+      '"1:Superior Darkvision"',
   'Gray Dwarf':
+    'Size=Medium ' +
+    'Speed=25 ' +
     'Features=' +
       '"1:Language (Common/Dwarvish/Undercommon)",' +
       '"1:Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
       '"1:Duergar Resilience","1:Dwarven Combat Training",' +
-      '"1:Dwarven Resilience","1:Gray Dwarf Ability Adjustment",1:Slow,' +
-      '1:Steady,1:Stonecunning,"1:Sunlight Sensitivity",' +
-      '"1:Superior Darkvision","3:Duergar Magic"',
+      '"1:Dwarf Ability Adjustment","1:Dwarven Resilience",' +
+      '"1:Gray Dwarf Ability Adjustment","1:Steady",1:Stonecunning,' +
+      '"1:Sunlight Sensitivity","1:Superior Darkvision","3:Duergar Magic"',
 };
 SwordCoast.RACES =
   Object.assign({}, (window.PHB5E||window.SRD5E).RACES, SwordCoast.RACES_ADDED);
