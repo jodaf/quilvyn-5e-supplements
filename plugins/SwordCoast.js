@@ -218,7 +218,7 @@ SwordCoast.CLASSES_FEATURES_ADDED = {
     '"features.Way Of The Long Death ? 6:Hour Of Reaping",' +
     '"features.Way Of The Long Death ? 11:Mastery Of Death",' +
     '"features.Way Of The Long Death ? 17:Touch Of The Long Death",' +
-    // Copied from Xanathar
+    // (ref Xanathar)
     '"features.Way Of The Sun Soul ? 3:Radiant Sun Bolt",' +
     '"features.Way Of The Sun Soul ? 6:Searing Arc Strike",' +
     '"features.Way Of The Sun Soul ? 11:Searing Sunburst",' +
@@ -229,7 +229,7 @@ SwordCoast.CLASSES_FEATURES_ADDED = {
     '"features.Oath Of The Crown ? 7:Divine Allegiance",' +
     '"features.Oath Of The Crown ? 15:Unyielding Spirit",' +
     '"features.Oath Of The Crown ? 20:Exalted Champion"',
-  'Rogue': // Copied from Xanathar
+  'Rogue': // (ref Xanathar)
     '"features.Mastermind ? 3:Master Of Intrigue",' +
     '"features.Mastermind ? 3:Master Of Tactics",' +
     '"features.Mastermind ? 9:Insightful Manipulator",' +
@@ -240,7 +240,7 @@ SwordCoast.CLASSES_FEATURES_ADDED = {
     '"features.Swashbuckler ? 9:Panache",' +
     '"features.Swashbuckler ? 13:Elegant Maneuver",' +
     '"features.Swashbuckler ? 17:Master Duelist"',
-  'Sorcerer': // Copied from Xanathar
+  'Sorcerer': // (ref Xanathar)
     '"features.Storm Sorcery ? 1:Wind Speaker",' +
     '"features.Storm Sorcery ? 1:Tempestuous Magic",' +
     '"features.Storm Sorcery ? 6:Heart Of The Storm",' +
@@ -252,7 +252,7 @@ SwordCoast.CLASSES_FEATURES_ADDED = {
     '"features.The Undying ? 6:Defy Death",' +
     '"features.The Undying ? 10:Undying Nature",' +
     '"features.The Undying ? 14:Indestructible Life"',
-  'Wizard': // Copied from Tasha
+  'Wizard': // (ref Tasha)
     '"features.Bladesinging ? 2:Training In War And Song",' +
     '"features.Bladesinging ? 2:Bladesong",' +
     '"features.Bladesinging ? 6:Extra Attack",' +
@@ -270,18 +270,18 @@ SwordCoast.CLASSES_SELECTABLES_ADDED = {
     '"3:Purple Dragon Knight:Martial Archetype"',
   'Monk':
     '"3:Way Of The Long Death:Monastic Tradition",' +
-    '"3:Way Of The Sun Soul:Monastic Tradition"', // also Xanathar
+    '"3:Way Of The Sun Soul:Monastic Tradition"',
   'Paladin':
     '"3:Oath Of The Crown:Sacred Oath"',
   'Rogue':
-    '"3:Mastermind:Roguish Archetype",' + // also Xanathar
-    '"3:Swashbuckler:Roguish Archetype"', // also Xanathar
+    '"3:Mastermind:Roguish Archetype",' +
+    '"3:Swashbuckler:Roguish Archetype"',
   'Sorcerer':
-    '"1:Storm Sorcery:Sorcerous Origin"', // also Xanathar
+    '"1:Storm Sorcery:Sorcerous Origin"',
   'Warlock':
     '"1:The Undying:Otherworldly Patron"',
   'Wizard':
-    '"race =~ \'Elf\' ? 2:Bladesinging:Arcane Tradition"' // also Tasha
+    '"race =~ \'Elf\' ? 2:Bladesinging:Arcane Tradition"'
 };
 SwordCoast.CLASSES = Object.assign({}, (window.PHB5E||window.SRD5E).CLASSES);
 for(let c in SwordCoast.CLASSES_FEATURES_ADDED) {
@@ -415,6 +415,7 @@ SwordCoast.FEATS = Object.assign({}, (window.PHB5E||window.SRD5E).FEATS, SwordCo
 SwordCoast.FEATURES_ADDED = {
 
   // Races
+
   // Dwarf
   'Duergar Magic':
     'Section=magic ' +
@@ -447,12 +448,254 @@ SwordCoast.FEATURES_ADDED = {
   'Stone Camouflage':
     'Section=skill Note="Has advantage on Stealth to hide in rocky terrain"',
 
+  // Feats
+  'Svirfneblin Magic':
+    'Section=magic ' +
+    'Note="Can cast self <i>Nondetection</i> at will and <i>Blindness/Deafness</i>, <i>Blur</i>, and <i>Disguise Self</i> once per long rest" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells=Nondetection,Blindness/Deafness,Blur,"Disguise Self"',
+
+  // Classes
+
+  // Barbarian
+  // Battlerager
+  'Battlerager Armor':
+    'Section=combat ' +
+    'Note="When wearing spiked armor during rage, can use a bonus action for a spike attack that inflicts 1d4+%{strengthModifier} HP piercing, and a successful grapple inflicts 3 HP piercing"',
+  'Battlerager Charge':
+    'Section=combat Note="Can use a bonus action to Dash during rage"',
+  'Reckless Abandon':
+    'Section=combat ' +
+    'Note="Using Reckless Attack during rage gives %{constitutionModifier>?1} temporary hit points"',
+  'Spiked Retribution':
+    'Section=combat ' +
+    'Note="When wearing spiked armor during rage, a successful melee attacker suffers 3 HP piercing"',
+  // Totem Warrior
+  'Aspect Of The Beast (Elk)':
+    'Section=ability ' +
+    'Note="R60\' Self and 10 companions can travel at double normal pace"',
+  'Aspect Of The Beast (Tiger)':
+    'Section=skill ' +
+    'Note="Skill Proficiency (Choose 2 from Athletics, Acrobatics, Stealth, Survival)"',
+  'Totem Spirit (Elk)':
+    'Section=ability Note="+15 Speed during rage; heavy armor negates"',
+  'Totem Spirit (Tiger)':
+    'Section=skill Note="+10\' long jump and +3\' high jump during rage"',
+  'Totemic Attunement (Elk)':
+    'Section=combat ' +
+    'Note="During rage, can use a bonus action to pass through the space of a Large or smaller creature and inflict 1d12+%{strengthModifier} HP bludgeoning and knocked prone (save DC %{8+strengthModifier+proficiencyBonus} Strength negates)"',
+  'Totemic Attunement (Tiger)':
+    'Section=combat ' +
+    'Note="During rage, can use a bonus action to make a melee attack after a 20\' charge"',
+
+  // Cleric
+  // Arcana Domain
+  'Arcana Domain':
+    'Spells=' +
+      '"1:Detect Magic","1:Magic Missile",' +
+      '"2:Magic Weapon","2:Nystul\'s Magic Aura",' +
+      '"3:Dispel Magic","3:Magic Circle",' +
+      '"4:Arcane Eye","4:Leomund\'s Secret Chest",' +
+      '"5:Planar Binding","5:Teleportation Circle"',
+  'Arcane Abjuration':
+    'Section=combat ' +
+    'Note="R30\' Can turn a celestial, elemental, fey, or fiend%{levels.Cleric>=5?\', banishing up to CR \'+(levels.Cleric>=8?(levels.Cleric-5)//3<?4:\'1/2\')+\',\':\'\'} (save DC %{spellDifficultyClass.C} Wisdom negates) for 1 min"',
+  'Arcane Initiate':
+    'Section=magic,skill ' +
+    'Note=' +
+      '"Knows two W0 cantrips",' +
+      '"Skill Proficiency (Arcana)"',
+  'Arcane Mastery':
+    'Section=magic ' +
+    'Note="Can add 1 each W6, W7, W8, and W9 spells as domain spells"',
+  // Potent Spellcasting as SRD5E
+  'Spell Breaker':
+    'Section=magic ' +
+    'Note="Casting a healing spell also dispels a spell of equal or lesser level affecting the target"',
+
+  // Fighter
+  // Purple Dragon Knight
+  'Bulwark':
+    'Section=save ' +
+    'Note="R60\' Can extend Indomitable use on an Intelligence, Wisdom, or Charisma save to include an ally"',
+  'Inspiring Surge':
+    'Section=combat ' +
+    'Note="R60\' When using Action Surge, can allow %{levels.Fighter<18?\'1 ally\':\'2 allies\'} to use a reaction for an attack"',
+  'Rallying Cry':
+    'Section=combat ' +
+    'Note="R60\' Second Wind restores %{levels.Fighter} hit points to 3 allies"',
+  'Royal Envoy':
+    'Section=skill ' +
+    'Note="Skill Proficiency (Choose 1 from Animal Handling, Insight, Intimidation, Persuasion)/+%{proficiencyBonus} Persuasion"',
+
+  // Monk
+  // Way Of The Long Death
+  'Hour Of Reaping':
+    'Section=combat ' +
+    'Note="R30\' Can use an action to frighten all who can see self (save DC %{kiSaveDC} Wisdom negates)"',
+  'Mastery Of Death':
+    'Section=combat ' +
+    'Note="Can spend 1 ki point when reduced to 0 hit points to retain 1 hit point"',
+  'Touch Of Death':
+    'Section=combat ' +
+    'Note="R5\' Gains %{levels.Monk+wisdomModifier>?1} temporary hit points from reducing a foe to 0 hit points"',
+  'Touch Of The Long Death':
+    'Section=combat ' +
+    'Note="Can use an action and spend 1-10 ki points to have touch inflict 2d10 HP necrotic per ki point (save DC %{kiSaveDC} Constitution half)"',
+  // Way Of The Sun Soul (ref Xanathar)
+  'Radiant Sun Bolt':
+    'Section=combat ' +
+    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant once per rd; can spend 1 ki point and use a bonus action for a second attack"',
+  'Searing Arc Strike':
+    'Section=magic ' +
+    'Note="Can spend 2 ki points to cast <i>Burning Hands</i> after an attack as a bonus action; each additional ki point spent raises the spell level by 1, to a maximum of level %{levels.Monk//2-1}" ' +
+    'SpellAbility=Wisdom ' +
+    'Spells="Burning Hands"',
+  'Searing Sunburst':
+    'Section=magic ' +
+    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{kiSaveDC} Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
+  'Sun Shield':
+    'Section=combat,magic ' +
+    'Note=' +
+      '"Can use a reaction while emitting light to inflict %{wisdomModifier+5} HP radiant on a successful melee attacker",' +
+      '"Can emit bright light in a 30\' radius at will"',
+
+  // Paladin
+  // Oath Of The Crown
+  'Champion Challenge':
+    'Section=combat ' +
+    'Note="R30\' Can use Channel Divinity to force targets to stay within 30\' (save DC %{spellDifficultyClass.P} Wisdom negates)"',
+  'Divine Allegiance':
+    'Section=combat ' +
+    'Note="R5\' Can use a reaction to shift damage inflicted on another creature onto self"',
+  'Exalted Champion':
+    'Section=combat,save ' +
+    'Note=' +
+      '"Can use an action to gain resistance to non-magical bludgeoning, piercing, and slashing damage for 1 hr once per long rest",' +
+      '"R30\' Can use an action to give self and allies advantage on Wisdom and vs. Death for 1 hr once per long rest"',
+  'Oath Of The Crown':
+    'Spells=' +
+      '1:Command,"1:Compelled Duel",' +
+      '"2:Warding Bond","2:Zone Of Truth",' +
+      '"3:Aura Of Vitality","3:Spirit Guardians",' +
+      '"4:Banishment","4:Guardian Of Faith",' +
+      '"5:Circle Of Power","5:Geas"',
+  'Turn The Tide':
+    'Section=magic ' +
+    'Note="R30\' Can use Channel Divinity to restore 1d6+%{charismaModifier>?1} hit points to targets with fewer than half their maximum hit points"',
+  'Unyielding Spirit':
+    'Section=save Note="Has advantage vs. paralysis and stunning"',
+
+  // Rogue
+  // Mastermind (ref Xanathar)
+  'Insightful Manipulator':
+    'Section=feature ' +
+    'Note="Can learn 2 choices of information about a target after 1 min of study: relative class levels, Charisma, Intelligence, or Wisdom"',
+  'Master Of Intrigue':
+    'Section=feature,skill ' +
+    'Note=' +
+      '"Can mimic accent and speech patterns after listening for 1 min",' +
+      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming)"',
+  'Master Of Tactics':
+    'Section=combat Note="R30\' Can use Help as a bonus action"',
+  'Misdirection':
+    'Section=combat ' +
+    'Note="Can use a reaction to redirect an attack from self to a creature providing cover"',
+  'Soul Of Deceit':
+    'Section=save ' +
+    'Note="Has immunity to telepathy, can use Deception vs. Insight to present false thoughts, and always detects as telling the truth"',
+  // Swashbuckler (ref Xanathar)
+  'Elegant Maneuver':
+    'Section=skill ' +
+    'Note="Can use a bonus action to gain advantage on the next Acrobatics or Athletics check within 1 rd"',
+  'Fancy Footwork':
+    'Section=combat ' +
+    'Note="Attacks prevent the target from making opportunity attacks against self for 1 rd"',
+  'Master Duelist':
+    'Section=combat ' +
+    'Note="Can reroll a miss with advantage once per short rest"',
+  'Panache':
+    'Section=skill ' +
+    'Note="Successful Persuasion vs. Insight gives a hostile target disadvantage on attacks on others (an attack by another ends) or charms a non-hostile target (damage ends) for 1 min"',
+  'Rakish Audacity':
+    'Section=combat,combat ' +
+    'Note=' +
+      '"+%{charismaModifier} Initiative",' +
+      '"Can use Sneak Attack without advantage (disadvantage negates) against an adjacent target when no other foe is adjacent"',
+
+  // Sorcerer
+  // Storm Sorcery (ref Xanathar)
+  'Heart Of The Storm':
+    'Section=magic,save ' +
+    'Note=' +
+      '"10\' radius inflicts %{levels.Sorcerer//2} HP of a choice of lightning or thunder on targets when casting a lightning or thunder spell",' +
+      '"Has resistance to lightning and thunder"',
+  'Storm Guide':
+    'Section=magic ' +
+    'Note="Can use an action to stop rain in a 20\' radius and a bonus action each rd to direct winds in a 100\' radius"',
+  "Storm's Fury":
+    'Section=combat ' +
+    'Note="Can use a reaction to inflict %{levels.Sorcerer} HP lightning and a 20\' push on a successful melee attacker (save DC %{spellDifficultyClass.S} Strength HP only)"',
+  'Tempestuous Magic':
+    'Section=magic ' +
+    'Note="Can use a bonus action before or after casting a spell to fly 10\' without provoking opportunity attacks"',
+  'Wind Soul':
+    'Section=ability,magic,save ' +
+    'Note=' +
+      '"Has a 60\' fly Speed",' +
+      '"R30\' Can slow fly Speed to 30\' to give %{charismaModifier+3} others a 30\' fly Speed for 1 hr once per long rest",' +
+      '"Has immunity to lightning and thunder"',
+  'Wind Speaker':
+    'Section=skill Note="Language (Primordial/Aquan/Auran/Ignan/Terran)"',
+
+  // Warlock
+  // The Undying
+  'Among The Dead':
+    'Section=combat,magic,save ' +
+    'Note=' +
+      '"Undead divert attacks on self to others (save DC %{spellDifficultyClass.K} Wisdom negates for 24 hr, as does being attacked by self)",' +
+      '"Knows the <i>Spare The Dying</i> cantrip",' +
+      '"Has advantage vs. disease" ' +
+    'Spells="Spare The Dying"',
+  'Defy Death':
+    'Section=combat ' +
+    'Note="Successful death saving throw or casting <i>Spare The Dying</i> restores 1d8+%{constitutionModifier>?1} hit points to self once per long rest"',
+  'Indestructible Life':
+    'Section=combat ' +
+    'Note="Can use a bonus action to regain 1d8+%{levels.Warlock} hit points and reattach severed parts once per short rest"',
+  'Undying Nature':
+    'Section=feature ' +
+    'Note="Requires no breath, food, water, or sleep and ages at 1/10 the normal rate"',
+
+  // Wizard
+  // Bladesinging (ref Tasha)
+  'Bladesong':
+    'Section=ability,combat,feature,magic,skill ' +
+    'Note=' +
+      '"+10 Speed during Bladesong",' +
+      '"+%{intelligenceModifier>?1} Armor Class during Bladesong",' +
+      '"Can use a bonus action to gain Bladesong features for 1 min 2 times per short rest; medium armor, heavy armor, or a shield negates",' +
+      '"+%{intelligenceModifier>?1} Constitution to retain spell concentration during Bladesong",' +
+      '"Has advantage on Acrobatics during Bladesong"',
+  // Extra Attack as SRD5E
+  'Song Of Defense':
+    'Section=magic ' +
+    'Note="Can use a reaction and expend a spell slot during Bladesong to reduce damage to self by 5x the slot level"',
+  'Song Of Victory':
+    'Section=combat ' +
+    'Note="+%{intelligenceModifier>?1} HP melee weapon damage during Bladesong"',
+  'Training In War And Song':
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Armor Proficiency (Light)/Weapon Proficiency (Choose 1 from any One-Handed)",' +
+      '"Skill Proficiency (Performance)"',
+
   // Backgrounds
   'All Eyes On You':
     'Section=feature Note="Can draw curiosity and interest from locals"',
   'Court Functionary':
     'Section=feature ' +
-    'Note="Has knowledge of government bureaucracy and access to records"',
+    'Note="Can navigate government bureaucracy and access records"',
   'Ear To The Ground':
     'Section=feature Note="Has information contacts in every city"',
   'Inheritance':
@@ -474,223 +717,10 @@ SwordCoast.FEATURES_ADDED = {
     'Section=feature Note="Has contacts with access to a safe house"',
   'Uthgardt Heritage':
     'Section=feature ' +
-    'Note="Can find twice the normal amount of food and water when foraging/Can receive assistance from tribal allies"',
+    'Note="Can find twice the normal amount of food and water when foraging and can receive assistance from tribal allies"',
   "Watcher's Eye":
     'Section=feature ' +
-    'Note="Can easily locate the local watchpost and criminal dens"',
-
-  // Feats
-  'Svirfneblin Magic':
-    'Section=magic ' +
-    'Note="Can cast self <i>Nondetection</i> at will and <i>Blindness/Deafness</i>, <i>Blur</i>, and <i>Disguise Self</i> 1/long rest" ' +
-    'SpellAbility=Intelligence ' +
-    'Spells=Nondetection,Blindness/Deafness,Blur,"Disguise Self"',
-
-  // Paths
-  'Among The Dead':
-    'Section=combat,magic,save ' +
-    'Note=' +
-      '"Each undead must divert attacks on self to others (DC %{spellDifficultyClass.K} Wisdom neg) 1/dy",' +
-      '"Knows <i>Spare The Dying</i> cantrip",' +
-      '"Adv on saves vs. disease" ' +
-    'Spells="Spare The Dying"',
-  'Arcana Domain':
-    'Spells=' +
-      '"1:Detect Magic","1:Magic Missile",' +
-      '"2:Magic Weapon","2:Nystul\'s Magic Aura",' +
-      '"3:Dispel Magic","3:Magic Circle",' +
-      '"4:Arcane Eye","4:Leomund\'s Secret Chest",' +
-      '"5:Planar Binding","5:Teleportation Circle"',
-  'Arcane Abjuration':
-    'Section=combat ' +
-    'Note="R30\' May turn a celestial, elemental, fey, or fiend%{levels.Cleric>=5?\', banishing up to CR \'+(levels.Cleric>=8?(levels.Cleric-5)//3<?4:\'1/2\')+\',\':\'\'} (DC %{spellDifficultyClass.C} Wisdom neg) for 1 min"',
-  'Arcane Initiate':
-    'Section=magic,skill ' +
-    'Note=' +
-      '"Knows two W0 cantrips",' +
-      '"Skill Proficiency (Arcana)"',
-  'Arcane Mastery':
-    'Section=magic ' +
-    'Note="May add 1 each W6, W7, W8, and W9 spells as domain spells"',
-  'Aspect Of The Beast (Elk)':
-    'Section=ability ' +
-    'Note="R60\' Self and 10 companions may travel at dbl normal pace"',
-  'Aspect Of The Beast (Tiger)':
-    'Section=skill ' +
-    'Note="Skill Proficiency (Choose 2 from Athletics, Acrobatics, Stealth, Survival)"',
-  'Battlerager Armor':
-    'Section=combat ' +
-    'Note="When wearing spiked armor during rage, may use a bonus action to make a spike attack that inflicts 1d4+%{strengthModifier} HP piercing, and a successful grapple inflicts 3 HP piercing"',
-  'Battlerager Charge':
-    'Section=combat Note="May use a bonus action to Dash during rage"',
-  'Bulwark':
-    'Section=combat ' +
-    'Note="R60\' Indomitable use on an Intelligence, Wisdom, or Charisma save also allows an ally to reroll"',
-  'Champion Challenge':
-    'Section=combat ' +
-    'Note="R30\' May use Channel Divinity to force targets to stay w/in 30\' of self (DC %{spellDifficultyClass.P} Wisdom neg)"',
-  'Defy Death':
-    'Section=combat ' +
-    'Note="Successful death saving throw or <i>Spare The Dying</i> casting restores 1d8+%{constitutionModifier>?1} HP to self 1/long rest"',
-  'Divine Allegiance':
-    'Section=combat ' +
-    'Note="R5\' May use Reaction to shift to self damage inflicted on another creature"',
-  'Exalted Champion':
-    'Section=combat,save ' +
-    'Note=' +
-      '"May gain resistance to non-magical bludgeoning, piercing, and slashing damage for 1 hr 1/long rest",' +
-      '"R30\' May give self and allies gain Adv on Wisdom and saves vs. Death for 1 hr 1/long rest"',
-  'Hour Of Reaping':
-    'Section=combat ' +
-    'Note="R30\' May frighten all who can see self (DC %{kiSaveDC} Wisdom neg)"',
-  'Indestructible Life':
-    'Section=combat ' +
-    'Note="May use a bonus action to regain 1d8+%{levels.Warlock} HP and reattach severed parts 1/short rest"',
-  'Inspiring Surge':
-    'Section=combat ' +
-    'Note="R60\' When using Action Surge, may allow %{levels.Fighter<18?\'1 ally\':\'2 allies\'} to use Reaction to make a bonus attack"',
-  'Mastery Of Death':
-    'Section=combat ' +
-    'Note="May spend 1 Ki Point to remain at 1 HP when reduced to 0 HP"',
-  'Oath Of The Crown':
-    'Spells=' +
-      '1:Command,"1:Compelled Duel",' +
-      '"2:Warding Bond","2:Zone Of Truth",' +
-      '"3:Aura Of Vitality","3:Spirit Guardians",' +
-      '4:Banishment,"4:Guardian Of Faith",' +
-      '"5:Circle Of Power",5:Geas',
-  'Rallying Cry':
-    'Section=combat ' +
-    'Note="R60\' Second Wind restores %{levels.Fighter} HP to 3 allies"',
-  'Reckless Abandon':
-    'Section=combat ' +
-    'Note="Reckless Attack during rage gives %{constitutionModifier>?1} temporary HP"',
-  'Royal Envoy':
-    'Section=skill ' +
-    'Note="Skill Proficiency (Choose 1 from Animal Handling, Insight, Intimidation, Persuasion)/+%{proficiencyBonus} Persuasion"',
-  'Spell Breaker':
-    'Section=magic ' +
-    'Note="Casting a healing spell also dispels a spell of equal or lesser level affecting target"',
-  'Spiked Retribution':
-    'Section=combat ' +
-    'Note="When wearing spiked armor during rage, a successful melee attacker suffers 3 HP piercing"',
-  'Totem Spirit (Tiger)':
-    'Section=skill Note="+10\' long jump and +3\' high jump during rage"',
-  'Totem Spirit (Elk)':
-    'Section=ability Note="+15 Speed during rage (heavy armor neg)"',
-  'Totemic Attunement (Elk)':
-    'Section=combat ' +
-    'Note="Charge inflicts 1d12+%{strengthModifier} HP bludgeoning and knocks prone (DC %{8+strengthModifier+proficiencyBonus} Strength neg)"',
-  'Totemic Attunement (Tiger)':
-    'Section=combat ' +
-    'Note="During rage, may use a bonus action to make a melee attack after a 20\' charge"',
-  'Touch Of Death':
-    'Section=combat ' +
-    'Note="R5\' Gains %{levels.Monk+wisdomModifier>?1} temporary HP from reducing a foe to 0 HP"',
-  'Touch Of The Long Death':
-    'Section=combat ' +
-    'Note="May spend 1-10 Ki Points to have touch inflict 2d10 HP necrotic per (DC %{kiSaveDC} Constitution half)"',
-  'Turn The Tide':
-    'Section=magic ' +
-    'Note="R30\' May use Channel Divinity to restore 1d6+%{charismaModifier>?1} HP to targets w/fewer than half HP"',
-  'Undying Nature':
-    'Section=feature ' +
-    'Note="Requires no breath, food, water, or sleep and ages at 1/10 rate"',
-  'Unyielding Spirit':
-    'Section=save Note="Adv on saves vs. paralysis and stunning"',
-
-  // Copied from Tasha
-  'Bladesong':
-    'Section=ability,combat,feature,magic,skill ' +
-    'Note=' +
-      '"+10 Speed in light or no armor and no shield during Bladesong",' +
-      '"+%{intelligenceModifier>?1} AC in light or no armor and no shield during Bladesong",' +
-      '"May use a bonus action to gain Bladesong features for 1 min 2/short rest",' +
-      '"+%{intelligenceModifier>?1} Constitution to retain spell concentration in light or no armor and no shield during Bladesong",' +
-      '"Adv on Acrobatics in light or no armor and no shield during Bladesong"',
-  'Song Of Defense':
-    'Section=magic ' +
-    'Note="During Bladesong, may use Reaction and expend a spell slot to reduce damage to self by 5x slot level"',
-  'Song Of Victory':
-    'Section=combat ' +
-    'Note="+%{intelligenceModifier>?1} HP melee weapon damage during Bladesong"',
-  'Training In War And Song':
-    'Section=combat,skill ' +
-    'Note=' +
-      '"Armor Proficiency (Light)/Weapon Proficiency (Choose 1 from any One-Handed)",' +
-      '"Skill Proficiency (Performance)"',
-
-  // Copied from Xanathar
-  'Elegant Maneuver':
-    'Section=skill ' +
-    'Note="May use a bonus action to gain Adv on next Acrobatics or Athletics for 1 rd"',
-  'Fancy Footwork':
-    'Section=combat ' +
-    'Note="Attacked foe cannot make an OA against self for 1 rd"',
-  'Heart Of The Storm':
-    'Section=magic,save ' +
-    'Note=' +
-      '"10\' radius inflicts %{levels.Sorcerer//2} HP lightning or thunder on targets when casting a lightning or thunder spell",' +
-      '"Resistance to lightning and thunder damage"',
-  'Insightful Manipulator':
-    'Section=feature ' +
-    'Note="May learn 2 of relative Charisma, Intelligence, Wisdom, and levels of target after 1 min study"',
-  'Master Duelist':
-    'Section=combat Note="May reroll a miss with Adv 1/short rest"',
-  'Master Of Intrigue':
-    'Section=feature,skill ' +
-    'Note=' +
-      '"May mimic accent and speech patterns after listening for 1 min",' +
-      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Gaming)"',
-  'Master Of Tactics':
-    'Section=combat Note="R30\' May use Help as a bonus action"',
-  'Misdirection':
-    'Section=combat ' +
-    'Note="May use Reaction to redirect an attack from self to a creature that provides cover"',
-  'Panache':
-    'Section=skill ' +
-    'Note="Successful Persuasion vs. Insight gives hostile target Disadv on attacks on others (others attack ends) or charms a non-hostile target (damage ends) for 1 min"',
-  'Radiant Sun Bolt':
-    'Section=combat ' +
-    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant 1/rd (may spend 1 Ki Point and use a bonus action for a second attack)"',
-  'Rakish Audacity':
-    'Section=combat,combat ' +
-    'Note=' +
-      '"+%{charismaModifier} Initiative",' +
-      '"May use Sneak Attack w/out Adv when target is only adjacent foe (Disadv neg)"',
-  'Searing Arc Strike':
-    'Section=magic ' +
-    'Note="May spend 2-%{levels.Monk//2} Ki Points to cast <i>Burning Hands</i> after an attack as a bonus action" ' +
-    'SpellAbility=Wisdom ' +
-    'Spells="Burning Hands"',
-  'Searing Sunburst':
-    'Section=magic ' +
-    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (DC %{kiSaveDC} Constitution neg); may spend 1/2/3 Ki Points for +2/4/6d6 HP"',
-  'Soul Of Deceit':
-    'Section=save ' +
-    'Note="Immune to telepathy, may use Deception vs. Insight to present false thoughts, and always detects as telling the truth"',
-  'Storm Guide':
-    'Section=magic ' +
-    'Note="May stop rain in a 20\' radius or direct winds in a 100\' radius for 1 rd"',
-  "Storm's Fury":
-    'Section=combat ' +
-    'Note="May use Reaction to inflict %{levels.Sorcerer} HP lightning and 20\' push on a successful melee attacker (DC %{spellDifficultyClass.S} Strength HP only)"',
-  'Sun Shield':
-    'Section=combat,magic ' +
-    'Note=' +
-      '"While emitting light, may use Reaction to inflict %{wisdomModifier+5} HP radiant on a successful melee attacker",' +
-      '"May emit bright light in a 30\' radius at will"',
-  'Tempestuous Magic':
-    'Section=magic ' +
-    'Note="May use a bonus action to fly 10\' before or after casting a spell w/out provoking an OA"',
-  'Wind Soul':
-    'Section=ability,magic,save ' +
-    'Note=' +
-      '"60\' fly Speed",' +
-      '"R30\' May slow fly Speed to 30\' to give %{charismaModifier+3} others 30\' fly Speed for 1 hr 1/long rest",' +
-      '"Immunity to lightning and thunder damage"',
-  'Wind Speaker':
-    'Section=skill Note="Language (Primordial/Aquan/Auran/Ignan/Terran)"'
+    'Note="Can easily locate the local watchpost and criminal dens"'
 
 };
 SwordCoast.FEATURES =
