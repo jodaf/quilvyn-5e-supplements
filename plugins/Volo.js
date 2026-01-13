@@ -51,92 +51,117 @@ function Volo(edition, rules) {
 Volo.VERSION = '2.4.2.0';
 
 Volo.CHARACTER_FEATURES = {
-  'Amphibious':'Section=feature Note="May breathe water"',
-  'Bite':
-    'Section=combat Note="May use bite as a natural piercing weapon"',
-  "Cat's Claws":
+  // Aasimar
+  'Aasimar Ability Adjustment':'Section=ability Note="+2 Charisma"',
+  'Celestial Resistance':
+    'Section=save Note="Has resistance to necrotic and radiant damage"',
+  // Darkvision as SRD5E
+  'Healing Hands':
+    'Section=magic ' +
+    'Note="Touch heals %{level} hit point%{level>1?\'s\':\'\'} once per long rest"',
+  'Light Bearer':'Section=magic Note="Knows the <i>Light</i> cantrip"',
+    // Leave off Spells and SpellAbility attribute to avoid duplicating for
+    // each subrace
+  // Protector Aasimar
+  'Protector Aasimar Ability Adjustment':'Section=ability Note="+1 Wisdom"',
+  'Radiant Soul (Aasimar)':
     'Section=ability,combat ' +
     'Note=' +
-      '"20\' climb Speed",' +
-      '"May use claws as a natural slashing weapon"',
-  "Cat's Talent":'Section=skill Note="Skill Proficiency (Perception; Stealth)"',
-  'Celestial Resistance':
-    'Section=save Note="Resistance to necrotic and radiant damage"',
-  'Control Air And Water':
-    'Section=magic ' +
-    'Note="May cast <i>Fog Cloud</i>%{level<3?\'\':level<5?\' w/<i>Gust Of Wind</i>\':\' w/<i>Gust Of Wind</i> and <i>Wall Of Water</i>\'} 1/long rest" ' +
-    'Spells=' +
-      '"Fog Cloud","3:Gust Of Wind","5:Wall Of Water"',
-  'Cunning Artisan':
-    'Section=skill ' +
-    'Note="May craft a shield or weapon from a carcass during a short rest"',
-  'Emissary Of The Sea':
-    'Section=skill Note="May speak to water-breathing creatures"',
-  'Expert Forgery':'Section=skill Note="Adv on forgery and duplication checks"',
-  'Fallen Aasimar Ability Adjustment':
-    'Section=ability Note="+2 Charisma/+1 Strength"',
-  'Feline Agility':
+      '"Can gain a 30\' fly Speed for 1 min once per long rest",' +
+      '"Can inflict +%{level} HP radiant once rd for 1 min once per long rest"',
+  // Scourge Aasimar
+  'Radiant Consumption':
     'Section=combat ' +
-    'Note="May move at dbl speed; must forego move for 1 rd before using again"',
+    'Note="Can inflict %{(level+1)//2} HP radiant in a 10\' radius, including to self, plus %{level} HP radiant to a target, each rd for up to 1 min once per long rest"',
+  'Scourge Aasimar Ability Adjustment':'Section=ability Note="+1 Constitution"',
+  // Fallen Aasimar
+  'Fallen Aasimar Ability Adjustment':'Section=ability Note="+1 Strength"',
+  'Necrotic Shroud':
+    'Section=combat ' +
+    'Note="Can inflict frightened (save DC %{8+charismaModifier+proficiencyBonus} negates) in a 10\' radius for 1 rd and +%{level} HP necrotic once per rd for 1 min once per long rest"',
+
+  // Firbolg
   'Firbolg Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Strength"',
   'Firbolg Magic':
     'Section=magic ' +
-    'Note="May cast <i>Detect Magic</i> and <i>Disguise Self</i> 1/short rest" ' +
+    'Note="Can cast <i>Detect Magic</i> or <i>Disguise Self</i> once per short rest" ' +
     'SpellAbility=Wisdom ' +
-    'Spells=' +
-      '"Detect Magic","Disguise Self"',
-  'Goliath Ability Adjustment':
-    'Section=ability Note="+2 Strength/+1 Constitution"',
-  'Guardians Of The Depths':
-    'Section=save Note="Resistance to cold damage/Unaffected by water depth"',
-  'Healing Hands':'Section=magic Note="Touch may heal %{level} HP 1/long rest"',
+    'Spells="Detect Magic","Disguise Self"',
   'Hidden Step':
     'Section=magic ' +
-    'Note="May use a bonus action to become invisible for 1 rd (inflicting damage or forcing saving throw ends) 1/short rest"',
-  'Hold Breath':'Section=ability Note="May hold breath for 15 min"',
-  'Hungry Jaws':
-    'Section=combat ' +
-    'Note="May use a bonus action to bite and gain %{constitutionModifier>?1} temporary HP on a hit 1/short rest"',
-  "Hunter's Lore":
+    'Note="Can use a bonus action to become invisible until the start of the next turn once per short rest; inflicting damage or forcing a saving throw ends"',
+  'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
+  'Speech Of Beast And Leaf':
     'Section=skill ' +
-    'Note="Skill Proficiency (Choose 2 from Animal Handling, Nature, Perception, Stealth, Survival)"',
+    'Note="Can speak to beasts and plants and has advantage on influence Charisma checks with them"',
+
+  // Goliath
+  'Mountain Born':
+    'Section=feature Note="Has adaptation to high elevation and cold"',
+  'Goliath Ability Adjustment':
+    'Section=ability Note="+2 Strength/+1 Constitution"',
+  'Natural Athlete':'Section=skill Note="Skill Proficiency (Athletics)"',
+  // Powerful Build as above
+  "Stone's Endurance":
+    'Section=combat ' +
+    'Note="Can use a reaction to negate 1d12+%{constitutionModifier} HP damage once per short rest"',
+
+  // Kenku
+  'Expert Forgery':
+    'Section=skill Note="Has advantage on forgery and duplication checks"',
   'Kenku Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Wisdom"',
   'Kenku Training':
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Acrobatics, Deception, Stealth, Sleight Of Hand)"',
-  'Light Bearer':'Section=magic Note="Knows <i>Light</i> cantrip"',
-  'Lizardfolk Ability Adjustment':
-    'Section=ability Note="+2 Constitution/+1 Wisdom"',
   'Mimicry':
     'Section=skill ' +
     'Note="Successful Deception vs. Insight fools others with mimicked sounds"',
-  'Mountain Born':'Section=feature Note="Adapted to high elevation and cold"',
-  'Natural Athlete':'Section=skill Note="Skill Proficiency (Athletics)"',
-  'Necrotic Shroud':
+
+  // Lizardfolk
+  'Lizardfolk Ability Adjustment':
+    'Section=ability Note="+2 Constitution/+1 Wisdom"',
+  'Bite':
+    'Section=combat Note="Bite inflicts 1d6%{strengthModifier<0?strengthModifier:strengthModifier>0?\'+\'+strengthModifier:\'\'} HP piercing"',
+  'Cunning Artisan':
+    'Section=skill ' +
+    'Note="Can craft a shield or weapon from a carcass during a short rest"',
+  'Hold Breath':'Section=ability Note="Can hold breath for 15 min"',
+  'Hungry Jaws':
     'Section=combat ' +
-    'Note="May use a bonus action to inflict frightened for 1 rd in a 10\' radius (DC %{8+charismaModifier+proficiencyBonus} neg) and +%{level} HP necrotic 1/rd for 1 min 1/long rest"',
-  'Natural Armor':'Section=combat Note="AC %{13+dexterityModifier+(shield==\'None\'?0:2)} in no armor"',
-  'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
-  'Protector Aasimar Ability Adjustment':
-    'Section=ability Note="+2 Charisma/+1 Wisdom"',
-  'Radiant Consumption':
+    'Note="Can use a bonus action to bite and gain %{constitutionModifier>?1} temporary hit point%{constitutionModifier>1?\'s\':\'\'} on a hit once per short rest"',
+  "Hunter's Lore":
+    'Section=skill ' +
+    'Note="Skill Proficiency (Choose 2 from Animal Handling, Nature, Perception, Stealth, Survival)"',
+  'Natural Armor':
     'Section=combat ' +
-    'Note="May use a bonus action to inflict %{(level+1)//2} HP radiant in a 10\' radius (including to self) and inflict +%{level} HP radiant 1/rd for 1 min 1/long rest"',
-  'Radiant Soul (Aasimar)':
+    'Note="AC %{13+dexterityModifier+(shield==\'None\'?0:2)} in no armor"',
+  'Swimmer':'Section=ability Note="Has a 30\' swim Speed"',
+
+  // Tabaxi
+  // Darkvision as above
+  "Cat's Claws":
     'Section=ability,combat ' +
     'Note=' +
-      '"May use a bonus action to gain 30\' fly Speed for 1 min 1/long rest",' +
-      '"May use a bonus action to inflict +%{level} HP radiant 1/rd for 1 min 1/long rest"',
-  'Scourge Aasimar Ability Adjustment':
-    'Section=ability Note="+2 Charisma/+1 Constitution"',
-  'Speech Of Beast And Leaf':
-    'Section=skill ' +
-    'Note="May speak to beasts and plants and has Adv on influence Charisma checks w/same"',
-  "Stone's Endurance":
+      '"Has a 20\' climb Speed",' +
+      '"Claws inflict 1d4%{strengthModifier<0?strengthModifier:strengthModifier>0?\'+\'+strengthModifier:\'\'} HP slashing"',
+  "Cat's Talent":'Section=skill Note="Skill Proficiency (Perception; Stealth)"',
+  'Feline Agility':
     'Section=combat ' +
-    'Note="May use Reaction to negate 1d12+%{constitutionModifier} HP damage 1/short rest"',
-  'Swimmer':'Section=ability Note="30\' swim Speed"',
+    'Note="Can move at double speed; must forego moving for 1 rd before the next use"',
   'Tabaxi Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
+
+  // Triton
+  'Amphibious':'Section=feature Note="Can breathe water"',
+  'Control Air And Water':
+    'Section=magic ' +
+    'Note="Can cast <i>Fog Cloud</i>%{level<3?\'\':level<5?\' or <i>Gust Of Wind</i>\':\' <i>Gust Of Wind</i>, or <i>Wall Of Water</i>\'} once per long rest" ' +
+    'Spells="Fog Cloud","3:Gust Of Wind","5:Wall Of Water" ' +
+    'SpellAbility=Charisma',
+  'Emissary Of The Sea':
+    'Section=skill Note="Can speak to water-breathing creatures"',
+  'Guardians Of The Depths':
+    'Section=save ' +
+    'Note="Has resistance to cold damage and is unaffected by water depth"',
   'Triton Ability Adjustment':
     'Section=ability Note="+1 Charisma/+1 Constitution/+1 Strength"'
 };
@@ -146,8 +171,8 @@ Volo.CHARACTER_RACES = {
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Celestial)",' +
-      '"Celestial Resistance",Darkvision,"Healing Hands",' +
-      '"Fallen Aasimar Ability Adjustment","Light Bearer",' +
+      '"Aasimar Ability Adjustment","Celestial Resistance","Darkvision",' +
+      '"Healing Hands","Fallen Aasimar Ability Adjustment","Light Bearer",' +
       '"3:Necrotic Shroud"',
   'Firbolg':
     'Size=Medium ' +
@@ -156,13 +181,6 @@ Volo.CHARACTER_RACES = {
       '"Language (Common; Elvish; Giant)",' +
       '"Firbolg Ability Adjustment","Firbolg Magic","Hidden Step",' +
       '"Powerful Build","Speech Of Beast And Leaf"',
-  'Lizardfolk':
-    'Size=Medium ' +
-    'Speed=30 ' +
-    'Features=' +
-      '"Language (Common; Draconic)",' +
-      '"Bite","Cunning Artisan","Lizardfolk Ability Adjustment",' +
-      '"Hold Breath","Hungry Jaws","Hunter\'s Lore","Natural Armor",Swimmer',
   'Goliath':
     'Size=Medium ' +
     'Speed=30 ' +
@@ -175,36 +193,44 @@ Volo.CHARACTER_RACES = {
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Auran)",' +
-      '"Expert Forgery","Kenku Ability Adjustment","Kenku Training","Mimicry"',
+      '"Kenku Ability Adjustment","Expert Forgery","Kenku Training","Mimicry"',
+  'Lizardfolk':
+    'Size=Medium ' +
+    'Speed=30 ' +
+    'Features=' +
+      '"Language (Common; Draconic)",' +
+      '"Lizardfolk Ability Adjustment","Bite","Cunning Artisan",' +
+      '"Hold Breath","Hungry Jaws","Hunter\'s Lore","Natural Armor","Swimmer"',
   'Protector Aasimar':
     'Size=Medium ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Celestial)",' +
-      '"Darkvision","Celestial Resistance","Healing Hands","Light Bearer",' +
+      '"Aasimar Ability Adjustment","Darkvision","Celestial Resistance",' +
+      '"Healing Hands","Light Bearer",' +
       '"Protector Aasimar Ability Adjustment","3:Radiant Soul (Aasimar)"',
   'Scourge Aasimar':
     'Size=Medium ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Celestial)",' +
-      '"Darkvision","Celestial Resistance","Healing Hands","Light Bearer",' +
-      '"Scourge Aasimar Ability Adjustment",' +
-      '"3:Radiant Consumption"',
+      '"Aasimar Ability Adjustment","Darkvision","Celestial Resistance",' +
+      '"Healing Hands","Light Bearer",' +
+      '"Scourge Aasimar Ability Adjustment","3:Radiant Consumption"',
   'Tabaxi':
     'Size=Medium ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Choose 1 from any)",' +
-      '"Cat\'s Claws","Cat\'s Talent","Darkvision","Feline Agility",' +
-      '"Tabaxi Ability Adjustment"',
+      '"Tabaxi Ability Adjustment","Cat\'s Claws","Cat\'s Talent",' +
+      '"Darkvision","Feline Agility"',
   'Triton':
     'Size=Medium ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Primordial)",' +
-      '"Amphibious","Control Air And Water","Emissary Of The Sea",' +
-      '"Guardians Of The Depths","Swimmer","Triton Ability Adjustment"'
+      '"Triton Ability Adjustment","Amphibious","Control Air And Water",' +
+      '"Emissary Of The Sea","Guardians Of The Depths","Swimmer"'
 };
 Volo.MONSTROUS_FEATURES = {
   'Aggressive':
@@ -226,8 +252,7 @@ Volo.MONSTROUS_FEATURES = {
     'Section=magic ' +
     'Note="Knows <i>Poison Spray</i> cantrip/May cast <i>Animal Friendship</i> on snakes at will%{level<3?\'\':\'/May cast <i>Suggestion</i> 1/long rest\'}" ' +
     'SpellAbility=Charisma ' +
-    'Spells=' +
-      '"Poison Spray","Animal Friendship","3:Suggestion"',
+    'Spells="Poison Spray","Animal Friendship","3:Suggestion"',
   'Kobold Ability Adjustment':
     'Section=ability Note="+2 Dexterity/-2 Strength"',
   'Long-Limbed':'Section=combat Note="+5\' melee reach"',
