@@ -389,7 +389,7 @@ Eberron5E.FEATURES_ADDED = {
   'Shapechanger (Changeling)':
     'Section=feature Note="Can use an action to change appearance and voice"',
 
-  // Bugbear
+  // Bugbear (ref Volo)
   'Bugbear Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Dexterity"',
   // Darkvision as SRD5E
@@ -399,7 +399,7 @@ Eberron5E.FEATURES_ADDED = {
   'Surprise Attack':
     'Section=combat Note="Inflicts +2d6 HP on first surprise hit"',
 
-  // Goblin
+  // Goblin (ref Volo)
   // Darkvision as SRD5E
   'Fury Of The Small':
     'Section=combat ' +
@@ -409,7 +409,7 @@ Eberron5E.FEATURES_ADDED = {
   'Nimble Escape':
     'Section=combat Note="Can use a bonus action to Disengage or Hide"',
 
-  // Hobgoblin
+  // Hobgoblin (ref Volo)
   // Darkvision as SRD5E
   'Hobgoblin Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Intelligence"',
@@ -429,7 +429,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note="R%{level*10}\' Can communicate telepathically with a chosen creature for 1 hr"',
   'Severed From Dreams':'Section=save Note="Has immunity to dream effects"',
 
-  // Orc
+  // Orc (ref Volo)
   'Aggressive':
     'Section=combat ' +
     'Note="Can use a bonus action to move %{speed}\' toward foe"',
@@ -901,25 +901,24 @@ Eberron5E.RACES_ADDED = {
       'Darkvision,"Dwarven Combat Training","Dwarven Resilience",Steady,' +
       'Stonecunning,"Warding Ability Adjustment","Warder\'s Intuition",' +
       '"Spells Of The Mark","Wards And Seals"',
-  // Copied from Volo's
-  'Bugbear':
+  'Bugbear': // (ref Volo)
     'Features=' +
       '"Language (Common; Goblin)",' +
       '"Bugbear Ability Adjustment",Darkvision,Long-Limbed,"Powerful Build",' +
       'Sneaky,"Surprise Attack"',
-  'Goblin':
+  'Goblin': // (ref Volo)
     'Size=Small ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Goblin)",' +
       'Darkvision,"Fury Of The Small","Goblin Ability Adjustment",' +
       '"Nimble Escape"',
-  'Hobgoblin':
+  'Hobgoblin': // (ref Volo)
     'Features=' +
       '"Language (Common; Goblin)",' +
       'Darkvision,"Hobgoblin Ability Adjustment","Martial Training",' +
       '"Saving Face"',
-  'Orc': // Primal Intuition replaces Volo's Menacing
+  'Orc': // (ref Volo; Primal Intuition replaces Volo's Menacing)
     'Features=' +
       '"Language (Common; Orc)",' +
       'Aggressive,Darkvision,"Orc Ability Adjustment","Powerful Build",' +

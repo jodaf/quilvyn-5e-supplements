@@ -767,11 +767,11 @@ if(PHB5E != null) {
   SwordCoast.RACES['Forest Gnome'] = PHB5E.RACES['Forest Gnome']
 }
 SwordCoast.SPELLS_ADDED = {
-  // Copied from Tasha
+  // (ref Tasha)
   'Booming Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers %{(level+7)//6}d8 HP thunder on next move w/in 1 rd"',
+    'Description="Struck foe suffers %{(level+7)//6}d8 HP thunder on its next move within 1 rd"',
   'Green-Flame Blade':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
@@ -779,11 +779,11 @@ SwordCoast.SPELLS_ADDED = {
   'Lightning Lure':
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="R15\' Pulls target 10\' and inflicts %{(level+5)//6}d8 HP lightning (Strength neg)"',
+    'Description="R15\' Pulls the target 10\' and inflicts %{(level+5)//6}d8 HP lightning if this brings it to within 5\' (save Strength negates)"',
   'Sword Burst':
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
-    'Description="5\' radius inflicts %{(level+7)//6}d6 HP force (Dexterity neg)"'
+    'Description="5\' radius inflicts %{(level+7)//6}d6 HP force (save Dexterity negates)"'
 };
 SwordCoast.SPELLS_LEVELS_ADDED = {
   'False Life':'"K1 [The Undying]"',
