@@ -1,5 +1,5 @@
 /*
-Copyright 2021, James J. Hayes
+Copyright 2026, James J. Hayes
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -98,7 +98,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
     'Equipment=' +
       '"Uniform",Horn,"Manacles","10 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Choose 1 from Athletics, Investigation/Insight)",'+
+      '"1:Skill Proficiency (Choose 1 from Athletics, Investigation; Insight)",'+
       '"1:Language (Choose 2 from any)",' +
       '"1:Watcher\'s Eye"',
   'Clan Crafter':
@@ -106,7 +106,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"Artisan\'s Tools","Maker\'s Mark Chisel","Traveler\'s Clothes",' +
       '"15 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (History/Insight)",' +
+      '"1:Skill Proficiency (History; Insight)",' +
       '"1:Tool Proficiency (Choose 1 from any Artisan)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:Respect Of The Stout Folk"',
@@ -114,21 +114,21 @@ SwordCoast.BACKGROUNDS_ADDED = {
     'Equipment=' +
       '"Scholar\'s Robes","Writing Kit","Borrowed Book","10 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (History/Choose 1 from Arcana, Nature, Religion)",' +
+      '"1:Skill Proficiency (History; Choose 1 from Arcana, Nature, Religion)",' +
       '"1:Language (Choose 2 from any)",' +
       '"1:Library Access"',
   'Courtier':
     'Equipment=' +
       '"Fine Clothes","5 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Insight/Persuasion)",' +
+      '"1:Skill Proficiency (Insight; Persuasion)",' +
       '"1:Language (Choose 2 from any)",' +
       '"1:Court Functionary"',
   'Faction Agent':
     'Equipment=' +
       '"Faction Badge","Faction Book","Common Clothes","15 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Insight/Choose 1 from any)",' +
+      '"1:Skill Proficiency (Insight; Choose 1 from any)",' +
       '"1:Language (Choose 2 from any)",' +
       '"1:Safe Haven"',
   'Far Traveler':
@@ -136,7 +136,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"Traveler\'s Clothes","Musical Instrument or Gaming Set",' +
       'Maps,"15 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Insight/Perception)",' +
+      '"1:Skill Proficiency (Insight; Perception)",' +
       '"1:Tool Proficiency (Choose 1 from any Gaming, any Musical)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:All Eyes On You"',
@@ -144,7 +144,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
     'Equipment=' +
       '"Inheritance","Traveler\'s Clothes",Tool,"15 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Survival/Choose 1 from Arcana, History, Religion)",' +
+      '"1:Skill Proficiency (Survival; Choose 1 from Arcana, History, Religion)",' +
       '"1:Tool Proficiency (Choose 1 from any Gaming, any Musical)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:Inheritance"',
@@ -152,7 +152,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
     'Equipment=' +
       '"Traveler\'s Clothes",Signet,"10 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Persuasion/Choose 1 from Arcana, History, Nature, Religion)",' +
+      '"1:Skill Proficiency (Persuasion; Choose 1 from Arcana, History, Nature, Religion)",' +
       '"1:Tool Proficiency (Choose 1 from any Gaming, any Musical)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:Knightly Regard"',
@@ -160,7 +160,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
     'Equipment=' +
       'Uniform,Insignia,"Gaming Set","10 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Athletics/Persuasion)",' +
+      '"1:Skill Proficiency (Athletics; Persuasion)",' +
       '"1:Tool Proficiency (Vehicles (Land)/Choose 1 from any Gaming)",' +
       '"1:Mercenary Life"',
   'Urban Bounty Hunter':
@@ -174,7 +174,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
     'Equipment=' +
       '"Hunting Map","Totem or tattoos","Traveler\'s Clothes","10 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (Athletics/Survival)",' +
+      '"1:Skill Proficiency (Athletics; Survival)",' +
       '"1:Tool Proficiency (Choose 1 from any Gaming, any Artisan)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:Uthgardt Heritage"',
@@ -183,7 +183,7 @@ SwordCoast.BACKGROUNDS_ADDED = {
       '"Fine Clothes","Signet Ring","Scroll Of Pedigree",' +
       '"Skin Of Fine Wine","20 GP" ' +
     'Features=' +
-      '"1:Skill Proficiency (History/Persuasion)",' +
+      '"1:Skill Proficiency (History; Persuasion)",' +
       '"1:Tool Proficiency (Choose 1 from any Gaming, any Musical)",' +
       '"1:Language (Choose 1 from any)",' +
       '"1:Kept In Style"'
@@ -646,7 +646,7 @@ SwordCoast.FEATURES_ADDED = {
       '"R30\' Can slow fly Speed to 30\' to give %{charismaModifier+3} others a 30\' fly Speed for 1 hr once per long rest",' +
       '"Has immunity to lightning and thunder"',
   'Wind Speaker':
-    'Section=skill Note="Language (Primordial/Aquan/Auran/Ignan/Terran)"',
+    'Section=skill Note="Language (Primordial; Aquan; Auran; Ignan; Terran)"',
 
   // Warlock
   // The Undying
