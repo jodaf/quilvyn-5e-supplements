@@ -1,5 +1,5 @@
 /*
-Copyright 2023, James J. Hayes
+Copyright 2026, James J. Hayes
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -48,7 +48,7 @@ function Volo(edition, rules) {
     Volo.CHARACTER_RACES_IN_PLAY = true;
 }
 
-Volo.VERSION = '2.4.1.0';
+Volo.VERSION = '2.4.2.0';
 
 Volo.CHARACTER_FEATURES = {
   'Amphibious':'Section=feature Note="May breathe water"',
@@ -59,7 +59,7 @@ Volo.CHARACTER_FEATURES = {
     'Note=' +
       '"20\' climb Speed",' +
       '"May use claws as a natural slashing weapon"',
-  "Cat's Talent":'Section=skill Note="Skill Proficiency (Perception/Stealth)"',
+  "Cat's Talent":'Section=skill Note="Skill Proficiency (Perception; Stealth)"',
   'Celestial Resistance':
     'Section=save Note="Resistance to necrotic and radiant damage"',
   'Control Air And Water':
@@ -142,51 +142,69 @@ Volo.CHARACTER_FEATURES = {
 };
 Volo.CHARACTER_RACES = {
   'Fallen Aasimar':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Celestial)",' +
+      '"Language (Common; Celestial)",' +
       '"Celestial Resistance",Darkvision,"Healing Hands",' +
       '"Fallen Aasimar Ability Adjustment","Light Bearer",' +
       '"3:Necrotic Shroud"',
   'Firbolg':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Elvish/Giant)",' +
+      '"Language (Common; Elvish; Giant)",' +
       '"Firbolg Ability Adjustment","Firbolg Magic","Hidden Step",' +
       '"Powerful Build","Speech Of Beast And Leaf"',
   'Lizardfolk':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Draconic)",' +
-      'Bite,"Cunning Artisan","Lizardfolk Ability Adjustment","Hold Breath",' +
-      '"Hungry Jaws","Hunter\'s Lore","Natural Armor",Swimmer',
+      '"Language (Common; Draconic)",' +
+      '"Bite","Cunning Artisan","Lizardfolk Ability Adjustment",' +
+      '"Hold Breath","Hungry Jaws","Hunter\'s Lore","Natural Armor",Swimmer',
   'Goliath':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Giant)",' +
+      '"Language (Common; Giant)",' +
       '"Goliath Ability Adjustment","Mountain Born","Natural Athlete",' +
       '"Powerful Build","Stone\'s Endurance"',
   'Kenku':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Auran)",' +
-      '"Expert Forgery","Kenku Ability Adjustment","Kenku Training",Mimicry',
+      '"Language (Common; Auran)",' +
+      '"Expert Forgery","Kenku Ability Adjustment","Kenku Training","Mimicry"',
   'Protector Aasimar':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Celestial)",' +
-      'Darkvision,"Celestial Resistance","Healing Hands","Light Bearer",' +
+      '"Language (Common; Celestial)",' +
+      '"Darkvision","Celestial Resistance","Healing Hands","Light Bearer",' +
       '"Protector Aasimar Ability Adjustment","3:Radiant Soul (Aasimar)"',
   'Scourge Aasimar':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Celestial)",' +
-      'Darkvision,"Celestial Resistance","Healing Hands","Light Bearer",' +
+      '"Language (Common; Celestial)",' +
+      '"Darkvision","Celestial Resistance","Healing Hands","Light Bearer",' +
       '"Scourge Aasimar Ability Adjustment",' +
       '"3:Radiant Consumption"',
   'Tabaxi':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Choose 1 from any)",' +
-      '"Cat\'s Claws","Cat\'s Talent",Darkvision,"Feline Agility",' +
+      '"Language (Common; Choose 1 from any)",' +
+      '"Cat\'s Claws","Cat\'s Talent","Darkvision","Feline Agility",' +
       '"Tabaxi Ability Adjustment"',
   'Triton':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Primordial)",' +
-      'Amphibious,"Control Air And Water","Emissary Of The Sea",' +
-      '"Guardians Of The Depths",Swimmer,"Triton Ability Adjustment"'
+      '"Language (Common; Primordial)",' +
+      '"Amphibious","Control Air And Water","Emissary Of The Sea",' +
+      '"Guardians Of The Depths","Swimmer","Triton Ability Adjustment"'
 };
 Volo.MONSTROUS_FEATURES = {
   'Aggressive':
@@ -237,39 +255,51 @@ Volo.MONSTROUS_FEATURES = {
     'Section=ability Note="+2 Charisma/+1 Intelligence"'
 };
 Volo.MONSTROUS_RACES = {
-  'Bugbear':
+  'Bugbear': // (ref Eberron5E)
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Goblin)",' +
-      '"Bugbear Ability Adjustment",Darkvision,Long-Limbed,"Powerful Build",' +
-      'Sneaky,"Surprise Attack"',
-  'Goblin':
+      '"Language (Common; Goblin)",' +
+      '"Bugbear Ability Adjustment","Darkvision","Long-Limbed",' +
+      '"Powerful Build","Sneaky","Surprise Attack"',
+  'Goblin': // (ref Eberron5E)
+    'Size=Small ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Goblin)",' +
-      'Darkvision,"Fury Of The Small","Goblin Ability Adjustment",' +
-      '"Nimble Escape",Small',
-  'Hobgoblin':
+      '"Language (Common; Goblin)",' +
+      '"Darkvision","Fury Of The Small","Goblin Ability Adjustment",' +
+      '"Nimble Escape"',
+  'Hobgoblin': // (ref Eberron5E)
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Goblin)",' +
-      'Darkvision,"Hobgoblin Ability Adjustment","Martial Training",' +
+      '"Language (Common; Goblin)",' +
+      '"Darkvision","Hobgoblin Ability Adjustment","Martial Training",' +
       '"Saving Face"',
   'Kobold':
+    'Size=Small ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Draconic)",' +
-      'Darkvision,"Grovel, Cower, and Beg","Kobold Ability Adjustment",' +
-      '"Pack Tactics",Small,"Sunlight Sensitivity"',
-  'Orc':
+      '"Language (Common; Draconic)",' +
+      '"Darkvision","Grovel, Cower, and Beg","Kobold Ability Adjustment",' +
+      '"Pack Tactics","Sunlight Sensitivity"',
+  'Orc': // (ref Eberron5E)
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Orc)",' +
-      'Aggressive,Darkvision,Menacing,"Orc Ability Adjustment",' +
+      '"Language (Common; Orc)",' +
+      '"Aggressive","Darkvision","Menacing","Orc Ability Adjustment",' +
       '"Powerful Build"',
   'Yuan-Ti':
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
-      '"Language (Common/Abyssal/Draconic)",' +
-      'Darkvision,"Innate Spellcasting","Magic Resistance","Poison Immunity",' +
-      '"Yuan-Ti Ability Adjustment"'
+      '"Language (Common; Abyssal; Draconic)",' +
+      '"Darkvision","Innate Spellcasting","Magic Resistance",' +
+      '"Poison Immunity","Yuan-Ti Ability Adjustment"'
 };
 Volo.SPELLS = {
-  // Copied from Xanathar's
+  // (ref Xanathar)
   'Wall Of Water':
     'School=Evocation ' +
     'Level=D3,S3,W3 ' +
