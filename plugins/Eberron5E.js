@@ -1,5 +1,5 @@
 /*
-Copyright 2023, James J. Hayes
+Copyright 2026, James J. Hayes
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -797,29 +797,29 @@ Eberron5E.RACES_ADDED = {
     'Speed=30 ' +
     'Features=' +
       '"Language (Common)",' +
-      'Darkvision,"Beasthide Ability Adjustment","Shifting (Beasthide)",' +
-      'Shifting,"Natural Athlete"',
+      '"Darkvision","Beasthide Ability Adjustment","Shifting (Beasthide)",' +
+      '"Shifting","Natural Athlete"',
   'Longtooth Shifter':
     'Size=Medium ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common)",' +
-      'Darkvision,Fierce,"Longtooth Ability Adjustment",' +
-      '"Shifting (Longtooth)",Shifting',
+      '"Darkvision","Fierce","Longtooth Ability Adjustment",' +
+      '"Shifting (Longtooth)","Shifting"',
   'Swiftstride Shifter':
     'Size=Medium ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common)",' +
-      'Darkvision,Graceful,Shifting,"Swiftstride Ability Adjustment",' +
+      '"Darkvision","Graceful","Shifting","Swiftstride Ability Adjustment",' +
       '"Shifting (Swiftstride)"',
   'Wildhunt Shifter':
     'Size=Medium ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common)",' +
-      'Darkvision,"Natural Tracker",Shifting,"Wildhunt Ability Adjustment",' +
-      '"Shifting (Wildhunt)"',
+      '"Darkvision","Natural Tracker","Shifting",' +
+      '"Wildhunt Ability Adjustment","Shifting (Wildhunt)"',
   'Warforged':
     'Size=Medium ' +
     'Speed=30 ' +
@@ -836,14 +836,14 @@ Eberron5E.RACES_ADDED = {
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Goblin)",' +
-      '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
+      '"Finding Ability Adjustment","Darkvision","Hunter\'s Intuition",' +
       '"Finder\'s Magic","Spells Of The Mark"',
   'Mark Of Finding Human':
     'Size=Medium ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Goblin)",' +
-      '"Finding Ability Adjustment",Darkvision,"Hunter\'s Intuition",' +
+      '"Finding Ability Adjustment","Darkvision","Hunter\'s Intuition",' +
       '"Finder\'s Magic","Spells Of The Mark"',
   'Mark Of Handling Human':
     SRD5E.RACES.Human
@@ -853,7 +853,7 @@ Eberron5E.RACES_ADDED = {
     'Speed=25 ' +
     'Features=' +
       '"Language (Common; Halfling)",' +
-      'Brave,"Halfling Nimbleness","Lucky (Halfling)",' +
+      '"Brave","Halfling Nimbleness","Lucky (Halfling)",' +
       '"Healing Ability Adjustment","Spells Of The Mark","Healing Touch",' +
       '"Medical Intuition"',
   'Mark Of Hospitality Halfling':
@@ -861,7 +861,7 @@ Eberron5E.RACES_ADDED = {
     'Speed=25 ' +
     'Features=' +
       '"Language (Common; Halfling)",' +
-      'Brave,"Halfling Nimbleness","Lucky (Halfling)",' +
+      '"Brave","Halfling Nimbleness","Lucky (Halfling)",' +
       '"Ever Hospitable","Hospitality Ability Adjustment",' +
       '"Spells Of The Mark","Innkeeper\'s Magic"',
   'Mark Of Making Human':
@@ -875,7 +875,7 @@ Eberron5E.RACES_ADDED = {
     'Speed=25 ' +
     'Features=' +
       '"Language (Common; Gnomish)",' +
-      'Darkvision,"1:Gnome Cunning","Scribing Ability Adjustment",' +
+      '"Darkvision","1:Gnome Cunning","Scribing Ability Adjustment",' +
       '"Gifted Scribe","Scribe\'s Insight","Spells Of The Mark"',
   'Mark Of Sentinel Human':
     SRD5E.RACES.Human
@@ -885,9 +885,9 @@ Eberron5E.RACES_ADDED = {
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Elvish)",' +
-      'Darkvision,"Elf Weapon Training","Fey Ancestry","Keen Senses",Trance,' +
-      '"Cunning Intuition","Shadow Ability Adjustment","Spells Of The Mark",' +
-      '"Shape Shadows"',
+      '"Darkvision","Elf Weapon Training","Fey Ancestry","Keen Senses",' +
+      '"Trance","Cunning Intuition","Shadow Ability Adjustment",' +
+      '"Spells Of The Mark","Shape Shadows"',
   'Mark Of Storm Half-Elf':
     SRD5E.RACES['Half-Elf']
       .replace('Half-Elf Ability', 'Storm Ability')
@@ -898,30 +898,36 @@ Eberron5E.RACES_ADDED = {
     'Features=' +
       '"Language (Common; Dwarvish)",' +
       '"Tool Proficiency (Choose 1 from Brewer\'s Supplies, Mason\'s Tools, Smith\'s Tools)",' +
-      'Darkvision,"Dwarven Combat Training","Dwarven Resilience",Steady,' +
-      'Stonecunning,"Warding Ability Adjustment","Warder\'s Intuition",' +
+      '"Darkvision","Dwarven Combat Training","Dwarven Resilience",Steady,' +
+      '"Stonecunning","Warding Ability Adjustment","Warder\'s Intuition",' +
       '"Spells Of The Mark","Wards And Seals"',
   'Bugbear': // (ref Volo)
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
       '"Language (Common; Goblin)",' +
-      '"Bugbear Ability Adjustment",Darkvision,Long-Limbed,"Powerful Build",' +
-      'Sneaky,"Surprise Attack"',
+      '"Bugbear Ability Adjustment","Darkvision","Long-Limbed",' +
+      '"Powerful Build","Sneaky","Surprise Attack"',
   'Goblin': // (ref Volo)
     'Size=Small ' +
     'Speed=30 ' +
     'Features=' +
       '"Language (Common; Goblin)",' +
-      'Darkvision,"Fury Of The Small","Goblin Ability Adjustment",' +
+      '"Darkvision","Fury Of The Small","Goblin Ability Adjustment",' +
       '"Nimble Escape"',
   'Hobgoblin': // (ref Volo)
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
       '"Language (Common; Goblin)",' +
-      'Darkvision,"Hobgoblin Ability Adjustment","Martial Training",' +
+      '"Darkvision","Hobgoblin Ability Adjustment","Martial Training",' +
       '"Saving Face"',
   'Orc': // (ref Volo; Primal Intuition replaces Volo's Menacing)
+    'Size=Medium ' +
+    'Speed=30 ' +
     'Features=' +
       '"Language (Common; Orc)",' +
-      'Aggressive,Darkvision,"Orc Ability Adjustment","Powerful Build",' +
+      '"Aggressive","Darkvision","Orc Ability Adjustment","Powerful Build",' +
       '"Primal Intuition"'
 };
 Eberron5E.RACES =
