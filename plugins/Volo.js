@@ -138,7 +138,7 @@ Volo.CHARACTER_FEATURES = {
   'Swimmer':'Section=ability Note="Has a 30\' swim Speed"',
 
   // Tabaxi
-  // Darkvision as above
+  // Darkvision as SRD5E
   "Cat's Claws":
     'Section=ability,combat ' +
     'Note=' +
@@ -233,51 +233,80 @@ Volo.CHARACTER_RACES = {
       '"Emissary Of The Sea","Guardians Of The Depths","Swimmer"'
 };
 Volo.MONSTROUS_FEATURES = {
-  'Aggressive':
-    'Section=combat ' +
-    'Note="May use a bonus action to move %{speed}\' toward foe"',
+
+  // Bugbear (ref Eberron5E)
   'Bugbear Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Dexterity"',
+  // Darkvision as SRD5E
+  'Long-Limbed':'Section=combat Note="+5\' melee reach"',
+  // Powerful Build as above
+  'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
+  'Surprise Attack':
+    'Section=combat ' +
+    'Note="Inflicts +2d6 HP damage on first surprise hit once per combat"',
+
+  // Goblin (ref Eberron5E)
+  // Darkvision as SRD5E
   'Fury Of The Small':
     'Section=combat ' +
-    'Note="May inflict +%{level} HP damage to a larger creature 1/short rest"',
+    'Note="Can inflict +%{level} HP to a larger creature once per short rest"',
   'Goblin Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Constitution"',
-  'Grovel, Cower, and Beg':
-    'Section=feature ' +
-    'Note="R10\' May distract foes, giving allies Adv on attacks, for 1 rd 1/short rest"',
+  'Nimble Escape':
+    'Section=combat Note="Can use a bonus action to Disengage or Hide"',
+
+  // Hobgoblin (ref Eberron5E)
+  // Darkvision as SRD5E
   'Hobgoblin Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Intelligence"',
-  'Innate Spellcasting':
-    'Section=magic ' +
-    'Note="Knows <i>Poison Spray</i> cantrip/May cast <i>Animal Friendship</i> on snakes at will%{level<3?\'\':\'/May cast <i>Suggestion</i> 1/long rest\'}" ' +
-    'SpellAbility=Charisma ' +
-    'Spells="Poison Spray","Animal Friendship","3:Suggestion"',
-  'Kobold Ability Adjustment':
-    'Section=ability Note="+2 Dexterity/-2 Strength"',
-  'Long-Limbed':'Section=combat Note="+5\' melee reach"',
   'Martial Training':
     'Section=combat ' +
     'Note="Armor Proficiency (Light)/Weapon Proficiency (Choose 2 from any Martial)"',
-  'Magic Resistance':
-    'Section=save Note="Adv on saves vs. spells and magical effects"',
-  'Nimble Escape':
-    'Section=combat Note="May use a bonus action to Disengage or Hide"',
-  'Orc Ability Adjustment':
-    'Section=ability Note="+2 Strength/+1 Constitution/-2 Intelligence"',
-  'Pack Tactics':
-    'Section=combat Note="Adv on attacks when an ally is adjacent to target"',
-  'Poison Immunity':
-    'Section=save Note="Immune to poison damage and poisoned condition"',
-  'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Saving Face':
     'Section=feature ' +
-    'Note="May add 1 for each ally w/in 30\' (+5 maximum) to a failed roll 1/short rest"',
-  'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
-  'Surprise Attack':
-    'Section=combat Note="Inflicts +2d6 HP damage on first surprise hit"',
+    'Note="Can add 1 for each ally within 30\' (+5 maximum) to a failed roll once per short rest"',
+
+  // Kobold
+  // Darkvision as SRD5E
+  'Grovel, Cower, and Beg':
+    'Section=feature ' +
+    'Note="R10\' Can distract foes, giving allies advantage on attacks, for 1 rd once per short rest"',
+  'Kobold Ability Adjustment':
+    'Section=ability Note="+2 Dexterity/-2 Strength"',
+  'Pack Tactics':
+    'Section=combat ' +
+    'Note="Has advantage on attacks when an ally is adjacent to the target"',
+  'Sunlight Sensitivity': // (ref PHB5E)
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Has disadvantage on attacks in direct sunlight",' +
+      '"Has disadvantage on sight Perception in direct sunlight"',
+
+  // Orc (ref Eberron5E)
+  'Aggressive':
+    'Section=combat ' +
+    'Note="Can use a bonus action to move %{speed}\' toward a foe"',
+  // Darkvision as SRD5E
+  // Menacing as SRD5E
+  'Orc Ability Adjustment':
+    'Section=ability Note="+2 Strength/+1 Constitution/-2 Intelligence"',
+  // Powerful Build as above
+
+  // Yuan-Ti
+  // Darkvision as SRD5E
+  'Innate Spellcasting':
+    'Section=magic ' +
+    'Note="Knows the <i>Poison Spray</i> cantrip%{level<3?\' and\':\',\'} can cast <i>Animal Friendship</i> on snakes at will%{level<3?\'\':\', and can cast <i>Suggestion</i> once per long rest\'}" ' +
+    'SpellAbility=Charisma ' +
+    'Spells="Poison Spray","Animal Friendship","3:Suggestion"',
+  'Magic Resistance':
+    'Section=save Note="Has advantage vs. spells and magical effects"',
+  'Poison Immunity':
+    'Section=save ' +
+    'Note="Has immunity to poison damage and the poisoned condition"',
   'Yuan-Ti Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Intelligence"'
+
 };
 Volo.MONSTROUS_RACES = {
   'Bugbear': // (ref Eberron5E)
@@ -328,7 +357,7 @@ Volo.SPELLS = {
   'Wall Of Water':
     'School=Evocation ' +
     'Level=D3,S3,W3 ' +
-    'Description="R60\' 30\'x10\' wall inflicts Disadv on ranged attacks and half damage on fire for conc or 10 min"'
+    'Description="R60\' 30\'x10\'x1\' wall or 20\'x20\'x1\' ring inflicts disadvantage on ranged attacks and half damage on fire for concentration up to 10 min"'
 };
 
 /* Defines rules related to basic character identity. */
