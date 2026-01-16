@@ -651,7 +651,7 @@ Xanathar.FEATURES = {
     'Note="Can spend 2 ki points to cancel disadvantage on an ability, attack, or save roll"',
   'Drunken Technique':
     'Section=combat ' +
-    'Note="Gains +10 Speed and movement provokes no opportunity attacks during Flurry Of Blows"',
+    'Note="Movement provokes no opportunity attacks and gains +10 Speed during Flurry Of Blows"',
   'Intoxicated Frenzy':
     'Section=combat ' +
     'Note="Can make 3 additional Flurry Of Blows attacks on 3 different foes"',
@@ -665,7 +665,7 @@ Xanathar.FEATURES = {
   // Way Of The Kensi
   'Agile Parry':
     'Section=combat ' +
-    'Note="Gains +2 Armor Class for 1 rd after an unarmed attack when armed with a Kensei melee weapon"',
+    'Note="Gains +2 Armor Class for 1 rd after an unarmed strike when armed with a Kensei melee weapon"',
   'Deft Strike':
     'Section=combat ' +
     'Note="Can spend 1 ki point to inflict +%{monkMeleeDieBonus} damage with a Kensei weapon once per rd"',
@@ -739,7 +739,7 @@ Xanathar.FEATURES = {
     'Note="Can use Channel Energy and a bonus action to gain +5 Persuasion for 10 min"',
   'Emissary Of Redemption':
     'Section=combat ' +
-    'Note="Has resistance to all attack damage, and a successful attacker takes radiant damage equal to half that inflicted; attacking a creature negates these effects for that target until a long rest"',
+    'Note="Has resistance to all attack damage, and a successful attacker takes radiant damage equal to half that inflicted; attacking a creature negates these effects with it until a long rest"',
   'Oath Of Redemption':
     'Spells=' +
       '"3:Sanctuary","3:Sleep",' +
@@ -820,13 +820,13 @@ Xanathar.FEATURES = {
       '"17:Hold Monster"',
   "Slayer's Counter":
     'Section=combat ' +
-    'Note="Can use a reaction when Slayer\'s Prey target forces a self saving throw to attack; attack success also makes the save succeed"',
+    'Note="Can use a reaction to attack when a Slayer\'s Prey target forces a self saving throw; attack success also makes the save succeed"',
   "Slayer's Prey":
     'Section=combat ' +
-    'Note="R60\' Can use a bonus action to inflict +1d6 HP weapon damage on chosen target with the first attack each rd"',
+    'Note="R60\' Can use a bonus action to inflict +1d6 HP weapon damage on a chosen target with the first attack each rd"',
   'Supernatural Defense':
     'Section=save ' +
-    'Note="+1d6 saves and grapple escapes vs. Slayer\'s Prey target"',
+    'Note="+1d6 saves and grapple escapes vs. Slayer\'s Prey targets"',
 
   // Rogue
   // Inquisitive
