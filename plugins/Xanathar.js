@@ -830,225 +830,239 @@ Xanathar.FEATURES = {
 
   // Rogue
   // Inquisitive
-  'Ear For Deceit':'Section=skill Note="Minimum 8 on Insight rolls"',
+  'Ear For Deceit':
+    'Section=skill ' +
+    'Note="Scores a minimum of 8 on Insight rolls to detect lies"',
   'Eye For Detail':
     'Section=skill ' +
-    'Note="May use a bonus action to use Perception to a spot hidden item or Investigation to uncover a clue"',
+    'Note="Can use a bonus action to use Perception to spot a hidden item or Investigation to uncover a clue"',
   'Eye For Weakness':
     'Section=combat ' +
-    'Note="Insightful Fighting inflicts +3d6 HP Sneak Attack damage"',
+    'Note="Sneak Attack inflicts +3d6 HP vs. an Insightful Fighting target"',
   'Insightful Fighting':
     'Section=combat ' +
-    'Note="May use a bonus action and a successful Insight vs. foe Deception to make Sneak Attacks w/out Adv against target for 1 min"',
+    'Note="Can use a bonus action and a successful Insight vs. Deception to make Sneak Attacks without advantage against the target for 1 min"',
   'Steady Eye':
     'Section=skill ' +
-    'Note="Adv on Perception and Investigation after moving half speed"',
+    'Note="Has advantage on Perception and Investigation after moving half speed"',
   'Unerring Eye':
     'Section=feature ' +
-    'Note="R30\' May sense illusions and other deceptions %{wisdomModifier>?1}/long rest"',
-  // Mastermind
+    'Note="R30\' Can sense the presence of illusions and other deceptions %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
+  // Mastermind (ref SwordCoast)
   'Insightful Manipulator':
     'Section=feature ' +
-    'Note="May learn 2 of relative Charisma, Intelligence, Wisdom, and levels of target after 1 min study"',
+    'Note="Can learn 2 choices of information about a target after 1 min of study: relative class levels, Charisma, Intelligence, or Wisdom"',
   'Master Of Intrigue':
     'Section=feature,skill ' +
     'Note=' +
-      '"May mimic accent and speech patterns after listening for 1 min",' +
-      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit/Forgery Kit/Choose 1 from any Game)"',
+      '"Can mimic accent and speech patterns after listening for 1 min",' +
+      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming)"',
   'Master Of Tactics':
-    'Section=combat Note="R30\' May use Help as a bonus action"',
+    'Section=combat ' +
+    'Note="R30\' Can use Help as a bonus action, and can Help with an attack within 30\'"',
   'Misdirection':
     'Section=combat ' +
-    'Note="May use Reaction to redirect an attack from self to a creature that provides cover"',
+    'Note="Can use a reaction to redirect an attack on self to a creature providing cover"',
   'Soul Of Deceit':
     'Section=save ' +
-    'Note="Immune to telepathy, may use Deception vs. Insight to present false thoughts, and always detects as telling the truth"',
+    'Note="Has immunity to telepathy, can use Deception vs. Insight to present false thoughts, and always detects as telling the truth"',
   // Scout
   'Ambush Master':
     'Section=combat ' +
-    'Note="Adv on Initiative/Allies gain Adv on attacks for 1 rd on first foe struck in first rd"',
+    'Note="Has advantage on Initiative, and the first successful attack in the first round gives self and allies advantage on attacks vs. that foe for 1 rd"',
   'Skirmisher':
     'Section=combat ' +
-    'Note="May use Reaction to move half speed w/out provoking an OA when a foe comes w/in 5\'"',
+    'Note="Can use a reaction to move half speed without provoking opportunity attacks when a foe comes within 5\'"',
   'Sudden Strike':
     'Section=combat ' +
-    'Note="May use a bonus action for an extra attack, which may be a Sneak Attack on a second foe"',
+    'Note="Can use a bonus action for an extra attack that can include a second Sneak Attack on a different foe"',
   'Superior Mobility':'Section=ability Note="+10 Speed"',
   'Survivalist':
     'Section=skill ' +
-    'Note="+%{proficiencyBonus} Nature/+%{proficiencyBonus} Survival"',
-  // Swashbuckler
+    'Note="Skill Proficiency (Nature; Survival)/+%{proficiencyBonus} Nature/+%{proficiencyBonus} Survival"',
+  // Swashbuckler (ref SwordCoast)
   'Elegant Maneuver':
     'Section=skill ' +
-    'Note="May use a bonus action to gain Adv on next Acrobatics or Athletics for 1 rd"',
+    'Note="Can use a bonus action to gain advantage on the next Acrobatics or Athletics check during that turn"',
   'Fancy Footwork':
     'Section=combat ' +
-    'Note="Attacked foe cannot make an OA against self for 1 rd"',
+    'Note="Attacks prevent the target from making opportunity attacks against self for 1 rd"',
   'Master Duelist':
-    'Section=combat Note="May reroll a miss with Adv 1/short rest"',
+    'Section=combat ' +
+    'Note="Can reroll a miss with advantage once per short rest"',
   'Panache':
     'Section=skill ' +
-    'Note="Successful Persuasion vs. Insight gives hostile target Disadv on attacks on others (others attack ends) or charms a non-hostile target (damage ends) for 1 min"',
+    'Note="Successful Persuasion vs. Insight gives a hostile target disadvantage on attacks on others (an attack by another ends) or charms a non-hostile target (damage ends) for 1 min"',
   'Rakish Audacity':
     'Section=combat,combat ' +
     'Note=' +
       '"+%{charismaModifier} Initiative",' +
-      '"May use Sneak Attack w/out Adv when target is only adjacent foe (Disadv neg)"',
+      '"Can use Sneak Attack without advantage against an adjacent target when no other foe is adjacent"',
 
-  // Path
-  'Accursed Specter':
-    'Section=combat ' +
-    'Note="May raise a slain humanoid as an obedient specter w/%{levels.Warlock//2} temporary HP and +%{charismaModifier>?0} attack until a long rest 1/long rest"',
-  'Arcane Deflection':
-    'Section=combat ' +
-    'Note="After a hit or failed save, may use Reaction and forego 1 rd of non-cantrip casting to gain +2 AC or +4 save"',
-  'Armor Of Hexes':
-    'Section=combat ' +
-    'Note="Hexblade\'s Curse target has 50% chance to miss self"',
-  'Aspect Of The Moon':
-    'Section=save ' +
-    'Note="Immune to sleep/Light activity gives benefits of sleep"',
-  'Bonus Cantrips (The Celestial)':
-    'Section=magic ' +
-    'Note="Knows <i>Light</i> and <i>Sacred Flame</i> cantrips" ' +
-    'Spells=Light,"Sacred Flame"',
-  'Celestial Radiance':
-    'Section=save Note="Resistance to necrotic and radiant damage"',
-  'Celestial Resilience':
-    'Section=magic ' +
-    'Note="Gains %{levels.Warlock+charismaModifier} temporary HP, and may give 5 others %{levels.Warlock//2+charismaModifier} temporary HP, at the end of a rest"',
-  'Cloak Of Flies':
-    'Section=magic,skill ' +
-    'Note=' +
-      '"May use a bonus action to create a 5\' radius that inflicts %{charismaModifier>?0} HP poison damage 1/short rest",' +
-      '"May use a bonus action to gain Adv on Intimidate and suffer Disadv on other Charisma checks 1/short rest"',
-  'Deflecting Shroud':
-    'Section=magic ' +
-    'Note="R60\' Arcane Deflection strikes 3 targets, inflicting %{levels.Wizard//2} HP force each"',
+  // Sorcerer
+  // Divine Soul
   'Divine Magic':'Section=magic Note="Has access to Cleric spells"',
-  'Durable Magic':
-    'Section=combat,save ' +
-    'Note=' +
-      '"+2 AC during spell concentration",' +
-      '"+2 saves during spell concentration"',
-  'Eldritch Smite':
-    'Section=combat ' +
-    'Note="May spend a spell slot to inflict +(slot level + 1)d8 HP force and knock prone w/pact weapon"',
   'Empowered Healing':
     'Section=magic ' +
-    'Note="R5\' May spend 1 Sorcery Point to reroll self or ally healing 1/rd"',
+    'Note="R5\' Can spend 1 Sorcery Point to reroll self or ally healing once per rd"',
+  'Favored By The Gods':
+    'Section=combat ' +
+    'Note="Can add 2d4 to a failed attack or save once per short rest"',
+  'Otherworldly Wings':
+    'Section=ability Note="Can use a bonus action to gain a 30\' fly Speed"',
+  'Unearthly Recovery':
+    'Section=magic ' +
+    'Note="Can use a bonus action to regain %{hitPoints//2} hit points when below %{hitPoints//2} hit points once per long rest"',
+  // Shadow Magic
   'Eyes Of The Dark':
     'Section=feature,magic ' +
     'Note=' +
-      '"R120\' See normally in darkness",' +
-      '"May cast <i>Darkness</i> using a spell slot or 2 Sorcery Points" ' +
+      '"R120\' Sees one light level better",' +
+      '"Can cast <i>Darkness</i> using a spell slot or 2 Sorcery Points" ' +
     'Spells=Darkness',
-  'Favored By The Gods':
-    'Section=feature ' +
-    'Note="May add 2d4 to a failed attack or save 1/short rest"',
-  'Ghostly Gaze':
-    'Section=magic ' +
-    'Note="May see 30\' w/Darkvision through solid objects for conc up to 1 min 1/short rest"',
-  'Gift Of The Depths':
-    'Section=ability,feature,magic ' +
-    'Note=' +
-      '"%{speed}\' swim Speed",' +
-      '"May breathe water",' +
-      '"May cast <i>Water Breathing</i> 1/long rest" ' +
-    'Spells="Water Breathing"',
-  'Gift Of The Ever-Living Ones':
+  'Hound Of Ill Omen':
     'Section=combat ' +
-    'Note="Regains maximum HP from healing w/in 100\' of familiar"',
-  'Grasp Of Hadar':
-    'Section=magic Note="May pull target 10\' w/<i>Eldritch Blast</i>"',
+    'Note="R120\' Can use a bonus action and spend 3 Sorcery Points to summon a hound to attack a chosen target as a dire wolf with %{levels.Sorcerer//2} temporary HP, moving through obstacles, for 5 min or until reduced to 0 HP; being adjacent to the hound inflicts disadvantage vs. self spells on the target"',
+  'Shadow Walk':
+    'Section=magic ' +
+    'Note="Can use a bonus action to teleport 120\' between dim or dark areas"',
+  'Strength Of The Grave':
+    'Section=combat ' +
+    'Note="Once per long rest, can retain 1 hit point with a successful DC 5 + damage Charisma save when reduced to 0 hit points by non-critical, non-radiant damage"',
+  'Umbral Form':
+    'Section=magic ' +
+    'Note="Can use a bonus action and spend 6 Sorcery Points to gain the ability to move through objects and resistance to non-force, non-radiant damage for 1 min"',
+  // Storm Sorcery (ref SwordCoast)
   'Heart Of The Storm':
     'Section=magic,save ' +
     'Note=' +
-      '"10\' radius inflicts %{levels.Sorcerer//2} HP lightning or thunder on targets when casting a lightning or thunder spell",' +
-      '"Resistance to lightning and thunder damage"',
-  'Healing Light':
-    'Section=magic ' +
-    'Note="R60\' May use a bonus action to restore %{levels.Warlock+1}d6 HP/long rest (maximum %{charismaModifier>?1}d6 per healing)"',
-  'Hex Warrior':
-    'Section=combat,feature ' +
-    'Note=' +
-      '"+%{charismaModifier-strengthModifier} attack and damage (Charisma instead of Strength) w/pact weapon or touched non-two-handed weapon until a long rest 1/long rest",' +
-      '"Armor Proficiency (Medium/Shield)/Weapon Proficiency (Martial)"',
-  "Hexblade's Curse":
-    'Section=magic ' +
-    'Note="R30\' May use a bonus action to curse target; self gains +%{proficiencyBonus} damage on target, crits on 19 vs. target, and regains %{levels.Warlock+charismaModifier} HP if target dies, for 1 min 1/short rest"',
-  'Hound Of Ill Omen':
-    'Section=combat ' +
-    'Note="R120\' May use a bonus action and spend 3 Sorcery Points to summon a hound to attack target as a dire wolf w/%{levels.Sorcerer//2} temporary HP, moving through obstacles, for 5 min or until reduced to 0 HP; adjacent hound inflicts Disadv on self spell saves on target"',
-  'Improved Pact Weapon':
-    'Section=combat ' +
-    'Note="May use a bow or crossbow as a pact weapon/Pact weapon gains +1 attack and damage and can be used as a spell focus"',
-  'Lance Of Lethargy':
-    'Section=magic ' +
-    'Note="May inflict -10\' Speed w/<i>Eldritch Blast</i> for 1 rd"',
-  'Maddening Hex':
-    'Section=magic ' +
-    'Note="R30\' May use a bonus action to inflict %{charismaModifier>?1} HP psychic damage to targets in a 5\' radius around curse target"',
-  'Master Of Hexes':
-    'Section=magic ' +
-    'Note="R30\' May forego regaining HP to redirect Hexblade\'s Curse when target dies"',
-  'Otherworldly Wings':
-    'Section=ability Note="May use a bonus action to gain 30\' fly Speed"',
-  'Power Surge':
-    'Section=magic ' +
-    'Note="May store magic from %{intelligenceModifier>?1} countered spells and use it for +%{levels.Wizard//2} HP force spell damage 1/rd"',
-  'Radiant Soul':
-    'Section=magic,save ' +
-    'Note=' +
-      '"May inflict +%{charismaModifier} HP radiant and fire spell damage on one target",' +
-      '"Resistance to radiant damage"',
-  'Relentless Hex':
-    'Section=magic ' +
-    'Note="May use a bonus action to teleport 30\' to a space adjacent to curse target"',
-  'Searing Vengeance':
-    'Section=combat ' +
-    'Note="May regain %{hitPoints//2} HP, stand, and inflict R30\' 2d8+%{charismaModifier} radiant damage and blindness for 1 rd upon death saving throw 1/long rest"',
-  'Shadow Walk':
-    'Section=magic ' +
-    'Note="May use a bonus action to teleport 120\' between dim or dark areas"',
-  'Shroud Of Shadow':
-    'Section=magic ' +
-    'Note="May cast <i>Invisibility</i> at will" ' +
-    'Spells=Invisibility',
+      '"10\' radius inflicts %{levels.Sorcerer//2} HP of a choice of lightning or thunder on targets when casting a lightning or thunder spell",' +
+      '"Has resistance to lightning and thunder"',
   'Storm Guide':
     'Section=magic ' +
-    'Note="May stop rain in a 20\' radius or direct winds in a 100\' radius for 1 rd"',
+    'Note="Can use an action to stop rain in a 20\' radius and a bonus action each rd to direct winds in a 100\' radius"',
   "Storm's Fury":
     'Section=combat ' +
-    'Note="May use Reaction to inflict %{levels.Sorcerer} HP lightning and 20\' push on a successful melee attacker (DC %{spellDifficultyClass.S} Strength HP only)"',
-  'Strength Of The Grave':
-    'Section=combat ' +
-    'Note="Successful DC 5 + damage Charisma save retains 1 HP when reduced to 0 by non-critical, non-radiant damage 1/long rest"',
+    'Note="Can use a reaction to inflict %{levels.Sorcerer} HP lightning and a 20\' push on a successful melee attacker (save DC %{spellDifficultyClass.S} Strength HP only)"',
   'Tempestuous Magic':
     'Section=magic ' +
-    'Note="May use a bonus action to fly 10\' before or after casting a spell w/out provoking an OA"',
-  'Tactical Wit':'Section=combat Note="+%V Initiative"',
-  'Tomb Of Levistus':
-    'Section=magic ' +
-    'Note="May use Reaction upon taking damage to gain %{levels.Warlock*10} temporary HP and suffer vulnerability to fire and immobility for 1 rd 1/short rest"',
-  "Trickster's Escape":
-    'Section=magic ' +
-    'Note="May cast self <i>Freedom Of Movement</i> 1/long rest" ' +
-    'Spells="Freedom Of Movement"',
-  'Umbral Form':
-    'Section=magic ' +
-    'Note="May use a bonus action and spend 6 Sorcery Points to gain ability to move through objects and resistance to non-force, non-radiant damage for 1 min"',
-  'Unearthly Recovery':
-    'Section=magic ' +
-    'Note="May use a bonus action to regain %{hitPoints//2} HP when below %{hitPoints//2} HP 1/long rest"',
-  'Wind Speaker':
-    'Section=skill Note="Language (Primordial/Aquan/Auran/Ignan/Terran)"',
+    'Note="Can use a bonus action before or after casting a spell to fly 10\' without provoking opportunity attacks"',
   'Wind Soul':
     'Section=ability,magic,save ' +
     'Note=' +
-      '"60\' fly Speed",' +
-      '"R30\' May slow fly Speed to 30\' to give %{charismaModifier+3} others 30\' fly Speed for 1 hr 1/long rest",' +
-      '"Immunity to lightning and thunder damage"',
+      '"Has a 60\' fly Speed",' +
+      '"R30\' Can slow fly Speed to 30\' to give %{charismaModifier+3} others a 30\' fly Speed for 1 hr once per long rest",' +
+      '"Has immunity to lightning and thunder"',
+  'Wind Speaker':
+    'Section=skill Note="Language (Primordial; Aquan; Auran; Ignan; Terran)"',
+
+  // Warlock
+  // The Celestial
+  'Bonus Cantrips (The Celestial)':
+    'Section=magic ' +
+    'Note="Knows the <i>Light</i> and <i>Sacred Flame</i> cantrips" ' +
+    'Spells=Light,"Sacred Flame"',
+  'Celestial Resilience':
+    'Section=magic ' +
+    'Note="Gains %{levels.Warlock+charismaModifier} temporary hit points, and can give 5 others %{levels.Warlock//2+charismaModifier} temporary hit points, at the end of a rest"',
+  'Healing Light':
+    'Section=magic ' +
+    'Note="R60\' Can use bonus actions to restore %{levels.Warlock+1}d6 HP per long rest, with a maximum of %{charismaModifier>?1}d6 per healing"',
+  'Radiant Soul':
+    'Section=magic,save ' +
+    'Note=' +
+      '"Can inflict +%{charismaModifier} HP radiant or fire spell damage on one target",' +
+      '"Has resistance to radiant"',
+  'Searing Vengeance':
+    'Section=combat ' +
+    'Note="Instead of attempting a death saving throw, can regain %{hitPoints//2} hit points, stand, and inflict R30\' 2d8+%{charismaModifier} HP radiant and blindness for 1 rd once per long rest"',
+  // The Hexblade
+  'Accursed Specter':
+    'Section=combat ' +
+    'Note="Can raise a slain humanoid as an obedient specter with %{levels.Warlock//2} temporary hit points%{charismaModifier>0?\' and +\'+charismaModifier+\' attacks\':\'\'} until the next long rest once per long rest"',
+  'Armor Of Hexes':
+    'Section=combat ' +
+    'Note="Can use a reaction to give a successful attack on self by a Hexblade\'s Curse target a 50% miss chance"',
+  'Hex Warrior':
+    'Section=combat,feature ' +
+    'Note=' +
+      '"At the end of a long rest, gains +%{charismaModifier-strengthModifier} attack and damage (Charisma instead of Strength) with pact weapons and a touched non-two-handed weapon until the next long rest",' +
+      '"Armor Proficiency (Medium; Shield)/Weapon Proficiency (Martial)"',
+  "Hexblade's Curse":
+    'Section=magic ' +
+    'Note="R30\' Can use a bonus action to curse a target for 1 min once per short rest: self gains +%{proficiencyBonus} damage vs. the target, crits on a natural 19 vs. the target, and regains %{levels.Warlock+charismaModifier} hit points if the target dies"',
+  'Master Of Hexes':
+    'Section=magic ' +
+    'Note="R30\' Can forego regaining hit points from a Hexblade\'s Curse target\'s death to move the curse to another"',
+  // Eldritch Invocations
+  'Aspect Of The Moon':
+    'Section=save ' +
+    'Note="Has immunity to sleep; gains the benefits of sleep from light activity"',
+  'Cloak Of Flies':
+    'Section=magic,skill ' +
+    'Note=' +
+      '"Can use a bonus action to create a 5\' radius that inflicts %{charismaModifier>?0} HP poison damage once per short rest",' +
+      '"Can use a bonus action to gain advantage on Intimidate and suffer disadvantage on other Charisma checks once per short rest"',
+  'Eldritch Smite':
+    'Section=combat ' +
+    'Note="Can spend a spell slot to inflict +(slot level + 1)d8 HP force and knock prone a Huge or smaller foe with a pact weapon"',
+  'Ghostly Gaze':
+    'Section=magic ' +
+    'Note="Can see 30\' with darkvision through solid objects for concentration up to 1 min once per short rest"',
+  'Gift Of The Depths':
+    'Section=ability,feature,magic ' +
+    'Note=' +
+      '"Has a %{speed}\' swim Speed",' +
+      '"Can breathe water",' +
+      '"Can cast <i>Water Breathing</i> once per long rest" ' +
+    'Spells="Water Breathing"',
+  'Gift Of The Ever-Living Ones':
+    'Section=combat ' +
+    'Note="Regains maximum HP from healing when within 100\' of familiar"',
+  'Grasp Of Hadar':
+    'Section=magic ' +
+    'Note="<i>Eldritch Blast</i> can pull the target 10\' once per rd"',
+  'Improved Pact Weapon':
+    'Section=combat ' +
+    'Note="Can use a bow or crossbow as a pact weapon/Pact weapon can be used as a spell focus and gains +1 attack and damage if non-magical"',
+  'Lance Of Lethargy':
+    'Section=magic ' +
+    'Note="<i>Eldritch Blast</i> can inflict -10 Speed for 1 rd once per rd"',
+  'Maddening Hex':
+    'Section=magic ' +
+    'Note="R30\' Can use a bonus action to inflict %{charismaModifier>?1} HP psychic to targets in a 5\' radius around a curse target"',
+  'Relentless Hex':
+    'Section=magic ' +
+    'Note="Can use a bonus action to teleport 30\' to a space adjacent to a curse target"',
+  'Shroud Of Shadow':
+    'Section=magic ' +
+    'Note="Can cast <i>Invisibility</i> at will" ' +
+    'Spells=Invisibility',
+  'Tomb Of Levistus':
+    'Section=magic ' +
+    'Note="Can use a reaction upon taking damage to gain %{levels.Warlock*10} temporary hit points and suffer vulnerability to fire and immobility for 1 rd once per short rest"',
+  "Trickster's Escape":
+    'Section=magic ' +
+    'Note="Can cast self <i>Freedom Of Movement</i> once per long rest" ' +
+    'Spells="Freedom Of Movement"',
+
+  // Wizard
+  // War Magic
+  'Arcane Deflection':
+    'Section=combat ' +
+    'Note="Can use a reaction and forego 1 rd of non-cantrip casting to gain +2 Armor Class vs. a successful attack or +4 on a failed save"',
+  'Deflecting Shroud':
+    'Section=magic ' +
+    'Note="R60\' Arcane Deflection inflicts %{levels.Wizard//2} HP force on 3 targets"',
+  'Durable Magic':
+    'Section=combat,save ' +
+    'Note=' +
+      '"+2 Armor Class during spell concentration",' +
+      '"+2 saves during spell concentration"',
+  'Power Surge':
+    'Section=magic ' +
+    'Note="Can pool magic from %{intelligenceModifier>?1} countered or dispelled spells and use it once per rd to inflict +%{levels.Wizard//2} HP force with a spell; the pool contents increase to 1 after a short rest and reset to 1 after a long rest"',
+  'Tactical Wit':'Section=combat Note="+%V Initiative"',
 
   // Feats
   'Bountiful Luck':
@@ -1827,6 +1841,9 @@ Xanathar.classRulesExtra = function(rules, name) {
       ('skillProficiency.Survival', 'skillNotes.survivalist', '=', '1');
   } else if(name == 'Sorcerer') {
     rules.defineRule('magicNotes.eyesOfTheDark', classLevel, '?', 'source>=3');
+  } else if(name == 'Warlock') {
+    rules.defineRule
+      ('magicNotes.cloakOfFlies', 'charismaModifier', '?', 'source > 0');
   } else if(name == 'Wizard') {
     rules.defineRule
       ('combatNotes.tacticalWit', 'intelligenceModifier', '=', null);
