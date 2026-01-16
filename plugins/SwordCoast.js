@@ -597,17 +597,18 @@ SwordCoast.FEATURES_ADDED = {
       '"Can mimic accent and speech patterns after listening for 1 min",' +
       '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming)"',
   'Master Of Tactics':
-    'Section=combat Note="R30\' Can use Help as a bonus action"',
+    'Section=combat ' +
+    'Note="R30\' Can use Help as a bonus action, and can Help with an attack within 30\'"',
   'Misdirection':
     'Section=combat ' +
-    'Note="Can use a reaction to redirect an attack from self to a creature providing cover"',
+    'Note="Can use a reaction to redirect an attack on self to a creature providing cover"',
   'Soul Of Deceit':
     'Section=save ' +
     'Note="Has immunity to telepathy, can use Deception vs. Insight to present false thoughts, and always detects as telling the truth"',
   // Swashbuckler (ref Xanathar)
   'Elegant Maneuver':
     'Section=skill ' +
-    'Note="Can use a bonus action to gain advantage on the next Acrobatics or Athletics check within 1 rd"',
+    'Note="Can use a bonus action to gain advantage on the next Acrobatics or Athletics check during that turn"',
   'Fancy Footwork':
     'Section=combat ' +
     'Note="Attacks prevent the target from making opportunity attacks against self for 1 rd"',
@@ -621,7 +622,7 @@ SwordCoast.FEATURES_ADDED = {
     'Section=combat,combat ' +
     'Note=' +
       '"+%{charismaModifier} Initiative",' +
-      '"Can use Sneak Attack without advantage (disadvantage negates) against an adjacent target when no other foe is adjacent"',
+      '"Can use Sneak Attack without advantage against an adjacent target when no other foe is adjacent"',
 
   // Sorcerer
   // Storm Sorcery (ref Xanathar)

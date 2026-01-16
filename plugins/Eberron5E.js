@@ -397,7 +397,8 @@ Eberron5E.FEATURES_ADDED = {
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Surprise Attack':
-    'Section=combat Note="Inflicts +2d6 HP on first surprise hit"',
+    'Section=combat ' +
+    'Note="Inflicts +2d6 HP on first surprise hit once per combat"',
 
   // Goblin (ref Volo)
   // Darkvision as SRD5E
@@ -432,7 +433,7 @@ Eberron5E.FEATURES_ADDED = {
   // Orc (ref Volo)
   'Aggressive':
     'Section=combat ' +
-    'Note="Can use a bonus action to move %{speed}\' toward foe"',
+    'Note="Can use a bonus action to move %{speed}\' toward a foe"',
   // Darkvision as SRD5E
   'Orc Ability Adjustment':
     // Does not share Volo's -2 Intelligence
