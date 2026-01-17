@@ -1067,43 +1067,43 @@ Xanathar.FEATURES = {
   // Feats
   'Bountiful Luck':
     'Section=feature ' +
-    'Note="R30\' May use Reaction and forego using Lucky racial trait to allow an ally to reroll a natural 1 on an attack, ability, or saving throw"',
+    'Note="R30\' Can use a reaction and forego using the Lucky racial trait for 1 rd to allow an ally to reroll a natural 1 on an attack, ability, or saving throw"',
   'Dragon Fear':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Constitution, Charisma)",' +
-      '"R30\' May use Breath Weapon to frighten targets for 1 min (DC %{8+proficiencyBonus+charismaModifier} Wisdom neg)"',
+      '"R30\' Can use Breath Weapon to frighten targets for 1 min (save DC %{8+proficiencyBonus+charismaModifier} Wisdom negates; taking damage allows another save)"',
   'Dragon Hide':
     'Section=ability,combat,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Constitution, Charisma)",' +
-      '"+3 AC in no armor",' +
-      '"May use claws as a natural slashing weapon"',
+      '"+3 Armor Class in no armor",' +
+      '"Claws inflict 1d4%{strengthModifier<0?strengthModifier:strengthModifier>0?\'+\'+strengthModifier:\'\'} HP slashing"',
   'Drow High Magic':
     'Section=magic ' +
-    'Note="May cast <i>Detect Magic</i> at will, <i>Dispel Magic</i> and <i>Levitate</i> 1/long rest" ' +
+    'Note="Can cast <i>Detect Magic</i> at will and <i>Dispel Magic</i> and <i>Levitate</i> once each per long rest" ' +
     'SpellAbility=Charisma ' +
     'Spells="Detect Magic","Dispel Magic",Levitate',
   'Dwarven Fortitude':
     'Section=ability,combat ' +
     'Note=' +
       '"+1 Constitution",' +
-      '"May spend one Hit Die to regain HD + %{constitutionModifier} HP during Dodge action"',
+      '"Can spend a Hit Die to regain the number rolled + %{constitutionModifier} hit points during a Dodge action"',
   'Elven Accuracy':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Intelligence, Wisdom, Charisma)",' +
-      '"May reroll 1 die when attacking w/Adv using Dexterity, Intelligence, Wisdom, or Charisma"',
+      '"Can reroll 1 die when attacking with advantage using Dexterity, Intelligence, Wisdom, or Charisma"',
   'Fade Away':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Intelligence)",' +
-      '"May use Reaction upon taking damage to become invisible for 1 rd (attacking ends) 1/short rest"',
+      '"Can use a reaction upon taking damage to become invisible for 1 rd once per short rest; attacking ends"',
   'Fey Teleportation':
     'Section=ability,magic,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence)",' +
-      '"May cast <i>Misty Step</i> 1/short rest",' +
+      '"Can cast <i>Misty Step</i> once per short rest",' +
       '"Language (Sylvan)" ' +
     'SpellAbility=Intelligence ' +
     'Spells="Misty Step"',
@@ -1111,40 +1111,39 @@ Xanathar.FEATURES = {
     'Section=ability,magic ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence)",' +
-      '"May reroll 1s on fire spell damage/When casting a fire spell, may inflict 1d4 HP fire on adjacent creatures and give 30\' light for 1 rd"',
+      '"Can reroll 1s on fire spell damage/When casting a fire spell, can inflict 1d4 HP fire on adjacent creatures and give 30\' light for 1 rd"',
   'Infernal Constitution':
     'Section=ability,save ' +
     'Note=' +
       '"+1 Constitution",' +
-      '"Resistance to cold and poison damage/Adv on saves vs. poison"',
+      '"Has resistance to cold and poison damage and advantage on saves vs. poison"',
   'Orcish Fury':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Constitution)",' +
-      '"May add a die to weapon damage 1/short rest/May use Reaction immediately after Relentless Endurance for an extra attack"',
+      '"Can add a die to weapon damage once per short rest, and can use a reaction immediately after Relentless Endurance to make an extra attack"',
   'Prodigy':
     'Section=feature,skill ' +
     'Note=' +
       '"Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)/Language (Choose 1 from any)",' +
-      '"Dbl proficiency bonus (+%{proficiencyBonus}) on chosen skill"',
+      '"+%{proficiencyBonus} on a chosen proficient skill"',
   'Second Chance':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Constitution, Charisma)",' +
-      '"May use Reaction to force a foe attack reroll 1/encounter or short rest"',
+      '"Can use a reaction to force a foe attack reroll once per encounter or short rest"',
   'Squat Nimbleness':
     'Section=ability,feature,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)/+5 Speed",' +
       '"Skill Proficiency (Choose 1 from Acrobatics, Athletics)",' +
-      '"Adv on Athletics or Acrobatics to break a grapple"',
+      '"Has advantage on Athletics or Acrobatics to break a grapple"',
   'Wood Elf Magic':
-    'Section=magic,magic ' +
-    'Note=' +
-      '"Knows 1 D0 cantrip",' +
-      '"May cast <i>Longstrider</i> and <i>Pass Without Trace</i> 1/long rest" ' +
-      'SpellAbility=Wisdom ' +
-      'Spells=Longstrider,"Pass Without Trace"'
+    'Section=magic ' +
+    'Note="Knows 1 D0 cantrip and can cast <i>Longstrider</i> and <i>Pass Without Trace</i> once each per long rest" ' +
+    'SpellAbility=Wisdom ' +
+    'Spells=Longstrider,"Pass Without Trace"'
+
 };
 Xanathar.SPELLS = {
 
@@ -1672,9 +1671,10 @@ Xanathar.SPELLS_LEVELS_ADDED = {
   'Wrathful Smite':'"K1 [The Hexblade]"'
 };
 Xanathar.TOOLS_ADDED = {
+  'Croak Box':'Type=Music',
+  'Fiddle':'Type=Music',
   'Harp':'Type=Music',
-  'Rito Game Set':'Type=Game',
-  'Voice':'Type=Music'
+  'Zither':'Type=Music'
 };
 
 /* Defines rules related to basic character identity. */
