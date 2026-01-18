@@ -387,7 +387,7 @@ Xanathar.FEATURES = {
   'Storm Soul (Tundra)':
     'Section=magic,save ' +
     'Note=' +
-      '"Can freeze unoccupied 5\' cu water for 1 min via touch",' +
+      '"Can freeze unoccupied 5\' cube of water for 1 min via touch",' +
       '"Has resistance to cold and immunity to extreme cold"',
   // Path Of The Zealot
   'Divine Fury':
@@ -810,7 +810,7 @@ Xanathar.FEATURES = {
     'Note="R60\' Can sense immunities, resistances, and vulnerabilities of a target %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
   "Magic-User's Nemesis":
     'Section=combat ' +
-    'Note="R60\' Can use a reaction to foil a target\'s spell cast or teleportation (save DC %{spellDifficultyClass.R} Wisdom neg) once per short rest"',
+    'Note="R60\' Can use a reaction to foil a target\'s spell cast or teleportation (save DC %{spellDifficultyClass.R} Wisdom negates) once per short rest"',
   'Monster Slayer Magic':
     'Spells=' +
       '"3:Protection From Evil And Good",' +
@@ -1151,260 +1151,263 @@ Xanathar.SPELLS = {
     'School=Necromancy ' +
     'Level=S8,W8 ' +
     'Description=' +
-      '"R150\' 30\' radius withers plants and inflicts on creatures 12d8 HP necrotic (Constitution half, plants and water elementals Disadv)"',
+      '"R150\' 30\' cube withers plants and inflicts 12d8 HP necrotic on creatures (save Constitution half; plants and water elementals have disadvantage)"',
   'Absorb Elements':
     'School=Abjuration ' +
     'Level=D1,R1,S1,W1 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"Self may use Reaction to gain resistance to incoming energy damage and to inflict +1d6 HP of that energy type next turn"',
+      '"Cast as a reaction to suffering energy damage, gives resistance to the damage and causes the the next self melee attack within 1 rd to inflict +1d6 HP of that energy type"',
   "Aganazzar's Scorcher":
     'School=Evocation ' +
     'Level=S2,W2 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"Creatures in a 5\'x30\' line suffer 3d8 HP fire (Dexterity half)"',
+      '"5\'x30\' line inflicts 3d8 HP fire (save Dexterity half)"',
   'Beast Bond':
     'School=Divination ' +
     'Level=D1,R1 ' +
     'Description=' +
-      '"Touched friendly beast (maximum Intelligence 3) gains a telepathic link w/self and Adv on attacks on foes adjacent to self for conc up to 10 min"',
+      '"Touched friendly beast with Intelligence up to 3 gains a telepathic link with self and advantage on attacks on foes adjacent to self for concentration up to 10 min"',
   'Bones Of The Earth':
     'School=Transmutation ' +
     'Level=D6 ' +
     'AtHigherLevels="creates +2 pillars" ' +
     'Description=' +
-      '"R120\' Creates 6 5\'x30\' pillars that inflict 6d6 HP bludgeoning and pin creatures caught between top and ceiling (Dexterity neg, Dexterity or Strength frees)"',
+      '"R120\' Creates 6 5\'x30\' pillars that inflict 6d6 HP bludgeoning and pin creatures caught between the top of a pillar and the ceiling (save Dexterity negates; Dexterity or Strength frees)"',
   'Catapult':
     'School=Transmutation ' +
     'Level=S1,W1 ' +
     'AtHigherLevels="hurls +5 lb, inflicting +1d8 HP" ' +
     'Description=' +
-      '"R60\' Hurls 5 lb target object 90\', inflicting 3d8 HP bludgeoning (Dexterity neg)"',
+      '"R60\' Hurls a 5 lb target object 90\', inflicting 3d8 HP bludgeoning (save Dexterity negates)"',
   'Catnap':
     'School=Enchantment ' +
     'Level=B3,S3,W3 ' +
     'AtHigherLevels="affects +1 target" ' +
     'Description=' +
-      '"R30\' Three willing targets sleep for 10 min (shaking or damage ends), gaining the benefits of a short rest"',
+      '"R30\' 3 willing targets sleep for 10 min (shaking or damage ends), gaining the benefits of a short rest, then become immune until their next long rest"',
   'Cause Fear':
     'School=Necromancy ' +
     'Level=K1,W1 ' +
     'AtHigherLevels="affects +1 target" ' +
     'Description=' +
-      '"R60\' Target becomes frightened of self (Wisdom ends) for conc up to 1 min"',
+      '"R60\' Target becomes frightened of self (save Wisdom ends) for concentration up to 1 min"',
   'Ceremony':
     'School=Abjuration ' +
     'Level=C1,P1 ' +
     'Description=' +
-      '"Self may perform ceremony of atonement, bless water, coming of age, dedication, funeral rite, or wedding"',
+      '"Performs a ceremony of atonement, bless water, coming of age, dedication, funeral rites, or marriage"',
   'Chaos Bolt':
     'School=Evocation ' +
     'Level=S1 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"R120\' Ranged spell attack inflicts 2d8+1d6 HP of a random damage type; may affect additional targets"',
+      '"R120\' Ranged spell attack inflicts 2d8+1d6 HP of a random damage type; may affect additional targets within 30\'"',
   'Charm Monster':
     'School=Enchantment ' +
     'Level=B4,D4,K4,S4,W4 ' +
     'AtHigherLevels="affects +1 target" ' +
     'Description=' +
-      '"R30\' Target regards you as a friend (Wisdom neg) for 1 hr or until harmed"',
+      '"R30\' Target regards you as a friend (save Wisdom negates) for 1 hr or until harmed"',
   'Control Flames':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
-      '"R60\' Target flame up to 5\' cu expands 5\', snuffs, doubles light area for 1 hr, or forms shapes for 1 hr"',
+      '"R60\' Target flame up to a 5\' cube expands 5\', snuffs, doubles light area for 1 hr, or forms shapes for 1 hr"',
   'Control Winds':
     'School=Transmutation ' +
     'Level=D5,S5,W5 ' +
     'Description=' +
-      '"R300\' Air in 100\' cu creates gusts (may inflict Disadv on ranged attacks and half movement), a downdraft (inflicts Disadv on ranged attacks and knocks prone flying creatures (Strength neg)), or an updraft (gives half damage from falling and +10\' jump) for conc up to 1 hr"',
+      '"R300\' Air in a 100\' cube creates gusts (can inflict disadvantage on ranged attacks and half movement), a downdraft (inflicts disadvantage on ranged attacks and knocks prone flying creatures (save Strength negates)), or an updraft (reduces damage from falling by half and gives +10\' jumps) for concentration up to 1 hr"',
   'Create Bonfire':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
     'Description=' +
-      '"R60\' Creates a 5\' fire that inflicts %{(level+7)//6}d8 HP fire (Dexterity neg) for conc up to 1 min"',
+      '"R60\' Creates a 5\' fire that inflicts %{(level+7)//6}d8 HP fire (save Dexterity negates) and ignites flammable objects for concentration up to 1 min"',
   'Create Homunculus':
     'School=Transmutation ' +
     'Level=W6 ' +
-    'Description="Self suffers 2d4 HP piercing to create a magical companion"',
+    'Description=' +
+      '"1 hr process inflicts 2d4 HP piercing on self to create a magical companion"',
   'Crown Of Stars':
     'School=Evocation ' +
     'Level=K7,S7,W7 ' +
     'AtHigherLevels="creates +2 flames" ' +
     'Description=' +
-      '"Creates seven flames around self that give 30\' light for 1 hr; may use each for a ranged touch that inflicts 4d12 HP radiant"',
+      '"Creates seven flames around self that give 30\' light for 1 hr; each can be used to make a ranged touch attack that inflicts 4d12 HP radiant"',
   'Danse Macabre':
     'School=Necromancy ' +
     'Level=K5,W5 ' +
     'AtHigherLevels="creates +2 undead" ' +
     'Description=' +
-      '"R60\' Creates from corpses 5 obedient skeletons and zombies that attack at +%{mdf} for conc up to 1 hr"',
+      '"R60\' Creates from corpses 5 obedient skeletons and zombies that attack at +%{mdf} for concentration up to 1 hr"',
   'Dawn':
     'School=Evocation ' +
     'Level=C5,W5 ' +
     'Description=' +
-      '"R60\' 30\' radius inflicts 4d10 HP radiant and moves 60\'/rd for conc up to 1 min"',
+      '"R60\' 30\' radius inflicts 4d10 HP radiant and can move 60\' per rd for concentration up to 1 min"',
   "Dragon's Breath":
     'School=Transmutation ' +
     'Level=S2,W2 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"Touched may exhale choice of acid, cold, fire, lightning, or poison, inflicting 3d6 HP (Dexterity half) in a 15\' cone, for conc up to 1 min"',
+      '"Touched can exhale a choice of acid, cold, fire, lightning, or poison, inflicting 3d6 HP (save Dexterity half) in a 15\' cone for concentration up to 1 min"',
   'Druid Grove':
     'School=Abjuration ' +
     'Level=D6 ' +
     'Description=' +
-      '"Touched 90\' cu responds to intruders w/chosen hostile effects for 1 dy"',
+      '"Touched 90\' cube responds to intruders with chosen hostile effects for 24 hr"',
   'Dust Devil':
     'School=Conjuration ' +
     'Level=D2,S2,W2 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R60\' 5\' cu inflicts 1d8 HP bludgeoning, pushes 10\' (Strength half HP only), and moves 30\'/rd for conc up to 1 min"',
+      '"R60\' 5\' cube inflicts 1d8 HP bludgeoning and a 10\' push (save Strength half HP only) and can move 30\' per rd for concentration up to 1 min"',
   'Earth Tremor':
     'School=Evocation ' +
     'Level=B1,D1,S1,W1 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"10\' radius knocks prone and inflicts 1d6 HP bludgeoning (Dexterity neg)"',
+      '"10\' radius knocks prone and inflicts 1d6 HP bludgeoning (save Dexterity negates) and inflicts difficult terrain if made from loose earth or stone"',
   'Earthbind':
     'School=Transmutation ' +
     'Level=D2,K2,S2,W2 ' +
     'Description=' +
-      '"R300\' Reduces target fly Speed to 0 for conc up to 1 min (Strength neg)"',
+      '"R300\' Reduces the target\'s fly Speed to 0 for concentration up to 1 min (save Strength negates)"',
   'Elemental Bane':
     'School=Transmutation ' +
     'Level=D4,K4,W4 ' +
     'AtHigherLevels="affects +1 target" ' +
     'Description=' +
-      '"R90\' Target loses resistance to chosen energy type and suffers +2d6 HP from next hit of same for conc up to 1 min"',
+      '"R90\' Target loses resistance to a chosen energy type and suffers +2d6 HP from the first hit of that energy each rd for concentration up to 1 min"',
   'Enemies Abound':
     'School=Enchantment ' +
     'Level=B3,K3,S3,W3 ' +
     'Description=' +
-      '"R120\' Target regards all creatures as enemies and attacks randomly (Intelligence neg) for conc up to 1 min"',
+      '"R120\' Target regards all creatures as enemies and attacks randomly (save Intelligence negates; taking damage allows another save) for concentration up to 1 min"',
   'Enervation':
     'School=Necromancy ' +
     'Level=K5,S5,W5 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R60\' Target suffers 4d6 HP necrotic/rd and self regains half for conc up to 1 min (Dexterity suffers 2d6 HP for 1 rd)"',
+      '"R60\' Target suffers 4d6 HP necrotic each rd, and self regains half the amount inflicted, for concentration up to 1 min (save Dexterity suffers 2d6 HP once only)"',
   'Erupting Earth':
     'School=Transmutation ' +
     'Level=D3,S3,W3 ' +
     'AtHigherLevels="inflicts +1d12 HP" ' +
     'Description=' +
-      '"R120\' 20\' cu inflicts 3d12 HP bludgeoning (Dexterity half) and difficult terrain"',
+      '"R120\' 20\' cube inflicts 3d12 HP bludgeoning (save Dexterity half) and difficult terrain"',
   'Far Step':
     'School=Conjuration ' +
     'Level=K5,S5,W5 ' +
-    'Description="Self may teleport 60\'/rd for conc up to 1 min"',
+    'Description=' +
+      '"Allows self to teleport 60\' each rd for concentration up to 1 min"',
   'Find Greater Steed':
     'School=Conjuration ' +
     'Level=P4 ' +
     'Description=' +
-      '"R30\' Summons a mount (minimum Intelligence 6) that can understand 1 language and communicate telepathically w/self until dismissed or reduced to 0 HP"',
+      '"R30\' Summons a mount with at least 6 Intelligence that can understand 1 language and communicate telepathically with self until dismissed or reduced to 0 hit points"',
   'Flame Arrows':
     'School=Transmutation ' +
     'Level=D3,R3,S3,W3 ' +
     'AtHigherLevels="affects +2 pieces" ' +
     'Description=' +
-      '"12 pieces of ammunition in touched quiver each inflict +1d6 HP fire on hit for conc up to 1 hr"',
+      '"12 pieces of ammunition in a touched quiver each inflict +1d6 HP fire for concentration up to 1 hr"',
   'Frostbite':
     'School=Evocation ' +
     'Level=D0,K0,S0,W0 ' +
     'Description=' +
-      '"R60\' Target suffers %{(level+7)//6}d6 HP cold and Disadv on next weapon attack for 1 rd (Constitution neg)"',
+      '"R60\' Target suffers %{(level+7)//6}d6 HP cold and disadvantage on its next weapon attack within 1 rd (save Constitution negates)"',
   'Guardian Of Nature':
     'School=Transmutation ' +
     'Level=D4,R4 ' +
     'Description=' +
-      '"Changes self into a Primal Beast (+10\' Speed, 120\' Darkvision, Adv on Strength, melee weapons inflict +1d6 HP force) or a Great Tree (10 temporary HP, Adv on Constitution, Adv on Dexterity and Wisdom attacks, 15\' radius inflicts difficult terrain on foes) for conc up to 1 min"',
-  'Gust':
+      '"Changes self into a Primal Beast with +10 Speed, 120\' Darkvision, advantage on Strength, and +1d6 HP force from melee weapons, or into a Great Tree with 10 temporary hit points, advantage on Constitution, advantage on Dexterity and Wisdom attacks, and a 15\' radius that inflicts difficult terrain on foes, for concentration up to 1 min"',
+  'Gust': // ref Eberron5E
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
-      '"R30\' Pushes target creature 5\' (Strength neg), pushes unattended 5 lb object 10\', or creates a light breeze"',
+      '"R30\' Pushes the target creature 5\' (save Strength negates), pushes an unattended 5 lb object 10\', or creates a light breeze"',
   'Healing Spirit':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
     'AtHigherLevels="heals +1d6 HP" ' +
     'Description=' +
-      '"R60\' Allies in a 5\' cu regain 1d6 HP/rd for conc up to 1 min (maximum %{wisdomModifier+1>?2} healings)"',
+      '"R60\' Allies in a 5\' cube regain 1d6 HP each rd for concentration up to 1 min, to a maximum of %{wisdomModifier+1>?2} healings"',
   'Holy Weapon':
     'School=Evocation ' +
     'Level=C5,P5 ' +
     'Description=' +
-      '"Touched weapon lights 30\' and inflicts +2d8 HP radiant for conc up to 1 hr; blast on dismissal inflicts 4d8 HP radiant (Constitution half) and blindness for 1 min (Constitution ends) on targets in a 30\' radius"',
+      '"Touched weapon lights 30\' and inflicts +2d8 HP radiant for concentration up to 1 hr; dismissal inflicts 4d8 HP radiant and blindness for 1 min (save Constitution half HP only; an additional save each rd ends blindness) on targets in a 30\' radius"',
   'Ice Knife':
     'School=Conjuration ' +
     'Level=D1,S1,W1 ' +
     'AtHigherLevels="inflicts +1d6 HP cold" ' +
     'Description=' +
-      '"R60\' Ranged spell attack inflicts 1d10 HP piercing and 2d6 HP cold in a 5\' radius (Dexterity neg)"',
+      '"R60\' Ranged spell attack inflicts 1d10 HP piercing on a hit and 2d6 HP cold in a 5\' radius (save Dexterity negates)"',
   'Illusory Dragon':
     'School=Illusion ' +
     'Level=W8 ' +
     'Description=' +
-      '"R120\' Shadow dragon frightens (Wisdom neg), moves 60\'/rd, and may inflict 7d6 HP choice of energy in a 60\' cone (Intelligence half) for conc up to 1 min"',
+      '"R120\' Illusionary shadow dragon frightens (save Wisdom negates), is immune to damage, can move 60\', and can inflict 7d6 HP of a choice of energy in a 60\' cone (save Intelligence half; successful Investigation gives advantage) for concentration up to 1 min"',
   'Immolation':
     'School=Evocation ' +
     'Level=S5,W5 ' +
     'Description=' +
-      '"R90\' Target suffers 8d6 HP fire (Dexterity half), then 4d6 HP fire/rd (Dexterity ends) for conc up to 1 min"',
+      '"R90\' Inflicts 8d6 HP fire (save Dexterity half), then 4d6 HP fire each rd (save Dexterity ends) for concentration up to 1 min"',
   'Infernal Calling':
     'School=Conjuration ' +
     'Level=K5,W5 ' +
     'AtHigherLevels="summons +1 CR" ' +
     'Description=' +
-      '"R90\' Summons an uncontrolled CR 6 devil for conc up to 1 hr"',
+      '"R90\' Summons a CR 6 devil, obedient only with a successful Charisma vs. Insight check (knowing its true name gives advantage, and possessing its talisman makes the check unnecessary), for concentration up to 1 hr or until it is reduced to 0 hit points"',
   'Infestation':
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
     'Description=' +
-      '"R30\' Target suffers %{(level+7)//6}d6 HP poison and moves 5\' in a random direction (Constitution neg)"',
+      '"R30\' Target suffers %{(level+7)//6}d6 HP poison and moves 5\' in a random direction (save Constitution negates)"',
   'Investiture Of Flame':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
     'Description=' +
-      '"Self lights 30\', gains immunity to fire and Adv on saves vs. cold, inflicts 1d10 HP fire in a 5\' radius, and may inflict 4d8 HP fire (Dexterity half) in a 15\'x5\' line for conc up to 10 min"',
+      '"Self lights 30\', gains immunity to fire and advantage on saves vs. cold, inflicts 1d10 HP fire in a 5\' radius, and can inflict 4d8 HP fire (save Dexterity half) in a 15\'x5\' line for concentration up to 10 min"',
   'Investiture Of Ice':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
     'Description=' +
-      '"Self gains immunity to cold and Adv on saves vs. fire, moves normally across ice and snow, inflicts difficult terrain in a 10\' radius, and may inflict 4d6 HP cold and half speed for 1 rd (Dexterity half HP only) in a 15\' cone for conc up to 10 min"',
+      '"Self gains immunity to cold and advantage on saves vs. fire, moves normally across ice and snow, inflicts difficult terrain in a 10\' radius, and can inflict 4d6 HP cold and half speed for 1 rd (save Dexterity half HP only) in a 15\' cone for concentration up to 10 min"',
   'Investiture Of Stone':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
     'Description=' +
-      '"Self gains resistance to non-magical bludgeoning, piercing, and slashing, may inflict knocked prone (Dexterity neg) in a 15\' radius, moves normally across earth and stone difficult terrain, and may pass through earth and stone for conc up to 10 min"',
+      '"Self gains resistance to non-magical bludgeoning, piercing, and slashing, can inflict knocked prone (save Dexterity negates) in a 15\' radius, moves normally across earth and stone difficult terrain, and can pass through earth and stone for concentration up to 10 min"',
   'Investiture Of Wind':
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
     'Description=' +
-      '"Ranged attacks on self suffer Disadv, and self gains a 60\' fly Speed and may inflict 2d10 HP bludgeoning and a 10\' push in a R60\' 15\' cu for conc up to 10 min"',
+      '"Inflicts disadvantage on ranged attacks on self, gives self a 60\' fly Speed, and allows inflicting 2d10 HP bludgeoning, plus a 10\' push on Large or smaller creatures, in a R60\' 15\' cube for concentration up to 10 min"',
   'Invulnerability':
     'School=Abjuration ' +
     'Level=W9 ' +
-    'Description="Self gains immunity to all damage for conc up to 10 min"',
+    'Description=' +
+      '"Gives self immunity to all damage for concentration up to 10 min"',
   'Life Transference':
     'School=Necromancy ' +
     'Level=C3,W3 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R30\' Self suffers 4d8 HP necrotic; target regains 2x the amount suffered"',
+      '"R30\' Inflicts 4d8 HP necrotic on self and restores twice that amount to a target"',
   'Maddening Darkness':
     'School=Evocation ' +
     'Level=K8,W8 ' +
     'Description=' +
-      '"R150\' 60\' radius magical darkness inflicts 8d8 HP psychic/rd (Wisdom half) for conc up to 10 min"',
+      '"R150\' 60\' radius magical darkness inflicts 8d8 HP psychic/rd (save Wisdom half) for conc up to 10 min"',
   'Maelstrom':
     'School=Evocation ' +
     'Level=D5 ' +
     'Description=' +
-      '"R120\' 30\' radius of swirling water inflicts 6d6 HP bludgeoning/rd and pulls creatures toward its center (Strength neg) for conc up to 1 min"',
+      '"R120\' 30\' radius of swirling water inflicts 6d6 HP bludgeoning/rd and pulls creatures toward its center (save Strength negates) for conc up to 1 min"',
   'Magic Stone':
     'School=Transmutation ' +
     'Level=D0,K0 ' +
@@ -1414,12 +1417,12 @@ Xanathar.SPELLS = {
     'School=Transmutation ' +
     'Level=B9,S9,W9 ' +
     'Description=' +
-      '"R120\' 10 targets transform into beasts w/half target\'s HD (Wisdom neg) for conc up to 1 hr or until reduced to 0 HP"',
+      '"R120\' 10 targets transform into beasts w/half target\'s HD (save Wisdom negates) for conc up to 1 hr or until reduced to 0 HP"',
   "Maximilian's Earthen Grasp":
     'School=Transmutation ' +
     'Level=S2,W2 ' +
     'Description=' +
-      '"R30\' 5\' sq inflicts 2d6/rd HP bludgeoning and restrains (Strength ends) for conc up to 1 min"',
+      '"R30\' 5\' sq inflicts 2d6/rd HP bludgeoning and restrains (save Strength ends) for conc up to 1 min"',
   "Melf's Minute Meteors":
     'School=Evocation ' +
     'Level=S3,W3 ' +
@@ -1430,7 +1433,7 @@ Xanathar.SPELLS = {
     'School=Illusion ' +
     'Level=K6,S6,W6 ' +
     'Description=' +
-      '"R60\' Target suffers 5d6 HP psychic and becomes trapped by an illusionary danger (Intelligence HP only; escape inflicts 10d6 HP psychic) for conc up to 1 min"',
+      '"R60\' Target suffers 5d6 HP psychic and becomes trapped by an illusionary danger (save Intelligence HP only; escape inflicts 10d6 HP psychic) for conc up to 1 min"',
   'Mighty Fortress':
     'School=Conjuration ' +
     'Level=W8 ' +
@@ -1441,22 +1444,22 @@ Xanathar.SPELLS = {
     'Level=K2,S2,W2 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R60\' Target suffers 3d8 HP psychic, and self knows target location (Wisdom half HP only) for conc up to 1 hr"',
+      '"R60\' Target suffers 3d8 HP psychic, and self knows target location (save Wisdom half HP only) for conc up to 1 hr"',
   'Mold Earth':
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
-      '"R30\' Excavates, colors, or changes movement difficulty of a 5\' cu of earth"',
+      '"R30\' Excavates, colors, or changes movement difficulty of a 5\' cube of earth"',
   'Negative Energy Flood':
     'School=Necromancy ' +
     'Level=K5,W5 ' +
     'Description=' +
-      '"R60\' Living target suffers 5d12 necrotic (Constitution half) and rises as a zombie if slain; undead target gains half of 5d12 temporary HP for 1 hr"',
+      '"R60\' Living target suffers 5d12 necrotic (save Constitution half) and rises as a zombie if slain; undead target gains half of 5d12 temporary HP for 1 hr"',
   'Power Word Pain':
     'School=Enchantment ' +
     'Level=K7,S7,W7 ' +
     'Description=' +
-      '"R60\' Target up to 100 HP slows to 10\' Speed, suffers Disadv on attack, ability, and non-Constitution saves, and requires a successful Constitution save to cast (Constitution ends)"',
+      '"R60\' Target up to 100 HP slows to 10\' Speed, suffers Disadv on attack, ability, and non-Constitution saves, and requires a successful Constitution save to cast (save Constitution ends)"',
   'Primal Savagery':
     'School=Transmutation ' +
     'Level=D0 ' +
@@ -1471,16 +1474,16 @@ Xanathar.SPELLS = {
     'School=Enchantment ' +
     'Level=B9,K9,S9,W9 ' +
     'Description=' +
-      '"R90\' 10 targets suffer 14d6 HP psychic (Intelligence half) and stunned (Intelligence ends)"',
+      '"R90\' 10 targets suffer 14d6 HP psychic (save Intelligence half) and stunned (save Intelligence ends)"',
   'Pyrotechnics':
     'School=Transmutation ' +
     'Level=B2,S2,W2 ' +
     'Description=' +
-      '"R60\' Target fire snuffs and emits fireworks (R10\' blinds 1 rd (Constitution neg)) or 20\' smoke for 1 min"',
+      '"R60\' Target fire snuffs and emits fireworks (R10\' blinds 1 rd (save Constitution negates)) or 20\' smoke for 1 min"',
   'Scatter':
     'School=Conjuration ' +
     'Level=K6,S6,W6 ' +
-    'Description="R30\' Teleports 5 targets 120\' (Wisdom neg)"',
+    'Description="R30\' Teleports 5 targets 120\' (save Wisdom negates)"',
   'Shadow Blade':
     'School=Illusion ' +
     'Level=K2,S2,W2 ' +
@@ -1496,12 +1499,12 @@ Xanathar.SPELLS = {
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
-      '"R30\' 5\' cu water forms animated shapes, changes color or opacity, or freezes for 1 hr or moves 5\'"',
+      '"R30\' 5\' cube of water forms animated shapes, changes color or opacity, or freezes for 1 hr or moves 5\'"',
   'Sickening Radiance':
     'School=Evocation ' +
     'Level=K4,S4,W4 ' +
     'Description=' +
-      '"R120\' 30\' radius inflicts 4d10 HP radiant and 1 level of exhaustion and lights creatures (Constitution neg) for conc up to 10 min"',
+      '"R120\' 30\' radius inflicts 4d10 HP radiant and 1 level of exhaustion and lights creatures (save Constitution negates) for conc up to 10 min"',
   'Skill Empowerment':
     'School=Transmutation ' +
     'Level=B5,S5,W5 ' +
@@ -1515,12 +1518,12 @@ Xanathar.SPELLS = {
     'School=Abjuration ' +
     'Level=D1,R1,W1 ' +
     'Description=' +
-      '"Touched magical trap restrains the first creature to cross it (Dexterity neg; Dexterity or Arcana ends) for 8 hr"',
+      '"Touched magical trap restrains the first creature to cross it (save Dexterity negates; Dexterity or Arcana ends) for 8 hr"',
   "Snilloc's Snowball Swarm":
     'School=Evocation ' +
     'Level=S2,W2 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
-    'Description="R90\' 5\' radius inflicts 3d6 HP cold (Dexterity half)"',
+    'Description="R90\' 5\' radius inflicts 3d6 HP cold (save Dexterity half)"',
   'Soul Cage':
     'School=Necromancy ' +
     'Level=K6,W6 ' +
@@ -1536,13 +1539,13 @@ Xanathar.SPELLS = {
     'Level=S4,W4 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"R150\' 20\' radius inflicts 2d6 HP bludgeoning (Strength neg) and may emit a 60\' bolt that inflicts 4d6 HP lightning 1/rd for conc up to 1 min"',
+      '"R150\' 20\' radius inflicts 2d6 HP bludgeoning (save Strength negates) and may emit a 60\' bolt that inflicts 4d6 HP lightning 1/rd for conc up to 1 min"',
   'Summon Greater Demon':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
     'AtHigherLevels="summons +1 CR" ' +
     'Description=' +
-      '"R60\' Demon up to CR 5 obeys self (Charisma ends) for conc up to 1 hr"',
+      '"R60\' Demon up to CR 5 obeys self (save Charisma ends) for conc up to 1 hr"',
   'Summon Lesser Demons':
     'School=Conjuration ' +
     'Level=K3,W3 ' +
@@ -1553,17 +1556,17 @@ Xanathar.SPELLS = {
     'School=Enchantment ' +
     'Level=B5,K5,S5,W5 ' +
     'Description=' +
-      '"R120\' Creatures in a 20\' radius suffer 8d6 HP psychic (Intelligence half) and -1d6 attack, ability, and concentration Constitution for 1 min (Intelligence ends)"',
+      '"R120\' Creatures in a 20\' radius suffer 8d6 HP psychic (save Intelligence half) and -1d6 attack, ability, and concentration Constitution for 1 min (save Intelligence ends)"',
   'Temple Of The Gods':
     'School=Conjuration ' +
     'Level=C7 ' +
     'Description=' +
-      '"R120\' Creates a 120\' sq temple that bars divination and specified creature types (Charisma suffers -1d4 attack, ability, and saves) and gives a +%{wisdomModifier} bonus to healing for 1 dy"',
+      '"R120\' Creates a 120\' sq temple that bars divination and specified creature types (save Charisma suffers -1d4 attack, ability, and saves) and gives a +%{wisdomModifier} bonus to healing for 1 dy"',
   "Tenser's Transformation":
     'School=Transmutation ' +
     'Level=W6 ' +
     'Description=' +
-      '"Self gains 50 temporary HP, Adv on weapon attacks, +2d12 HP force weapon damage, Armor Proficiency (Heavy/Shield), Weapon Proficiency (Martial), Save Proficiency (Constitution/Strength), and an extra attack for conc up to 10 min; suffers 1 level of exhaustion afterward (Constitution neg)"',
+      '"Self gains 50 temporary HP, Adv on weapon attacks, +2d12 HP force weapon damage, Armor Proficiency (Heavy/Shield), Weapon Proficiency (Martial), Save Proficiency (Constitution; Strength), and an extra attack for conc up to 10 min; suffers 1 level of exhaustion afterward (save Constitution negates)"',
   'Thunderclap':
     'School=Evocation ' +
     'Level=B0,D0,K0,S0,W0 ' +
@@ -1572,12 +1575,12 @@ Xanathar.SPELLS = {
     'School=Conjuration ' +
     'Level=K3,S3,W3 ' +
     'AtHigherLevels="inflicts +1d10 HP" ' +
-    'Description="Self and 1 willing adjacent creature teleport 90\', and a 10\' radius around the starting location inflicts 3d10 HP thunder (Constitution half)"',
+    'Description="Self and 1 willing adjacent creature teleport 90\', and a 10\' radius around the starting location inflicts 3d10 HP thunder (save Constitution half)"',
   'Tidal Wave':
     'School=Conjuration ' +
     'Level=D3,S3,W3 ' +
     'Description=' +
-      '"R120\' 30\'x10\' area inflicts 4d8 HP bludgeoning and knocked prone (Dexterity half HP only)"',
+      '"R120\' 30\'x10\' area inflicts 4d8 HP bludgeoning and knocked prone (save Dexterity half HP only)"',
   'Tiny Servant':
     'School=Transmutation ' +
     'Level=W3 ' +
@@ -1587,23 +1590,23 @@ Xanathar.SPELLS = {
     'School=Necromancy ' +
     'Level=C0,K0,W0 ' +
     'Description=' +
-      '"R60\' Target suffers %{(level+7)//6}d8 HP necrotic (damaged target %{(level+7)//6}d12 HP necrotic; Wisdom neg)"',
+      '"R60\' Target suffers %{(level+7)//6}d8 HP necrotic (damaged target %{(level+7)//6}d12 HP necrotic; Wisdom negates)"',
   'Transmute Rock':
     'School=Transmutation ' +
     'Level=D5,W5 ' +
-    'Description="R120\' 40\' cu changes between rock and mud"',
+    'Description="R120\' 40\' cube changes between rock and mud"',
   'Vitriolic Sphere':
     'School=Evocation ' +
     'Level=S4,W4 ' +
     'AtHigherLevels="inflicts +2d4 HP initial" ' +
     'Description=' +
-      '"R150\' 20\' radius inflicts 10d4 HP acid, then 5d4 HP acid next rd (Dexterity half initial HP only)"',
+      '"R150\' 20\' radius inflicts 10d4 HP acid, then 5d4 HP acid next rd (save Dexterity half initial HP only)"',
   'Wall Of Light':
     'School=Evocation ' +
     'Level=K5,S5,W5 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R120\' 60\'x10\' wall lights 120\', inflicts 4d8 HP radiant (Constitution half) and blinding (Constitution ends) for conc up to 10 min; may emit a 60\' ray that inflicts 4d8 HP radiant and shortens wall by 10\'"',
+      '"R120\' 60\'x10\' wall lights 120\', inflicts 4d8 HP radiant (save Constitution half) and blinding (save Constitution ends) for conc up to 10 min; may emit a 60\' ray that inflicts 4d8 HP radiant and shortens wall by 10\'"',
   'Wall Of Sand':
     'School=Evocation ' +
     'Level=W3 ' +
@@ -1623,22 +1626,22 @@ Xanathar.SPELLS = {
     'School=Conjuration ' +
     'Level=D4,S4,W4 ' +
     'Description=' +
-      '"R90\' 5\' sphere traps 1 large or 4 medium targets (Strength ends) and moves 30\'/rd for conc up to 1 min"',
+      '"R90\' 5\' sphere traps 1 large or 4 medium targets (save Strength ends) and moves 30\'/rd for conc up to 1 min"',
   'Whirlwind':
     'School=Evocation ' +
     'Level=D7,S7,W7 ' +
     'Description=' +
-      '"R300\' 10\' radius inflicts 10d6 HP bludgeoning (Dexterity half), restrains and pulls 5\' upward (Strength or Dexterity neg), and moves 30\'/rd for conc up to 1 min"',
+      '"R300\' 10\' radius inflicts 10d6 HP bludgeoning (save Dexterity half), restrains and pulls 5\' upward (save Strength or Dexterity negates), and moves 30\'/rd for conc up to 1 min"',
   'Word Of Radiance':
     'School=Evocation ' +
     'Level=C0 ' +
     'Description=' +
-      '"R5\' Targets suffer %{(level+7)//6}d6 HP radiant (Constitution neg)"',
+      '"R5\' Targets suffer %{(level+7)//6}d6 HP radiant (save Constitution negates)"',
   'Wrath Of Nature':
     'School=Evocation ' +
     'Level=D5,R5 ' +
     'Description=' +
-      '"R120\' Animates 60\' cu of trees (R10\' inflicts 4d6 HP slashing (Dexterity neg)), undergrowth (inflicts difficult terrain), vines (restrains (Strength ends)), and rocks (ranged spell attack inflicts 3d8 HP bludgeoning and knocked prone (Dexterity HP only)) for conc up to 1 min"',
+      '"R120\' Animates 60\' cube of trees (R10\' inflicts 4d6 HP slashing (save Dexterity negates)), undergrowth (inflicts difficult terrain), vines (restrains (save Strength ends)), and rocks (ranged spell attack inflicts 3d8 HP bludgeoning and knocked prone (save Dexterity HP only)) for conc up to 1 min"',
   'Zephyr Strike':
     'School=Transmutation ' +
     'Level=R1 ' +
