@@ -229,18 +229,21 @@ SwordCoast.CLASSES_FEATURES_ADDED = {
     '"features.Oath Of The Crown ? 7:Divine Allegiance",' +
     '"features.Oath Of The Crown ? 15:Unyielding Spirit",' +
     '"features.Oath Of The Crown ? 20:Exalted Champion"',
-  'Rogue': // (ref Xanathar)
+  'Rogue':
+    // (ref Xanathar)
     '"features.Mastermind ? 3:Master Of Intrigue",' +
     '"features.Mastermind ? 3:Master Of Tactics",' +
     '"features.Mastermind ? 9:Insightful Manipulator",' +
     '"features.Mastermind ? 13:Misdirection",' +
     '"features.Mastermind ? 17:Soul Of Deceit",' +
+    // (ref Xanathar)
     '"features.Swashbuckler ? 3:Fancy Footwork",' +
     '"features.Swashbuckler ? 3:Rakish Audacity",' +
     '"features.Swashbuckler ? 9:Panache",' +
     '"features.Swashbuckler ? 13:Elegant Maneuver",' +
     '"features.Swashbuckler ? 17:Master Duelist"',
-  'Sorcerer': // (ref Xanathar)
+  'Sorcerer':
+    // (ref Xanathar)
     '"features.Storm Sorcery ? 1:Wind Speaker",' +
     '"features.Storm Sorcery ? 1:Tempestuous Magic",' +
     '"features.Storm Sorcery ? 6:Heart Of The Storm",' +
@@ -252,7 +255,8 @@ SwordCoast.CLASSES_FEATURES_ADDED = {
     '"features.The Undying ? 6:Defy Death",' +
     '"features.The Undying ? 10:Undying Nature",' +
     '"features.The Undying ? 14:Indestructible Life"',
-  'Wizard': // (ref Tasha)
+  'Wizard':
+    // (ref Tasha)
     '"features.Bladesinging ? 2:Training In War And Song",' +
     '"features.Bladesinging ? 2:Bladesong",' +
     '"features.Bladesinging ? 6:Extra Attack",' +

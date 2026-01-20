@@ -934,8 +934,7 @@ Eberron5E.RACES_ADDED = {
 Eberron5E.RACES =
   Object.assign({}, (window.PHB5E||window.SRD5E).RACES, Eberron5E.RACES_ADDED);
 Eberron5E.SPELLS_ADDED = {
-  // Copied from Xanathar's
-  'Gust':
+  'Gust': // ref Xanathar
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
