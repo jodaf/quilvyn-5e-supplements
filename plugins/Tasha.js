@@ -53,12 +53,12 @@ Tasha.CLASSES = {
   'Artificer':
     'HitDie=d8 ' +
     'Features=' +
-      '"1:Armor Proficiency (Medium/Shield)",' +
-      '"1:Save Proficiency (Constitution/Intelligence)",' +
+      '"1:Armor Proficiency (Medium; Shield)",' +
+      '"1:Save Proficiency (Constitution; Intelligence)",' +
       '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
-      '"1:Tool Proficiency (Thieves\' Tools/Tinker\'s Tools/Choose 1 from any Artisan)",' +
-      '"1:Weapon Proficiency (Simple)",' +
-      '"1:Magical Tinkering","1:Ritual Casting",1:Spellcasting,' +
+      '"1:Tool Proficiency (Thieves\' Tools; Tinker\'s Tools; Choose 1 from any Artisan)",' +
+      '"1:Weapon Proficiency (Simple Weapons)",' +
+      '"1:Magical Tinkering","1:Spellcasting",' +
       '"2:Infuse Item","3:Artificer Specialist",' +
       '"3:The Right Tool For The Job","6:Tool Expertise",' +
       '"7:Flash Of Genius","10:Magic Item Adept","11:Spell-Storing Item",' +
@@ -431,7 +431,7 @@ Tasha.FEATS = {
     'Type=General Require="features.Spellcasting || features.Pact Magic"',
   'Fey Touched':'Type=General',
   'Fighting Initiate':
-    'Type=General Require="features.Weapon Proficiency (Martial)"',
+    'Type=General Require="features.Weapon Proficiency (Martial Weapons)"',
   'Gunner':'Type=General',
   'Metamagic Adept':
     'Type=General Require="features.Spellcasting||features.Pact Magic"',
@@ -861,7 +861,7 @@ Tasha.FEATURES = {
     'Section=combat,feature ' +
     'Note=' +
       '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage w/magic weapons",' +
-      '"Weapon Proficiency (Martial)"',
+      '"Weapon Proficiency (Martial Weapons)"',
   'Battle Smith Spells':
     'Spells=' +
       '3:Heroism,3:Shield,' +
@@ -910,7 +910,7 @@ Tasha.FEATURES = {
     'Section=skill Note="Tool Proficiency (Smith\'s Tools)/Language (Giant)"',
   'Bonus Proficiencies (Twilight Domain)':
     'Section=combat ' +
-    'Note="Armor Proficiency (Heavy)/Weapon Proficiency (Martial)"',
+    'Note="Armor Proficiency (Heavy)/Weapon Proficiency (Martial Weapons)"',
   'Bulwark Of Force':
     'Section=combat ' +
     'Note="R30\' May use a bonus action to give %{intelligenceModifier} targets half cover for 1 min 1/long rest (may spend a Psionic Energy die for additional)"',
@@ -1105,7 +1105,7 @@ Tasha.FEATURES = {
     'Section=feature,skill ' +
     'Note=' +
       '"Owns a mask associated w/the Way Of Mercy",' +
-      '"Skill Proficiency (Insight/Medicine)/Tool Proficiency (Herbalism Kit)"',
+      '"Skill Proficiency (Insight; Medicine)/Tool Proficiency (Herbalism Kit)"',
   'Improved Defender':
     'Section=combat,combat ' +
     'Note=' +
@@ -1802,6 +1802,7 @@ Tasha.classRulesExtra = function(rules, name) {
   let classLevel = 'levels.' + name;
 
   if(name == 'Artificer') {
+    // (ref SwordCoast)
     rules.defineRule('armorerLevel',
       'features.Armorer', '?', null,
       'level', '=', null
@@ -1814,16 +1815,17 @@ Tasha.classRulesExtra = function(rules, name) {
       ('combatNotes.arcaneJolt', 'combatNotes.improvedDefender', '+', '0');
     rules.defineRule // Italics noop
       ('combatNotes.eldritchCannon', 'combatNotes.explosiveCannon', '+', '0');
+    rules.defineRule('combatNotes.extraAttack',
+      'armorerLevel', '+=', 'source>=5 ? 1 : null',
+      'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
+    );
     rules.defineRule // Italics noop
       ('featureNotes.infuseItem', 'featureNotes.armorModifications', '+', '0');
     rules.defineRule('magicNotes.magicItemAdept', // Italics noop
       'magicNotes.magicItemMaster', '+', '0',
       'magicNotes.magicItemSavant', '+', '0'
     );
-    rules.defineRule('combatNotes.extraAttack',
-      'armorerLevel', '+=', 'source>=5 ? 1 : null',
-      'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
-    );
+    rules.defineRule('magicNotes.spellcasting.1', classLevel, '=', '1');
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
       'featureNotes.infuseItem', '?', null,
       classLevel, '=', 'Math.floor((source + 6) / 4) * 2'
