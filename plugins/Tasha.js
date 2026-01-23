@@ -50,7 +50,7 @@ function Tasha(edition, rules) {
 Tasha.VERSION = '2.4.1.0';
 
 Tasha.CLASSES = {
-  'Artificer':
+  'Artificer': // (ref Eberron5E)
     'HitDie=d8 ' +
     'Features=' +
       '"1:Armor Proficiency (Medium; Shield)",' +
@@ -58,11 +58,11 @@ Tasha.CLASSES = {
       '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
       '"1:Tool Proficiency (Thieves\' Tools; Tinker\'s Tools; Choose 1 from any Artisan)",' +
       '"1:Weapon Proficiency (Simple Weapons)",' +
-      '"1:Magical Tinkering","1:Spellcasting",' +
-      '"2:Infuse Item","3:Artificer Specialist",' +
-      '"3:The Right Tool For The Job","6:Tool Expertise",' +
-      '"7:Flash Of Genius","10:Magic Item Adept","11:Spell-Storing Item",' +
-      '"14:Magic Item Savant","18:Magic Item Master","20:Soul Of Artifice",' +
+      '"1:Magical Tinkering","1:Spellcasting","2:Infuse Item",' +
+      '"3:Artificer Specialist","3:The Right Tool For The Job",' +
+      '"6:Tool Expertise","7:Flash Of Genius","10:Magic Item Adept",' +
+      '"11:Spell-Storing Item","14:Magic Item Savant","18:Magic Item Master",' +
+      '"20:Soul Of Artifice",' +
       '"features.Alchemist ? 3:Alchemist Spells",' +
       '"features.Alchemist ? 3:Alchemist Tool Proficiency",' +
       '"features.Alchemist ? 3:Experimental Elixir",' +
@@ -445,19 +445,217 @@ Tasha.FEATS = {
 };
 Tasha.FEATURES = {
 
-  // Class
+  // Classes
+
+  // Artificer (ref Eberron5E)
+  'Artificer Specialist':'Section=feature Note="1 selection"',
+  'Flash Of Genius':
+    'Section=feature ' +
+    'Note="R30\' Can use a reaction to give an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
+  'Infuse Item':
+    'Section=feature,magic ' +
+    'Note=' +
+      '"%{(levels.Artificer+6)//4*2} selections",' +
+      '"Can infuse %{(levels.Artificer+6)//4+(featureNotes.armorModifications?2:0)} items simultaneously"',
+  'Magic Item Adept':
+    'Section=magic ' +
+    'Note="Can attune %{4+(magicNotes.magicItemMaster?2:magicNotes.magicItemSavant?1:0)} items simultaneously and craft uncommon magic items in 1/4 time at 1/2 cost"',
+  'Magic Item Master':'Section=magic Note="Can attune 6 items simultaneously"',
+  'Magic Item Savant':
+    'Section=magic ' +
+    'Note="Can attune 5 items simultaneously and ignore attunement and use requirements on attuned items"',
+  'Magical Tinkering':
+    'Section=magic ' +
+    'Note="Can imbue %{intelligenceModifier>?1} objects simultaneously to emit light, a message, sound, an odor, or a picture"',
+  'Soul Of Artifice':
+    'Section=combat,save ' +
+    'Note=' +
+      '"Can use a reaction and end 1 infusion when reduced to 0 hit points to retain 1 hit point",' +
+      '"+1 per attunement on saves"',
+  'Spell-Storing Item':
+    'Section=feature ' +
+    'Note="After a long rest, can store in an item an A1 or A2 spell that can be cast %{intelligenceModifier*2>?2} times"',
+  // Spellcasting as SRD5E
+  'The Right Tool For The Job':
+    'Section=feature Note="Can spend 1 hr to create a set of artisan\'s tools"',
+  'Tool Expertise':
+    'Section=skill Note="+%{proficiencyBonus} with proficient tools"',
+  // Alchemist
+  'Alchemical Savant':
+    'Section=magic ' +
+    'Note="Spells cast using alchemical supplies inflict +%{intelligenceModifier>?1} HP acid, fire, necrotic, or poison or restore an equal number of additional hit points"',
+  'Alchemist Spells':
+    'Spells=' +
+      '"3:Healing Word","3:Ray Of Sickness",' +
+      '"5:Flaming Sphere","5:Melf\'s Acid Arrow",' +
+      '"9:Gaseous Form","9:Mass Healing Word",' +
+      '"13:Blight","13:Death Ward",' +
+      '"17:Cloudkill","17:Raise Dead"',
+  'Alchemist Tool Proficiency':
+    'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
+  'Chemical Mastery':
+    'Section=magic,save ' +
+    'Note=' +
+      '"Can use alchemist\'s supplies to cast <i>Greater Restoration</i> and <i>Heal</i> once per long rest",' +
+      '"Has resistance to acid and poison damage and immunity to the poisoned condition" ' +
+    'Spells=' +
+      '"Greater Restoration","Heal"',
+  'Experimental Elixir':
+    'Section=magic ' +
+    'Note="Can use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; can spend spell slots to create additional elixirs"',
+  'Restorative Reagents':
+    'Section=magic ' +
+    'Note="Can use alchemist\'s supplies to cast <i>Lesser Restoration</i> %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest, and elixirs give 2d6+%{intelligenceModifier>?1} temporary hit points" ' +
+    'Spells="Lesser Restoration"',
+  // Armorer
+  'Arcane Armor':
+    'Section=combat ' +
+    'Note="Self armor has no Strength requirement, covers the entire body, replaces missing limbs, cannot be unwillingly removed, and can be put on or taken off in 1 action"',
+  'Armor Model':
+    'Section=feature,feature ' +
+    'Note=' +
+      '"1 selection",' +
+      '"Can change selection after a rest"',
+  'Armor Modifications':
+    'Section=feature,magic ' +
+    'Note=' +
+      '"Can have 2 additional infusions placed on armor",' +
+      '"Can apply individual infusions to armor chest, boots, helmet, and weapon"',
+  'Armorer Spells':
+    'Spells=' +
+      '"3:Magic Missile",3:Thunderwave,' +
+      '"5:Mirror Image",5:Shatter,' +
+      '"9:Hypnotic Pattern","9:Lightning Bolt",' +
+      '"13:Fire Shield","13:Greater Invisibility",' +
+      '17:Passwall,"17:Wall Of Force"',
+  'Dampening Field':'Section=skill Note="Armor gives advantage on Stealth"',
+  'Defensive Field':
+    'Section=combat ' +
+    'Note="Can use a bonus action to gain %{level} temporary hit points %{proficiencyBonus} times per long rest"',
+  // Extra Attack as SRD5E
+  'Lightning Launcher':
+    'Section=combat ' +
+    'Note="Range 90/300 attack inflicts 1d6 HP lightning, +1d6 HP lightning once per rd"',
+  'Perfected Armor (Guardian Armor)':
+    'Section=combat ' +
+    'Note="R30\' Can use a reaction to pull a Huge or smaller creature up to 30\' (save DC %{spellDifficultyClass.A} Strength negates) and attack if within 5\' afterward %{proficiencyBonus} times per long rest"',
+  'Perfected Armor (Infiltrator Armor)':
+    'Section=combat ' +
+    'Note="Lightning Launcher inflicts disadvantage on attacks on self for 1 rd, and the next attack on the target within 1 rd gains advantage and inflicts +1d6 HP lightning"',
+  'Powered Steps':'Section=ability Note="+5 Speed"',
+  'Thunder Gauntlets':
+    'Section=combat ' +
+    'Note="Each gauntlet inflicts 1d8 HP thunder and disadvatage on attacks on others for 1 rd"',
+  'Tools Of The Trade':
+    'Section=feature ' +
+    'Note="Armor Proficiency (Heavy)/Tool Proficiency (Smith\'s Tools)"',
+  // Artillerist
+  'Arcane Firearm':
+    'Section=magic ' +
+    'Note="Spells cast through a prepared wand, staff, or rod inflict +1d8 HP"',
+  'Artillerist Spells':
+    'Spells=' +
+      '"3:Shield","3:Thunderwave",' +
+      '"5:Scorching Ray","5:Shatter",' +
+      '"9:Fireball","9:Wind Wall",' +
+      '"13:Ice Storm","13:Wall Of Fire",' +
+      '"17:Cone Of Cold","17:Wall Of Force"',
+  'Artillerist Tool Proficiency':
+    'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
+  'Eldritch Cannon':
+    'Section=combat ' +
+    'Note="Can create a magical cannon (Armor Class 18, %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points), can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
+  'Explosive Cannon':
+    'Section=combat,combat ' +
+    'Note=' +
+      '"Eldritch Cannon inflicts +1d8 HP damage",' +
+      '"R60\' Can destroy an eldritch cannon to inflict 3d8 HP force (save DC %{spellDifficultyClass.A} Dexterity half) in a 20\' radius"',
+  'Fortified Position':
+    'Section=combat ' +
+    'Note=' +
+      '"Can have 2 Eldritch Cannons simultaneously, and Eldritch Cannons give allies in a 10\' radius half cover"',
+  // Battle Smith
+  'Arcane Jolt':
+    'Section=combat ' +
+    'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or restores %{2+(combatNotes.improvedDefender?2:0)}d6 hit points to 1 target in a 30\' radius %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
+  'Battle Ready':
+    'Section=combat,feature ' +
+    'Note=' +
+      '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage with magic weapons",' +
+      '"Weapon Proficiency (Martial Weapons)"',
+  'Battle Smith Spells':
+    'Spells=' +
+      '"3:Heroism","3:Shield",' +
+      '"5:Branding Smite","5:Warding Bond",' +
+      '"9:Aura Of Vitality","9:Conjure Barrage",' +
+      '"13:Aura Of Purity","13:Fire Shield",' +
+      '"17:Banishing Smite","17:Mass Cure Wounds"',
+  'Battle Smith Tool Proficiency':
+    'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
+  // Extra Attack as SRD5E
+  'Improved Defender':
+    'Section=combat,combat ' +
+    'Note=' +
+      '"Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 Armor Class",' +
+      '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
+  'Steel Defender':
+    'Section=combat ' +
+    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity Save +%{proficiencyBonus+1}; Constitution Save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+  // Infusions
+  'Arcane Propulsion Armor':
+    'Section=magic ' +
+    'Note="Infused armor gives +5\' Speed, cannot be removed unwillingly, and replaces missing limbs; range 20/60 magical gauntlets inflict 1d8 HP force, then return"',
+  'Armor Of Magical Strength':
+    'Section=magic ' +
+    'Note="Wearer of infused armor with 6 charges can spend 1 charge to gain +Intelligence Modifier on a Strength check or save, or to use a reaction to avoid being knocked prone; the armor regains 1d6 charges each dawn"',
+  'Boots Of The Winding Path':
+    'Section=magic ' +
+    'Note="Wearer of infused boots can use a bonus action to teleport back to a space within 15\'"',
+  'Enhanced Arcane Focus':
+    'Section=magic ' +
+    'Note="Infused rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks that ignore half cover"',
+  'Enhanced Defense':
+    'Section=magic ' +
+    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} Armor Class"',
+  'Enhanced Weapon':
+    'Section=magic ' +
+    'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
+  'Helm Of Awareness':
+    'Section=magic ' +
+    'Note="Infused helmet gives advantage on initiative, and the wearer cannot be surprised"',
+  'Homunculus Servant':
+    'Section=magic ' +
+    'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points; R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
+  'Mind Sharpener':
+    'Section=magic ' +
+    'Note="Infused armor or robes with 4 charges allows the wearer to use a reaction and 1 charge to change a spell concentration roll from failure to success; the item regains 1d4 charges each dawn"',
+  'Radiant Weapon':
+    'Section=magic ' +
+    'Note="Infused weapon with 4 charges gives +1 attack and damage and emits a 30\' bright light on command; the wielder can use a reaction and 1 charge to blind a successful attacker (save DC %{spellDifficultyClass.A} Constitution negates) for 1 rd; the weapon regains 1d4 charges each dawn"',
+  'Repeating Shot':
+    'Section=magic ' +
+    'Note="Infused ammunition weapon gives +1 attack and damage and automatically creates its own ammunition"',
+  'Replicate Magic Item':
+    'Section=magic Note="Can replicate a chosen wondrous item"',
+  'Repulsion Shield':
+    'Section=magic ' +
+    'Note="Infused shield with 4 charges gives +1 Armor Class; the holder can use a reaction and 1 charge to push a successful attacker 15\'; the shield regains 1d4 charges each dawn"',
+  'Resistant Armor':
+    'Section=magic ' +
+    'Note="Infused armor gives +1 Armor Class and resistance to a chosen damage type"',
+  'Returning Weapon':
+    'Section=magic ' +
+    'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
+  'Spell-Refueling Ring':
+    'Section=feature ' +
+    'Note="Infused ring allows recovery of a level 3 spell once per day"',
+
+  //
   'Ambush':
     'Section=combat,skill ' +
     'Note=' +
       '"May spend 1 Superiority Die to add roll to Initiative",' +
       '"May spend 1 Superiority Die to add roll to a Stealth check"',
-  'Arcane Propulsion Armor':
-    'Section=magic ' +
-    'Note="Infused armor gives +5\' Speed and replaces missing limbs; range 20/60 magical gauntlets inflict 1d8 HP force and return"',
-  'Armor Of Magical Strength':
-    'Section=magic ' +
-    'Note="Wearer of infused armor w/6 charges may spend 1 charge to gain +Intelligence Modifier Strength check or save or to use Reaction to avoid being knocked prone; armor regains 1d6 charges each dawn"',
-  'Artificer Specialist':'Section=feature Note="1 selection"',
   'Bait And Switch':
     'Section=combat ' +
     'Note="May spend 1 Superiority Die to swap place w/an adjacent willing creature; choice of self or swapped creature adds rolled value to Armor Class for 1 rd"',
@@ -467,9 +665,6 @@ Tasha.FEATURES = {
   'Bond Of The Talisman':
     'Section=magic ' +
     'Note="Self or talisman wearer may teleport to the other %{proficiencyBonus}/long rest"',
-  'Boots Of The Winding Path':
-    'Section=magic ' +
-    'Note="Wearer of infused boots may teleport back to a space w/in 15\'"',
   'Brace':
     'Section=combat ' +
     'Note="May spend 1 Superiority Die to use Reaction to attack a creature that moves into range and add roll to damage"',
@@ -511,15 +706,6 @@ Tasha.FEATURES = {
   'Eldritch Versatility':
     'Section=feature ' +
     'Note="May replace a cantrip%{levels.Warlock<12?\' or Pact Boon option\':\', Pact Boon option, or Mystic Arcanum spell\'} when boosting an ability or taking a feat"',
-  'Enhanced Arcane Focus':
-    'Section=magic ' +
-    'Note="Infused rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks that ignore half cover"',
-  'Enhanced Defense':
-    'Section=magic ' +
-    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} AC"',
-  'Enhanced Weapon':
-    'Section=magic ' +
-    'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
   'Far Scribe':
     'Section=magic ' +
     'Note="May cast <i>Sending</i>, targeting one of %{proficiencyBonus} creatures who have written their names in the Book Of Shadows" ' +
@@ -556,9 +742,6 @@ Tasha.FEATURES = {
   'Grappling Strike':
     'Section=combat ' +
     'Note="After a hit, may spend 1 Superiority Die to add roll to an Athletics grapple check"',
-  'Flash Of Genius':
-    'Section=feature ' +
-    'Note="R30\' May use Reaction to give an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>?1}/long rest"',
   'Focused Aim':
     'Section=combat ' +
     'Note="May spend 1/2/3 Ki Points to add 2/4/6 to a failed attack roll"',
@@ -568,17 +751,6 @@ Tasha.FEATURES = {
   'Harness Divine Power':
      'Section=magic ' +
      'Note="May use Channel Divinity and a bonus action to regain a spell slot up to level %{(proficiencyBonus+1)//2} %{(!levels.Cleric?0:levels.Cleric<6?1:levels.Cleric<18?2:3)+(!levels.Paladin?0:levels.Paladin<7?1:levels.Paladin<15?2:3)}/long rest"',
-  'Helm Of Awareness':
-    'Section=magic ' +
-    'Note="Infused helmet gives Adv on Initiative, and wearer cannot be surprised"',
-  'Homunculus Servant':
-    'Section=magic ' +
-    'Note="May create a mechanical companion (AC 13; HP %{levels.Artificer+intelligenceModifier+1}; Attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
-  'Infuse Item':
-    'Section=feature,magic ' +
-    'Note=' +
-      '"%{(levels.Artificer+6)//4*2} selections",' +
-      '"May infuse %{(levels.Artificer+6)//4+(featureNotes.armorModifications?2:0)} items simultaneously"',
   'Instinctive Pounce':
     'Section=combat Note="May move %{speed//2}\' when entering rage"',
   'Investment Of The Chain Master':
@@ -587,27 +759,12 @@ Tasha.FEATURES = {
   'Ki-Fueled Attack':
     'Section=combat ' +
     'Note="Performing an action that spends a Ki Point allows using a bonus action to attack w/a monk weapon"',
-  'Magic Item Adept':
-    'Section=magic ' +
-    'Note="May attune %{4+(magicNotes.magicItemMaster?2:magicNotes.magicItemSavant?1:0)} items simultaneously/May craft uncommon magic items in one quarter time at half cost"',
-  'Magic Item Master':'Section=magic Note="May attune 6 items simultaneously"',
-  'Magic Item Savant':
-    'Section=magic,magic ' +
-    'Note=' +
-      '"May attune 5 items simultaneously",' +
-      '"May ignore attunement and use requirements on attuned items"',
-  'Magical Tinkering':
-    'Section=magic ' +
-    'Note="May imbue %{intelligenceModifier>?1} objects simultaneously with light, message, sound, odor, or picture"',
   'Martial Versatility':
     'Section=feature ' +
     'Note="May replace a Fighting Style or maneuver when boosting an ability or taking a feat"',
   'Magical Inspiration':
     'Section=magic ' +
     'Note="Bardic Inspiration die roll may be added to spell harm or healing"',
-  'Mind Sharpener':
-    'Section=magic ' +
-    'Note="Infused armor or robes w/4 charges allows wearer to use Reaction and 1 charge to change a failed Constitution save for spell concentration to success; item regains 1d4 charges each dawn"',
   "Nature's Veil":
     'Section=magic ' +
     'Note="May use a bonus action to become invisible for 1 rd %{proficiencyBonus}/long rest"',
@@ -635,55 +792,22 @@ Tasha.FEATURES = {
   'Quickened Healing':
     'Section=combat ' +
     'Note="May spend 2 Ki Points to regain 1d%{combatNotes.martialArts}+%{proficiencyBonus} HP"',
-  'Radiant Weapon':
-    'Section=magic ' +
-    'Note="Infused weapon w/4 charges gives +1 attack and damage and emits a 30\' bright light on command; wielder may use Reaction and 1 charge to blind a successful attacker (DC %{spellDifficultyClass.A} Constitution neg) for 1 rd; item regains 1d4 charges each dawn"',
   'Rebuke Of The Talisman':
     'Section=magic ' +
     'Note="R30\' When talisman wearer takes damage, may use Reaction to inflict %{proficiencyBonus} HP psychic and 10\' push on attacker"',
-  'Repeating Shot':
-    'Section=magic ' +
-    'Note="Infused ammunition weapon gives +1 attack and damage and automatically creates its own ammunition"',
-  'Replicate Magic Item':
-    'Section=magic Note="Allows replication of a wondrous item"',
-  'Repulsion Shield':
-    'Section=magic ' +
-    'Note="Infused shield w/4 charges gives +1 AC; holder may use Reaction and 1 charge to push a successful attacker 15\'; regains 1d4 charges each dawn"',
-  'Resistant Armor':
-    'Section=magic ' +
-    'Note="Infused armor gives +1 AC and resistance to chosen damage type"',
-  'Returning Weapon':
-    'Section=magic ' +
-    'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
   'Roving':
     'Section=ability,ability ' +
     'Note=' +
       '"+5 Speed",' +
       '"%{speed}\' climb Speed/%{speed}\' swim Speed"',
-  'Soul Of Artifice':
-    'Section=combat,save ' +
-    'Note=' +
-      '"May use Reaction and end 1 infusion when reduced to 0 HP to retain 1 HP",' +
-      '"+1 per attunement on saves"',
-  'Spell-Refueling Ring':
-    'Section=feature ' +
-    'Note="Infused ring allows recovery of a level 3 spell 1/dy"',
-  'Spell-Storing Item':
-    'Section=feature ' +
-    'Note="After a long rest, may store in an item an A1 or A2 spell that can be cast %{intelligenceModifier*2>?2} times"',
   'Spellcasting Focus':
     'Section=magic Note="May use a druidic focus for ranger spells"',
   'Tactical Assessment':
     'Section=skill ' +
     'Note="May spend 1 Superiority Die to add roll to a History, Insight, or Investigation check"',
-  'The Right Tool For The Job':
-    'Section=feature Note="May spend 1 hr to create a set of artisan\'s tools"',
   'Tireless':
     'Section=combat ' +
     'Note="May gain 1d8+%{wisdomModifier} temporary HP %{proficiencyBonus}/long rest/Short rest reduces exhaustion by 1"',
-  'Tool Expertise':
-    'Section=feature ' +
-    'Note="Dbl proficiency bonus (+%{proficiencyBonus}) when using tools"',
   'Undying Servitude':
     'Section=magic ' +
     'Note="May cast <i>Animate Dead</i> 1/long rest" ' +
@@ -786,57 +910,14 @@ Tasha.FEATURES = {
   'Abjure The Extraplanar':
     'Section=combat ' +
     'Note="R30\' May use Channel Divinity to turn aberrations, celestials, elementals, fey, and fiends for 1 min (DC %{spellDifficultyClass.P} Wisdom neg)"',
-  'Alchemical Savant':
-    'Section=magic ' +
-    'Note="Spells cast using alchemical supplies gain +%{intelligenceModifier>?1} HP healing or acid, fire, necrotic, or poison damage"',
-  'Alchemist Spells':
-    'Spells=' +
-      '"3:Healing Word","3:Ray Of Sickness",' +
-      '"5:Flaming Sphere","5:Melf\'s Acid Arrow",' +
-      '"9:Gaseous Form","9:Mass Healing Word",' +
-      '13:Blight,"13:Death Ward",' +
-      '17:Cloudkill,"17:Raise Dead"',
-  'Alchemist Tool Proficiency':
-    'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
   'Animating Performance':
     'Section=magic ' +
     'Note="R30\' May animate an obedient large object (AC 16, HP %{levels.Bard*5+10} MV/Fly 30\', Attack +%{spellAttackModifier.B} inflicts 1d10+%{proficiencyBonus}, Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) for 1 hr 1/long rest (may spend a level 3 spell slot for additional)"',
-  'Arcane Armor':
-    'Section=combat ' +
-    'Note="Self armor has no Strength requirement, covers entire body, replaces missing limbs, and can be put on or taken off in 1 action"',
-  'Arcane Firearm':
-    'Section=magic ' +
-    'Note="Spells cast through a prepared wand, staff, or rod inflict +1d8 HP damage"',
-  'Arcane Jolt':
-    'Section=combat ' +
-    'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or heals %{2+(combatNotes.improvedDefender?2:0)}d6 HP to 1 target in a 30\' radius %{intelligenceModifier>?1}/long rest"',
-  'Armor Model':'Section=feature Note="1 selection"',
-  'Armor Modifications':
-    'Section=feature,magic ' +
-    'Note=' +
-      '"+2 Infused Items",' +
-      '"May apply 4 infusions to armor pieces"',
-  'Armorer Spells':
-    'Spells=' +
-      '"3:Magic Missile",3:Thunderwave,' +
-      '"5:Mirror Image",5:Shatter,' +
-      '"9:Hypnotic Pattern","9:Lightning Bolt",' +
-      '"13:Fire Shield","13:Greater Invisibility",' +
-      '17:Passwall,"17:Wall Of Force"',
   'Arms Of The Astral Self':
     'Section=ability,combat ' +
     'Note=' +
       '"May spend 1 Ki Point and use a bonus action to gain +%{wisdomModifier-strengthModifier} on Strength checks for 10 min",' +
       '"May spend 1 Ki and use a bonus action to inflict 2d%{combatNotes.martialArts} HP force (DC %{kiSaveDC} Dexterity neg) to targets in a 10\' radius; self gains +5\' unarmed reach, +%{wisdomModifier-maxDexOrStrMod} unarmed attack, and +%{wisdomModifier-maxDexOrStrMod} HP force unarmed damage for 10 min"',
-  'Artillerist Spells':
-    'Spells=' +
-      '3:Shield,3:Thunderwave,' +
-      '"5:Scorching Ray",5:Shatter,' +
-      '9:Fireball,"9:Wind Wall",' +
-      '"13:Ice Storm","13:Wall Of Fire",' +
-      '"17:Cone Of Cold","17:Wall Of Force"',
-  'Artillerist Tool Proficiency':
-    'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Aura Of Alacrity':
     'Section=ability,magic ' +
     'Note="+10 Speed","R%{levels.Paladin<18?5:10}\' Allies gain +10\' Speed for 1 rd"',
@@ -857,20 +938,6 @@ Tasha.FEATURES = {
   'Bastion Of Law':
     'Section=magic ' +
     'Note="R30\' May spend 1 - 5 Sorcery Points to absorb an equal number of d8s HP damage to target until next use or long rest"',
-  'Battle Ready':
-    'Section=combat,feature ' +
-    'Note=' +
-      '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage w/magic weapons",' +
-      '"Weapon Proficiency (Martial Weapons)"',
-  'Battle Smith Spells':
-    'Spells=' +
-      '3:Heroism,3:Shield,' +
-      '"5:Branding Smite","5:Warding Bond",' +
-      '"9:Aura Of Vitality","9:Conjure Barrage",' +
-      '"13:Aura Of Purity","13:Fire Shield",' +
-      '"17:Banishing Smite","17:Mass Cure Wounds"',
-  'Battle Smith Tool Proficiency':
-    'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
   'Beguiling Twist':
     'Section=combat,save ' +
     'Note=' +
@@ -920,13 +987,6 @@ Tasha.FEATURES = {
   'Cauterizing Flames':
     'Section=magic ' +
     'Note="R30\' May create a spectral flame for 1 min upon a creature death and use it to heal 2d10+%{wisdomModifier} HP or inflict 2d10+%{wisdomModifier} HP fire on another in the same space %{proficiencyBonus}/long rest"',
-  'Chemical Mastery':
-    'Section=magic,save ' +
-    'Note=' +
-      '"May use alchemist\'s supplies to cast <i>Greater Restoration</i> and <i>Heal</i> 1/long rest",' +
-      '"Resistance to acid and poison damage/Immune to poisoned condition" ' +
-    'Spells=' +
-      '"Greater Restoration",Heal',
   'Clockwork Cavalcade':
     'Section=magic ' +
     'Note="30\' cu restores 100 HP total among targets, repairs damaged objects, and dispels target spells up to 6th level 1/long rest (may spend 7 Sorcery Points for additional)"',
@@ -952,21 +1012,14 @@ Tasha.FEATURES = {
   'Creative Crescendo':
     'Section=magic ' +
     'Note="May use Performance Of Creation to create %{(charismaModifier-1)>?1} additional small object%{charismaModifier>2?\'s\':\'\'}"',
-  'Dampening Field':'Section=skill Note="Adv on Stealth"',
   "Death's Friend":
     'Section=combat,feature ' +
     'Note=' +
       '"Sneak Attack target affected by Wails From The Grave use",' +
       '"Has a minimum of 1 Soul Trinket available after a long rest"',
-  'Defensive Field':
-    'Section=combat ' +
-    'Note="May use a bonus action to gain %{level} temporary HP %{proficiencyBonus}/long rest"',
   'Dreadful Strikes':
     'Section=combat ' +
     'Note="May inflict +1d%{levels.Ranger<11?4:6} HP psychic w/a weapon 1/rd"',
-  'Eldritch Cannon':
-    'Section=combat ' +
-    'Note="May create a magical cannon (AC 18, %{levels.Artificer*5} HP (<i>Mending</i> repairs 2d6 HP), MV 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary HP) for 1 hr 1/long rest (may spend a spell slot for additional)"',
   'Elemental Gift':
     'Section=ability,save ' +
     'Note=' +
@@ -984,14 +1037,6 @@ Tasha.FEATURES = {
   'Enhanced Bond':
     'Section=magic ' +
     'Note="Fire spells inflict +1d8 HP fire and healing spells restore +1d8 HP/May cast through Wildfire Spirit"',
-  'Experimental Elixir':
-    'Section=magic ' +
-    'Note="May use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; may spend spell slots to create additional elixirs"',
-  'Explosive Cannon':
-    'Section=combat,combat ' +
-    'Note=' +
-      '"Eldritch Cannon inflicts +1d8 HP damage",' +
-      '"R60\' May destroy eldritch cannon to inflict 3d8 HP force (DC %{spellDifficultyClass.A} Dexterity half) in a 20\' radius"',
   'Eyes Of Night':
     'Section=feature ' +
     'Note="R300\' Darkvision can be shared w/%{wisdomModifier>?1} others w/in 10\' for 1 hr 1/long rest (may spend a spell slot for additional)"',
@@ -1023,10 +1068,6 @@ Tasha.FEATURES = {
   'Form Of The Beast':
     'Section=combat ' +
     'Note="During rage, may use bite (inflicts 1d8+%{strengthModifier} HP piercing; hit restores %{proficiencyBonus} HP to self if below %{hitPoints//2} 1/rd), claws (inflict 1d6+%{strengthModifier} HP slashing each; may make an additional attack 1/rd), or tail (+5\' reach inflicts 1d8+%{strengthModifier} HP slashing; may use Reaction when hit by foe w/in 10\' for +1d8 Armor Class)"',
-  'Fortified Position':
-    'Section=combat ' +
-    'Note=' +
-      '"May have 2 Eldritch Cannons simultaneously/Eldritch Cannon gives allies half cover in 10\' radius"',
   'Frost Rune':
     'Section=ability,save,skill ' +
     'Note=' +
@@ -1106,11 +1147,6 @@ Tasha.FEATURES = {
     'Note=' +
       '"Owns a mask associated w/the Way Of Mercy",' +
       '"Skill Proficiency (Insight; Medicine)/Tool Proficiency (Herbalism Kit)"',
-  'Improved Defender':
-    'Section=combat,combat ' +
-    'Note=' +
-      '"+2d6 Arcane Jolt effect/Steel Defender gains +2 Armor Class",' +
-      '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Infectious Fury':
     'Section=combat ' +
     'Note="Hit w/a natural weapon may inflict choice of redirected attack or +2d12 HP psychic (DC %{8+constitutionModifier+proficiencyBonus} Wisdom neg) %{proficiencyBonus}/long rest"',
@@ -1120,9 +1156,6 @@ Tasha.FEATURES = {
   'Inspiring Smite':
     'Section=combat ' +
     'Note="R30\' May use Channel Divinity after a Divine Smite to distribute 2d8+%{levels.Paladin} temporary HP"',
-  'Lightning Launcher':
-    'Section=combat ' +
-    'Note="Range 90/300 attack inflicts 1d6 HP lightning, +1d6 HP lightning 1/rd"',
   'Limited Wish':
     'Section=magic Note="May gain the effects of a 6th level spell 1/1d4 long rests"',
   'Living Legend':
@@ -1217,19 +1250,12 @@ Tasha.FEATURES = {
     'Note=' +
       '"May use Channel Divinity and a bonus action for dbl carry and lift for 10 min",' +
       '"May use Channel Divinity and a bonus action for Adv on Athletics and Acrobatics and +10\' high and long jumps for 10 min"',
-  'Perfected Armor (Guardian Armor)':
-    'Section=combat ' +
-    'Note="R30\' May use Reaction to pull a creature up to 30\' (DC %{spellDifficultyClass.A} Strength neg) and attack if w/in 5\' afterward %{proficiencyBonus}/long rest"',
-  'Perfected Armor (Infiltrator Armor)':
-    'Section=combat ' +
-    'Note="Lightning Launcher inflicts Disadv on attacks on self, and next attack on target gains Adv and inflicts +1d6 HP lightning, for 1 rd"',
   'Performance Of Creation':
     'Section=magic ' +
     'Note="R10\' May create a %{levels.Bard<6?\'medium\':levels.Bard<14?\'large\':\'huge\'} object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr 1/long rest (may spend a level 2 spell slot for additional)"',
   "Physician's Touch":
     'Section=combat ' +
     'Note="May use Hand Of Healing to end disease or condition/May use Hand Of Harm to inflict poisoned for 1 rd"',
-  'Powered Steps':'Section=ability Note="+5 Speed"',
   'Protective Bond':
     'Section=magic ' +
     'Note="Emboldening Bond member may use Reaction to teleport 30\' and take another\'s damage"',
@@ -1278,10 +1304,6 @@ Tasha.FEATURES = {
   'Rend Mind':
     'Section=combat ' +
     'Note="May inflict stunned w/Psychic Blade Sneak Attack for 1 min (DC %{8+dexterityModifier+proficiencyBonus} Wisdom ends) 1/long rest (may spend 3 Psionic Energy dice for additional)"',
-  'Restorative Reagents':
-    'Section=magic ' +
-    'Note="May use alchemist\'s supplies to cast <i>Lesser Restoration</i> %{intelligenceModifier>?1}/long rest/Elixirs give 2d6+%{intelligenceModifier>?1} temporary HP" ' +
-    'Spells="Lesser Restoration"',
   'Restore Balance':
     'Section=magic ' +
     'Note="R60\' May cancel target Adv or Disadv on a roll %{proficiencyBonus}/long rest"',
@@ -1336,9 +1358,6 @@ Tasha.FEATURES = {
   'Steady Aim':
     'Section=combat ' +
     'Note="May use a bonus action and forego move to gain Adv on attack"',
-  'Steel Defender':
-    'Section=combat ' +
-    'Note="May create a mechanical companion (AC %{15+(combatNotes.improvedDefender?2:0)}; HP %{levels.Artificer*5+intelligenceModifier+2} (<i>Mending</i> repairs 2d6 HP, self-repair 2d8+%{proficiencyBonus} HP 3/dy); Attack +%{spellAttackModifier.A} inflicts 1d8+%{proficiencyBonus} HP force; may use Reaction for R5\' inflict Disadv on attack; MV 40\'; Dexterity Save +%{proficiencyBonus+1}; Constitution Save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
   'Steps Of Night':
     'Section=ability ' +
     'Note="May use a bonus action to gain %{speed}\' fly Speed in dim or no light for 1 min %{proficiencyBonus}/long rest"',
@@ -1389,18 +1408,12 @@ Tasha.FEATURES = {
   'Tentacle Of The Deeps':
     'Section=magic ' +
     'Note="R60\' May use a bonus action to summon a 10\' tentacle that moves 30\' and inflicts %{levels.Warlock<10?1:2}d8 HP cold and -10\' speed 2/rd for 1 min %{proficiencyBonus}/long rest"',
-  'Thunder Gauntlets':
-    'Section=combat ' +
-    'Note="Each gauntlet inflicts 1d8 HP thunder and Disadv on attacks on others for 1 rd"',
   'Tokens Of The Departed':
     'Section=combat,feature,save ' +
     'Note=' +
       '"After a Sneak Attack hit, destroying a Soul Trinket gives an immediate Wails From The Grave use",' +
       '"May create %{proficiencyBonus} Soul Trinkets from creatures that die w/in 30\'/May destroy a Soul Trinket to gain an answer to a question",' +
       '"Adv on Constitution and saves vs. death while in possession of a Soul Trinket"',
-  'Tools Of The Trade':
-    'Section=feature ' +
-    'Note="Armor Proficiency (Heavy)/Tool Proficiency (Smith\'s Tools)"',
   'Training In War And Song':
     'Section=combat,skill ' +
     'Note=' +
