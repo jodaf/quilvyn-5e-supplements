@@ -650,7 +650,153 @@ Tasha.FEATURES = {
     'Section=feature ' +
     'Note="Infused ring allows recovery of a level 3 spell once per day"',
 
-  //
+  // Barbarian
+  'Instinctive Pounce':
+    'Section=combat Note="Can move %{speed//2}\' when entering rage"',
+  'Primal Knowledge':
+    'Section=skill ' +
+    'Note="Skill Proficiency (Choose %V from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival)"',
+  // Path Of The Beast
+  'Bestial Soul':
+    'Section=ability,combat ' +
+    'Note=' +
+      '"Until next rest, may gain choice of: %{speed}\' swim Speed and water breathing; %{speed}\' climb Speed and ability to climb difficult surfaces; add Athletics roll to jump distances",' +
+      '"Natural weapons count as magic"',
+  'Call The Hunt':
+    'Section=combat ' +
+    'Note="R30\' During rage, can give %{constitutionModifier>?1} willing target%{constitutionModifier>1?\'s\':\'\'} +1d6 HP damage once per rd and self 5 temporary hit points per target %{proficiencyBonus} times per long rest"',
+  'Form Of The Beast':
+    'Section=combat ' +
+    'Note="During rage, can use bite (inflicts 1d8+%{strengthModifier} HP piercing, and a hit restores %{proficiencyBonus} hit points to self once per rd when below %{hitPoints//2} hit points), claws (inflicts 1d6+%{strengthModifier} HP slashing each and can make an additional attack once per rd), or tail (+5\' reach inflicts 1d8+%{strengthModifier} HP slashing and can use a reaction when hit by a foe within 10\' to gain +1d8 Armor Class)"',
+  'Infectious Fury':
+    'Section=combat ' +
+    'Note="Hit with a natural weapon can force the target to use its reaction to attack a chosen creature or can inflict +2d12 HP psychic (save DC %{8+constitutionModifier+proficiencyBonus} Wisdom negates) %{proficiencyBonus} times per long rest"',
+  // Path Of Wild Magic
+  'Magic Awareness':
+    'Section=magic ' +
+    'Note="R60\' Can detect the presence and schools of spells and magic items for 1 rd %{proficiencyBonus} times per long rest"',
+  'Wild Surge':
+    'Section=magic ' +
+    'Note="Triggers a DC %{8+proficiencyBonus+constitutionModifier} Wild Magic effect when entering rage"',
+
+  // Bard
+  'Bardic Versatility':
+    'Section=feature ' +
+    'Note="Can replace a skill expertise or a cantrip when boosting an ability or taking a feat"',
+  'Magical Inspiration':
+    'Section=magic ' +
+    'Note="Bardic Inspiration die roll can be added to spell harm or healing"',
+  // College Of Creation
+  'Animating Performance':
+    'Section=magic ' +
+    'Note="R30\' Can animate an obedient large object (Armor Class 16, %{levels.Bard*5+10} hit points, move or fly 30\', +%{spellAttackModifier.B} attack inflicts 1d10+%{proficiencyBonus} HP, Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) for 1 hr once per long rest; can spend level 3 or higher spell slots to animate additional objects"',
+  'Creative Crescendo':
+    'Section=magic ' +
+    'Note="May use Performance Of Creation to create %{(charismaModifier-1)>?1} additional small object%{charismaModifier>2?\'s\':\'\'}"',
+  'Mote Of Potential':
+    'Section=magic ' +
+    'Note="Bardic Inspiration adds the better of two rolls on an ability check, inflicts the die roll HP thunder (save DC %{spellDifficultyClass.B} Constitution negates) to the target and chosen creatures within 5\' on an attack, or gives the roll + %{charismaModifier} temporary hit points on a save"',
+  'Performance Of Creation':
+    'Section=magic ' +
+    'Note="R10\' Can create a %{levels.Bard<6?\'medium\':levels.Bard<14?\'large\':\'huge\'} object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr once per long rest; can spend level 2 or higher spell slots to create additional objects"',
+  // College Of Eloquence
+  'Infectious Inspiration':
+    'Section=magic ' +
+    'Note="R60\' Can use a reaction after a successful Bardic Inspiration use to grant an extra die to a different target %{charismaModifier>1?charismaModifier+\' times\':\'once\'} per long rest"',
+  'Silver Tongue':
+    'Section=skill Note="Rolls a minimum 10 on Deception and Persuasion"',
+  'Unfailing Inspiration':
+    'Section=magic ' +
+    'Note="Bardic Inspiration targets keep the die after a failed use"',
+  'Universal Speech':
+    'Section=magic ' +
+    'Note="R60\' %{charismaModifier>?1} target%{charismaModifier>1?\'s\':\'\'} understand%{charismaModifier>1?\'\':\'s\'} self for 1 hr once per long rest; can spend spell slots for additional uses"',
+  'Unsettling Words':
+    'Section=magic ' +
+    'Note="R60\' Can spend 1 Bardic Inspiration die and use a bonus action to inflict -roll on the target\'s next save within 1 rd"',
+
+  // Cleric
+  'Blessed Strikes':
+    'Section=combat ' +
+    'Note="Can inflict +1d8 radiant with a cantrip or a weapon hit once per rd"',
+  'Cantrip Versatility':
+    'Section=feature ' +
+    'Note="Can replace a cantrip when boosting an ability or taking a feat"',
+  'Harness Divine Power':
+     'Section=magic ' +
+     'Note="Can use Channel Divinity and a bonus action to regain a spell slot up to level %{(proficiencyBonus+1)//2} %V time%{magicNotes.harnessDivinePower>1?\'s\':\'\'} per long rest"',
+  // Order Domain
+  'Bonus Proficiencies (Order Domain)':
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Armor Proficiency (Heavy)",' +
+      '"Skill Proficiency (Choose 1 from Intimidation, Persuasion)"',
+  // Divine Strike as SRD5E
+  'Embodiment Of The Law':
+    'Section=magic ' +
+    'Note="Can cast a 1-action enchantment spell as a bonus action %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
+  'Order Domain':
+    'Spells=' +
+      '"1:Command","1:Heroism",' +
+      '"3:Hold Person","3:Zone Of Truth",' +
+      '"5:Mass Healing Word","5:Slow",' +
+      '"7:Compulsion","7:Locate Creature",' +
+      '"9:Commune","9:Dominate Person"',
+  "Order's Demand":
+    'Section=magic ' +
+    'Note="R30\' Can use Channel Divinity to charm targets (save DC %{spellDifficultyClass.C} Wisdom negates; damage ends) for 1 rd"',
+  "Order's Wrath":
+    'Section=combat ' +
+    'Note="Once per rd, can curse a Divine Strike target so that the next ally hit within 1 rd inflicts +2d8 psychic"',
+  'Voice Of Authority':
+    'Section=magic ' +
+    'Note="Allied target of a self spell can use a reaction to make an attack"',
+  // Peace Domain
+  'Balm Of Peace':
+    'Section=magic ' +
+    'Note="Can use Channel Divinity to move %{speed}\' without provoking opportunity attacks, restoring 2d6+%{wisdomModifier} hit points to each target within 5\'"',
+  'Emboldening Bond':
+    'Section=magic ' +
+    'Note="R30\' Can give %{proficiencyBonus} willing targets +1d4 on an attack, ability check, or save once per rd for 10 min when within 30\' of another %{proficiencyBonus} times per long rest"',
+  'Expansive Bond':
+    'Section=magic ' +
+    'Note="The range of Emboldening Bond and Protective Bond increases to 60\', and Protective Bond gives resistance to the damage taken"',
+  'Implement Of Peace':
+    'Section=skill ' +
+    'Note="Skill Proficiency (Choose 1 from Insight, Performance, Persuasion)"',
+  'Peace Domain':
+    'Spells=' +
+      '"1:Heroism","1:Sanctuary",' +
+      '"3:Aid","3:Warding Bond",' +
+      '"5:Beacon Of Hope","5:Sending",' +
+      '"7:Aura Of Purity","7:Otiluke\'s Resilient Sphere",' +
+      '"9:Greater Restoration","7:Rary\'s Telepathic Bond"',
+  // Potent Spellcasting as SRD5E
+  'Protective Bond':
+    'Section=magic ' +
+    'Note="An Emboldening Bond member can use a reaction to teleport 30\' and take another\'s damage"',
+  // Twilight Domain
+  // Divine Strike as SRD5E
+  'Eyes Of Night':
+    'Section=feature ' +
+    'Note="R300\' Darkvision can be shared with %{wisdomModifier>1?wisdomModifier+\' others\':\'1 other\'} within 10\' for 1 hr once per long rest; can spend a spell slot for additional uses"',
+  'Steps Of Night':
+    'Section=ability ' +
+    'Note="Can use a bonus action to gain a %{speed}\' fly Speed in dim or no light for 1 min %{proficiencyBonus} times per long rest"',
+  'Twilight Domain':
+    'Spells=' +
+      '"1:Faerie Fire","1:Sleep",' +
+      '"3:Moonbeam","3:See Invisibility",' +
+      '"5:Aura Of Vitality","5:Leomund\'s Tiny Hut",' +
+      '"7:Aura Of Life","7:Greater Invisibility",' +
+      '"9:Circle Of Power","9:Mislead"',
+  'Twilight Sanctuary':
+    'Section=magic ' +
+    'Note="Can use Channel Divinity to create a 30\' radius for 1 min that gives targets a choice of 1d6+%{levels.Cleric} temporary hit points or an end to a charmed or frightened condition"',
+  'Twilight Shroud':'Section=magic Note="Twilight Sanctuary gives half cover"',
+  'Vigilant Blessing':
+    'Section=combat Note="Touched gains advantage on the next initiative"',
+
   'Ambush':
     'Section=combat,skill ' +
     'Note=' +
@@ -659,9 +805,6 @@ Tasha.FEATURES = {
   'Bait And Switch':
     'Section=combat ' +
     'Note="May spend 1 Superiority Die to swap place w/an adjacent willing creature; choice of self or swapped creature adds rolled value to Armor Class for 1 rd"',
-  'Bardic Versatility':
-    'Section=feature ' +
-    'Note="May replace a skill expertise or a cantrip when boosting an ability or taking a feat"',
   'Bond Of The Talisman':
     'Section=magic ' +
     'Note="Self or talisman wearer may teleport to the other %{proficiencyBonus}/long rest"',
@@ -675,9 +818,6 @@ Tasha.FEATURES = {
       '"Dbl proficiency bonus (+%{proficiencyBonus}) on chosen skill"',
   'Cantrip Formulas':
     'Section=magic Note="May replace a W0 cantrip 1/long rest"',
-  'Cantrip Versatility':
-    'Section=feature ' +
-    'Note="May replace a cantrip when boosting an ability or taking a feat"',
   'Circle Of Spores':
     'Spells=' +
       '"2:Chill Touch",' +
@@ -748,11 +888,6 @@ Tasha.FEATURES = {
   'Gift Of The Protectors':
     'Section=magic ' +
     'Note="Creatures who have written their names in the Book Of Shadows retain 1 HP when reduced to 0 HP 1/long rest"',
-  'Harness Divine Power':
-     'Section=magic ' +
-     'Note="May use Channel Divinity and a bonus action to regain a spell slot up to level %{(proficiencyBonus+1)//2} %{(!levels.Cleric?0:levels.Cleric<6?1:levels.Cleric<18?2:3)+(!levels.Paladin?0:levels.Paladin<7?1:levels.Paladin<15?2:3)}/long rest"',
-  'Instinctive Pounce':
-    'Section=combat Note="May move %{speed//2}\' when entering rage"',
   'Investment Of The Chain Master':
     'Section=magic ' +
     'Note="Familiar gains 40\' fly or swim Speed, gains magical attacks, and inflicts DC %{spellDifficultyClass.K} saves; self can use a bonus action to command familiar to attack and Reaction to give it resistance to damage"',
@@ -762,9 +897,6 @@ Tasha.FEATURES = {
   'Martial Versatility':
     'Section=feature ' +
     'Note="May replace a Fighting Style or maneuver when boosting an ability or taking a feat"',
-  'Magical Inspiration':
-    'Section=magic ' +
-    'Note="Bardic Inspiration die roll may be added to spell harm or healing"',
   "Nature's Veil":
     'Section=magic ' +
     'Note="May use a bonus action to become invisible for 1 rd %{proficiencyBonus}/long rest"',
@@ -780,9 +912,6 @@ Tasha.FEATURES = {
        '"9:Speak With Plants",' +
        '"13:Locate Creature",' +
        '"17:Commune With Nature"',
-  'Primal Knowledge':
-    'Section=skill ' +
-    'Note="Skill Proficiency (Choose %V from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival)"',
   'Protection Of The Talisman':
     'Section=magic ' +
     'Note="Talisman wearer may add +1d4 to a failed save %{proficiencyBonus}/long rest"',
@@ -910,9 +1039,6 @@ Tasha.FEATURES = {
   'Abjure The Extraplanar':
     'Section=combat ' +
     'Note="R30\' May use Channel Divinity to turn aberrations, celestials, elementals, fey, and fiends for 1 min (DC %{spellDifficultyClass.P} Wisdom neg)"',
-  'Animating Performance':
-    'Section=magic ' +
-    'Note="R30\' May animate an obedient large object (AC 16, HP %{levels.Bard*5+10} MV/Fly 30\', Attack +%{spellAttackModifier.B} inflicts 1d10+%{proficiencyBonus}, Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) for 1 hr 1/long rest (may spend a level 3 spell slot for additional)"',
   'Arms Of The Astral Self':
     'Section=ability,combat ' +
     'Note=' +
@@ -932,9 +1058,6 @@ Tasha.FEATURES = {
   'Awakened Spellbook':
     'Section=magic ' +
     'Note="May perform a ritual casting in normal casting time 1/long rest, use spellbook as a focus, and change spell damage type"',
-  'Balm Of Peace':
-    'Section=magic ' +
-    'Note="May use Channel Divinity to move %{speed}\' w/out provoking an OA, restoring 2d6+%{wisdomModifier} HP to each target w/in 5\'"',
   'Bastion Of Law':
     'Section=magic ' +
     'Note="R30\' May spend 1 - 5 Sorcery Points to absorb an equal number of d8s HP damage to target until next use or long rest"',
@@ -943,11 +1066,6 @@ Tasha.FEATURES = {
     'Note=' +
       '"R120\' May use Reaction to redirect a saved charm or fright effect to a different target for 1 min (DC %{spellDifficultyClass.R} Wisdom ends)",' +
       '"Adv on saves vs. charm and fright"',
-  'Bestial Soul':
-    'Section=ability,combat ' +
-    'Note=' +
-      '"Until next rest, may gain choice of: %{speed}\' swim Speed and water breathing; %{speed}\' climb Speed and ability to climb difficult surfaces; add Athletics roll to jump distances",' +
-      '"Natural weapons count as magic"',
   'Bladesong':
     'Section=ability,combat,feature,magic,skill ' +
     'Note=' +
@@ -959,20 +1077,12 @@ Tasha.FEATURES = {
   'Blazing Revival':
     'Section=magic ' +
     'Note="R120\' May extinguish Wildfire Spirit to regain %{hitPoints//2} HP when reduced to 0 HP 1/long rest"',
-  'Blessed Strikes':
-    'Section=combat ' +
-    'Note="May inflict +1d8 radiant w/a cantrip or a weapon hit 1/rd"',
   'Body Of The Astral Self':
     'Section=combat ' +
     'Note="While using both Arms and Visage Of The Astral Self, may use Reaction to negate 1d10+%{wisdomModifier} HP acid, cold, fire, force, lightning, or thunder damage and may inflict +1d%{combatNotes.martialArts} HP damage w/Arms Of The Astral Self 1/rd"',
   'Bolstering Magic':
     'Section=magic ' +
     'Note="Touch gives choice of +1d3 attacks and ability checks for 10 min or recovery of level 1d3 spell slot %{proficiencyBonus}/long rest"',
-  'Bonus Proficiencies (Order Domain)':
-    'Section=combat,skill ' +
-    'Note=' +
-      '"Armor Proficiency (Heavy)",' +
-      '"Skill Proficiency (Choose 1 from Intimidation, Persuasion)"',
   'Bonus Proficiencies (Rune Knight)':
     'Section=skill Note="Tool Proficiency (Smith\'s Tools)/Language (Giant)"',
   'Bonus Proficiencies (Twilight Domain)':
@@ -981,9 +1091,6 @@ Tasha.FEATURES = {
   'Bulwark Of Force':
     'Section=combat ' +
     'Note="R30\' May use a bonus action to give %{intelligenceModifier} targets half cover for 1 min 1/long rest (may spend a Psionic Energy die for additional)"',
-  'Call The Hunt':
-    'Section=combat ' +
-    'Note="R30\' During rage, may give %{constitutionModifier>?1} willing targets +1d6 HP damage 1/rd and self 5 temporary HP per target %{proficiencyBonus}/long rest"',
   'Cauterizing Flames':
     'Section=magic ' +
     'Note="R30\' May create a spectral flame for 1 min upon a creature death and use it to heal 2d10+%{wisdomModifier} HP or inflict 2d10+%{wisdomModifier} HP fire on another in the same space %{proficiencyBonus}/long rest"',
@@ -1009,9 +1116,6 @@ Tasha.FEATURES = {
   'Cosmic Omen':
     'Section=magic ' +
     'Note="R30\' May use Reaction to give +1d6 or inflict -1d6 on an attack, ability, or save %{proficiencyBonus}/long rest"',
-  'Creative Crescendo':
-    'Section=magic ' +
-    'Note="May use Performance Of Creation to create %{(charismaModifier-1)>?1} additional small object%{charismaModifier>2?\'s\':\'\'}"',
   "Death's Friend":
     'Section=combat,feature ' +
     'Note=' +
@@ -1025,21 +1129,9 @@ Tasha.FEATURES = {
     'Note=' +
       '"May use a bonus action to gain 30\' fly Speed for 10 min %{proficiencyBonus}/long rest",' +
       '"Resistance to %{genieEnergy} damage"',
-  'Embodiment Of The Law':
-    'Section=magic ' +
-    'Note="May cast enchantment spells as a bonus action %{wisdomModifier>?1}/long rest"',
-  'Emboldening Bond':
-    'Section=magic ' +
-    'Note="R30\' May give %{proficiencyBonus} willing targets +1d4 on an attack, ability, or save 1/rd when w/in 30\' of each other for 10 min %{proficiencyBonus}/long rest"',
-  'Expansive Bond':
-    'Section=magic ' +
-    'Note="Protective Bond works at 60\' and gives resistance to damage"',
   'Enhanced Bond':
     'Section=magic ' +
     'Note="Fire spells inflict +1d8 HP fire and healing spells restore +1d8 HP/May cast through Wildfire Spirit"',
-  'Eyes Of Night':
-    'Section=feature ' +
-    'Note="R300\' Darkvision can be shared w/%{wisdomModifier>?1} others w/in 10\' for 1 hr 1/long rest (may spend a spell slot for additional)"',
   'Fathomless Plunge':
     'Section=magic ' +
     'Note="R30\' May teleport self and 5 willing targets 1 mile to a known body of water 1/short rest"',
@@ -1065,9 +1157,6 @@ Tasha.FEATURES = {
   'Flurry Of Healing And Harm':
     'Section=combat ' +
     'Note="May substitute Hand Of Healing for each Flurry Of Blows strike/May add Hand Of Harm to one Flurry Of Blows strike"',
-  'Form Of The Beast':
-    'Section=combat ' +
-    'Note="During rage, may use bite (inflicts 1d8+%{strengthModifier} HP piercing; hit restores %{proficiencyBonus} HP to self if below %{hitPoints//2} 1/rd), claws (inflict 1d6+%{strengthModifier} HP slashing each; may make an additional attack 1/rd), or tail (+5\' reach inflicts 1d8+%{strengthModifier} HP slashing; may use Reaction when hit by foe w/in 10\' for +1d8 Armor Class)"',
   'Frost Rune':
     'Section=ability,save,skill ' +
     'Note=' +
@@ -1139,20 +1228,11 @@ Tasha.FEATURES = {
   'Homing Strikes':
     'Section=combat ' +
     'Note="May add 1d%{featureNotes.psionicPower} to a failed Psychic Blade attack; spend 1 Psionic Energy die if the sum is enough to hit"',
-  'Implement Of Peace':
-    'Section=skill ' +
-    'Note="Skill Proficiency (Choose 1 from Insight, Performance, Persuasion)"',
   'Implements Of Mercy':
     'Section=feature,skill ' +
     'Note=' +
       '"Owns a mask associated w/the Way Of Mercy",' +
       '"Skill Proficiency (Insight; Medicine)/Tool Proficiency (Herbalism Kit)"',
-  'Infectious Fury':
-    'Section=combat ' +
-    'Note="Hit w/a natural weapon may inflict choice of redirected attack or +2d12 HP psychic (DC %{8+constitutionModifier+proficiencyBonus} Wisdom neg) %{proficiencyBonus}/long rest"',
-  'Infectious Inspiration':
-    'Section=magic ' +
-    'Note="R60\' May use Reaction after a successful Bardic Inspiration use to grant an extra die to a different target %{charismaModifier>?1}/long rest"',
   'Inspiring Smite':
     'Section=combat ' +
     'Note="R30\' May use Channel Divinity after a Divine Smite to distribute 2d8+%{levels.Paladin} temporary HP"',
@@ -1164,9 +1244,6 @@ Tasha.FEATURES = {
       '"May gain Adv on Charisma for 1 min 1/long rest (may spend a level 5 spell slot for additional)",' +
       '"May change a miss into a hit 1/rd for 1 min 1/long rest (may spend a level 5 spell slot for additional)",' +
       '"May use Reaction to reroll failed saves for 1 min 1/long rest (may spend a level 5 spell slot for additional)"',
-  'Magic Awareness':
-    'Section=magic ' +
-    'Note="R60\' May detect presence and schools of spells and magic items for 1 rd %{proficiencyBonus}/long rest"',
   'Magical Guidance':
     'Section=ability ' +
     'Note="May spend 1 Sorcery Point to reroll a failed ability check"',
@@ -1193,9 +1270,6 @@ Tasha.FEATURES = {
     'Note=' +
       '"May gain Adv on attacks vs. aberrations, celestials, elementals, fey, and fiends and to inflict banishment w/a successful attack (DC %{spellDifficultyClass.P} Charisma neg) for 1 min 1/long rest (may spend a level 5 spell slot for additional)",' +
       '"May gain 120\' truesight for 1 min 1/long rest (may spend a level 5 spell slot for additional)"',
-  'Mote Of Potential':
-    'Section=magic ' +
-    'Note="Bardic Inspiration gives die rolled w/Adv on an ability check, inflicts R5\' die roll HP thunder (DC %{spellDifficultyClass.B} Constitution neg) on an attack, and gives roll + %{charismaModifier} temporary HP on a save"',
   'Oath Of Glory':
     'Spells=' +
       '"3:Guiding Bolt",3:Heroism,' +
@@ -1220,45 +1294,19 @@ Tasha.FEATURES = {
     'Note=' +
       '"May use Reaction to negate damage to self and erase 3d6 spell levels from Awakened Spellbook for 1d6 long rests 1/long rest",' +
       '"Adv on Arcana"',
-  'Order Domain':
-    'Spells=' +
-      '1:Command,1:Heroism,' +
-      '"3:Hold Person","3:Zone Of Truth",' +
-      '"5:Mass Healing Word",5:Slow,' +
-      '7:Compulsion,"7:Locate Creature",' +
-      '9:Commune,"9:Dominate Person"',
-  "Order's Demand":
-    'Section=magic ' +
-    'Note="R30\' May use Channel Divinity to charm targets (DC %{spellDifficultyClass.C} Wisdom neg; damage ends) for 1 rd"',
-  "Order's Wrath":
-    'Section=combat ' +
-    'Note="May have next ally hit on a Divine Strike target inflict +2d8 psychic for 1 rd 1/rd"',
   'Otherworldly Glamour':
     'Section=ability,skill ' +
     'Note=' +
       '"+%{wisdomModifier>?1} Charisma checks",' +
       '"Skill Proficiency (Choose 1 from Deception, Performance, Persuasion)"',
-  'Peace Domain':
-    'Spells=' +
-      '1:Heroism,1:Sanctuary,' +
-      '3:Aid,"3:Warding Bond",' +
-      '"5:Beacon Of Hope",5:Sending,' +
-      '"7:Aura Of Purity","7:Otiluke\'s Resilient Sphere",' +
-      '"9:Greater Restoration","7:Rary\'s Telepathic Bond"',
   'Peerless Athlete':
     'Section=ability,skill ' +
     'Note=' +
       '"May use Channel Divinity and a bonus action for dbl carry and lift for 10 min",' +
       '"May use Channel Divinity and a bonus action for Adv on Athletics and Acrobatics and +10\' high and long jumps for 10 min"',
-  'Performance Of Creation':
-    'Section=magic ' +
-    'Note="R10\' May create a %{levels.Bard<6?\'medium\':levels.Bard<14?\'large\':\'huge\'} object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr 1/long rest (may spend a level 2 spell slot for additional)"',
   "Physician's Touch":
     'Section=combat ' +
     'Note="May use Hand Of Healing to end disease or condition/May use Hand Of Harm to inflict poisoned for 1 rd"',
-  'Protective Bond':
-    'Section=magic ' +
-    'Note="Emboldening Bond member may use Reaction to teleport 30\' and take another\'s damage"',
   'Protective Field':
     'Section=combat ' +
     'Note="R30\' May spend 1 Psionic Energy die and use Reaction to negate 1d%{featureNotes.psionicPower}+%{intelligenceModifier>?1} HP damage"',
@@ -1331,8 +1379,6 @@ Tasha.FEATURES = {
   'Seeking Spell':
     'Section=magic ' +
     'Note="May spend 2 Sorcery Points to reroll a missed spell attack"',
-  'Silver Tongue':
-    'Section=skill Note="Minimum 10 on Deception and Persuasion rolls"',
   'Song Of Defense':
     'Section=magic ' +
     'Note="During Bladesong, may use Reaction and expend a spell slot to reduce damage to self by 5x slot level"',
@@ -1358,9 +1404,6 @@ Tasha.FEATURES = {
   'Steady Aim':
     'Section=combat ' +
     'Note="May use a bonus action and forego move to gain Adv on attack"',
-  'Steps Of Night':
-    'Section=ability ' +
-    'Note="May use a bonus action to gain %{speed}\' fly Speed in dim or no light for 1 min %{proficiencyBonus}/long rest"',
   'Stone Rune':
     'Section=combat,feature,skill ' +
     'Note=' +
@@ -1427,36 +1470,14 @@ Tasha.FEATURES = {
   'Transmuted Spell':
     'Section=magic ' +
     'Note="May spend 1 Sorcery Point to change a spell\'s damage type"',
-  'Twilight Domain':
-    'Spells=' +
-      '"1:Faerie Fire",1:Sleep,' +
-      '3:Moonbeam,"3:See Invisibility",' +
-      '"5:Aura Of Vitality","5:Leomund\'s Tiny Hut",' +
-      '"7:Aura Of Life","7:Greater Invisibility",' +
-      '"9:Circle Of Power",9:Mislead',
-  'Twilight Sanctuary':
-    'Section=magic ' +
-    'Note="May use Channel Divinity to create a 30\' radius for 1 min that gives targets choice of 1d6+%{levels.Cleric} temporary HP or an end to charmed or frightened"',
-  'Twilight Shroud':'Section=magic Note="Twilight Sanctuary gives half cover"',
   'Twinkling Constellations':
     'Section=magic,magic ' +
     'Note=' +
       '"Increased Starry Form effects",' +
       '"Dragon Starry Form gives 20\' fly Speed/May switch between Starry Forms 1/rd"',
-  'Unfailing Inspiration':
-    'Section=magic ' +
-    'Note="Bardic Inspiration target keeps die after a failed use"',
-  'Universal Speech':
-    'Section=magic ' +
-    'Note="R60\' %{charismaModifier>?1} targets understand self for 1 hr 1/long rest (may spend a spell slot for additional)"',
-  'Unsettling Words':
-    'Section=magic ' +
-    'Note="R60\' May spend 1 Bardic Inspiration die and use a bonus action to inflict -roll on target\'s next save for 1 rd"',
   'Unstable Backlash':
     'Section=magic ' +
     'Note="May use Reaction after taking damage or failing a save to trigger a Wild Magic effect"',
-  'Vigilant Blessing':
-    'Section=combat Note="Touch gives 1 creature Adv on next Initiative"',
   'Vigilant Rebuke':
     'Section=combat ' +
     'Note="R30\' May use Reaction to inflict 2d8+%{charismaModifier} HP force on attacker after a successful Charisma, Intelligence, or Wisdom save"',
@@ -1465,9 +1486,6 @@ Tasha.FEATURES = {
     'Note=' +
       '"May spend 1 Ki Point and use a bonus action to gain 120\' Darkvision, R600\' voice, and R60\' private voice for 10 min",' +
       '"May spend 1 Ki Point and use a bonus action to gain Adv on Insight and Intimidation for 10 min"',
-  'Voice Of Authority':
-    'Section=magic ' +
-    'Note="Ally self spell target may use Reaction to make an attack"',
   'Wails From The Grave':
     'Section=combat ' +
     'Note="R30\' After a Sneak Attack hit, may inflict %{(levels.Rogue+1)//4}d6 HP necrotic on a second creature %{proficiencyBonus}/long rest"',
@@ -1479,9 +1497,6 @@ Tasha.FEATURES = {
     'Note="R30\' May use Channel Divinity to give self and %{charismaModifier>?1} others Adv on Charisma, Intelligence, and Wisdom throws for 1 min"',
   'Whispers Of The Dead':
     'Section=skill Note="May gain proficiency in choice of skill 1/short rest"',
-  'Wild Surge':
-    'Section=magic ' +
-    'Note="Triggers a DC %{8+proficiencyBonus+constitutionModifier} Wild Magic effect when entering rage"',
   'Wizardly Quill':
     'Section=magic ' +
     'Note="May use a bonus action to create a quill that produces multicolored, erasable writing and copies spells at 2 min/level"',
@@ -1873,6 +1888,9 @@ Tasha.classRulesExtra = function(rules, name) {
       ('combatNotes.divineStrike', classLevel, '=', 'source<14 ? 1 : 2');
     rules.defineRule
       ('combatNotes.divineStrike.1', classLevel, '=', '"radiant"');
+    rules.defineRule('magicNotes.harnessDivinePower',
+      'levels.Cleric', '+=', 'source<6 ? 1 : source<18 ? 2 : 3'
+    );
     // SRD5E.classRulesExtra removes the domain requirement for None clerics
     SRD5E.classRulesExtra(rules, 'Cleric');
   } else if(name == 'Druid') {
@@ -1914,6 +1932,9 @@ Tasha.classRulesExtra = function(rules, name) {
       classLevel, '=', 'source<7 ? 2 : source<10 ? 3 : source<15 ? 4 : 5'
     );
   } else if(name == 'Paladin') {
+    rules.defineRule('magicNotes.harnessDivinePower',
+      'levels.Paladin', '+=', 'source<7 ? 1 : source<15 ? 2 : 3'
+    );
     rules.defineRule('spellSlots.C0',
       'magicNotes.fightingStyle(BlessedWarrior)', '+=', '2'
     );
