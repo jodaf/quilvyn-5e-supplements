@@ -1223,7 +1223,7 @@ Tasha.FEATURES = {
       '"17:Insect Plague"',
   'Writhing Tide':
     'Section=ability ' +
-    'Note="Can use a bonus action to gain 10\' fly Speed and hover for 1 min %{proficiencyBonus} times per long rest"',
+    'Note="Can use a bonus action to gain a 10\' fly Speed and to hover for 1 min %{proficiencyBonus} times per long rest"',
 
   // Rogue
   'Steady Aim':
