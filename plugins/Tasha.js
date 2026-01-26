@@ -1054,22 +1054,237 @@ Tasha.FEATURES = {
       '"Can spend 1 ki point and use a bonus action to gain 120\' Darkvision, R600\' voice, and R60\' private voice for 10 min",' +
       '"Can spend 1 ki point and use a bonus action to gain advantage on Insight and Intimidation for 10 min"',
 
+  // Paladin
+  'Fighting Style (Blessed Warrior)':
+    'Section=magic,magic ' +
+    'Note=' +
+      '"Knows 2 C0 cantrips",' +
+      '"Can replace a C0 cantrip when gaining a level"',
+  // Fighting Style (Blind Fighting) as above
+  // Fighting Style (Interception) as above
+  // Harness Divine Power as above
+  'Martial Versatility':
+    'Section=feature ' +
+    'Note="Can replace a Fighting Style or maneuver when boosting an ability or taking a feat"',
+  // Oath Of Glory
+  'Aura Of Alacrity':
+    'Section=ability,magic ' +
+    'Note="+10 Speed","R%{levels.Paladin<18?5:10}\' Allies gain +10\' Speed for 1 rd"',
+  'Glorious Defense':
+    'Section=combat ' +
+    'Note="R10\' Can use a reaction to give a successful attack target +%{charismaModifier>?1} Armor Class and, if this causes the attacker to miss, to attack the attacker, %{charismaModifier>1?charismaModifier+\' times\':\'once\'} per long rest"',
+  'Inspiring Smite':
+    'Section=combat ' +
+    'Note="R30\' Can use Channel Divinity as a bonus action after a Divine Smite to distribute 2d8+%{levels.Paladin} temporary hit points"',
+  'Living Legend':
+    'Section=ability,combat,save ' +
+    'Note=' +
+      '"Can gain advantage on Charisma for 1 min once per long rest; can spend level 5 spell slots for additional uses",' +
+      '"Can change a miss into a hit once per rd for 1 min once per long rest; can spend level 5 spell slots for additional uses",' +
+      '"Can use a reaction to reroll failed saves for 1 min once per long rest; can spend level 5 spell slots for additional uses"',
+  'Oath Of Glory':
+    'Spells=' +
+      '"3:Guiding Bolt","3:Heroism",' +
+      '"5:Enhance Ability","5:Magic Weapon",' +
+      '"9:Haste","9:Protection From Energy",' +
+      '"13:Compulsion","13:Freedom Of Movement",' +
+      '"17:Commune","17:Flame Strike"',
+  'Peerless Athlete':
+    'Section=ability,skill ' +
+    'Note=' +
+      '"Can use Channel Divinity and a bonus action to double carry and lift for 10 min",' +
+      '"Can use Channel Divinity and a bonus action to gain advantage on Athletics and Acrobatics and +10\' high and long jumps for 10 min"',
+  // Oath Of The Watchers
+  'Abjure The Extraplanar':
+    'Section=combat ' +
+    'Note="R30\' Can use Channel Divinity to turn aberrations, celestials, elementals, fey, and fiends (save DC %{spellDifficultyClass.P} Wisdom negates) for 1 min"',
+  'Aura Of The Sentinel':
+    'Section=combat,combat ' +
+    'Note=' +
+      '"+%{proficiencyBonus} Initiative",' +
+      '"R%{levels.Paladin<18?10:30}\' Targets gain +%{proficiencyBonus} Initiative"',
+  'Mortal Bulwark':
+    'Section=combat,feature ' +
+    'Note=' +
+      '"Can use a bonus action to gain advantage on attacks vs. aberrations, celestials, elementals, fey, and fiends and to inflict banishment with a successful attack (save DC %{spellDifficultyClass.P} Charisma negates for 24 hr) for 1 min once per long rest; can spend level 5 spell slots for additional uses",' +
+      '"Can use a bonus action to gain 120\' truesight for 1 min once per long rest; can spend level 5 spell slots for additional uses"',
+  'Oath Of The Watchers':
+    'Spells=' +
+      '"3:Alarm","3:Detect Magic",' +
+      '"5:Moonbeam","5:See Invisibility",' +
+      '"9:Counterspell","9:Nondetection",' +
+      '"13:Aura Of Purity","13:Banishment",' +
+      '"17:Hold Monster","17:Scrying"',
+  "Watcher's Will":
+    'Section=magic ' +
+    'Note="R30\' Can use Channel Divinity to give self and %{charismaModifier>1?charismaModifier+\' others\':\'1 other\'} advantage on Charisma, Intelligence, and Wisdom for 1 min"',
+  'Vigilant Rebuke':
+    'Section=combat ' +
+    'Note="R30\' Can use a reaction to inflict 2d8+%{charismaModifier} HP force on an attacker who triggers a successful Charisma, Intelligence, or Wisdom save"',
+
+  // Ranger
+  'Canny':
+    'Section=skill,skill ' +
+    'Note=' +
+      '"Language (Choose 2 from any)",' +
+      '"+%{proficiencyBonus} on a chosen proficient skill"',
+  'Deft Explorer':
+    'Section=feature ' +
+    'Note="Has the Canny%{levels.Ranger<6?\' feature\':levels.Ranger<10?\' and Roving features\':\', Roving, and Tireless features\'}"',
+  'Favored Foe':
+    'Section=combat ' +
+    'Note="Can mark a target with a successful attack for concentration up to 1 min %{proficiencyBonus} times per long rest; the first hit each rd on a marked foe inflicts +1d%{levels.Ranger<6?4:levels.Ranger<14?6:8} HP weapon damage"',
+  // Fighting Style (Blind Fighting) as above
+  'Fighting Style (Druidic Warrior)':
+    'Section=magic,magic ' +
+    'Note=' +
+      '"Knows 2 D0 cantrips",' +
+      '"Can replace a D0 cantrip when gaining a level"',
+  // Fighting Style (Thrown Weapon Fighting) as above
+  // Martial Versatility as above
+  "Nature's Veil":
+    'Section=magic ' +
+    'Note="Can use a bonus action to become invisible for 1 rd %{proficiencyBonus} times per long rest"',
+  'Primal Awareness':
+    'Section=magic ' +
+    'Note="Can cast %{levels.Ranger<17?\'\':\'<i>Commune With Nature</i>, \'}%{levels.Ranger<13?\'\':\'<i>Locate Creature</i>, \'}%{levels.Ranger<9?\'\':\'<i>Speak With Plants</i>, \'}%{levels.Ranger<5?\'\':\'<i>Beast Sense<i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Speak With Animals</i> once%{levels.Ranger<5?\'\':\' each\'} per long rest" ' +
+    'Spells=' +
+      '"1:Speak With Animals",' +
+       '"5:Beast Sense",' +
+       '"9:Speak With Plants",' +
+       '"13:Locate Creature",' +
+       '"17:Commune With Nature"',
+  'Roving':
+    'Section=ability,ability ' +
+    'Note=' +
+      '"+5 Speed",' +
+      '"Has a %{speed}\' climb Speed and a %{speed}\' swim Speed"',
+  'Spellcasting Focus':
+    'Section=magic Note="Can use a druidic focus for ranger spells"',
+  'Tireless':
+    'Section=combat ' +
+    'Note="Can gain 1d8+%{wisdomModifier} temporary hit points %{proficiencyBonus} times per long rest, and a short rest reduces exhaustion by 1"',
+  // Fey Wanderer
+  'Beguiling Twist':
+    'Section=combat,save ' +
+    'Note=' +
+      '"R120\' Can use a reaction to redirect a failed charm or fright effect to a different target for 1 min (save DC %{spellDifficultyClass.R} Wisdom ends)",' +
+      '"Has advantage vs. charm and fright"',
+  'Dreadful Strikes':
+    'Section=combat ' +
+    'Note="Can inflict +1d%{levels.Ranger<11?4:6} HP psychic with a weapon once per rd"',
+  'Fey Reinforcements':
+    'Section=magic ' +
+    'Note="Can cast <i>Summon Fey</i>, optionally for 1 min instead of for concentration, once per long rest" ' +
+    'Spells=' +
+      '"Summon Fey"',
+  'Fey Wanderer Magic':
+    'Section=feature,magic ' +
+    'Note=' +
+      '"Fey association shows a minor physical effect",' +
+      '"Knows the %{levels.Ranger<17?\'\':\'<i>Mislead</i>, \'}%{levels.Ranger<13?\'\':\'<i>Dimension Door</i>, \'}%{levels.Ranger<9?\'\':\'<i>Dispel Magic</i>, \'}%{levels.Ranger<5?\'\':\'<i>Misty Step<i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Charm Person</i> spell%{levels.Ranger<5?\'\':\'s\'}" ' +
+    'Spells=' +
+      '"3:Charm Person",' +
+      '"5:Misty Step",' +
+      '"9:Dispel Magic",' +
+      '"13:Dimension Door",' +
+      '"17:Mislead"',
+  'Misty Wanderer':
+    'Section=magic ' +
+    'Note="Can cast <i>Misty Step</i>, targeting self and 1 willing adjacent target, %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest" ' +
+    'Spells=' +
+      '"Misty Step"',
+  'Otherworldly Glamour':
+    'Section=ability,skill ' +
+    'Note=' +
+      '"+%{wisdomModifier>?1} Charisma checks",' +
+      '"Skill Proficiency (Choose 1 from Deception, Performance, Persuasion)"',
+  // Swarmkeeper
+  'Gathered Swarm':
+    'Section=combat ' +
+    'Note="After 1 successful attack each rd, can move 5\', move the target 15\' (save DC %{spellDifficultyClass.R} Strength negates), or inflict +1d%{combatNotes.mightySwarm?8:6} HP piercing"',
+  'Mighty Swarm':
+    'Section=combat,combat ' +
+    'Note=' +
+      '"Gathered Swarm inflicts 1d8",' +
+      '"Gathered Swarm gives half cover when moving self or knocks prone when moving foe"',
+  'Swarming Dispersal':
+    'Section=combat ' +
+    'Note="Can use a reaction When hit to gain resistance to the damage and to teleport 30\' %{proficiencyBonus} times per long rest"',
+  'Swarmkeeper Magic':
+    'Section=magic ' +
+    'Note=' +
+      '"Knows the %{levels.Ranger<17?\'\':\'<i>Insect Plague</i>, \'}%{levels.Ranger<13?\'\':\'<i>Arcane Eye</i>, \'}%{levels.Ranger<9?\'\':\'<i>Gaseous Form</i>, \'}%{levels.Ranger<5?\'\':\'<i>Web<i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Faerie Fire</i> spell%{levels.Ranger<5?\'\':\'s\'} and the <i>Mage Hand</i> cantrip" ' +
+    'Spells=' +
+      '"3:Faerie Fire,Mage Hand",' +
+      '"5:Web",' +
+      '"9:Gaseous Form",' +
+      '"13:Arcane Eye",' +
+      '"17:Insect Plague"',
+  'Writhing Tide':
+    'Section=ability ' +
+    'Note="Can use a bonus action to gain 10\' fly Speed and hover for 1 min %{proficiencyBonus} times per long rest"',
+
+  // Rogue
+  'Steady Aim':
+    'Section=combat ' +
+    'Note="Can use a bonus action and forego move to gain advantage on an attack"',
+  // Phantom
+  "Death's Friend":
+    'Section=combat,feature ' +
+    'Note=' +
+      '"Wails From The Grave also affects the Sneak Attack target",' +
+      '"Has a minimum of 1 Soul Trinket available after a long rest"',
+  'Ghost Walk':
+    'Section=feature ' +
+    'Note="Can use a bonus action to gain 10\' fly Speed, impose disadvantage on foe attacks, and move through objects for 10 min once per long rest; can destroy Soul Trinkets for additional uses"',
+  'Tokens Of The Departed':
+    'Section=combat,feature,save ' +
+    'Note=' +
+      '"After a Sneak Attack hit, destroying a Soul Trinket gives an immediate Wails From The Grave use",' +
+      '"Can create %{proficiencyBonus} Soul Trinkets from creatures that die within 30\'; can later destroy one to gain an answer to a question",' +
+      '"Has advantage on Constitution and saves vs. death while in possession of a Soul Trinket"',
+  'Wails From The Grave':
+    'Section=combat ' +
+    'Note="R30\' After a Sneak Attack hit, can inflict %{(levels.Rogue+1)//4}d6 HP necrotic on another target %{proficiencyBonus} times per long rest"',
+  'Whispers Of The Dead':
+    'Section=skill ' +
+    'Note="Can gain proficiency in a choice of skill once per short rest"',
+  // Soulknife
+  'Homing Strikes':
+    'Section=combat ' +
+    'Note="Can add 1d%{combatNotes.psionicPower} to a failed Psychic Blade attack, spending a Psionic Energy die if the sum is enough to hit"',
+  'Psi-Bolstered Knack':
+    'Section=skill ' +
+    'Note="Can add a Psionic Energy die roll to a failed proficient skill or tool check, spending the die only if the modified check succeeds"',
+  // Psionic Power as above
+  'Psychic Blades':
+    'Section=combat ' +
+    'Note="Can use a free hand to attack with a R60\' magic psychic blade, inflicting 1d6+%{strengthModifier>?dexterityModifier} HP psychic; can use a bonus action for a second blade attack that inflicts 1d4+%{strengthModifier>?dexterityModifier} if both hands are free"',
+  'Psychic Teleportation':
+    'Section=combat ' +
+    'Note="Can spend 1 Psionic Energy die and use a bonus action to teleport 1d%{combatNotes.psionicPower}x10\'"',
+  'Psychic Veil':
+    'Section=magic ' +
+    'Note="Can become invisible for 1 hr once per long rest; inflicting damage or forcing a saving throw ends; can spend Psionic Energy dice for additional uses"',
+  'Psychic Whispers':
+    'Section=feature ' +
+    'Note="Can establish telepathic communication within 1 mile with %{proficiencyBonus} visible creatures for 1d%{combatNotes.psionicPower} hr once per long rest; can spend Psionic Energy dice for additional uses"',
+  'Rend Mind':
+    'Section=combat ' +
+    'Note="Can inflict stunned (save DC %{8+dexterityModifier+proficiencyBonus} Wisdom ends) for 1 min with a Psychic Blade Sneak Attack once per long rest; can spend 3 Psionic Energy dice per additional use"',
+  'Soul Blades':
+    'Section=feature ' +
+    'Note="Has the Homing Strikes and Psychic Teleportation features"',
+
   'Awakened Spellbook':
     'Section=magic ' +
     'Note="May perform a ritual casting in normal casting time 1/long rest, use spellbook as a focus, and change spell damage type"',
   'Bond Of The Talisman':
     'Section=magic ' +
     'Note="Self or talisman wearer may teleport to the other %{proficiencyBonus}/long rest"',
-  'Canny':
-    'Section=skill,skill ' +
-    'Note=' +
-      '"Language (Choose 2 from any)",' +
-      '"Dbl proficiency bonus (+%{proficiencyBonus}) on chosen skill"',
   'Cantrip Formulas':
     'Section=magic Note="May replace a W0 cantrip 1/long rest"',
-  'Deft Explorer':
-    'Section=feature ' +
-    'Note="Has Canny%{levels.Ranger<6?\' feature\':levels.Ranger<10?\' and Roving features\':\', Roving, and Tireless features\'}"',
   'Eldritch Mind':
     'Section=magic Note="Adv on Constitution saves to maintain concentration"',
   'Eldritch Versatility':
@@ -1080,59 +1295,21 @@ Tasha.FEATURES = {
     'Note="May cast <i>Sending</i>, targeting one of %{proficiencyBonus} creatures who have written their names in the Book Of Shadows" ' +
     'Spells=' +
       'Sending',
-  'Favored Foe':
-    'Section=combat ' +
-    'Note="May mark a successful attack target for conc up to 1 min %{proficiencyBonus}/long rest; first hit each rd on marked foe inflicts +1d%{levels.Ranger<6?4:levels.Ranger<14?6:8} HP weapon damage"',
-  'Fighting Style (Blessed Warrior)':
-    'Section=magic,magic ' +
-    'Note=' +
-      '"Knows 2 C0 cantrips",' +
-      '"May replace a C0 cantrip each level"',
-  'Fighting Style (Druidic Warrior)':
-    'Section=magic,magic ' +
-    'Note=' +
-      '"Knows 2 D0 cantrips",' +
-      '"May replace a D0 cantrip each level"',
   'Gift Of The Protectors':
     'Section=magic ' +
     'Note="Creatures who have written their names in the Book Of Shadows retain 1 HP when reduced to 0 HP 1/long rest"',
   'Investment Of The Chain Master':
     'Section=magic ' +
     'Note="Familiar gains 40\' fly or swim Speed, gains magical attacks, and inflicts DC %{spellDifficultyClass.K} saves; self can use a bonus action to command familiar to attack and Reaction to give it resistance to damage"',
-  'Martial Versatility':
-    'Section=feature ' +
-    'Note="May replace a Fighting Style or maneuver when boosting an ability or taking a feat"',
-  "Nature's Veil":
-    'Section=magic ' +
-    'Note="May use a bonus action to become invisible for 1 rd %{proficiencyBonus}/long rest"',
   'Pact Of The Talisman':
     'Section=feature ' +
     'Note="Talisman gives wearer +1d4 ability checks %{proficiencyBonus}/long rest"',
-  'Primal Awareness':
-    'Section=magic ' +
-    'Note="May cast <i>Speak With Animals</i>%{levels.Ranger<5?\'\':\', <i>Beast Sense</i>\'}%{levels.Ranger<9?\'\':\', <i>Speak With Plants</i>\'}%{levels.Ranger<13?\'\':\', <i>Locate Creature</i>\'}%{levels.Ranger<17?\'\':\', <i>Commune With Nature</i>\'} 1/long rest" ' +
-    'Spells=' +
-      '"1:Speak With Animals",' +
-       '"5:Beast Sense",' +
-       '"9:Speak With Plants",' +
-       '"13:Locate Creature",' +
-       '"17:Commune With Nature"',
   'Protection Of The Talisman':
     'Section=magic ' +
     'Note="Talisman wearer may add +1d4 to a failed save %{proficiencyBonus}/long rest"',
   'Rebuke Of The Talisman':
     'Section=magic ' +
     'Note="R30\' When talisman wearer takes damage, may use Reaction to inflict %{proficiencyBonus} HP psychic and 10\' push on attacker"',
-  'Roving':
-    'Section=ability,ability ' +
-    'Note=' +
-      '"+5 Speed",' +
-      '"%{speed}\' climb Speed/%{speed}\' swim Speed"',
-  'Spellcasting Focus':
-    'Section=magic Note="May use a druidic focus for ranger spells"',
-  'Tireless':
-    'Section=combat ' +
-    'Note="May gain 1d8+%{wisdomModifier} temporary HP %{proficiencyBonus}/long rest/Short rest reduces exhaustion by 1"',
   'Undying Servitude':
     'Section=magic ' +
     'Note="May cast <i>Animate Dead</i> 1/long rest" ' +
@@ -1227,25 +1404,9 @@ Tasha.FEATURES = {
       '"May cast <i>Detect Thoughts</i> (DC %{8+proficiencyBonus} + ability modifier Wisdom neg) 1/long rest"',
 
   // Paths
-  'Abjure The Extraplanar':
-    'Section=combat ' +
-    'Note="R30\' May use Channel Divinity to turn aberrations, celestials, elementals, fey, and fiends for 1 min (DC %{spellDifficultyClass.P} Wisdom neg)"',
-  'Aura Of Alacrity':
-    'Section=ability,magic ' +
-    'Note="+10 Speed","R%{levels.Paladin<18?5:10}\' Allies gain +10\' Speed for 1 rd"',
-  'Aura Of The Sentinel':
-    'Section=combat,combat ' +
-    'Note=' +
-      '"+%{proficiencyBonus} Initiative",' +
-      '"R%{levels.Paladin<18?10:30}\' Targets gain +%{proficiencyBonus} Initiative"',
   'Bastion Of Law':
     'Section=magic ' +
     'Note="R30\' May spend 1 - 5 Sorcery Points to absorb an equal number of d8s HP damage to target until next use or long rest"',
-  'Beguiling Twist':
-    'Section=combat,save ' +
-    'Note=' +
-      '"R120\' May use Reaction to redirect a saved charm or fright effect to a different target for 1 min (DC %{spellDifficultyClass.R} Wisdom ends)",' +
-      '"Adv on saves vs. charm and fright"',
   'Bladesong':
     'Section=ability,combat,feature,magic,skill ' +
     'Note=' +
@@ -1274,14 +1435,6 @@ Tasha.FEATURES = {
       '"9:Greater Restoration","9:Wall Of Force"',
   'Controlled Surge':
     'Section=magic Note="May choose from 2 effects when triggering Wild Magic"',
-  "Death's Friend":
-    'Section=combat,feature ' +
-    'Note=' +
-      '"Sneak Attack target affected by Wails From The Grave use",' +
-      '"Has a minimum of 1 Soul Trinket available after a long rest"',
-  'Dreadful Strikes':
-    'Section=combat ' +
-    'Note="May inflict +1d%{levels.Ranger<11?4:6} HP psychic w/a weapon 1/rd"',
   'Elemental Gift':
     'Section=ability,save ' +
     'Note=' +
@@ -1290,33 +1443,10 @@ Tasha.FEATURES = {
   'Fathomless Plunge':
     'Section=magic ' +
     'Note="R30\' May teleport self and 5 willing targets 1 mile to a known body of water 1/short rest"',
-  'Fey Reinforcements':
-    'Section=magic ' +
-    'Note="May cast <i>Summon Fey</i> 1/long rest, optionally for 1 min instead of conc, 1/long rest" ' +
-    'Spells=' +
-      '"Summon Fey"',
-  'Fey Wanderer Magic':
-    'Section=magic ' +
-    'Note="May cast <i>Charm Person</i>%{levels.Ranger<5?\'\':\', <i>Misty Step</i>\'}%{levels.Ranger<9?\'\':\', <i>Dispel Magic</i>\'}%{levels.Ranger<13?\'\':\', <i>Dimension Door</i>\'}%{levels.Ranger<17?\'\':\', <i>Mislead</i>\'} 1/long rest/Fey association shows minor physical effect" ' +
-    'Spells=' +
-      '"3:Charm Person",' +
-      '"5:Misty Step",' +
-      '"9:Dispel Magic",' +
-      '"13:Dimension Door",' +
-      '"17:Mislead"',
-  'Gathered Swarm':
-    'Section=combat ' +
-    'Note="After a hit, may have companion swarm move self 5\', move foe 15\' (DC %{spellDifficultyClass.R} Strength neg), or inflict 1d%{combatNotes.mightySwarm?8:6} HP piercing"',
   "Genie's Vessel":
     'Section=magic ' +
     'Note="May retreat into vessel (AC %{spellDifficultyClass.K}; HP %{levels.Warlock+proficiencyBonus}) for %{proficiencyBonus*2} hr 1/long rest/May inflict +%{proficiencyBonus} HP %{genieEnergy} 1/rd"',
-  'Ghost Walk':
-    'Section=feature ' +
-    'Note="May use a bonus action to gain 10\' fly Speed, Disadv on foe attacks, and movement through objects for 10 min 1/long rest (may destroy a Soul Trinket for additional)"',
   'Gift Of The Sea':'Section=ability Note="40\' swim Speed/May breathe water"',
-  'Glorious Defense':
-    'Section=combat ' +
-    'Note="R10\' May use Reaction to give hit target +%{charismaModifier>?1} Armor Class and, if this causes attacker to miss, to attack attacker %{charismaModifier>?1}/long rest"',
   'Grasping Tentacles':
     'Section=magic ' +
     'Note="May cast <i>Evard\'s Black Tentacles</i> w/unbreakable concentration and gain %{levels.Warlock} temporary HP 1/long rest" ' +
@@ -1325,20 +1455,8 @@ Tasha.FEATURES = {
   'Guardian Coil':
     'Section=magic ' +
     'Note="May use Reaction to reduce damage w/in 10\' of Tentacle Of The Deeps by %{levels.Warlock<10?1:2}d8"',
-  'Homing Strikes':
-    'Section=combat ' +
-    'Note="May add 1d%{combatNotes.psionicPower} to a failed Psychic Blade attack; spend 1 Psionic Energy die if the sum is enough to hit"',
-  'Inspiring Smite':
-    'Section=combat ' +
-    'Note="R30\' May use Channel Divinity after a Divine Smite to distribute 2d8+%{levels.Paladin} temporary HP"',
   'Limited Wish':
     'Section=magic Note="May gain the effects of a 6th level spell 1/1d4 long rests"',
-  'Living Legend':
-    'Section=ability,combat,save ' +
-    'Note=' +
-      '"May gain Adv on Charisma for 1 min 1/long rest (may spend a level 5 spell slot for additional)",' +
-      '"May change a miss into a hit 1/rd for 1 min 1/long rest (may spend a level 5 spell slot for additional)",' +
-      '"May use Reaction to reroll failed saves for 1 min 1/long rest (may spend a level 5 spell slot for additional)"',
   'Magical Guidance':
     'Section=ability ' +
     'Note="May spend 1 Sorcery Point to reroll a failed ability check"',
@@ -1348,35 +1466,6 @@ Tasha.FEATURES = {
   'Master Scrivener':
     'Section=magic ' +
     'Note="R5\' After a long rest, may create an enhanced 1st or 2nd level spell scroll from Awakened Spellbook"',
-  'Mighty Swarm':
-    'Section=combat,combat ' +
-    'Note=' +
-      '"Gathered Swarm inflicts 1d8",' +
-      '"Gathered Swarm gives half cover when moving self or knocks prone when moving foe"',
-  'Misty Wanderer':
-    'Section=magic ' +
-    'Note="May cast <i>Misty Step</i> targeting self and 1 willing adjacent target %{wisdomModifier>?1}/long rest" ' +
-    'Spells=' +
-      '"Misty Step"',
-  'Mortal Bulwark':
-    'Section=combat,feature ' +
-    'Note=' +
-      '"May gain Adv on attacks vs. aberrations, celestials, elementals, fey, and fiends and to inflict banishment w/a successful attack (DC %{spellDifficultyClass.P} Charisma neg) for 1 min 1/long rest (may spend a level 5 spell slot for additional)",' +
-      '"May gain 120\' truesight for 1 min 1/long rest (may spend a level 5 spell slot for additional)"',
-  'Oath Of Glory':
-    'Spells=' +
-      '"3:Guiding Bolt",3:Heroism,' +
-      '"5:Enhance Ability","5:Magic Weapon",' +
-      '9:Haste,"9:Protection From Energy",' +
-      '13:Compulsion,"13:Freedom Of Movement",' +
-      '17:Commune,"17:Flame Strike"',
-  'Oath Of The Watchers':
-    'Spells=' +
-      '3:Alarm,"3:Detect Magic",' +
-      '5:Moonbeam,"5:See Invisibility",' +
-      '9:Counterspell,9:Nondetection,' +
-      '"13:Aura Of Purity",13:Banishment,' +
-      '"17:Hold Monster",17:Scrying',
   'Oceanic Soul':
     'Section=feature,save ' +
     'Note=' +
@@ -1387,19 +1476,6 @@ Tasha.FEATURES = {
     'Note=' +
       '"May use Reaction to negate damage to self and erase 3d6 spell levels from Awakened Spellbook for 1d6 long rests 1/long rest",' +
       '"Adv on Arcana"',
-  'Otherworldly Glamour':
-    'Section=ability,skill ' +
-    'Note=' +
-      '"+%{wisdomModifier>?1} Charisma checks",' +
-      '"Skill Proficiency (Choose 1 from Deception, Performance, Persuasion)"',
-  'Peerless Athlete':
-    'Section=ability,skill ' +
-    'Note=' +
-      '"May use Channel Divinity and a bonus action for dbl carry and lift for 10 min",' +
-      '"May use Channel Divinity and a bonus action for Adv on Athletics and Acrobatics and +10\' high and long jumps for 10 min"',
-  'Psi-Bolstered Knack':
-    'Section=skill ' +
-    'Note="May spend 1 Psionic Energy die to add roll to a failed proficient skill or tool check"',
   'Psionic Sorcery':
     'Section=magic ' +
     'Note="May cast a spell using Sorcery Points equal to the spell level and no verbal or somatic components"',
@@ -1412,24 +1488,9 @@ Tasha.FEATURES = {
       '"5:Hunger Of Hadar",5:Sending,' +
       '"7:Evard\'s Black Tentacles","7:Summon Aberration",' +
       '"9:Rary\'s Telepathic Bond",9:Telekinesis',
-  'Psychic Blades':
-    'Section=combat ' +
-    'Note="May use free hand to attack w/a R60\' magic psychic blade, inflicting 1d6+%{strengthModifier>?dexterityModifier} HP psychic and 1d4+%{strengthModifier>?dexterityModifier} HP psychic; may use a bonus action for a second blade attack if both hands are free"',
   'Psychic Defenses':
     'Section=save ' +
     'Note="Resistance to psychic damage/Adv on saves vs. charm and fright"',
-  'Psychic Teleportation':
-    'Section=combat ' +
-    'Note="May spend 1 Psionic Energy die and use a bonus action to teleport 1d%{combatNotes.psionicPower} x 10\'"',
-  'Psychic Veil':
-    'Section=magic ' +
-    'Note="May become invisible for 1 hr (inflicting damage or forcing saving throw ends) 1/long rest (may spend a Psionic Energy die for additional)"',
-  'Psychic Whispers':
-    'Section=feature ' +
-    'Note="May establish telepathic communication w/%{proficiencyBonus} visible creatures for 1d%{combatNotes.psionicPower} hr 1/long rest (may spend a Psionic Energy die for additional)"',
-  'Rend Mind':
-    'Section=combat ' +
-    'Note="May inflict stunned w/Psychic Blade Sneak Attack for 1 min (DC %{8+dexterityModifier+proficiencyBonus} Wisdom ends) 1/long rest (may spend 3 Psionic Energy dice for additional)"',
   'Restore Balance':
     'Section=magic ' +
     'Note="R60\' May cancel target Adv or Disadv on a roll %{proficiencyBonus}/long rest"',
@@ -1453,34 +1514,12 @@ Tasha.FEATURES = {
   'Sorcerous Versatility':
     'Section=feature ' +
     'Note="May replace a Metamagic option or a cantrip when boosting an ability or taking a feat"',
-  'Soul Blades':
-    'Section=feature ' +
-    'Note="Has Homing Strikes and Psychic Teleportation features"',
-  'Steady Aim':
-    'Section=combat ' +
-    'Note="May use a bonus action and forego move to gain Adv on attack"',
-  'Swarmkeeper Magic':
-    'Spells=' +
-      '"3:Faerie Fire,Mage Hand",' +
-      '"5:Web",' +
-      '"9:Gaseous Form",' +
-      '"13:Arcane Eye",' +
-      '"17:Insect Plague"',
-  'Swarming Dispersal':
-    'Section=combat ' +
-    'Note="When hit, may use Reaction to gain resistance and teleport 30\' %{proficiencyBonus}/long rest"',
   'Telepathic Speech':
     'Section=feature ' +
     'Note="R30\' May use a bonus action to gain telepathic communication w/target for %{levels.Sorcerer} min"',
   'Tentacle Of The Deeps':
     'Section=magic ' +
     'Note="R60\' May use a bonus action to summon a 10\' tentacle that moves 30\' and inflicts %{levels.Warlock<10?1:2}d8 HP cold and -10\' speed 2/rd for 1 min %{proficiencyBonus}/long rest"',
-  'Tokens Of The Departed':
-    'Section=combat,feature,save ' +
-    'Note=' +
-      '"After a Sneak Attack hit, destroying a Soul Trinket gives an immediate Wails From The Grave use",' +
-      '"May create %{proficiencyBonus} Soul Trinkets from creatures that die w/in 30\'/May destroy a Soul Trinket to gain an answer to a question",' +
-      '"Adv on Constitution and saves vs. death while in possession of a Soul Trinket"',
   'Training In War And Song':
     'Section=combat,skill ' +
     'Note=' +
@@ -1497,26 +1536,12 @@ Tasha.FEATURES = {
   'Unstable Backlash':
     'Section=magic ' +
     'Note="May use Reaction after taking damage or failing a save to trigger a Wild Magic effect"',
-  'Vigilant Rebuke':
-    'Section=combat ' +
-    'Note="R30\' May use Reaction to inflict 2d8+%{charismaModifier} HP force on attacker after a successful Charisma, Intelligence, or Wisdom save"',
-  'Wails From The Grave':
-    'Section=combat ' +
-    'Note="R30\' After a Sneak Attack hit, may inflict %{(levels.Rogue+1)//4}d6 HP necrotic on a second creature %{proficiencyBonus}/long rest"',
   'Warping Implosion':
     'Section=magic ' +
     'Note="May teleport 120\'; 30\' radius around starting position inflicts 3d10 HP and 30\' pull (Strength half HP only) 1/long rest (may spend 5 Sorcery Points for additional)"',
-  "Watcher's Will":
-    'Section=magic ' +
-    'Note="R30\' May use Channel Divinity to give self and %{charismaModifier>?1} others Adv on Charisma, Intelligence, and Wisdom throws for 1 min"',
-  'Whispers Of The Dead':
-    'Section=skill Note="May gain proficiency in choice of skill 1/short rest"',
   'Wizardly Quill':
     'Section=magic ' +
-    'Note="May use a bonus action to create a quill that produces multicolored, erasable writing and copies spells at 2 min/level"',
-  'Writhing Tide':
-    'Section=ability ' +
-    'Note="May use a bonus action to gain 10\' fly Speed and hover for 1 min %{proficiencyBonus}/long rest"'
+    'Note="May use a bonus action to create a quill that produces multicolored, erasable writing and copies spells at 2 min/level"'
 
 };
 Tasha.SPELLS = {
