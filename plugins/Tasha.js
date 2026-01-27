@@ -674,9 +674,17 @@ Tasha.FEATURES = {
     'Section=combat ' +
     'Note="Hit with a natural weapon can force the target to use its reaction to attack a chosen creature or can inflict +2d12 HP psychic (save DC %{8+constitutionModifier+proficiencyBonus} Wisdom negates) %{proficiencyBonus} times per long rest"',
   // Path Of Wild Magic
+  'Bolstering Magic':
+    'Section=magic ' +
+    'Note="Touch gives a choice of +1d3 attacks and ability checks for 10 min or recovery of a level 1d3 spell slot %{proficiencyBonus} times per long rest"',
+  'Controlled Surge':
+    'Section=magic Note="Can choose from 2 effects when triggering Wild Magic"',
   'Magic Awareness':
     'Section=magic ' +
     'Note="R60\' Can detect the presence and schools of spells and magic items for 1 rd %{proficiencyBonus} times per long rest"',
+  'Unstable Backlash':
+    'Section=magic ' +
+    'Note="Can use a reaction after taking damage or failing a save during rage to trigger a Wild Magic effect"',
   'Wild Surge':
     'Section=magic ' +
     'Note="Triggers a DC %{8+proficiencyBonus+constitutionModifier} Wild Magic effect when entering rage"',
@@ -778,6 +786,9 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="An Emboldening Bond member can use a reaction to teleport 30\' and take another\'s damage"',
   // Twilight Domain
+  'Bonus Proficiencies (Twilight Domain)':
+    'Section=combat ' +
+    'Note="Armor Proficiency (Heavy)/Weapon Proficiency (Martial Weapons)"',
   // Divine Strike as SRD5E
   'Eyes Of Night':
     'Section=feature ' +
@@ -1277,44 +1288,190 @@ Tasha.FEATURES = {
     'Section=feature ' +
     'Note="Has the Homing Strikes and Psychic Teleportation features"',
 
-  'Awakened Spellbook':
+  // Sorcerer
+  'Magical Guidance':
+    'Section=ability ' +
+    'Note="Can spend 1 Sorcery Point to reroll a failed ability check"',
+  'Seeking Spell':
     'Section=magic ' +
-    'Note="May perform a ritual casting in normal casting time 1/long rest, use spellbook as a focus, and change spell damage type"',
+    'Note="Can spend 2 Sorcery Points to reroll a missed spell attack"',
+  'Sorcerous Versatility':
+    'Section=feature ' +
+    'Note="Can replace a Metamagic option or a cantrip when boosting an ability or taking a feat"',
+  'Transmuted Spell':
+    'Section=magic ' +
+    'Note="Can spend 1 Sorcery Point to change an acid, cold, fire, lightning, poison, or thunder spell\'s damage type to another from that list"',
+  // Aberrant Mind
+  'Psionic Sorcery':
+    'Section=magic ' +
+    'Note="Can cast a spell using Sorcery Points equal to the spell level and no verbal or somatic components"',
+  'Psionic Spells':
+    'Section=magic ' +
+    'Note="Can replace a Psionic Spells spell when gaining a Sorcerer level" ' +
+    'Spells=' +
+      '"1:Arms Of Hadar","1:Dissonant Whispers","1:Mind Sliver",' +
+      '"3:Calm Emotions","3:Detect Thoughts",' +
+      '"5:Hunger Of Hadar","5:Sending",' +
+      '"7:Evard\'s Black Tentacles","7:Summon Aberration",' +
+      '"9:Rary\'s Telepathic Bond","9:Telekinesis"',
+  'Psychic Defenses':
+    'Section=save ' +
+    'Note="Has resistance to psychic damage and advantage vs. charm and fright"',
+  'Revelation In Flesh':
+    'Section=ability,feature ' +
+    'Note=' +
+      '"Can spend 1 Sorcery Point and use a bonus action to gain a %{speed}\' fly Speed, a %{speed*2}\' swim Speed and water breathing, or the ability to squeeze through a 1\\" space, for 10 min",' +
+      '"Can spend 1 Sorcery Point and use a bonus action to see invisible creatures within 60\' for 10 min"',
+  'Telepathic Speech':
+    'Section=feature ' +
+    'Note="R30\' Can use a bonus action to gain telepathic communication in a shared language while within %{charismaModifier>1?charismaModifier+\' miles\':\'1 mile\'} of the target for %{levels.Sorcerer} min"',
+  'Warping Implosion':
+    'Section=magic ' +
+    'Note="Can teleport 120\'; the 30\' radius around the starting position inflicts 3d10 HP force and a 30\' pull (save Strength half HP only) once per long rest; can spend 5 Sorcery Points per additional use"',
+  // Clockwork Soul
+  'Bastion Of Law':
+    'Section=magic ' +
+    'Note="R30\' Can spend 1 - 5 Sorcery Points to negate an equal number of d8s HP damage to a target before the next use or long rest"',
+  'Clockwork Cavalcade':
+    'Section=magic ' +
+    'Note="30\' cube restores 100 HP total among targets, repairs damaged objects, and dispels target spells up to 6th level once per long rest; can spend 7 Sorcery Points for each additional use"',
+  'Clockwork Magic':
+    'Section=feature,magic ' +
+    'Note=' +
+      '"Displays physical manifestation of Clockwork Soul",' +
+      '"Can replace a Clockwork Magic spell when gaining a Sorcerer level" ' +
+    'Spells=' +
+      '"1:Alarm","1:Protection From Evil And Good",' +
+      '"3:Aid","3:Lesser Restoration",' +
+      '"5:Dispel Magic","5:Protection From Energy",' +
+      '"7:Freedom Of Movement","7:Summon Construct",' +
+      '"9:Greater Restoration","9:Wall Of Force"',
+  'Restore Balance':
+    'Section=magic ' +
+    'Note="R60\' Can cancel a target\'s advantage or disadvantage on a roll %{proficiencyBonus} times per long rest"',
+  'Trance Of Order':
+    'Section=combat,feature ' +
+    'Note=' +
+      '"Can use a bonus action to cancel advantage on attacks on self for 1 min once per long rest; can spend 5 Sorcery Points for each additional use",' +
+      '"Can use a bonus action to gain a minimum 10 on attack, ability, and saving rolls for 1 min once per long rest; can spend 5 Sorcery Points for each additional use"',
+
+  // Warlock
   'Bond Of The Talisman':
     'Section=magic ' +
-    'Note="Self or talisman wearer may teleport to the other %{proficiencyBonus}/long rest"',
-  'Cantrip Formulas':
-    'Section=magic Note="May replace a W0 cantrip 1/long rest"',
+    'Note="Self or talisman wearer can teleport to the other %{proficiencyBonus} times per long rest"',
   'Eldritch Mind':
-    'Section=magic Note="Adv on Constitution saves to maintain concentration"',
+    'Section=magic ' +
+    'Note="Has advantage on Constitution saves to maintain concentration"',
   'Eldritch Versatility':
     'Section=feature ' +
     'Note="May replace a cantrip%{levels.Warlock<12?\' or Pact Boon option\':\', Pact Boon option, or Mystic Arcanum spell\'} when boosting an ability or taking a feat"',
   'Far Scribe':
     'Section=magic ' +
-    'Note="May cast <i>Sending</i>, targeting one of %{proficiencyBonus} creatures who have written their names in the Book Of Shadows" ' +
+    'Note="Can cast <i>Sending</i>, targeting one of %{proficiencyBonus} creatures who have written their names in the Book Of Shadows, without using a spell slot or material components" ' +
     'Spells=' +
       'Sending',
   'Gift Of The Protectors':
     'Section=magic ' +
-    'Note="Creatures who have written their names in the Book Of Shadows retain 1 HP when reduced to 0 HP 1/long rest"',
+    'Note="Creatures who have written their names in the Book Of Shadows retain 1 hit point when reduced to 0 hit points once per long rest"',
   'Investment Of The Chain Master':
     'Section=magic ' +
-    'Note="Familiar gains 40\' fly or swim Speed, gains magical attacks, and inflicts DC %{spellDifficultyClass.K} saves; self can use a bonus action to command familiar to attack and Reaction to give it resistance to damage"',
+    'Note="Familiar gains a 40\' fly or swim Speed, gains magical attacks, and inflicts DC %{spellDifficultyClass.K} saves; self can use a bonus action to command it to attack and a reaction to give it resistance to damage"',
   'Pact Of The Talisman':
     'Section=feature ' +
-    'Note="Talisman gives wearer +1d4 ability checks %{proficiencyBonus}/long rest"',
+    'Note="Talisman gives wearer +1d4 ability checks %{proficiencyBonus} times per long rest"',
   'Protection Of The Talisman':
     'Section=magic ' +
-    'Note="Talisman wearer may add +1d4 to a failed save %{proficiencyBonus}/long rest"',
+    'Note="Talisman wearer can add +1d4 to a failed save %{proficiencyBonus} times per long rest"',
   'Rebuke Of The Talisman':
     'Section=magic ' +
-    'Note="R30\' When talisman wearer takes damage, may use Reaction to inflict %{proficiencyBonus} HP psychic and 10\' push on attacker"',
+    'Note="R30\' When the talisman wearer takes damage, self can use a reaction to inflict %{proficiencyBonus} HP psychic and a 10\' push on the attacker"',
   'Undying Servitude':
     'Section=magic ' +
-    'Note="May cast <i>Animate Dead</i> 1/long rest" ' +
+    'Note="Can cast <i>Animate Dead</i> once per long rest" ' +
     'Spells=' +
       '"Animate Dead"',
+  // The Fathomless
+  'Fathomless Plunge':
+    'Section=magic ' +
+    'Note="R30\' Can teleport self and 5 willing targets 1 mile to a known body of water once per short rest"',
+  'Gift Of The Sea':
+    'Section=ability Note="Has a 40\' swim Speed and can breathe water"',
+  'Grasping Tentacles':
+    'Section=magic ' +
+    'Note="Can cast <i>Evard\'s Black Tentacles</i> with unbreakable concentration and gain %{levels.Warlock} temporary hit points once per long rest" ' +
+    'Spells=' +
+      '"Evard\'s Black Tentacles"',
+  'Guardian Coil':
+    'Section=magic ' +
+    'Note="Can use a reaction to reduce damage taken within 10\' of Tentacle Of The Deeps by %{levels.Warlock<10?1:2}d8"',
+  'Oceanic Soul':
+    'Section=feature,save ' +
+    'Note=' +
+      '"While submerged, can understand and be understood by any speaking creature",' +
+      '"Has resistance to cold damage"',
+  'Tentacle Of The Deeps':
+    'Section=magic ' +
+    'Note="R60\' Can use a bonus action to summon a 10\' tentacle that can move 30\' and inflicts %{levels.Warlock<10?1:2}d8 HP cold and -10\' speed once per rd for 1 min %{proficiencyBonus} times per long rest"',
+  // The Genie
+  'Elemental Gift':
+    'Section=ability,save ' +
+    'Note=' +
+      '"Can use a bonus action to gain a 30\' fly Speed for 10 min %{proficiencyBonus} times per long rest",' +
+      '"Has resistance to %{genieEnergy} damage"',
+  "Genie's Vessel":
+    'Section=combat,magic ' +
+    'Note=' +
+      '"Can inflict +%{proficiencyBonus} HP %{genieEnergy} once per rd",' +
+      '"Can retreat into a vessel with Armor Class %{spellDifficultyClass.K} and %{levels.Warlock+proficiencyBonus} hit points for %{proficiencyBonus*2} hr once per long rest"',
+  'Limited Wish':
+    'Section=magic ' +
+    'Note="Can gain the effects of a 6th level, 1-action spell once per 1d4 long rests"',
+  'Sanctuary Vessel':
+    'Section=magic ' +
+    'Note="R30\' Can take 5 willing creatures into Genie\'s Vessel; 10 min within gives the benefits of a short rest, and spending Hit Dice restores +%{proficiencyBonus} hit points"',
+
+  // Wizard
+  'Cantrip Formulas':
+    'Section=magic Note="May replace a W0 cantrip 1/long rest"',
+  // Bladesinging (ref SwordCoast)
+  'Bladesong':
+    'Section=ability,combat,feature,magic,skill ' +
+    'Note=' +
+      '"+10 Speed in during Bladesong",' +
+      '"+%{intelligenceModifier>?1} Armor Class during Bladesong",' +
+      '"Can use a bonus action to gain Bladesong features for 1 min 2 times per short rest; medium armor, heavy armor, or a shield negates",' +
+      '"+%{intelligenceModifier>?1} Constitution to retain spell concentration during Bladesong",' +
+      '"Has advantage on Acrobatics during Bladesong"',
+  // Extra Attack as SRD5E
+  'Song Of Defense':
+    'Section=magic ' +
+    'Note="Can use a reaction and expend a spell slot during Bladesong to reduce damage to self by 5x the slot level"',
+  'Song Of Victory':
+    'Section=combat ' +
+    'Note="+%{intelligenceModifier>?1} HP melee weapon damage during Bladesong"',
+  'Training In War And Song':
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Armor Proficiency (Light)/Weapon Proficiency (Choose 1 from any One-Handed)",' +
+      '"Skill Proficiency (Performance)"',
+  // Order Of Scribes
+  'Awakened Spellbook':
+    'Section=magic ' +
+    'Note="Held spellbook allows performing a ritual casting in the spell\'s normal casting time once per long rest, using the spellbook as a focus, and changing a spell\'s damage type when casting it"',
+  'Manifest Mind':
+    'Section=magic ' +
+    'Note="R300\' Can use a bonus action to see with darkvision, hear, and cast spells %{proficiencyBonus} times through a ghostly object that emits 10\' dim light and can move 30\' per rd once per long rest; can spend spell slots for additional uses"',
+  'Master Scrivener':
+    'Section=magic ' +
+    'Note="R5\' After a long rest, can create a scroll, usable only by self, for a 1-action, 1st or 2nd level spell from Awakened Spellbook; reading the scroll casts the spell at 1 level higher than normal/Wizardly Quill produces spell scrolls at 1/2 the normal time and cost"',
+  'One With The Word':
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Upon taking damage when Manifest Mind is active, can use a reaction to negate the damage and remove 3d6 spell levels from Awakened Spellbook for 1d6 long rests once per long rest",' +
+      '"Has advantage on Arcana"',
+  'Wizardly Quill':
+    'Section=magic ' +
+    'Note="Can use a bonus action to create a quill that produces multicolored, erasable writing and copies spells at 2 min per level"',
 
   // Feats
   'Artificer Initiate':
@@ -1401,147 +1558,7 @@ Tasha.FEATURES = {
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
       '"R60\' May communicate telepathically",' +
-      '"May cast <i>Detect Thoughts</i> (DC %{8+proficiencyBonus} + ability modifier Wisdom neg) 1/long rest"',
-
-  // Paths
-  'Bastion Of Law':
-    'Section=magic ' +
-    'Note="R30\' May spend 1 - 5 Sorcery Points to absorb an equal number of d8s HP damage to target until next use or long rest"',
-  'Bladesong':
-    'Section=ability,combat,feature,magic,skill ' +
-    'Note=' +
-      '"+10 Speed in light or no armor and no shield during Bladesong",' +
-      '"+%{intelligenceModifier>?1} AC in light or no armor and no shield during Bladesong",' +
-      '"May use a bonus action to gain Bladesong features for 1 min 2/short rest",' +
-      '"+%{intelligenceModifier>?1} Constitution to retain spell concentration in light or no armor and no shield during Bladesong",' +
-      '"Adv on Acrobatics in light or no armor and no shield during Bladesong"',
-  'Bolstering Magic':
-    'Section=magic ' +
-    'Note="Touch gives choice of +1d3 attacks and ability checks for 10 min or recovery of level 1d3 spell slot %{proficiencyBonus}/long rest"',
-  'Bonus Proficiencies (Twilight Domain)':
-    'Section=combat ' +
-    'Note="Armor Proficiency (Heavy)/Weapon Proficiency (Martial Weapons)"',
-  'Clockwork Cavalcade':
-    'Section=magic ' +
-    'Note="30\' cu restores 100 HP total among targets, repairs damaged objects, and dispels target spells up to 6th level 1/long rest (may spend 7 Sorcery Points for additional)"',
-  'Clockwork Magic':
-    'Section=feature ' +
-    'Note="Displays physical manifestation of Clockwork Soul" ' +
-    'Spells=' +
-      '1:Alarm,"1:Protection From Evil And Good",' +
-      '3:Aid,"3:Lesser Restoration",' +
-      '"5:Dispel Magic","5:Protection From Energy",' +
-      '"7:Freedom Of Movement","7:Summon Construct",' +
-      '"9:Greater Restoration","9:Wall Of Force"',
-  'Controlled Surge':
-    'Section=magic Note="May choose from 2 effects when triggering Wild Magic"',
-  'Elemental Gift':
-    'Section=ability,save ' +
-    'Note=' +
-      '"May use a bonus action to gain 30\' fly Speed for 10 min %{proficiencyBonus}/long rest",' +
-      '"Resistance to %{genieEnergy} damage"',
-  'Fathomless Plunge':
-    'Section=magic ' +
-    'Note="R30\' May teleport self and 5 willing targets 1 mile to a known body of water 1/short rest"',
-  "Genie's Vessel":
-    'Section=magic ' +
-    'Note="May retreat into vessel (AC %{spellDifficultyClass.K}; HP %{levels.Warlock+proficiencyBonus}) for %{proficiencyBonus*2} hr 1/long rest/May inflict +%{proficiencyBonus} HP %{genieEnergy} 1/rd"',
-  'Gift Of The Sea':'Section=ability Note="40\' swim Speed/May breathe water"',
-  'Grasping Tentacles':
-    'Section=magic ' +
-    'Note="May cast <i>Evard\'s Black Tentacles</i> w/unbreakable concentration and gain %{levels.Warlock} temporary HP 1/long rest" ' +
-    'Spells=' +
-      '"Evard\'s Black Tentacles"',
-  'Guardian Coil':
-    'Section=magic ' +
-    'Note="May use Reaction to reduce damage w/in 10\' of Tentacle Of The Deeps by %{levels.Warlock<10?1:2}d8"',
-  'Limited Wish':
-    'Section=magic Note="May gain the effects of a 6th level spell 1/1d4 long rests"',
-  'Magical Guidance':
-    'Section=ability ' +
-    'Note="May spend 1 Sorcery Point to reroll a failed ability check"',
-  'Manifest Mind':
-    'Section=magic ' +
-    'Note="R300\' May use a bonus action to see w/darkvision, hear, and cast spells %{proficiencyBonus} times through a ghostly object that emits 10\' dim light and moves 30\'/rd 1/long rest (may spend a spell slot for additional)"',
-  'Master Scrivener':
-    'Section=magic ' +
-    'Note="R5\' After a long rest, may create an enhanced 1st or 2nd level spell scroll from Awakened Spellbook"',
-  'Oceanic Soul':
-    'Section=feature,save ' +
-    'Note=' +
-      '"Understood by all creatures when speaking under water",' +
-      '"Resistance to cold damage"',
-  'One With The Word':
-    'Section=combat,skill ' +
-    'Note=' +
-      '"May use Reaction to negate damage to self and erase 3d6 spell levels from Awakened Spellbook for 1d6 long rests 1/long rest",' +
-      '"Adv on Arcana"',
-  'Psionic Sorcery':
-    'Section=magic ' +
-    'Note="May cast a spell using Sorcery Points equal to the spell level and no verbal or somatic components"',
-  'Psionic Spells':
-    'Section=magic ' +
-    'Note="May replace Psionic Spells spell when gaining a Sorcerer level" ' +
-    'Spells=' +
-      '"1:Arms Of Hadar","1:Dissonant Whispers","1:Mind Sliver",' +
-      '"3:Calm Emotions","3:Detect Thoughts",' +
-      '"5:Hunger Of Hadar",5:Sending,' +
-      '"7:Evard\'s Black Tentacles","7:Summon Aberration",' +
-      '"9:Rary\'s Telepathic Bond",9:Telekinesis',
-  'Psychic Defenses':
-    'Section=save ' +
-    'Note="Resistance to psychic damage/Adv on saves vs. charm and fright"',
-  'Restore Balance':
-    'Section=magic ' +
-    'Note="R60\' May cancel target Adv or Disadv on a roll %{proficiencyBonus}/long rest"',
-  'Revelation In Flesh':
-    'Section=ability,feature ' +
-    'Note=' +
-      '"May spend 1 Sorcery Point and use a bonus action to gain %{speed}\' fly Speed, %{speed*2}\' swim Speed and water breathing, or ability to squeeze through 1 inch space for 10 min",' +
-      '"May spend 1 Sorcery Point and use a bonus action to gain 60\' see invisible for 10 min"',
-  'Sanctuary Vessel':
-    'Section=magic ' +
-    'Note="R30\' May take 5 willing into vessel; 10 min in vessel gives the benefits of a short rest and restores +%{proficiencyBonus} HP"',
-  'Seeking Spell':
-    'Section=magic ' +
-    'Note="May spend 2 Sorcery Points to reroll a missed spell attack"',
-  'Song Of Defense':
-    'Section=magic ' +
-    'Note="During Bladesong, may use Reaction and expend a spell slot to reduce damage to self by 5x slot level"',
-  'Song Of Victory':
-    'Section=combat ' +
-    'Note="+%{intelligenceModifier>?1} HP melee weapon damage during Bladesong"',
-  'Sorcerous Versatility':
-    'Section=feature ' +
-    'Note="May replace a Metamagic option or a cantrip when boosting an ability or taking a feat"',
-  'Telepathic Speech':
-    'Section=feature ' +
-    'Note="R30\' May use a bonus action to gain telepathic communication w/target for %{levels.Sorcerer} min"',
-  'Tentacle Of The Deeps':
-    'Section=magic ' +
-    'Note="R60\' May use a bonus action to summon a 10\' tentacle that moves 30\' and inflicts %{levels.Warlock<10?1:2}d8 HP cold and -10\' speed 2/rd for 1 min %{proficiencyBonus}/long rest"',
-  'Training In War And Song':
-    'Section=combat,skill ' +
-    'Note=' +
-      '"Armor Proficiency (Light)/Weapon Proficiency (Choose 1 from any One-Handed)",' +
-      '"Skill Proficiency (Performance)"',
-  'Trance Of Order':
-    'Section=combat,feature ' +
-    'Note=' +
-      '"May use a bonus action to cancel Adv on attacks on self for 1 min 1/long rest (may spend 5 Sorcery Points for additional)",' +
-      '"May use a bonus action to gain minimum 10 on attack, ability, and saving throws for 1 min 1/long rest (may spend 5 Sorcery Points for additional)"',
-  'Transmuted Spell':
-    'Section=magic ' +
-    'Note="May spend 1 Sorcery Point to change a spell\'s damage type"',
-  'Unstable Backlash':
-    'Section=magic ' +
-    'Note="May use Reaction after taking damage or failing a save to trigger a Wild Magic effect"',
-  'Warping Implosion':
-    'Section=magic ' +
-    'Note="May teleport 120\'; 30\' radius around starting position inflicts 3d10 HP and 30\' pull (Strength half HP only) 1/long rest (may spend 5 Sorcery Points for additional)"',
-  'Wizardly Quill':
-    'Section=magic ' +
-    'Note="May use a bonus action to create a quill that produces multicolored, erasable writing and copies spells at 2 min/level"'
+      '"May cast <i>Detect Thoughts</i> (DC %{8+proficiencyBonus} + ability modifier Wisdom neg) 1/long rest"'
 
 };
 Tasha.SPELLS = {
