@@ -109,7 +109,7 @@ Eberron5E.BACKGROUNDS_ADDED = {
 Eberron5E.BACKGROUNDS =
   Object.assign({}, (window.PHB5E||window.SRD5E).BACKGROUNDS, Eberron5E.BACKGROUNDS_ADDED);
 Eberron5E.CLASSES_ADDED = {
-  'Artificer':
+  'Artificer': // (ref Tasha)
     'HitDie=d8 ' +
     'Features=' +
       '"1:Armor Proficiency (Medium; Shield)",' +
@@ -128,12 +128,6 @@ Eberron5E.CLASSES_ADDED = {
       '"features.Alchemist ? 5:Alchemical Savant",' +
       '"features.Alchemist ? 9:Restorative Reagents",' +
       '"features.Alchemist ? 15:Chemical Mastery",' +
-      // Tasha: '"features.Armorer ? 3:Armorer Spells",' +
-      // Tasha: '"features.Armorer ? 3:Arcane Armor",' +
-      // Tasha: '"features.Armorer ? 3:Armor Model",' +
-      // Tasha: '"features.Armorer ? 3:Tools Of The Trade",' +
-      // Tasha: '"features.Armorer ? 5:Extra Attack",' +
-      // Tasha: '"features.Armorer ? 9:Armor Modifications",' +
       '"features.Artillerist ? 3:Artillerist Spells",' +
       '"features.Artillerist ? 3:Artillerist Tool Proficiency",' +
       '"features.Artillerist ? 3:Eldritch Cannon",' +
@@ -150,26 +144,18 @@ Eberron5E.CLASSES_ADDED = {
     'Selectables=' +
       '"3:Alchemist:Specialist",' +
       '"3:Artillerist:Specialist",' +
-      // Tasha: 3:Armorer:Specialist
       '"3:Battle Smith:Specialist",' +
-      // Tasha: '"3:Guardian Armor:Armor Model",' +
-      // Tasha: '"3:Infiltrator Armor:Armor Model",' +
-      // Tasha: '"14:Arcane Propulsion Armor:Infusion",' +
-      // Tasha: '"2:Armor Of Magical Strength:Infusion",' +
       '"6:Boots Of The Winding Path:Infusion",' +
       '"2:Enhanced Arcane Focus:Infusion",' +
       '"2:Enhanced Defense:Infusion",' +
       '"2:Enhanced Weapon:Infusion",' +
-      // Tasha: '"10:Helm Of Awareness:Infusion",' +
       '"2:Homunculus Servant:Infusion",' +
-      // Tasha: '"2:Mind Sharpener:Infusion",' +
       '"6:Radiant Weapon:Infusion",' +
       '"2:Repeating Shot:Infusion",' +
       '"2:Replicate Magic Item:Infusion",' +
       '"6:Repulsion Shield:Infusion",' +
       '"6:Resistant Armor:Infusion",' +
       '"2:Returning Weapon:Infusion" ' +
-      // Tasha: '"6:Spell-Refueling Ring:Infusion" ' +
     'SpellAbility=intelligence ' +
     'SpellSlots=' +
       '"A0:2@1 3@10 4@14",' +
@@ -219,7 +205,9 @@ Eberron5E.FEATURES_ADDED = {
     'Section=feature ' +
     'Note="Can obtain food and lodging at a house enclave and assistance and supplies from house contacts"',
 
-  // Classes - Artificer
+  // Classes
+
+  // Artificer (ref Tasha)
   'Artificer Specialist':'Section=feature Note="1 selection"',
   'Flash Of Genius':
     'Section=feature ' +
@@ -303,7 +291,7 @@ Eberron5E.FEATURES_ADDED = {
   'Fortified Position':
     'Section=combat ' +
     'Note=' +
-      '"Can have 2 Eldritch Cannons simultaneously, and Eldritch Cannons give allies half cover in 10\' radius"',
+      '"Can have 2 Eldritch Cannons simultaneously, and Eldritch Cannons give allies in a 10\' radius half cover"',
   // Battle Smith
   'Arcane Jolt':
     'Section=combat ' +
@@ -330,23 +318,23 @@ Eberron5E.FEATURES_ADDED = {
       '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points, can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); attack +%{spellAttackModifier.A} inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
   // Infusions
   'Boots Of The Winding Path':
     'Section=magic ' +
-    'Note="Wearer of infused boots can teleport back to a space within 15\'"',
+    'Note="Wearer of infused boots can use a bonus action to teleport back to a space within 15\'"',
   'Enhanced Arcane Focus':
     'Section=magic ' +
     'Note="Infused rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks that ignore half cover"',
   'Enhanced Defense':
     'Section=magic ' +
-    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} AC"',
+    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} Armor Class"',
   'Enhanced Weapon':
     'Section=magic ' +
     'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
   'Homunculus Servant':
     'Section=magic ' +
-    'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points; attack R30\' +%{spellAttackModifier.A} inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
+    'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points; R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
   'Radiant Weapon':
     'Section=magic ' +
     'Note="Infused weapon with 4 charges gives +1 attack and damage and emits a 30\' bright light on command; the wielder can use a reaction and 1 charge to blind a successful attacker (save DC %{spellDifficultyClass.A} Constitution negates) for 1 rd; the weapon regains 1d4 charges each dawn"',
@@ -354,13 +342,13 @@ Eberron5E.FEATURES_ADDED = {
     'Section=magic ' +
     'Note="Infused ammunition weapon gives +1 attack and damage and automatically creates its own ammunition"',
   'Replicate Magic Item':
-    'Section=magic Note="Can replicate wondrous items"',
+    'Section=magic Note="Can replicate a chosen wondrous item"',
   'Repulsion Shield':
     'Section=magic ' +
-    'Note="Infused shield with 4 charges gives +1 AC; the holder can use a reaction and 1 charge to push a successful attacker 15\'; regains 1d4 charges each dawn"',
+    'Note="Infused shield with 4 charges gives +1 Armor Class; the holder can use a reaction and 1 charge to push a successful attacker 15\'; the shield regains 1d4 charges each dawn"',
   'Resistant Armor':
     'Section=magic ' +
-    'Note="Infused armor gives +1 AC and resistance to a chosen damage type"',
+    'Note="Infused armor gives +1 Armor Class and resistance to a chosen damage type"',
   'Returning Weapon':
     'Section=magic ' +
     'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
@@ -1102,7 +1090,7 @@ Eberron5E.classRulesExtra = function(rules, name) {
   let classLevel = 'levels.' + name;
 
   if(name == 'Artificer') {
-    // Copied from Tasha's
+    // (ref Tasha)
     rules.defineRule('armorerLevel',
       'features.Armorer', '?', null,
       'level', '=', null
@@ -1115,6 +1103,10 @@ Eberron5E.classRulesExtra = function(rules, name) {
       ('combatNotes.arcaneJolt', 'combatNotes.improvedDefender', '+', '0');
     rules.defineRule // Italics noop
       ('combatNotes.eldritchCannon', 'combatNotes.explosiveCannon', '+', '0');
+    rules.defineRule('combatNotes.extraAttack',
+      'armorerLevel', '+=', 'source>=5 ? 1 : null',
+      'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
+    );
     rules.defineRule // Italics noop
       ('featureNotes.infuseItem', 'featureNotes.armorModifications', '+', '0');
     rules.defineRule('magicNotes.magicItemAdept', // Italics noop
@@ -1122,10 +1114,6 @@ Eberron5E.classRulesExtra = function(rules, name) {
       'magicNotes.magicItemSavant', '+', '0'
     );
     rules.defineRule('magicNotes.spellcasting.1', classLevel, '=', '1');
-    rules.defineRule('combatNotes.extraAttack',
-      'armorerLevel', '+=', 'source>=5 ? 1 : null',
-      'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
-    );
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
       'featureNotes.infuseItem', '?', null,
       classLevel, '=', 'Math.floor((source + 6) / 4) * 2'
