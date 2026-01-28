@@ -239,14 +239,14 @@ Tasha.CLASSES_FEATURES_ADDED = {
     '"features.Oath Of The Watchers ? 20:Mortal Bulwark"',
   'Ranger':
     '"1:Deft Explorer",' +
-    '"1:Canny",' +
+    '"features.Deft Explorer ? 1:Canny",' +
     '"1:Favored Foe",' +
     '"2:Spellcasting Focus",' +
     '"3:Primal Awareness",' +
     '"4:Martial Versatility",' +
-    '"6:Roving",' +
+    '"features.Deft Explorer ? 6:Roving",' +
     '"10:Nature\'s Veil",' +
-    '"10:Tireless",' +
+    '"features.Deft Explorer ? 10:Tireless",' +
     '"features.Fey Wanderer ? 3:Dreadful Strikes",' +
     '"features.Fey Wanderer ? 3:Fey Wanderer Magic",' +
     '"features.Fey Wanderer ? 3:Otherworldly Glamour",' +
@@ -1897,19 +1897,22 @@ Tasha.classRulesExtra = function(rules, name) {
       'features.Battle Smith', '?', null,
       'level', '=', null
     );
-    rules.defineRule // Italics noop
-      ('combatNotes.arcaneJolt', 'combatNotes.improvedDefender', '+', '0');
-    rules.defineRule // Italics noop
-      ('combatNotes.eldritchCannon', 'combatNotes.explosiveCannon', '+', '0');
+    rules.defineRule('combatNotes.arcaneJolt',
+      'combatNotes.improvedDefender', '+', 'null' // italics
+    );
+    rules.defineRule('combatNotes.eldritchCannon',
+      'combatNotes.explosiveCannon', '+', 'null' // italics
+    );
     rules.defineRule('combatNotes.extraAttack',
       'armorerLevel', '+=', 'source>=5 ? 1 : null',
       'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
     );
-    rules.defineRule // Italics noop
-      ('featureNotes.infuseItem', 'featureNotes.armorModifications', '+', '0');
-    rules.defineRule('magicNotes.magicItemAdept', // Italics noop
-      'magicNotes.magicItemMaster', '+', '0',
-      'magicNotes.magicItemSavant', '+', '0'
+    rules.defineRule('featureNotes.infuseItem',
+      'featureNotes.armorModifications', '+', 'null' // italics
+    );
+    rules.defineRule('magicNotes.magicItemAdept',
+      'magicNotes.magicItemMaster', '+', 'null', // italics
+      'magicNotes.magicItemSavant', '+', 'null' // italics
     );
     rules.defineRule('magicNotes.spellcasting.1', classLevel, '=', '1');
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
@@ -1937,27 +1940,20 @@ Tasha.classRulesExtra = function(rules, name) {
       'features.Twilight Domain', '=', '"radiant"'
     );
     rules.defineRule
-      ('combatNotes.divineStrike', classLevel, '=', 'source<14 ? 1 : 2');
-    rules.defineRule
-      ('combatNotes.divineStrike.1', classLevel, '=', '"psychic"');
-    rules.defineRule
       ('magicNotes.potentSpellcasting.1', 'wisdomModifier', '=', null);
-    rules.defineRule
-      ('combatNotes.divineStrike', classLevel, '=', 'source<14 ? 1 : 2');
-    rules.defineRule
-      ('combatNotes.divineStrike.1', classLevel, '=', '"radiant"');
     rules.defineRule('magicNotes.harnessDivinePower',
       'levels.Cleric', '+=', 'source<6 ? 1 : source<18 ? 2 : 3'
     );
     // SRD5E.classRulesExtra removes the domain requirement for None clerics
     SRD5E.classRulesExtra(rules, 'Cleric');
   } else if(name == 'Druid') {
-    rules.defineRule('magicNotes.starryForm', // Italics noop
-      'magicNotes.twinklingConstellations', '+', 'null'
+    rules.defineRule('magicNotes.starryForm',
+      'magicNotes.twinklingConstellations', '+', 'null' // italics
     );
   } else if(name == 'Fighter') {
-    rules.defineRule // Italics noop
-      ('combatNotes.cloudRune', 'combatNotes.masterOfRunes', '+', 'null');
+    rules.defineRule('combatNotes.cloudRune',
+      'combatNotes.masterOfRunes', '+', 'null' // italics
+    );
     rules.defineRule('combatNotes.combatSuperiority',
       'combatNotes.fightingStyle(SuperiorTechnique)', '+=', '1'
     );
@@ -1967,9 +1963,9 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.combatSuperiority.2',
       'combatNotes.fightingStyle(SuperiorTechnique)', '+=', '1'
     );
-    rules.defineRule("combatNotes.giant'sMight", // Italics noop
-      'combatNotes.greatStature', '+', 'null',
-      'combatNotes.runicJuggernaut', '+', 'null'
+    rules.defineRule("combatNotes.giant'sMight",
+      'combatNotes.greatStature', '+', 'null', // italics
+      'combatNotes.runicJuggernaut', '+', 'null' // italics
     );
     rules.defineRule('combatNotes.psionicPower',
       classLevel, '=', 'source<5 ? 6 : source<11 ? 8 : source<17 ? 10 : 12'
@@ -2007,10 +2003,12 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule
       ('rangerFeatures.Hide In Plain Sight', 'suppress', '?', null);
     // Rules for new Ranger features
-    rules.defineRule // Italics noop
-      ('combatNotes.gatheredSwarm', 'combatNotes.mightySwarm', '+', 'null');
-    rules.defineRule // Italics noop
-      ('skillNotes.canny', 'featureNotes.deftExplorer', '?', null);
+    rules.defineRule('combatNotes.gatheredSwarm',
+      'combatNotes.mightySwarm', '+', 'null' // italics
+    );
+    rules.defineRule('skillNotes.canny',
+      'featureNotes.deftExplorer', '+', 'null' // italics
+    );
     rules.defineRule
       ('spellSlots.D0', 'magicNotes.fightingStyle(DruidicWarrior)', '+=', '2');
     rules.defineRule
