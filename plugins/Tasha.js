@@ -1477,63 +1477,63 @@ Tasha.FEATURES = {
   'Artificer Initiate':
     'Section=magic,skill ' +
     'Note=' +
-      '"Knows 1 A0 spell/May cast chosen A1 spell 1/long rest",' +
+      '"Knows 1 artificer cantrip and can cast a chosen A1 spell once per long rest",' +
       '"Tool Proficiency (Choose 1 from any Artisan)"',
   'Chef':
     'Section=ability,magic,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Constitution, Wisdom)",' +
-      '"Food prepared during a short rest restores +1d8 HP to %{proficiencyBonus+4} eaters; treats prepared during a long rest give %{proficiencyBonus} eaters %{proficiencyBonus} temporary HP",' +
+      '"Food prepared during a short rest adds 1d8 to hit points regained from using Hit Dice by %{proficiencyBonus+4} diners, and treats prepared during a long rest give %{proficiencyBonus} eaters %{proficiencyBonus} temporary hit points within 8 hr",' +
       '"Tool Proficiency (Cook\'s Utensils)"',
   'Crusher':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Constitution, Strength)",' +
-      '"May move foe 5\' w/a bludgeoning hit 1/rd; critical bludgeoning hit gives allies Adv on attacks for 1 rd"',
+      '"Can move a foe up to 1 size larger 5\' with a bludgeoning hit once per rd, and a critical bludgeoning hit gives allies advantage on attacks on that foe for 1 rd"',
   'Eldritch Adept':
     'Section=magic,magic ' +
     'Note=' +
       '"Knows 1 Eldritch Invocation",' +
-      '"May replace Eldritch Invocation when gaining a level"',
+      '"Can replace Eldritch Invocation when gaining a level"',
   'Fey Touched':
     'Section=ability,magic ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
-      '"May cast <i>Misty Step</i> and chosen level 1 divination or enchantment spell 1/long rest" ' +
+      '"Can cast <i>Misty Step</i> and a chosen level 1 divination or enchantment spell once per long rest" ' +
     'Spells=' +
       '"Misty Step"',
   'Fighting Initiate':
-    'Section=feature,feature ' +
+    'Section=combat,combat ' +
     'Note=' +
       '"Knows 1 Fighting Style",' +
-      '"May replace a Fighting Style when boosting an ability or taking a feat"',
+      '"Can replace a Fighting Style when boosting an ability or taking a feat"',
   'Gunner':
-    'Section=ability,combat,feature ' +
+    'Section=ability,combat,combat ' +
     'Note=' +
       '"+1 Dexterity",' +
-      '"Loading does not slow firearm attacks/Adjacent foe does not inflict Disadv on ranged attacks",' +
-      '"Weapon Proficiency (Firearms)"',
+      '"Weapon Proficiency (Firearms)",' +
+      '"Loading does not slow firearm attacks, and being adjacent to a foe does not inflict disadvantage on ranged attacks"',
   'Metamagic Adept':
-    'Section=feature,feature ' +
+    'Section=magic,magic ' +
     'Note=' +
-      '"Knows 2 Metamagic options/Has 2 Sorcery Points",' +
-      '"May replace a Metamagic option when boosting an ability or taking a feat"',
+      '"Knows 2 Metamagic options and has 2 Sorcery Points",' +
+      '"Can replace a Metamagic option when boosting an ability or taking a feat"',
   'Piercer':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)",' +
-      '"May reroll 1 piercing damage die 1/rd/Adds 1 die to piercing crit damage"',
+      '"Can reroll 1 piercing damage die once per rd and adds 1 die to piercing critical damage"',
   'Poisoner':
     'Section=combat,skill,skill ' +
     'Note=' +
-      '"Attacks negate poison resistance/May coat a weapon w/poison lasting 1 min that inflicts 2d8 HP poison and poisoned condition (DC 14 Constitution neg) for 1 rd",' +
+      '"Attacks negate poison resistance/Can use a bonus action to coat a weapon with poison lasting 1 min that inflicts 2d8 HP poison and the poisoned condition (save DC 14 Constitution negates) for 1 rd",' +
       '"Tool Proficiency (Poisoner\'s Kit)",' +
-      '"1 hr process using Poisoner\'s Kit creates %{proficiencyBonus} poison doses"',
+      '"1 hr process using a Poisoner\'s Kit creates %{proficiencyBonus} poison doses"',
   'Shadow Touched':
     'Section=ability,magic ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
-      '"May cast <i>Invisibility</i> and chosen level 1 illusion or necromancy spell 1/long rest" ' +
+      '"Can cast <i>Invisibility</i> and a chosen level 1 illusion or necromancy spell once per long rest" ' +
     'Spells=' +
       'Invisibility',
   'Skill Expert':
@@ -1541,24 +1541,26 @@ Tasha.FEATURES = {
     'Note=' +
       '"Ability Boost (Choose 1 from any)",' +
       '"Skill Proficiency (Choose 1 from any)",' +
-      '"Dbl proficiency bonus (+%{proficiencyBonus}) in chosen skill"',
+      '"+%{proficiencyBonus} on a chosen proficient skill"',
   'Slasher':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)",' +
-      '"May inflict -10 Speed for 1 rd w/an attack that inflicts slashing damage/Slashing crit inflicts Disadv on foe attacks for 1 rd"',
+      '"Can inflict -10 Speed for 1 rd with a slashing attack, and a critical slashing hit inflicts disadvantage on the foe\'s attacks for 1 rd"',
   'Telekinetic':
     'Section=ability,combat,magic ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
-      '"R30\' May use a bonus action to move target 5\' (DC %{8+proficiencyBonus} + ability modifier Strength neg)",' +
-      '"Knows <i>Mage Hand</i> cantrip"',
+      '"R30\' Can use a bonus action to move a target 5\' (save DC %{8+proficiencyBonus} + ability modifier Strength negates)",' +
+      '"Knows the <i>Mage Hand</i> cantrip"',
+    // Spells attribute left off--see featRulesExtra
   'Telepathic':
     'Section=ability,feature,magic ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
-      '"R60\' May communicate telepathically",' +
-      '"May cast <i>Detect Thoughts</i> (DC %{8+proficiencyBonus} + ability modifier Wisdom neg) 1/long rest"'
+      '"R60\' Can speak telepathically in a shared language",' +
+      '"Can cast <i>Detect Thoughts</i> (DC %{8+proficiencyBonus} + ability modifier Wisdom negates) once per long rest"'
+    // Spells attribute left off--see featRulesExtra
 
 };
 Tasha.SPELLS = {
@@ -2066,7 +2068,7 @@ Tasha.featRulesExtra = function(rules, name) {
     }
   } else if(name == 'Fighting Initiate') {
     rules.defineRule('selectableFeatureCount.Fighter (Fighting Style)',
-      'featureNotes.fightingInitiate', '+=', '1'
+      'combatNotes.fightingInitiate', '+=', '1'
     );
     // Override class requirement for Fighter Fighting Style features
     let features = rules.getChoices('selectableFeatures');
@@ -2080,7 +2082,7 @@ Tasha.featRulesExtra = function(rules, name) {
     }
   } else if(name == 'Metamagic Adept') {
     rules.defineRule('selectableFeatureCount.Sorcerer (Metamagic)',
-      'featureNotes.metamagicAdept', '+=', '2'
+      'magicNotes.metamagicAdept', '+=', '2'
     );
     rules.defineRule
       ('magicNotes.fontOfMagic', 'featureNotes.metamagicAdept', '+=', '2');

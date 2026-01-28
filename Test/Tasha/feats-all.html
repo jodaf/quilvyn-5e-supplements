@@ -130,13 +130,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><i>Deft Explorer: Has the Canny, Roving, and Tireless features</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Fighting Initiate: Knows 1 Fighting Style</i></td>
-      </tr><tr style="text-align:center">
         <td><i>Fighting Style: 1 selection</i></td>
-      </tr><tr style="text-align:center">
-        <td><i>Gunner: Weapon Proficiency (Firearms)</i></td>
-      </tr><tr style="text-align:center">
-        <td><i>Metamagic Adept: Knows 2 Metamagic options/Has 2 Sorcery Points</i></td>
       </tr><tr style="text-align:center">
         <td><i>Ranger Archetype: 1 selection</i></td>
       </tr><tr style="text-align:center">
@@ -146,15 +140,11 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Exceptional Training: Can use a bonus action to command companion to Dash, Disengage, or Help instead of Attack/Companion attacks count as magical</td>
       </tr><tr style="text-align:center">
-        <td>Fighting Initiate: May replace a Fighting Style when boosting an ability or taking a feat</td>
-      </tr><tr style="text-align:center">
         <td>Martial Versatility: Can replace a Fighting Style or maneuver when boosting an ability or taking a feat</td>
-      </tr><tr style="text-align:center">
-        <td>Metamagic Adept: May replace a Metamagic option when boosting an ability or taking a feat</td>
       </tr><tr style="text-align:center">
         <td>Ranger's Companion: Companion beast of up to CR 1/4 obeys commands and gains +4 Armor Class, attack, damage, and proficient skills and saving throws</td>
       </tr><tr style="text-align:center">
-        <td>Telepathic: R60' May communicate telepathically</td>
+        <td>Telepathic: R60' Can speak telepathically in a shared language</td>
       </tr></table>
 </td>
     </tr></table>
@@ -213,9 +203,9 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Canny: +4 on a chosen proficient skill</td>
     </tr><tr style="text-align:center">
-      <td>Poisoner: 1 hr process using Poisoner's Kit creates 4 poison doses</td>
+      <td>Poisoner: 1 hr process using a Poisoner's Kit creates 4 poison doses</td>
     </tr><tr style="text-align:center">
-      <td>Skill Expert: Dbl proficiency bonus (+4) in chosen skill</td>
+      <td>Skill Expert: +4 on a chosen proficient skill</td>
     </tr></table>
 </td>
   </tr></table>
@@ -261,25 +251,31 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Extra Attack: +1 Attacks Per Round</i></td>
       </tr><tr style="text-align:center">
+        <td><i>Fighting Initiate: Knows 1 Fighting Style</i></td>
+      </tr><tr style="text-align:center">
+        <td><i>Gunner: Weapon Proficiency (Firearms)</i></td>
+      </tr><tr style="text-align:center">
         <td><i>Strength Attack Adjustment: +4</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Damage Adjustment: +4</i></td>
       </tr><tr style="text-align:center">
-        <td>Crusher: May move foe 5' w/a bludgeoning hit 1/rd; critical bludgeoning hit gives allies Adv on attacks for 1 rd</td>
+        <td>Crusher: Can move a foe up to 1 size larger 5' with a bludgeoning hit once per rd, and a critical bludgeoning hit gives allies advantage on attacks on that foe for 1 rd</td>
       </tr><tr style="text-align:center">
         <td>Favored Foe: Can mark a target with a successful attack for concentration up to 1 min 4 times per long rest; the first hit each rd on a marked foe inflicts +1d6 HP weapon damage</td>
       </tr><tr style="text-align:center">
+        <td>Fighting Initiate: Can replace a Fighting Style when boosting an ability or taking a feat</td>
+      </tr><tr style="text-align:center">
         <td>Fighting Style (Dueling): +2 damage with a single, one-handed melee weapon</td>
       </tr><tr style="text-align:center">
-        <td>Gunner: Loading does not slow firearm attacks/Adjacent foe does not inflict Disadv on ranged attacks</td>
+        <td>Gunner: Loading does not slow firearm attacks, and being adjacent to a foe does not inflict disadvantage on ranged attacks</td>
       </tr><tr style="text-align:center">
-        <td>Piercer: May reroll 1 piercing damage die 1/rd/Adds 1 die to piercing crit damage</td>
+        <td>Piercer: Can reroll 1 piercing damage die once per rd and adds 1 die to piercing critical damage</td>
       </tr><tr style="text-align:center">
-        <td>Poisoner: Attacks negate poison resistance/May coat a weapon w/poison lasting 1 min that inflicts 2d8 HP poison and poisoned condition (DC 14 Constitution neg) for 1 rd</td>
+        <td>Poisoner: Attacks negate poison resistance/Can use a bonus action to coat a weapon with poison lasting 1 min that inflicts 2d8 HP poison and the poisoned condition (save DC 14 Constitution negates) for 1 rd</td>
       </tr><tr style="text-align:center">
-        <td>Slasher: May inflict -10 Speed for 1 rd w/an attack that inflicts slashing damage/Slashing crit inflicts Disadv on foe attacks for 1 rd</td>
+        <td>Slasher: Can inflict -10 Speed for 1 rd with a slashing attack, and a critical slashing hit inflicts disadvantage on the foe's attacks for 1 rd</td>
       </tr><tr style="text-align:center">
-        <td>Telekinetic: R30' May use a bonus action to move target 5' (DC 12 + ability modifier Strength neg)</td>
+        <td>Telekinetic: R30' Can use a bonus action to move a target 5' (save DC 12 + ability modifier Strength negates)</td>
       </tr><tr style="text-align:center">
         <td>Tireless: Can gain 1d8+4 temporary hit points 4 times per long rest, and a short rest reduces exhaustion by 1</td>
       </tr></table>
@@ -361,25 +357,29 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Magic Notes</b>:     <table id="MagicNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Artificer Initiate: Knows 1 A0 spell/May cast chosen A1 spell 1/long rest</i></td>
+      <td><i>Artificer Initiate: Knows 1 artificer cantrip and can cast a chosen A1 spell once per long rest</i></td>
     </tr><tr style="text-align:center">
       <td><i>Eldritch Adept: Knows 1 Eldritch Invocation</i></td>
     </tr><tr style="text-align:center">
       <td><i>Eldritch Spear: Increases <i>Eldritch Blast</i> range to 300'</i></td>
     </tr><tr style="text-align:center">
-      <td>Chef: Food prepared during a short rest restores +1d8 HP to 8 eaters; treats prepared during a long rest give 4 eaters 4 temporary HP</td>
+      <td><i>Metamagic Adept: Knows 2 Metamagic options and has 2 Sorcery Points</i></td>
+    </tr><tr style="text-align:center">
+      <td>Chef: Food prepared during a short rest adds 1d8 to hit points regained from using Hit Dice by 8 diners, and treats prepared during a long rest give 4 eaters 4 temporary hit points within 8 hr</td>
     </tr><tr style="text-align:center">
       <td>Distant Spell: Can spend 1 Sorcery Point to double the range of a spell or to give a touch spell a 30' range</td>
     </tr><tr style="text-align:center">
-      <td>Eldritch Adept: May replace Eldritch Invocation when gaining a level</td>
+      <td>Eldritch Adept: Can replace Eldritch Invocation when gaining a level</td>
     </tr><tr style="text-align:center">
-      <td>Fey Touched: May cast <i>Misty Step</i> and chosen level 1 divination or enchantment spell 1/long rest</td>
+      <td>Fey Touched: Can cast <i>Misty Step</i> and a chosen level 1 divination or enchantment spell once per long rest</td>
+    </tr><tr style="text-align:center">
+      <td>Metamagic Adept: Can replace a Metamagic option when boosting an ability or taking a feat</td>
     </tr><tr style="text-align:center">
       <td>Nature's Veil: Can use a bonus action to become invisible for 1 rd 4 times per long rest</td>
     </tr><tr style="text-align:center">
       <td>Primal Awareness: Can cast <i>Speak With Plants</i>, <i>Beast Sense<i>, and <i>Speak With Animals</i> once each per long rest</td>
     </tr><tr style="text-align:center">
-      <td>Shadow Touched: May cast <i>Invisibility</i> and chosen level 1 illusion or necromancy spell 1/long rest</td>
+      <td>Shadow Touched: Can cast <i>Invisibility</i> and a chosen level 1 illusion or necromancy spell once per long rest</td>
     </tr><tr style="text-align:center">
       <td>Spellcasting Focus: Can use a druidic focus for ranger spells</td>
     </tr><tr style="text-align:center">
@@ -387,9 +387,9 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Subtle Spell: Can spend 1 Sorcery Point to cast a spell without somatic or verbal components</td>
     </tr><tr style="text-align:center">
-      <td>Telekinetic: Knows <i>Mage Hand</i> cantrip</td>
+      <td>Telekinetic: Knows the <i>Mage Hand</i> cantrip</td>
     </tr><tr style="text-align:center">
-      <td>Telepathic: May cast <i>Detect Thoughts</i> (DC 12 + ability modifier Wisdom neg) 1/long rest</td>
+      <td>Telepathic: Can cast <i>Detect Thoughts</i> (DC 12 + ability modifier Wisdom negates) once per long rest</td>
     </tr></table>
 </td>
   </tr></table>
