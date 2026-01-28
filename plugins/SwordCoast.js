@@ -747,7 +747,7 @@ SwordCoast.RACES = {
     SRD5E.RACES['High Elf']
     .replaceAll('High Elf', 'Sun Elf'),
   'Lightfoot Halfling':SRD5E.RACES['Lightfoot Halfling'],
-  'Human':SRD5E.RACES['Human'],
+  'Human':SRD5E.RACES.Human,
   'Dragonborn':SRD5E.RACES.Dragonborn,
   'Rock Gnome':SRD5E.RACES['Rock Gnome'],
   'Deep Gnome':
@@ -761,15 +761,15 @@ SwordCoast.RACES = {
   'Tiefling':SRD5E.RACES.Tiefling
 };
 if(PHB5E != null) {
-  SwordCoast.RACES['Dark Elf'] = PHB5E.RACES['Dark Elf'],
+  SwordCoast.RACES['Dark Elf'] = PHB5E.RACES['Dark Elf'];
   SwordCoast.RACES['Shield Dwarf'] =
     PHB5E.RACES['Mountain Dwarf']
-    .replaceAll('Mountain Dwarf', 'Shield Dwarf'),
-  SwordCoast.RACES['Wood Elf'] = PHB5E.RACES['Wood Elf'],
+    .replaceAll('Mountain Dwarf', 'Shield Dwarf');
+  SwordCoast.RACES['Wood Elf'] = PHB5E.RACES['Wood Elf'];
   SwordCoast.RACES['Strongheart Halfling'] =
     PHB5E.RACES['Stout Halfling']
-    .replaceAll('Stout', 'Strongheart'),
-  SwordCoast.RACES['Forest Gnome'] = PHB5E.RACES['Forest Gnome']
+    .replaceAll('Stout', 'Strongheart');
+  SwordCoast.RACES['Forest Gnome'] = PHB5E.RACES['Forest Gnome'];
 }
 SwordCoast.SPELLS_ADDED = {
   // (ref Tasha)
