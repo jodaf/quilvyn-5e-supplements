@@ -252,7 +252,7 @@ Eberron5E.FEATURES_ADDED = {
       '"13:Blight","13:Death Ward",' +
       '"17:Cloudkill","17:Raise Dead"',
   'Alchemist Tool Proficiency':
-    'Section=feature Note="Tool Proficiency (Alchemist\'s Supplies)"',
+    'Section=skill Note="Tool Proficiency (Alchemist\'s Supplies)"',
   'Chemical Mastery':
     'Section=magic,save ' +
     'Note=' +
@@ -279,7 +279,7 @@ Eberron5E.FEATURES_ADDED = {
       '"13:Ice Storm","13:Wall Of Fire",' +
       '"17:Cone Of Cold","17:Wall Of Force"',
   'Artillerist Tool Proficiency':
-    'Section=feature Note="Tool Proficiency (Woodcarver\'s Tools)"',
+    'Section=skill Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Eldritch Cannon':
     'Section=combat ' +
     'Note="Can create a magical cannon (Armor Class 18, %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points), can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
@@ -300,7 +300,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=combat,feature ' +
     'Note=' +
       '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage with magic weapons",' +
-      '"Weapon Proficiency (Martial)"',
+      '"Weapon Proficiency (Martial Weapons)"',
   'Battle Smith Spells':
     'Spells=' +
       '"3:Heroism","3:Shield",' +
@@ -309,7 +309,7 @@ Eberron5E.FEATURES_ADDED = {
       '"13:Aura Of Purity","13:Fire Shield",' +
       '"17:Banishing Smite","17:Mass Cure Wounds"',
   'Battle Smith Tool Proficiency':
-    'Section=feature Note="Tool Proficiency (Smith\'s Tools)"',
+    'Section=skill Note="Tool Proficiency (Smith\'s Tools)"',
   // Extra Attack as SRD5E
   'Improved Defender':
     'Section=combat,combat ' +
@@ -386,7 +386,7 @@ Eberron5E.FEATURES_ADDED = {
   'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Surprise Attack':
     'Section=combat ' +
-    'Note="Inflicts +2d6 HP on first surprise hit once per combat"',
+    'Note="Inflicts +2d6 HP on the first surprise hit once per combat"',
 
   // Goblin (ref Volo)
   // Darkvision as SRD5E
@@ -439,7 +439,7 @@ Eberron5E.FEATURES_ADDED = {
   // Beasthide Shifter
   'Beasthide Ability Adjustment':
     'Section=ability Note="+2 Constitution/+1 Strength"',
-  'Natural Athlete':'Section=feature Note="Skill Proficiency (Athletics)"',
+  'Natural Athlete':'Section=skill Note="Skill Proficiency (Athletics)"',
   'Shifting (Beasthide)':
     'Section=combat ' +
     'Note="Gains +1 Armor Class and +1d6 temporary hit points while shifted"',
@@ -1027,6 +1027,8 @@ if(window.Xanathar != null)
     'Skill Empowerment':'A5',
     'Wall Of Stone':'A5'
   });
+if(window.Tasha != null)
+  Eberron5E.SPELLS_LEVELS_ADDED = Object.assign({}, Tasha.SPELLS_LEVELS_ADDED);
 Eberron5E.SPELLS =
   Object.assign({}, (window.PHB5E||window.SRD5E).SPELLS, Eberron5E.SPELLS_ADDED);
 if(window.Xanathar != null)

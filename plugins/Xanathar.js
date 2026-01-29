@@ -662,7 +662,7 @@ Xanathar.FEATURES = {
     'Note="Can use a reaction and spend 1 ki point to redirect a foe miss to an adjacent creature"',
   'Tipsy Sway':
     'Section=feature Note="Has Leap To Your Feet and Redirect Attack features"',
-  // Way Of The Kensi
+  // Way Of The Kensei
   'Agile Parry':
     'Section=combat ' +
     'Note="Gains +2 Armor Class for 1 rd after an unarmed strike when armed with a Kensei melee weapon"',
@@ -1612,7 +1612,7 @@ Xanathar.SPELLS = {
     'Level=W3 ' +
     'Description=' +
       '"R90\' 30\'x10\' wall inflicts 1/3 Speed and blocks vision for concentration up to 10 min"',
-  'Wall Of Water':
+  'Wall Of Water': // ref Volo
     'School=Evocation ' +
     'Level=D3,S3,W3 ' +
     'Description=' +

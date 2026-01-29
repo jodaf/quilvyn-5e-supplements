@@ -285,7 +285,8 @@ SwordCoast.CLASSES_SELECTABLES_ADDED = {
   'Warlock':
     '"1:The Undying:Otherworldly Patron"',
   'Wizard':
-    '"race =~ \'Elf\' ? 2:Bladesinging:Arcane Tradition"'
+    // removed Elf requirement to match Tasha
+    '"2:Bladesinging:Arcane Tradition"'
 };
 SwordCoast.CLASSES = Object.assign({}, (window.PHB5E||window.SRD5E).CLASSES);
 for(let c in SwordCoast.CLASSES_FEATURES_ADDED) {
@@ -772,20 +773,19 @@ if(PHB5E != null) {
   SwordCoast.RACES['Forest Gnome'] = PHB5E.RACES['Forest Gnome'];
 }
 SwordCoast.SPELLS_ADDED = {
-  // (ref Tasha)
-  'Booming Blade':
+  'Booming Blade': // ref Tasha
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
     'Description="Struck foe suffers %{(level+7)//6}d8 HP thunder on its next move within 1 rd"',
-  'Green-Flame Blade':
+  'Green-Flame Blade': // ref Tasha
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
     'Description="Struck foe suffers +%{(level+1)//6}d8 HP fire, and an adjacent target suffers %{(level+1)//6}d8+%{mdf} HP fire"',
-  'Lightning Lure':
+  'Lightning Lure': // ref Tasha
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
     'Description="R15\' Pulls the target 10\' and inflicts %{(level+5)//6}d8 HP lightning if this brings it to within 5\' (save Strength negates)"',
-  'Sword Burst':
+  'Sword Burst': // ref Tasha
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
     'Description="5\' radius inflicts %{(level+7)//6}d6 HP force (save Dexterity negates)"'

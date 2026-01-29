@@ -243,7 +243,7 @@ Volo.MONSTROUS_FEATURES = {
   'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Surprise Attack':
     'Section=combat ' +
-    'Note="Inflicts +2d6 HP damage on first surprise hit once per combat"',
+    'Note="Inflicts +2d6 HP on the first surprise hit once per combat"',
 
   // Goblin (ref Eberron5E)
   // Darkvision as SRD5E
@@ -353,11 +353,11 @@ Volo.MONSTROUS_RACES = {
       '"Poison Immunity","Yuan-Ti Ability Adjustment"'
 };
 Volo.SPELLS = {
-  // (ref Xanathar)
-  'Wall Of Water':
+  'Wall Of Water': // (ref Xanathar)
     'School=Evocation ' +
     'Level=D3,S3,W3 ' +
-    'Description="R60\' 30\'x10\'x1\' wall or 20\'x20\'x1\' ring inflicts disadvantage on ranged attacks and half damage on fire for concentration up to 10 min"'
+    'Description=' +
+      '"R60\' 30\'x10\' wall or 20\'x20\' ring inflicts disadvantage on ranged attacks, reduces fire effects by half, and turns to ice from cold effects for concentration up to 10 min"'
 };
 
 /* Defines rules related to basic character identity. */

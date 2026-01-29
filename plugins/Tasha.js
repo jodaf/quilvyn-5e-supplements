@@ -545,7 +545,7 @@ Tasha.FEATURES = {
   'Powered Steps':'Section=ability Note="+5 Speed"',
   'Thunder Gauntlets':
     'Section=combat ' +
-    'Note="Each gauntlet inflicts 1d8 HP thunder and disadvatage on attacks on others for 1 rd"',
+    'Note="Each gauntlet inflicts 1d8 HP thunder and disadvantage on attacks on others for 1 rd"',
   'Tools Of The Trade':
     'Section=combat,skill ' +
     'Note=' +
@@ -602,7 +602,7 @@ Tasha.FEATURES = {
       '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity Save +%{proficiencyBonus+1}; Constitution Save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
   // Infusions
   'Arcane Propulsion Armor':
     'Section=magic ' +
@@ -1437,7 +1437,7 @@ Tasha.FEATURES = {
   'Bladesong':
     'Section=ability,combat,feature,magic,skill ' +
     'Note=' +
-      '"+10 Speed in during Bladesong",' +
+      '"+10 Speed during Bladesong",' +
       '"+%{intelligenceModifier>?1} Armor Class during Bladesong",' +
       '"Can use a bonus action to gain Bladesong features for 1 min 2 times per short rest; medium armor, heavy armor, or a shield negates",' +
       '"+%{intelligenceModifier>?1} Constitution to retain spell concentration during Bladesong",' +
@@ -1708,7 +1708,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Feather Fall':'A1',
   'Fire Bolt':'A0',
   'Fire Shield':'D4,"K4 [Efreeti]",S4',
-  'Fireball':'A3,K3 [Efreeti]"',
+  'Fireball':'A3,"K3 [Efreeti]"',
   'Flame Blade':'S2',
   'Flame Strike':'"K5 [Efreeti]"',
   'Flaming Sphere':'S2',
@@ -1802,7 +1802,7 @@ Tasha.SPELLS_LEVELS_ADDED = {
   'Wind Wall':'A3,"K3 [Djinni]"'
 };
 if(window.Xanathar) {
-  Object.assign(Tasha.SPELLS_LEVEL_ADDED, {
+  Object.assign(Tasha.SPELLS_LEVELS_ADDED, {
     'Absorb Elements':'A1',
     'Catapult':'A1',
     'Catnap':'A3',
@@ -1867,7 +1867,12 @@ Tasha.magicRules = function(rules, spells, spellsLevels) {
       console.log('Unknown spell "' + s + '"');
       continue;
     }
-    rules.choiceRules(rules, 'Spell', s, defn + ' Level=' + spellsLevels[s]);
+    // Delete existing definitions to avoid change warnings
+    let school = QuilvynUtils.getAttrValue(defn, 'School').substring(0, 4);
+    QuilvynUtils.getAttrValueArray(defn, 'Level').forEach(l => {
+      delete rules.choices.spells[s + '(' + l + ' ' + school + ')'];
+    });
+    rules.choiceRules(rules, 'Spell', s, defn.replace('Level=', 'Level=' + spellsLevels[s] + ','));
   }
 };
 
