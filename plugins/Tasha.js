@@ -1567,16 +1567,16 @@ Tasha.SPELLS = {
   'Blade Of Disaster':
     'School=Conjuration ' +
     'Level=K9,S9,W9 ' +
-    'Description="R60\' Self controls a blade that moves 30\' and attacks 2/rd, inflicting 4d12 HP force x3@18 each, for conc up to 1 min"',
-  'Booming Blade':
+    'Description="R60\' Self controls a rift blade that can move 30\' as a bonus action and attack 2 times per rd, inflicting 4d12 HP force x3@18 each, for concentration up to 1 min"',
+  'Booming Blade': // ref SwordCoast
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers %{(level+7)//6}d8 HP thunder on next move w/in 1 rd"',
+    'Description="Struck foe suffers %{(level+7)//6}d8 HP thunder on its next move within 1 rd"',
   'Dream Of The Blue Veil':
     'School=Conjuration ' +
     'Level=B7,K7,S7,W7 ' +
     'Description="R20\' Self and 8 willing targets view another world for 6 hr, then teleport to it"',
-  'Green-Flame Blade':
+  'Green-Flame Blade': // ref SwordCoast
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
     'Description="Struck foe suffers +%{(level+1)//6}d8 HP fire, and an adjacent target suffers %{(level+1)//6}d8+%{mdf} HP fire"',
@@ -1584,83 +1584,83 @@ Tasha.SPELLS = {
     'School=Abjuration ' +
     'Level=A3,B3,K3,S3,W3 ' +
     'AtHigherLevels="affects +1 target" ' +
-    'Description="R30\' Willing target gains resistance to psychic damage and Adv on Intelligence, Wisdom, and Charisma saves for conc up to 1 hr"',
-  'Lightning Lure':
+    'Description="R30\' Willing target gains resistance to psychic damage and advantage on Intelligence, Wisdom, and Charisma saves for concentration up to 1 hr"',
+  'Lightning Lure': // ref SwordCoast
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="R15\' Pulls target 10\' and inflicts %{(level+5)//6}d8 HP lightning (Strength neg)"',
+    'Description="R15\' Pulls the target 10\' and inflicts %{(level+5)//6}d8 HP lightning if this brings it to within 5\' (save Strength negates)"',
   'Mind Sliver':
     'School=Enchantment ' +
     'Level=K0,S0,W0 ' +
-    'Description="R60\' Target suffers %{(level+7)//6}d6 HP psychic and -1d4 on next save w/in 1 rd (Intelligence neg)"',
+    'Description="R60\' Inflicts %{(level+7)//6}d6 HP psychic and -1d4 on the target\'s next save within 1 rd (save Intelligence negates)"',
   'Spirit Shroud':
     'School=Necromancy ' +
     'Level=C3,K3,P3,W3 ' +
-    'AtHigherLevels="inflicts +1d8 HP/2 levels" ' +
-    'Description="R10\' Self hits inflict +1d8 HP choice of radiant, necrotic, or cold, and 1 target/rd suffers -10\' Speed for 1 rd, for conc up to 1 min"',
+    'AtHigherLevels="inflicts +1d8 HP per 2 levels" ' +
+    'Description="R10\' Self hits inflict +1d8 HP of a choice of radiant, necrotic, or cold, and 1 target per rd suffers -10 Speed for 1 rd, for concentration up to 1 min"',
   'Summon Aberration':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
-    'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned beholderkin, slaad, or star spawn aberrant spirit obeys self for conc up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, and damage by 1" ' +
+    'Description="R90\' Summons an obedient aberrant spirit (armor class 15; 40 hit points; move 30\'; multiattack equal to half the spell level) of type beholderkin (R150\' inflicts 1d8+7 HP psychic), slaad (inflicts 1d10+7 HP slashing), or star spawn (inflicts 1d8+7 HP psychic) for concentration up to 1 hr"',
   'Summon Beast':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
-    'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned air, land, or water bestial spirit obeys self for conc up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 5, and damage by 1" ' +
+    'Description="R90\' Summons an obedient bestial spirit (armor class 13; multiattack equal to half the spell level; inflicts 1d8+6 piercing) of air (20 hit points; fly 60\'), land (30 hit points; move and climb 30\'), or water (30 hit points; swim 30\') for concentration up to 1 hr"',
   'Summon Celestial':
     'School=Conjuration ' +
     'Level=C5,P5 ' +
-    'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned avenger or defender celestial spirit obeys self for conc up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, damage by 1, and healing by 1" ' +
+    'Description="R90\' Summons an obedient celestial spirit (armor class 16; 40 hit points; move 30\' and fly 40\'; multiattack equal to half the spell level; touch restores 2d8+5 hit points) of type avenger (R150\' inflicts 2d6+7 HP radiant) or defender (inflicts 1d10+8 HP radiant and gives 1d10 temporary hit points to a creature within 10\') for concentration up to 1 hr"',
   'Summon Construct':
     'School=Conjuration ' +
     'Level=A4,W4 ' +
-    'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned clay, metal, or stone construct spirit obeys self for conc up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 15, and slam damage by 1" ' +
+    'Description="R90\' Summons an obedient construct spirit (armor class 17; 40 hit points; move 30\'; multiattack equal to half the spell level; slam inflicts 1d8+8) of clay, metal (inflicts 1d10 HP fire on adjacent melee attackers), or stone (can inflict half speed and loss of reactions on creatures within 10\' (save Wisdom negates)) for concentration up to 1 hr"',
   'Summon Elemental':
     'School=Conjuration ' +
     'Level=D4,"K4 [The Fathomless]",R4,W4 ' +
-    'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned air, earth, fire, or water elemental spirit obeys self for conc up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, and damage by 1" ' +
+    'Description="R90\' Summons an obedient elemental spirit (armor class 15; 50 hit points; move 40\'; multiattack equal to half the spell level; slam inflicts 1d10+8 HP fire or bludgeoning) of air, earth, fire, or water for concentration up to 1 hr"',
   'Summon Fey':
     'School=Conjuration ' +
     'Level=D3,K3,R3,W3 ' +
-    'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned fuming, mirthful, or tricksy fey spirit obeys self for conc up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, and piercing damage by 1" ' +
+    'Description="R90\' Summons an obedient fey spirit (armor class 15; 30 hit points; move 40\' and can teleport 30\'; multiattack equal to half the spell level; short sword inflicts 1d6+6 HP piercing plus 1d6 force), of type fuming (has advantage on next attack in the same turn after teleporting), mirthful (can charm 1 creature within 10\' after teleporting (save Wisdom negates)), or tricksy (can create darkness in a 5\' cube for 1 rd after teleporting) for concentration up to 1 hr"',
   'Summon Fiend':
     'School=Conjuration ' +
     'Level=K6,W6 ' +
-    'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned demon, devil, or yugoloth fiendish spirit obeys self for conc up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, and damage by 1" ' +
+    'Description="R90\' Summons an obedient fiendish spirit (armor class 18; speed 40\'; multiattack equal to half the spell level) of type demon (40 hit points; climb 40\'; bite inflicts 1d12+9 HP necrotic), devil (60 hit points; R150\' flame inflicts 2d6+9 fire) or yugoloth (40 hit points; fly 60\'; claws inflict 1d8+9 slashing and allow teleporting 30\' afterward) for concentration up to 1 hr"',
   'Summon Shadowspawn':
     'School=Conjuration ' +
     'Level=K3,W3 ' +
-    'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned fury, despair, or fear shadow spirit obeys self for conc up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 15, and damage by 1" ' +
+    'Description="R90\' Summons an obedient shadow spirit (armor class 14; 35 hit points; multiattack equal to half the spell level; inflicts 1d12+15 cold; R30\' scream once per day inflicts frightened (save Wisdom negates); move 40\') of type fury (has advantage when attacking frightened foes), despair (R5\' inflicts -20 Speed), or fear (uses a bonus action to hide in dim light or darkness) for concentration up to 1 hr"',
   'Summon Undead':
     'School=Necromancy ' +
     'Level=K3,W3 ' +
-    'AtHigherLevels="increases summoned creature\'s AC, HP, number of attacks, and damage" ' +
-    'Description="R90\' Summoned ghostly, putrid, or skeletal undead spirit obeys commands for conc up to 1 hr"',
-  'Sword Burst':
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, and damage by 1" ' +
+    'Description="R90\' Summons an obedient undead spirit (armor class 14; move 30\'; multiattack equal to half the spell level) of type ghostly (30 hit points; fly 40\'; moves through creatures and objects; inflicts 1d8+6 HP necrotic and frightened (save Wisdom HP only), putrid (30 hit points, R5\' inflicts poisoned (save Constitution negates); inflicts 1d6+6 slashing and paralysis (save Constitution HP only) for 1 rd), or skeletal (20 hit points; R150\' inflicts 2d4+6 HP necrotic) for concentration up to 1 hr"',
+  'Sword Burst': // ref SwordCoast
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
-    'Description="5\' radius inflicts %{(level+7)//6}d6 HP force (Dexterity neg)"',
+    'Description="5\' radius inflicts %{(level+7)//6}d6 HP force (save Dexterity negates)"',
   "Tasha's Caustic Brew":
     'School=Evocation ' +
     'Level=A1,S1,W1 ' +
     'AtHigherLevels="inflicts +2d4 HP" ' +
-    'Description="30\'x5\' line inflicts 2d4 HP/rd acid for conc up to 1 min (Dexterity neg; removal ends)"',
+    'Description="30\'x5\' line inflicts 2d4 HP acid per rd for concentration up to 1 min (save Dexterity negates; removing the acid ends)"',
   "Tasha's Mind Whip":
     'School=Enchantment ' +
     'Level=S2,W2 ' +
     'AtHigherLevels="affects +1 target" ' +
-    'Description="R90\' Target suffers 3d6 HP psychic, no Reaction, and a single action for 1 rd (Intelligence half HP only)"',
+    'Description="R90\' Inflicts 3d6 HP psychic, loss of reactions, and only 1 choice of a move, action, or bonus action for 1 rd (save Intelligence half HP only)"',
   "Tasha's Otherworldly Guise":
     'School=Transmutation ' +
     'Level=K6,S6,W6 ' +
-    'Description="Self gains immunity to choice of fire damage, poison damage, and poisoned condition or radiant damage, necrotic damage, and charmed condition, 40\' fly Speed, +2 AC, and magical weapon attacks using spell attack in place of strength or dexterity 2/rd for conc up to 1 min"'
+    'Description="Self gains immunity either to fire, poison, and the poisoned condition or to radiant, necrotic, and the charmed condition, a 40\' fly Speed, +2 armor class, and 2 magical weapon attacks per rd using the spell attack modifier in place of Strength or Dexterity for concentration up to 1 min"'
 };
 Tasha.SPELLS_LEVELS_ADDED = {
   'Acid Splash':'A0',
