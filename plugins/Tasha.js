@@ -715,7 +715,7 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="R60\' Can use a reaction after a successful Bardic Inspiration use to grant an extra die to a different target %{charismaModifier>1?charismaModifier+\' times\':\'once\'} per long rest"',
   'Silver Tongue':
-    'Section=skill Note="Rolls a minimum 10 on Deception and Persuasion"',
+    'Section=skill Note="Rolls a minimum of 10 on Deception and Persuasion"',
   'Unfailing Inspiration':
     'Section=magic ' +
     'Note="Bardic Inspiration targets keep the die after a failed use"',
@@ -838,13 +838,14 @@ Tasha.FEATURES = {
     'Section=combat ' +
     'Note="R10\' Can use a reaction to inflict 1d%{levels.Druid<6?4:levels.Druid<10?6:levels.Druid<14?8:10} HP necrotic on a target (save DC %{spellDifficultyClass.D} Constitution negates)"',
   'Spreading Spores':
-    'Section=combat Note="Can use a bonus action to move Halo Of Spores 30\'"',
+    'Section=combat ' +
+    'Note="Can use a bonus action to move the Halo Of Spores 30\'"',
   'Symbiotic Entity':
     'Section=combat ' +
     'Note="Can expend 1 Wild Shape use to gain %{levels.Druid*4} temporary hit points, double the Halo Of Spores damage, and inflict +1d6 HP necrotic on melee hits for 10 min or until the temporary hit points are lost"',
   // Circle Of Stars
   'Cosmic Omen':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R30\' Can use a reaction to increase or decrease an attack, ability, or save roll by 1d6 %{proficiencyBonus} times per long rest"',
   'Full Of Stars':
     'Section=save ' +
@@ -856,7 +857,7 @@ Tasha.FEATURES = {
       'Guidance,"Guiding Bolt"',
   'Starry Form':
     'Section=magic ' +
-    'Note="Can spend a Wild Shape use and use a bonus action to change into a constellation of an archer (R60\' can use a bonus action to make a ranged spell attack that inflicts %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} HP radiant), a chalice (R30\' casting a healing spell restores %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} to another), or a dragon (rolls a minimum 10 on concentration rolls)"',
+    'Note="Can spend a Wild Shape use and use a bonus action to change into a constellation of an archer (R60\' can use a bonus action to make a ranged spell attack that inflicts %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} HP radiant), a chalice (R30\' casting a healing spell restores %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} to another), or a dragon (rolls a minimum of 10 on concentration rolls)"',
   'Twinkling Constellations':
     'Section=magic,magic ' +
     'Note=' +
@@ -865,7 +866,7 @@ Tasha.FEATURES = {
   // Circle Of Wildfire
   'Blazing Revival':
     'Section=magic ' +
-    'Note="R120\' Can extinguish Wildfire Spirit to regain %{hitPoints//2} hit points when reduced to 0 hit points once per long rest"',
+    'Note="R120\' Can extinguish the Wildfire Spirit to regain %{hitPoints//2} hit points when reduced to 0 hit points once per long rest"',
   'Cauterizing Flames':
     'Section=magic ' +
     'Note="R30\' Can create a spectral flame for 1 min when a creature dies and later use it to heal 2d10+%{wisdomModifier} hit points or to inflict 2d10+%{wisdomModifier} HP fire on another in the same space %{proficiencyBonus} times per long rest"',
@@ -878,10 +879,10 @@ Tasha.FEATURES = {
       '"9:Flame Strike","9:Mass Cure Wounds"',
   'Enhanced Bond':
     'Section=magic ' +
-    'Note="When Wildfire Spirit is present, spells can be cast through it, fire spells inflict +1d8 HP fire, and healing spells restore +1d8 hit points"',
+    'Note="When the Wildfire Spirit is present, spells can be cast through it, fire spells inflict +1d8 HP fire, and healing spells restore +1d8 hit points"',
   'Summon Wildfire Spirit':
     'Section=magic ' +
-    'Note="R30\' Can spend a Wild Shape use to inflict 2d6 HP fire in a 10\' radius (save DC %{spellDifficultyClass.D} Dexterity negates) and summon an obedient Wildfire Spirit (armor class 13, %{levels.Druid*5+5} hit points, move or fly 30\', R60\' +%{spellAttackModifier.D} attack inflicts 1d6+%{proficiencyBonus} HP fire, Teleport targets in a 5\' radius 15\', inflicting 1d6+%{proficiencyBonus} on those left behind (save DC %{spellDifficultyClass.D} Dexterity negates)) for 1 hr"',
+    'Note="R30\' Can spend a Wild Shape use to inflict 2d6 HP fire in a 10\' radius (save DC %{spellDifficultyClass.D} Dexterity negates) and summon an obedient Wildfire Spirit (armor class 13; %{levels.Druid*5+5} hit points; move or fly 30\'; R60\' +%{spellAttackModifier.D} attack inflicts 1d6+%{proficiencyBonus} HP fire; can teleport targets in a 5\' radius 15\', inflicting 1d6+%{proficiencyBonus} on those left behind (save DC %{spellDifficultyClass.D} Dexterity negates)) for 1 hr"',
 
   // Fighter
   'Fighting Style (Blind Fighting)':
@@ -900,6 +901,9 @@ Tasha.FEATURES = {
     'Note=' +
       '"Unarmed strike inflicts 1d6+%{strengthModifier} HP bludgeoning",' +
       '"Unarmed strike inflicts 1d8+%{strengthModifier} bludgeoning when unarmed and shieldless/Can inflict 1d4 HP bludgeoning to a grappled foe"',
+  'Martial Versatility':
+    'Section=combat ' +
+    'Note="Can replace a Fighting Style or maneuver when boosting an ability or taking a feat"',
   // Maneuver Options
   'Ambush':
     'Section=combat,skill ' +
@@ -974,8 +978,8 @@ Tasha.FEATURES = {
     'Section=ability,save,skill ' +
     'Note=' +
       '"Can use a bonus action to gain +2 on Strength and Constitution checks for 10 min once per short rest",' +
-      '"Has advantage on Animal Handling and Intimidation",' +
-      '"Can use a bonus action to gain +2 on Strength and Constitution saves for 10 min once per short rest"',
+      '"Can use a bonus action to gain +2 on Strength and Constitution saves for 10 min once per short rest",' +
+      '"Has advantage on Animal Handling and Intimidation"',
   "Giant's Might":
     'Section=ability,combat,save ' +
     'Note=' +
@@ -1075,13 +1079,13 @@ Tasha.FEATURES = {
   // Fighting Style (Blind Fighting) as above
   // Fighting Style (Interception) as above
   // Harness Divine Power as above
-  'Martial Versatility':
-    'Section=feature ' +
-    'Note="Can replace a Fighting Style or maneuver when boosting an ability or taking a feat"',
+  // Martial Versatility as above
   // Oath Of Glory
   'Aura Of Alacrity':
-    'Section=ability,magic ' +
-    'Note="+10 Speed","R%{levels.Paladin<18?5:10}\' Allies gain +10\' Speed for 1 rd"',
+    'Section=ability,combat ' +
+    'Note=' +
+      '"+10 Speed",' +
+      '"Allies who begin a turn within %{levels.Paladin<18?5:10}\' gain +10\' Speed for 1 rd"',
   'Glorious Defense':
     'Section=combat ' +
     'Note="R10\' Can use a reaction to give a successful attack target +%{charismaModifier>?1} armor class and, if this causes the attacker to miss, to attack the attacker, %{charismaModifier>1?charismaModifier+\' times\':\'once\'} per long rest"',
@@ -1128,7 +1132,7 @@ Tasha.FEATURES = {
       '"13:Aura Of Purity","13:Banishment",' +
       '"17:Hold Monster","17:Scrying"',
   "Watcher's Will":
-    'Section=magic ' +
+    'Section=ability ' +
     'Note="R30\' Can use Channel Divinity to give self and %{charismaModifier>1?charismaModifier+\' others\':\'1 other\'} advantage on Charisma, Intelligence, and Wisdom for 1 min"',
   'Vigilant Rebuke':
     'Section=combat ' +
@@ -1354,7 +1358,7 @@ Tasha.FEATURES = {
     'Section=combat,feature ' +
     'Note=' +
       '"Can use a bonus action to cancel advantage on attacks on self for 1 min once per long rest; can spend 5 Sorcery Points for each additional use",' +
-      '"Can use a bonus action to gain a minimum 10 on attack, ability, and saving rolls for 1 min once per long rest; can spend 5 Sorcery Points for each additional use"',
+      '"Can use a bonus action to gain a minimum of 10 on attack, ability, and saving rolls for 1 min once per long rest; can spend 5 Sorcery Points for each additional use"',
 
   // Warlock
   'Bond Of The Talisman':
