@@ -84,7 +84,7 @@ Volo.CHARACTER_FEATURES = {
   'Firbolg Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Strength"',
   'Firbolg Magic':
     'Section=magic ' +
-    'Note="Can cast <i>Detect Magic</i> or <i>Disguise Self</i> once per short rest" ' +
+    'Note="Can cast <i>Detect Magic</i> and <i>Disguise Self</i> once per short rest" ' +
     'SpellAbility=Wisdom ' +
     'Spells="Detect Magic","Disguise Self"',
   'Hidden Step':
@@ -93,11 +93,11 @@ Volo.CHARACTER_FEATURES = {
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Speech Of Beast And Leaf':
     'Section=skill ' +
-    'Note="Can speak to beasts and plants and has advantage on influence Charisma checks with them"',
+    'Note="Can speak to beasts and plants and has advantage on Charisma checks to influence them"',
 
   // Goliath
   'Mountain Born':
-    'Section=feature Note="Has adaptation to high elevation and cold"',
+    'Section=save Note="Has adaptation to high elevation and cold"',
   'Goliath Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Constitution"',
   'Natural Athlete':'Section=skill Note="Skill Proficiency (Athletics)"',
@@ -154,7 +154,7 @@ Volo.CHARACTER_FEATURES = {
   'Amphibious':'Section=feature Note="Can breathe water"',
   'Control Air And Water':
     'Section=magic ' +
-    'Note="Can cast <i>Fog Cloud</i>%{level<3?\'\':level<5?\' or <i>Gust Of Wind</i>\':\' <i>Gust Of Wind</i>, or <i>Wall Of Water</i>\'} once per long rest" ' +
+    'Note="Can cast <i>Fog Cloud</i>%{level<3?\'\':level<5?\' and <i>Gust Of Wind</i>\':\' <i>Gust Of Wind</i>, and <i>Wall Of Water</i>\'} once per long rest" ' +
     'Spells="Fog Cloud","3:Gust Of Wind","5:Wall Of Water" ' +
     'SpellAbility=Charisma',
   'Emissary Of The Sea':
@@ -269,7 +269,7 @@ Volo.MONSTROUS_FEATURES = {
   // Kobold
   // Darkvision as SRD5E
   'Grovel, Cower, and Beg':
-    'Section=feature ' +
+    'Section=combat ' +
     'Note="R10\' Can distract foes, giving allies advantage on attacks, for 1 rd once per short rest"',
   'Kobold Ability Adjustment':
     'Section=ability Note="+2 Dexterity/-2 Strength"',
@@ -302,8 +302,7 @@ Volo.MONSTROUS_FEATURES = {
   'Magic Resistance':
     'Section=save Note="Has advantage vs. spells and magical effects"',
   'Poison Immunity':
-    'Section=save ' +
-    'Note="Has immunity to poison damage and the poisoned condition"',
+    'Section=save Note="Has immunity to poison and the poisoned condition"',
   'Yuan-Ti Ability Adjustment':
     'Section=ability Note="+2 Charisma/+1 Intelligence"'
 
