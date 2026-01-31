@@ -431,7 +431,7 @@ Tasha.FEATS = {
     'Type=General Require="features.Spellcasting || features.Pact Magic"',
   'Fey Touched':'Type=General',
   'Fighting Initiate':
-    'Type=General Require="features.Weapon Proficiency (Martial Weapons)"',
+    'Type=General Require="weaponProficiency.Martial Weapons"',
   'Gunner':'Type=General',
   'Metamagic Adept':
     'Type=General Require="features.Spellcasting||features.Pact Magic"',
@@ -1417,7 +1417,7 @@ Tasha.FEATURES = {
       '"While submerged, can understand and be understood by any speaking creature"',
   'Tentacle Of The Deeps':
     'Section=magic ' +
-    'Note="R60\' Can use a bonus action to summon a 10\' tentacle that can move 30\' and inflicts %{levels.Warlock<10?1:2}d8 HP cold and -10\' speed once per rd for 1 min %{proficiencyBonus} times per long rest"',
+    'Note="R60\' Can use a bonus action to summon a 10\' tentacle that can move 30\' and inflicts %{levels.Warlock<10?1:2}d8 HP cold and -10 Speed once per rd for 1 min %{proficiencyBonus} times per long rest"',
   // The Genie
   'Elemental Gift':
     'Section=ability,save ' +
@@ -1606,48 +1606,48 @@ Tasha.SPELLS = {
   'Summon Aberration':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, and damage by 1" ' +
-    'Description="R90\' Summons an obedient aberrant spirit (armor class 15; 40 hit points; move 30\'; multiattack equal to half the spell level) of type beholderkin (R150\' inflicts 1d8+7 HP psychic), slaad (inflicts 1d10+7 HP slashing), or star spawn (inflicts 1d8+7 HP psychic) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient aberrant spirit (armor class 15; 40 hit points; move 30\'; multiattack equal to half the spell level) of type beholderkin (R150\' inflicts 1d8+7 HP psychic; fly 30\'), slaad (inflicts 1d10+7 HP slashing and negates healing for 1 rd; regenerates 5 hit points per rd), or star spawn (inflicts 1d8+7 HP psychic, plus 2d6 HP psychic (save Wisdom negates) in a 5\' radius) for concentration up to 1 hr"',
   'Summon Beast':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 5, and damage by 1" ' +
-    'Description="R90\' Summons an obedient bestial spirit (armor class 13; multiattack equal to half the spell level; inflicts 1d8+6 piercing) of air (20 hit points; fly 60\'), land (30 hit points; move and climb 30\'), or water (30 hit points; swim 30\') for concentration up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 5, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient bestial spirit (armor class 13; multiattack equal to half the spell level; inflicts 1d8+6 piercing) of air (20 hit points; fly 60\'; does not provoke opportunity attacks when flying out of reach), land (30 hit points; move and climb 30\'; has advantage on attacks when within 5\' of an ally), or water (30 hit points; swim 30\'; water-breathing; has advantage on attacks when within 5\' of an ally) for concentration up to 1 hr"',
   'Summon Celestial':
     'School=Conjuration ' +
     'Level=C5,P5 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, damage by 1, and healing by 1" ' +
-    'Description="R90\' Summons an obedient celestial spirit (armor class 16; 40 hit points; move 30\' and fly 40\'; multiattack equal to half the spell level; touch restores 2d8+5 hit points) of type avenger (R150\' inflicts 2d6+7 HP radiant) or defender (inflicts 1d10+8 HP radiant and gives 1d10 temporary hit points to a creature within 10\') for concentration up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, attack damage by 1, and healing by 1" ' +
+    'Description="R90\' Summons an obedient celestial spirit (40 hit points; move 30\' and fly 40\'; multiattack equal to half the spell level; touch restores 2d8+5 hit points once per day) of type avenger (armor class 16; R150\' inflicts 2d6+7 HP radiant) or defender (armor class 18; inflicts 1d10+8 HP radiant and gives 1d10 temporary hit points to a creature within 10\') for concentration up to 1 hr"',
   'Summon Construct':
     'School=Conjuration ' +
     'Level=A4,W4 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 15, and slam damage by 1" ' +
-    'Description="R90\' Summons an obedient construct spirit (armor class 17; 40 hit points; move 30\'; multiattack equal to half the spell level; slam inflicts 1d8+8) of clay, metal (inflicts 1d10 HP fire on adjacent melee attackers), or stone (can inflict half speed and loss of reactions on creatures within 10\' (save Wisdom negates)) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 15, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient construct spirit (armor class 17; 40 hit points; move 30\'; multiattack equal to half the spell level; slam inflicts 1d8+8) of clay (attacks an adjacent creature or moves 15\' as a reaction to damage), metal (inflicts 1d10 HP fire on adjacent melee attackers), or stone (can inflict half Speed and loss of reactions (save Wisdom negates) on creatures within 10\') for concentration up to 1 hr"',
   'Summon Elemental':
     'School=Conjuration ' +
     'Level=D4,"K4 [The Fathomless]",R4,W4 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, and damage by 1" ' +
-    'Description="R90\' Summons an obedient elemental spirit (armor class 15; 50 hit points; move 40\'; multiattack equal to half the spell level; slam inflicts 1d10+8 HP fire or bludgeoning) of air, earth, fire, or water for concentration up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient elemental spirit (armor class 15; 50 hit points; move 40\'; multiattack equal to half the spell level; slam inflicts 1d10+8 HP fire or bludgeoning) of air (fly 40\'; can move through a 1\\" gap without squeezing), earth (burrow 40\'), fire (can move through a 1\\" gap without squeezing), or water (swim 40\'; can move through a 1\\" gap without squeezing) for concentration up to 1 hr"',
   'Summon Fey':
     'School=Conjuration ' +
     'Level=D3,K3,R3,W3 ' +
     'AtHigherLevels="increases the armor class by 1, hit points by 10, and piercing damage by 1" ' +
-    'Description="R90\' Summons an obedient fey spirit (armor class 15; 30 hit points; move 40\' and can teleport 30\'; multiattack equal to half the spell level; short sword inflicts 1d6+6 HP piercing plus 1d6 force), of type fuming (has advantage on next attack in the same turn after teleporting), mirthful (can charm 1 creature within 10\' after teleporting (save Wisdom negates)), or tricksy (can create darkness in a 5\' cube for 1 rd after teleporting) for concentration up to 1 hr"',
+    'Description="R90\' Summons an obedient fey spirit (armor class 15; 30 hit points; move 40\' and can teleport 30\'; multiattack equal to half the spell level; short sword inflicts 1d6+6 HP piercing plus 1d6 force), of type fuming (has advantage on the next attack in the same turn after teleporting), mirthful (can charm 1 creature (save Wisdom negates) within 10\' after teleporting), or tricksy (can create darkness in a 5\' cube for 1 rd after teleporting) for concentration up to 1 hr"',
   'Summon Fiend':
     'School=Conjuration ' +
     'Level=K6,W6 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, and damage by 1" ' +
-    'Description="R90\' Summons an obedient fiendish spirit (armor class 18; speed 40\'; multiattack equal to half the spell level) of type demon (40 hit points; climb 40\'; bite inflicts 1d12+9 HP necrotic), devil (60 hit points; R150\' flame inflicts 2d6+9 fire) or yugoloth (40 hit points; fly 60\'; claws inflict 1d8+9 slashing and allow teleporting 30\' afterward) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 15, and damage by 1" ' +
+    'Description="R90\' Summons an obedient fiendish spirit (armor class 18; move 40\'; multiattack equal to half the spell level) of type demon (50 hit points; climb 40\'; bite inflicts 1d12+9 HP necrotic; death or end of spell inflicts 2d10+6 HP fire (save Dexterity half) in a 10\' radius), devil (40 hit points; fly 60\'; R150\' flame inflicts 2d6+9 fire) or yugoloth (60 hit points; claws inflict 1d8+9 slashing and allow teleporting 30\' afterward) for concentration up to 1 hr"',
   'Summon Shadowspawn':
     'School=Conjuration ' +
     'Level=K3,W3 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 15, and damage by 1" ' +
-    'Description="R90\' Summons an obedient shadow spirit (armor class 14; 35 hit points; multiattack equal to half the spell level; inflicts 1d12+15 cold; R30\' scream once per day inflicts frightened (save Wisdom negates); move 40\') of type fury (has advantage when attacking frightened foes), despair (R5\' inflicts -20 Speed), or fear (uses a bonus action to hide in dim light or darkness) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 15, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient shadow spirit (armor class 14; 35 hit points; move 40\'; multiattack equal to half the spell level; inflicts 1d12+6 cold; R30\' scream inflicts frightened (save Wisdom ends) once per day) of type fury (has advantage when attacking frightened foes), despair (R5\' inflicts -20 Speed), or fear (uses a bonus action to hide in dim light or darkness) for concentration up to 1 hr"',
   'Summon Undead':
     'School=Necromancy ' +
     'Level=K3,W3 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, and damage by 1" ' +
-    'Description="R90\' Summons an obedient undead spirit (armor class 14; move 30\'; multiattack equal to half the spell level) of type ghostly (30 hit points; fly 40\'; moves through creatures and objects; inflicts 1d8+6 HP necrotic and frightened (save Wisdom HP only), putrid (30 hit points, R5\' inflicts poisoned (save Constitution negates); inflicts 1d6+6 slashing and paralysis (save Constitution HP only) for 1 rd), or skeletal (20 hit points; R150\' inflicts 2d4+6 HP necrotic) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the armor class by 1, hit points by 10, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient undead spirit (armor class 14; move 30\'; multiattack equal to half the spell level) of type ghostly (30 hit points; fly 40\'; moves through creatures and objects; inflicts 1d8+6 HP necrotic and frightened (save Wisdom HP only)), putrid (30 hit points; R5\' aura inflicts poisoned (save Constitution negates) for 1 rd; inflicts 1d6+6 slashing, plus paralysis (save Constitution HP negates) for 1 rd on a poisoned target), or skeletal (20 hit points; R150\' inflicts 2d4+6 HP necrotic) for concentration up to 1 hr"',
   'Sword Burst': // ref SwordCoast
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
