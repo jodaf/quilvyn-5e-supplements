@@ -715,7 +715,8 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="R60\' Can use a reaction after a successful Bardic Inspiration use to grant an extra die to a different target %{charismaModifier>1?charismaModifier+\' times\':\'once\'} per long rest"',
   'Silver Tongue':
-    'Section=skill Note="Rolls a minimum of 10 on Deception and Persuasion"',
+    'Section=skill ' +
+    'Note="Scores a minimum of 10 on Deception and Persuasion rolls"',
   'Unfailing Inspiration':
     'Section=magic ' +
     'Note="Bardic Inspiration targets keep the die after a failed use"',
@@ -857,7 +858,7 @@ Tasha.FEATURES = {
       'Guidance,"Guiding Bolt"',
   'Starry Form':
     'Section=magic ' +
-    'Note="Can spend a Wild Shape use and use a bonus action to change into a constellation of an archer (R60\' can use a bonus action to make a ranged spell attack that inflicts %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} HP radiant), a chalice (R30\' casting a healing spell restores %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} to another), or a dragon (rolls a minimum of 10 on concentration rolls)"',
+    'Note="Can spend a Wild Shape use and use a bonus action to change into a constellation of an archer (R60\' can use a bonus action to make a ranged spell attack that inflicts %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} HP radiant), a chalice (R30\' casting a healing spell restores %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} to another), or a dragon (scores a minimum of 10 on concentration rolls)"',
   'Twinkling Constellations':
     'Section=magic,magic ' +
     'Note=' +
@@ -1163,7 +1164,7 @@ Tasha.FEATURES = {
     'Note="Can use a bonus action to become invisible for 1 rd %{proficiencyBonus} times per long rest"',
   'Primal Awareness':
     'Section=magic ' +
-    'Note="Can cast %{levels.Ranger<17?\'\':\'<i>Commune With Nature</i>, \'}%{levels.Ranger<13?\'\':\'<i>Locate Creature</i>, \'}%{levels.Ranger<9?\'\':\'<i>Speak With Plants</i>, \'}%{levels.Ranger<5?\'\':\'<i>Beast Sense<i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Speak With Animals</i> once%{levels.Ranger<5?\'\':\' each\'} per long rest" ' +
+    'Note="Can cast %{levels.Ranger<17?\'\':\'<i>Commune With Nature</i>, \'}%{levels.Ranger<13?\'\':\'<i>Locate Creature</i>, \'}%{levels.Ranger<9?\'\':\'<i>Speak With Plants</i>, \'}%{levels.Ranger<5?\'\':\'<i>Beast Sense</i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Speak With Animals</i> once%{levels.Ranger<5?\'\':\' each\'} per long rest" ' +
     'Spells=' +
       '"1:Speak With Animals",' +
        '"5:Beast Sense",' +
@@ -1226,11 +1227,11 @@ Tasha.FEATURES = {
       '"Gathered Swarm gives half cover when moving self or knocks prone when moving foe"',
   'Swarming Dispersal':
     'Section=combat ' +
-    'Note="Can use a reaction When hit to gain resistance to the damage and to teleport 30\' %{proficiencyBonus} times per long rest"',
+    'Note="Can use a reaction when hit to gain resistance to the damage and to teleport 30\' %{proficiencyBonus} times per long rest"',
   'Swarmkeeper Magic':
     'Section=magic ' +
     'Note=' +
-      '"Knows the %{levels.Ranger<17?\'\':\'<i>Insect Plague</i>, \'}%{levels.Ranger<13?\'\':\'<i>Arcane Eye</i>, \'}%{levels.Ranger<9?\'\':\'<i>Gaseous Form</i>, \'}%{levels.Ranger<5?\'\':\'<i>Web<i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Faerie Fire</i> spell%{levels.Ranger<5?\'\':\'s\'} and the <i>Mage Hand</i> cantrip" ' +
+      '"Knows the %{levels.Ranger<17?\'\':\'<i>Insect Plague</i>, \'}%{levels.Ranger<13?\'\':\'<i>Arcane Eye</i>, \'}%{levels.Ranger<9?\'\':\'<i>Gaseous Form</i>, \'}%{levels.Ranger<5?\'\':\'<i>Web</i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Faerie Fire</i> spell%{levels.Ranger<5?\'\':\'s\'} and the <i>Mage Hand</i> cantrip" ' +
     'Spells=' +
       '"3:Faerie Fire,Mage Hand",' +
       '"5:Web",' +
@@ -1253,7 +1254,7 @@ Tasha.FEATURES = {
       '"Has a minimum of 1 Soul Trinket available after a long rest"',
   'Ghost Walk':
     'Section=feature ' +
-    'Note="Can use a bonus action to gain 10\' fly Speed, impose disadvantage on foe attacks, and move through objects for 10 min once per long rest; can destroy Soul Trinkets for additional uses"',
+    'Note="Can use a bonus action to gain a 10\' fly Speed, impose disadvantage on foe attacks, and move through objects for 10 min once per long rest; can destroy Soul Trinkets for additional uses"',
   'Tokens Of The Departed':
     'Section=combat,feature,save ' +
     'Note=' +
@@ -1276,7 +1277,7 @@ Tasha.FEATURES = {
   // Psionic Power as above
   'Psychic Blades':
     'Section=combat ' +
-    'Note="Can use a free hand to attack with a R60\' magic psychic blade, inflicting 1d6+%{strengthModifier>?dexterityModifier} HP psychic; can use a bonus action for a second blade attack that inflicts 1d4+%{strengthModifier>?dexterityModifier} if both hands are free"',
+    'Note="Can use a free hand to attack with a R60\' magic psychic blade, inflicting 1d6+%{strengthModifier>?dexterityModifier} HP psychic; if both hands are free, can use a bonus action for a second blade attack that inflicts 1d4+%{strengthModifier>?dexterityModifier}"',
   'Psychic Teleportation':
     'Section=combat ' +
     'Note="Can spend 1 Psionic Energy die and use a bonus action to teleport 1d%{combatNotes.psionicPower}x10\'"',
@@ -1284,7 +1285,7 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="Can become invisible for 1 hr once per long rest; inflicting damage or forcing a saving throw ends; can spend Psionic Energy dice for additional uses"',
   'Psychic Whispers':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="Can establish telepathic communication within 1 mile with %{proficiencyBonus} visible creatures for 1d%{combatNotes.psionicPower} hr once per long rest; can spend Psionic Energy dice for additional uses"',
   'Rend Mind':
     'Section=combat ' +
@@ -1328,7 +1329,7 @@ Tasha.FEATURES = {
       '"Can spend 1 Sorcery Point and use a bonus action to gain a %{speed}\' fly Speed, a %{speed*2}\' swim Speed and water breathing, or the ability to squeeze through a 1\\" space, for 10 min",' +
       '"Can spend 1 Sorcery Point and use a bonus action to see invisible creatures within 60\' for 10 min"',
   'Telepathic Speech':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="R30\' Can use a bonus action to gain telepathic communication in a shared language while within %{charismaModifier>1?charismaModifier+\' miles\':\'1 mile\'} of the target for %{levels.Sorcerer} min"',
   'Warping Implosion':
     'Section=magic ' +
@@ -1336,14 +1337,14 @@ Tasha.FEATURES = {
   // Clockwork Soul
   'Bastion Of Law':
     'Section=magic ' +
-    'Note="R30\' Can spend 1 - 5 Sorcery Points to negate an equal number of d8s HP damage to a target before the next use or long rest"',
+    'Note="R30\' Can spend 1 - 5 Sorcery Points to negate an equal number of d8s HP damage to the target before the next use or long rest"',
   'Clockwork Cavalcade':
     'Section=magic ' +
     'Note="30\' cube restores 100 HP total among targets, repairs damaged objects, and dispels target spells up to 6th level once per long rest; can spend 7 Sorcery Points for each additional use"',
   'Clockwork Magic':
     'Section=feature,magic ' +
     'Note=' +
-      '"Displays physical manifestation of Clockwork Soul",' +
+      '"Displays a physical manifestation of Clockwork Soul",' +
       '"Can replace a Clockwork Magic spell when gaining a Sorcerer level" ' +
     'Spells=' +
       '"1:Alarm","1:Protection From Evil And Good",' +
@@ -1358,7 +1359,7 @@ Tasha.FEATURES = {
     'Section=combat,feature ' +
     'Note=' +
       '"Can use a bonus action to cancel advantage on attacks on self for 1 min once per long rest; can spend 5 Sorcery Points for each additional use",' +
-      '"Can use a bonus action to gain a minimum of 10 on attack, ability, and saving rolls for 1 min once per long rest; can spend 5 Sorcery Points for each additional use"',
+      '"Can use a bonus action to score a minimum of 10 on attack, ability, and saving rolls for 1 min once per long rest; can spend 5 Sorcery Points for each additional use"',
 
   // Warlock
   'Bond Of The Talisman':
@@ -1368,7 +1369,7 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="Has advantage on Constitution saves to maintain concentration"',
   'Eldritch Versatility':
-    'Section=feature ' +
+    'Section=magic ' +
     'Note="Can replace a cantrip%{levels.Warlock<12?\' or Pact Boon option\':\', Pact Boon option, or Mystic Arcanum spell\'} when boosting an ability or taking a feat"',
   'Far Scribe':
     'Section=magic ' +
@@ -1382,7 +1383,7 @@ Tasha.FEATURES = {
     'Section=magic ' +
     'Note="Familiar gains a 40\' fly or swim Speed, gains magical attacks, and inflicts DC %{spellDifficultyClass.K} saves; self can use a bonus action to command it to attack and a reaction to give it resistance to damage"',
   'Pact Of The Talisman':
-    'Section=feature ' +
+    'Section=magic ' +
     'Note="Talisman gives wearer +1d4 ability checks %{proficiencyBonus} times per long rest"',
   'Protection Of The Talisman':
     'Section=magic ' +
@@ -1408,12 +1409,12 @@ Tasha.FEATURES = {
       '"Evard\'s Black Tentacles"',
   'Guardian Coil':
     'Section=magic ' +
-    'Note="Can use a reaction to reduce damage taken within 10\' of Tentacle Of The Deeps by %{levels.Warlock<10?1:2}d8"',
+    'Note="Can use a reaction to reduce damage taken within 10\' of Tentacle Of The Deeps by %{levels.Warlock<10?1:2}d8 HP"',
   'Oceanic Soul':
-    'Section=feature,save ' +
+    'Section=save,skill ' +
     'Note=' +
-      '"While submerged, can understand and be understood by any speaking creature",' +
-      '"Has resistance to cold damage"',
+      '"Has resistance to cold damage",' +
+      '"While submerged, can understand and be understood by any speaking creature"',
   'Tentacle Of The Deeps':
     'Section=magic ' +
     'Note="R60\' Can use a bonus action to summon a 10\' tentacle that can move 30\' and inflicts %{levels.Warlock<10?1:2}d8 HP cold and -10\' speed once per rd for 1 min %{proficiencyBonus} times per long rest"',
@@ -1424,10 +1425,9 @@ Tasha.FEATURES = {
       '"Can use a bonus action to gain a 30\' fly Speed for 10 min %{proficiencyBonus} times per long rest",' +
       '"Has resistance to %{genieEnergy} damage"',
   "Genie's Vessel":
-    'Section=combat,magic ' +
+    'Section=combat ' +
     'Note=' +
-      '"Can inflict +%{proficiencyBonus} HP %{genieEnergy} once per rd",' +
-      '"Can retreat into a vessel with armor class %{spellDifficultyClass.K} and %{levels.Warlock+proficiencyBonus} hit points for %{proficiencyBonus*2} hr once per long rest"',
+      '"Can inflict +%{proficiencyBonus} HP %{genieEnergy} once per rd and retreat into a vessel with armor class %{spellDifficultyClass.K} and %{levels.Warlock+proficiencyBonus} hit points for %{proficiencyBonus*2} hr once per long rest"',
   'Limited Wish':
     'Section=magic ' +
     'Note="Can gain the effects of a 6th level, 1-action spell once per 1d4 long rests"',
@@ -1560,11 +1560,11 @@ Tasha.FEATURES = {
       '"Knows the <i>Mage Hand</i> cantrip"',
     // Spells attribute left off--see featRulesExtra
   'Telepathic':
-    'Section=ability,feature,magic ' +
+    'Section=ability,magic,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
-      '"R60\' Can speak telepathically in a shared language",' +
-      '"Can cast <i>Detect Thoughts</i> (DC %{8+proficiencyBonus} + ability modifier Wisdom negates) once per long rest"'
+      '"Can cast <i>Detect Thoughts</i> (DC %{8+proficiencyBonus} + ability modifier Wisdom negates) once per long rest",' +
+      '"R60\' Can speak telepathically in a shared language"'
     // Spells attribute left off--see featRulesExtra
 
 };
