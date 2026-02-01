@@ -1449,7 +1449,7 @@ Tasha.FEATURES = {
       '"Has advantage on Acrobatics during Bladesong"',
   // Extra Attack as SRD5E
   'Song Of Defense':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="Can use a reaction and expend a spell slot during Bladesong to reduce damage to self by 5x the slot level"',
   'Song Of Victory':
     'Section=combat ' +

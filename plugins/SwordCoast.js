@@ -478,7 +478,7 @@ SwordCoast.FEATURES_ADDED = {
   // Totem Warrior
   'Aspect Of The Beast (Elk)':
     'Section=ability ' +
-    'Note="R60\' Self and 10 companions can travel at double normal pace"',
+    'Note="R60\' Self and 10 companions can travel at double the normal pace"',
   'Aspect Of The Beast (Tiger)':
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Athletics, Acrobatics, Stealth, Survival)"',
@@ -504,7 +504,7 @@ SwordCoast.FEATURES_ADDED = {
       '"5:Planar Binding","5:Teleportation Circle"',
   'Arcane Abjuration':
     'Section=combat ' +
-    'Note="R30\' Can turn a celestial, elemental, fey, or fiend%{levels.Cleric>=5?\', banishing up to CR \'+(levels.Cleric>=8?(levels.Cleric-5)//3<?4:\'1/2\')+\',\':\'\'} (save DC %{spellDifficultyClass.C} Wisdom negates) for 1 min"',
+    'Note="R30\' Can turn a celestial, elemental, fey, or fiend (save DC %{spellDifficultyClass.C} Wisdom negates)%{levels.Cleric>=5?\', banishing up to CR \'+(levels.Cleric>=8?(levels.Cleric-5)//3<?4:\'1/2\')+\',\':\'\'} for 1 min"',
   'Arcane Initiate':
     'Section=magic,skill ' +
     'Note=' +
@@ -557,10 +557,10 @@ SwordCoast.FEATURES_ADDED = {
     'SpellAbility=Wisdom ' +
     'Spells="Burning Hands"',
   'Searing Sunburst':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{kiSaveDC} Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
   'Sun Shield':
-    'Section=combat,magic ' +
+    'Section=combat,feature ' +
     'Note=' +
       '"Can use a reaction while emitting light to inflict %{wisdomModifier+5} HP radiant on a successful melee attacker",' +
       '"Can emit bright light in a 30\' radius at will"',
@@ -594,13 +594,13 @@ SwordCoast.FEATURES_ADDED = {
   // Rogue
   // Mastermind (ref Xanathar)
   'Insightful Manipulator':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="Can learn 2 choices of information about a target after 1 min of study: relative class levels, Charisma, Intelligence, or Wisdom"',
   'Master Of Intrigue':
-    'Section=feature,skill ' +
+    'Section=skill,skill ' +
     'Note=' +
-      '"Can mimic accent and speech patterns after listening for 1 min",' +
-      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming)"',
+      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming)",' +
+      '"Can mimic an accent and speech patterns after listening for 1 min"',
   'Master Of Tactics':
     'Section=combat ' +
     'Note="R30\' Can use Help as a bonus action, and can Help with an attack within 30\'"',
@@ -685,7 +685,7 @@ SwordCoast.FEATURES_ADDED = {
       '"Has advantage on Acrobatics during Bladesong"',
   // Extra Attack as SRD5E
   'Song Of Defense':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="Can use a reaction and expend a spell slot during Bladesong to reduce damage to self by 5x the slot level"',
   'Song Of Victory':
     'Section=combat ' +

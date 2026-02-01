@@ -15,8 +15,8 @@ var attributes = {
   "languagesChosen.Giant":1, "languagesChosen.Halfling":1, "levels.Monk":20, "name":"Class-Monk 20", 
   "race":"Human", "selectableFeatures.Monk - Way Of The Long Death":1, 
   "selectableFeatures.Monk - Way Of The Sun Soul":1, "shield":"None", "skillsChosen.Athletics":1, "skillsChosen.History":1, 
-  "strength":10, "toolsChosen.Painter's Supplies":1, "weapons.Club":1, "weapons.Greatclub":1, 
-  "weapons.Unarmed":1, "wisdom":14
+  "strength":10, "toolsChosen.Painter's Supplies":1, "weapons.Club":1, "weapons.Dagger":1, 
+  "weapons.Greatclub":1, "weapons.Unarmed":1, "wisdom":14
 };
   </script>
 </head>
@@ -111,9 +111,9 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Ki: Can use 20 Ki Points per short rest</td>
       </tr><tr style="text-align:center">
-        <td>Observant: Can read lips</td>
-      </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: Can receive aid from temples of NH-Rillifane Rallathil and fellow believers</td>
+      </tr><tr style="text-align:center">
+        <td>Sun Shield: Can emit bright light in a 30' radius at will</td>
       </tr><tr style="text-align:center">
         <td>Timeless Body (Monk): Suffers no debility from aging and needs no food or water</td>
       </tr><tr style="text-align:center">
@@ -160,7 +160,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Languages</b>: Common; Draconic; Giant; Halfling</td>
   </tr><tr style="text-align:center">
-    <td><b>Skill Notes</b>: Observant: +5 passive Investigation and passive Perception</td>
+    <td><b>Skill Notes</b>: Observant: Can read lips/+5 passive Investigation and passive Perception</td>
   </tr></table>
 </td>
 </tr><tr style="text-align:center">
@@ -187,7 +187,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Armor</b>: None</td>
         <td><b>Shield</b>: None</td>
-        <td><b>Weapons</b>: Club (+8 1d4+2); Greatclub (+6 1d8); Unarmed (+8 1d10+2)</td>
+        <td><b>Weapons</b>: Club (+8 1d10+2); Dagger (+10 1d10+4 R20/60); Greatclub (+6 1d8); Unarmed (+8 1d10+2)</td>
       </tr></table>
 </td>
     </tr><tr style="text-align:center">
@@ -203,7 +203,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Extra Attack: +1 Attacks Per Round</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Martial Arts: When unarmored, gains +2 attack and damage with monk weapons and raises damage die to 1d10</i></td>
+        <td><i>Martial Arts: When unarmored, gains +2 attack and damage with monk weapons and raises their damage dice to 1d10</i></td>
       </tr><tr style="text-align:center">
         <td><i>Unarmored Defense (Monk): +2 Armor Class in no armor</i></td>
       </tr><tr style="text-align:center">
@@ -228,6 +228,8 @@ var attributes = {
         <td>Perfect Self: Has a minimum of 4 Ki Points available after initiative</td>
       </tr><tr style="text-align:center">
         <td>Radiant Sun Bolt: R30' +8 ranged touch attack inflicts 1d10+2 HP radiant once per rd; can spend 1 ki point and use a bonus action for a second attack</td>
+      </tr><tr style="text-align:center">
+        <td>Searing Sunburst: R150' 20' radius inflicts 2d6 HP radiant (save DC 16 Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP</td>
       </tr><tr style="text-align:center">
         <td>Step Of The Wind: Can spend 1 Ki Point to double jump distance and to Disengage or Dash as a bonus action</td>
       </tr><tr style="text-align:center">
@@ -297,10 +299,6 @@ var attributes = {
       <td>Empty Body: Can spend 4 Ki Points to become invisible and gain resistance to all damage other than force for 1 min/Can spend 8 Ki Points to cast <i>Astral Projection</i> on self</td>
     </tr><tr style="text-align:center">
       <td>Searing Arc Strike: Can spend 2 ki points to cast <i>Burning Hands</i> after an attack as a bonus action; each additional ki point spent raises the spell level by 1, to a maximum of level 9</td>
-    </tr><tr style="text-align:center">
-      <td>Searing Sunburst: R150' 20' radius inflicts 2d6 HP radiant (save DC 16 Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP</td>
-    </tr><tr style="text-align:center">
-      <td>Sun Shield: Can emit bright light in a 30' radius at will</td>
     </tr></table>
 </td>
   </tr></table>
