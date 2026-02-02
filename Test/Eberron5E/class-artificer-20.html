@@ -107,29 +107,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Feature Notes</b>:       <table id="FeatureNotes" style="width:100%">
       <tr style="text-align:center">
-        <td><i>Alchemist Tool Proficiency: Tool Proficiency (Alchemist's Supplies)</i></td>
-      </tr><tr style="text-align:center">
         <td><i>Artificer Specialist: 1 selection</i></td>
-      </tr><tr style="text-align:center">
-        <td><i>Artillerist Tool Proficiency: Tool Proficiency (Woodcarver's Tools)</i></td>
-      </tr><tr style="text-align:center">
-        <td><i>Battle Ready: Weapon Proficiency (Martial)</i></td>
-      </tr><tr style="text-align:center">
-        <td><i>Battle Smith Tool Proficiency: Tool Proficiency (Smith's Tools)</i></td>
       </tr><tr style="text-align:center">
         <td><i>Infuse Item: 12 selections</i></td>
       </tr><tr style="text-align:center">
         <td>Aberrant Dragonmark: Has an Aberrant Dragonmark flaw</td>
       </tr><tr style="text-align:center">
-        <td>Flash Of Genius: R30' Can use a reaction to give an ally +3 on an ability check or save 3 times per long rest</td>
-      </tr><tr style="text-align:center">
-        <td>Healer: Using a healer's kit to stabilize also restores 1 hit point/Can use a healer's kit to restore 1d6+4 + target HD hit points once per creature per short rest</td>
-      </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: Can receive aid from temples of The Undying Court and fellow believers</td>
-      </tr><tr style="text-align:center">
-        <td>Spell-Storing Item: After a long rest, can store in an item an A1 or A2 spell that can be cast 6 times</td>
-      </tr><tr style="text-align:center">
-        <td>The Right Tool For The Job: Can spend 1 hr to create a set of artisan's tools</td>
       </tr></table>
 </td>
     </tr></table>
@@ -174,7 +158,17 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Skill Notes</b>:     <table id="SkillNotes" style="width:100%">
     <tr style="text-align:center">
+      <td><i>Alchemist Tool Proficiency: Tool Proficiency (Alchemist's Supplies)</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Artillerist Tool Proficiency: Tool Proficiency (Woodcarver's Tools)</i></td>
+    </tr><tr style="text-align:center">
+      <td><i>Battle Smith Tool Proficiency: Tool Proficiency (Smith's Tools)</i></td>
+    </tr><tr style="text-align:center">
       <td>Actor: Has advantage on Deception and Performance to impersonate another person and can mimic others' speech or sounds</td>
+    </tr><tr style="text-align:center">
+      <td>Healer: Using a healer's kit to stabilize also restores 1 hit point/Can use a healer's kit to restore 1d6+4 + target HD hit points once per creature per short rest</td>
+    </tr><tr style="text-align:center">
+      <td>The Right Tool For The Job: Can spend 1 hr to create a set of artisan's tools</td>
     </tr><tr style="text-align:center">
       <td>Tool Expertise: +6 with proficient tools</td>
     </tr></table>
@@ -198,7 +192,7 @@ var attributes = {
       <td>      <table id="CombatProfs" style="width:100%">
       <tr style="text-align:center">
         <td><b>Armor Proficiency</b>: Medium; Shield</td>
-        <td><b>Weapon Proficiency</b>: Martial; Simple Weapons</td>
+        <td><b>Weapon Proficiency</b>: Martial Weapons; Simple Weapons</td>
       </tr></table>
 </td>
     </tr><tr style="text-align:center">
@@ -212,6 +206,8 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
       <tr style="text-align:center">
+        <td><i>Battle Ready: Weapon Proficiency (Martial Weapons)</i></td>
+      </tr><tr style="text-align:center">
         <td><i>Constitution Hit Points Adjustment: +80</i></td>
       </tr><tr style="text-align:center">
         <td><i>Dexterity Armor Class Adjustment: +3</i></td>
@@ -220,11 +216,11 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Dexterity Damage Adjustment: +3</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Explosive Cannon: Eldritch Cannon inflicts +1d8 HP damage</i></td>
+        <td><i>Explosive Cannon: Eldritch cannon inflicts +1d8 HP damage</i></td>
       </tr><tr style="text-align:center">
         <td><i>Extra Attack: +1 Attacks Per Round</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Improved Defender: Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 Armor Class</i></td>
+        <td><i>Improved Defender: Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 armor class</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Attack Adjustment: -1</i></td>
       </tr><tr style="text-align:center">
@@ -236,17 +232,19 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Durable: Regains a minimum of 8 hit points from a Hit Die roll</td>
       </tr><tr style="text-align:center">
-        <td>Eldritch Cannon: Can create a magical cannon (Armor Class 18, 100 hit points (<i>Mending</i> repairs 2d6 hit points), can move 15') flamethrower (15' cone inflicts 3d8 HP fire (save DC 17 Dexterity half)), force ballista (R120' inflicts 3d8 force and pushes 5'), or protector (R10' targets gain 1d8+3 temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons</td>
+        <td>Eldritch Cannon: Can create a magical cannon (armor class 18; 100 hit points (<i>Mending</i> repairs 2d6 hit points); can move 15') flamethrower (15' cone inflicts 3d8 HP fire (save DC 17 Dexterity half)), force ballista (R120' inflicts 3d8 force and pushes 5'), or protector (R10' targets gain 1d8+3 temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons</td>
       </tr><tr style="text-align:center">
         <td>Explosive Cannon: R60' Can destroy an eldritch cannon to inflict 3d8 HP force (save DC 17 Dexterity half) in a 20' radius</td>
       </tr><tr style="text-align:center">
-        <td>Fortified Position: Can have 2 Eldritch Cannons simultaneously, and Eldritch Cannons give allies in a 10' radius half cover</td>
+        <td>Flash Of Genius: R30' Can use a reaction to give an ally +3 on an ability check or save 3 times per long rest</td>
+      </tr><tr style="text-align:center">
+        <td>Fortified Position: Can have 2 eldritch cannons simultaneously, and eldritch cannons give allies in a 10' radius half cover</td>
       </tr><tr style="text-align:center">
         <td>Improved Defender: Steel Defender Deflect Attack inflicts 1d4+3 HP force</td>
       </tr><tr style="text-align:center">
         <td>Soul Of Artifice: Can use a reaction and end 1 infusion when reduced to 0 hit points to retain 1 hit point</td>
       </tr><tr style="text-align:center">
-        <td>Steel Defender: Can create a mechanical companion (Armor Class 17; 105 hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+6 hit points 3 times per day); +9 attack inflicts 1d8+6 HP force; can use a reaction to inflict disadvantage on attack in a 5' radius; can move 40'; Dexterity save +7; Constitution save +8; immune to poison and charmed, exhausted, poisoned, and surprised conditions)</td>
+        <td>Steel Defender: Can create a mechanical companion (armor class 17; 105 hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+6 hit points 3 times per day); +9 attack inflicts 1d8+6 HP force; can use a reaction to inflict disadvantage on attack in a 5' radius; can move 40'; Dexterity save +7; Constitution save +8; immune to poison and charmed, exhausted, poisoned, and surprised conditions)</td>
       </tr></table>
 </td>
     </tr></table>
@@ -398,11 +396,13 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Magic Notes</b>:     <table id="MagicNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Aberrant Dragonmark: Knows 1 S0 cantrip and can cast a chosen S1 spell once per long rest, optionally randomly gaining 1 HD temporary hit points or inflicting 1 HD force to a creature within 30'</i></td>
+      <td><i>Aberrant Dragonmark: Knows 1 S0 cantrip and 1 S1 spell</i></td>
     </tr><tr style="text-align:center">
       <td><i>Magic Item Master: Can attune 6 items simultaneously</i></td>
     </tr><tr style="text-align:center">
       <td><i>Magic Item Savant: Can attune 5 items simultaneously and ignore attunement and use requirements on attuned items</i></td>
+    </tr><tr style="text-align:center">
+      <td>Aberrant Dragonmark: Can cast a chosen S1 spell once per long rest, optionally randomly gaining 1 HD of temporary hit points or inflicting 1 HD force to a creature within 30'</td>
     </tr><tr style="text-align:center">
       <td>Alchemical Savant: Spells cast using alchemical supplies inflict +3 HP acid, fire, necrotic, or poison or restore an equal number of additional hit points</td>
     </tr><tr style="text-align:center">
@@ -416,13 +416,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Enhanced Arcane Focus: Infused rod, staff, or wand gives +2 spell attacks that ignore half cover</td>
     </tr><tr style="text-align:center">
-      <td>Enhanced Defense: Infused armor or shield gives +2 Armor Class</td>
+      <td>Enhanced Defense: Infused armor or shield gives +2 armor class</td>
     </tr><tr style="text-align:center">
       <td>Enhanced Weapon: Infused weapon gives +2 attack and damage</td>
     </tr><tr style="text-align:center">
       <td>Experimental Elixir: Can use alchemist's supplies after a long rest to create 3 elixirs of healing, swiftness, resilience, boldness, flight, or transformation; can spend spell slots to create additional elixirs</td>
     </tr><tr style="text-align:center">
-      <td>Homunculus Servant: Can create a mechanical companion (Armor Class 13; 24 hit points; R30' +9 attack inflicts 1d4+6 HP force; Evasion; Channel Magic)</td>
+      <td>Homunculus Servant: Can create a mechanical companion (armor class 13; 24 hit points; R30' +9 attack inflicts 1d4+6 HP force; Evasion; Channel Magic)</td>
     </tr><tr style="text-align:center">
       <td>Infuse Item: Can infuse 6 items simultaneously</td>
     </tr><tr style="text-align:center">
@@ -436,13 +436,15 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Replicate Magic Item: Can replicate a chosen wondrous item</td>
     </tr><tr style="text-align:center">
-      <td>Repulsion Shield: Infused shield with 4 charges gives +1 Armor Class; the holder can use a reaction and 1 charge to push a successful attacker 15'; the shield regains 1d4 charges each dawn</td>
+      <td>Repulsion Shield: Infused shield with 4 charges gives +1 armor class, and the holder can use a reaction and 1 charge to push a successful attacker 15'; the shield regains 1d4 charges each dawn</td>
     </tr><tr style="text-align:center">
-      <td>Resistant Armor: Infused armor gives +1 Armor Class and resistance to a chosen damage type</td>
+      <td>Resistant Armor: Infused armor gives +1 armor class and resistance to a chosen damage type</td>
     </tr><tr style="text-align:center">
       <td>Restorative Reagents: Can use alchemist's supplies to cast <i>Lesser Restoration</i> 3 times per long rest, and elixirs give 2d6+3 temporary hit points</td>
     </tr><tr style="text-align:center">
       <td>Returning Weapon: Infused thrown weapon gives +1 attack and damage and returns after being thrown</td>
+    </tr><tr style="text-align:center">
+      <td>Spell-Storing Item: After a long rest, can store in an item an A1 or A2 spell that can be cast 6 times</td>
     </tr><tr style="text-align:center">
       <td>Spellcasting: Can cast spells from the artificer spell list and cast spells marked with [R] using a ritual</td>
     </tr></table>

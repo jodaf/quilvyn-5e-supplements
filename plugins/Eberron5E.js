@@ -210,7 +210,7 @@ Eberron5E.FEATURES_ADDED = {
   // Artificer (ref Tasha)
   'Artificer Specialist':'Section=feature Note="1 selection"',
   'Flash Of Genius':
-    'Section=feature ' +
+    'Section=combat ' +
     'Note="R30\' Can use a reaction to give an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
   'Infuse Item':
     'Section=feature,magic ' +
@@ -233,11 +233,11 @@ Eberron5E.FEATURES_ADDED = {
       '"Can use a reaction and end 1 infusion when reduced to 0 hit points to retain 1 hit point",' +
       '"+1 per attunement on saves"',
   'Spell-Storing Item':
-    'Section=feature ' +
+    'Section=magic ' +
     'Note="After a long rest, can store in an item an A1 or A2 spell that can be cast %{intelligenceModifier*2>?2} times"',
   // Spellcasting as SRD5E
   'The Right Tool For The Job':
-    'Section=feature Note="Can spend 1 hr to create a set of artisan\'s tools"',
+    'Section=skill Note="Can spend 1 hr to create a set of artisan\'s tools"',
   'Tool Expertise':
     'Section=skill Note="+%{proficiencyBonus} with proficient tools"',
   // Alchemist
@@ -282,25 +282,25 @@ Eberron5E.FEATURES_ADDED = {
     'Section=skill Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Eldritch Cannon':
     'Section=combat ' +
-    'Note="Can create a magical cannon (Armor Class 18, %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points), can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
+    'Note="Can create a magical cannon (armor class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
   'Explosive Cannon':
     'Section=combat,combat ' +
     'Note=' +
-      '"Eldritch Cannon inflicts +1d8 HP damage",' +
+      '"Eldritch cannon inflicts +1d8 HP damage",' +
       '"R60\' Can destroy an eldritch cannon to inflict 3d8 HP force (save DC %{spellDifficultyClass.A} Dexterity half) in a 20\' radius"',
   'Fortified Position':
     'Section=combat ' +
     'Note=' +
-      '"Can have 2 Eldritch Cannons simultaneously, and Eldritch Cannons give allies in a 10\' radius half cover"',
+      '"Can have 2 eldritch cannons simultaneously, and eldritch cannons give allies in a 10\' radius half cover"',
   // Battle Smith
   'Arcane Jolt':
     'Section=combat ' +
     'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or restores %{2+(combatNotes.improvedDefender?2:0)}d6 hit points to 1 target in a 30\' radius %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
   'Battle Ready':
-    'Section=combat,feature ' +
+    'Section=combat,combat ' +
     'Note=' +
-      '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage with magic weapons",' +
-      '"Weapon Proficiency (Martial Weapons)"',
+      '"Weapon Proficiency (Martial Weapons)",' +
+      '"+%{intelligenceModifier-strengthModifier} (Intelligence instead of Strength) or +%{intelligenceModifier-dexterityModifier} (Intelligence instead of Dexterity) attack and damage with magic weapons"',
   'Battle Smith Spells':
     'Spells=' +
       '"3:Heroism","3:Shield",' +
@@ -314,11 +314,11 @@ Eberron5E.FEATURES_ADDED = {
   'Improved Defender':
     'Section=combat,combat ' +
     'Note=' +
-      '"Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 Armor Class",' +
+      '"Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 armor class",' +
       '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="Can create a mechanical companion (armor class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
   // Infusions
   'Boots Of The Winding Path':
     'Section=magic ' +
@@ -328,13 +328,13 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Infused rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks that ignore half cover"',
   'Enhanced Defense':
     'Section=magic ' +
-    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} Armor Class"',
+    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} armor class"',
   'Enhanced Weapon':
     'Section=magic ' +
     'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
   'Homunculus Servant':
     'Section=magic ' +
-    'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points; R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
+    'Note="Can create a mechanical companion (armor class 13; %{levels.Artificer+intelligenceModifier+1} hit points; R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
   'Radiant Weapon':
     'Section=magic ' +
     'Note="Infused weapon with 4 charges gives +1 attack and damage and emits a 30\' bright light on command; the wielder can use a reaction and 1 charge to blind a successful attacker (save DC %{spellDifficultyClass.A} Constitution negates) for 1 rd; the weapon regains 1d4 charges each dawn"',
@@ -345,26 +345,27 @@ Eberron5E.FEATURES_ADDED = {
     'Section=magic Note="Can replicate a chosen wondrous item"',
   'Repulsion Shield':
     'Section=magic ' +
-    'Note="Infused shield with 4 charges gives +1 Armor Class; the holder can use a reaction and 1 charge to push a successful attacker 15\'; the shield regains 1d4 charges each dawn"',
+    'Note="Infused shield with 4 charges gives +1 armor class, and the holder can use a reaction and 1 charge to push a successful attacker 15\'; the shield regains 1d4 charges each dawn"',
   'Resistant Armor':
     'Section=magic ' +
-    'Note="Infused armor gives +1 Armor Class and resistance to a chosen damage type"',
+    'Note="Infused armor gives +1 armor class and resistance to a chosen damage type"',
   'Returning Weapon':
     'Section=magic ' +
     'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
 
   // Feats
   'Aberrant Dragonmark':
-    'Section=ability,feature,magic ' +
+    'Section=ability,feature,magic,magic ' +
     'Note=' +
       '"+1 Constitution",' +
       '"Has an Aberrant Dragonmark flaw",' +
-      '"Knows 1 S0 cantrip and can cast a chosen S1 spell once per long rest, optionally randomly gaining 1 HD temporary hit points or inflicting 1 HD force to a creature within 30\'"',
+      '"Knows 1 S0 cantrip and 1 S1 spell",' +
+      '"Can cast a chosen S1 spell once per long rest, optionally randomly gaining 1 HD of temporary hit points or inflicting 1 HD force to a creature within 30\'"',
   'Revenant Blade':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Strength)",' +
-      '"Can use a double-bladed scimitar one-handed and gains +1 Armor Class when wielding one two-handed"',
+      '"Can use a double-bladed scimitar one-handed and gains +1 armor class when wielding one two-handed"',
 
   // Races
 
@@ -372,7 +373,7 @@ Eberron5E.FEATURES_ADDED = {
   'Changeling Ability Adjustment':
     'Section=ability Note="+2 Charisma/Ability Boost (Choose 1 from any)"',
   'Changeling Instincts':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Deception, Insight, Intimidation, Persuasion)"',
   'Shapechanger (Changeling)':
     'Section=feature Note="Can use an action to change appearance and voice"',
@@ -414,7 +415,7 @@ Eberron5E.FEATURES_ADDED = {
   'Kalashtar Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Charisma"',
   'Mental Discipline':'Section=save Note="Has resistance to psychic damage"',
   'Mind Link':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="R%{level*10}\' Can communicate telepathically with a chosen creature for 1 hr"',
   'Severed From Dreams':'Section=save Note="Has immunity to dream effects"',
 
@@ -428,7 +429,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=ability Note="+2 Strength/+1 Constitution"',
   // Powerful Build as above
   'Primal Intuition':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, Survival)"',
 
   // Shifter
@@ -442,16 +443,16 @@ Eberron5E.FEATURES_ADDED = {
   'Natural Athlete':'Section=skill Note="Skill Proficiency (Athletics)"',
   'Shifting (Beasthide)':
     'Section=combat ' +
-    'Note="Gains +1 Armor Class and +1d6 temporary hit points while shifted"',
+    'Note="Gains +1 armor class and +1d6 temporary hit points while shifted"',
   // Longtooth Shifter
-  'Fierce':'Section=feature Note="Skill Proficiency (Intimidation)"',
+  'Fierce':'Section=skill Note="Skill Proficiency (Intimidation)"',
   'Longtooth Ability Adjustment':
     'Section=ability Note="+2 Strength/+1 Dexterity"',
   'Shifting (Longtooth)':
     'Section=combat ' +
     'Note="Can attack with fangs, inflicting 1d6+%{strengthModifier} HP piercing, as a bonus action while shifted"',
   // Swiftstride Shifter
-  'Graceful':'Section=feature Note="Skill Proficiency (Acrobatics)"',
+  'Graceful':'Section=skill Note="Skill Proficiency (Acrobatics)"',
   'Shifting (Swiftstride)':
     'Section=ability,combat ' +
     'Note=' +
@@ -460,7 +461,7 @@ Eberron5E.FEATURES_ADDED = {
   'Swiftstride Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Charisma"',
   // Wildhunt Shifter
-  'Natural Tracker':'Section=feature Note="Skill Proficiency (Survival)"',
+  'Natural Tracker':'Section=skill Note="Skill Proficiency (Survival)"',
   'Shifting (Wildhunt)':
     'Section=ability,combat ' +
     'Note=' +
@@ -473,7 +474,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=feature,save ' +
     'Note=' +
       '"Has no need to eat, drink, breathe, or sleep",' +
-      '"Has advantage on poison, resistance to poison, and immunity to disease and sleep"',
+      '"Has advantage vs. poison, resistance to poison, and immunity to disease and sleep"',
   'Integrated Protection':
     'Section=combat,combat ' +
     'Note=' +
@@ -483,7 +484,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=feature ' +
     'Note="Becomes inactive but alert for 6 hr during a long rest"',
   'Specialized Design':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)"',
   'Warforged Ability Adjustment':
     'Section=ability Note="+2 Constitution/Ability Boost (Choose 1 from any)"',
@@ -1136,8 +1137,10 @@ Eberron5E.classRulesExtra = function(rules, name) {
  */
 Eberron5E.featRulesExtra = function(rules, name) {
   if(name == 'Aberrant Dragonmark') {
-    rules.defineRule('spellSlots.S0', 'magicNotes.aberrantDragonmark', '+=', '1');
-    rules.defineRule('spellSlots.S1', 'magicNotes.aberrantDragonmark', '+=', '1');
+    rules.defineRule
+      ('spellSlots.S0', 'magicNotes.aberrantDragonmark', '+=', '1');
+    rules.defineRule
+      ('spellSlots.S1', 'magicNotes.aberrantDragonmark', '+=', '1');
     rules.defineRule('casterLevels.AberrantDragonmark',
       'features.Aberrant Dragonmark', '?', null,
       'level', '=', null,
