@@ -450,7 +450,7 @@ Tasha.FEATURES = {
   // Artificer (ref Eberron5E)
   'Artificer Specialist':'Section=feature Note="1 selection"',
   'Flash Of Genius':
-    'Section=feature ' +
+    'Section=combat ' +
     'Note="R30\' Can use a reaction to give an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
   'Infuse Item':
     'Section=feature,magic ' +
