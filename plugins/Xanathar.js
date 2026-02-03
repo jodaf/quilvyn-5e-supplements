@@ -115,7 +115,6 @@ Xanathar.CLASSES_FEATURES_ADDED = {
     '"features.Arcane Archer ? 7:Curving Shot",' +
     '"features.Arcane Archer ? 7:Magic Arrow",' +
     '"features.Arcane Archer ? 15:Ever-Ready Shot",' +
-    '"features.Arcane Archer ? 18:Improved Shots",' +
     '"features.Cavalier ? 3:Born To The Saddle",' +
     '"features.Cavalier ? 3:Bonus Proficiency (Cavalier)",' +
     '"features.Cavalier ? 3:Unwavering Mark",' +
@@ -359,19 +358,19 @@ Xanathar.FEATURES = {
     'Section=combat ' +
     'Note="R10\' Can use a reaction to inflict knocked prone with a successful attack (save DC %{8+proficiencyBonus+constitutionModifier} Strength negates)"',
   'Raging Storm (Tundra)':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R10\; Can immobilize a target (save DC %{8+proficiencyBonus+constitutionModifier} Strength negates) for 1 rd once per rd"',
   'Shielding Storm':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R10\' Targets gain resistance to %{$\'features.Storm Aura (Desert)\' ? \'fire\' : $\'features.Storm Aura (Sea)\' ? \'lightning\' : \'cold\'} during rage"',
   'Storm Aura (Desert)':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="During the first rd of rage, 10\' radius inflicts %{levels.Barbarian//5+2} HP fire; can use a bonus action to repeat the effect throughout rage"',
   'Storm Aura (Sea)':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="During the first rd of rage, R10\' inflicts %{levels.Barbarian//5>?1}d6 HP lightning (save DC %{8+proficiencyBonus+constitutionModifier} Dexterity half); can use a bonus action to repeat the effect throughout rage"',
   'Storm Aura (Tundra)':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="During the first rd of rage, R10\' targets gain %{levels.Barbarian//5+2} temporary hit points; can use a bonus action to repeat the effect throughout rage"',
   'Storm Soul (Desert)':
     'Section=magic,save ' +
@@ -417,7 +416,7 @@ Xanathar.FEATURES = {
     'Note="Can use a bonus action to cast <i>Command</i> once per rd for concentration up to 1 min once per long rest" ' +
     'Spells=Command',
   'Unbreakable Majesty':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="Can use a bonus action to prevent foes from attacking self for 1 min (save DC %{spellDifficultyClass.B} Charisma negates and inflicts disadvantage on saves vs. self spells for 1 rd)"',
   // College Of Swords
   'Bonus Proficiencies (College Of Swords)':
@@ -462,8 +461,10 @@ Xanathar.FEATURES = {
     'Section=magic ' +
     'Note="Can use Channel Divinity and a 1 hr ritual to craft a metal item worth up to 100 GP"',
   'Bonus Proficiencies (Forge Domain)':
-    'Section=feature ' +
-    'Note="Armor Proficiency (Heavy)/Tool Proficiency (Smith\'s Tools)"',
+    'Section=combat,skill ' +
+    'Note=' +
+      '"Armor Proficiency (Heavy)",' +
+      '"Tool Proficiency (Smith\'s Tools)"',
   'Blessing Of The Forge':
     'Section=magic ' +
     'Note="Touched weapon or armor gains a +1 bonus until the next long rest once per long rest"',
@@ -488,7 +489,7 @@ Xanathar.FEATURES = {
   // Grave Domain
   'Circle Of Mortality':
     'Section=magic ' +
-    'Note="Cure spells have maximum effect for targets with 0 hit points/Can cast R30\' <i>Spare The Dying</i> as a bonus action" ' +
+    'Note="Can cast R30\' <i>Spare The Dying</i> as a bonus action, and cure spells have maximum effect for targets with 0 hit points" ' +
     'Spells="Spare The Dying"',
   'Eyes Of The Grave':
     'Section=magic ' +
@@ -508,7 +509,7 @@ Xanathar.FEATURES = {
     'Note="R30\' Can use Channel Divinity to inflict vulnerability to all damage for 1 rd"',
   // Potent Spellcasting as PHB5E
   "Sentinel At Death's Door":
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R30\' Can negate a critical hit %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
 
   // Druid
@@ -711,10 +712,10 @@ Xanathar.FEATURES = {
   // Paladin
   // Oath Of Conquest
   'Aura Of Conquest':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R%{levels.Paladin<18?10:30}\' Frightened foes suffer immobility and %{levels.Paladin//2} HP psychic each rd"',
   'Conquering Presence':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R30\' Can use Channel Divinity to frighten targets for 1 min (save DC %{spellDifficultyClass.P} Wisdom ends)"',
   // Guided Strike as PHB5E
   'Invincible Conqueror':
@@ -732,7 +733,7 @@ Xanathar.FEATURES = {
     'Note="Successful attackers suffer %{charismaModifier>?1} HP psychic"',
   // Oath Of Redemption
   'Aura Of The Guardian':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R%{levels.Paladin<18?10:30}\' Can use a reaction to transfer damage from another to self"',
   'Emissary Of Peace':
     'Section=skill ' +
@@ -751,7 +752,7 @@ Xanathar.FEATURES = {
     'Section=combat ' +
     'Note="Regains 1d6+%{levels.Paladin//2} hit points at the end of a turn when below %{hitPoints//2} hit points"',
   'Rebuke The Violent':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R30\' Can use Channel Divinity to inflict equal damage on a successful attacker of another (save DC %{spellDifficultyClass.P} Wisdom half)"',
   // Ranger
   // Gloom Stalker
@@ -850,13 +851,13 @@ Xanathar.FEATURES = {
     'Note="R30\' Can sense the presence of illusions and other deceptions %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
   // Mastermind (ref SwordCoast)
   'Insightful Manipulator':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="Can learn 2 choices of information about a target after 1 min of study: relative class levels, Charisma, Intelligence, or Wisdom"',
   'Master Of Intrigue':
-    'Section=feature,skill ' +
+    'Section=skill,skill ' +
     'Note=' +
-      '"Can mimic accent and speech patterns after listening for 1 min",' +
-      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming)"',
+      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming)",' +
+      '"Can mimic an accent and speech patterns after listening for 1 min"',
   'Master Of Tactics':
     'Section=combat ' +
     'Note="R30\' Can use Help as a bonus action, and can Help with an attack within 30\'"',
