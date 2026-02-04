@@ -214,9 +214,9 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Tough: +40 Hit Points</i></td>
       </tr><tr style="text-align:center">
-        <td>Accursed Specter: Can raise a slain humanoid as an obedient specter with 10 temporary hit points and +2 attacks until the next long rest once per long rest</td>
-      </tr><tr style="text-align:center">
         <td>Armor Of Hexes: Can use a reaction to give a successful attack on self by a Hexblade's Curse target a 50% miss chance</td>
+      </tr><tr style="text-align:center">
+        <td>Cloak Of Flies: Can use a bonus action to create a 5' radius that inflicts 2 HP poison damage once per short rest</td>
       </tr><tr style="text-align:center">
         <td>Eldritch Smite: Can spend a spell slot to inflict +(slot level + 1)d8 HP force and knock prone a Huge or smaller foe with a pact weapon</td>
       </tr><tr style="text-align:center">
@@ -226,13 +226,21 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Hex Warrior: At the end of a long rest, gains +1 attack and damage (Charisma instead of Strength) with pact weapons and a touched non-two-handed weapon until the next long rest</td>
       </tr><tr style="text-align:center">
+        <td>Hexblade's Curse: R30' Can use a bonus action to curse a target for 1 min once per short rest: self gains +6 damage vs. the target, crits on a natural 19 vs. the target, and regains 22 hit points if the target dies</td>
+      </tr><tr style="text-align:center">
         <td>Improved Pact Weapon: Can use a bow or crossbow as a pact weapon/Pact weapon can be used as a spell focus and gains +1 attack and damage if non-magical</td>
+      </tr><tr style="text-align:center">
+        <td>Maddening Hex: R30' Can use a bonus action to inflict 2 HP psychic to targets in a 5' radius around a curse target</td>
+      </tr><tr style="text-align:center">
+        <td>Master Of Hexes: R30' Can forego regaining hit points from a Hexblade's Curse target's death to move the curse to another</td>
       </tr><tr style="text-align:center">
         <td>Pact Of The Chain: Can forego one attack to allow familiar to attack as a reaction</td>
       </tr><tr style="text-align:center">
         <td>Polearm Master: Can use a bonus action to attack with the butt of a polearm, inflicting 1d4 HP bludgeoning, and a foe entering polearm reach provokes an opportunity attack</td>
       </tr><tr style="text-align:center">
-        <td>Searing Vengeance: Instead of attempting a death saving throw, can regain 78 hit points, stand, and inflict R30' 2d8+2 HP radiant and blindness for 1 rd once per long rest</td>
+        <td>Relentless Hex: Can use a bonus action to teleport 30' to a space adjacent to a curse target</td>
+      </tr><tr style="text-align:center">
+        <td>Tomb Of Levistus: Can use a reaction upon taking damage to gain 200 temporary hit points and suffer vulnerability to fire and immobility for 1 rd once per short rest</td>
       </tr></table>
 </td>
     </tr></table>
@@ -249,6 +257,8 @@ var attributes = {
         <td>Aspect Of The Moon: Has immunity to sleep; gains the benefits of sleep from light activity</td>
       </tr><tr style="text-align:center">
         <td>Radiant Soul: Has resistance to radiant</td>
+      </tr><tr style="text-align:center">
+        <td>Searing Vengeance: Instead of attempting a death saving throw, can regain 78 hit points, stand, and inflict R30' 2d8+2 HP radiant and blindness for 1 rd once per long rest</td>
       </tr></table>
 </td>
     </tr></table>
@@ -332,11 +342,11 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><i>Magic Initiate (Cleric): Knows 2 cleric cantrips and can cast a chosen C1 spell once per long rest</i></td>
     </tr><tr style="text-align:center">
+      <td>Accursed Specter: Can raise a slain humanoid as an obedient specter with 10 temporary hit points and +2 attacks until the next long rest once per long rest</td>
+    </tr><tr style="text-align:center">
       <td>Bonus Cantrips (The Celestial): Knows the <i>Light</i> and <i>Sacred Flame</i> cantrips</td>
     </tr><tr style="text-align:center">
       <td>Celestial Resilience: Gains 22 temporary hit points, and can give 5 others 12 temporary hit points, at the end of a rest</td>
-    </tr><tr style="text-align:center">
-      <td>Cloak Of Flies: Can use a bonus action to create a 5' radius that inflicts 2 HP poison damage once per short rest</td>
     </tr><tr style="text-align:center">
       <td>Eldritch Master: Can recover expended spell slots once per long rest</td>
     </tr><tr style="text-align:center">
@@ -348,13 +358,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Healing Light: R60' Can use bonus actions to restore 21d6 HP per long rest, with a maximum of 2d6 per healing</td>
     </tr><tr style="text-align:center">
-      <td>Hexblade's Curse: R30' Can use a bonus action to curse a target for 1 min once per short rest: self gains +6 damage vs. the target, crits on a natural 19 vs. the target, and regains 22 hit points if the target dies</td>
-    </tr><tr style="text-align:center">
       <td>Lance Of Lethargy: <i>Eldritch Blast</i> can inflict -10 Speed for 1 rd once per rd</td>
-    </tr><tr style="text-align:center">
-      <td>Maddening Hex: R30' Can use a bonus action to inflict 2 HP psychic to targets in a 5' radius around a curse target</td>
-    </tr><tr style="text-align:center">
-      <td>Master Of Hexes: R30' Can forego regaining hit points from a Hexblade's Curse target's death to move the curse to another</td>
     </tr><tr style="text-align:center">
       <td>Mystic Arcanum: Can cast chosen K6, K7, K8, and K9 spells without using a spell slot once per long rest</td>
     </tr><tr style="text-align:center">
@@ -368,11 +372,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Radiant Soul: Can inflict +2 HP radiant or fire spell damage on one target</td>
     </tr><tr style="text-align:center">
-      <td>Relentless Hex: Can use a bonus action to teleport 30' to a space adjacent to a curse target</td>
-    </tr><tr style="text-align:center">
       <td>Shroud Of Shadow: Can cast <i>Invisibility</i> at will</td>
-    </tr><tr style="text-align:center">
-      <td>Tomb Of Levistus: Can use a reaction upon taking damage to gain 200 temporary hit points and suffer vulnerability to fire and immobility for 1 rd once per short rest</td>
     </tr><tr style="text-align:center">
       <td>Trickster's Escape: Can cast self <i>Freedom Of Movement</i> once per long rest</td>
     </tr></table>

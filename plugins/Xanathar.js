@@ -223,11 +223,11 @@ Xanathar.CLASSES_FEATURES_ADDED = {
     '"features.The Hexblade ? 10:Armor Of Hexes",' +
     '"features.The Hexblade ? 14:Master Of Hexes"',
   'Wizard':
-    '"features.War Magic Arcane Tradition ? 2:Arcane Deflection",' +
-    '"features.War Magic Arcane Tradition ? 2:Tactical Wit",' +
-    '"features.War Magic Arcane Tradition ? 6:Power Surge",' +
-    '"features.War Magic Arcane Tradition ? 10:Durable Magic",' +
-    '"features.War Magic Arcane Tradition ? 14:Deflecting Shroud"'
+    '"features.War Magic ? 2:Arcane Deflection",' +
+    '"features.War Magic ? 2:Tactical Wit",' +
+    '"features.War Magic ? 6:Power Surge",' +
+    '"features.War Magic ? 10:Durable Magic",' +
+    '"features.War Magic ? 14:Deflecting Shroud"'
 };
 Xanathar.CLASSES_SELECTABLES_ADDED = {
   'Barbarian':
@@ -294,7 +294,7 @@ Xanathar.CLASSES_SELECTABLES_ADDED = {
     '"5:Tomb Of Levistus:Eldritch Invocation",' +
     '"7:Trickster\'s Escape:Eldritch Invocation"',
   'Wizard':
-    '"2:War Magic Arcane Tradition:Arcane Tradition"'
+    '"2:War Magic:Arcane Tradition"'
 };
 Xanathar.DEITIES_DOMAINS_ADDED = {
   'Celtic-Goibhniu':'Forge',
@@ -808,7 +808,7 @@ Xanathar.FEATURES = {
   // Monster Slayer
   "Hunter's Sense":
     'Section=combat ' +
-    'Note="R60\' Can sense immunities, resistances, and vulnerabilities of a target %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
+    'Note="R60\' Can sense the immunities, resistances, and vulnerabilities of a target %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
   "Magic-User's Nemesis":
     'Section=combat ' +
     'Note="R60\' Can use a reaction to foil a target\'s spell cast or teleportation (save DC %{spellDifficultyClass.R} Wisdom negates) once per short rest"',
@@ -847,7 +847,7 @@ Xanathar.FEATURES = {
     'Section=skill ' +
     'Note="Has advantage on Perception and Investigation after moving half speed"',
   'Unerring Eye':
-    'Section=feature ' +
+    'Section=skill ' +
     'Note="R30\' Can sense the presence of illusions and other deceptions %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
   // Mastermind (ref SwordCoast)
   'Insightful Manipulator':
@@ -870,7 +870,7 @@ Xanathar.FEATURES = {
   // Scout
   'Ambush Master':
     'Section=combat ' +
-    'Note="Has advantage on Initiative, and the first successful attack in the first round gives self and allies advantage on attacks vs. that foe for 1 rd"',
+    'Note="Has advantage on initiative, and the first successful attack in the first round gives self and allies advantage on attacks vs. that foe for 1 rd"',
   'Skirmisher':
     'Section=combat ' +
     'Note="Can use a reaction to move half speed without provoking opportunity attacks when a foe comes within 5\'"',
@@ -905,7 +905,7 @@ Xanathar.FEATURES = {
   'Divine Magic':'Section=magic Note="Has access to Cleric spells"',
   'Empowered Healing':
     'Section=magic ' +
-    'Note="R5\' Can spend 1 Sorcery Point to reroll self or ally healing once per rd"',
+    'Note="R5\' Can spend 1 Sorcery Point to reroll a self or ally healing once per rd"',
   'Favored By The Gods':
     'Section=combat ' +
     'Note="Can add 2d4 to a failed attack or save once per short rest"',
@@ -975,11 +975,11 @@ Xanathar.FEATURES = {
       '"Can inflict +%{charismaModifier} HP radiant or fire spell damage on one target",' +
       '"Has resistance to radiant"',
   'Searing Vengeance':
-    'Section=combat ' +
+    'Section=save ' +
     'Note="Instead of attempting a death saving throw, can regain %{hitPoints//2} hit points, stand, and inflict R30\' 2d8+%{charismaModifier} HP radiant and blindness for 1 rd once per long rest"',
   // The Hexblade
   'Accursed Specter':
-    'Section=combat ' +
+    'Section=magic ' +
     'Note="Can raise a slain humanoid as an obedient specter with %{levels.Warlock//2} temporary hit points%{charismaModifier>0?\' and +\'+charismaModifier+\' attacks\':\'\'} until the next long rest once per long rest"',
   'Armor Of Hexes':
     'Section=combat ' +
@@ -990,17 +990,17 @@ Xanathar.FEATURES = {
       '"At the end of a long rest, gains +%{charismaModifier-strengthModifier} attack and damage (Charisma instead of Strength) with pact weapons and a touched non-two-handed weapon until the next long rest",' +
       '"Armor Proficiency (Medium; Shield)/Weapon Proficiency (Martial)"',
   "Hexblade's Curse":
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R30\' Can use a bonus action to curse a target for 1 min once per short rest: self gains +%{proficiencyBonus} damage vs. the target, crits on a natural 19 vs. the target, and regains %{levels.Warlock+charismaModifier} hit points if the target dies"',
   'Master Of Hexes':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R30\' Can forego regaining hit points from a Hexblade\'s Curse target\'s death to move the curse to another"',
   // Eldritch Invocations
   'Aspect Of The Moon':
     'Section=save ' +
     'Note="Has immunity to sleep; gains the benefits of sleep from light activity"',
   'Cloak Of Flies':
-    'Section=magic,skill ' +
+    'Section=combat,skill ' +
     'Note=' +
       '"Can use a bonus action to create a 5\' radius that inflicts %{charismaModifier>?0} HP poison damage once per short rest",' +
       '"Can use a bonus action to gain advantage on Intimidate and suffer disadvantage on other Charisma checks once per short rest"',
@@ -1030,17 +1030,17 @@ Xanathar.FEATURES = {
     'Section=magic ' +
     'Note="<i>Eldritch Blast</i> can inflict -10 Speed for 1 rd once per rd"',
   'Maddening Hex':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R30\' Can use a bonus action to inflict %{charismaModifier>?1} HP psychic to targets in a 5\' radius around a curse target"',
   'Relentless Hex':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="Can use a bonus action to teleport 30\' to a space adjacent to a curse target"',
   'Shroud Of Shadow':
     'Section=magic ' +
     'Note="Can cast <i>Invisibility</i> at will" ' +
     'Spells=Invisibility',
   'Tomb Of Levistus':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="Can use a reaction upon taking damage to gain %{levels.Warlock*10} temporary hit points and suffer vulnerability to fire and immobility for 1 rd once per short rest"',
   "Trickster's Escape":
     'Section=magic ' +
@@ -1053,7 +1053,7 @@ Xanathar.FEATURES = {
     'Section=combat ' +
     'Note="Can use a reaction and forego 1 rd of non-cantrip casting to gain +2 Armor Class vs. a successful attack or +4 on a failed save"',
   'Deflecting Shroud':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R60\' Arcane Deflection inflicts %{levels.Wizard//2} HP force on 3 targets"',
   'Durable Magic':
     'Section=combat,save ' +
@@ -1849,6 +1849,10 @@ Xanathar.classRulesExtra = function(rules, name) {
     rules.defineRule
       ('magicNotes.cloakOfFlies', 'charismaModifier', '?', 'source > 0');
   } else if(name == 'Wizard') {
+    // Avoid having the War Magic arcane tradition triggering the combat note
+    // for the PHB5E fighter feature of the same name
+    rules.defineRule
+      ('combatNotes.warMagic', 'fighterFeatures.War Magic', '?', null);
     rules.defineRule
       ('combatNotes.tacticalWit', 'intelligenceModifier', '=', null);
   }

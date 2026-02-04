@@ -12,7 +12,7 @@ var attributes = {
   "feats.Great Weapon Master":1, "feats.Polearm Master":1, "feats.Savage Attacker":1, "feats.War Caster":1, 
   "gender":"Female", "hitPoints":83, "intelligence":13, "languagesChosen.Draconic":1, 
   "languagesChosen.Giant":1, "languagesChosen.Halfling":1, "levels.Wizard":20, "name":"Class-Wizard 20", 
-  "race":"Human", "selectableFeatures.Wizard - War Magic Arcane Tradition":1, "shield":"None", 
+  "race":"Human", "selectableFeatures.Wizard - War Magic":1, "shield":"None", 
   "skillsChosen.Insight":1, "skillsChosen.Religion":1, "spells.Arcane Eye(W4 Divi)":1, 
   "spells.Banishment(W4 Abju)":1, "spells.Charm Person(W1 Ench)":1, "spells.Chill Touch(W0 Necr)":1, 
   "spells.Chromatic Orb(W1 Evoc)":1, "spells.Cone Of Cold(W5 Evoc)":1, "spells.Dimension Door(W4 Conj)":1, 
@@ -85,7 +85,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Alert; Great Weapon Master; Polearm Master; Savage Attacker; War Caster</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common; Choose 1 from any)</td>
-        <td><b>Wizard Features</b>: Arcane Deflection; Arcane Recovery; Arcane Tradition; Deflecting Shroud; Durable Magic; Power Surge; Save Proficiency (Intelligence; Wisdom); Signature Spells; Skill Proficiency (Choose 2 from Arcana, History, Insight, Investigation, Medicine, Religion); Spell Mastery; Spellcasting; Tactical Wit; War Magic Arcane Tradition; Weapon Proficiency (Dagger; Dart; Light Crossbow; Quarterstaff; Sling)</td>
+        <td><b>Wizard Features</b>: Arcane Deflection; Arcane Recovery; Arcane Tradition; Deflecting Shroud; Durable Magic; Power Surge; Save Proficiency (Intelligence; Wisdom); Signature Spells; Skill Proficiency (Choose 2 from Arcana, History, Insight, Investigation, Medicine, Religion); Spell Mastery; Spellcasting; Tactical Wit; War Magic; Weapon Proficiency (Dagger; Dart; Light Crossbow; Quarterstaff; Sling)</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight; Religion)</td>
       </tr></table>
 </td>
@@ -179,6 +179,8 @@ var attributes = {
         <td>Alert: Cannot be surprised, and unseen foes gain no advantage on attacks on self</td>
       </tr><tr style="text-align:center">
         <td>Arcane Deflection: Can use a reaction and forego 1 rd of non-cantrip casting to gain +2 Armor Class vs. a successful attack or +4 on a failed save</td>
+      </tr><tr style="text-align:center">
+        <td>Deflecting Shroud: R60' Arcane Deflection inflicts 10 HP force on 3 targets</td>
       </tr><tr style="text-align:center">
         <td>Durable Magic: +2 Armor Class during spell concentration</td>
       </tr><tr style="text-align:center">
@@ -279,8 +281,6 @@ var attributes = {
     <td><b>Magic Notes</b>:     <table id="MagicNotes" style="width:100%">
     <tr style="text-align:center">
       <td>Arcane Recovery: Can recover 10 spell slot levels (level 6 maximum) during a short rest once per long rest</td>
-    </tr><tr style="text-align:center">
-      <td>Deflecting Shroud: R60' Arcane Deflection inflicts 10 HP force on 3 targets</td>
     </tr><tr style="text-align:center">
       <td>Power Surge: Can pool magic from 2 countered or dispelled spells and use it once per rd to inflict +10 HP force with a spell; the pool contents increase to 1 after a short rest and reset to 1 after a long rest</td>
     </tr><tr style="text-align:center">
