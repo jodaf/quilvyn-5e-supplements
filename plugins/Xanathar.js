@@ -1067,7 +1067,7 @@ Xanathar.FEATURES = {
 
   // Feats
   'Bountiful Luck':
-    'Section=feature ' +
+    'Section=combat ' +
     'Note="R30\' Can use a reaction and forego using the Lucky racial trait for 1 rd to allow an ally to reroll a natural 1 on an attack, ability, or saving throw"',
   'Dragon Fear':
     'Section=ability,combat ' +
@@ -1134,14 +1134,14 @@ Xanathar.FEATURES = {
       '"Ability Boost (Choose 1 from Dexterity, Constitution, Charisma)",' +
       '"Can use a reaction to force a foe attack reroll once per encounter or short rest"',
   'Squat Nimbleness':
-    'Section=ability,feature,combat ' +
+    'Section=ability,combat,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)/+5 Speed",' +
-      '"Skill Proficiency (Choose 1 from Acrobatics, Athletics)",' +
-      '"Has advantage on Athletics or Acrobatics to break a grapple"',
+      '"Has advantage on Athletics or Acrobatics to break a grapple",' +
+      '"Skill Proficiency (Choose 1 from Acrobatics, Athletics)"',
   'Wood Elf Magic':
     'Section=magic ' +
-    'Note="Knows 1 D0 cantrip and can cast <i>Longstrider</i> and <i>Pass Without Trace</i> once each per long rest" ' +
+    'Note="Knows 1 druid cantrip and can cast <i>Longstrider</i> and <i>Pass Without Trace</i> once each per long rest" ' +
     'SpellAbility=Wisdom ' +
     'Spells=Longstrider,"Pass Without Trace"'
 
@@ -1742,6 +1742,9 @@ Xanathar.talentRules = function(rules, feats, features, tools) {
  */
 Xanathar.featRulesExtra = function(rules, name) {
 
+  // Note: it seems unnecessary to compute spell DC for Drow High Magic and Fey
+  // Teleportation feats, since Dark and High Elves normally already have DCs
+  // from the Drow Magic and Cantrip (High Elf) features, respectively.
   if(name == 'Dragon Hide') {
     rules.defineRule('armorClass', 'combatNotes.dragonHide.1', '+', null);
     rules.defineRule('combatNotes.dragonHide.1',
@@ -1754,6 +1757,10 @@ Xanathar.featRulesExtra = function(rules, name) {
     rules.defineRule('spellSlots.D0', 'magicNotes.woodElfMagic', '+=', '1');
     rules.defineRule
       ('casterLevels.D', 'casterLevels.Wood Elf Magic', '^=', null);
+    rules.defineRule('casterLevels.Wood Elf Magic',
+      'features.Wood Elf Magic', '?', null,
+      'level', '=', null
+    );
   }
 
 };
