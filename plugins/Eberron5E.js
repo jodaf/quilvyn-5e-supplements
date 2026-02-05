@@ -82,8 +82,16 @@ function Eberron5E() {
   if(window.Volo != null) {
     if(Volo.CHARACTER_RACES_IN_PLAY)
       Volo('Character', rules);
-    if(Volo.MONSTROUS_RACES_IN_PLAY)
+    if(Volo.MONSTROUS_RACES_IN_PLAY) {
+      // Retain our version of Orc that differs slightly from Volo's
+      let voloOrcRace = Volo.MONSTROUS_RACES.Orc;
+      let voloOrcFeature = Volo.MONSTROUS_FEATURES['Orc Ability Adjustment'];
+      delete Volo.MONSTROUS_RACES.Orc;
+      delete Volo.MONSTROUS_FEATURES['Orc Ability Adjustment'];
       Volo('Monstrous', rules);
+      Volo.MONSTROUS_RACES.Orc = voloOrcRace;
+      Volo.MONSTROUS_FEATURES['Orc Ability Adjustment'] = voloOrcFeature;
+    }
   }
   if(window.Xanathar != null)
     Xanathar('Xanathar', rules);
