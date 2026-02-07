@@ -151,7 +151,7 @@ Volo.CHARACTER_FEATURES = {
   'Tabaxi Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
 
   // Triton
-  'Amphibious':'Section=feature Note="Can breathe water"',
+  'Amphibious':'Section=ability Note="Can breathe water"',
   'Control Air And Water':
     'Section=magic ' +
     'Note="Can cast <i>Fog Cloud</i>%{level<3?\'\':level<5?\' and <i>Gust Of Wind</i>\':\' <i>Gust Of Wind</i>, and <i>Wall Of Water</i>\'} once per long rest" ' +
