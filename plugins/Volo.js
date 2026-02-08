@@ -125,16 +125,14 @@ Volo.CHARACTER_FEATURES = {
   'Cunning Artisan':
     'Section=skill ' +
     'Note="Can craft a shield or weapon from a carcass during a short rest"',
-  'Hold Breath':'Section=ability Note="Can hold breath for 15 min"',
+  'Hold Breath':'Section=save Note="Can hold breath %V"',
   'Hungry Jaws':
     'Section=combat ' +
     'Note="Can use a bonus action to bite and gain %{constitutionModifier>?1} temporary hit point%{constitutionModifier>1?\'s\':\'\'} on a hit once per short rest"',
   "Hunter's Lore":
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Animal Handling, Nature, Perception, Stealth, Survival)"',
-  'Natural Armor':
-    'Section=combat ' +
-    'Note="AC %{13+dexterityModifier+(shield==\'None\'?0:2)} in no armor"',
+  'Natural Armor':'Section=combat Note="AC %V in no armor"',
   'Swimmer':'Section=ability Note="Has a 30\' swim Speed"',
 
   // Tabaxi
@@ -381,9 +379,9 @@ Volo.talentRules = function(rules, features) {
  * derived directly from the attributes passed to raceRules.
  */
 Volo.raceRulesExtra = function(rules, name) {
+  let raceLevel =
+    name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Level';
   if(name.match(/Aasimar/)) {
-    let raceLevel =
-      name.charAt(0).toLowerCase() + name.substring(1).replaceAll(' ', '') + 'Level';
     SRD5E.featureSpells(rules, 'Light Bearer', 'Aasimar', raceLevel, ['Light']);
     rules.defineRule('casterLevels.Aasimar', raceLevel, '=', null);
     rules.defineRule('spellModifier.Aasimar',
@@ -400,13 +398,16 @@ Volo.raceRulesExtra = function(rules, name) {
   } else if(name == 'Lizardfolk') {
     SRD5E.weaponRules(rules, 'Bite', 'Unarmed', [], '1d6', null);
     rules.defineRule('weapons.Bite', 'combatNotes.bite', '=', '1');
+    rules.defineRule('combatNotes.naturalArmor',
+      'dexterityModifier', '=', '13 + source',
+      'shield', '+', 'source=="None" ? null : 2'
+    );
     rules.defineRule('armorClass', 'combatNotes.naturalArmor.1', '^', null);
     rules.defineRule('combatNotes.naturalArmor.1',
-      'combatNotes.naturalArmor', '?', null,
       'armor', '?', 'source == "None"',
-      'dexterityModifier', '=', '13 + source',
-      'shield', '+', 'source=="None" ? 0 : 2'
+      'combatNotes.naturalArmor', '=', null
     );
+    rules.defineRule('saveNotes.holdBreath', raceLevel, '^=', '"for 15 min"');
   } else if(name == 'Tabaxi') {
     SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4', null);
     rules.defineRule('weapons.Claws', "combatNotes.cat'sClaws", '=', '1');
