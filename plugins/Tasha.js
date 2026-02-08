@@ -1563,7 +1563,7 @@ Tasha.FEATURES = {
     'Section=ability,magic,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
-      '"Can cast <i>Detect Thoughts</i> (DC %{8+proficiencyBonus} + ability modifier Wisdom negates) once per long rest",' +
+      '"Can cast <i>Detect Thoughts</i> (save DC %{8+proficiencyBonus} + ability modifier Wisdom negates) once per long rest",' +
       '"R60\' Can speak telepathically in a shared language"'
     // Spells attribute left off--see featRulesExtra
 
