@@ -97,7 +97,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Ability Boost; Durable; Lightly Armored; Linguist; Magic Initiate (Cleric); Sharpshooter</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common; Choose 1 from any)</td>
-        <td><b>Rogue Features</b>: Armor Proficiency (Light); Blindsense; Cunning Action; Death's Friend; Elusive; Evasion; Expertise (Rogue); Ghost Walk; Phantom; Psi-Bolstered Knack; Psionic Power; Psychic Blades; Psychic Veil; Psychic Whispers; Reliable Talent; Rend Mind; Roguish Archetype; Save Proficiency (Dexterity; Intelligence); Skill Proficiency (Choose 4 from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight Of Hand, Stealth); Slippery Mind; Sneak Attack; Soul Blades; Soulknife; Steady Aim; Stroke Of Luck; Thieves' Cant; Tokens Of The Departed; Tool Proficiency (Thieves' Tools); Uncanny Dodge; Wails From The Grave; Weapon Proficiency (Simple Weapons; Hand Crossbow; Longsword; Rapier; Shortsword); Whispers Of The Dead</td>
+        <td><b>Rogue Features</b>: Armor Proficiency (Light); Blindsense; Cunning Action; Death's Friend; Elusive; Evasion; Expertise; Ghost Walk; Phantom; Psi-Bolstered Knack; Psionic Power; Psychic Blades; Psychic Veil; Psychic Whispers; Reliable Talent; Rend Mind; Roguish Archetype; Save Proficiency (Dexterity; Intelligence); Skill Proficiency (Choose 4 from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight Of Hand, Stealth); Slippery Mind; Sneak Attack; Soul Blades; Soulknife; Steady Aim; Stroke Of Luck; Thieves' Cant; Tokens Of The Departed; Tool Proficiency (Thieves' Tools); Uncanny Dodge; Wails From The Grave; Weapon Proficiency (Simple Weapons; Hand Crossbow; Longsword; Rapier; Shortsword); Whispers Of The Dead</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight; Religion)</td>
       </tr></table>
 </td>
@@ -111,8 +111,6 @@ var attributes = {
         <td>Death's Friend: Has a minimum of 1 Soul Trinket available after a long rest</td>
       </tr><tr style="text-align:center">
         <td>Ghost Walk: Can use a bonus action to gain a 10' fly Speed, impose disadvantage on foe attacks, and move through objects for 10 min once per long rest; can destroy Soul Trinkets for additional uses</td>
-      </tr><tr style="text-align:center">
-        <td>Linguist: Can create ciphers (DC 24 Intelligence to decode)</td>
       </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: Can receive aid from temples of Egyptian-Set and fellow believers</td>
       </tr><tr style="text-align:center">
@@ -167,7 +165,9 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Bulky Armor: Has disadvantage on Stealth</td>
     </tr><tr style="text-align:center">
-      <td>Expertise (Rogue): +6 on 4 chosen proficient skills or Thieves' Tools</td>
+      <td>Expertise: +6 on 4 chosen proficient skills or Thieves' Tools</td>
+    </tr><tr style="text-align:center">
+      <td>Linguist: Can create ciphers (DC 24 Intelligence to decode)</td>
     </tr><tr style="text-align:center">
       <td>Psi-Bolstered Knack: Can add a Psionic Energy die roll to a failed proficient skill or tool check, spending the die only if the modified check succeeds</td>
     </tr><tr style="text-align:center">
@@ -225,7 +225,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Strength Damage Adjustment: +3</i></td>
       </tr><tr style="text-align:center">
-        <td>Cunning Action: Can use a bonus action to Dash, Disengage, or Hide once per rd</td>
+        <td>Cunning Action: Can use a bonus action to Dash, Disengage, or Hide</td>
       </tr><tr style="text-align:center">
         <td>Death's Friend: Wails From The Grave also affects the Sneak Attack target</td>
       </tr><tr style="text-align:center">
@@ -245,7 +245,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Sharpshooter: Suffers no disadvantage on attacks at long range/Ranged attacks ignore 3/4 cover/Can make a -5 attack with a ranged weapon to inflict +10 damage</td>
       </tr><tr style="text-align:center">
-        <td>Sneak Attack: +10d6 damage on attacks with advantage or on a foe threatened by another adjacent creature</td>
+        <td>Sneak Attack: Inflicts +10d6 HP on attacks with advantage or on a foe threatened by another adjacent creature once per turn</td>
       </tr><tr style="text-align:center">
         <td>Steady Aim: Can use a bonus action and forego move to gain advantage on an attack</td>
       </tr><tr style="text-align:center">

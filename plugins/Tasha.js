@@ -1058,7 +1058,7 @@ Tasha.FEATURES = {
     'Section=ability,combat ' +
     'Note=' +
       '"Can spend 1 ki point and use a bonus action to gain +%{wisdomModifier-strengthModifier} on Strength checks for 10 min",' +
-      '"Can spend 1 ki point and use a bonus action to inflict 2d%{combatNotes.martialArts} HP force (save DC %{kiSaveDC} Dexterity negates) to targets in a 10\' radius and gain +5\' unarmed reach, +%{wisdomModifier-maxDexOrStrMod} unarmed attack, and +%{wisdomModifier-maxDexOrStrMod} HP force unarmed damage for 10 min"',
+      '"Can spend 1 ki point and use a bonus action to inflict 2d%{combatNotes.martialArts} HP force (save DC %{monkSaveDC} Dexterity negates) to targets in a 10\' radius and gain +5\' unarmed reach, +%{wisdomModifier-maxDexOrStrMod} unarmed attack, and +%{wisdomModifier-maxDexOrStrMod} HP force unarmed damage for 10 min"',
   'Awakened Astral Self':
     'Section=combat ' +
     'Note="Can spend 5 ki points and use a bonus action to gain +2 armor class and a third Arms Of The Astral Self attack each rd"',

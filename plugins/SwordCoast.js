@@ -61,7 +61,7 @@ function SwordCoast() {
     'background:Background,select-one,backgrounds',
     'race:Race,select-one,races', 'levels:Class Levels,bag,levels');
 
-  SRD5E.abilityRules(rules);
+  SRD5E.abilityRules(rules, SRD5E.ABILITIES);
   SRD5E.combatRules(rules, SwordCoast.ARMORS, SRD5E.SHIELDS, SRD5E.WEAPONS);
   SRD5E.magicRules(rules, SRD5E.SCHOOLS, SwordCoast.SPELLS);
   SRD5E.identityRules(
@@ -537,7 +537,7 @@ SwordCoast.FEATURES_ADDED = {
   // Way Of The Long Death
   'Hour Of Reaping':
     'Section=combat ' +
-    'Note="R30\' Can use an action to frighten all who can see self (save DC %{kiSaveDC} Wisdom negates)"',
+    'Note="R30\' Can use an action to frighten all who can see self (save DC %{monkSaveDC} Wisdom negates)"',
   'Mastery Of Death':
     'Section=combat ' +
     'Note="Can spend 1 ki point when reduced to 0 hit points to retain 1 hit point"',
@@ -546,7 +546,7 @@ SwordCoast.FEATURES_ADDED = {
     'Note="R5\' Gains %{levels.Monk+wisdomModifier>?1} temporary hit points from reducing a foe to 0 hit points"',
   'Touch Of The Long Death':
     'Section=combat ' +
-    'Note="Can use an action and spend 1-10 ki points to have touch inflict 2d10 HP necrotic per ki point (save DC %{kiSaveDC} Constitution half)"',
+    'Note="Can use an action and spend 1-10 ki points to have touch inflict 2d10 HP necrotic per ki point (save DC %{monkSaveDC} Constitution half)"',
   // Way Of The Sun Soul (ref Xanathar)
   'Radiant Sun Bolt':
     'Section=combat ' +
@@ -558,7 +558,7 @@ SwordCoast.FEATURES_ADDED = {
     'Spells="Burning Hands"',
   'Searing Sunburst':
     'Section=combat ' +
-    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{kiSaveDC} Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
+    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{monkSaveDC} Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
   'Sun Shield':
     'Section=combat,feature ' +
     'Note=' +

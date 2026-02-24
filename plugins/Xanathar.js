@@ -702,7 +702,7 @@ Xanathar.FEATURES = {
     'Spells="Burning Hands"',
   'Searing Sunburst':
     'Section=magic ' +
-    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{kiSaveDC} Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
+    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{monkSaveDC} Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
   'Sun Shield':
     'Section=combat,magic ' +
     'Note=' +

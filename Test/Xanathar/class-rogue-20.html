@@ -100,7 +100,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Ability Boost; Durable; Lightly Armored; Linguist; Magic Initiate (Cleric); Sharpshooter</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common; Choose 1 from any)</td>
-        <td><b>Rogue Features</b>: Ambush Master; Armor Proficiency (Light); Blindsense; Cunning Action; Ear For Deceit; Elegant Maneuver; Elusive; Evasion; Expertise (Rogue); Eye For Detail; Eye For Weakness; Fancy Footwork; Inquisitive; Insightful Fighting; Insightful Manipulator; Master Duelist; Master Of Intrigue; Master Of Tactics; Mastermind; Misdirection; Panache; Rakish Audacity; Reliable Talent; Roguish Archetype; Save Proficiency (Dexterity; Intelligence); Scout; Skill Proficiency (Choose 4 from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight Of Hand, Stealth); Skirmisher; Slippery Mind; Sneak Attack; Soul Of Deceit; Steady Eye; Stroke Of Luck; Sudden Strike; Superior Mobility; Survivalist; Swashbuckler; Thieves' Cant; Tool Proficiency (Thieves' Tools); Uncanny Dodge; Unerring Eye; Weapon Proficiency (Simple Weapons; Hand Crossbow; Longsword; Rapier; Shortsword)</td>
+        <td><b>Rogue Features</b>: Ambush Master; Armor Proficiency (Light); Blindsense; Cunning Action; Ear For Deceit; Elegant Maneuver; Elusive; Evasion; Expertise; Eye For Detail; Eye For Weakness; Fancy Footwork; Inquisitive; Insightful Fighting; Insightful Manipulator; Master Duelist; Master Of Intrigue; Master Of Tactics; Mastermind; Misdirection; Panache; Rakish Audacity; Reliable Talent; Roguish Archetype; Save Proficiency (Dexterity; Intelligence); Scout; Skill Proficiency (Choose 4 from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight Of Hand, Stealth); Skirmisher; Slippery Mind; Sneak Attack; Soul Of Deceit; Steady Eye; Stroke Of Luck; Sudden Strike; Superior Mobility; Survivalist; Swashbuckler; Thieves' Cant; Tool Proficiency (Thieves' Tools); Uncanny Dodge; Unerring Eye; Weapon Proficiency (Simple Weapons; Hand Crossbow; Longsword; Rapier; Shortsword)</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight; Religion)</td>
       </tr></table>
 </td>
@@ -108,8 +108,6 @@ var attributes = {
       <td><b>Feature Notes</b>:       <table id="FeatureNotes" style="width:100%">
       <tr style="text-align:center">
         <td><i>Roguish Archetype: 1 selection</i></td>
-      </tr><tr style="text-align:center">
-        <td>Linguist: Can create ciphers (DC 24 Intelligence to decode)</td>
       </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: Can receive aid from temples of Egyptian-Set and fellow believers</td>
       </tr></table>
@@ -170,11 +168,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Elegant Maneuver: Can use a bonus action to gain advantage on the next Acrobatics or Athletics check during that turn</td>
     </tr><tr style="text-align:center">
-      <td>Expertise (Rogue): +6 on 4 chosen proficient skills or Thieves' Tools</td>
+      <td>Expertise: +6 on 4 chosen proficient skills or Thieves' Tools</td>
     </tr><tr style="text-align:center">
       <td>Eye For Detail: Can use a bonus action to use Perception to spot a hidden item or Investigation to uncover a clue</td>
     </tr><tr style="text-align:center">
       <td>Insightful Manipulator: Can learn 2 choices of information about a target after 1 min of study: relative class levels, Charisma, Intelligence, or Wisdom</td>
+    </tr><tr style="text-align:center">
+      <td>Linguist: Can create ciphers (DC 24 Intelligence to decode)</td>
     </tr><tr style="text-align:center">
       <td>Master Of Intrigue: Can mimic an accent and speech patterns after listening for 1 min</td>
     </tr><tr style="text-align:center">
@@ -238,7 +238,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Ambush Master: Has advantage on initiative, and the first successful attack in the first round gives self and allies advantage on attacks vs. that foe for 1 rd</td>
       </tr><tr style="text-align:center">
-        <td>Cunning Action: Can use a bonus action to Dash, Disengage, or Hide once per rd</td>
+        <td>Cunning Action: Can use a bonus action to Dash, Disengage, or Hide</td>
       </tr><tr style="text-align:center">
         <td>Durable: Regains a minimum of 4 hit points from a Hit Die roll</td>
       </tr><tr style="text-align:center">
@@ -262,7 +262,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Skirmisher: Can use a reaction to move half speed without provoking opportunity attacks when a foe comes within 5'</td>
       </tr><tr style="text-align:center">
-        <td>Sneak Attack: +10d6 damage on attacks with advantage or on a foe threatened by another adjacent creature</td>
+        <td>Sneak Attack: Inflicts +10d6 HP on attacks with advantage or on a foe threatened by another adjacent creature once per turn</td>
       </tr><tr style="text-align:center">
         <td>Stroke Of Luck: Can change a miss into a hit or take an automatic 20 on an ability check once per short rest</td>
       </tr><tr style="text-align:center">

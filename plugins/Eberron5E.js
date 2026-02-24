@@ -62,7 +62,7 @@ function Eberron5E() {
     'race:Race,select-one,races', 'levels:Class Levels,bag,levels'
   );
 
-  SRD5E.abilityRules(rules);
+  SRD5E.abilityRules(rules, SRD5E.ABILITIES);
   SRD5E.combatRules(rules, PHB5E.ARMORS, PHB5E.SHIELDS, Eberron5E.WEAPONS);
   SRD5E.magicRules(rules, PHB5E.SCHOOLS, Eberron5E.SPELLS);
   Eberron5E.identityRules(
