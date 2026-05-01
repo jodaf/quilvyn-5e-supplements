@@ -1378,7 +1378,7 @@ Tasha.FEATURES = {
       'Sending',
   'Gift Of The Protectors':
     'Section=magic ' +
-    'Note="Creatures who have written their names in the Book Of Shadows retain 1 hit point when reduced to 0 hit points once per long rest"',
+    'Note="A creature who has written its name in the Book Of Shadows retains 1 hit point when reduced to 0 hit points once per long rest"',
   'Investment Of The Chain Master':
     'Section=magic ' +
     'Note="Familiar gains a 40\' fly or swim Speed, gains magical attacks, and inflicts DC %{spellDifficultyClass.K} saves; self can use a bonus action to command it to attack and a reaction to give it resistance to damage"',

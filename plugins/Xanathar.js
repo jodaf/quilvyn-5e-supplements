@@ -391,7 +391,7 @@ Xanathar.FEATURES = {
   // Path Of The Zealot
   'Divine Fury':
     'Section=combat ' +
-    'Note="First hit each rd during rage inflicts +1d6+%{levels.Barbarian//2} HP of a choice of necrotic or radiant"',
+    'Note="First hit each turn during rage inflicts +1d6+%{levels.Barbarian//2} HP of a choice of necrotic or radiant"',
   'Fanatical Focus':
     'Section=save Note="Can reroll a failed save once per rage"',
   'Rage Beyond Death':
@@ -401,7 +401,7 @@ Xanathar.FEATURES = {
     'Note="Life-restoring spells cast on self require no material components"',
   'Zealous Presence':
     'Section=combat ' +
-    'Note="R60\' Can use a bonus action to give 10 targets advantage on attacks and saving throws for 1 rd once per long rest"',
+    'Note="R60\' Can use a bonus action to give 10 targets advantage on attacks and saves until the start of the next turn once per long rest"',
 
   // Bard
   // College Of Glamour
@@ -410,10 +410,10 @@ Xanathar.FEATURES = {
     'Note="R60\' Can use 1 min performance to charm %{charismaModifier>?1} listeners (save DC %{spellDifficultyClass.B} Will negates; taking damage or seeing self attack an ally ends the effect) for 1 hr once per short rest"',
   'Mantle Of Inspiration':
     'Section=magic ' +
-    'Note="R60\' Can spend a Bardic Inspiration use and a bonus action to give %{charismaModifier>?1} targets %{levels.Bard//5*3+6<?14} temporary hit points and an immediate move without provoking opportunity attacks"',
+    'Note="R60\' Can use a bonus action and expend a Bardic Inspiration use to give %{charismaModifier>1?charismaModifier+\' targets\':\'1 target\'} %{levels.Bard//5*3+6<?14} temporary hit points and allow %{charismaModifier>1?\'them\':\'it\'} to use a reaction to make an immediate move without provoking opportunity attacks"',
   'Mantle Of Majesty':
     'Section=magic ' +
-    'Note="Can use a bonus action to cast <i>Command</i> once per rd for concentration up to 1 min once per long rest" ' +
+    'Note="Can use bonus actions to cast <i>Command</i> without expending a spell slot once per rd for concentration up to 1 min once per long rest" ' +
     'Spells=Command',
   'Unbreakable Majesty':
     'Section=combat ' +
@@ -1204,7 +1204,7 @@ Xanathar.SPELLS = {
     'Level=S1 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"R120\' Ranged spell attack inflicts 2d8+1d6 HP of a random damage type; may affect additional targets within 30\'"',
+      '"R120\' Ranged spell inflicts 2d8+1d6 HP of a random damage type; may affect additional targets within 30\'"',
   'Charm Monster':
     'School=Enchantment ' +
     'Level=B4,D4,K4,S4,W4 ' +
@@ -1346,7 +1346,7 @@ Xanathar.SPELLS = {
     'Level=D1,S1,W1 ' +
     'AtHigherLevels="inflicts +1d6 HP cold" ' +
     'Description=' +
-      '"R60\' Ranged spell attack inflicts 1d10 HP piercing on a hit and 2d6 HP cold in a 5\' radius (save Dexterity negates)"',
+      '"R60\' Ranged spell inflicts 1d10 HP piercing on a hit and 2d6 HP cold in a 5\' radius (save Dexterity negates cold)"',
   'Illusory Dragon':
     'School=Illusion ' +
     'Level=W8 ' +
@@ -1601,7 +1601,7 @@ Xanathar.SPELLS = {
     'Level=S4,W4 ' +
     'AtHigherLevels="inflicts +2d4 HP initial" ' +
     'Description=' +
-      '"R150\' 20\' radius inflicts 10d4 HP acid, then 5d4 HP acid next rd (save Dexterity half initial HP only)"',
+      '"R150\' 20\' radius inflicts 10d4 HP acid, then 5d4 HP acid at the end of each affected creature\'s next turn (save Dexterity half initial HP only)"',
   'Wall Of Light':
     'School=Evocation ' +
     'Level=K5,S5,W5 ' +
