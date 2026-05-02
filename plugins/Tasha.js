@@ -847,23 +847,23 @@ Tasha.FEATURES = {
   // Circle Of Stars
   'Cosmic Omen':
     'Section=combat ' +
-    'Note="R30\' Can use a reaction to increase or decrease an attack, ability, or save roll by 1d6 %{proficiencyBonus} times per long rest"',
+    'Note="R30\' Depending on the roll of a die after a long rest, can use a reaction either to increase or to decrease an attack, ability, or save roll by 1d6 %{proficiencyBonus} times before the next long rest"',
   'Full Of Stars':
     'Section=save ' +
     'Note="Starry Form gives resistance to bludgeoning, piercing, and slashing"',
   'Star Map':
     'Section=magic ' +
-    'Note="Knows the <i>Guidance</i> cantrip and can cast <i>Guiding Bolt</i> %{proficiencyBonus} times per long rest" ' +
+    'Note="Can cast <i>Guiding Bolt</i> without expending a spell slot %{proficiencyBonus} times per long rest" ' +
     'Spells=' +
       'Guidance,"Guiding Bolt"',
   'Starry Form':
     'Section=magic ' +
-    'Note="Can spend a Wild Shape use and use a bonus action to change into a constellation of an archer (R60\' can use a bonus action to make a ranged spell attack that inflicts %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} HP radiant), a chalice (R30\' casting a healing spell restores %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} to another), or a dragon (scores a minimum of 10 on concentration rolls)"',
+    'Note="Can use a bonus action and spend a Wild Shape use to emit a 10\' bright light for 10 min, gaining the benefits of the archer constellation (can use a bonus action to make a R60\' spell attack that inflicts %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} HP radiant), the chalice constellation (cast healing spells that restore %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} to another within 30\'), or the dragon constellation (%{magicNotes.twinklingConstellations?\\"gain a 20\' fly Speed and \\":\'\'}score a minimum of 10 on concentration rolls)"',
   'Twinkling Constellations':
     'Section=magic,magic ' +
     'Note=' +
       '"Has increased Starry Form effects",' +
-      '"Dragon Starry Form gives a 20\' fly Speed, and can switch between Starry Forms once per rd"',
+      '"Can switch between Starry Forms once per rd"',
   // Circle Of Wildfire
   'Blazing Revival':
     'Section=magic ' +

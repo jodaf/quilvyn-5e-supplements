@@ -409,8 +409,8 @@ Xanathar.FEATURES = {
     'Section=magic ' +
     'Note="R60\' Can use 1 min performance to charm %{charismaModifier>?1} listeners (save DC %{spellDifficultyClass.B} Will negates; taking damage or seeing self attack an ally ends the effect) for 1 hr once per short rest"',
   'Mantle Of Inspiration':
-    'Section=magic ' +
-    'Note="R60\' Can use a bonus action and expend a Bardic Inspiration use to give %{charismaModifier>1?charismaModifier+\' targets\':\'1 target\'} %{levels.Bard//5*3+6<?14} temporary hit points and allow %{charismaModifier>1?\'them\':\'it\'} to use a reaction to make an immediate move without provoking opportunity attacks"',
+    'Section=combat ' +
+    'Note="R60\' Can use a bonus action and expend a Bardic Inspiration use to give %{charismaModifier>1?charismaModifier+\' targets\':\'1 target\'} %{levels.Bard//5*3+6<?14} temporary hit points and to allow %{charismaModifier>1?\'them\':\'it\'} to use a reaction to make an immediate move without provoking opportunity attacks"',
   'Mantle Of Majesty':
     'Section=magic ' +
     'Note="Can use bonus actions to cast <i>Command</i> without expending a spell slot once per rd for concentration up to 1 min once per long rest" ' +
