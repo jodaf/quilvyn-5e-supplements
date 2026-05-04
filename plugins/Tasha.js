@@ -1034,14 +1034,16 @@ Tasha.FEATURES = {
     'Note="Can spend 2 ki points to regain 1d%{combatNotes.martialArts}+%{proficiencyBonus} hit points"',
   // Way Of Mercy
   'Flurry Of Healing And Harm':
-    'Section=combat ' +
-    'Note="Can substitute Hand Of Healing for each Flurry Of Blows strike and add Hand Of Harm to one Flurry Of Blows strike"',
+    'Section=combat,magic ' +
+    'Note=' +
+      '"Has increased Hand Of Harm effects",' +
+      '"Has increased Hand Of Healing effects"',
   'Hand Of Harm':
     'Section=combat ' +
-    'Note="Can spend 1 ki point to inflict +1d%{combatNotes.martialArts}+%{wisdomModifier} HP necrotic with an unarmed strike once per rd"',
+    'Note="Can%{combatNotes.flurryOfHealingAndHarm?\'\':\' spend 1 ki point to\'} inflict +1d%{combatNotes.martialArts}+%{wisdomModifier} HP necrotic%{combatNotes.\\"physician\'sTouch\\"?\' and poisoned until the end of the next turn\':\'\'} with an unarmed strike once per turn"',
   'Hand Of Healing':
-    'Section=combat ' +
-    'Note="Can spend 1 ki point or forego 1 Flurry Of Blows strike to use touch to restore 1d%{combatNotes.martialArts}+%{wisdomModifier} hit points"',
+    'Section=magic ' +
+    'Note="Can spend 1 ki point or forego %{magicNotes.flurryOfHealingAndHarm?\'1 or more Flurry Of Blows strikes\':\' Flurry Of Blows strike\'} to use touch to restore 1d%{combatNotes.martialArts}+%{wisdomModifier} hit points%{$\\"magicNotes.physician\'sTouch\\"?\' and to end a disease or condition\':\'\'}"',
   'Hand Of Ultimate Mercy':
     'Section=magic ' +
     'Note="Can spend 5 ki points to revive a corpse dead up to 24 hr, restoring 4d10+%{wisdomModifier} hit points and removing conditions, once per long rest"',
@@ -1051,8 +1053,10 @@ Tasha.FEATURES = {
       '"Owns a mask associated with the Way Of Mercy",' +
       '"Skill Proficiency (Insight; Medicine)/Tool Proficiency (Herbalism Kit)"',
   "Physician's Touch":
-    'Section=combat ' +
-    'Note="Can use Hand Of Healing to end a disease or condition and Hand Of Harm to inflict poisoned for 1 rd"',
+    'Section=combat,magic ' +
+    'Note=' +
+      '"Has increased Hand Of Harm effects",' +
+      '"Has increased Hand Of Healing effects"',
   // Way Of The Astral Self
   'Arms Of The Astral Self':
     'Section=ability,combat ' +
