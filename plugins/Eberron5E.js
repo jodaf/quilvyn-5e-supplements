@@ -290,7 +290,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=skill Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Eldritch Cannon':
     'Section=combat ' +
-    'Note="Can create a magical cannon (armor class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
+    'Note="Can create a magical cannon (Armor Class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
   'Explosive Cannon':
     'Section=combat,combat ' +
     'Note=' +
@@ -322,11 +322,11 @@ Eberron5E.FEATURES_ADDED = {
   'Improved Defender':
     'Section=combat,combat ' +
     'Note=' +
-      '"Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 armor class",' +
+      '"Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 Armor Class",' +
       '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Can create a mechanical companion (armor class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
   // Infusions
   'Boots Of The Winding Path':
     'Section=magic ' +
@@ -336,13 +336,13 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Infused rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks that ignore half cover"',
   'Enhanced Defense':
     'Section=magic ' +
-    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} armor class"',
+    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} Armor Class"',
   'Enhanced Weapon':
     'Section=magic ' +
     'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
   'Homunculus Servant':
     'Section=magic ' +
-    'Note="Can create a mechanical companion (armor class 13; %{levels.Artificer+intelligenceModifier+1} hit points; R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
+    'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points; R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
   'Radiant Weapon':
     'Section=magic ' +
     'Note="Infused weapon with 4 charges gives +1 attack and damage and emits a 30\' bright light on command; the wielder can use a reaction and 1 charge to blind a successful attacker (save DC %{spellDifficultyClass.A} Constitution negates) for 1 rd; the weapon regains 1d4 charges each dawn"',
@@ -353,10 +353,10 @@ Eberron5E.FEATURES_ADDED = {
     'Section=magic Note="Can replicate a chosen wondrous item"',
   'Repulsion Shield':
     'Section=magic ' +
-    'Note="Infused shield with 4 charges gives +1 armor class, and the holder can use a reaction and 1 charge to push a successful attacker 15\'; the shield regains 1d4 charges each dawn"',
+    'Note="Infused shield with 4 charges gives +1 Armor Class, and the holder can use a reaction and 1 charge to push a successful attacker 15\'; the shield regains 1d4 charges each dawn"',
   'Resistant Armor':
     'Section=magic ' +
-    'Note="Infused armor gives +1 armor class and resistance to a chosen damage type"',
+    'Note="Infused armor gives +1 Armor Class and resistance to a chosen damage type"',
   'Returning Weapon':
     'Section=magic ' +
     'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
@@ -373,7 +373,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Strength)",' +
-      '"Can use a double-bladed scimitar one-handed and gains +1 armor class when wielding one two-handed"',
+      '"Can use a double-bladed scimitar one-handed and gains +1 Armor Class when wielding one two-handed"',
 
   // Races
 
@@ -451,7 +451,7 @@ Eberron5E.FEATURES_ADDED = {
   'Natural Athlete':'Section=skill Note="Skill Proficiency (Athletics)"',
   'Shifting (Beasthide)':
     'Section=combat ' +
-    'Note="Gains +1 armor class and +1d6 temporary hit points while shifted"',
+    'Note="Gains +1 Armor Class and +1d6 temporary hit points while shifted"',
   // Longtooth Shifter
   'Fierce':'Section=skill Note="Skill Proficiency (Intimidation)"',
   'Longtooth Ability Adjustment':

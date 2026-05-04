@@ -567,7 +567,7 @@ Tasha.FEATURES = {
     'Section=skill Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Eldritch Cannon':
     'Section=combat ' +
-    'Note="Can create a magical cannon (armor class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
+    'Note="Can create a magical cannon (Armor Class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
   'Explosive Cannon':
     'Section=combat,combat ' +
     'Note=' +
@@ -599,11 +599,11 @@ Tasha.FEATURES = {
   'Improved Defender':
     'Section=combat,combat ' +
     'Note=' +
-      '"Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 armor class",' +
+      '"Arcane Jolt inflicts +2d6 HP or restores +2d6 hit points, and Steel Defender gains +2 Armor Class",' +
       '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Can create a mechanical companion (armor class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
   // Infusions
   'Arcane Propulsion Armor':
     'Section=magic ' +
@@ -619,7 +619,7 @@ Tasha.FEATURES = {
     'Note="Infused rod, staff, or wand gives +%{levels.Artificer<10?1:2} spell attacks that ignore half cover"',
   'Enhanced Defense':
     'Section=magic ' +
-    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} armor class"',
+    'Note="Infused armor or shield gives +%{levels.Artificer<10?1:2} Armor Class"',
   'Enhanced Weapon':
     'Section=magic ' +
     'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
@@ -628,7 +628,7 @@ Tasha.FEATURES = {
     'Note="Infused helmet gives advantage on initiative, and the wearer cannot be surprised"',
   'Homunculus Servant':
     'Section=magic ' +
-    'Note="Can create a mechanical companion (armor class 13; %{levels.Artificer+intelligenceModifier+1} hit points; R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
+    'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points; R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
   'Mind Sharpener':
     'Section=magic ' +
     'Note="Infused armor or robes with 4 charges allows the wearer to use a reaction and 1 charge to change a spell concentration roll from failure to success; the item regains 1d4 charges each dawn"',
@@ -642,10 +642,10 @@ Tasha.FEATURES = {
     'Section=magic Note="Can replicate a chosen wondrous item"',
   'Repulsion Shield':
     'Section=magic ' +
-    'Note="Infused shield with 4 charges gives +1 armor class, and the holder can use a reaction and 1 charge to push a successful attacker 15\'; the shield regains 1d4 charges each dawn"',
+    'Note="Infused shield with 4 charges gives +1 Armor Class, and the holder can use a reaction and 1 charge to push a successful attacker 15\'; the shield regains 1d4 charges each dawn"',
   'Resistant Armor':
     'Section=magic ' +
-    'Note="Infused armor gives +1 armor class and resistance to a chosen damage type"',
+    'Note="Infused armor gives +1 Armor Class and resistance to a chosen damage type"',
   'Returning Weapon':
     'Section=magic ' +
     'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
@@ -670,7 +670,7 @@ Tasha.FEATURES = {
     'Note="R30\' During rage, can give %{constitutionModifier>?1} willing target%{constitutionModifier>1?\'s\':\'\'} +1d6 HP damage once per rd and self 5 temporary hit points per target %{proficiencyBonus} times per long rest"',
   'Form Of The Beast':
     'Section=combat ' +
-    'Note="During rage, can use bite (inflicts 1d8+%{strengthModifier} HP piercing, and a hit restores %{proficiencyBonus} hit points to self once per rd when below %{hitPoints//2} hit points), claws (inflicts 1d6+%{strengthModifier} HP slashing each and can make an additional attack once per rd), or tail (+5\' reach inflicts 1d8+%{strengthModifier} HP slashing and can use a reaction when hit by a foe within 10\' to gain +1d8 armor class)"',
+    'Note="During rage, can use bite (inflicts 1d8+%{strengthModifier} HP piercing, and a hit restores %{proficiencyBonus} hit points to self once per rd when below %{hitPoints//2} hit points), claws (inflicts 1d6+%{strengthModifier} HP slashing each and can make an additional attack once per rd), or tail (+5\' reach inflicts 1d8+%{strengthModifier} HP slashing and can use a reaction when hit by a foe within 10\' to gain +1d8 Armor Class)"',
   'Infectious Fury':
     'Section=combat ' +
     'Note="Hit with a natural weapon can force the target to use its reaction to attack a chosen creature or can inflict +2d12 HP psychic (save DC %{8+constitutionModifier+proficiencyBonus} Wisdom negates) %{proficiencyBonus} times per long rest"',
@@ -700,7 +700,7 @@ Tasha.FEATURES = {
   // College Of Creation
   'Animating Performance':
     'Section=magic ' +
-    'Note="R30\' Can animate an obedient Large object (armor class 16; %{levels.Bard*5+10} hit points; move or fly 30\'; +%{spellAttackModifier.B} attack inflicts 1d10+%{proficiencyBonus} HP; Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) for 1 hr once per long rest; can spend level 3 or higher spell slots to animate additional objects"',
+    'Note="R30\' Can animate an obedient Large object (Armor Class 16; %{levels.Bard*5+10} hit points; move or fly 30\'; +%{spellAttackModifier.B} attack inflicts 1d10+%{proficiencyBonus} HP; Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) for 1 hr once per long rest; can spend level 3 or higher spell slots to animate additional objects"',
   'Creative Crescendo':
     'Section=magic ' +
     'Note="Can use Performance Of Creation to create %{(charismaModifier-1)>?1} additional small object%{charismaModifier>2?\'s\':\'\'}"',
@@ -883,7 +883,7 @@ Tasha.FEATURES = {
     'Note="When the Wildfire Spirit is present, spells can be cast through it, fire spells inflict +1d8 HP fire, and healing spells restore +1d8 hit points"',
   'Summon Wildfire Spirit':
     'Section=magic ' +
-    'Note="R30\' Can spend a Wild Shape use to inflict 2d6 HP fire in a 10\' radius (save DC %{spellDifficultyClass.D} Dexterity negates) and summon an obedient Wildfire Spirit (armor class 13; %{levels.Druid*5+5} hit points; move or fly 30\'; R60\' +%{spellAttackModifier.D} attack inflicts 1d6+%{proficiencyBonus} HP fire; can teleport targets in a 5\' radius 15\', inflicting 1d6+%{proficiencyBonus} on those left behind (save DC %{spellDifficultyClass.D} Dexterity negates)) for 1 hr"',
+    'Note="R30\' Can spend a Wild Shape use to inflict 2d6 HP fire in a 10\' radius (save DC %{spellDifficultyClass.D} Dexterity negates) and summon an obedient Wildfire Spirit (Armor Class 13; %{levels.Druid*5+5} hit points; move or fly 30\'; R60\' +%{spellAttackModifier.D} attack inflicts 1d6+%{proficiencyBonus} HP fire; can teleport targets in a 5\' radius 15\', inflicting 1d6+%{proficiencyBonus} on those left behind (save DC %{spellDifficultyClass.D} Dexterity negates)) for 1 hr"',
 
   // Fighter
   'Fighting Style (Blind Fighting)':
@@ -909,56 +909,56 @@ Tasha.FEATURES = {
   'Ambush':
     'Section=combat,skill ' +
     'Note=' +
-      '"Can spend 1 superiority die to add the roll to initiative",' +
-      '"Can spend 1 superiority die to add the roll to a Stealth check"',
+      '"Can spend a superiority die to add the roll to initiative",' +
+      '"Can spend a superiority die to add the roll to a Stealth check"',
   'Bait And Switch':
     'Section=combat ' +
-    'Note="Can spend 1 superiority die to swap places with an adjacent willing creature and to boost the armor class of either self or the other creature for 1 rd by the rolled value"',
+    'Note="Can spend a superiority die to swap places with an adjacent willing creature and to boost the Armor Class of either self or the other creature by the rolled value until the start of the next turn"',
   'Brace':
     'Section=combat ' +
-    'Note="Can spend 1 superiority die and use a reaction to attack a creature that moves into range, adding the roll to the damage"',
+    'Note="Can spend a superiority die and use a reaction to attack a creature that moves into range, adding the roll to the damage"',
   'Commanding Presence':
     'Section=skill ' +
-    'Note="Can spend 1 superiority die to add the roll to an Intimidation, Performance, or Persuasion check"',
+    'Note="Can spend a superiority die to add the roll to an Intimidation, Performance, or Persuasion check"',
   'Grappling Strike':
     'Section=combat ' +
-    'Note="After a hit, can spend 1 superiority die to add the roll to an Athletics grapple check"',
+    'Note="After a hit, can spend a superiority die to add the roll to an Athletics grapple check"',
   'Quick Toss':
     'Section=combat ' +
-    'Note="Can spend 1 superiority die and use a bonus action to draw and throw a weapon, adding the roll to the damage"',
+    'Note="Can spend a superiority die and use a bonus action to draw and throw a weapon, adding the roll to the damage"',
   'Tactical Assessment':
     'Section=skill ' +
-    'Note="Can spend 1 superiority die to add the roll to a History, Insight, or Investigation check"',
+    'Note="Can spend a superiority die to add the roll to a History, Insight, or Investigation check"',
   // Psi Warrior
   'Bulwark Of Force':
     'Section=combat ' +
-    'Note="R30\' Can use a bonus action to give %{intelligenceModifier>?1} target%{intelligenceModifier>1?\'s\':\'\'} half cover for 1 min once per long rest; can spend Psionic Energy dice for additional uses"',
+    'Note="R30\' Can use a bonus action to give %{intelligenceModifier>?1} target%{intelligenceModifier>1?\'s\':\'\'} half cover for 1 min once per long rest; can spend psionic energy dice for additional uses"',
   'Guarded Mind':
     'Section=save ' +
-    'Note="Has resistance to psychic damage/Can spend 1 Psionic Energy die to end charmed and frightened conditions"',
+    'Note="Has resistance to psychic damage and can spend 1 psionic energy die to end charmed and frightened conditions"',
   'Protective Field':
     'Section=combat ' +
-    'Note="R30\' Can spend 1 Psionic Energy die and use a reaction to negate 1d%{combatNotes.psionicPower}+%{intelligenceModifier>?1} HP damage"',
+    'Note="R30\' Can spend 1 psionic energy die and use a reaction to negate 1d%{combatNotes.psionicPower}+%{intelligenceModifier>?1} HP damage"',
   'Psi-Powered Leap':
     'Section=ability ' +
-    'Note="Can use a bonus action to gain a %{speed*2}\' fly Speed for 1 rd once per short rest; can spend Psionic Energy dice for additional uses"',
+    'Note="Can use a bonus action to gain a %{speed*2}\' fly Speed until the end of the current turn once per short rest; can spend psionic energy dice for additional uses"',
   'Psionic Power':
     'Section=combat ' +
-    'Note="Can use %{proficiencyBonus*2} d%V Psionic Energy dice per long rest and can use a bonus action to regain 1 die once per short rest"',
+    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest and can use a bonus action to regain 1 die once per short rest"',
   'Psionic Strike':
     'Section=combat ' +
-    'Note="R30\' Can spend 1 Psionic Energy die after a hit to inflict +1d%{combatNotes.psionicPower}+%{intelligenceModifier} HP force"',
+    'Note="R30\' Can spend 1 psionic energy die after a hit to inflict +1d%{combatNotes.psionicPower}+%{intelligenceModifier} HP force"',
   'Telekinetic Adept':
     'Section=feature ' +
-    'Note="Has Psi-Powered Leap and Telekinetic Thrust features"',
+    'Note="Has the Psi-Powered Leap and Telekinetic Thrust features"',
   'Telekinetic Master':
     'Section=magic ' +
-    'Note="Can cast <i>Telekinesis</i> and use bonus actions while concentrating to make a weapon attack each rd once per long rest; can spend Psionic Energy dice for additional uses" ' +
+    'Note="Can cast <i>Telekinesis</i> and use bonus actions while concentrating to make a weapon attack each rd once per long rest; can spend psionic energy dice for additional uses" ' +
     'Spells=' +
       'Telekinesis',
   'Telekinetic Movement':
-    'Section=combat ' +
-    'Note="R30\' Can move a Large object or creature 30\' once per short rest; can spend Psionic Energy dice for additional uses"',
+    'Section=magic ' +
+    'Note="R30\' Can move a Large object or willing creature 30\', or a Tiny object to or from self hand, once per short rest; can spend psionic energy dice for additional uses"',
   'Telekinetic Thrust':
     'Section=combat ' +
     'Note="Psionic Strike can inflict knocked prone or a 10\' push (save DC %{8+proficiencyBonus+intelligenceModifier} Strength negates)"',
@@ -1061,7 +1061,7 @@ Tasha.FEATURES = {
       '"Can spend 1 ki point and use a bonus action to inflict 2d%{combatNotes.martialArts} HP force (save DC %{monkSaveDC} Dexterity negates) to targets in a 10\' radius and gain +5\' unarmed reach, +%{wisdomModifier-maxDexOrStrMod} unarmed attack, and +%{wisdomModifier-maxDexOrStrMod} HP force unarmed damage for 10 min"',
   'Awakened Astral Self':
     'Section=combat ' +
-    'Note="Can spend 5 ki points and use a bonus action to gain +2 armor class and a third Arms Of The Astral Self attack each rd"',
+    'Note="Can spend 5 ki points and use a bonus action to gain +2 Armor Class and a third Arms Of The Astral Self attack each rd"',
   'Body Of The Astral Self':
     'Section=combat ' +
     'Note="While using both Arms and Visage Of The Astral Self, can use a reaction to negate 1d10+%{wisdomModifier} HP acid, cold, fire, force, lightning, or thunder damage and can inflict +1d%{combatNotes.martialArts} HP damage with Arms Of The Astral Self once per rd"',
@@ -1089,7 +1089,7 @@ Tasha.FEATURES = {
       '"Allies who begin a turn within %{levels.Paladin<18?5:10}\' gain +10\' Speed for 1 rd"',
   'Glorious Defense':
     'Section=combat ' +
-    'Note="R10\' Can use a reaction to give a successful attack target +%{charismaModifier>?1} armor class and, if this causes the attacker to miss, to attack the attacker, %{charismaModifier>1?charismaModifier+\' times\':\'once\'} per long rest"',
+    'Note="R10\' Can use a reaction to give a successful attack target +%{charismaModifier>?1} Armor Class and, if this causes the attacker to miss, to attack the attacker, %{charismaModifier>1?charismaModifier+\' times\':\'once\'} per long rest"',
   'Inspiring Smite':
     'Section=combat ' +
     'Note="R30\' Can use Channel Divinity as a bonus action after a Divine Smite to distribute 2d8+%{levels.Paladin} temporary hit points"',
@@ -1270,26 +1270,26 @@ Tasha.FEATURES = {
   // Soulknife
   'Homing Strikes':
     'Section=combat ' +
-    'Note="Can add 1d%{combatNotes.psionicPower} to a failed Psychic Blade attack, spending a Psionic Energy die if the sum is enough to hit"',
+    'Note="Can add 1d%{combatNotes.psionicPower} to a failed Psychic Blade attack, spending a psionic energy die if the sum is enough to hit"',
   'Psi-Bolstered Knack':
     'Section=skill ' +
-    'Note="Can add a Psionic Energy die roll to a failed proficient skill or tool check, spending the die only if the modified check succeeds"',
+    'Note="Can add a psionic energy die roll to a failed proficient skill or tool check, spending the die only if the modified check succeeds"',
   // Psionic Power as above
   'Psychic Blades':
     'Section=combat ' +
     'Note="Can use a free hand to attack with a R60\' magic psychic blade, inflicting 1d6+%{strengthModifier>?dexterityModifier} HP psychic; if both hands are free, can use a bonus action for a second blade attack that inflicts 1d4+%{strengthModifier>?dexterityModifier}"',
   'Psychic Teleportation':
     'Section=combat ' +
-    'Note="Can spend 1 Psionic Energy die and use a bonus action to teleport 1d%{combatNotes.psionicPower}x10\'"',
+    'Note="Can spend 1 psionic energy die and use a bonus action to teleport 1d%{combatNotes.psionicPower}x10\'"',
   'Psychic Veil':
     'Section=magic ' +
-    'Note="Can become invisible for 1 hr once per long rest; inflicting damage or forcing a saving throw ends; can spend Psionic Energy dice for additional uses"',
+    'Note="Can become invisible for 1 hr once per long rest; inflicting damage or forcing a saving throw ends; can spend psionic energy dice for additional uses"',
   'Psychic Whispers':
     'Section=skill ' +
-    'Note="Can establish telepathic communication within 1 mile with %{proficiencyBonus} visible creatures for 1d%{combatNotes.psionicPower} hr once per long rest; can spend Psionic Energy dice for additional uses"',
+    'Note="Can establish telepathic communication within 1 mile with %{proficiencyBonus} visible creatures for 1d%{combatNotes.psionicPower} hr once per long rest; can spend psionic energy dice for additional uses"',
   'Rend Mind':
     'Section=combat ' +
-    'Note="Can inflict stunned (save DC %{8+dexterityModifier+proficiencyBonus} Wisdom ends) for 1 min with a Psychic Blade Sneak Attack once per long rest; can spend 3 Psionic Energy dice per additional use"',
+    'Note="Can inflict stunned (save DC %{8+dexterityModifier+proficiencyBonus} Wisdom ends) for 1 min with a Psychic Blade Sneak Attack once per long rest; can spend 3 psionic energy dice per additional use"',
   'Soul Blades':
     'Section=feature ' +
     'Note="Has the Homing Strikes and Psychic Teleportation features"',
@@ -1427,7 +1427,7 @@ Tasha.FEATURES = {
   "Genie's Vessel":
     'Section=combat ' +
     'Note=' +
-      '"Can inflict +%{proficiencyBonus} HP %{genieEnergy} once per rd and retreat into a vessel with armor class %{spellDifficultyClass.K} and %{levels.Warlock+proficiencyBonus} hit points for %{proficiencyBonus*2} hr once per long rest"',
+      '"Can inflict +%{proficiencyBonus} HP %{genieEnergy} once per rd and retreat into a vessel with Armor Class %{spellDifficultyClass.K} and %{levels.Warlock+proficiencyBonus} hit points for %{proficiencyBonus*2} hr once per long rest"',
   'Limited Wish':
     'Section=magic ' +
     'Note="Can gain the effects of a 6th level, 1-action spell once per 1d4 long rests"',
@@ -1606,48 +1606,48 @@ Tasha.SPELLS = {
   'Summon Aberration':
     'School=Conjuration ' +
     'Level=K4,W4 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, and attack damage by 1" ' +
-    'Description="R90\' Summons an obedient aberrant spirit (armor class 15; 40 hit points; move 30\'; multiattack equal to half the spell level) of type beholderkin (R150\' inflicts 1d8+7 HP psychic; fly 30\'), slaad (inflicts 1d10+7 HP slashing and negates healing for 1 rd; regenerates 5 hit points per rd), or star spawn (inflicts 1d8+7 HP psychic, plus 2d6 HP psychic (save Wisdom negates) in a 5\' radius) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the Armor Class by 1, hit points by 10, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient aberrant spirit (Armor Class 15; 40 hit points; move 30\'; multiattack equal to half the spell level) of type beholderkin (R150\' inflicts 1d8+7 HP psychic; fly 30\'), slaad (inflicts 1d10+7 HP slashing and negates healing for 1 rd; regenerates 5 hit points per rd), or star spawn (inflicts 1d8+7 HP psychic, plus 2d6 HP psychic (save Wisdom negates) in a 5\' radius) for concentration up to 1 hr"',
   'Summon Beast':
     'School=Conjuration ' +
     'Level=D2,R2 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 5, and attack damage by 1" ' +
-    'Description="R90\' Summons an obedient bestial spirit (armor class 13; multiattack equal to half the spell level; inflicts 1d8+6 piercing) of air (20 hit points; fly 60\'; does not provoke opportunity attacks when flying out of reach), land (30 hit points; move and climb 30\'; has advantage on attacks when within 5\' of an ally), or water (30 hit points; swim 30\'; water-breathing; has advantage on attacks when within 5\' of an ally) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the Armor Class by 1, hit points by 5, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient bestial spirit (Armor Class 13; multiattack equal to half the spell level; inflicts 1d8+6 piercing) of air (20 hit points; fly 60\'; does not provoke opportunity attacks when flying out of reach), land (30 hit points; move and climb 30\'; has advantage on attacks when within 5\' of an ally), or water (30 hit points; swim 30\'; water-breathing; has advantage on attacks when within 5\' of an ally) for concentration up to 1 hr"',
   'Summon Celestial':
     'School=Conjuration ' +
     'Level=C5,P5 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, attack damage by 1, and healing by 1" ' +
-    'Description="R90\' Summons an obedient celestial spirit (40 hit points; move 30\' and fly 40\'; multiattack equal to half the spell level; touch restores 2d8+5 hit points once per day) of type avenger (armor class 16; R150\' inflicts 2d6+7 HP radiant) or defender (armor class 18; inflicts 1d10+8 HP radiant and gives 1d10 temporary hit points to a creature within 10\') for concentration up to 1 hr"',
+    'AtHigherLevels="increases the Armor Class by 1, hit points by 10, attack damage by 1, and healing by 1" ' +
+    'Description="R90\' Summons an obedient celestial spirit (40 hit points; move 30\' and fly 40\'; multiattack equal to half the spell level; touch restores 2d8+5 hit points once per day) of type avenger (Armor Class 16; R150\' inflicts 2d6+7 HP radiant) or defender (Armor Class 18; inflicts 1d10+8 HP radiant and gives 1d10 temporary hit points to a creature within 10\') for concentration up to 1 hr"',
   'Summon Construct':
     'School=Conjuration ' +
     'Level=A4,W4 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 15, and attack damage by 1" ' +
-    'Description="R90\' Summons an obedient construct spirit (armor class 17; 40 hit points; move 30\'; multiattack equal to half the spell level; slam inflicts 1d8+8) of clay (attacks an adjacent creature or moves 15\' as a reaction to damage), metal (inflicts 1d10 HP fire on adjacent melee attackers), or stone (can inflict half Speed and loss of reactions (save Wisdom negates) on creatures within 10\') for concentration up to 1 hr"',
+    'AtHigherLevels="increases the Armor Class by 1, hit points by 15, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient construct spirit (Armor Class 17; 40 hit points; move 30\'; multiattack equal to half the spell level; slam inflicts 1d8+8) of clay (attacks an adjacent creature or moves 15\' as a reaction to damage), metal (inflicts 1d10 HP fire on adjacent melee attackers), or stone (can inflict half Speed and loss of reactions (save Wisdom negates) on creatures within 10\') for concentration up to 1 hr"',
   'Summon Elemental':
     'School=Conjuration ' +
     'Level=D4,"K4 [The Fathomless]",R4,W4 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, and attack damage by 1" ' +
-    'Description="R90\' Summons an obedient elemental spirit (armor class 15; 50 hit points; move 40\'; multiattack equal to half the spell level; slam inflicts 1d10+8 HP fire or bludgeoning) of air (fly 40\'; can move through a 1\\" gap without squeezing), earth (burrow 40\'), fire (can move through a 1\\" gap without squeezing), or water (swim 40\'; can move through a 1\\" gap without squeezing) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the Armor Class by 1, hit points by 10, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient elemental spirit (Armor Class 15; 50 hit points; move 40\'; multiattack equal to half the spell level; slam inflicts 1d10+8 HP fire or bludgeoning) of air (fly 40\'; can move through a 1\\" gap without squeezing), earth (burrow 40\'), fire (can move through a 1\\" gap without squeezing), or water (swim 40\'; can move through a 1\\" gap without squeezing) for concentration up to 1 hr"',
   'Summon Fey':
     'School=Conjuration ' +
     'Level=D3,K3,R3,W3 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, and piercing damage by 1" ' +
-    'Description="R90\' Summons an obedient fey spirit (armor class 15; 30 hit points; move 40\' and can teleport 30\'; multiattack equal to half the spell level; short sword inflicts 1d6+6 HP piercing plus 1d6 force), of type fuming (has advantage on the next attack in the same turn after teleporting), mirthful (can charm 1 creature (save Wisdom negates) within 10\' after teleporting), or tricksy (can create darkness in a 5\' cube for 1 rd after teleporting) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the Armor Class by 1, hit points by 10, and piercing damage by 1" ' +
+    'Description="R90\' Summons an obedient fey spirit (Armor Class 15; 30 hit points; move 40\' and can teleport 30\'; multiattack equal to half the spell level; short sword inflicts 1d6+6 HP piercing plus 1d6 force), of type fuming (has advantage on the next attack in the same turn after teleporting), mirthful (can charm 1 creature (save Wisdom negates) within 10\' after teleporting), or tricksy (can create darkness in a 5\' cube for 1 rd after teleporting) for concentration up to 1 hr"',
   'Summon Fiend':
     'School=Conjuration ' +
     'Level=K6,W6 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 15, and damage by 1" ' +
-    'Description="R90\' Summons an obedient fiendish spirit (armor class 18; move 40\'; multiattack equal to half the spell level) of type demon (50 hit points; climb 40\'; bite inflicts 1d12+9 HP necrotic; death or end of spell inflicts 2d10+6 HP fire (save Dexterity half) in a 10\' radius), devil (40 hit points; fly 60\'; R150\' flame inflicts 2d6+9 fire) or yugoloth (60 hit points; claws inflict 1d8+9 slashing and allow teleporting 30\' afterward) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the Armor Class by 1, hit points by 15, and damage by 1" ' +
+    'Description="R90\' Summons an obedient fiendish spirit (Armor Class 18; move 40\'; multiattack equal to half the spell level) of type demon (50 hit points; climb 40\'; bite inflicts 1d12+9 HP necrotic; death or end of spell inflicts 2d10+6 HP fire (save Dexterity half) in a 10\' radius), devil (40 hit points; fly 60\'; R150\' flame inflicts 2d6+9 fire) or yugoloth (60 hit points; claws inflict 1d8+9 slashing and allow teleporting 30\' afterward) for concentration up to 1 hr"',
   'Summon Shadowspawn':
     'School=Conjuration ' +
     'Level=K3,W3 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 15, and attack damage by 1" ' +
-    'Description="R90\' Summons an obedient shadow spirit (armor class 14; 35 hit points; move 40\'; multiattack equal to half the spell level; inflicts 1d12+6 cold; R30\' scream inflicts frightened (save Wisdom ends) once per day) of type fury (has advantage when attacking frightened foes), despair (R5\' inflicts -20 Speed), or fear (uses a bonus action to hide in dim light or darkness) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the Armor Class by 1, hit points by 15, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient shadow spirit (Armor Class 14; 35 hit points; move 40\'; multiattack equal to half the spell level; inflicts 1d12+6 cold; R30\' scream inflicts frightened (save Wisdom ends) once per day) of type fury (has advantage when attacking frightened foes), despair (R5\' inflicts -20 Speed), or fear (uses a bonus action to hide in dim light or darkness) for concentration up to 1 hr"',
   'Summon Undead':
     'School=Necromancy ' +
     'Level=K3,W3 ' +
-    'AtHigherLevels="increases the armor class by 1, hit points by 10, and attack damage by 1" ' +
-    'Description="R90\' Summons an obedient undead spirit (armor class 14; move 30\'; multiattack equal to half the spell level) of type ghostly (30 hit points; fly 40\'; moves through creatures and objects; inflicts 1d8+6 HP necrotic and frightened (save Wisdom HP only)), putrid (30 hit points; R5\' aura inflicts poisoned (save Constitution negates) for 1 rd; inflicts 1d6+6 slashing, plus paralysis (save Constitution HP negates) for 1 rd on a poisoned target), or skeletal (20 hit points; R150\' inflicts 2d4+6 HP necrotic) for concentration up to 1 hr"',
+    'AtHigherLevels="increases the Armor Class by 1, hit points by 10, and attack damage by 1" ' +
+    'Description="R90\' Summons an obedient undead spirit (Armor Class 14; move 30\'; multiattack equal to half the spell level) of type ghostly (30 hit points; fly 40\'; moves through creatures and objects; inflicts 1d8+6 HP necrotic and frightened (save Wisdom HP only)), putrid (30 hit points; R5\' aura inflicts poisoned (save Constitution negates) for 1 rd; inflicts 1d6+6 slashing, plus paralysis (save Constitution HP negates) for 1 rd on a poisoned target), or skeletal (20 hit points; R150\' inflicts 2d4+6 HP necrotic) for concentration up to 1 hr"',
   'Sword Burst': // ref SwordCoast
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
@@ -1665,7 +1665,7 @@ Tasha.SPELLS = {
   "Tasha's Otherworldly Guise":
     'School=Transmutation ' +
     'Level=K6,S6,W6 ' +
-    'Description="Self gains immunity either to fire, poison, and the poisoned condition or to radiant, necrotic, and the charmed condition, a 40\' fly Speed, +2 armor class, and 2 magical weapon attacks per rd using the spell attack modifier in place of Strength or Dexterity for concentration up to 1 min"'
+    'Description="Self gains immunity either to fire, poison, and the poisoned condition or to radiant, necrotic, and the charmed condition, a 40\' fly Speed, +2 Armor Class, and 2 magical weapon attacks per rd using the spell attack modifier in place of Strength or Dexterity for concentration up to 1 min"'
 };
 Tasha.SPELLS_LEVELS_ADDED = {
   'Acid Splash':'A0',
