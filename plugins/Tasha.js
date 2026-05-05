@@ -1090,18 +1090,18 @@ Tasha.FEATURES = {
     'Section=ability,combat ' +
     'Note=' +
       '"+10 Speed",' +
-      '"Allies who begin a turn within %{levels.Paladin<18?5:10}\' gain +10\' Speed for 1 rd"',
+      '"Allies who begin a turn within %{levels.Paladin<18?5:10}\' gain +10\' Speed until the end of their turns"',
   'Glorious Defense':
     'Section=combat ' +
     'Note="R10\' Can use a reaction to give a successful attack target +%{charismaModifier>?1} Armor Class and, if this causes the attacker to miss, to attack the attacker, %{charismaModifier>1?charismaModifier+\' times\':\'once\'} per long rest"',
   'Inspiring Smite':
     'Section=combat ' +
-    'Note="R30\' Can use Channel Divinity as a bonus action after a Divine Smite to distribute 2d8+%{levels.Paladin} temporary hit points"',
+    'Note="R30\' Can use a bonus action and Channel Divinity after a Divine Smite to distribute 2d8+%{levels.Paladin} temporary hit points"',
   'Living Legend':
     'Section=ability,combat,save ' +
     'Note=' +
       '"Can gain advantage on Charisma for 1 min once per long rest; can spend level 5 spell slots for additional uses",' +
-      '"Can change a miss into a hit once per rd for 1 min once per long rest; can spend level 5 spell slots for additional uses",' +
+      '"Can change a miss into a hit once per turn for 1 min once per long rest; can spend level 5 spell slots for additional uses",' +
       '"Can use a reaction to reroll failed saves for 1 min once per long rest; can spend level 5 spell slots for additional uses"',
   'Oath Of Glory':
     'Spells=' +
@@ -1113,8 +1113,8 @@ Tasha.FEATURES = {
   'Peerless Athlete':
     'Section=ability,skill ' +
     'Note=' +
-      '"Can use Channel Divinity and a bonus action to double carry and lift for 10 min",' +
-      '"Can use Channel Divinity and a bonus action to gain advantage on Athletics and Acrobatics and +10\' high and long jumps for 10 min"',
+      '"Can use a bonus action and Channel Divinity to double carry and lift for 10 min",' +
+      '"Can use a bonus action and Channel Divinity to gain advantage on Athletics and Acrobatics and +10\' high and long jumps for 10 min"',
   // Oath Of The Watchers
   'Abjure The Extraplanar':
     'Section=combat ' +
