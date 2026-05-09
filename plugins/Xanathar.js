@@ -694,7 +694,7 @@ Xanathar.FEATURES = {
   // Way Of The Sun Soul (ref SwordCoast)
   'Radiant Sun Bolt':
     'Section=combat ' +
-    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant once per rd; can spend 1 ki point and use a bonus action for a second attack"',
+    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant once per rd; can expend 1 ki point and use a bonus action for a second attack"',
   'Searing Arc Strike':
     'Section=magic ' +
     'Note="Can spend 2 ki points to cast <i>Burning Hands</i> after an attack as a bonus action; each additional ki point spent raises the spell level by 1, to a maximum of level %{levels.Monk//2-1}" ' +
@@ -702,7 +702,7 @@ Xanathar.FEATURES = {
     'Spells="Burning Hands"',
   'Searing Sunburst':
     'Section=magic ' +
-    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{monkSaveDC} Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
+    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{monkSaveDC} Constitution negates); can expend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
   'Sun Shield':
     'Section=combat,magic ' +
     'Note=' +
@@ -777,10 +777,8 @@ Xanathar.FEATURES = {
     'Section=combat ' +
     'Note="Can follow a weapon miss with another attack once per rd"',
   'Umbral Sight':
-    'Section=feature,feature ' +
-    'Note=' +
-      '"Has the Darkvision feature",' +
-      '"Invisible to darkvision"',
+    'Section=feature ' +
+    'Note="Has %{features.Darkvision?\'+30\':60}\' Darkvision and is invisible to darkvision"',
   // Horizon Walker
   'Detect Portal':
     'Section=magic ' +

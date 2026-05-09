@@ -194,7 +194,7 @@ Tasha.CLASSES_FEATURES_ADDED = {
     '"features.Circle Of Wildfire ? 14:Blazing Revival"',
   'Fighter':
     '"4:Martial Versatility",' +
-    '"features.Psi Warrior ? 3:Psionic Power",' +
+    '"features.Psi Warrior ? 3:Psionic Power (Psi Warrior)",' +
     '"features.Psi Warrior ? 3:Protective Field",' +
     '"features.Psi Warrior ? 3:Psionic Strike",' +
     '"features.Psi Warrior ? 3:Telekinetic Movement",' +
@@ -266,7 +266,7 @@ Tasha.CLASSES_FEATURES_ADDED = {
     '"features.Phantom ? 13:Ghost Walk",' +
     '"features.Phantom ? 17:Death\'s Friend",' +
     '"features.Soulknife ? 3:Psi-Bolstered Knack",' +
-    '"features.Soulknife ? 3:Psionic Power",' +
+    '"features.Soulknife ? 3:Psionic Power (Soulknife)",' +
     '"features.Soulknife ? 3:Psychic Blades",' +
     '"features.Soulknife ? 3:Psychic Whispers",' +
     '"features.Soulknife ? 9:Soul Blades",' +
@@ -502,7 +502,7 @@ Tasha.FEATURES = {
       '"Greater Restoration","Heal"',
   'Experimental Elixir':
     'Section=magic ' +
-    'Note="Can use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; can spend spell slots to create additional elixirs"',
+    'Note="Can use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; can expend spell slots to create additional elixirs"',
   'Restorative Reagents':
     'Section=magic ' +
     'Note="Can use alchemist\'s supplies to cast <i>Lesser Restoration</i> %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest, and elixirs give 2d6+%{intelligenceModifier>?1} temporary hit points" ' +
@@ -567,7 +567,7 @@ Tasha.FEATURES = {
     'Section=skill Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Eldritch Cannon':
     'Section=combat ' +
-    'Note="Can create a magical cannon (Armor Class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can spend spell slots to create additional cannons"',
+    'Note="Can create a magical cannon (Armor Class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can expend spell slots to create additional cannons"',
   'Explosive Cannon':
     'Section=combat,combat ' +
     'Note=' +
@@ -700,7 +700,7 @@ Tasha.FEATURES = {
   // College Of Creation
   'Animating Performance':
     'Section=magic ' +
-    'Note="R30\' Can animate an obedient Large object (Armor Class 16; %{levels.Bard*5+10} hit points; move or fly 30\'; +%{spellAttackModifier.B} attack inflicts 1d10+%{proficiencyBonus} HP; Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) for 1 hr once per long rest; can spend level 3 or higher spell slots to animate additional objects"',
+    'Note="R30\' Can animate an obedient Large object (Armor Class 16; %{levels.Bard*5+10} hit points; move or fly 30\'; +%{spellAttackModifier.B} attack inflicts 1d10+%{proficiencyBonus} HP; Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) for 1 hr once per long rest; can expend level 3 or higher spell slots to animate additional objects"',
   'Creative Crescendo':
     'Section=magic ' +
     'Note="Can use Performance Of Creation to create %{(charismaModifier-1)>?1} additional small object%{charismaModifier>2?\'s\':\'\'}"',
@@ -709,7 +709,7 @@ Tasha.FEATURES = {
     'Note="Bardic Inspiration adds the better of two rolls on an ability check, inflicts the die roll HP thunder (save DC %{spellDifficultyClass.B} Constitution negates) to the target and chosen creatures within 5\' on an attack, or gives the roll + %{charismaModifier} temporary hit points on a save"',
   'Performance Of Creation':
     'Section=magic ' +
-    'Note="R10\' Can create a %{levels.Bard<6?\'Medium\':levels.Bard<14?\'Large\':\'Huge\'} object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr once per long rest; can spend level 2 or higher spell slots to create additional objects"',
+    'Note="R10\' Can create a %{levels.Bard<6?\'Medium\':levels.Bard<14?\'Large\':\'Huge\'} object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr once per long rest; can expend level 2 or higher spell slots to create additional objects"',
   // College Of Eloquence
   'Infectious Inspiration':
     'Section=magic ' +
@@ -722,7 +722,7 @@ Tasha.FEATURES = {
     'Note="Bardic Inspiration targets keep the die after a failed use"',
   'Universal Speech':
     'Section=magic ' +
-    'Note="R60\' %{charismaModifier>?1} target%{charismaModifier>1?\'s\':\'\'} understand%{charismaModifier>1?\'\':\'s\'} self for 1 hr once per long rest; can spend spell slots for additional uses"',
+    'Note="R60\' %{charismaModifier>?1} target%{charismaModifier>1?\'s\':\'\'} understand%{charismaModifier>1?\'\':\'s\'} self for 1 hr once per long rest; can expend spell slots for additional uses"',
   'Unsettling Words':
     'Section=magic ' +
     'Note="R60\' Can spend 1 Bardic Inspiration die and use a bonus action to inflict -roll on the target\'s next save within 1 rd"',
@@ -794,7 +794,7 @@ Tasha.FEATURES = {
   // Divine Strike as SRD5E
   'Eyes Of Night':
     'Section=feature ' +
-    'Note="R300\' Darkvision can be shared with %{wisdomModifier>1?wisdomModifier+\' others\':\'1 other\'} within 10\' for 1 hr once per long rest; can spend a spell slot for additional uses"',
+    'Note="R300\' Darkvision can be shared with %{wisdomModifier>1?wisdomModifier+\' others\':\'1 other\'} within 10\' for 1 hr once per long rest; can expend a spell slot for additional uses"',
   'Steps Of Night':
     'Section=ability ' +
     'Note="Can use a bonus action to gain a %{speed}\' fly Speed in dim or no light for 1 min %{proficiencyBonus} times per long rest"',
@@ -932,33 +932,33 @@ Tasha.FEATURES = {
   // Psi Warrior
   'Bulwark Of Force':
     'Section=combat ' +
-    'Note="R30\' Can use a bonus action to give %{intelligenceModifier>?1} target%{intelligenceModifier>1?\'s\':\'\'} half cover for 1 min once per long rest; can spend psionic energy dice for additional uses"',
+    'Note="R30\' Can use a bonus action to give %{intelligenceModifier>?1} target%{intelligenceModifier>1?\'s\':\'\'} half cover for 1 min once per long rest; can expend psionic energy dice for additional uses"',
   'Guarded Mind':
     'Section=save ' +
     'Note="Has resistance to psychic damage and can spend 1 psionic energy die to end charmed and frightened conditions"',
   'Protective Field':
     'Section=combat ' +
-    'Note="R30\' Can spend 1 psionic energy die and use a reaction to negate 1d%{combatNotes.psionicPower}+%{intelligenceModifier>?1} HP damage"',
+    'Note="R30\' Can spend 1 psionic energy die and use a reaction to negate 1d%{$\'combatNotes.psionicPower(PsiWarrior)\'}+%{intelligenceModifier>?1} HP damage"',
   'Psi-Powered Leap':
     'Section=ability ' +
-    'Note="Can use a bonus action to gain a %{speed*2}\' fly Speed until the end of the current turn once per short rest; can spend psionic energy dice for additional uses"',
-  'Psionic Power':
+    'Note="Can use a bonus action to gain a %{speed*2}\' fly Speed until the end of the current turn once per short rest; can expend psionic energy dice for additional uses"',
+  'Psionic Power (Psi Warrior)':
     'Section=combat ' +
-    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest and can use a bonus action to regain 1 die once per short rest"',
+    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest; can use a bonus action to regain 1 die after a short rest"',
   'Psionic Strike':
     'Section=combat ' +
-    'Note="R30\' Can spend 1 psionic energy die after a hit to inflict +1d%{combatNotes.psionicPower}+%{intelligenceModifier} HP force"',
+    'Note="R30\' Can spend 1 psionic energy die after a hit to inflict +1d%{$\'combatNotes.psionicPower(PsiWarrior)\'}+%{intelligenceModifier} HP force"',
   'Telekinetic Adept':
     'Section=feature ' +
     'Note="Has the Psi-Powered Leap and Telekinetic Thrust features"',
   'Telekinetic Master':
     'Section=magic ' +
-    'Note="Can cast <i>Telekinesis</i> and use bonus actions while concentrating to make a weapon attack each rd once per long rest; can spend psionic energy dice for additional uses" ' +
+    'Note="Can cast <i>Telekinesis</i> and use bonus actions while concentrating to make a weapon attack each rd once per long rest; can expend psionic energy dice for additional uses" ' +
     'Spells=' +
       'Telekinesis',
   'Telekinetic Movement':
     'Section=magic ' +
-    'Note="R30\' Can move a Large object or willing creature 30\', or a Tiny object to or from self hand, once per short rest; can spend psionic energy dice for additional uses"',
+    'Note="R30\' Can move a Large object or willing creature 30\', or a Tiny object to or from self hand, once per short rest; can expend psionic energy dice for additional uses"',
   'Telekinetic Thrust':
     'Section=combat ' +
     'Note="Psionic Strike can inflict knocked prone or a 10\' push (save DC %{8+proficiencyBonus+intelligenceModifier} Strength negates)"',
@@ -1100,9 +1100,9 @@ Tasha.FEATURES = {
   'Living Legend':
     'Section=ability,combat,save ' +
     'Note=' +
-      '"Can gain advantage on Charisma for 1 min once per long rest; can spend level 5 spell slots for additional uses",' +
-      '"Can change a miss into a hit once per turn for 1 min once per long rest; can spend level 5 spell slots for additional uses",' +
-      '"Can use a reaction to reroll failed saves for 1 min once per long rest; can spend level 5 spell slots for additional uses"',
+      '"Can gain advantage on Charisma for 1 min once per long rest; can expend level 5 spell slots for additional uses",' +
+      '"Can change a miss into a hit once per turn for 1 min once per long rest; can expend level 5 spell slots for additional uses",' +
+      '"Can use a reaction to reroll failed saves for 1 min once per long rest; can expend level 5 spell slots for additional uses"',
   'Oath Of Glory':
     'Spells=' +
       '"3:Guiding Bolt","3:Heroism",' +
@@ -1127,8 +1127,8 @@ Tasha.FEATURES = {
   'Mortal Bulwark':
     'Section=combat,feature ' +
     'Note=' +
-      '"Can use a bonus action to gain advantage on attacks vs. aberrations, celestials, elementals, fey, and fiends and to inflict banishment with a successful attack (save DC %{spellDifficultyClass.P} Charisma negates for 24 hr) for 1 min once per long rest; can spend level 5 spell slots for additional uses",' +
-      '"Can use a bonus action to gain 120\' truesight for 1 min once per long rest; can spend level 5 spell slots for additional uses"',
+      '"Can use a bonus action to gain advantage on attacks vs. aberrations, celestials, elementals, fey, and fiends and to inflict banishment with a successful attack (save DC %{spellDifficultyClass.P} Charisma negates for 24 hr) for 1 min once per long rest; can expend level 5 spell slots for additional uses",' +
+      '"Can use a bonus action to gain 120\' truesight for 1 min once per long rest; can expend level 5 spell slots for additional uses"',
   'Oath Of The Watchers':
     'Spells=' +
       '"3:Alarm","3:Detect Magic",' +
@@ -1189,21 +1189,19 @@ Tasha.FEATURES = {
   'Beguiling Twist':
     'Section=combat,save ' +
     'Note=' +
-      '"R120\' Can use a reaction to redirect a failed charm or fright effect to a different target for 1 min (save DC %{spellDifficultyClass.R} Wisdom ends)",' +
-      '"Has advantage vs. charm and fright"',
+      '"R120\' Can use a reaction in response to a successful save vs. charmed or frightened to inflict a choice of charmed or frightened on a different target for 1 min (save DC %{spellDifficultyClass.R} Wisdom negates; additional saves each rd end)",' +
+      '"Has advantage vs. charmed and frightened"',
   'Dreadful Strikes':
     'Section=combat ' +
-    'Note="Can inflict +1d%{levels.Ranger<11?4:6} HP psychic with a weapon once per rd"',
+    'Note="Can inflict +1d%{levels.Ranger<11?4:6} HP psychic with a weapon once per turn"',
   'Fey Reinforcements':
     'Section=magic ' +
-    'Note="Can cast <i>Summon Fey</i>, optionally for 1 min instead of for concentration, once per long rest" ' +
+    'Note="Can cast <i>Summon Fey</i> without expending a spell slot, optionally for 1 min instead of for concentration, once per long rest" ' +
     'Spells=' +
       '"Summon Fey"',
   'Fey Wanderer Magic':
-    'Section=feature,magic ' +
-    'Note=' +
-      '"Fey association shows a minor physical effect",' +
-      '"Knows the %{levels.Ranger<17?\'\':\'<i>Mislead</i>, \'}%{levels.Ranger<13?\'\':\'<i>Dimension Door</i>, \'}%{levels.Ranger<9?\'\':\'<i>Dispel Magic</i>, \'}%{levels.Ranger<5?\'\':\'<i>Misty Step<i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Charm Person</i> spell%{levels.Ranger<5?\'\':\'s\'}" ' +
+    'Section=feature ' +
+    'Note="Fey association shows a minor physical effect" ' +
     'Spells=' +
       '"3:Charm Person",' +
       '"5:Misty Step",' +
@@ -1212,7 +1210,7 @@ Tasha.FEATURES = {
       '"17:Mislead"',
   'Misty Wanderer':
     'Section=magic ' +
-    'Note="Can cast <i>Misty Step</i>, targeting self and 1 willing adjacent target, %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest" ' +
+    'Note="Can cast <i>Misty Step</i> without expending a spell slot %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest, and <i>Misty Step</i> can take along a willing adjacent creature" ' +
     'Spells=' +
       '"Misty Step"',
   'Otherworldly Glamour':
@@ -1274,26 +1272,28 @@ Tasha.FEATURES = {
   // Soulknife
   'Homing Strikes':
     'Section=combat ' +
-    'Note="Can add 1d%{combatNotes.psionicPower} to a failed Psychic Blade attack, spending a psionic energy die if the sum is enough to hit"',
+    'Note="Can add 1d%{$\'combatNotes.psionicPower(Soulknife)\'} to a failed Psychic Blade attack, spending a psionic energy die if the sum is enough to hit"',
   'Psi-Bolstered Knack':
     'Section=skill ' +
     'Note="Can add a psionic energy die roll to a failed proficient skill or tool check, spending the die only if the modified check succeeds"',
-  // Psionic Power as above
+  'Psionic Power (Soulknife)':
+    'Section=combat ' +
+    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest; can use a bonus action to regain 1 die after a short rest"',
   'Psychic Blades':
     'Section=combat ' +
     'Note="Can use a free hand to attack with a R60\' magic psychic blade, inflicting 1d6+%{strengthModifier>?dexterityModifier} HP psychic; if both hands are free, can use a bonus action for a second blade attack that inflicts 1d4+%{strengthModifier>?dexterityModifier}"',
   'Psychic Teleportation':
     'Section=combat ' +
-    'Note="Can spend 1 psionic energy die and use a bonus action to teleport 1d%{combatNotes.psionicPower}x10\'"',
+    'Note="Can spend 1 psionic energy die and use a bonus action to teleport 1d%{$\'combatNotes.psionicPower(Soulknife)\'}x10\'"',
   'Psychic Veil':
     'Section=magic ' +
-    'Note="Can become invisible for 1 hr once per long rest; inflicting damage or forcing a saving throw ends; can spend psionic energy dice for additional uses"',
+    'Note="Can become invisible for 1 hr once per long rest; inflicting damage or forcing a saving throw ends; can expend psionic energy dice for additional uses"',
   'Psychic Whispers':
     'Section=skill ' +
-    'Note="Can establish telepathic communication within 1 mile with %{proficiencyBonus} visible creatures for 1d%{combatNotes.psionicPower} hr once per long rest; can spend psionic energy dice for additional uses"',
+    'Note="Can establish telepathic communication within 1 mile with %{proficiencyBonus} visible creatures for 1d%{$\'combatNotes.psionicPower(Soulknife)\'} hr once per long rest; can expend psionic energy dice for additional uses"',
   'Rend Mind':
     'Section=combat ' +
-    'Note="Can inflict stunned (save DC %{8+dexterityModifier+proficiencyBonus} Wisdom ends) for 1 min with a Psychic Blade Sneak Attack once per long rest; can spend 3 psionic energy dice per additional use"',
+    'Note="Can inflict stunned (save DC %{8+dexterityModifier+proficiencyBonus} Wisdom negates; additional saves each rd end) for 1 min with a Psychic Blade Sneak Attack once per long rest; can expend 3 psionic energy dice per additional use"',
   'Soul Blades':
     'Section=feature ' +
     'Note="Has the Homing Strikes and Psychic Teleportation features"',
@@ -1301,23 +1301,21 @@ Tasha.FEATURES = {
   // Sorcerer
   'Magical Guidance':
     'Section=ability ' +
-    'Note="Can spend 1 Sorcery Point to reroll a failed ability check"',
+    'Note="Can spend 1 sorcery point to reroll a failed ability check"',
   'Seeking Spell':
     'Section=magic ' +
-    'Note="Can spend 2 Sorcery Points to reroll a missed spell attack"',
+    'Note="Can spend 2 sorcery points to reroll a missed spell attack"',
   'Sorcerous Versatility':
     'Section=feature ' +
     'Note="Can replace a Metamagic option or a cantrip when boosting an ability or taking a feat"',
   'Transmuted Spell':
     'Section=magic ' +
-    'Note="Can spend 1 Sorcery Point to change an acid, cold, fire, lightning, poison, or thunder spell\'s damage type to another from that list"',
+    'Note="Can spend 1 sorcery point to change an acid, cold, fire, lightning, poison, or thunder spell\'s damage type to another from that list"',
   // Aberrant Mind
   'Psionic Sorcery':
     'Section=magic ' +
-    'Note="Can cast a spell using Sorcery Points equal to the spell level and no verbal or somatic components"',
+    'Note="Can cast a Psionic Spells spell using sorcery points equal to the spell level and no verbal or somatic components"',
   'Psionic Spells':
-    'Section=magic ' +
-    'Note="Can replace a Psionic Spells spell when gaining a Sorcerer level" ' +
     'Spells=' +
       '"1:Arms Of Hadar","1:Dissonant Whispers","1:Mind Sliver",' +
       '"3:Calm Emotions","3:Detect Thoughts",' +
@@ -1326,30 +1324,28 @@ Tasha.FEATURES = {
       '"9:Rary\'s Telepathic Bond","9:Telekinesis"',
   'Psychic Defenses':
     'Section=save ' +
-    'Note="Has resistance to psychic damage and advantage vs. charm and fright"',
+    'Note="Has resistance to psychic damage and advantage vs. charmed and frightened"',
   'Revelation In Flesh':
     'Section=ability,feature ' +
     'Note=' +
-      '"Can spend 1 Sorcery Point and use a bonus action to gain a %{speed}\' fly Speed, a %{speed*2}\' swim Speed and water breathing, or the ability to squeeze through a 1\\" space, for 10 min",' +
-      '"Can spend 1 Sorcery Point and use a bonus action to see invisible creatures within 60\' for 10 min"',
+      '"Can use a bonus action and spend 1 sorcery point to gain a %{speed}\' fly Speed, a %{speed*2}\' swim Speed and water breathing, or the ability to squeeze through a 1\\" space, for 10 min",' +
+      '"Can use a bonus action and spend 1 sorcery point to see invisible creatures within 60\' for 10 min"',
   'Telepathic Speech':
     'Section=skill ' +
-    'Note="R30\' Can use a bonus action to gain telepathic communication in a shared language while within %{charismaModifier>1?charismaModifier+\' miles\':\'1 mile\'} of the target for %{levels.Sorcerer} min"',
+    'Note="R30\' Can use a bonus action to gain telepathic communication with the target in a shared language while within %{charismaModifier>1?charismaModifier+\' miles\':\'1 mile\'} for %{levels.Sorcerer} min"',
   'Warping Implosion':
     'Section=magic ' +
-    'Note="Can teleport 120\'; the 30\' radius around the starting position inflicts 3d10 HP force and a 30\' pull (save Strength half HP only) once per long rest; can spend 5 Sorcery Points per additional use"',
+    'Note="Can teleport 120\', inflicting 3d10 HP force and a 30\' pull (save Strength half HP only) in a 30\' radius around the starting position, once per long rest; can expend 5 sorcery points per additional use"',
   // Clockwork Soul
   'Bastion Of Law':
-    'Section=magic ' +
-    'Note="R30\' Can spend 1 - 5 Sorcery Points to negate an equal number of d8s HP damage to the target before the next use or long rest"',
+    'Section=combat ' +
+    'Note="R30\' Can spend 1 - 5 sorcery points to negate an equal number of d8s HP damage to the target before the next use or long rest"',
   'Clockwork Cavalcade':
     'Section=magic ' +
-    'Note="30\' cube restores 100 HP total among targets, repairs damaged objects, and dispels target spells up to 6th level once per long rest; can spend 7 Sorcery Points for each additional use"',
+    'Note="30\' cube restores 100 hit points total among targets, repairs damaged objects, and dispels target spells up to 6th level once per long rest; can expend 7 sorcery points for each additional use"',
   'Clockwork Magic':
-    'Section=feature,magic ' +
-    'Note=' +
-      '"Displays a physical manifestation of Clockwork Soul",' +
-      '"Can replace a Clockwork Magic spell when gaining a Sorcerer level" ' +
+    'Section=feature ' +
+    'Note="Displays a physical manifestation of Clockwork Soul" ' +
     'Spells=' +
       '"1:Alarm","1:Protection From Evil And Good",' +
       '"3:Aid","3:Lesser Restoration",' +
@@ -1357,13 +1353,13 @@ Tasha.FEATURES = {
       '"7:Freedom Of Movement","7:Summon Construct",' +
       '"9:Greater Restoration","9:Wall Of Force"',
   'Restore Balance':
-    'Section=magic ' +
+    'Section=combat ' +
     'Note="R60\' Can cancel a target\'s advantage or disadvantage on a roll %{proficiencyBonus} times per long rest"',
   'Trance Of Order':
     'Section=combat,feature ' +
     'Note=' +
-      '"Can use a bonus action to cancel advantage on attacks on self for 1 min once per long rest; can spend 5 Sorcery Points for each additional use",' +
-      '"Can use a bonus action to score a minimum of 10 on attack, ability, and saving rolls for 1 min once per long rest; can spend 5 Sorcery Points for each additional use"',
+      '"Can use a bonus action to negate advantage on attacks on self for 1 min once per long rest; can expend 5 sorcery points for each additional use",' +
+      '"Can use a bonus action to score a minimum of 10 on attack, ability, and saving rolls for 1 min once per long rest; can expend 5 sorcery points for each additional use"',
 
   // Warlock
   'Bond Of The Talisman':
@@ -1469,7 +1465,7 @@ Tasha.FEATURES = {
     'Note="Held spellbook allows performing a ritual casting in the spell\'s normal casting time once per long rest, using the spellbook as a focus, and changing a spell\'s damage type when casting it"',
   'Manifest Mind':
     'Section=magic ' +
-    'Note="R300\' Can use a bonus action to see with darkvision, hear, and cast spells %{proficiencyBonus} times through a ghostly object that emits 10\' dim light and can move 30\' per rd once per long rest; can spend spell slots for additional uses"',
+    'Note="R300\' Can use a bonus action to see with darkvision, hear, and cast spells %{proficiencyBonus} times through a ghostly object that emits 10\' dim light and can move 30\' per rd once per long rest; can expend spell slots for additional uses"',
   'Master Scrivener':
     'Section=magic ' +
     'Note="R5\' After a long rest, can create a scroll, usable only by self, for a 1-action, 1st or 2nd level spell from Awakened Spellbook; reading the scroll casts the spell at 1 level higher than normal/Wizardly Quill produces spell scrolls at 1/2 the normal time and cost"',
@@ -1525,7 +1521,7 @@ Tasha.FEATURES = {
   'Metamagic Adept':
     'Section=magic,magic ' +
     'Note=' +
-      '"Knows 2 Metamagic options and has 2 Sorcery Points",' +
+      '"Knows 2 Metamagic options and has 2 sorcery points",' +
       '"Can replace a Metamagic option when boosting an ability or taking a feat"',
   'Piercer':
     'Section=ability,combat ' +
@@ -1981,7 +1977,7 @@ Tasha.classRulesExtra = function(rules, name) {
       'combatNotes.greatStature', '+', 'null', // italics
       'combatNotes.runicJuggernaut', '+', 'null' // italics
     );
-    rules.defineRule('combatNotes.psionicPower',
+    rules.defineRule('combatNotes.psionicPower(PsiWarrior)',
       classLevel, '=', 'source<5 ? 6 : source<11 ? 8 : source<17 ? 10 : 12'
     );
     rules.defineRule('featureNotes.runeCarver',
@@ -2028,7 +2024,7 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.D', 'magicNotes.fightingStyle(DruidicWarrior)', '^=', '1');
   } else if(name == 'Rogue') {
-    rules.defineRule('combatNotes.psionicPower',
+    rules.defineRule('combatNotes.psionicPower(Soulknife)',
       classLevel, '=', 'source<5 ? 6 : source<11 ? 8 : source<17 ? 10 : 12'
     );
     rules.defineRule
