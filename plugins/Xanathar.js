@@ -316,21 +316,21 @@ Xanathar.DEITIES_DOMAINS_ADDED = {
   'Kelemvor':'Grave'
 };
 Xanathar.FEATS = {
-  'Bountiful Luck':'Type=General Require="race =~ \'Halfling\'"',
-  'Dragon Fear':'Type=General Require="race =~ \'Dragonborn\'"',
-  'Dragon Hide':'Type=General Require="race =~ \'Dragonborn\'"',
-  'Drow High Magic':'Type=General Require="race == \'Dark Elf\'"',
-  'Dwarven Fortitude':'Type=General Require="race =~ \'Dwarf\'"',
-  'Elven Accuracy':'Type=General Require="race =~ \'Elf\'"',
-  'Fade Away':'Type=General Require="race =~ \'Gnome\'"',
-  'Fey Teleportation':'Type=General Require="race == \'High Elf\'"',
-  'Flames Of Phlegethos':'Type=General Require="race =~ \'Tiefling\'"',
-  'Infernal Constitution':'Type=General Require="race =~ \'Tiefling\'"',
-  'Orcish Fury':'Type=General Require="race == \'Half-Orc\'"',
-  'Prodigy':'Type=General Require="race =~ \'Half-Elf|Half-Orc|Human\'"',
-  'Second Chance':'Type=General Require="race =~ \'Halfling\'"',
-  'Squat Nimbleness':'Type=General Require="race =~ \'Dwarf\'||features.Small"',
-  'Wood Elf Magic':'Type=General Require="race == \'Wood Elf\'"'
+  'Bountiful Luck':'Require="race =~ \'Halfling\'"',
+  'Dragon Fear':'Require="race =~ \'Dragonborn\'"',
+  'Dragon Hide':'Require="race =~ \'Dragonborn\'"',
+  'Drow High Magic':'Require="race == \'Dark Elf\'"',
+  'Dwarven Fortitude':'Require="race =~ \'Dwarf\'"',
+  'Elven Accuracy':'Require="race =~ \'Elf\'"',
+  'Fade Away':'Require="race =~ \'Gnome\'"',
+  'Fey Teleportation':'Require="race == \'High Elf\'"',
+  'Flames Of Phlegethos':'Require="race =~ \'Tiefling\'"',
+  'Infernal Constitution':'Require="race =~ \'Tiefling\'"',
+  'Orcish Fury':'Require="race == \'Half-Orc\'"',
+  'Prodigy':'Require="race =~ \'Half-Elf|Half-Orc|Human\'"',
+  'Second Chance':'Require="race =~ \'Halfling\'"',
+  'Squat Nimbleness':'Require="race =~ \'Dwarf\'||features.Small"',
+  'Wood Elf Magic':'Require="race == \'Wood Elf\'"'
 };
 Xanathar.FEATURES = {
 

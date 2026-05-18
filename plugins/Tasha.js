@@ -424,24 +424,27 @@ Tasha.DEITIES_DOMAINS_ADDED = {
   'Yondalla':'Twilight'
 };
 Tasha.FEATS = {
-  'Artificer Initiate':'Type=General',
-  'Chef':'Type=General',
-  'Crusher':'Type=General',
-  'Eldritch Adept':
-    'Type=General Require="features.Spellcasting || features.Pact Magic"',
-  'Fey Touched':'Type=General',
-  'Fighting Initiate':
-    'Type=General Require="weaponProficiency.Martial Weapons"',
-  'Gunner':'Type=General',
-  'Metamagic Adept':
-    'Type=General Require="features.Spellcasting||features.Pact Magic"',
-  'Piercer':'Type=General',
-  'Poisoner':'Type=General',
-  'Shadow Touched':'Type=General',
-  'Skill Expert':'Type=General',
-  'Slasher':'Type=General',
-  'Telekinetic':'Type=General',
-  'Telepathic':'Type=General'
+  'Artificer Initiate':'',
+  'Chef':'',
+  'Crusher':'',
+  'Eldritch Adept':'Require="features.Spellcasting || features.Pact Magic"',
+  'Fey Touched (Charisma)':'',
+  'Fey Touched (Intelligence)':'',
+  'Fey Touched (Wisdom)':'',
+  'Fighting Initiate':'Require="weaponProficiency.Martial Weapons"',
+  'Gunner':'',
+  'Metamagic Adept':'Require="features.Spellcasting||features.Pact Magic"',
+  'Piercer':'',
+  'Poisoner':'',
+  'Shadow Touched':'',
+  'Skill Expert':'',
+  'Slasher':'',
+  'Telekinetic (Charisma)':'',
+  'Telekinetic (Intelligence)':'',
+  'Telekinetic (Wisdom)':'',
+  'Telepathic (Charisma)':'',
+  'Telepathic (Intelligence)':'',
+  'Telepathic (Wisdom)':''
 };
 Tasha.FEATURES = {
 
@@ -1488,23 +1491,40 @@ Tasha.FEATURES = {
     'Section=ability,magic,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Constitution, Wisdom)",' +
-      '"Food prepared during a short rest adds 1d8 to hit points regained from using Hit Dice by %{proficiencyBonus+4} diners, and treats prepared during a long rest give %{proficiencyBonus} eaters %{proficiencyBonus} temporary hit points within 8 hr",' +
+      '"Food prepared during a short rest adds 1d8 to hit points regained from using Hit Dice by %{proficiencyBonus+4} diners, and a 1-hr process produces %{proficiencyBonus} treats that each give %{proficiencyBonus} temporary hit points when consumed within 8 hr",' +
       '"Tool Proficiency (Cook\'s Utensils)"',
   'Crusher':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Constitution, Strength)",' +
-      '"Can move a foe up to 1 size larger 5\' with a bludgeoning hit once per rd, and a critical bludgeoning hit gives allies advantage on attacks on that foe for 1 rd"',
+      '"Can move a foe up to 1 size larger 5\' with a bludgeoning hit once per turn, and a critical bludgeoning hit gives advantage on attacks on that foe until the start of the next turn"',
   'Eldritch Adept':
     'Section=magic,magic ' +
     'Note=' +
       '"Knows 1 Eldritch Invocation",' +
       '"Can replace Eldritch Invocation when gaining a level"',
-  'Fey Touched':
+  'Fey Touched (Charisma)':
     'Section=ability,magic ' +
     'Note=' +
-      '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
+      '"+1 Charisma",' +
       '"Can cast <i>Misty Step</i> and a chosen level 1 divination or enchantment spell once per long rest" ' +
+    'SpellAbility=Charisma ' +
+    'Spells=' +
+      '"Misty Step"',
+  'Fey Touched (Intelligence)':
+    'Section=ability,magic ' +
+    'Note=' +
+      '"+1 Intelligence",' +
+      '"Can cast <i>Misty Step</i> and a chosen level 1 divination or enchantment spell once per long rest" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells=' +
+      '"Misty Step"',
+  'Fey Touched (Wisdom)':
+    'Section=ability,magic ' +
+    'Note=' +
+      '"+1 Wisdom",' +
+      '"Can cast <i>Misty Step</i> and a chosen level 1 divination or enchantment spell once per long rest" ' +
+    'SpellAbility=Wisdom ' +
     'Spells=' +
       '"Misty Step"',
   'Fighting Initiate':
@@ -1527,11 +1547,11 @@ Tasha.FEATURES = {
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)",' +
-      '"Can reroll 1 piercing damage die once per rd and adds 1 die to piercing critical damage"',
+      '"Can reroll 1 piercing damage die once per turn, and critical hits with piercing weapons inflict 1 additional die of damage"',
   'Poisoner':
     'Section=combat,skill,skill ' +
     'Note=' +
-      '"Attacks negate poison resistance/Can use a bonus action to coat a weapon with poison lasting 1 min that inflicts 2d8 HP poison and the poisoned condition (save DC 14 Constitution negates) for 1 rd",' +
+      '"Attacks ignore poison resistance/Can use a bonus action to coat a weapon or a piece of ammunition with poison lasting 1 min that inflicts 2d8 HP poison and poisoned (save DC 14 Constitution negates) until the end of the next turn",' +
       '"Tool Proficiency (Poisoner\'s Kit)",' +
       '"1 hr process using a Poisoner\'s Kit creates %{proficiencyBonus} poison doses"',
   'Shadow Touched':
@@ -1542,30 +1562,63 @@ Tasha.FEATURES = {
     'Spells=' +
       'Invisibility',
   'Skill Expert':
-    'Section=ability,skill,skill ' +
+    'Section=ability,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from any)",' +
-      '"Skill Proficiency (Choose 1 from any)",' +
-      '"+%{proficiencyBonus} on a chosen proficient skill"',
+      '"Skill Proficiency (Choose 1 from any)/Skill Expertise (Choose 1 from any)"',
   'Slasher':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)",' +
-      '"Can inflict -10 Speed for 1 rd with a slashing attack, and a critical slashing hit inflicts disadvantage on the foe\'s attacks for 1 rd"',
-  'Telekinetic':
+      '"Can inflict -10 Speed until the start of the next turn with a slashing attack once per turn, and a critical slashing hit inflicts disadvantage on the foe\'s attacks until the start of the next turn"',
+  'Telekinetic (Charisma)':
     'Section=ability,combat,magic ' +
     'Note=' +
-      '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
-      '"R30\' Can use a bonus action to move a target 5\' (save DC %{8+proficiencyBonus} + ability modifier Strength negates)",' +
-      '"Knows the <i>Mage Hand</i> cantrip"',
-    // Spells attribute left off--see featRulesExtra
-  'Telepathic':
+      '"+1 Charisma",' +
+      '"R30\' Can use a bonus action to move a target 5\' (save DC %{8+proficiencyBonus+charismaModifier} Strength negates)",' +
+      '"Can cast <i>Mage Hand</i> without verbal or somatic components, can make the hand invisible, and can extend its range by 30\' if the spell is known from another source" ' +
+    'SpellAbility=Charisma ' +
+    'Spells="Mage Hand"',
+  'Telekinetic (Intelligence)':
+    'Section=ability,combat,magic ' +
+    'Note=' +
+      '"+1 Intelligence",' +
+      '"R30\' Can use a bonus action to move a target 5\' (save DC %{8+proficiencyBonus+intelligenceModifier} Strength negates)",' +
+      '"Can cast <i>Mage Hand</i> without verbal or somatic components, can make the hand invisible, and can extend its range by 30\' if the spell is known from another source" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells="Mage Hand"',
+  'Telekinetic (Wisdom)':
+    'Section=ability,combat,magic ' +
+    'Note=' +
+      '"+1 Wisdom",' +
+      '"R30\' Can use a bonus action to move a target 5\' (save DC %{8+proficiencyBonus+wisdomModifier} Strength negates)",' +
+      '"Can cast <i>Mage Hand</i> without verbal or somatic components, can make the hand invisible, and can extend its range by 30\' if the spell is known from another source" ' +
+    'SpellAbility=Wisdom ' +
+    'Spells="Mage Hand"',
+  'Telepathic (Charisma)':
     'Section=ability,magic,skill ' +
     'Note=' +
-      '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
-      '"Can cast <i>Detect Thoughts</i> (save DC %{8+proficiencyBonus} + ability modifier Wisdom negates) once per long rest",' +
-      '"R60\' Can speak telepathically in a shared language"'
-    // Spells attribute left off--see featRulesExtra
+      '"+1 Charisma",' +
+      '"Can cast <i>Detect Thoughts</i> (save DC %{8+proficiencyBonus+charismaModifier} Wisdom negates) without using components or expending a spell slot once per long rest",' +
+      '"R60\' Can communicate telepathically in a shared language" ' +
+    'SpellAbility=Charisma ' +
+    'Spells="Detect Thoughts"',
+  'Telepathic (Intelligence)':
+    'Section=ability,magic,skill ' +
+    'Note=' +
+      '"+1 Intelligence",' +
+      '"Can cast <i>Detect Thoughts</i> (save DC %{8+proficiencyBonus+intelligenceModifier} Wisdom negates) without using components or expending a spell slot once per long rest",' +
+      '"R60\' Can communicate telepathically in a shared language" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells="Detect Thoughts"',
+  'Telepathic (Wisdom)':
+    'Section=ability,magic,skill ' +
+    'Note=' +
+      '"+1 Wisdom",' +
+      '"Can cast <i>Detect Thoughts</i> (save DC %{8+proficiencyBonus+wisdomModifier} Wisdom negates) without using components or expending a spell slot once per long rest",' +
+      '"R60\' Can communicate telepathically in a shared language" ' +
+    'SpellAbility=Wisdom ' +
+    'Spells="Detect Thoughts"'
 
 };
 Tasha.SPELLS = {
@@ -2104,14 +2157,8 @@ Tasha.featRulesExtra = function(rules, name) {
         );
       }
     }
-  } else if(name == 'Telekinetic') {
-    // Use featureSpells here instead of folding into feature definition to
-    // avoid spurious linkage to Fighter class.
-    SRD5E.featureSpells(rules, name, name, 'level', ['Mage Hand']);
-  } else if(name == 'Telepathic') {
-    // Use featureSpells here instead of folding into feature definition to
-    // avoid spurious linkage to Sorcerer class.
-    SRD5E.featureSpells(rules, name, name, 'level', ['Detect Thoughts']);
+  } else if(name == 'Skill Expert') {
+    rules.defineRule('expertiseCount', 'skillNotes.skillExpert', '+=', '1');
   }
 };
 

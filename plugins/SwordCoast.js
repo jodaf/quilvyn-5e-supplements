@@ -414,7 +414,7 @@ SwordCoast.DEITYS = {
 
 };
 SwordCoast.FEATS_ADDED = {
-  'Svirfneblin Magic':'Require="race == \'Deep Gnome\'" Type=General'
+  'Svirfneblin Magic':'Require="race == \'Deep Gnome\'"'
 };
 SwordCoast.FEATS = Object.assign({}, (window.PHB5E||window.SRD5E).FEATS, SwordCoast.FEATS_ADDED);
 SwordCoast.FEATURES_ADDED = {

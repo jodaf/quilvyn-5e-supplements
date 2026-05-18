@@ -201,8 +201,8 @@ Eberron5E.DEITIES = {
   'The Undying Court':'Alignment=NG Domain=Grave,Knowledge,Life'
 };
 Eberron5E.FEATS_ADDED = {
-  'Aberrant Dragonmark':'Require="race !~ \'Mark Of\'" Type=General',
-  'Revenant Blade':'Require="race =~ \'Elf\'" Type=General'
+  'Aberrant Dragonmark':'Require="race !~ \'Mark Of\'"',
+  'Revenant Blade':'Require="race =~ \'Elf\'"'
 };
 Eberron5E.FEATS =
   Object.assign({}, (window.PHB5E||window.SRD5E).FEATS, Eberron5E.FEATS_ADDED);

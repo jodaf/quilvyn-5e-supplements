@@ -54,7 +54,7 @@ Volo.CHARACTER_FEATURES = {
   // Aasimar
   'Aasimar Ability Adjustment':'Section=ability Note="+2 Charisma"',
   'Celestial Resistance':
-    'Section=save Note="Has resistance to necrotic and radiant damage"',
+    'Section=save Note="Has resistance to necrotic and radiant"',
   // Darkvision as SRD5E
   'Healing Hands':
     'Section=magic ' +
