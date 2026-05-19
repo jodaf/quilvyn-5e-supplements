@@ -889,11 +889,10 @@ Tasha.FEATURES = {
     'Note="R30\' Can spend a Wild Shape use to inflict 2d6 HP fire in a 10\' radius (save DC %{spellDifficultyClass.D} Dexterity negates) and summon an obedient Wildfire Spirit (Armor Class 13; %{levels.Druid*5+5} hit points; move or fly 30\'; R60\' +%{spellAttackModifier.D} attack inflicts 1d6+%{proficiencyBonus} HP fire; can teleport targets in a 5\' radius 15\', inflicting 1d6+%{proficiencyBonus} on those left behind (save DC %{spellDifficultyClass.D} Dexterity negates)) for 1 hr"',
 
   // Fighter
-  'Fighting Style (Blind Fighting)':
-    'Section=combat Note="R10\' Can detect the locations of unseen creatures"',
+  'Fighting Style (Blind Fighting)':'Section=skill Note="Has 10\' Blindsight"',
   'Fighting Style (Interception)':
     'Section=combat ' +
-    'Note="R5\' Can use a reaction to negate 1d10+%{proficiencyBonus} HP damage to another"',
+    'Note="R5\' Can use a reaction and a shield or weapon to negate 1d10+%{proficiencyBonus} HP damage to another"',
   'Fighting Style (Superior Technique)':
     'Section=combat ' +
     'Note="Has the Combat Superiority feature with 1 maneuver and 1 superiority die"',
@@ -903,8 +902,8 @@ Tasha.FEATURES = {
   'Fighting Style (Unarmed Fighting)':
     'Section=combat,combat ' +
     'Note=' +
-      '"Unarmed strike inflicts 1d6+%{strengthModifier} HP bludgeoning",' +
-      '"Unarmed strike inflicts 1d8+%{strengthModifier} bludgeoning when unarmed and shieldless/Can inflict 1d4 HP bludgeoning to a grappled foe"',
+      '"Unarmed strike inflicts 1d6 HP bludgeoning, or 1d8 HP when unarmored and shieldless",' +
+      '"Can inflict 1d4 HP bludgeoning to a grappled foe at the start of a turn"',
   'Martial Versatility':
     'Section=combat ' +
     'Note="Can replace a Fighting Style or maneuver when boosting an ability or taking a feat"',
@@ -1131,7 +1130,7 @@ Tasha.FEATURES = {
     'Section=combat,feature ' +
     'Note=' +
       '"Can use a bonus action to gain advantage on attacks vs. aberrations, celestials, elementals, fey, and fiends and to inflict banishment with a successful attack (save DC %{spellDifficultyClass.P} Charisma negates for 24 hr) for 1 min once per long rest; can expend level 5 spell slots for additional uses",' +
-      '"Can use a bonus action to gain 120\' truesight for 1 min once per long rest; can expend level 5 spell slots for additional uses"',
+      '"Can use a bonus action to gain 120\' Truesight for 1 min once per long rest; can expend level 5 spell slots for additional uses"',
   'Oath Of The Watchers':
     'Spells=' +
       '"3:Alarm","3:Detect Magic",' +
@@ -1468,7 +1467,7 @@ Tasha.FEATURES = {
     'Note="Held spellbook allows performing a ritual casting in the spell\'s normal casting time once per long rest, using the spellbook as a focus, and changing a spell\'s damage type when casting it"',
   'Manifest Mind':
     'Section=magic ' +
-    'Note="R300\' Can use a bonus action to see with darkvision, hear, and cast spells %{proficiencyBonus} times through a ghostly object that emits 10\' dim light and can move 30\' per rd once per long rest; can expend spell slots for additional uses"',
+    'Note="R300\' Can use a bonus action to see with Darkvision, hear, and cast spells %{proficiencyBonus} times through a ghostly object that emits 10\' dim light and can move 30\' per rd once per long rest; can expend spell slots for additional uses"',
   'Master Scrivener':
     'Section=magic ' +
     'Note="R5\' After a long rest, can create a scroll, usable only by self, for a 1-action, 1st or 2nd level spell from Awakened Spellbook; reading the scroll casts the spell at 1 level higher than normal/Wizardly Quill produces spell scrolls at 1/2 the normal time and cost"',
@@ -2026,6 +2025,11 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.combatSuperiority.2',
       'combatNotes.fightingStyle(SuperiorTechnique)', '+=', '1'
     );
+    rules.defineRule('combatNotes.fightingStyle(UnarmedFighting).1',
+      'combatNotes.fightingStyle(UnarmedFighting)', '?', null,
+      'armor', '?', 'source=="None"',
+      'shield', '=', 'source=="None" ? "1d8" : null'
+    );
     rules.defineRule("combatNotes.giant'sMight",
       'combatNotes.greatStature', '+', 'null', // italics
       'combatNotes.runicJuggernaut', '+', 'null' // italics
@@ -2039,8 +2043,9 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('features.Combat Superiority',
       'combatNotes.fightingStyle(SuperiorTechnique)', '=', '1'
     );
-    rules.defineRule('weapons.Unarmed.2',
-      'combatNotes.fightingStyle(UnarmedFighting)', '^', '"1d6"'
+    rules.defineRule('weapons.Unarmed Strike.2',
+      'combatNotes.fightingStyle(UnarmedFighting)', '^', '"1d6"',
+      'combatNotes.fightingStyle(UnarmedFighting).1', '^', null
     );
     rules.defineRule
       ('features.Psi-Powered Leap', 'featureNotes.telekineticAdept', '=', null);

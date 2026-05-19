@@ -778,7 +778,7 @@ Xanathar.FEATURES = {
     'Note="Can follow a weapon miss with another attack once per rd"',
   'Umbral Sight':
     'Section=feature ' +
-    'Note="Has %{features.Darkvision?\'+30\':60}\' Darkvision and is invisible to darkvision"',
+    'Note="Has %{features.Darkvision?\'+30\':60}\' Darkvision and is invisible to Darkvision"',
   // Horizon Walker
   'Detect Portal':
     'Section=magic ' +
@@ -1007,7 +1007,7 @@ Xanathar.FEATURES = {
     'Note="Can spend a spell slot to inflict +(slot level + 1)d8 HP force and knock prone a Huge or smaller foe with a pact weapon"',
   'Ghostly Gaze':
     'Section=magic ' +
-    'Note="Can see 30\' with darkvision through solid objects for concentration up to 1 min once per short rest"',
+    'Note="Can see 30\' with Darkvision through solid objects for concentration up to 1 min once per short rest"',
   'Gift Of The Depths':
     'Section=ability,feature,magic ' +
     'Note=' +
