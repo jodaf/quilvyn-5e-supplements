@@ -363,12 +363,11 @@ Eberron5E.FEATURES_ADDED = {
 
   // Feats
   'Aberrant Dragonmark':
-    'Section=ability,feature,magic,magic ' +
+    'Section=ability,feature,magic ' +
     'Note=' +
       '"+1 Constitution",' +
       '"Has an Aberrant Dragonmark flaw",' +
-      '"Knows 1 S0 cantrip and 1 S1 spell",' +
-      '"Can cast a chosen S1 spell once per long rest, optionally randomly gaining 1 HD of temporary hit points or inflicting 1 HD force to a creature within 30\'"',
+      '"Knows 1 S0 cantrip and can cast a chosen S1 spell without expending a spell slot once per long rest, optionally randomly gaining 1 HD of temporary hit points or inflicting 1 HD force to a creature within 30\'"',
   'Revenant Blade':
     'Section=ability,combat ' +
     'Note=' +
@@ -1046,7 +1045,7 @@ for(let s in Eberron5E.SPELLS_LEVELS_ADDED)
   Eberron5E.SPELLS[s] =
     Eberron5E.SPELLS[s].replace('Level=', 'Level=' + Eberron5E.SPELLS_LEVELS_ADDED[s] + ',');
 Eberron5E.TOOLS_ADDED = {
-  'Vehicles (Air And Sea)':'Type=General'
+  'Vehicles (Air And Sea)':'Category=General'
 };
 Eberron5E.TOOLS =
   Object.assign({}, (window.PHB5E||window.SRD5E).TOOLS, Eberron5E.TOOLS_ADDED);
@@ -1115,8 +1114,8 @@ Eberron5E.classRulesExtra = function(rules, name) {
     rules.defineRule // Italics noop
       ('combatNotes.eldritchCannon', 'combatNotes.explosiveCannon', '+', '0');
     rules.defineRule('combatNotes.extraAttack',
-      'armorerLevel', '+=', 'source>=5 ? 1 : null',
-      'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
+      'armorerLevel', '^=', 'source>=5 ? 2 : null',
+      'battleSmithLevel', '^=', 'source>=5 ? 2 : null'
     );
     rules.defineRule // Italics noop
       ('featureNotes.infuseItem', 'featureNotes.armorModifications', '+', '0');
@@ -1146,9 +1145,7 @@ Eberron5E.classRulesExtra = function(rules, name) {
 Eberron5E.featRulesExtra = function(rules, name) {
   if(name == 'Aberrant Dragonmark') {
     rules.defineRule
-      ('spellSlots.S0', 'magicNotes.aberrantDragonmark', '+=', '1');
-    rules.defineRule
-      ('spellSlots.S1', 'magicNotes.aberrantDragonmark', '+=', '1');
+      ('spellsAvailable.S0', 'features.Aberrant Dragonmark', '+=', '1');
     rules.defineRule('casterLevels.AberrantDragonmark',
       'features.Aberrant Dragonmark', '?', null,
       'level', '=', null,
