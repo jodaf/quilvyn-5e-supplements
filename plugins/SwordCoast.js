@@ -90,7 +90,7 @@ function SwordCoast() {
 SwordCoast.VERSION = '2.4.2.0';
 
 SwordCoast.ARMORS_ADDED = {
-  'Spiked Armor':'AC=4 Bulky=true Dex=2 Weight=Medium'
+  'Spiked Armor':'Category=Medium AC=4 Bulky=true Dex=2 Cost=75 Weight=45'
 };
 SwordCoast.ARMORS = Object.assign({}, (window.PHB5E||window.SRD5E).ARMORS, SwordCoast.ARMORS_ADDED);
 SwordCoast.BACKGROUNDS_ADDED = {
@@ -808,18 +808,18 @@ for(let s in SwordCoast.SPELLS_LEVELS_ADDED) {
     SwordCoast.SPELLS[s].replace('Level=', 'Level=' + SwordCoast.SPELLS_LEVELS_ADDED[s] + ',');
 }
 SwordCoast.TOOLS_ADDED = {
-  'Birdpipes':'Type=Musical',
-  'Glaur':'Type=Musical',
-  'Hand Drum':'Type=Musical',
-  'Longhorn':'Type=Musical',
-  // In SRD5E 'Shawm':'Type=Musical',
-  'Songhorn':'Type=Musical',
-  'Tantan':'Type=Musical',
-  'Thelarr':'Type=Musical',
-  'Tocken':'Type=Musical',
-  'Wargong':'Type=Musical',
-  'Yarting':'Type=Musical',
-  'Zulkoon':'Type=Musical'
+  'Birdpipes':'Category="Musical Instrument"',
+  'Glaur':'Category="Musical Instrument"',
+  'Hand Drum':'Category="Musical Instrument"',
+  'Longhorn':'Category="Musical Instrument"',
+  // In SRD5E 'Shawm':'Category="Musical Instument"',
+  'Songhorn':'Category="Musical Instrument"',
+  'Tantan':'Category="Musical Instrument"',
+  'Thelarr':'Category="Musical Instrument"',
+  'Tocken':'Category="Musical Instrument"',
+  'Wargong':'Category="Musical Instrument"',
+  'Yarting':'Category="Musical Instrument"',
+  'Zulkoon':'Category="Musical Instrument"'
 };
 SwordCoast.TOOLS = Object.assign({}, (window.PHB5E||window.SRD5E).TOOLS, SwordCoast.TOOLS_ADDED);
 
