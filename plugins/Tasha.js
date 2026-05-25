@@ -119,8 +119,10 @@ Tasha.CLASSES = {
       '"2:Returning Weapon:Infusion",' +
       '"6:Spell-Refueling Ring:Infusion" ' +
     'SpellAbility=intelligence ' +
+    'SpellsAvailable=' +
+      '"A0:2@1;3@10;4@14",' +
+      '"A:0@1;1@2;2@4;3@6;4@8;5@10;6@12;7@14;8@16;9@18;10@20" ' +
     'SpellSlots=' +
-      '"A0:2@1 3@10 4@14",' +
       '"A1:2@1 3@3 4@5",' +
       '"A2:2@5 3@7",' +
       '"A3:2@9 3@11",' +
@@ -1564,7 +1566,7 @@ Tasha.FEATURES = {
     'Section=ability,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from any)",' +
-      '"Skill Proficiency (Choose 1 from any)/Skill Expertise (Choose 1 from any)"',
+      '"Skill Proficiency (Choose 1 from any)/Expertise (Choose 1 from any Skill)"',
   'Slasher':
     'Section=ability,combat ' +
     'Note=' +
@@ -1987,6 +1989,10 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('selectableFeatureCount.Artificer (Armor Model)',
       'featureNotes.armorModel', '=', '1'
     );
+    rules.defineRule('spellsAvailable.A',
+      'intelligenceModifier', '+', null,
+      '', '^', '1'
+    );
   } else if(name == 'Barbarian') {
     rules.defineRule
       ('skillNotes.primalKnowledge', classLevel, '=', 'source<10 ? 1 : 2');
@@ -2162,8 +2168,6 @@ Tasha.featRulesExtra = function(rules, name) {
         );
       }
     }
-  } else if(name == 'Skill Expert') {
-    rules.defineRule('expertiseCount', 'skillNotes.skillExpert', '+=', '1');
   }
 };
 
