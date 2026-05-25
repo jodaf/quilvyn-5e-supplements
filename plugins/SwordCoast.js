@@ -852,7 +852,7 @@ SwordCoast.classRulesExtra = function(rules, name) {
   } else if(name == 'Wizard') {
     // Copied from Tasha
     rules.defineRule
-      ('combatNotes.extraAttack', 'features.Bladesinging', '+=', '1');
+      ('combatNotes.extraAttack', 'features.Bladesinging', '^=', '2');
   }
 
 };
