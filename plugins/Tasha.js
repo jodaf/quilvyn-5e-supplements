@@ -1968,8 +1968,8 @@ Tasha.classRulesExtra = function(rules, name) {
       'combatNotes.explosiveCannon', '+', 'null' // italics
     );
     rules.defineRule('combatNotes.extraAttack',
-      'armorerLevel', '+=', 'source>=5 ? 1 : null',
-      'battleSmithLevel', '+=', 'source>=5 ? 1 : null'
+      'armorerLevel', '^=', 'source>=5 ? 2 : null',
+      'battleSmithLevel', '^=', 'source>=5 ? 2 : null'
     );
     rules.defineRule('magicNotes.infuseItem',
       'magicNotes.armorModifications', '+', 'null' // italics
@@ -2107,7 +2107,7 @@ Tasha.classRulesExtra = function(rules, name) {
     );
   } else if(name == 'Wizard') {
     rules.defineRule
-      ('combatNotes.extraAttack', 'features.Bladesinging', '+=', '1');
+      ('combatNotes.extraAttack', 'features.Bladesinging', '^=', '2');
   }
 
 };
