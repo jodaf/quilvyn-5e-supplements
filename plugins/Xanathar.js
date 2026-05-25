@@ -1673,10 +1673,10 @@ Xanathar.SPELLS_LEVELS_ADDED = {
   'Wrathful Smite':'"K1 [The Hexblade]"'
 };
 Xanathar.TOOLS_ADDED = {
-  'Croak Box':'Type=Music',
-  'Fiddle':'Type=Music',
-  'Harp':'Type=Music',
-  'Zither':'Type=Music'
+  'Croak Box':'Category="Musical Instrument"',
+  'Fiddle':'Category="Musical Instrument"',
+  'Harp':'Category="Musical Instrument"',
+  'Zither':'Category="Musical Instrument"'
 };
 
 /* Defines rules related to basic character identity. */
@@ -1779,7 +1779,7 @@ Xanathar.classRulesExtra = function(rules, name) {
     rules.defineRule
       ('bardHasExtraAttack', 'features.College Of Swords', '=', '1');
     rules.defineRule
-      ('combatNotes.extraAttack', 'bardFeatures.Extra Attack', '+=', '1');
+      ('combatNotes.extraAttack', 'bardFeatures.Extra Attack', '^=', '2');
     rules.defineRule('selectableFeatureCount.Bard (Fighting Style)',
       'features.College Of Swords', '=', '1'
     );
