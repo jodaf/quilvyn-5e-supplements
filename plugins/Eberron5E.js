@@ -123,7 +123,7 @@ Eberron5E.CLASSES_ADDED = {
       '"1:Armor Proficiency (Medium; Shield)",' +
       '"1:Save Proficiency (Constitution; Intelligence)",' +
       '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
-      '"1:Tool Proficiency (Thieves\' Tools; Tinker\'s Tools; Choose 1 from any Artisan)",' +
+      '"1:Tool Proficiency (Thieves\' Tools; Tinker\'s Tools; Choose 1 from any Artisan\'s Tools)",' +
       '"1:Weapon Proficiency (Simple Weapons)",' +
       '"1:Magical Tinkering","1:Spellcasting","2:Infuse Item",' +
       '"3:Artificer Specialist","3:The Right Tool For The Job",' +
@@ -230,11 +230,13 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Can attune %{4+(magicNotes.magicItemMaster?2:magicNotes.magicItemSavant?1:0)} items simultaneously and craft uncommon magic items in 1/4 time at 1/2 cost"',
   'Magic Item Master':'Section=magic Note="Can attune 6 items simultaneously"',
   'Magic Item Savant':
-    'Section=magic ' +
-    'Note="Can attune 5 items simultaneously and ignore attunement and use requirements on attuned items"',
+    'Section=magic,magic ' +
+    'Note=' +
+      '"Can attune 5 items simultaneously",' +
+      '"Can ignore attunement and use requirements on attuned items"',
   'Magical Tinkering':
     'Section=magic ' +
-    'Note="Can imbue %{intelligenceModifier>?1} objects simultaneously to emit light, a message, sound, an odor, or a picture"',
+    'Note="Can imbue %{intelligenceModifier>?1} objects simultaneously to emit a 5\' bright light, a message, sound, an odor, or a picture"',
   'Soul Of Artifice':
     'Section=combat,save ' +
     'Note=' +
@@ -242,7 +244,7 @@ Eberron5E.FEATURES_ADDED = {
       '"+1 per attunement on saves"',
   'Spell-Storing Item':
     'Section=magic ' +
-    'Note="After a long rest, can store in an item an A1 or A2 spell that can be cast %{intelligenceModifier*2>?2} times"',
+    'Note="After a long rest, can store in a weapon or spellcasting focus a level 1 or 2 artificer spell that can be cast by the holder %{intelligenceModifier*2>?2} times"',
   // Spellcasting as SRD5E
   'The Right Tool For The Job':
     'Section=skill Note="Can spend 1 hr to create a set of artisan\'s tools"',
@@ -264,8 +266,8 @@ Eberron5E.FEATURES_ADDED = {
   'Chemical Mastery':
     'Section=magic,save ' +
     'Note=' +
-      '"Can use alchemist\'s supplies to cast <i>Greater Restoration</i> and <i>Heal</i> once per long rest",' +
-      '"Has resistance to acid and poison damage and immunity to the poisoned condition" ' +
+      '"Can use alchemist\'s supplies to cast <i>Greater Restoration</i> and <i>Heal</i> without expending a spell slot once per long rest",' +
+      '"Has resistance to acid and poison and immunity to poisoned" ' +
     'Spells=' +
       '"Greater Restoration","Heal"',
   'Experimental Elixir':
@@ -273,7 +275,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Can use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; can expend spell slots to create additional elixirs"',
   'Restorative Reagents':
     'Section=magic ' +
-    'Note="Can use alchemist\'s supplies to cast <i>Lesser Restoration</i> %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest, and elixirs give 2d6+%{intelligenceModifier>?1} temporary hit points" ' +
+    'Note="Can use alchemist\'s supplies to cast <i>Lesser Restoration</i> without expending a spell slot %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest, and elixirs give 2d6+%{intelligenceModifier>?1} temporary hit points" ' +
     'Spells="Lesser Restoration"',
   // Artillerist
   'Arcane Firearm':
@@ -290,7 +292,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=skill Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Eldritch Cannon':
     'Section=combat ' +
-    'Note="Can create a magical cannon (Armor Class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\') flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 force and pushes 5\'), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can expend spell slots to create additional cannons"',
+    'Note="Can create a magical cannon (Armor Class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\' and acivate as a bonus action) flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP force and a 5\' push), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can expend spell slots to create additional cannons"',
   'Explosive Cannon':
     'Section=combat,combat ' +
     'Note=' +
@@ -303,7 +305,7 @@ Eberron5E.FEATURES_ADDED = {
   // Battle Smith
   'Arcane Jolt':
     'Section=combat ' +
-    'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or restores %{2+(combatNotes.improvedDefender?2:0)}d6 hit points to 1 target in a 30\' radius %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
+    'Note="Magic weapon or Steel Defender attack inflicts +%{2+(combatNotes.improvedDefender?2:0)}d6 HP force or restores %{2+(combatNotes.improvedDefender?2:0)}d6 hit points to 1 target within 30\' %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
   'Battle Ready':
     'Section=combat,combat ' +
     'Note=' +
@@ -326,7 +328,7 @@ Eberron5E.FEATURES_ADDED = {
       '"Steel Defender Deflect Attack inflicts 1d4+%{intelligenceModifier} HP force"',
   'Steel Defender':
     'Section=combat ' +
-    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on attack in a 5\' radius; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
+    'Note="Can create a mechanical companion (Armor Class %{15+(combatNotes.improvedDefender?2:0)}; %{levels.Artificer*5+intelligenceModifier+2} hit points (<i>Mending</i> repairs 2d6 hit points and can self-repair 2d8+%{proficiencyBonus} hit points 3 times per day); +%{spellAttackModifier.A} attack inflicts 1d8+%{proficiencyBonus} HP force; can use a reaction to inflict disadvantage on an attack within 5\'; can move 40\'; Dexterity save +%{proficiencyBonus+1}; Constitution save +%{proficiencyBonus+2}; immune to poison and charmed, exhausted, poisoned, and surprised conditions)"',
   // Infusions
   'Boots Of The Winding Path':
     'Section=magic ' +
@@ -341,8 +343,8 @@ Eberron5E.FEATURES_ADDED = {
     'Section=magic ' +
     'Note="Infused weapon gives +%{levels.Artificer<10?1:2} attack and damage"',
   'Homunculus Servant':
-    'Section=magic ' +
-    'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points; R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Evasion; Channel Magic)"',
+    'Section=combat ' +
+    'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points (<i>Mending</i> repairs 2d6 hit points); R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Successful Dexterity saves yield no damage instead of half, and failures yield half damage; can deliver touch spells when within 120\')"',
   'Radiant Weapon':
     'Section=magic ' +
     'Note="Infused weapon with 4 charges gives +1 attack and damage and emits a 30\' bright light on command; the wielder can use a reaction and 1 charge to blind a successful attacker (save DC %{spellDifficultyClass.A} Constitution negates) for 1 rd; the weapon regains 1d4 charges each dawn"',
@@ -356,7 +358,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Infused shield with 4 charges gives +1 Armor Class, and the holder can use a reaction and 1 charge to push a successful attacker 15\'; the shield regains 1d4 charges each dawn"',
   'Resistant Armor':
     'Section=magic ' +
-    'Note="Infused armor gives +1 Armor Class and resistance to a chosen damage type"',
+    'Note="Infused armor gives resistance to a choice of acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder"',
   'Returning Weapon':
     'Section=magic ' +
     'Note="Infused thrown weapon gives +1 attack and damage and returns after being thrown"',
@@ -367,7 +369,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note=' +
       '"+1 Constitution",' +
       '"Has an Aberrant Dragonmark flaw",' +
-      '"Knows 1 S0 cantrip and can cast a chosen S1 spell without expending a spell slot once per long rest, optionally randomly gaining 1 HD of temporary hit points or inflicting 1 HD force to a creature within 30\'"',
+      '"Knows 1 S0 cantrip and can cast a chosen S1 spell without expending a spell slot once per long rest; casting the S1 spell allows expending a Hit Die to randomly gain 1 HD of temporary hit points or inflict 1 HD force to a creature within 30\'"',
   'Revenant Blade':
     'Section=ability,combat ' +
     'Note=' +
@@ -394,7 +396,7 @@ Eberron5E.FEATURES_ADDED = {
   'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Surprise Attack':
     'Section=combat ' +
-    'Note="Inflicts +2d6 HP on the first surprise hit once per combat"',
+    'Note="Inflicts +2d6 HP on the first surprise hit in the first turn of combat"',
 
   // Goblin (ref Volo)
   // Darkvision as SRD5E
@@ -420,10 +422,10 @@ Eberron5E.FEATURES_ADDED = {
   // Kalashtar
   'Dual Mind':'Section=save Note="Has advantage on Wisdom saves"',
   'Kalashtar Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Charisma"',
-  'Mental Discipline':'Section=save Note="Has resistance to psychic damage"',
+  'Mental Discipline':'Section=save Note="Has resistance to psychic"',
   'Mind Link':
     'Section=skill ' +
-    'Note="R%{level*10}\' Can communicate telepathically with a chosen creature for 1 hr"',
+    'Note="R%{level*10}\' Can speak telepathically to creatures that understand any language and can give 1 the ability to respond telepathically for 1 hr"',
   'Severed From Dreams':'Section=save Note="Has immunity to dream effects"',
 
   // Orc (ref Volo)
@@ -481,12 +483,12 @@ Eberron5E.FEATURES_ADDED = {
     'Section=feature,save ' +
     'Note=' +
       '"Has no need to eat, drink, breathe, or sleep",' +
-      '"Has advantage vs. poison, resistance to poison, and immunity to disease and sleep"',
+      '"Has advantage vs. poisoned, resistance to poison, and immunity to disease and sleep"',
   'Integrated Protection':
     'Section=combat,combat ' +
     'Note=' +
       '"+1 Armor Class",' +
-      '"Requires 1 hr to put on or take off armor"',
+      '"Requires 1 hr to put on or take off armor, and armor cannot be removed unwillingly"',
   "Sentry's Rest":
     'Section=feature ' +
     'Note="Becomes inactive but alert for 6 hr during a long rest"',
@@ -502,7 +504,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
   'Magical Detection':
     'Section=magic ' +
-    'Note="Can cast <i>Detect Magic</i>%{level<3?\' and\':\',\'} <i>Detect Poison And Disease</i>%{level<3?\'\':\', and <i>See Invisibility</i>\'} once per long rest" ' +
+    'Note="Can cast <i>Detect Magic</i>%{level<3?\' and\':\',\'} <i>Detect Poison And Disease</i>%{level<3?\'\':\', and <i>See Invisibility</i>\'} without expending a spell slot once per long rest" ' +
     'SpellAbility=Intelligence ' +
     'Spells="Detect Magic","Detect Poison And Disease","3:See Invisibility"',
   'Spells Of The Mark':'Section=magic Note="Has access to additional spells"',
@@ -513,7 +515,7 @@ Eberron5E.FEATURES_ADDED = {
     // Leave off Spells and SpellAbility attributes to avoid showing both stats
     // for both races; handled separately in houseRules.
     'Section=magic ' +
-    'Note="Can cast <i>Hunter\'s Mark</i>%{level<3?\'\':\' and <i>Locate Object</i>\'} once per long rest"',
+    'Note="Can cast <i>Hunter\'s Mark</i>%{level<3?\'\':\' and <i>Locate Object</i>\'} without expending a spell slot once per long rest"',
   'Finding Ability Adjustment':
     'Section=ability Note="+2 Wisdom/+1 Constitution"',
   "Hunter's Intuition":'Section=skill Note="+1d4 Perception and Survival"',
@@ -524,7 +526,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=ability Note="+2 Wisdom/Ability Boost (Choose 1 from any)"',
   'Primal Connection':
     'Section=magic ' +
-    'Note="Can cast <i>Animal Friendship</i> and <i>Speak With Animals</i> once per long rest" ' +
+    'Note="Can cast <i>Animal Friendship</i> and <i>Speak With Animals</i> without expending a spell slot once per short rest" ' +
     'SpellAbility=Wisdom ' +
     'Spells="Animal Friendship","Speak With Animals"',
   // Spells Of The Mark as above
@@ -539,7 +541,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=skill Note="+1d4 Medicine and Herbalism Kit checks"',
   'Healing Touch':
     'Section=magic ' +
-    'Note="Can cast <i>Cure Wounds</i>%{level<3?\'\':\' and <i>Lesser Restoration</i>\'} once per long rest" ' +
+    'Note="Can cast <i>Cure Wounds</i>%{level<3?\'\':\' and <i>Lesser Restoration</i>\'} without expending a spell slot once per long rest" ' +
     'SpellAbility=Wisdom ' +
     'Spells="Cure Wounds","3:Lesser Restoration"',
   // Spells Of The Mark as above
@@ -547,12 +549,12 @@ Eberron5E.FEATURES_ADDED = {
   // Mark Of Hospitality Halfling
   'Ever Hospitable':
     'Section=skill ' +
-    'Note="+1d4 Persuasion, Brewer\'s Supplies, and Cook\'s Utensil\'s checks"',
+    'Note="+1d4 Persuasion, Brewer\'s Supplies, and Cook\'s Utensils checks"',
   'Hospitality Ability Adjustment':
     'Section=ability Note="+2 Dexterity/+1 Charisma"',
   "Innkeeper's Magic":
     'Section=magic ' +
-    'Note="Knows the <i>Prestidigitation</i> cantrip and can cast <i>Purify Food And Drink</i> and <i>Unseen Servant</i> once long rest" ' +
+    'Note="Can cast <i>Purify Food And Drink</i> and <i>Unseen Servant</i> without expending a spell slot once long rest" ' +
     'SpellAbility=Charisma ' +
     'Spells=Prestidigitation,"Purify Food And Drink","Unseen Servant"',
   // Spells Of The Mark as above
@@ -561,13 +563,14 @@ Eberron5E.FEATURES_ADDED = {
   "Artisan's Intuition":
     'Section=skill Note="+1d4 Arcana and Artisan\'s Tools checks"',
   "Maker's Gift":
-    'Section=feature Note="Tool Proficiency (Choose 1 from any Artisan)"',
+    'Section=feature ' +
+    'Note="Tool Proficiency (Choose 1 from any Artisan\'s Tools)"',
   'Making Ability Adjustment':
     'Section=ability Note="+2 Intelligence/Ability Boost (Choose 1 from any)"',
   // Spells Of The Mark as above
   'Spellsmith':
     'Section=magic ' +
-    'Note="Knows the <i>Mending</i> cantrip and can cast <i>Magic Weapon</i> with 1 hr duration once per long rest" ' +
+    'Note="Can cast <i>Magic Weapon</i> with a 1 hr duration without expending a spell slot once per long rest" ' +
     'SpellAbility=Intelligence ' +
     'Spells="Mending","Magic Weapon"',
 
@@ -577,7 +580,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=skill Note="+1d4 Acrobatics and Land Vehicle checks"',
   'Magical Passage':
     'Section=magic ' +
-    'Note="Can cast <i>Misty Step</i> once per long rest" ' +
+    'Note="Can cast <i>Misty Step</i> without expending a spell slot once per long rest" ' +
     'SpellAbility=Dexterity ' +
     'Spells="Misty Step"',
   'Passage Ability Adjustment':
@@ -589,7 +592,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=skill Note="+1d4 History and Calligrapher\'s Supplies checks"',
   "Scribe's Insight":
     'Section=magic ' +
-    'Note="Knows the <i>Message</i> cantrip and can cast <i>Comprehend Languages</i> once per short rest%{level<3?\'\':\' and <i>Magic Mouth</i> once per long rest\'}" ' +
+    'Note="Can cast <i>Comprehend Languages</i> without expending a spell slot once per short rest%{level<3?\'\':\' and <i>Magic Mouth</i> without expending a spell slot once per long rest\'}" ' +
     'SpellAbility=Intelligence ' +
     'Spells=Message,"Comprehend Languages","3:Magic Mouth"',
   'Scribing Ability Adjustment':
@@ -598,7 +601,7 @@ Eberron5E.FEATURES_ADDED = {
   // Mark Of Sentinel Human
   "Guardian's Shield":
     'Section=magic ' +
-    'Note="Can cast <i>Shield</i> once per long rest" ' +
+    'Note="Can cast <i>Shield</i> without expending a spell slot once per long rest" ' +
     'SpellAbility=Charisma ' +
     'Spells=Shield',
   'Sentinel Ability Adjustment':
@@ -614,7 +617,7 @@ Eberron5E.FEATURES_ADDED = {
   'Shadow Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
   'Shape Shadows':
     'Section=magic ' +
-    'Note="Knows the <i>Minor Illusion</i> cantrip%{level<3?\'\':\' and can cast <i>Invisibility</i> once per long rest\'}" ' +
+    'Note="Can cast <i>Invisibility</i> without expending a spell slot once per long rest" ' +
     'SpellAbility=Charisma ' +
     'Spells="Minor Illusion","3:Invisibility"',
   // Spells Of The Mark as above
@@ -622,7 +625,7 @@ Eberron5E.FEATURES_ADDED = {
   // Mark Of Storm Half-Elf
   'Headwinds':
     'Section=magic ' +
-    'Note="Knows the <i>Gust</i> cantrip%{level<3?\'\':\' and can cast <i>Gust Of Wind</i> once per long rest\'}" ' +
+    'Note="Can cast <i>Gust Of Wind</i> without expending a spell slot once per long rest" ' +
     'SpellAbility=Charisma ' +
     'Spells=Gust,"3:Gust Of Wind"',
   // Spells Of The Mark as above
@@ -639,7 +642,7 @@ Eberron5E.FEATURES_ADDED = {
     'Section=ability Note="+2 Constitution/+1 Intelligence"',
   'Wards And Seals':
     'Section=magic ' +
-    'Note="Can cast <i>Alarm</i>%{level<3?\' and\':\',\'} <i>Magic Armor</i>%{level<3?\'\':\', and <i>Arcane Lock</i>\'} once per long rest" ' +
+    'Note="Can cast <i>Alarm</i>%{level<3?\' and\':\',\'} <i>Magic Armor</i>%{level<3?\'\':\', and <i>Arcane Lock</i>\'} without expending a spell slot once per long rest" ' +
     'SpellAbility=Intelligence ' +
     'Spells="Alarm","Mage Armor","3:Arcane Lock"'
 
@@ -732,7 +735,7 @@ Eberron5E.HOUSES = {
   'Phiarlan':
     'Dragonmark=Shadow ' +
     'Race=Elf ' +
-    'Tool="Disguise Kit","Choose 1 from any Musical" ' +
+    'Tool="Disguise Kit","Choose 1 from any Musical Instrument" ' +
     'Spells=' +
       '"Disguise Self,Silent Image",' +
       '"Darkness,Pass Without Trace",' +
@@ -762,7 +765,7 @@ Eberron5E.HOUSES = {
   'Thuranni':
     'Dragonmark=Shadow ' +
     'Race=Elf ' +
-    'Tool="Choose 1 from any Musical","Poisoner\'s Kit"',
+    'Tool="Choose 1 from any Musical Instrument","Poisoner\'s Kit"',
   'Vadalis':
     'Dragonmark=Handling ' +
     'Race=Human ' +
@@ -1067,6 +1070,13 @@ Eberron5E.identityRules = function(
   QuilvynUtils.checkAttrTable(houses, ['Dragonmark', 'Race', 'Tool', 'Spells']);
   for(let h in houses)
     rules.choiceRules(rules, 'House', h, houses[h]);
+  rules.defineRule('magicNotes.headwinds', 'level', '?', 'source >= 3');
+  rules.defineRule('magicNotes.shapeShadows', 'level', '?', 'source >= 3');
+  rules.defineRule('magicNotes.spellsOfTheMark',
+    '', '+', '-1',
+    'features.Spellcasting', '^', '1',
+    'features.Pact Magic', '^', '1'
+  );
 };
 
 /*
