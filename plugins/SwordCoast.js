@@ -203,6 +203,7 @@ SwordCoast.CLASSES_FEATURES_ADDED = {
     '"features.Path Of The Totem Warrior (Tiger) ? 14:Totemic Attunement (Tiger)"',
   'Cleric':
     '"features.Arcana Domain ? 1:Skill Proficiency (Arcana)",' +
+    '"features.Arcana Domain ? 1:Arcana Domain Spells",' +
     '"features.Arcana Domain ? 1:Arcane Initiate",' +
     '"features.Arcana Domain ? 2:Arcane Abjuration",' +
     '"features.Arcana Domain ? 6:Spell Breaker",' +
@@ -225,6 +226,7 @@ SwordCoast.CLASSES_FEATURES_ADDED = {
     '"features.Way Of The Sun Soul ? 17:Sun Shield"',
   'Paladin':
     '"features.Oath Of The Crown ? 3:Champion Challenge",' +
+    '"features.Oath Of The Crown ? 3:Oath Of The Crown Spells",' +
     '"features.Oath Of The Crown ? 3:Turn The Tide",' +
     '"features.Oath Of The Crown ? 7:Divine Allegiance",' +
     '"features.Oath Of The Crown ? 15:Unyielding Spirit",' +
@@ -424,11 +426,11 @@ SwordCoast.FEATURES_ADDED = {
   // Dwarf
   'Duergar Magic':
     'Section=magic ' +
-    'Note="Can cast self <i>Enlarge/Reduce</i> (enlarge only)%{level<5?\'\':\' and <i>Invisibility</i>\'} once per long rest" ' +
+    'Note="When not in direct sunlight, can cast self <i>Enlarge/Reduce</i> (enlarge only)%{level<5?\'\':\' and <i>Invisibility</i>\'} without expending a spell slot once per long rest" ' +
     'SpellAbility=Intelligence ' +
     'Spells=Enlarge/Reduce,5:Invisibility',
   'Duergar Resilience':
-    'Section=save Note="Has advantage vs. illusions, charm, and paralysis"',
+    'Section=save Note="Has advantage vs. illusions, charmed, and paralyzed"',
   'Gold Dwarf Ability Adjustment':'Section=ability Note="+1 Wisdom"',
   'Gray Dwarf Ability Adjustment':'Section=ability Note="+1 Strength"',
   'Shield Dwarf Ability Adjustment':'Section=ability Note="+2 Strength"',
@@ -456,7 +458,7 @@ SwordCoast.FEATURES_ADDED = {
   // Feats
   'Svirfneblin Magic':
     'Section=magic ' +
-    'Note="Can cast self <i>Nondetection</i> at will and <i>Blindness/Deafness</i>, <i>Blur</i>, and <i>Disguise Self</i> once per long rest" ' +
+    'Note="Can cast self <i>Nondetection</i> at will and <i>Blindness/Deafness</i>, <i>Blur</i>, and <i>Disguise Self</i> without expending a spell slot once per long rest" ' +
     'SpellAbility=Intelligence ' +
     'Spells=Nondetection,Blindness/Deafness,Blur,"Disguise Self"',
 
@@ -466,19 +468,19 @@ SwordCoast.FEATURES_ADDED = {
   // Battlerager
   'Battlerager Armor':
     'Section=combat ' +
-    'Note="When wearing spiked armor during rage, can use a bonus action for a spike attack that inflicts 1d4+%{strengthModifier} HP piercing, and a successful grapple inflicts 3 HP piercing"',
+    'Note="Can use a bonus action when wearing spiked armor during rage for a spike attack that inflicts 1d4+%{strengthModifier} HP piercing, and successful grapples inflict 3 HP piercing"',
   'Battlerager Charge':
     'Section=combat Note="Can use a bonus action to Dash during rage"',
   'Reckless Abandon':
     'Section=combat ' +
-    'Note="Using Reckless Attack during rage gives %{constitutionModifier>?1} temporary hit points"',
+    'Note="Using Reckless Attack during rage gives %{constitutionModifier>?1} temporary hit points until the rage ends"',
   'Spiked Retribution':
     'Section=combat ' +
-    'Note="When wearing spiked armor during rage, a successful melee attacker suffers 3 HP piercing"',
+    'Note="When wearing spiked armor during rage, successful melee attackers suffer 3 HP piercing"',
   // Totem Warrior
   'Aspect Of The Beast (Elk)':
     'Section=ability ' +
-    'Note="R60\' Self and 10 companions can travel at double the normal pace"',
+    'Note="R60\' Self and 10 companions can travel at double normal pace"',
   'Aspect Of The Beast (Tiger)':
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Athletics, Acrobatics, Stealth, Survival)"',
@@ -491,11 +493,11 @@ SwordCoast.FEATURES_ADDED = {
     'Note="During rage, can use a bonus action to pass through the space of a Large or smaller creature and inflict 1d12+%{strengthModifier} HP bludgeoning and knocked prone (save DC %{8+strengthModifier+proficiencyBonus} Strength negates)"',
   'Totemic Attunement (Tiger)':
     'Section=combat ' +
-    'Note="During rage, can use a bonus action to make a melee attack after a 20\' charge"',
+    'Note="During rage, can use a bonus action to make an additional melee attack after moving 20\' and attacking a foe"',
 
   // Cleric
   // Arcana Domain
-  'Arcana Domain':
+  'Arcana Domain Spells':
     'Spells=' +
       '"1:Detect Magic","1:Magic Missile",' +
       '"2:Magic Weapon","2:Nystul\'s Magic Aura",' +
@@ -508,7 +510,7 @@ SwordCoast.FEATURES_ADDED = {
   'Arcane Initiate':
     'Section=magic,skill ' +
     'Note=' +
-      '"Knows two W0 cantrips",' +
+      '"Knows 2 wizard cantrips",' +
       '"Skill Proficiency (Arcana)"',
   'Arcane Mastery':
     'Section=magic ' +
@@ -525,35 +527,35 @@ SwordCoast.FEATURES_ADDED = {
     'Note="R60\' Can extend Indomitable use on an Intelligence, Wisdom, or Charisma save to include an ally"',
   'Inspiring Surge':
     'Section=combat ' +
-    'Note="R60\' When using Action Surge, can allow %{levels.Fighter<18?\'1 ally\':\'2 allies\'} to use a reaction for an attack"',
+    'Note="R60\' When using Action Surge, can allow %{levels.Fighter<18?\'1 ally\':\'2 allies\'} to use a reaction for a weapon attack"',
   'Rallying Cry':
     'Section=combat ' +
     'Note="R60\' Second Wind restores %{levels.Fighter} hit points to 3 allies"',
   'Royal Envoy':
     'Section=skill ' +
-    'Note="Skill Proficiency (Choose 1 from Animal Handling, Insight, Intimidation, Persuasion)/+%{proficiencyBonus} Persuasion"',
+    'Note="Skill Proficiency (Choose 1 from Animal Handling, Insight, Intimidation, Performance, Persuasion)/+%{proficiencyBonus} Persuasion"',
 
   // Monk
   // Way Of The Long Death
   'Hour Of Reaping':
     'Section=combat ' +
-    'Note="R30\' Can use an action to frighten all who can see self (save DC %{monkSaveDC} Wisdom negates)"',
+    'Note="R30\' Can use an action to frighten all who can see self (save DC %{monkSaveDC} Wisdom negates) until the end of the next turn"',
   'Mastery Of Death':
     'Section=combat ' +
-    'Note="Can spend 1 ki point when reduced to 0 hit points to retain 1 hit point"',
+    'Note="Can expend 1 ki point when reduced to 0 hit points to retain 1 hit point"',
   'Touch Of Death':
     'Section=combat ' +
-    'Note="R5\' Gains %{levels.Monk+wisdomModifier>?1} temporary hit points from reducing a foe to 0 hit points"',
+    'Note="R5\' Gains %{levels.Monk+wisdomModifier>?1} temporary hit points from reducing an adjacent foe to 0 hit points"',
   'Touch Of The Long Death':
     'Section=combat ' +
-    'Note="Can use an action and spend 1-10 ki points to have touch inflict 2d10 HP necrotic per ki point (save DC %{monkSaveDC} Constitution half)"',
+    'Note="Can expend 1-10 ki points and touch a creature to inflict 2d10 HP necrotic per ki point (save DC %{monkSaveDC} Constitution half)"',
   // Way Of The Sun Soul (ref Xanathar)
   'Radiant Sun Bolt':
     'Section=combat ' +
-    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant once per rd; can expend 1 ki point and use a bonus action for a second attack"',
+    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant; can expend 1 ki point to use a bonus action for an additional attack"',
   'Searing Arc Strike':
     'Section=magic ' +
-    'Note="Can spend 2 ki points to cast <i>Burning Hands</i> after an attack as a bonus action; each additional ki point spent raises the spell level by 1, to a maximum of level %{levels.Monk//2-1}" ' +
+    'Note="Can expend 2 ki points to cast <i>Burning Hands</i> as a bonus action after an Attack action; each additional ki point spent raises the spell level by 1, to a maximum of level %{levels.Monk//2-1}" ' +
     'SpellAbility=Wisdom ' +
     'Spells="Burning Hands"',
   'Searing Sunburst':
@@ -572,13 +574,11 @@ SwordCoast.FEATURES_ADDED = {
     'Note="R30\' Can use Channel Divinity to force targets to stay within 30\' (save DC %{spellDifficultyClass.P} Wisdom negates)"',
   'Divine Allegiance':
     'Section=combat ' +
-    'Note="R5\' Can use a reaction to shift damage inflicted on another creature onto self"',
+    'Note="Can use a reaction to shift damage inflicted on an adjacent creature onto self"',
   'Exalted Champion':
-    'Section=combat,save ' +
-    'Note=' +
-      '"Can use an action to gain resistance to non-magical bludgeoning, piercing, and slashing damage for 1 hr once per long rest",' +
-      '"R30\' Can use an action to give self and allies advantage on Wisdom and vs. Death for 1 hr once per long rest"',
-  'Oath Of The Crown':
+    'Section=save ' +
+    'Note="Can use an action to gain resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons, and to give self and allies advantage on Wisdom saves and saves vs. death, for 1 hr once per long rest"',
+  'Oath Of The Crown Spells':
     'Spells=' +
       '1:Command,"1:Compelled Duel",' +
       '"2:Warding Bond","2:Zone Of Truth",' +
@@ -589,17 +589,17 @@ SwordCoast.FEATURES_ADDED = {
     'Section=magic ' +
     'Note="R30\' Can use Channel Divinity to restore 1d6+%{charismaModifier>?1} hit points to targets with fewer than half their maximum hit points"',
   'Unyielding Spirit':
-    'Section=save Note="Has advantage vs. paralysis and stunning"',
+    'Section=save Note="Has advantage vs. paralyzed and stunned"',
 
   // Rogue
   // Mastermind (ref Xanathar)
   'Insightful Manipulator':
     'Section=skill ' +
-    'Note="Can learn 2 choices of information about a target after 1 min of study: relative class levels, Charisma, Intelligence, or Wisdom"',
+    'Note="Can learn 2 choices of information about a target after 1 min of observation: relative class levels, Charisma, Intelligence, or Wisdom"',
   'Master Of Intrigue':
     'Section=skill,skill ' +
     'Note=' +
-      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming)",' +
+      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming Set)",' +
       '"Can mimic an accent and speech patterns after listening for 1 min"',
   'Master Of Tactics':
     'Section=combat ' +
@@ -613,16 +613,16 @@ SwordCoast.FEATURES_ADDED = {
   // Swashbuckler (ref Xanathar)
   'Elegant Maneuver':
     'Section=skill ' +
-    'Note="Can use a bonus action to gain advantage on the next Acrobatics or Athletics check during that turn"',
+    'Note="Can use a bonus action to gain advantage on the next Acrobatics or Athletics check before the end of the turn"',
   'Fancy Footwork':
     'Section=combat ' +
-    'Note="Attacks prevent the target from making opportunity attacks against self for 1 rd"',
+    'Note="Attacking prevents the target from making opportunity attacks against self for the rest of the turn"',
   'Master Duelist':
     'Section=combat ' +
     'Note="Can reroll a miss with advantage once per short rest"',
   'Panache':
     'Section=skill ' +
-    'Note="Successful Persuasion vs. Insight gives a hostile target disadvantage on attacks on others (an attack by another ends) or charms a non-hostile target (damage ends) for 1 min"',
+    'Note="Successful Persuasion vs. Insight charms a non-hostile target (attack by self or an ally ends), or inflicts on a hostile target disadvantage on attacks on others and prevention of opportunity attacks on others (harm from an ally or moving more than 60\' away from self ends), for 1 min"',
   'Rakish Audacity':
     'Section=combat,combat ' +
     'Note=' +
@@ -634,17 +634,17 @@ SwordCoast.FEATURES_ADDED = {
   'Heart Of The Storm':
     'Section=magic,save ' +
     'Note=' +
-      '"10\' radius inflicts %{levels.Sorcerer//2} HP of a choice of lightning or thunder on targets when casting a lightning or thunder spell",' +
+      '"Casting a lightning or thunder spell of level 1 or higher inflicts %{levels.Sorcerer//2} HP of a choice of lightning or thunder on targets within 10\'",' +
       '"Has resistance to lightning and thunder"',
   'Storm Guide':
     'Section=magic ' +
     'Note="Can use an action to stop rain in a 20\' radius and a bonus action each rd to direct winds in a 100\' radius"',
   "Storm's Fury":
     'Section=combat ' +
-    'Note="Can use a reaction to inflict %{levels.Sorcerer} HP lightning and a 20\' push on a successful melee attacker (save DC %{spellDifficultyClass.S} Strength HP only)"',
+    'Note="Can use a reaction to inflict %{levels.Sorcerer} HP lightning and a 20\' push on a successful melee attacker (save DC %{spellDifficultyClass.S} Strength negates push)"',
   'Tempestuous Magic':
     'Section=magic ' +
-    'Note="Can use a bonus action before or after casting a spell to fly 10\' without provoking opportunity attacks"',
+    'Note="Can use a bonus action before or after casting a spell of level 1 or highter to fly 10\' without provoking opportunity attacks"',
   'Wind Soul':
     'Section=ability,magic,save ' +
     'Note=' +
@@ -657,10 +657,9 @@ SwordCoast.FEATURES_ADDED = {
   // Warlock
   // The Undying
   'Among The Dead':
-    'Section=combat,magic,save ' +
+    'Section=combat,save ' +
     'Note=' +
       '"Undead divert attacks on self to others (save DC %{spellDifficultyClass.K} Wisdom negates for 24 hr, as does being attacked by self)",' +
-      '"Knows the <i>Spare The Dying</i> cantrip",' +
       '"Has advantage vs. disease" ' +
     'Spells="Spare The Dying"',
   'Defy Death':
@@ -676,7 +675,7 @@ SwordCoast.FEATURES_ADDED = {
   // Wizard
   // Bladesinging (ref Tasha)
   'Bladesong':
-    'Section=ability,combat,feature,magic,skill ' +
+    'Section=ability,combat,feature,save,skill ' +
     'Note=' +
       '"+10 Speed during Bladesong",' +
       '"+%{intelligenceModifier>?1} Armor Class during Bladesong",' +
