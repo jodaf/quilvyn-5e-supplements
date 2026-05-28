@@ -59,37 +59,37 @@ Volo.CHARACTER_FEATURES = {
   'Healing Hands':
     'Section=magic ' +
     'Note="Touch heals %{level} hit point%{level>1?\'s\':\'\'} once per long rest"',
-  'Light Bearer':'Section=magic Note="Knows the <i>Light</i> cantrip"',
-    // Leave off Spells and SpellAbility attribute to avoid duplicating for
-    // each subrace
+  // 'Light Bearer':
+  // Leave off Spells and SpellAbility attribute to avoid duplicating for
+  // each subrace
   // Protector Aasimar
   'Protector Aasimar Ability Adjustment':'Section=ability Note="+1 Wisdom"',
   'Radiant Soul (Aasimar)':
     'Section=ability,combat ' +
     'Note=' +
       '"Can gain a 30\' fly Speed for 1 min once per long rest",' +
-      '"Can inflict +%{level} HP radiant once rd for 1 min once per long rest"',
+      '"Can inflict +%{level} HP radiant with an attack once per turn for 1 min once per long rest"',
   // Scourge Aasimar
   'Radiant Consumption':
     'Section=combat ' +
-    'Note="Can inflict %{(level+1)//2} HP radiant in a 10\' radius, including to self, plus %{level} HP radiant to a target, each rd for up to 1 min once per long rest"',
+    'Note="Can inflict %{(level+1)//2} HP radiant in a 10\' radius, including to self, and +%{level} HP radiant with an attack each turn for 1 min once per long rest"',
   'Scourge Aasimar Ability Adjustment':'Section=ability Note="+1 Constitution"',
   // Fallen Aasimar
   'Fallen Aasimar Ability Adjustment':'Section=ability Note="+1 Strength"',
   'Necrotic Shroud':
     'Section=combat ' +
-    'Note="Can inflict frightened (save DC %{8+charismaModifier+proficiencyBonus} negates) in a 10\' radius for 1 rd and +%{level} HP necrotic once per rd for 1 min once per long rest"',
+    'Note="Can inflict frightened (save DC %{8+charismaModifier+proficiencyBonus} negates) in a 10\' radius until the end of the next turn and +%{level} HP necrotic with an attack once per turn for 1 min once per long rest"',
 
   // Firbolg
   'Firbolg Ability Adjustment':'Section=ability Note="+2 Wisdom/+1 Strength"',
   'Firbolg Magic':
     'Section=magic ' +
-    'Note="Can cast <i>Detect Magic</i> and <i>Disguise Self</i> once per short rest" ' +
+    'Note="Can cast <i>Detect Magic</i> and <i>Disguise Self</i> without expending a spell slot once per short rest" ' +
     'SpellAbility=Wisdom ' +
     'Spells="Detect Magic","Disguise Self"',
   'Hidden Step':
-    'Section=magic ' +
-    'Note="Can use a bonus action to become invisible until the start of the next turn once per short rest; inflicting damage or forcing a saving throw ends"',
+    'Section=combat ' +
+    'Note="Can use a bonus action to become invisible until the start of the next turn once per short rest; attacking, inflicting damage, or forcing a saving throw ends"',
   'Powerful Build':'Section=ability Note="x2 Carry/x2 Lift"',
   'Speech Of Beast And Leaf':
     'Section=skill ' +
@@ -115,7 +115,7 @@ Volo.CHARACTER_FEATURES = {
     'Note="Skill Proficiency (Choose 2 from Acrobatics, Deception, Stealth, Sleight Of Hand)"',
   'Mimicry':
     'Section=skill ' +
-    'Note="Successful Deception vs. Insight fools others with mimicked sounds"',
+    'Note="Can mimic sounds and voices after hearing them (successful Insight vs. Deception detects)"',
 
   // Lizardfolk
   'Lizardfolk Ability Adjustment':
@@ -132,7 +132,7 @@ Volo.CHARACTER_FEATURES = {
   "Hunter's Lore":
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 2 from Animal Handling, Nature, Perception, Stealth, Survival)"',
-  'Natural Armor':'Section=combat Note="AC %V in no armor"',
+  'Natural Armor':'Section=combat Note="+3 Armor Class in no armor"',
   'Swimmer':'Section=ability Note="Has a 30\' swim Speed"',
 
   // Tabaxi
@@ -145,14 +145,14 @@ Volo.CHARACTER_FEATURES = {
   "Cat's Talent":'Section=skill Note="Skill Proficiency (Perception; Stealth)"',
   'Feline Agility':
     'Section=combat ' +
-    'Note="Can move at double speed; must forego moving for 1 rd before the next use"',
+    'Note="Can move at double speed for 1 turn; must forego moving for 1 turn before the next use"',
   'Tabaxi Ability Adjustment':'Section=ability Note="+2 Dexterity/+1 Charisma"',
 
   // Triton
   'Amphibious':'Section=ability Note="Can breathe water"',
   'Control Air And Water':
     'Section=magic ' +
-    'Note="Can cast <i>Fog Cloud</i>%{level<3?\'\':level<5?\' and <i>Gust Of Wind</i>\':\' <i>Gust Of Wind</i>, and <i>Wall Of Water</i>\'} once per long rest" ' +
+    'Note="Can cast <i>Fog Cloud</i>%{level<3?\'\':level<5?\' and <i>Gust Of Wind</i>\':\' <i>Gust Of Wind</i>, and <i>Wall Of Water</i>\'} without expending a spell slot once per long rest" ' +
     'Spells="Fog Cloud","3:Gust Of Wind","5:Wall Of Water" ' +
     'SpellAbility=Charisma',
   'Emissary Of The Sea':
@@ -241,7 +241,7 @@ Volo.MONSTROUS_FEATURES = {
   'Sneaky':'Section=skill Note="Skill Proficiency (Stealth)"',
   'Surprise Attack':
     'Section=combat ' +
-    'Note="Inflicts +2d6 HP on the first surprise hit once per combat"',
+    'Note="Inflicts +2d6 HP on the first surprise hit in the first turn of combat"',
 
   // Goblin (ref Eberron5E)
   // Darkvision as SRD5E
@@ -268,7 +268,7 @@ Volo.MONSTROUS_FEATURES = {
   // Darkvision as SRD5E
   'Grovel, Cower, and Beg':
     'Section=combat ' +
-    'Note="R10\' Can distract foes, giving allies advantage on attacks, for 1 rd once per short rest"',
+    'Note="R10\' Can distract foes, giving allies advantage on attacks, until the end of the next turn once per short rest"',
   'Kobold Ability Adjustment':
     'Section=ability Note="+2 Dexterity/-2 Strength"',
   'Pack Tactics':
@@ -294,7 +294,7 @@ Volo.MONSTROUS_FEATURES = {
   // Darkvision as SRD5E
   'Innate Spellcasting':
     'Section=magic ' +
-    'Note="Knows the <i>Poison Spray</i> cantrip%{level<3?\' and\':\',\'} can cast <i>Animal Friendship</i> on snakes at will%{level<3?\'\':\', and can cast <i>Suggestion</i> once per long rest\'}" ' +
+    'Note="Can cast <i>Animal Friendship</i> on snakes at will%{level<3?\'\':\' and <i>Suggestion</i> without expending a spell slot once per long rest\'}" ' +
     'SpellAbility=Charisma ' +
     'Spells="Poison Spray","Animal Friendship","3:Suggestion"',
   'Magic Resistance':
@@ -396,20 +396,16 @@ Volo.raceRulesExtra = function(rules, name) {
       'spellAttackModifier.Aasimar', '=', '8 + source'
     );
   } else if(name == 'Lizardfolk') {
-    SRD5E.weaponRules(rules, 'Bite', 'Unarmed', [], '1d6', null);
+    SRD5E.weaponRules(rules, 'Bite', 'Unarmed', [], '1d6 P', null);
     rules.defineRule('weapons.Bite', 'combatNotes.bite', '=', '1');
-    rules.defineRule('combatNotes.naturalArmor',
-      'dexterityModifier', '=', '13 + source',
-      'shield', '+', 'source=="None" ? null : 2'
-    );
-    rules.defineRule('armorClass', 'combatNotes.naturalArmor.1', '^', null);
+    rules.defineRule('armorClass', 'combatNotes.naturalArmor.1', '+', null);
     rules.defineRule('combatNotes.naturalArmor.1',
       'armor', '?', 'source == "None"',
-      'combatNotes.naturalArmor', '=', null
+      'combatNotes.naturalArmor', '=', '3'
     );
     rules.defineRule('saveNotes.holdBreath', raceLevel, '^=', '"for 15 min"');
   } else if(name == 'Tabaxi') {
-    SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4', null);
+    SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4 S', null);
     rules.defineRule('weapons.Claws', "combatNotes.cat'sClaws", '=', '1');
   }
 };
