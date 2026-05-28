@@ -434,8 +434,8 @@ SwordCoast.FEATURES_ADDED = {
   'Gold Dwarf Ability Adjustment':'Section=ability Note="+1 Wisdom"',
   'Gray Dwarf Ability Adjustment':'Section=ability Note="+1 Strength"',
   'Shield Dwarf Ability Adjustment':'Section=ability Note="+2 Strength"',
-  // Sunlight Sensitivity from SRD5E
-  // Superior Darkvision from SRD5E
+  // Sunlight Sensitivity from PHB5E
+  // Superior Darkvision from PHB5E
 
   // Elf
   'Cantrip (Moon Elf)':'Section=magic Note="Knows 1 Wizard cantrip"',
