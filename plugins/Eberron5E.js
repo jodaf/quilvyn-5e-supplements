@@ -219,7 +219,7 @@ Eberron5E.FEATURES_ADDED = {
   'Artificer Specialist':'Section=feature Note="1 selection"',
   'Flash Of Genius':
     'Section=combat ' +
-    'Note="R30\' Can use a reaction to give an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
+    'Note="R30\' Can use a reaction to give self or an ally +%{intelligenceModifier} on an ability check or save %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest"',
   'Infuse Item':
     'Section=feature,magic ' +
     'Note=' +
@@ -272,7 +272,7 @@ Eberron5E.FEATURES_ADDED = {
       '"Greater Restoration","Heal"',
   'Experimental Elixir':
     'Section=magic ' +
-    'Note="Can use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs of healing, swiftness, resilience, boldness, flight, or transformation; can expend spell slots to create additional elixirs"',
+    'Note="Can use alchemist\'s supplies after a long rest to create %{(levels.Artificer+12)//9} elixirs with randomly-chosen healing, swiftness, resilience, boldness, flight, or transformation effects; can expend spell slots to create additional elixirs"',
   'Restorative Reagents':
     'Section=magic ' +
     'Note="Can use alchemist\'s supplies to cast <i>Lesser Restoration</i> without expending a spell slot %{intelligenceModifier>1?intelligenceModifier+\' times\':\'once\'} per long rest, and elixirs give 2d6+%{intelligenceModifier>?1} temporary hit points" ' +
@@ -347,7 +347,7 @@ Eberron5E.FEATURES_ADDED = {
     'Note="Can create a mechanical companion (Armor Class 13; %{levels.Artificer+intelligenceModifier+1} hit points (<i>Mending</i> repairs 2d6 hit points); R30\' +%{spellAttackModifier.A} attack inflicts 1d4+%{proficiencyBonus} HP force; Successful Dexterity saves yield no damage instead of half, and failures yield half damage; can deliver touch spells when within 120\')"',
   'Radiant Weapon':
     'Section=magic ' +
-    'Note="Infused weapon with 4 charges gives +1 attack and damage and emits a 30\' bright light on command; the wielder can use a reaction and 1 charge to blind a successful attacker (save DC %{spellDifficultyClass.A} Constitution negates) for 1 rd; the weapon regains 1d4 charges each dawn"',
+    'Note="Infused weapon with 4 charges gives +1 attack and damage and emits a 30\' bright light on command; the wielder can use a reaction and 1 charge to blind a successful attacker (save DC %{spellDifficultyClass.A} Constitution negates) until the end of its next turn; the weapon regains 1d4 charges each dawn"',
   'Repeating Shot':
     'Section=magic ' +
     'Note="Infused ammunition weapon gives +1 attack and damage and automatically creates its own ammunition"',
