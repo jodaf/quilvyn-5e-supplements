@@ -95,7 +95,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Feats</b>: Elemental Adept (Cold); Elemental Adept (Thunder); Magic Initiate (Wizard); Mounted Combatant; Tavern Brawler</td>
         <td><b>Human Features</b>: Human Ability Adjustment; Language (Common; Choose 1 from any)</td>
-        <td><b>Druid Features</b>: Archdruid; Armor Proficiency (Light; Medium; Shield); Beast Spells; Blazing Revival; Cantrip Versatility; Cauterizing Flames; Circle Of Spores; Circle Of Stars; Circle Of Wildfire; Cosmic Omen; Druid Circle; Druidic; Enhanced Bond; Full Of Stars; Fungal Body; Fungal Infestation; Halo Of Spores; Save Proficiency (Intelligence; Wisdom); Skill Proficiency (Choose 2 from Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival); Spellcasting; Spreading Spores; Star Map; Starry Form; Summon Wildfire Spirit; Symbiotic Entity; Timeless Body (Druid); Tool Proficiency (Herbalism Kit); Twinkling Constellations; Weapon Proficiency (Club; Dagger; Dart; Javelin; Mace; Quarterstaff; Scimitar; Sickle; Sling; Spear); Wild Companion; Wild Shape</td>
+        <td><b>Druid Features</b>: Archdruid; Armor Proficiency (Light; Medium; Shield); Beast Spells; Blazing Revival; Cantrip Versatility; Cauterizing Flames; Circle Of Spores Spells; Circle Of Spores; Circle Of Stars; Circle Of Wildfire Spells; Circle Of Wildfire; Cosmic Omen; Druid Circle; Druidic; Enhanced Bond; Full Of Stars; Fungal Body; Fungal Infestation; Halo Of Spores; Save Proficiency (Intelligence; Wisdom); Skill Proficiency (Choose 2 from Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival); Spellcasting; Spreading Spores; Star Map; Starry Form; Summon Wildfire Spirit; Symbiotic Entity; Timeless Body (Druid); Tool Proficiency (Herbalism Kit); Twinkling Constellations; Weapon Proficiency (Club; Dagger; Dart; Javelin; Mace; Quarterstaff; Scimitar; Sickle; Sling; Spear); Wild Companion; Wild Shape</td>
         <td><b>Acolyte Features</b>: Language (Choose 2 from any); Shelter Of The Faithful; Skill Proficiency (Insight; Religion)</td>
       </tr></table>
 </td>
@@ -200,9 +200,9 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Mounted Combatant: Has advantage on melee attacks on unmounted foes smaller than mount and can redirect attacks on mount to self</td>
       </tr><tr style="text-align:center">
-        <td>Spreading Spores: Can use a bonus action to move the Halo Of Spores 30'</td>
+        <td>Spreading Spores: While Symbiotic Entity is active, can use a bonus action to move the Halo Of Spores effects to a 10' cube 30' away for 1 min</td>
       </tr><tr style="text-align:center">
-        <td>Symbiotic Entity: Can expend 1 Wild Shape use to gain 80 temporary hit points, double the Halo Of Spores damage, and inflict +1d6 HP necrotic on melee hits for 10 min or until the temporary hit points are lost</td>
+        <td>Symbiotic Entity: Can expend 1 Wild Shape use to gain 80 temporary hit points, double the Halo Of Spores damage, and inflict +1d6 HP necrotic with melee hits for 10 min; losing all the temporary hit points or using Wild Shape ends</td>
       </tr><tr style="text-align:center">
         <td>Tavern Brawler: Can use a bonus action to grapple after a successful unarmed strike or improvised weapon attack</td>
       </tr></table>
@@ -249,27 +249,27 @@ var attributes = {
     <tr style="text-align:left">
       <td>Animal Friendship (D1 Ench): R30' Convinces target beast that self is harmless (save Wisdom negates; Intelligence 4 or higher immune) for 24 hr or until harmed [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
-      <td>Animate Dead (D3 [Circle Of Spores] Necr): R10' Bones or the corpse of a Medium or Small humanoid becomes a skeleton or zombie that obeys commands when within 60' for 24 hr [+Level animates +2 undead]</td>
+      <td>Animate Dead (D3 [Circle Of Spores Spells] Necr): R10' Bones or the corpse of a Medium or Small humanoid becomes a skeleton or zombie that obeys commands when within 60' for 24 hr [+Level animates +2 undead]</td>
     </tr><tr style="text-align:left">
-      <td>Aura Of Life (D4 [Circle Of Wildfire] Abju): 30' radius gives nonhostile creatures resistance to necrotic damage and immunity to maximum hit point reduction, and raises those with 0 hit points to 1 hit point, for concentration up to 10 min</td>
+      <td>Aura Of Life (D4 [Circle Of Wildfire Spells] Abju): 30' radius gives nonhostile creatures resistance to necrotic damage and immunity to maximum hit point reduction, and raises those with 0 hit points to 1 hit point, for concentration up to 10 min</td>
     </tr><tr style="text-align:left">
       <td>Awaken (D5 Tran): Touched beast or plant gains Intelligence 10, speech, and movement and becomes charmed for 30 days or until harmed</td>
     </tr><tr style="text-align:left">
       <td>Beast Sense (D2 Divi): Self can perceive through a touched willing beast's senses for concentration up to 1 hr [R]</td>
     </tr><tr style="text-align:left">
-      <td>Blight (D4 [Circle Of Spores] Necr): R30' Inflicts 8d8 HP necrotic (save Constitution half; plant target has disadvantage on the save and suffers maximum damage on failure) [+Level inflicts +1d8 HP]</td>
+      <td>Blight (D4 [Circle Of Spores Spells] Necr): R30' Inflicts 8d8 HP necrotic (save Constitution half; plant target has disadvantage on the save and suffers maximum damage on failure) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Blindness/Deafness (D2 [Circle Of Spores] Necr): R30' Inflicts a choice of blindness or deafness (save Constitution negates; additional saves each rd end) for 1 min [+Level affects +1 target]</td>
+      <td>Blindness/Deafness (D2 [Circle Of Spores Spells] Necr): R30' Inflicts a choice of blindness or deafness (save Constitution negates; additional saves each rd end) for 1 min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
-      <td>Burning Hands (D1 [Circle Of Wildfire] Evoc): 15' cone inflicts 3d6 HP fire (save Dexterity half) [+Level inflicts +1d6 HP]</td>
+      <td>Burning Hands (D1 [Circle Of Wildfire Spells] Evoc): 15' cone inflicts 3d6 HP fire (save Dexterity half) [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Chill Touch (D0 [Circle Of Spores] Necr): R120' Ranged spell inflicts 4d8 HP necrotic and target cannot regain hit points until the start of the next turn; undead also suffer disadvantage vs. self attack for 1 rd</td>
+      <td>Chill Touch (D0 [Circle Of Spores Spells] Necr): R120' Ranged spell inflicts 4d8 HP necrotic and target cannot regain hit points until the start of the next turn; undead also suffer disadvantage vs. self attack for 1 rd</td>
     </tr><tr style="text-align:left">
       <td>Chill Touch (W0 Necr): R120' Ranged spell inflicts 4d8 HP necrotic and target cannot regain hit points until the start of the next turn; undead also suffer disadvantage vs. self attack for 1 rd</td>
     </tr><tr style="text-align:left">
-      <td>Cloudkill (D5 [Circle Of Spores] Conj): R120' 20' radius inflicts 5d8 HP poison (save Constitution half) and moves away 10' per rd for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
+      <td>Cloudkill (D5 [Circle Of Spores Spells] Conj): R120' 20' radius inflicts 5d8 HP poison (save Constitution half) and moves away 10' per rd for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Confusion (D4 [Circle Of Spores] Ench): R90' Creatures in a 10' radius lose reactions and randomly: 10% wander; 50% do nothing; 20% attack an adjacent creature; 20% act normally (save Wisdom negates; additional saves each rd end) for concentration up to 1 min [+Level increases the radius by 5']</td>
+      <td>Confusion (D4 [Circle Of Spores Spells] Ench): R90' Creatures in a 10' radius lose reactions and randomly: 10% wander; 50% do nothing; 20% attack an adjacent creature; 20% act normally (save Wisdom negates; additional saves each rd end) for concentration up to 1 min [+Level increases the radius by 5']</td>
     </tr><tr style="text-align:left">
       <td>Conjure Animals (D3 Conj): R60' Summons a choice of 1, 2, 4, or 8 obedient CR 2, 1, 1/2, or 1/4 fey spirits in beast form for concentration up to 1 hr [+Level doubles, triples, or quadruples the number of animals at level 5, 7, or 9]</td>
     </tr><tr style="text-align:left">
@@ -277,9 +277,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Conjure Minor Elementals (D4 Conj): R90' Summons a choice of 1, 2, 4, or 8 obedient CR 2, 1, 1/2, or 1/4 elementals for concentration up to 1 hr [+Level doubles or triples the number of elementals at level 6 or 8]</td>
     </tr><tr style="text-align:left">
-      <td>Contagion (D5 [Circle Of Spores] Necr): Touch inflicts poisoned (save Constitution each turn; 3 successes end, and 3 failures inflict a choice of disease for 7 days)</td>
+      <td>Contagion (D5 [Circle Of Spores Spells] Necr): Touch inflicts poisoned (save Constitution each turn; 3 successes end, and 3 failures inflict a choice of disease for 7 days)</td>
     </tr><tr style="text-align:left">
-      <td>Cure Wounds (D1 [Circle Of Wildfire] Evoc): Touched regains 1d8+2 hit points [+Level restores +1d8 hit points]</td>
+      <td>Cure Wounds (D1 [Circle Of Wildfire Spells] Evoc): Touched regains 1d8+2 hit points [+Level restores +1d8 hit points]</td>
     </tr><tr style="text-align:left">
       <td>Darkvision (D2 Tran): Willing touched sees 60' in darkness for 8 hr</td>
     </tr><tr style="text-align:left">
@@ -287,19 +287,19 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Find Familiar (D1 [Wild Companion] Conj): R10' Self gains the service of a summoned spirit in animal form that allows telepathic communication, remote sensing, and use of its reaction to deliver remote touch attacks when within 100' [R]</td>
     </tr><tr style="text-align:left">
-      <td>Fire Shield (D4 [Circle Of Wildfire] Evoc): Self emits a 10' bright light and gains resistance to a choice of heat or cold, and successful adjacent attackers suffer 2d8 HP fire or cold, for 10 min</td>
+      <td>Fire Shield (D4 [Circle Of Wildfire Spells] Evoc): Self emits a 10' bright light and gains resistance to a choice of heat or cold, and successful adjacent attackers suffer 2d8 HP fire or cold, for 10 min</td>
     </tr><tr style="text-align:left">
       <td>Fire Storm (D7 Evoc): R150' 10 contiguous 10' cubes inflict 7d10 HP fire (save Dexterity half) and ignite unattended flammable objects</td>
     </tr><tr style="text-align:left">
-      <td>Flame Strike (D5 [Circle Of Wildfire] Evoc): R60' 10' radius inflicts 4d6 HP fire and 4d6 HP radiant (save Dexterity half) [+Level inflicts +1d6 HP of a choice of fire or radiant]</td>
+      <td>Flame Strike (D5 [Circle Of Wildfire Spells] Evoc): R60' 10' radius inflicts 4d6 HP fire and 4d6 HP radiant (save Dexterity half) [+Level inflicts +1d6 HP of a choice of fire or radiant]</td>
     </tr><tr style="text-align:left">
-      <td>Flaming Sphere (D2 [Circle Of Wildfire] Conj): R60' 5' sphere emits a 20' bright light, inflicts 2d6 HP fire (save Dexterity half) on creatures within 5', and ignites unattended flammable objects for concentration up to 1 min; can use a bonus action each rd to move it 30', rolling over 5' barriers and jumping 10' gaps [+Level inflicts +1d6 HP]</td>
+      <td>Flaming Sphere (D2 [Circle Of Wildfire Spells] Conj): R60' 5' sphere emits a 20' bright light, inflicts 2d6 HP fire (save Dexterity half) on creatures within 5', and ignites unattended flammable objects for concentration up to 1 min; can use a bonus action each rd to move it 30', rolling over 5' barriers and jumping 10' gaps [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
       <td>Friends (W0 Ench): Self gains advantage on Charisma checks with a non-hostile target for concentration up to 1 min; the target becomes hostile afterward</td>
     </tr><tr style="text-align:left">
-      <td>Gaseous Form (D3 [Circle Of Spores] Tran): Touched willing creature becomes gaseous, gaining a 10' fly Speed, resistance to nonmagical damage, and advantage on Strength, Dexterity, and Constitution saves, for concentration up to 1 hr</td>
+      <td>Gaseous Form (D3 [Circle Of Spores Spells] Tran): Touched willing creature becomes gaseous, gaining a 10' fly Speed, resistance to nonmagical damage, and advantage on Strength, Dexterity, and Constitution saves, for concentration up to 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Gentle Repose (D2 [Circle Of Spores] Necr): Touched corpse becomes immune to decay and animation for 10 days [R]</td>
+      <td>Gentle Repose (D2 [Circle Of Spores Spells] Necr): Touched corpse becomes immune to decay and animation for 10 days [R]</td>
     </tr><tr style="text-align:left">
       <td>Greater Restoration (D5 Abju): Touched recovers from an effect causing an exhaustion level, a charmed or petrified condition, a curse, an ability reduction, or a reduction of hit point maximum</td>
     </tr><tr style="text-align:left">
@@ -315,9 +315,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Jump (D1 Tran): Touched gains triple jump distance for 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Mass Cure Wounds (D5 [Circle Of Wildfire] Evoc): R60' 6 targets in a 30' radius regain 3d8+2 HP [+Level restores +1d8 HP]</td>
+      <td>Mass Cure Wounds (D5 [Circle Of Wildfire Spells] Evoc): R60' 6 targets in a 30' radius regain 3d8+2 HP [+Level restores +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Plant Growth (D3 [Circle Of Wildfire] Tran): R150' Causes plants in a 100' radius to overgrow, slowing movement to 1/4 Speed, or enriches a half-mile radius for 1 year</td>
+      <td>Plant Growth (D3 [Circle Of Wildfire Spells] Tran): R150' Causes plants in a 100' radius to overgrow, slowing movement to 1/4 Speed, or enriches a half-mile radius for 1 year</td>
     </tr><tr style="text-align:left">
       <td>Poison Spray (D0 Conj): R10' Inflicts 4d12 HP poison (save Constitution negates)</td>
     </tr><tr style="text-align:left">
@@ -331,9 +331,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Reverse Gravity (D7 Tran): R100' Items in a 100'x100' cylinder fall upward for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Revivify (D3 [Circle Of Wildfire] Necr): Restores life and 1 hit point to a touched 1-minute-old corpse</td>
+      <td>Revivify (D3 [Circle Of Wildfire Spells] Necr): Restores life and 1 hit point to a touched 1-minute-old corpse</td>
     </tr><tr style="text-align:left">
-      <td>Scorching Ray (D2 [Circle Of Wildfire] Evoc): R120' 3 ranged attacks each inflict 2d6 HP fire [+Level gives +1 ranged attack]</td>
+      <td>Scorching Ray (D2 [Circle Of Wildfire Spells] Evoc): R120' 3 ranged attacks each inflict 2d6 HP fire [+Level gives +1 ranged attack]</td>
     </tr><tr style="text-align:left">
       <td>Shapechange (D9 Tran): Allows self to polymorph repeatedly into familiar living creatures of equal or lesser CR, gaining the hit points and hit dice of that creature, for concentration up to 1 hr or until reduced to 0 hit points</td>
     </tr><tr style="text-align:left">
@@ -361,11 +361,11 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Beast Spells: Can cast spells requiring no material components during Wild Shape</td>
     </tr><tr style="text-align:center">
-      <td>Blazing Revival: R120' Can extinguish the Wildfire Spirit to regain 70 hit points when reduced to 0 hit points once per long rest</td>
+      <td>Blazing Revival: R120' Can extinguish the Wildfire Spirit to regain 70 hit points and stand when reduced to 0 hit points once per long rest</td>
     </tr><tr style="text-align:center">
       <td>Cantrip Versatility: Can replace a cantrip when boosting an ability or taking a feat</td>
     </tr><tr style="text-align:center">
-      <td>Cauterizing Flames: R30' Can create a spectral flame for 1 min when a creature dies and later use it to heal 2d10+2 hit points or to inflict 2d10+2 HP fire on another in the same space 6 times per long rest</td>
+      <td>Cauterizing Flames: R30' Can create a spectral flame for 1 min where a creature dies and later use it to heal 2d10+2 hit points or to inflict 2d10+2 HP fire on another in the same space 6 times per long rest</td>
     </tr><tr style="text-align:center">
       <td>Elemental Adept (Cold): Spells that inflict cold damage ignore resistance and treat 1s as 2s on damage dice</td>
     </tr><tr style="text-align:center">
@@ -381,13 +381,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Star Map: Can cast <i>Guiding Bolt</i> without expending a spell slot 6 times per long rest</td>
     </tr><tr style="text-align:center">
-      <td>Starry Form: Can use a bonus action and spend a Wild Shape use to emit a 10' bright light for 10 min, gaining the benefits of the archer constellation (can use a bonus action to make a R60' spell attack that inflicts 2d8+2 HP radiant), the chalice constellation (cast healing spells that restore 2d8+2 to another within 30'), or the dragon constellation (gain a 20' fly Speed and score a minimum of 10 on concentration rolls)</td>
+      <td>Starry Form: Can use a bonus action and expend a Wild Shape use to emit a 10' bright light for 10 min, gaining the benefits of the archer constellation (can use a bonus action to make a R60' spell attack that inflicts 2d8+2 HP radiant), the chalice constellation (self healing spells restore 2d8+2 to another creature within 30'), or the dragon constellation (gain a 20' fly Speed and score a minimum of 10 on concentration rolls)</td>
     </tr><tr style="text-align:center">
-      <td>Summon Wildfire Spirit: R30' Can spend a Wild Shape use to inflict 2d6 HP fire in a 10' radius (save DC 16 Dexterity negates) and summon an obedient Wildfire Spirit (Armor Class 13; 105 hit points; move or fly 30'; R60' +8 attack inflicts 1d6+6 HP fire; can teleport targets in a 5' radius 15', inflicting 1d6+6 on those left behind (save DC 16 Dexterity negates)) for 1 hr</td>
+      <td>Summon Wildfire Spirit: R30' Can expend a Wild Shape use to inflict 2d6 HP fire in a 10' radius (save DC 16 Dexterity negates) and summon an obedient Wildfire Spirit (Armor Class 13; 105 hit points; move or fly 30'; R60' +8 attack inflicts 1d6+6 HP fire; can teleport willing targets in a 5' radius 15', inflicting 1d6+6 on those left behind (save DC 16 Dexterity negates)) for 1 hr</td>
     </tr><tr style="text-align:center">
-      <td>Twinkling Constellations: Can switch between Starry Forms once per rd</td>
+      <td>Twinkling Constellations: Can switch between Starry Forms at the start of a turn</td>
     </tr><tr style="text-align:center">
-      <td>Wild Companion: Can spend a Wild Shape use to cast <i>Find Familiar</i>, summoning a fey spirit for 10 hr</td>
+      <td>Wild Companion: Can expend a Wild Shape use to cast <i>Find Familiar</i>, summoning a fey spirit for 10 hr</td>
     </tr><tr style="text-align:center">
       <td>Wild Shape: Can transform into a CR 1 creature for 10 hr unlimited times per short rest</td>
     </tr></table>

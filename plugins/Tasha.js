@@ -154,6 +154,7 @@ Tasha.CLASSES_FEATURES_ADDED = {
     '"4:Cantrip Versatility",' +
     '"8:Blessed Strikes",' +
     '"features.Order Domain ? 1:Bonus Proficiencies (Order Domain)",' +
+    '"features.Order Domain ? 1:Order Domain Spells",' +
     '"features.Order Domain ? 1:Voice Of Authority",' +
     '"features.Order Domain ? 2:Order\'s Demand",' +
     '"features.Order Domain ? 6:Embodiment Of The Law",' +
@@ -161,12 +162,14 @@ Tasha.CLASSES_FEATURES_ADDED = {
     '"features.Order Domain ? 17:Order\'s Wrath",' +
     '"features.Peace Domain ? 1:Emboldening Bond",' +
     '"features.Peace Domain ? 1:Implement Of Peace",' +
+    '"features.Peace Domain ? 1:Peace Domain Spells",' +
     '"features.Peace Domain ? 2:Balm Of Peace",' +
     '"features.Peace Domain ? 6:Protective Bond",' +
     '"clericHasPotentSpellcasting ? 8:Potent Spellcasting",' +
     '"features.Peace Domain ? 17:Expansive Bond",' +
-    '"features.Twilight Domain ? 1:Eyes Of Night",' +
     '"features.Twilight Domain ? 1:Bonus Proficiencies (Twilight Domain)",' +
+    '"features.Twilight Domain ? 1:Eyes Of Night",' +
+    '"features.Twilight Domain ? 1:Twilight Domain Spells",' +
     '"features.Twilight Domain ? 1:Vigilant Blessing",' +
     '"features.Twilight Domain ? 2:Twilight Sanctuary",' +
     '"features.Twilight Domain ? 6:Steps Of Night",' +
@@ -175,6 +178,7 @@ Tasha.CLASSES_FEATURES_ADDED = {
   'Druid':
     '"2:Wild Companion",' +
     '"4:Cantrip Versatility",' +
+    '"features.Circle Of Spores ? 2:Circle Of Spores Spells",' +
     '"features.Circle Of Spores ? 2:Halo Of Spores",' +
     '"features.Circle Of Spores ? 2:Symbiotic Entity",' +
     '"features.Circle Of Spores ? 6:Fungal Infestation",' +
@@ -185,6 +189,7 @@ Tasha.CLASSES_FEATURES_ADDED = {
     '"features.Circle Of Stars ? 6:Cosmic Omen",' +
     '"features.Circle Of Stars ? 10:Twinkling Constellations",' +
     '"features.Circle Of Stars ? 14:Full Of Stars",' +
+    '"features.Circle Of Wildfire ? 2:Circle Of Wildfire Spells",' +
     '"features.Circle Of Wildfire ? 2:Summon Wildfire Spirit",' +
     '"features.Circle Of Wildfire ? 6:Enhanced Bond",' +
     '"features.Circle Of Wildfire ? 10:Cauterizing Flames",' +
@@ -543,7 +548,7 @@ Tasha.FEATURES = {
     'Note="Has the Lightning Launcher, Powered Steps, and Dampening Field features"',
   'Lightning Launcher':
     'Section=combat ' +
-    'Note="Can make range 90\'/300\' attacks that inflict 1d6 HP lightning, +1d6 HP lightning once per turn"',
+    'Note="Can make R90\'/300\' attacks that inflict 1d6 HP lightning, +1d6 HP lightning once per turn"',
   'Perfected Armor (Guardian Armor)':
     'Section=combat ' +
     'Note="R30\' Can use a reaction to pull a Huge or smaller creature up to 30\' (save DC %{spellDifficultyClass.A} Strength negates) and attack if within 5\' afterward %{proficiencyBonus} times per long rest"',
@@ -707,16 +712,16 @@ Tasha.FEATURES = {
   // College Of Creation
   'Animating Performance':
     'Section=magic ' +
-    'Note="R30\' Can animate an obedient Large object (Armor Class 16; %{levels.Bard*5+10} hit points; move or fly 30\'; +%{spellAttackModifier.B} attack inflicts 1d10+%{proficiencyBonus} HP; Irrepressible Dance R10\' inflicts -10\' or +10\' Speed) for 1 hr once per long rest; can expend level 3 or higher spell slots to animate additional objects"',
+    'Note="R30\' Can animate an obedient Large object (Armor Class 16; %{levels.Bard*5+10} hit points; move or fly 30\'; +%{spellAttackModifier.B} attack inflicts 1d10+%{proficiencyBonus} HP; Irrepressible Dance R10\' inflicts -10\' or +10\' Speed until the end of the turn) for 1 hr once per long rest; can expend level 3 or higher spell slots for additional uses"',
   'Creative Crescendo':
     'Section=magic ' +
-    'Note="Can use Performance Of Creation to create %{(charismaModifier-1)>?1} additional small object%{charismaModifier>2?\'s\':\'\'}"',
+    'Note="Can create %{(charismaModifier-1)>?1} additional Small object%{charismaModifier>2?\'s\':\'\'} when using Performance Of Creation"',
   'Mote Of Potential':
     'Section=magic ' +
-    'Note="Bardic Inspiration adds the better of two rolls on an ability check, inflicts the die roll HP thunder (save DC %{spellDifficultyClass.B} Constitution negates) to the target and chosen creatures within 5\' on an attack, or gives the roll + %{charismaModifier} temporary hit points on a save"',
+    'Note="Bardic Inspiration adds the better of two rolls to an ability check, inflicts the die roll HP thunder (save DC %{spellDifficultyClass.B} Constitution negates) to the target and chosen creatures within 5\' on an attack, or gives temporary hit points equal to the die roll + %{charismaModifier} on a save"',
   'Performance Of Creation':
     'Section=magic ' +
-    'Note="R10\' Can create a %{levels.Bard<6?\'Medium\':levels.Bard<14?\'Large\':\'Huge\'} object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr once per long rest; can expend level 2 or higher spell slots to create additional objects"',
+    'Note="R10\' Can create a %{levels.Bard<6?\'Medium\':levels.Bard<14?\'Large\':\'Huge\'} object worth %{levels.Bard*20} GP for %{proficiencyBonus} hr once per long rest; can expend level 2 or higher spell slots for additional uses"',
   // College Of Eloquence
   'Infectious Inspiration':
     'Section=magic ' +
@@ -732,12 +737,12 @@ Tasha.FEATURES = {
     'Note="R60\' %{charismaModifier>?1} target%{charismaModifier>1?\'s\':\'\'} understand%{charismaModifier>1?\'\':\'s\'} self for 1 hr once per long rest; can expend spell slots for additional uses"',
   'Unsettling Words':
     'Section=magic ' +
-    'Note="R60\' Can spend 1 Bardic Inspiration die and use a bonus action to inflict -roll on the target\'s next save within 1 rd"',
+    'Note="R60\' Can use a bonus action and expend a Bardic Inspiration die to subtract the roll from the target\'s next save before the start of the next turn"',
 
   // Cleric
   'Blessed Strikes':
     'Section=combat ' +
-    'Note="Can inflict +1d8 radiant with a cantrip or a weapon hit once per rd"',
+    'Note="Can inflict +1d8 radiant with a cantrip or a weapon hit once per turn"',
   'Cantrip Versatility':
     'Section=magic ' +
     'Note="Can replace a cantrip when boosting an ability or taking a feat"',
@@ -753,8 +758,8 @@ Tasha.FEATURES = {
   // Divine Strike as SRD5E
   'Embodiment Of The Law':
     'Section=magic ' +
-    'Note="Can cast a 1-action enchantment spell as a bonus action %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
-  'Order Domain':
+    'Note="Can cast a 1-action, level 1 or higher enchantment spell as a bonus action %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
+  'Order Domain Spells':
     'Spells=' +
       '"1:Command","1:Heroism",' +
       '"3:Hold Person","3:Zone Of Truth",' +
@@ -763,27 +768,27 @@ Tasha.FEATURES = {
       '"9:Commune","9:Dominate Person"',
   "Order's Demand":
     'Section=magic ' +
-    'Note="R30\' Can use Channel Divinity to charm targets (save DC %{spellDifficultyClass.C} Wisdom negates; damage ends) for 1 rd"',
+    'Note="R30\' Can use Channel Divinity to charm targets (save DC %{spellDifficultyClass.C} Wisdom negates) until the end of the next turn; damage ends"',
   "Order's Wrath":
     'Section=combat ' +
-    'Note="Once per rd, can curse a Divine Strike target so that the next ally hit within 1 rd inflicts +2d8 psychic"',
+    'Note="Once per turn, can curse a Divine Strike target so that the next ally hit before the start of the next turn inflicts +2d8 HP psychic"',
   'Voice Of Authority':
     'Section=magic ' +
-    'Note="Allied target of a self spell can use a reaction to make an attack"',
+    'Note="Allied target of a level 1 or higher self spell can use a reaction to make an attack"',
   // Peace Domain
   'Balm Of Peace':
     'Section=magic ' +
-    'Note="Can use Channel Divinity to move %{speed}\' without provoking opportunity attacks, restoring 2d6+%{wisdomModifier} hit points to each target within 5\'"',
+    'Note="Can use Channel Divinity to move %{speed}\' without provoking opportunity attacks, restoring 2d6+%{wisdomModifier} hit points to each target within 5\' of the path"',
   'Emboldening Bond':
     'Section=magic ' +
-    'Note="R30\' Can give %{proficiencyBonus} willing targets +1d4 on an attack, ability check, or save once per rd for 10 min when within 30\' of another %{proficiencyBonus} times per long rest"',
+    'Note="R30\' Can give %{proficiencyBonus} willing targets +1d4 on an attack, ability check, or save once per turn for 10 min when within %{magicNotes.expansiveBond?60:30}\' of another %{proficiencyBonus} times per long rest"',
   'Expansive Bond':
     'Section=magic ' +
-    'Note="The range of Emboldening Bond and Protective Bond increases to 60\', and Protective Bond gives resistance to the damage taken"',
+    'Note="Has increased Emboldening Bond and Protective Bond effects"',
   'Implement Of Peace':
     'Section=skill ' +
     'Note="Skill Proficiency (Choose 1 from Insight, Performance, Persuasion)"',
-  'Peace Domain':
+  'Peace Domain Spells':
     'Spells=' +
       '"1:Heroism","1:Sanctuary",' +
       '"3:Aid","3:Warding Bond",' +
@@ -793,7 +798,7 @@ Tasha.FEATURES = {
   // Potent Spellcasting as SRD5E
   'Protective Bond':
     'Section=magic ' +
-    'Note="An Emboldening Bond member can use a reaction to teleport 30\' and take another\'s damage"',
+    'Note="An Emboldening Bond member can use a reaction to teleport %{magicNotes.expansiveBond?60:30}\' in order to redirect damage suffered by another member to itself%{magicNotes.expansiveBond?\', with resistance to the damage\':\'\'}"',
   // Twilight Domain
   'Bonus Proficiencies (Twilight Domain)':
     'Section=combat ' +
@@ -801,11 +806,11 @@ Tasha.FEATURES = {
   // Divine Strike as SRD5E
   'Eyes Of Night':
     'Section=feature ' +
-    'Note="R300\' Darkvision can be shared with %{wisdomModifier>1?wisdomModifier+\' others\':\'1 other\'} within 10\' for 1 hr once per long rest; can expend a spell slot for additional uses"',
+    'Note="R300\' Darkvision can be shared with %{wisdomModifier>1?wisdomModifier+\' others\':\'1 other\'} within 10\' for 1 hr once per long rest; can expend spell slots for additional uses"',
   'Steps Of Night':
     'Section=ability ' +
-    'Note="Can use a bonus action to gain a %{speed}\' fly Speed in dim or no light for 1 min %{proficiencyBonus} times per long rest"',
-  'Twilight Domain':
+    'Note="Can use a bonus action in dim light or darkness to gain a %{speed}\' fly Speed for 1 min %{proficiencyBonus} times per long rest"',
+  'Twilight Domain Spells':
     'Spells=' +
       '"1:Faerie Fire","1:Sleep",' +
       '"3:Moonbeam","3:See Invisibility",' +
@@ -815,19 +820,21 @@ Tasha.FEATURES = {
   'Twilight Sanctuary':
     'Section=magic ' +
     'Note="Can use Channel Divinity to create a 30\' radius for 1 min that gives targets a choice of 1d6+%{levels.Cleric} temporary hit points or an end to a charmed or frightened condition"',
-  'Twilight Shroud':'Section=magic Note="Twilight Sanctuary gives half cover"',
+  'Twilight Shroud':
+    'Section=magic Note="Twilight Sanctuary gives self and allies half cover"',
   'Vigilant Blessing':
-    'Section=combat Note="Touched gains advantage on the next initiative"',
+    'Section=combat ' +
+    'Note="Touch gives 1 target advantage on the next initiative"',
 
   // Druid
   // Cantrip Versatility as above
   'Wild Companion':
     'Section=magic ' +
-    'Note="Can spend a Wild Shape use to cast <i>Find Familiar</i>, summoning a fey spirit for %{levels.Druid//2} hr" ' +
+    'Note="Can expend a Wild Shape use to cast <i>Find Familiar</i>, summoning a fey spirit for %{levels.Druid//2} hr" ' +
     'Spells=' +
       '"Find Familiar"',
   // Circle Of Spores
-  'Circle Of Spores':
+  'Circle Of Spores Spells':
     'Spells=' +
       '"2:Chill Touch",' +
       '"3:Blindness/Deafness","3:Gentle Repose",' +
@@ -847,10 +854,10 @@ Tasha.FEATURES = {
     'Note="R10\' Can use a reaction to inflict 1d%{levels.Druid<6?4:levels.Druid<10?6:levels.Druid<14?8:10} HP necrotic on a target (save DC %{spellDifficultyClass.D} Constitution negates)"',
   'Spreading Spores':
     'Section=combat ' +
-    'Note="Can use a bonus action to move the Halo Of Spores 30\'"',
+    'Note="While Symbiotic Entity is active, can use a bonus action to move the Halo Of Spores effects to a 10\' cube 30\' away for 1 min"',
   'Symbiotic Entity':
     'Section=combat ' +
-    'Note="Can expend 1 Wild Shape use to gain %{levels.Druid*4} temporary hit points, double the Halo Of Spores damage, and inflict +1d6 HP necrotic on melee hits for 10 min or until the temporary hit points are lost"',
+    'Note="Can expend 1 Wild Shape use to gain %{levels.Druid*4} temporary hit points, double the Halo Of Spores damage, and inflict +1d6 HP necrotic with melee hits for 10 min; losing all the temporary hit points or using Wild Shape ends"',
   // Circle Of Stars
   'Cosmic Omen':
     'Section=combat ' +
@@ -865,20 +872,20 @@ Tasha.FEATURES = {
       'Guidance,"Guiding Bolt"',
   'Starry Form':
     'Section=magic ' +
-    'Note="Can use a bonus action and spend a Wild Shape use to emit a 10\' bright light for 10 min, gaining the benefits of the archer constellation (can use a bonus action to make a R60\' spell attack that inflicts %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} HP radiant), the chalice constellation (cast healing spells that restore %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} to another within 30\'), or the dragon constellation (%{magicNotes.twinklingConstellations?\\"gain a 20\' fly Speed and \\":\'\'}score a minimum of 10 on concentration rolls)"',
+    'Note="Can use a bonus action and expend a Wild Shape use to emit a 10\' bright light for 10 min, gaining the benefits of the archer constellation (can use a bonus action to make a R60\' spell attack that inflicts %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} HP radiant), the chalice constellation (self healing spells restore %{magicNotes.twinklingConstellations?2:1}d8+%{wisdomModifier} to another creature within 30\'), or the dragon constellation (%{magicNotes.twinklingConstellations?\\"gain a 20\' fly Speed and \\":\'\'}score a minimum of 10 on concentration rolls)"',
   'Twinkling Constellations':
     'Section=magic,magic ' +
     'Note=' +
       '"Has increased Starry Form effects",' +
-      '"Can switch between Starry Forms once per rd"',
+      '"Can switch between Starry Forms at the start of a turn"',
   // Circle Of Wildfire
   'Blazing Revival':
     'Section=magic ' +
-    'Note="R120\' Can extinguish the Wildfire Spirit to regain %{hitPoints//2} hit points when reduced to 0 hit points once per long rest"',
+    'Note="R120\' Can extinguish the Wildfire Spirit to regain %{hitPoints//2} hit points and stand when reduced to 0 hit points once per long rest"',
   'Cauterizing Flames':
     'Section=magic ' +
-    'Note="R30\' Can create a spectral flame for 1 min when a creature dies and later use it to heal 2d10+%{wisdomModifier} hit points or to inflict 2d10+%{wisdomModifier} HP fire on another in the same space %{proficiencyBonus} times per long rest"',
-  'Circle Of Wildfire':
+    'Note="R30\' Can create a spectral flame for 1 min where a creature dies and later use it to heal 2d10+%{wisdomModifier} hit points or to inflict 2d10+%{wisdomModifier} HP fire on another in the same space %{proficiencyBonus} times per long rest"',
+  'Circle Of Wildfire Spells':
     'Spells=' +
       '"2:Burning Hands","2:Cure Wounds",' +
       '"3:Flaming Sphere","3:Scorching Ray",' +
@@ -890,7 +897,7 @@ Tasha.FEATURES = {
     'Note="When the Wildfire Spirit is present, spells can be cast through it, fire spells inflict +1d8 HP fire, and healing spells restore +1d8 hit points"',
   'Summon Wildfire Spirit':
     'Section=magic ' +
-    'Note="R30\' Can spend a Wild Shape use to inflict 2d6 HP fire in a 10\' radius (save DC %{spellDifficultyClass.D} Dexterity negates) and summon an obedient Wildfire Spirit (Armor Class 13; %{levels.Druid*5+5} hit points; move or fly 30\'; R60\' +%{spellAttackModifier.D} attack inflicts 1d6+%{proficiencyBonus} HP fire; can teleport targets in a 5\' radius 15\', inflicting 1d6+%{proficiencyBonus} on those left behind (save DC %{spellDifficultyClass.D} Dexterity negates)) for 1 hr"',
+    'Note="R30\' Can expend a Wild Shape use to inflict 2d6 HP fire in a 10\' radius (save DC %{spellDifficultyClass.D} Dexterity negates) and summon an obedient Wildfire Spirit (Armor Class 13; %{levels.Druid*5+5} hit points; move or fly 30\'; R60\' +%{spellAttackModifier.D} attack inflicts 1d6+%{proficiencyBonus} HP fire; can teleport willing targets in a 5\' radius 15\', inflicting 1d6+%{proficiencyBonus} on those left behind (save DC %{spellDifficultyClass.D} Dexterity negates)) for 1 hr"',
 
   // Fighter
   'Fighting Style (Blind Fighting)':'Section=skill Note="Has 10\' Blindsight"',
@@ -906,8 +913,8 @@ Tasha.FEATURES = {
   'Fighting Style (Unarmed Fighting)':
     'Section=combat,combat ' +
     'Note=' +
-      '"Unarmed strike inflicts 1d6 HP bludgeoning, or 1d8 HP when unarmored and shieldless",' +
-      '"Can inflict 1d4 HP bludgeoning to a grappled foe at the start of a turn"',
+      '"Unarmed strike inflicts 1d6 HP bludgeoning",' +
+      '"Unarmed strike inflicts 1d8 HP bludgeoning when unarmed and not using a shield/Can inflict 1d4 HP bludgeoning to a grappled foe at the start of a turn"',
   'Martial Versatility':
     'Section=combat ' +
     'Note="Can replace a Fighting Style or maneuver when boosting an ability or taking a feat"',
@@ -915,51 +922,51 @@ Tasha.FEATURES = {
   'Ambush':
     'Section=combat,skill ' +
     'Note=' +
-      '"Can spend a superiority die to add the roll to initiative",' +
-      '"Can spend a superiority die to add the roll to a Stealth check"',
+      '"Can expend a superiority die to add the roll to initiative",' +
+      '"Can expend a superiority die to add the roll to a Stealth check"',
   'Bait And Switch':
     'Section=combat ' +
-    'Note="Can spend a superiority die to swap places with an adjacent willing creature and to boost the Armor Class of either self or the other creature by the rolled value until the start of the next turn"',
+    'Note="Can expend a superiority die to swap places with an adjacent willing creature and to boost the Armor Class of either self or the other creature by the rolled value until the start of the next turn"',
   'Brace':
     'Section=combat ' +
-    'Note="Can spend a superiority die and use a reaction to attack a creature that moves into range, adding the roll to the damage"',
+    'Note="Can expend a superiority die and use a reaction to attack a creature that moves into range, adding the roll to the damage"',
   'Commanding Presence':
     'Section=skill ' +
-    'Note="Can spend a superiority die to add the roll to an Intimidation, Performance, or Persuasion check"',
+    'Note="Can expend a superiority die to add the roll to an Intimidation, Performance, or Persuasion check"',
   'Grappling Strike':
     'Section=combat ' +
-    'Note="After a hit, can spend a superiority die to add the roll to an Athletics grapple check"',
+    'Note="After a hitting a target with a melee attack, can expend a superiority die to add the roll to an Athletics check to grapple it"',
   'Quick Toss':
     'Section=combat ' +
-    'Note="Can spend a superiority die and use a bonus action to draw and throw a weapon, adding the roll to the damage"',
+    'Note="Can expend a superiority die and use a bonus action to draw and throw a weapon, adding the roll to the damage"',
   'Tactical Assessment':
     'Section=skill ' +
-    'Note="Can spend a superiority die to add the roll to a History, Insight, or Investigation check"',
+    'Note="Can expend a superiority die to add the roll to a History, Insight, or Investigation check"',
   // Psi Warrior
   'Bulwark Of Force':
     'Section=combat ' +
     'Note="R30\' Can use a bonus action to give %{intelligenceModifier>?1} target%{intelligenceModifier>1?\'s\':\'\'} half cover for 1 min once per long rest; can expend psionic energy dice for additional uses"',
   'Guarded Mind':
     'Section=save ' +
-    'Note="Has resistance to psychic damage and can spend 1 psionic energy die to end charmed and frightened conditions"',
+    'Note="Has resistance to psychic and can expend 1 psionic energy die to end all charmed and frightened conditions affecting self"',
   'Protective Field':
     'Section=combat ' +
-    'Note="R30\' Can spend 1 psionic energy die and use a reaction to negate 1d%{$\'combatNotes.psionicPower(PsiWarrior)\'}+%{intelligenceModifier>?1} HP damage"',
+    'Note="R30\' Can expend 1 psionic energy die and use a reaction to negate 1d%{$\'combatNotes.psionicPower(PsiWarrior)\'}+%{intelligenceModifier>?1} HP damage"',
   'Psi-Powered Leap':
     'Section=ability ' +
     'Note="Can use a bonus action to gain a %{speed*2}\' fly Speed until the end of the current turn once per short rest; can expend psionic energy dice for additional uses"',
   'Psionic Power (Psi Warrior)':
     'Section=combat ' +
-    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest; can use a bonus action to regain 1 die after a short rest"',
+    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest; can use a bonus action to regain 1 die once per short rest"',
   'Psionic Strike':
     'Section=combat ' +
-    'Note="R30\' Can spend 1 psionic energy die after a hit to inflict +1d%{$\'combatNotes.psionicPower(PsiWarrior)\'}+%{intelligenceModifier} HP force"',
+    'Note="R30\' Can expend 1 psionic energy die after a hit to inflict +1d%{$\'combatNotes.psionicPower(PsiWarrior)\'}+%{intelligenceModifier} HP force"',
   'Telekinetic Adept':
     'Section=feature ' +
     'Note="Has the Psi-Powered Leap and Telekinetic Thrust features"',
   'Telekinetic Master':
     'Section=magic ' +
-    'Note="Can cast <i>Telekinesis</i> and use bonus actions while concentrating to make a weapon attack each rd once per long rest; can expend psionic energy dice for additional uses" ' +
+    'Note="Can cast <i>Telekinesis</i> without expending a spell slot and use bonus actions while concentrating on it to make a weapon attack each turn once per long rest; can expend psionic energy dice for additional uses" ' +
     'Spells=' +
       'Telekinesis',
   'Telekinetic Movement':
@@ -974,24 +981,24 @@ Tasha.FEATURES = {
   'Cloud Rune':
     'Section=combat,skill ' +
     'Note=' +
-      '"R30\' Can use a reaction to redirect damage to a different target %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest",' +
-      '"Has advantage on Sleight Of Hand and Deception"',
+      '"R30\' When in possession of an inscribed item, can use a reaction to redirect damage to a different target %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest",' +
+      '"Has advantage on Sleight Of Hand and Deception when in possession of an inscribed item"',
   'Fire Rune':
     'Section=combat,skill ' +
     'Note=' +
-      '"After a hit, can restrain and inflict +2d6 HP fire each rd (save DC %{8+proficiencyBonus+constitutionModifier} Strength ends) for 1 min %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest",' +
-      '"+%{proficiencyBonus} when using proficient tools"',
+      '"When in possession of an inscribed item, can have a successful attack inflict +2d6 HP fire each rd and restrained for 1 min (save DC %{8+proficiencyBonus+constitutionModifier} Strength initial HP only; additional saves each rd end) %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest",' +
+      '"+%{proficiencyBonus} with proficient tools when in possession of an inscribed item"',
   'Frost Rune':
     'Section=ability,save,skill ' +
     'Note=' +
-      '"Can use a bonus action to gain +2 on Strength and Constitution checks for 10 min once per short rest",' +
-      '"Can use a bonus action to gain +2 on Strength and Constitution saves for 10 min once per short rest",' +
-      '"Has advantage on Animal Handling and Intimidation"',
+      '"When in possession of an inscribed item, can use a bonus action to gain +2 on Strength and Constitution checks for 10 min once per short rest",' +
+      '"When in possession of an inscribed item, can use a bonus action to gain +2 on Strength and Constitution saves for 10 min once per short rest",' +
+      '"Has advantage on Animal Handling and Intimidation when in possession of an inscribed item"',
   "Giant's Might":
     'Section=ability,combat,save ' +
     'Note=' +
       '"Can use a bonus action to gain advantage on Strength checks for 1 min %{proficiencyBonus} times per long rest",' +
-      '"Can use a bonus action to grow to %{combatNotes.runicJuggernaut?\\"Huge, with +5\' reach,\\":\'Large\'} and inflict +1d%{combatNotes.runicJuggernaut?10:combatNotes.greatStature?8:6} HP damage with a weapon or unarmed strike once per rd for 1 min %{proficiencyBonus} times per long rest",' +
+      '"Can use a bonus action to grow to %{combatNotes.runicJuggernaut?\\"Huge, with +5\' reach,\\":\'Large\'} and inflict +1d%{combatNotes.runicJuggernaut?10:combatNotes.greatStature?8:6} HP damage with a weapon or unarmed strike once per turn for 1 min %{proficiencyBonus} times per long rest",' +
       '"Can use a bonus action to gain advantage on Strength saves for 1 min %{proficiencyBonus} times per long rest"',
   'Great Stature':
     'Section=combat,feature ' +
@@ -1000,7 +1007,7 @@ Tasha.FEATURES = {
       '"Has increased height by 3d4\\""',
   'Hill Rune':
     'Section=save ' +
-    'Note="Has advantage vs. poison and resistance to poison damage/Can use a bonus action to gain resistance to bludgeoning, piercing, and slashing for 1 min %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest"',
+    'Note="When in possession on an inscribed item, has advantage vs. poisoned and resistance to poison, and can use a bonus action to gain resistance to bludgeoning, piercing, and slashing for 1 min %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest"',
   'Master Of Runes':
     'Section=combat Note="Can invoke runes twice per short rest"',
   'Rune Carver':
@@ -1016,14 +1023,14 @@ Tasha.FEATURES = {
   'Stone Rune':
     'Section=combat,feature,skill ' +
     'Note=' +
-      '"R30\' Can use a reaction to charm and halt a target (save DC %{8+proficiencyBonus+constitutionModifier} Wisdom ends) for 1 min %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest",' +
-      '"Has 120\' Darkvision",' +
-      '"Has advantage on Insight"',
+      '"R30\' When in possession of an inscribed item, can use a reaction to charm and halt a target for 1 min (save DC %{8+proficiencyBonus+constitutionModifier} Wisdom negates; additional saves each rd end) %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest",' +
+      '"Has 120\' Darkvision when in possession of an inscribed item",' +
+      '"Has advantage on Insight when in possession of an inscribed item"',
   'Storm Rune':
     'Section=combat,skill ' +
     'Note=' +
-      '"Has immunity to surprise/R60\' Can use a bonus action and a reaction to give advantage or disadvantage on a roll each rd for 1 min %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest",' +
-      '"Has advantage on Arcana"',
+      '"When in possession of an inscribed item, has immunity to surprise, and can use a bonus action that allows using reactions each rd for 1 min to give advantage or disadvantage to a creature within 60\' %{combatNotes.masterOfRunes?\'2 times\':\'once\'} per short rest",' +
+      '"Has advantage on Arcana when in possession of an inscribed item"',
 
   // Monk
   'Dedicated Weapon':
@@ -2033,11 +2040,6 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('combatNotes.combatSuperiority.2',
       'combatNotes.fightingStyle(SuperiorTechnique)', '+=', '1'
     );
-    rules.defineRule('combatNotes.fightingStyle(UnarmedFighting).1',
-      'combatNotes.fightingStyle(UnarmedFighting)', '?', null,
-      'armor', '?', 'source=="None"',
-      'shield', '=', 'source=="None" ? "1d8" : null'
-    );
     rules.defineRule("combatNotes.giant'sMight",
       'combatNotes.greatStature', '+', 'null', // italics
       'combatNotes.runicJuggernaut', '+', 'null' // italics
@@ -2052,8 +2054,7 @@ Tasha.classRulesExtra = function(rules, name) {
       'combatNotes.fightingStyle(SuperiorTechnique)', '=', '1'
     );
     rules.defineRule('weapons.Unarmed Strike.2',
-      'combatNotes.fightingStyle(UnarmedFighting)', '^', '"1d6"',
-      'combatNotes.fightingStyle(UnarmedFighting).1', '^', null
+      'combatNotes.fightingStyle(UnarmedFighting)', '^', '"1d6"'
     );
     rules.defineRule
       ('features.Psi-Powered Leap', 'featureNotes.telekineticAdept', '=', null);
