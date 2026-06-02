@@ -230,11 +230,13 @@ Tasha.CLASSES_FEATURES_ADDED = {
     '"3:Harness Divine Power",' +
     '"4:Martial Versatility",' +
     '"features.Oath Of Glory ? 3:Inspiring Smite",' +
+    '"features.Oath Of Glory ? 3:Oath Of Glory Spells",' +
     '"features.Oath Of Glory ? 3:Peerless Athlete",' +
     '"features.Oath Of Glory ? 7:Aura Of Alacrity",' +
     '"features.Oath Of Glory ? 15:Glorious Defense",' +
     '"features.Oath Of Glory ? 20:Living Legend",' +
     '"features.Oath Of The Watchers ? 3:Abjure The Extraplanar",' +
+    '"features.Oath Of The Watchers ? 3:Oath Of The Watchers Spells",' +
     '"features.Oath Of The Watchers ? 3:Watcher\'s Will",' +
     '"features.Oath Of The Watchers ? 7:Aura Of The Sentinel",' +
     '"features.Oath Of The Watchers ? 15:Vigilant Rebuke",' +
@@ -622,7 +624,7 @@ Tasha.FEATURES = {
     'Note="Infused armor gives +5\' Speed, cannot be removed unwillingly, and replaces missing limbs; R20\'/60\' magical gauntlets inflict 1d8 HP force, then return"',
   'Armor Of Magical Strength':
     'Section=magic ' +
-    'Note="Wearer of infused armor with 6 charges can spend a charge to gain +Intelligence modifier on a Strength check or save, or to use a reaction to avoid being knocked prone; the armor regains 1d6 charges each dawn"',
+    'Note="Wearer of infused armor with 6 charges can expend a charge to gain +Intelligence modifier on a Strength check or save, or to use a reaction to avoid being knocked prone; the armor regains 1d6 charges each dawn"',
   'Boots Of The Winding Path':
     'Section=magic ' +
     'Note="Wearer of infused boots can use a bonus action to teleport back to a space within 15\'"',
@@ -768,7 +770,7 @@ Tasha.FEATURES = {
       '"9:Commune","9:Dominate Person"',
   "Order's Demand":
     'Section=magic ' +
-    'Note="R30\' Can use Channel Divinity to charm targets (save DC %{spellDifficultyClass.C} Wisdom negates) until the end of the next turn; damage ends"',
+    'Note="R30\' Can use Channel Divinity to charm targets (save DC %{spellDifficultyClass.C} Wisdom negates) until the end of the next turn or until damaged"',
   "Order's Wrath":
     'Section=combat ' +
     'Note="Once per turn, can curse a Divine Strike target so that the next ally hit before the start of the next turn inflicts +2d8 HP psychic"',
@@ -917,7 +919,7 @@ Tasha.FEATURES = {
       '"Unarmed strike inflicts 1d8 HP bludgeoning when unarmed and not using a shield/Can inflict 1d4 HP bludgeoning to a grappled foe at the start of a turn"',
   'Martial Versatility':
     'Section=combat ' +
-    'Note="Can replace a Fighting Style or maneuver when boosting an ability or taking a feat"',
+    'Note="Can replace a Fighting Style%{levels.Fighter?\' or maneuver\':\'\'} when boosting an ability or taking a feat"',
   // Maneuver Options
   'Ambush':
     'Section=combat,skill ' +
@@ -1035,13 +1037,13 @@ Tasha.FEATURES = {
   // Monk
   'Dedicated Weapon':
     'Section=combat ' +
-    'Note="Can designate a non-heavy weapon as monk weapon once per short rest"',
+    'Note="Can designate a proficient weapon without the heavy or special properties as a monk weapon once per short rest"',
   'Focused Aim':
     'Section=combat ' +
     'Note="Can spend 1, 2, or 3 ki points to add 2, 4, or 6 to a failed attack roll"',
   'Ki-Fueled Attack':
     'Section=combat ' +
-    'Note="Performing an action that spends a ki point allows using a bonus action to attack with a monk weapon"',
+    'Note="Performing an action that spends a ki point allows using a bonus action to attack with a monk weapon or unarmed strike"',
   'Quickened Healing':
     'Section=combat ' +
     'Note="Can spend 2 ki points to regain 1d%{combatNotes.martialArts}+%{proficiencyBonus} hit points"',
@@ -1074,26 +1076,24 @@ Tasha.FEATURES = {
   'Arms Of The Astral Self':
     'Section=ability,combat ' +
     'Note=' +
-      '"Can spend 1 ki point and use a bonus action to gain +%{wisdomModifier-strengthModifier} on Strength checks for 10 min",' +
-      '"Can spend 1 ki point and use a bonus action to inflict 2d%{combatNotes.martialArts} HP force (save DC %{monkSaveDC} Dexterity negates) to targets in a 10\' radius and gain +5\' unarmed reach, +%{wisdomModifier-maxDexOrStrMod} unarmed attack, and +%{wisdomModifier-maxDexOrStrMod} HP force unarmed damage for 10 min"',
+      '"Can use a bonus action and spend 1 ki point to gain +%{wisdomModifier-strengthModifier} on Strength checks for 10 min",' +
+      '"Can use a bonus action and spend 1 ki point to inflict 2d%{combatNotes.martialArts} HP force (save DC %{monkSaveDC} Dexterity negates) to targets in a 10\' radius, and to gain +5\' unarmed reach, +%{wisdomModifier-maxDexOrStrMod} unarmed attack, and +%{wisdomModifier-maxDexOrStrMod} HP force unarmed damage for 10 min"',
   'Awakened Astral Self':
     'Section=combat ' +
-    'Note="Can spend 5 ki points and use a bonus action to gain +2 Armor Class and a third Arms Of The Astral Self attack each rd"',
+    'Note="Can use a bonus action and spend 5 ki points to use Arms, Body, and Visage Of The Astral Self, gain +2 Armor Class, and make 3 Arms Of The Astral Self attacks each turn using the Attack action"',
   'Body Of The Astral Self':
     'Section=combat ' +
-    'Note="While using both Arms and Visage Of The Astral Self, can use a reaction to negate 1d10+%{wisdomModifier} HP acid, cold, fire, force, lightning, or thunder damage and can inflict +1d%{combatNotes.martialArts} HP damage with Arms Of The Astral Self once per rd"',
+    'Note="While using both Arms and Visage Of The Astral Self, can use a reaction to negate 1d10+%{wisdomModifier} HP acid, cold, fire, force, lightning, or thunder damage and can inflict +1d%{combatNotes.martialArts} HP damage with Arms Of The Astral Self once per turn"',
   'Visage Of The Astral Self':
     'Section=feature,skill ' +
     'Note=' +
-      '"Can spend 1 ki point and use a bonus action to gain 120\' Darkvision, R600\' voice, and R60\' private voice for 10 min",' +
-      '"Can spend 1 ki point and use a bonus action to gain advantage on Insight and Intimidation for 10 min"',
+      '"Can use a bonus action and spend 1 ki point to gain 120\' Darkvision, R600\' voice, and R60\' private voice for 10 min",' +
+      '"Can use a bonus action and spend 1 ki point to gain advantage on Insight and Intimidation for 10 min"',
 
   // Paladin
   'Fighting Style (Blessed Warrior)':
-    'Section=magic,magic ' +
-    'Note=' +
-      '"Knows 2 C0 cantrips",' +
-      '"Can replace a C0 cantrip when gaining a level"',
+    'Section=magic ' +
+    'Note="Knows 2 Cleric cantrips; can replace 1 of them when gaining a Paladin level"',
   // Fighting Style (Blind Fighting) as above
   // Fighting Style (Interception) as above
   // Harness Divine Power as above
@@ -1116,7 +1116,7 @@ Tasha.FEATURES = {
       '"Can gain advantage on Charisma for 1 min once per long rest; can expend level 5 spell slots for additional uses",' +
       '"Can change a miss into a hit once per turn for 1 min once per long rest; can expend level 5 spell slots for additional uses",' +
       '"Can use a reaction to reroll failed saves for 1 min once per long rest; can expend level 5 spell slots for additional uses"',
-  'Oath Of Glory':
+  'Oath Of Glory Spells':
     'Spells=' +
       '"3:Guiding Bolt","3:Heroism",' +
       '"5:Enhance Ability","5:Magic Weapon",' +
@@ -1131,7 +1131,7 @@ Tasha.FEATURES = {
   // Oath Of The Watchers
   'Abjure The Extraplanar':
     'Section=combat ' +
-    'Note="R30\' Can use Channel Divinity to turn aberrations, celestials, elementals, fey, and fiends (save DC %{spellDifficultyClass.P} Wisdom negates) for 1 min"',
+    'Note="R30\' Can use Channel Divinity to turn aberrations, celestials, elementals, fey, and fiends (save DC %{spellDifficultyClass.P} Wisdom negates) for 1 min or until damaged"',
   'Aura Of The Sentinel':
     'Section=combat,combat ' +
     'Note=' +
@@ -1142,7 +1142,7 @@ Tasha.FEATURES = {
     'Note=' +
       '"Can use a bonus action to gain advantage on attacks vs. aberrations, celestials, elementals, fey, and fiends and to inflict banishment with a successful attack (save DC %{spellDifficultyClass.P} Charisma negates for 24 hr) for 1 min once per long rest; can expend level 5 spell slots for additional uses",' +
       '"Can use a bonus action to gain 120\' Truesight for 1 min once per long rest; can expend level 5 spell slots for additional uses"',
-  'Oath Of The Watchers':
+  'Oath Of The Watchers Spells':
     'Spells=' +
       '"3:Alarm","3:Detect Magic",' +
       '"5:Moonbeam","5:See Invisibility",' +
@@ -1150,8 +1150,8 @@ Tasha.FEATURES = {
       '"13:Aura Of Purity","13:Banishment",' +
       '"17:Hold Monster","17:Scrying"',
   "Watcher's Will":
-    'Section=ability ' +
-    'Note="R30\' Can use Channel Divinity to give self and %{charismaModifier>1?charismaModifier+\' others\':\'1 other\'} advantage on Charisma, Intelligence, and Wisdom for 1 min"',
+    'Section=save ' +
+    'Note="R30\' Can use Channel Divinity to give self and %{charismaModifier>1?charismaModifier+\' others\':\'1 other\'} advantage on Charisma, Intelligence, and Wisdom saves for 1 min"',
   'Vigilant Rebuke':
     'Section=combat ' +
     'Note="R30\' Can use a reaction to inflict 2d8+%{charismaModifier} HP force on an attacker who triggers a successful Charisma, Intelligence, or Wisdom save"',
@@ -1167,7 +1167,7 @@ Tasha.FEATURES = {
     'Note="Has the Canny%{levels.Ranger<6?\' feature\':levels.Ranger<10?\' and Roving features\':\', Roving, and Tireless features\'}"',
   'Favored Foe':
     'Section=combat ' +
-    'Note="Can mark a target with a successful attack for concentration up to 1 min %{proficiencyBonus} times per long rest; the first hit each rd on a marked foe inflicts +1d%{levels.Ranger<6?4:levels.Ranger<14?6:8} HP weapon damage"',
+    'Note="Can mark a target with a successful attack for concentration up to 1 min %{proficiencyBonus} times per long rest; the first hit each turn on a marked foe inflicts +1d%{levels.Ranger<6?4:levels.Ranger<14?6:8} HP weapon damage"',
   // Fighting Style (Blind Fighting) as above
   'Fighting Style (Druidic Warrior)':
     'Section=magic,magic ' +
@@ -1178,10 +1178,10 @@ Tasha.FEATURES = {
   // Martial Versatility as above
   "Nature's Veil":
     'Section=magic ' +
-    'Note="Can use a bonus action to become invisible for 1 rd %{proficiencyBonus} times per long rest"',
+    'Note="Can use a bonus action to become invisible until the start of the next turn %{proficiencyBonus} times per long rest"',
   'Primal Awareness':
     'Section=magic ' +
-    'Note="Can cast %{levels.Ranger<17?\'\':\'<i>Commune With Nature</i>, \'}%{levels.Ranger<13?\'\':\'<i>Locate Creature</i>, \'}%{levels.Ranger<9?\'\':\'<i>Speak With Plants</i>, \'}%{levels.Ranger<5?\'\':\'<i>Beast Sense</i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Speak With Animals</i> once%{levels.Ranger<5?\'\':\' each\'} per long rest" ' +
+    'Note="Can cast %{levels.Ranger<17?\'\':\'<i>Commune With Nature</i>, \'}%{levels.Ranger<13?\'\':\'<i>Locate Creature</i>, \'}%{levels.Ranger<9?\'\':\'<i>Speak With Plants</i>, \'}%{levels.Ranger<5?\'\':\'<i>Beast Sense</i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Speak With Animals</i> without expending a spell slot once%{levels.Ranger<5?\'\':\' each\'} per long rest" ' +
     'Spells=' +
       '"1:Speak With Animals",' +
        '"5:Beast Sense",' +
@@ -1234,19 +1234,12 @@ Tasha.FEATURES = {
   // Swarmkeeper
   'Gathered Swarm':
     'Section=combat ' +
-    'Note="After 1 successful attack each rd, can move 5\', move the target 15\' (save DC %{spellDifficultyClass.R} Strength negates), or inflict +1d%{combatNotes.mightySwarm?8:6} HP piercing"',
-  'Mighty Swarm':
-    'Section=combat,combat ' +
-    'Note=' +
-      '"Gathered Swarm inflicts 1d8",' +
-      '"Gathered Swarm gives half cover when moving self or knocks prone when moving foe"',
+    'Note="Once per turn, a successful attack allows moving self 5\'%{combatNotes.mightySwarm?\' and gaining half cover until the start of the next turn\':\'\'}, moving the target 15\'%{combatNotes.mightySwarm?\' and knocking it prone\':\'\'} (save DC %{spellDifficultyClass.R} Strength negates), or inflicting +1d%{combatNotes.mightySwarm?8:6} HP piercing"',
+  'Mighty Swarm':'Section=combat Note="Has increased Gathered Swarm effects"',
   'Swarming Dispersal':
     'Section=combat ' +
-    'Note="Can use a reaction when hit to gain resistance to the damage and to teleport 30\' %{proficiencyBonus} times per long rest"',
+    'Note="Can use a reaction when hit to gain resistance to the damage and teleport 30\' %{proficiencyBonus} times per long rest"',
   'Swarmkeeper Magic':
-    'Section=magic ' +
-    'Note=' +
-      '"Knows the %{levels.Ranger<17?\'\':\'<i>Insect Plague</i>, \'}%{levels.Ranger<13?\'\':\'<i>Arcane Eye</i>, \'}%{levels.Ranger<9?\'\':\'<i>Gaseous Form</i>, \'}%{levels.Ranger<5?\'\':\'<i>Web</i>\'}%{levels.Ranger<5?\'\':levels.Ranger<9?\' and \':\', and \'}<i>Faerie Fire</i> spell%{levels.Ranger<5?\'\':\'s\'} and the <i>Mage Hand</i> cantrip" ' +
     'Spells=' +
       '"3:Faerie Fire,Mage Hand",' +
       '"5:Web",' +
@@ -1255,17 +1248,17 @@ Tasha.FEATURES = {
       '"17:Insect Plague"',
   'Writhing Tide':
     'Section=ability ' +
-    'Note="Can use a bonus action to gain a 10\' fly Speed and to hover for 1 min %{proficiencyBonus} times per long rest"',
+    'Note="Can use a bonus action to gain a 10\' fly Speed for 1 min %{proficiencyBonus} times per long rest"',
 
   // Rogue
   'Steady Aim':
     'Section=combat ' +
-    'Note="Can use a bonus action and forego move to gain advantage on an attack"',
+    'Note="Can use a bonus action and forego moving during the current turn to gain advantage on an attack"',
   // Phantom
   "Death's Friend":
     'Section=combat,feature ' +
     'Note=' +
-      '"Wails From The Grave also affects the Sneak Attack target",' +
+      '"Has increased Wails From The Grave effects",' +
       '"Has a minimum of 1 Soul Trinket available after a long rest"',
   'Ghost Walk':
     'Section=feature ' +
@@ -1275,29 +1268,29 @@ Tasha.FEATURES = {
     'Note=' +
       '"After a Sneak Attack hit, destroying a Soul Trinket gives an immediate Wails From The Grave use",' +
       '"Can create %{proficiencyBonus} Soul Trinkets from creatures that die within 30\'; can later destroy one to gain an answer to a question",' +
-      '"Has advantage on Constitution and saves vs. death while in possession of a Soul Trinket"',
+      '"Has advantage on Constitution and death saves while in possession of a Soul Trinket"',
   'Wails From The Grave':
     'Section=combat ' +
-    'Note="R30\' After a Sneak Attack hit, can inflict %{(levels.Rogue+1)//4}d6 HP necrotic on another target %{proficiencyBonus} times per long rest"',
+    'Note="After a Sneak Attack hit, can inflict %{(levels.Rogue+1)//4}d6 HP necrotic on %{$\\"combatNotes.death\'sFriend\\"?\'the target and \':\'\'}another creature within 30\' %{proficiencyBonus} times per long rest"',
   'Whispers Of The Dead':
     'Section=skill ' +
-    'Note="Can gain proficiency in a choice of skill once per short rest"',
+    'Note="Can gain proficiency in a choice of skill or tool at the end of a rest"',
   // Soulknife
   'Homing Strikes':
     'Section=combat ' +
-    'Note="Can add 1d%{$\'combatNotes.psionicPower(Soulknife)\'} to a failed Psychic Blade attack, spending a psionic energy die if the sum is enough to hit"',
+    'Note="Can add 1d%{$\'combatNotes.psionicPower(Soulknife)\'} to a failed Psychic Blade attack, expending a psionic energy die if the sum is enough to hit"',
   'Psi-Bolstered Knack':
     'Section=skill ' +
-    'Note="Can add a psionic energy die roll to a failed proficient skill or tool check, spending the die only if the modified check succeeds"',
+    'Note="Can add a psionic energy die roll to a failed proficient skill or tool check, expending the die only if the modified check succeeds"',
   'Psionic Power (Soulknife)':
     'Section=combat ' +
-    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest; can use a bonus action to regain 1 die after a short rest"',
+    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest; can use a bonus action to regain 1 die once per a short rest"',
   'Psychic Blades':
     'Section=combat ' +
     'Note="Can use a free hand to attack with a R60\' magic psychic blade, inflicting 1d6+%{strengthModifier>?dexterityModifier} HP psychic; if both hands are free, can use a bonus action for a second blade attack that inflicts 1d4+%{strengthModifier>?dexterityModifier}"',
   'Psychic Teleportation':
     'Section=combat ' +
-    'Note="Can spend 1 psionic energy die and use a bonus action to teleport 1d%{$\'combatNotes.psionicPower(Soulknife)\'}x10\'"',
+    'Note="Can use a bonus action and expend 1 psionic energy die to teleport 1d%{$\'combatNotes.psionicPower(Soulknife)\'}x10\'"',
   'Psychic Veil':
     'Section=magic ' +
     'Note="Can become invisible for 1 hr once per long rest; inflicting damage or forcing a saving throw ends; can expend psionic energy dice for additional uses"',
@@ -1317,9 +1310,9 @@ Tasha.FEATURES = {
     'Note="Can spend 1 sorcery point to reroll a failed ability check"',
   'Seeking Spell':
     'Section=magic ' +
-    'Note="Can spend 2 sorcery points to reroll a missed spell attack"',
+    'Note="Can spend 2 sorcery points to reroll a missed spell attack; can be used in addition to another Metamagic option"',
   'Sorcerous Versatility':
-    'Section=feature ' +
+    'Section=magic ' +
     'Note="Can replace a Metamagic option or a cantrip when boosting an ability or taking a feat"',
   'Transmuted Spell':
     'Section=magic ' +
@@ -1348,14 +1341,14 @@ Tasha.FEATURES = {
     'Note="R30\' Can use a bonus action to gain telepathic communication with the target in a shared language while within %{charismaModifier>1?charismaModifier+\' miles\':\'1 mile\'} for %{levels.Sorcerer} min"',
   'Warping Implosion':
     'Section=magic ' +
-    'Note="Can teleport 120\', inflicting 3d10 HP force and a 30\' pull (save Strength half HP only) in a 30\' radius around the starting position, once per long rest; can expend 5 sorcery points per additional use"',
+    'Note="Can teleport 120\', inflicting 3d10 HP force and a 30\' pull (save Strength half HP only) in a 30\' radius around the starting position, once per long rest; can spend 5 sorcery points per additional use"',
   // Clockwork Soul
   'Bastion Of Law':
     'Section=combat ' +
     'Note="R30\' Can spend 1 - 5 sorcery points to negate an equal number of d8s HP damage to the target before the next use or long rest"',
   'Clockwork Cavalcade':
     'Section=magic ' +
-    'Note="30\' cube restores 100 hit points total among targets, repairs damaged objects, and dispels target spells up to 6th level once per long rest; can expend 7 sorcery points for each additional use"',
+    'Note="30\' cube restores 100 hit points total among targets, repairs damaged objects, and dispels target spells up to 6th level once per long rest; can spend 7 sorcery points for each additional use"',
   'Clockwork Magic':
     'Section=feature ' +
     'Note="Displays a physical manifestation of Clockwork Soul" ' +
@@ -1367,12 +1360,10 @@ Tasha.FEATURES = {
       '"9:Greater Restoration","9:Wall Of Force"',
   'Restore Balance':
     'Section=combat ' +
-    'Note="R60\' Can cancel a target\'s advantage or disadvantage on a roll %{proficiencyBonus} times per long rest"',
+    'Note="R60\' Can use a reaction to cancel a target\'s advantage or disadvantage on a roll %{proficiencyBonus} times per long rest"',
   'Trance Of Order':
-    'Section=combat,feature ' +
-    'Note=' +
-      '"Can use a bonus action to negate advantage on attacks on self for 1 min once per long rest; can expend 5 sorcery points for each additional use",' +
-      '"Can use a bonus action to score a minimum of 10 on attack, ability, and saving rolls for 1 min once per long rest; can expend 5 sorcery points for each additional use"',
+    'Section=combat ' +
+    'Note="Can use a bonus action to negate advantage on attacks on self and to score a minimum of 10 on attack, ability, and save rolls for 1 min once per long rest; can spend 5 sorcery points for each additional use"',
 
   // Warlock
   'Bond Of The Talisman':
@@ -2023,10 +2014,6 @@ Tasha.classRulesExtra = function(rules, name) {
     );
     // SRD5E.classRulesExtra removes the domain requirement for None clerics
     SRD5E.classRulesExtra(rules, 'Cleric');
-  } else if(name == 'Druid') {
-    rules.defineRule('magicNotes.starryForm',
-      'magicNotes.twinklingConstellations', '+', 'null' // italics
-    );
   } else if(name == 'Fighter') {
     rules.defineRule('combatNotes.cloudRune',
       'combatNotes.masterOfRunes', '+', 'null' // italics
@@ -2039,10 +2026,6 @@ Tasha.classRulesExtra = function(rules, name) {
     );
     rules.defineRule('combatNotes.combatSuperiority.2',
       'combatNotes.fightingStyle(SuperiorTechnique)', '+=', '1'
-    );
-    rules.defineRule("combatNotes.giant'sMight",
-      'combatNotes.greatStature', '+', 'null', // italics
-      'combatNotes.runicJuggernaut', '+', 'null' // italics
     );
     rules.defineRule('combatNotes.psionicPower(PsiWarrior)',
       classLevel, '=', 'source<5 ? 6 : source<11 ? 8 : source<17 ? 10 : 12'
@@ -2068,7 +2051,7 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('magicNotes.harnessDivinePower',
       'levels.Paladin', '+=', 'source<7 ? 1 : source<15 ? 2 : 3'
     );
-    rules.defineRule('spellSlots.C0',
+    rules.defineRule('spellsAvailable.C0',
       'magicNotes.fightingStyle(BlessedWarrior)', '+=', '2'
     );
   } else if(name == 'Ranger') {
@@ -2080,16 +2063,12 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule
       ('rangerFeatures.Hide In Plain Sight', 'suppress', '?', null);
     // Rules for new Ranger features
-    rules.defineRule('combatNotes.gatheredSwarm',
-      'combatNotes.mightySwarm', '+', 'null' // italics
-    );
     rules.defineRule('skillNotes.canny',
       'featureNotes.deftExplorer', '+', 'null' // italics
     );
-    rules.defineRule
-      ('spellSlots.D0', 'magicNotes.fightingStyle(DruidicWarrior)', '+=', '2');
-    rules.defineRule
-      ('casterLevels.D', 'magicNotes.fightingStyle(DruidicWarrior)', '^=', '1');
+    rules.defineRule('spellsAvailable.D0',
+      'magicNotes.fightingStyle(DruidicWarrior)', '+=', '2'
+    );
   } else if(name == 'Rogue') {
     rules.defineRule('combatNotes.psionicPower(Soulknife)',
       classLevel, '=', 'source<5 ? 6 : source<11 ? 8 : source<17 ? 10 : 12'

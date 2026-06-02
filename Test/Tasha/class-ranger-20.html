@@ -77,7 +77,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Roving: Has a 35' climb Speed and a 35' swim Speed</td>
     </tr><tr style="text-align:center">
-      <td>Writhing Tide: Can use a bonus action to gain a 10' fly Speed and to hover for 1 min 6 times per long rest</td>
+      <td>Writhing Tide: Can use a bonus action to gain a 10' fly Speed for 1 min 6 times per long rest</td>
     </tr></table>
 </td>
   </tr></table>
@@ -217,7 +217,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Dexterity Damage Adjustment: +1</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Mighty Swarm: Gathered Swarm inflicts 1d8</i></td>
+        <td><i>Mighty Swarm: Has increased Gathered Swarm effects</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Attack Adjustment: +1</i></td>
       </tr><tr style="text-align:center">
@@ -231,7 +231,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Extra Attack: Can make 2 attacks during an Attack action</td>
       </tr><tr style="text-align:center">
-        <td>Favored Foe: Can mark a target with a successful attack for concentration up to 1 min 6 times per long rest; the first hit each rd on a marked foe inflicts +1d8 HP weapon damage</td>
+        <td>Favored Foe: Can mark a target with a successful attack for concentration up to 1 min 6 times per long rest; the first hit each turn on a marked foe inflicts +1d8 HP weapon damage</td>
       </tr><tr style="text-align:center">
         <td>Feral Senses: Suffers no disadvantage when attacking an invisible foe</td>
       </tr><tr style="text-align:center">
@@ -239,15 +239,13 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Foe Slayer: Can gain a choice of +3 attack or damage vs. a favored enemy once per turn</td>
       </tr><tr style="text-align:center">
-        <td>Gathered Swarm: After 1 successful attack each rd, can move 5', move the target 15' (save DC 17 Strength negates), or inflict +1d8 HP piercing</td>
+        <td>Gathered Swarm: Once per turn, a successful attack allows moving self 5' and gaining half cover until the start of the next turn, moving the target 15' and knocking it prone (save DC 17 Strength negates), or inflicting +1d8 HP piercing</td>
       </tr><tr style="text-align:center">
-        <td>Martial Versatility: Can replace a Fighting Style or maneuver when boosting an ability or taking a feat</td>
-      </tr><tr style="text-align:center">
-        <td>Mighty Swarm: Gathered Swarm gives half cover when moving self or knocks prone when moving foe</td>
+        <td>Martial Versatility: Can replace a Fighting Style when boosting an ability or taking a feat</td>
       </tr><tr style="text-align:center">
         <td>Savage Attacker: Can take the better of 2 melee damage rolls once per turn</td>
       </tr><tr style="text-align:center">
-        <td>Swarming Dispersal: Can use a reaction when hit to gain resistance to the damage and to teleport 30' 6 times per long rest</td>
+        <td>Swarming Dispersal: Can use a reaction when hit to gain resistance to the damage and teleport 30' 6 times per long rest</td>
       </tr><tr style="text-align:center">
         <td>Tireless: Can gain 1d8+3 temporary hit points 6 times per long rest, and a short rest reduces exhaustion by 1</td>
       </tr></table>
@@ -281,10 +279,10 @@ var attributes = {
     <tr style="text-align:center">
       <td>      <table id="SpellStats" style="width:100%">
       <tr style="text-align:center">
-        <td><b>Spells Known/Prepared</b>: R: 11; W0: 2; W: 1</td>
-        <td><b>Spell Slots</b>: D0: 2; R1: 4; R2: 3; R3: 3; R4: 3; R5: 2</td>
-        <td><b>Attack</b>: D: +9; R: +9; W: +7</td>
-        <td><b>Spell DC</b>: D: 17; R: 17; W: 15</td>
+        <td><b>Spells Known/Prepared</b>: D0: 2; R: 11; W0: 2; W: 1</td>
+        <td><b>Spell Slots</b>: R1: 4; R2: 3; R3: 3; R4: 3; R5: 2</td>
+        <td><b>Attack</b>: R: +9; W: +7</td>
+        <td><b>Spell DC</b>: R: 17; W: 15</td>
       </tr></table>
 </td>
     </tr></table>
@@ -350,7 +348,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Revivify (R3 Necr): Restores life and 1 hit point to a touched 1-minute-old corpse</td>
     </tr><tr style="text-align:left">
-      <td>Shillelagh (D0 Tran): Held club gains +9 magical attacks that inflict 1d8+3 HP for 1 min</td>
+      <td>Shillelagh (D0 Tran): Held club gains +NaN magical attacks that inflict 1d8+undefined HP for 1 min</td>
     </tr><tr style="text-align:left">
       <td>Speak With Animals (R1 [Primal Awareness] Divi): Self can talk with beasts for 10 min [R]</td>
     </tr><tr style="text-align:left">
@@ -382,15 +380,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Misty Wanderer: Can cast <i>Misty Step</i> without expending a spell slot 3 times per long rest, and <i>Misty Step</i> can take along a willing adjacent creature</td>
     </tr><tr style="text-align:center">
-      <td>Nature's Veil: Can use a bonus action to become invisible for 1 rd 6 times per long rest</td>
+      <td>Nature's Veil: Can use a bonus action to become invisible until the start of the next turn 6 times per long rest</td>
     </tr><tr style="text-align:center">
-      <td>Primal Awareness: Can cast <i>Commune With Nature</i>, <i>Locate Creature</i>, <i>Speak With Plants</i>, <i>Beast Sense</i>, and <i>Speak With Animals</i> once each per long rest</td>
+      <td>Primal Awareness: Can cast <i>Commune With Nature</i>, <i>Locate Creature</i>, <i>Speak With Plants</i>, <i>Beast Sense</i>, and <i>Speak With Animals</i> without expending a spell slot once each per long rest</td>
     </tr><tr style="text-align:center">
       <td>Spellcasting Focus: Can use a druidic focus for ranger spells</td>
     </tr><tr style="text-align:center">
       <td>Spellcasting: Can cast spells from the ranger spell list; regains expended spell slots after a long rest</td>
-    </tr><tr style="text-align:center">
-      <td>Swarmkeeper Magic: Knows the <i>Insect Plague</i>, <i>Arcane Eye</i>, <i>Gaseous Form</i>, <i>Web</i>, and <i>Faerie Fire</i> spells and the <i>Mage Hand</i> cantrip</td>
     </tr></table>
 </td>
   </tr></table>

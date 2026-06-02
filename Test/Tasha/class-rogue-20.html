@@ -172,13 +172,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Linguist: Can create ciphers (DC 24 Intelligence to decode)</td>
     </tr><tr style="text-align:center">
-      <td>Psi-Bolstered Knack: Can add a psionic energy die roll to a failed proficient skill or tool check, spending the die only if the modified check succeeds</td>
+      <td>Psi-Bolstered Knack: Can add a psionic energy die roll to a failed proficient skill or tool check, expending the die only if the modified check succeeds</td>
     </tr><tr style="text-align:center">
       <td>Psychic Whispers: Can establish telepathic communication within 1 mile with 6 visible creatures for 1d12 hr once per long rest; can expend psionic energy dice for additional uses</td>
     </tr><tr style="text-align:center">
       <td>Thieves'Cant: Understands jargon and signs known only by rogues</td>
     </tr><tr style="text-align:center">
-      <td>Whispers Of The Dead: Can gain proficiency in a choice of skill once per short rest</td>
+      <td>Whispers Of The Dead: Can gain proficiency in a choice of skill or tool at the end of a rest</td>
     </tr></table>
 </td>
   </tr></table>
@@ -215,6 +215,8 @@ var attributes = {
       <tr style="text-align:center">
         <td><i>Constitution Hit Points Adjustment: +40</i></td>
       </tr><tr style="text-align:center">
+        <td><i>Death's Friend: Has increased Wails From The Grave effects</i></td>
+      </tr><tr style="text-align:center">
         <td><i>Dexterity Armor Class Adjustment: +1</i></td>
       </tr><tr style="text-align:center">
         <td><i>Dexterity Attack Adjustment: +1</i></td>
@@ -229,19 +231,17 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Cunning Action: Can use a bonus action to Dash, Disengage, or Hide</td>
       </tr><tr style="text-align:center">
-        <td>Death's Friend: Wails From The Grave also affects the Sneak Attack target</td>
-      </tr><tr style="text-align:center">
         <td>Durable: Regains a minimum of 4 hit points from a Hit Die roll</td>
       </tr><tr style="text-align:center">
         <td>Elusive: Attacks on self never have advantage</td>
       </tr><tr style="text-align:center">
-        <td>Homing Strikes: Can add 1d12 to a failed Psychic Blade attack, spending a psionic energy die if the sum is enough to hit</td>
+        <td>Homing Strikes: Can add 1d12 to a failed Psychic Blade attack, expending a psionic energy die if the sum is enough to hit</td>
       </tr><tr style="text-align:center">
-        <td>Psionic Power (Soulknife): Can use 12 d12 psionic energy dice per long rest; can use a bonus action to regain 1 die after a short rest</td>
+        <td>Psionic Power (Soulknife): Can use 12 d12 psionic energy dice per long rest; can use a bonus action to regain 1 die once per a short rest</td>
       </tr><tr style="text-align:center">
         <td>Psychic Blades: Can use a free hand to attack with a R60' magic psychic blade, inflicting 1d6+3 HP psychic; if both hands are free, can use a bonus action for a second blade attack that inflicts 1d4+3</td>
       </tr><tr style="text-align:center">
-        <td>Psychic Teleportation: Can spend 1 psionic energy die and use a bonus action to teleport 1d12x10'</td>
+        <td>Psychic Teleportation: Can use a bonus action and expend 1 psionic energy die to teleport 1d12x10'</td>
       </tr><tr style="text-align:center">
         <td>Rend Mind: Can inflict stunned (save DC 15 Wisdom negates; additional saves each rd end) for 1 min with a Psychic Blade Sneak Attack once per long rest; can expend 3 psionic energy dice per additional use</td>
       </tr><tr style="text-align:center">
@@ -249,7 +249,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Sneak Attack: Once per turn, inflicts +10d6 HP on an attack using a finesse or ranged weapon with advantage or on a foe threatened by another adjacent creature</td>
       </tr><tr style="text-align:center">
-        <td>Steady Aim: Can use a bonus action and forego move to gain advantage on an attack</td>
+        <td>Steady Aim: Can use a bonus action and forego moving during the current turn to gain advantage on an attack</td>
       </tr><tr style="text-align:center">
         <td>Stroke Of Luck: Can change a miss into a hit or a failed ability check roll to a 20 once per short rest</td>
       </tr><tr style="text-align:center">
@@ -257,7 +257,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Uncanny Dodge: Can use a reaction to reduce the damage taken from a seen attacker by half</td>
       </tr><tr style="text-align:center">
-        <td>Wails From The Grave: R30' After a Sneak Attack hit, can inflict 5d6 HP necrotic on another target 6 times per long rest</td>
+        <td>Wails From The Grave: After a Sneak Attack hit, can inflict 5d6 HP necrotic on the target and another creature within 30' 6 times per long rest</td>
       </tr></table>
 </td>
     </tr></table>
@@ -275,7 +275,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Evasion: Successful Dexterity saves yield no damage instead of half, and failures yield half damage</td>
       </tr><tr style="text-align:center">
-        <td>Tokens Of The Departed: Has advantage on Constitution and saves vs. death while in possession of a Soul Trinket</td>
+        <td>Tokens Of The Departed: Has advantage on Constitution and death saves while in possession of a Soul Trinket</td>
       </tr></table>
 </td>
     </tr></table>
