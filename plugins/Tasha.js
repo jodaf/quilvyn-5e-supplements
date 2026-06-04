@@ -1286,7 +1286,7 @@ Tasha.FEATURES = {
     'Note="Can add a psionic energy die roll to a failed proficient skill or tool check, expending the die only if the modified check succeeds"',
   'Psionic Power (Soulknife)':
     'Section=combat ' +
-    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest; can use a bonus action to regain 1 die once per a short rest"',
+    'Note="Can use %{proficiencyBonus*2} d%V psionic energy dice per long rest; can use a bonus action to regain 1 die once per short rest"',
   'Psychic Blades':
     'Section=combat ' +
     'Note="Can use a free hand to attack with a R60\' magic psychic blade, inflicting 1d6+%{strengthModifier>?dexterityModifier} HP psychic; if both hands are free, can use a bonus action for a second blade attack that inflicts 1d4+%{strengthModifier>?dexterityModifier}"',
