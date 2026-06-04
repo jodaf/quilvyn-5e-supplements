@@ -440,7 +440,9 @@ Tasha.FEATS = {
   'Metamagic Adept':'Require="features.Spellcasting||features.Pact Magic"',
   'Piercer':'',
   'Poisoner':'',
-  'Shadow Touched':'',
+  'Shadow Touched (Charisma)':'',
+  'Shadow Touched (Intelligence)':'',
+  'Shadow Touched (Wisdom)':'',
   'Skill Expert':'',
   'Slasher':'',
   'Telekinetic (Charisma)':'',
@@ -1368,9 +1370,9 @@ Tasha.FEATURES = {
   // Warlock
   'Bond Of The Talisman':
     'Section=magic ' +
-    'Note="Self or talisman wearer can teleport to the other %{proficiencyBonus} times per long rest"',
+    'Note="Self or the talisman wearer can teleport to the other %{proficiencyBonus} times per long rest"',
   'Eldritch Mind':
-    'Section=magic ' +
+    'Section=save ' +
     'Note="Has advantage on Constitution saves to maintain concentration"',
   'Eldritch Versatility':
     'Section=magic ' +
@@ -1385,19 +1387,19 @@ Tasha.FEATURES = {
     'Note="A creature who has written its name in the Book Of Shadows retains 1 hit point when reduced to 0 hit points once per long rest"',
   'Investment Of The Chain Master':
     'Section=magic ' +
-    'Note="Familiar gains a 40\' fly or swim Speed, gains magical attacks, and inflicts DC %{spellDifficultyClass.K} saves; self can use a bonus action to command it to attack and a reaction to give it resistance to damage"',
+    'Note="Summoned familiar gains a 40\' fly or swim Speed, gains magical attacks, and inflicts DC %{spellDifficultyClass.K} saves; self can use a bonus action to command it to attack and a reaction to give it resistance to damage"',
   'Pact Of The Talisman':
     'Section=magic ' +
-    'Note="Talisman gives wearer +1d4 ability checks %{proficiencyBonus} times per long rest"',
+    'Note="Talisman gives its wearer +1d4 ability checks %{proficiencyBonus} times per long rest"',
   'Protection Of The Talisman':
     'Section=magic ' +
-    'Note="Talisman wearer can add +1d4 to a failed save %{proficiencyBonus} times per long rest"',
+    'Note="The talisman wearer can add +1d4 to a failed save %{proficiencyBonus} times per long rest"',
   'Rebuke Of The Talisman':
     'Section=magic ' +
     'Note="R30\' When the talisman wearer takes damage, self can use a reaction to inflict %{proficiencyBonus} HP psychic and a 10\' push on the attacker"',
   'Undying Servitude':
     'Section=magic ' +
-    'Note="Can cast <i>Animate Dead</i> once per long rest" ' +
+    'Note="Can cast <i>Animate Dead</i> without expending a spell slot once per long rest" ' +
     'Spells=' +
       '"Animate Dead"',
   // The Fathomless
@@ -1408,12 +1410,12 @@ Tasha.FEATURES = {
     'Section=ability Note="Has a 40\' swim Speed and can breathe water"',
   'Grasping Tentacles':
     'Section=magic ' +
-    'Note="Can cast <i>Evard\'s Black Tentacles</i> with unbreakable concentration and gain %{levels.Warlock} temporary hit points once per long rest" ' +
+    'Note="Can cast <i>Evard\'s Black Tentacles</i> without expending a spell slot once per long rest; casting <i>Evard\'s Black Tentacles</i> gives self %{levels.Warlock} temporary hit points, and damage cannot break concentration on the spell" ' +
     'Spells=' +
       '"Evard\'s Black Tentacles"',
   'Guardian Coil':
     'Section=magic ' +
-    'Note="Can use a reaction to reduce damage taken within 10\' of Tentacle Of The Deeps by %{levels.Warlock<10?1:2}d8 HP"',
+    'Note="Can use a reaction to reduce the damage taken by a creature within 10\' of the Tentacle Of The Deeps by %{levels.Warlock<10?1:2}d8 HP"',
   'Oceanic Soul':
     'Section=save,skill ' +
     'Note=' +
@@ -1421,7 +1423,7 @@ Tasha.FEATURES = {
       '"While submerged, can understand and be understood by any speaking creature"',
   'Tentacle Of The Deeps':
     'Section=magic ' +
-    'Note="R60\' Can use a bonus action to summon a 10\' tentacle that can move 30\' and inflicts %{levels.Warlock<10?1:2}d8 HP cold and -10 Speed once per rd for 1 min %{proficiencyBonus} times per long rest"',
+    'Note="R60\' Can use a bonus action to summon a 10\' tentacle that inflicts %{levels.Warlock<10?1:2}d8 HP cold and -10 Speed until the start of the next turn for 1 min %{proficiencyBonus} times per long rest; can use a bonus action each turn to cause it to move 30\' and attack"',
   // The Genie
   'Elemental Gift':
     'Section=ability,save ' +
@@ -1431,10 +1433,10 @@ Tasha.FEATURES = {
   "Genie's Vessel":
     'Section=combat ' +
     'Note=' +
-      '"Can inflict +%{proficiencyBonus} HP %{genieEnergy} once per rd and retreat into a vessel with Armor Class %{spellDifficultyClass.K} and %{levels.Warlock+proficiencyBonus} hit points for %{proficiencyBonus*2} hr once per long rest"',
+      '"Can inflict +%{proficiencyBonus} HP %{genieEnergy} once per turn and retreat into a vessel with Armor Class %{spellDifficultyClass.K} and %{levels.Warlock+proficiencyBonus} hit points for %{proficiencyBonus*2} hr once per long rest"',
   'Limited Wish':
     'Section=magic ' +
-    'Note="Can gain the effects of a 6th level, 1-action spell once per 1d4 long rests"',
+    'Note="Can gain the effects of a 1-action spell of up to level 6 once per 1d4 long rests"',
   'Sanctuary Vessel':
     'Section=magic ' +
     'Note="R30\' Can take 5 willing creatures into Genie\'s Vessel; 10 min within gives the benefits of a short rest, and spending Hit Dice restores +%{proficiencyBonus} hit points"',
@@ -1448,7 +1450,7 @@ Tasha.FEATURES = {
     'Note=' +
       '"+10 Speed during Bladesong",' +
       '"+%{intelligenceModifier>?1} Armor Class during Bladesong",' +
-      '"Can use a bonus action to gain Bladesong features for 1 min 2 times per short rest; medium armor, heavy armor, or a shield negates",' +
+      '"Can use a bonus action to gain Bladesong benefits for 1 min %{proficiencyBonus} times per long rest; wearing medium or heavy armor, using a shield, or attacking two-handed negates",' +
       '"+%{intelligenceModifier>?1} Constitution to retain spell concentration during Bladesong",' +
       '"Has advantage on Acrobatics during Bladesong"',
   // Extra Attack as SRD5E
@@ -1469,14 +1471,14 @@ Tasha.FEATURES = {
     'Note="Held spellbook allows performing a ritual casting in the spell\'s normal casting time once per long rest, using the spellbook as a focus, and changing a spell\'s damage type when casting it"',
   'Manifest Mind':
     'Section=magic ' +
-    'Note="R300\' Can use a bonus action to see with Darkvision, hear, and cast spells %{proficiencyBonus} times through a ghostly object that emits 10\' dim light and can move 30\' per rd once per long rest; can expend spell slots for additional uses"',
+    'Note="R300\' Once per long rest, can use a bonus action to see with Darkvision, hear, and cast spells %{proficiencyBonus} times through a ghostly object that emits 10\' dim light and can be moved as a bonus action 30\' per turn; can expend spell slots for additional uses"',
   'Master Scrivener':
     'Section=magic ' +
-    'Note="R5\' After a long rest, can create a scroll, usable only by self, for a 1-action, 1st or 2nd level spell from Awakened Spellbook; reading the scroll casts the spell at 1 level higher than normal/Wizardly Quill produces spell scrolls at 1/2 the normal time and cost"',
+    'Note="R5\' After a long rest, can create a scroll, usable only by self, for a 1-action, level 1 or 2 spell from the Awakened Spellbook; reading the scroll casts the spell at 1 level higher than normal/Wizardly Quill produces spell scrolls at 1/2 the normal time and cost"',
   'One With The Word':
     'Section=combat,skill ' +
     'Note=' +
-      '"Upon taking damage when Manifest Mind is active, can use a reaction to negate the damage and remove 3d6 spell levels from Awakened Spellbook for 1d6 long rests once per long rest",' +
+      '"Once per long rest, can use a reaction upon taking damage when Manifest Mind is active to dismiss the mind, negate the damage, and remove 3d6 spell levels from the Awakened Spellbook for 1d6 long rests, also losing the ability to cast those spells during that time",' +
       '"Has advantage on Arcana"',
   'Wizardly Quill':
     'Section=magic ' +
@@ -1486,14 +1488,14 @@ Tasha.FEATURES = {
   'Artificer Initiate':
     'Section=magic,skill ' +
     'Note=' +
-      '"Knows 1 artificer cantrip and can cast a chosen A1 spell once per long rest",' +
+      '"Knows 1 artificer cantrip and can cast a chosen A1 spell without expending a spell slot once per long rest",' +
       '"Tool Proficiency (Choose 1 from any Artisan)"',
   'Chef':
-    'Section=ability,magic,skill ' +
+    'Section=ability,skill,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Constitution, Wisdom)",' +
-      '"Food prepared during a short rest adds 1d8 to hit points regained from using Hit Dice by %{proficiencyBonus+4} diners, and a 1-hr process produces %{proficiencyBonus} treats that each give %{proficiencyBonus} temporary hit points when consumed within 8 hr",' +
-      '"Tool Proficiency (Cook\'s Utensils)"',
+      '"Tool Proficiency (Cook\'s Utensils)",' +
+      '"Food prepared during a short rest adds 1d8 to hit points regained from using Hit Dice by %{proficiencyBonus+4} diners, and a 1-hr process produces %{proficiencyBonus} treats that each give %{proficiencyBonus} temporary hit points when consumed within 8 hr"',
   'Crusher':
     'Section=ability,combat ' +
     'Note=' +
@@ -1508,7 +1510,7 @@ Tasha.FEATURES = {
     'Section=ability,magic ' +
     'Note=' +
       '"+1 Charisma",' +
-      '"Can cast <i>Misty Step</i> and a chosen level 1 divination or enchantment spell once per long rest" ' +
+      '"Can cast <i>Misty Step</i> and a chosen level 1 divination or enchantment spell without expending a spell slot once per long rest" ' +
     'SpellAbility=Charisma ' +
     'Spells=' +
       '"Misty Step"',
@@ -1538,12 +1540,12 @@ Tasha.FEATURES = {
     'Note=' +
       '"+1 Dexterity",' +
       '"Weapon Proficiency (Firearms)",' +
-      '"Loading does not slow firearm attacks, and being adjacent to a foe does not inflict disadvantage on ranged attacks"',
+      '"Loading does not slow firearm attacks/Suffers no disadvantage on ranged attacks from being adjacent to a foe"',
   'Metamagic Adept':
     'Section=magic,magic ' +
     'Note=' +
-      '"Knows 2 Metamagic options and has 2 sorcery points",' +
-      '"Can replace a Metamagic option when boosting an ability or taking a feat"',
+      '"Knows 2 Metamagic options",' +
+      '"Can spend 2 sorcery points per long rest/Can replace a Metamagic option when boosting an ability or taking a feat"',
   'Piercer':
     'Section=ability,combat ' +
     'Note=' +
@@ -1555,11 +1557,28 @@ Tasha.FEATURES = {
       '"Attacks ignore poison resistance/Can use a bonus action to coat a weapon or a piece of ammunition with poison lasting 1 min that inflicts 2d8 HP poison and poisoned (save DC 14 Constitution negates) until the end of the next turn",' +
       '"Tool Proficiency (Poisoner\'s Kit)",' +
       '"1 hr process using a Poisoner\'s Kit creates %{proficiencyBonus} poison doses"',
-  'Shadow Touched':
+  'Shadow Touched (Charisma)':
     'Section=ability,magic ' +
     'Note=' +
-      '"Ability Boost (Choose 1 from Charisma, Intelligence, Wisdom)",' +
-      '"Can cast <i>Invisibility</i> and a chosen level 1 illusion or necromancy spell once per long rest" ' +
+      '"+1 Charisma",' +
+      '"Can cast <i>Invisibility</i> and a chosen level 1 illusion or necromancy spell without expending a spell slot once per long rest" ' +
+    'SpellAbility=Charisma ' +
+    'Spells=' +
+      'Invisibility',
+  'Shadow Touched (Intelligence)':
+    'Section=ability,magic ' +
+    'Note=' +
+      '"+1 Intelligence",' +
+      '"Can cast <i>Invisibility</i> and a chosen level 1 illusion or necromancy spell without expending a spell slot once per long rest" ' +
+    'SpellAbility=Intelligence ' +
+    'Spells=' +
+      'Invisibility',
+  'Shadow Touched (Wisdom)':
+    'Section=ability,magic ' +
+    'Note=' +
+      '"+1 Wisdom",' +
+      '"Can cast <i>Invisibility</i> and a chosen level 1 illusion or necromancy spell without expending a spell slot once per long rest" ' +
+    'SpellAbility=Wisdom ' +
     'Spells=' +
       'Invisibility',
   'Skill Expert':
@@ -2103,9 +2122,9 @@ Tasha.featRulesExtra = function(rules, name) {
     rules.defineRule
       ('casterLevels.A', 'magicNotes.artificerInitiate', '^=', '1');
     rules.defineRule
-      ('spellSlots.A0', 'magicNotes.artificerInitiate', '+=', '2');
+      ('spellsAvailable.A0', 'magicNotes.artificerInitiate', '+=', '2');
     rules.defineRule
-      ('spellSlots.A1', 'magicNotes.artificerInitiate', '+=', '1');
+      ('spellsAvailable.A1', 'magicNotes.artificerInitiate', '+=', '1');
   } else if(name == 'Eldritch Adept') {
     rules.defineRule('selectableFeatureCount.Warlock (Eldritch Invocation)',
       'magicNotes.eldritchAdept', '+=', '1'

@@ -203,7 +203,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Tough: +40 Hit Points</i></td>
       </tr><tr style="text-align:center">
-        <td>Genie's Vessel: Can inflict +6 HP cold once per rd and retreat into a vessel with Armor Class 16 and 26 hit points for 12 hr once per long rest</td>
+        <td>Genie's Vessel: Can inflict +6 HP cold once per turn and retreat into a vessel with Armor Class 16 and 26 hit points for 12 hr once per long rest</td>
       </tr><tr style="text-align:center">
         <td>Great Weapon Master: Can use a bonus action to attack after scoring a critical hit or reducing a foe to 0 hit points with a melee weapon/Can make a -5 attack with a heavy weapon to inflict +10 damage</td>
       </tr><tr style="text-align:center">
@@ -223,6 +223,8 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Save Notes</b>:       <table id="SaveNotes" style="width:100%">
       <tr style="text-align:center">
+        <td>Eldritch Mind: Has advantage on Constitution saves to maintain concentration</td>
+      </tr><tr style="text-align:center">
         <td>Elemental Gift: Has resistance to cold damage</td>
       </tr><tr style="text-align:center">
         <td>Oceanic Soul: Has resistance to cold damage</td>
@@ -286,11 +288,9 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Eldritch Invocations: 8 selections</i></td>
     </tr><tr style="text-align:center">
-      <td>Bond Of The Talisman: Self or talisman wearer can teleport to the other 6 times per long rest</td>
+      <td>Bond Of The Talisman: Self or the talisman wearer can teleport to the other 6 times per long rest</td>
     </tr><tr style="text-align:center">
       <td>Eldritch Master: Can use a 1 min process to recover all expended spell slots once per long rest</td>
-    </tr><tr style="text-align:center">
-      <td>Eldritch Mind: Has advantage on Constitution saves to maintain concentration</td>
     </tr><tr style="text-align:center">
       <td>Eldritch Versatility: Can replace a cantrip, Pact Boon option, or Mystic Arcanum spell when boosting an ability or taking a feat</td>
     </tr><tr style="text-align:center">
@@ -300,13 +300,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Gift Of The Protectors: A creature who has written its name in the Book Of Shadows retains 1 hit point when reduced to 0 hit points once per long rest</td>
     </tr><tr style="text-align:center">
-      <td>Grasping Tentacles: Can cast <i>Evard's Black Tentacles</i> with unbreakable concentration and gain 20 temporary hit points once per long rest</td>
+      <td>Grasping Tentacles: Can cast <i>Evard's Black Tentacles</i> without expending a spell slot once per long rest; casting <i>Evard's Black Tentacles</i> gives self 20 temporary hit points, and damage cannot break concentration on the spell</td>
     </tr><tr style="text-align:center">
-      <td>Guardian Coil: Can use a reaction to reduce damage taken within 10' of Tentacle Of The Deeps by 2d8 HP</td>
+      <td>Guardian Coil: Can use a reaction to reduce the damage taken by a creature within 10' of the Tentacle Of The Deeps by 2d8 HP</td>
     </tr><tr style="text-align:center">
-      <td>Investment Of The Chain Master: Familiar gains a 40' fly or swim Speed, gains magical attacks, and inflicts DC 16 saves; self can use a bonus action to command it to attack and a reaction to give it resistance to damage</td>
+      <td>Investment Of The Chain Master: Summoned familiar gains a 40' fly or swim Speed, gains magical attacks, and inflicts DC 16 saves; self can use a bonus action to command it to attack and a reaction to give it resistance to damage</td>
     </tr><tr style="text-align:center">
-      <td>Limited Wish: Can gain the effects of a 6th level, 1-action spell once per 1d4 long rests</td>
+      <td>Limited Wish: Can gain the effects of a 1-action spell of up to level 6 once per 1d4 long rests</td>
     </tr><tr style="text-align:center">
       <td>Magic Initiate (Cleric): Knows 2 Cleric cantrips and can cast a chosen C1 spell without expending a spell slot once per long rest</td>
     </tr><tr style="text-align:center">
@@ -316,19 +316,19 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Pact Of The Chain: Can cast <i>Find Familiar</i> as a ritual</td>
     </tr><tr style="text-align:center">
-      <td>Pact Of The Talisman: Talisman gives wearer +1d4 ability checks 6 times per long rest</td>
+      <td>Pact Of The Talisman: Talisman gives its wearer +1d4 ability checks 6 times per long rest</td>
     </tr><tr style="text-align:center">
       <td>Pact Of The Tome: Has a <i>Book Of Shadows</i> containing 3 chosen cantrips from any spell lists</td>
     </tr><tr style="text-align:center">
-      <td>Protection Of The Talisman: Talisman wearer can add +1d4 to a failed save 6 times per long rest</td>
+      <td>Protection Of The Talisman: The talisman wearer can add +1d4 to a failed save 6 times per long rest</td>
     </tr><tr style="text-align:center">
       <td>Rebuke Of The Talisman: R30' When the talisman wearer takes damage, self can use a reaction to inflict 6 HP psychic and a 10' push on the attacker</td>
     </tr><tr style="text-align:center">
       <td>Sanctuary Vessel: R30' Can take 5 willing creatures into Genie's Vessel; 10 min within gives the benefits of a short rest, and spending Hit Dice restores +6 hit points</td>
     </tr><tr style="text-align:center">
-      <td>Tentacle Of The Deeps: R60' Can use a bonus action to summon a 10' tentacle that can move 30' and inflicts 2d8 HP cold and -10 Speed once per rd for 1 min 6 times per long rest</td>
+      <td>Tentacle Of The Deeps: R60' Can use a bonus action to summon a 10' tentacle that inflicts 2d8 HP cold and -10 Speed until the start of the next turn for 1 min 6 times per long rest; can use a bonus action each turn to cause it to move 30' and attack</td>
     </tr><tr style="text-align:center">
-      <td>Undying Servitude: Can cast <i>Animate Dead</i> once per long rest</td>
+      <td>Undying Servitude: Can cast <i>Animate Dead</i> without expending a spell slot once per long rest</td>
     </tr></table>
 </td>
   </tr></table>
