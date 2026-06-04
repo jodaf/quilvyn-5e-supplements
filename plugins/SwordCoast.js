@@ -679,7 +679,7 @@ SwordCoast.FEATURES_ADDED = {
     'Note=' +
       '"+10 Speed during Bladesong",' +
       '"+%{intelligenceModifier>?1} Armor Class during Bladesong",' +
-      '"Can use a bonus action to gain Bladesong features for 1 min 2 times per short rest; medium armor, heavy armor, or a shield negates",' +
+      '"Can use a bonus action to gain Bladesong features for 1 min 2 times per short rest; wearing armor, using a shield, or attacking two-handed negates",' +
       '"+%{intelligenceModifier>?1} Constitution to retain spell concentration during Bladesong",' +
       '"Has advantage on Acrobatics during Bladesong"',
   // Extra Attack as SRD5E
