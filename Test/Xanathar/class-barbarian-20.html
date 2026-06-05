@@ -70,7 +70,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Rage: Has advantage on Strength checks during rage</td>
     </tr><tr style="text-align:center">
-      <td>Storm Soul (Sea): Has a 30' swim Speed</td>
+      <td>Storm Soul (Sea): Has a 30' swim Speed and can breathe water</td>
     </tr></table>
 </td>
   </tr></table>
@@ -103,8 +103,6 @@ var attributes = {
         <td><i>Primal Path: 1 selection</i></td>
       </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: Can receive aid from temples of Norse-Freya and fellow believers</td>
-      </tr><tr style="text-align:center">
-        <td>Storm Soul (Sea): Can breathe water</td>
       </tr><tr style="text-align:center">
         <td>Warrior Of The Gods: Life-restoring spells cast on self require no material components</td>
       </tr></table>
@@ -196,11 +194,13 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Unarmored Defense: +3 Armor Class in no armor</i></td>
       </tr><tr style="text-align:center">
-        <td>Ancestral Protectors: First foe struck each rd during rage suffers disadvantage on attacks on others, and its targets also have resistance to damage from the foe, for 1 rd</td>
+        <td><i>Vengeful Ancestors: Has increased Spirit Shield effects</i></td>
+      </tr><tr style="text-align:center">
+        <td>Ancestral Protectors: First foe struck each turn during rage suffers disadvantage on attacks on others, who also have resistance to damage from the foe, until the start of the next turn</td>
       </tr><tr style="text-align:center">
         <td>Brutal Critical: Melee critical hits inflict 3 additional dice of damage</td>
       </tr><tr style="text-align:center">
-        <td>Divine Fury: First hit each turn during rage inflicts +1d6+10 HP of a choice of necrotic or radiant</td>
+        <td>Divine Fury: First weapon hit each turn during rage inflicts +1d6+10 HP of a choice of necrotic or radiant</td>
       </tr><tr style="text-align:center">
         <td>Dual Wielder: +1 Armor Class when wielding two melee weapons/Can use two-weapon fighting with any one-handed weapons/Can draw or stow two one-handed weapons simultaneously</td>
       </tr><tr style="text-align:center">
@@ -218,23 +218,21 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Raging Storm (Sea): R10' Can use a reaction to inflict knocked prone with a successful attack (save DC 17 Strength negates)</td>
       </tr><tr style="text-align:center">
-        <td>Raging Storm (Tundra): R10; Can immobilize a target (save DC 17 Strength negates) for 1 rd once per rd</td>
+        <td>Raging Storm (Tundra): R10' Activating Storm Aura allows immobilizing a target (save DC 17 Strength negates) until the start of the next turn</td>
       </tr><tr style="text-align:center">
         <td>Reckless Attack: Can suffer foe advantage on attacks to gain advantage on Strength melee attacks until the start of the next turn</td>
       </tr><tr style="text-align:center">
         <td>Sentinel: Successful opportunity attacks halt the target/Can make an opportunity attack when a foe uses Disengage and use a reaction to attack when an adjacent foe attacks another</td>
       </tr><tr style="text-align:center">
-        <td>Shielding Storm: R10' Targets gain resistance to fire during rage</td>
+        <td>Shielding Storm: R10' Targets gain Storm Soul resistance during rage</td>
       </tr><tr style="text-align:center">
-        <td>Spirit Shield: R30' Can use a reaction to reduce the damage to a creature by 4d6 HP</td>
+        <td>Spirit Shield: R30' Can use a reaction to reduce the damage to a creature by 4d6 HP and inflict the same amount of force damage on the attacker</td>
       </tr><tr style="text-align:center">
-        <td>Storm Aura (Desert): During the first rd of rage, 10' radius inflicts 6 HP fire; can use a bonus action to repeat the effect throughout rage</td>
+        <td>Storm Aura (Desert): 10' radius inflicts 6 HP fire upon entering rage; can use a bonus action each turn to repeat the effect throughout rage</td>
       </tr><tr style="text-align:center">
-        <td>Storm Aura (Sea): During the first rd of rage, R10' inflicts 4d6 HP lightning (save DC 17 Dexterity half); can use a bonus action to repeat the effect throughout rage</td>
+        <td>Storm Aura (Sea): R10' inflicts 4d6 HP lightning (save DC 17 Dexterity half) upon entering rage; can use a bonus action each turn to repeat the effect throughout rage</td>
       </tr><tr style="text-align:center">
-        <td>Storm Aura (Tundra): During the first rd of rage, R10' targets gain 6 temporary hit points; can use a bonus action to repeat the effect throughout rage</td>
-      </tr><tr style="text-align:center">
-        <td>Vengeful Ancestors: Spirit Shield inflicts force damage on the attacker equal to the amount prevented</td>
+        <td>Storm Aura (Tundra): R10' Can give targets 6 temporary hit points upon entering rage; can use a bonus action each turn to repeat the effect throughout rage</td>
       </tr><tr style="text-align:center">
         <td>Zealous Presence: R60' Can use a bonus action to give 10 targets advantage on attacks and saves until the start of the next turn once per long rest</td>
       </tr></table>
@@ -300,7 +298,7 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Magic Notes</b>:     <table id="MagicNotes" style="width:100%">
     <tr style="text-align:center">
-      <td>Consult The Spirits: Can cast <i>Augury</i> or <i>Clairvoyance</i> via spirits once per short rest</td>
+      <td>Consult The Spirits: Can cast <i>Augury</i> or <i>Clairvoyance</i> without expending a spell slot once per short rest</td>
     </tr><tr style="text-align:center">
       <td>Magic Initiate (Druid): Knows 2 Druid cantrips and can cast a chosen D1 spell without expending a spell slot once per long rest</td>
     </tr><tr style="text-align:center">
@@ -308,7 +306,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Storm Soul (Desert): Can set unattended flammable objects on fire via touch</td>
     </tr><tr style="text-align:center">
-      <td>Storm Soul (Tundra): Can freeze unoccupied 5' cube of water for 1 min via touch</td>
+      <td>Storm Soul (Tundra): Can freeze an unoccupied 5' cube of water for 1 min via touch</td>
     </tr></table>
 </td>
   </tr></table>

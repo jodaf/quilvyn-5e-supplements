@@ -86,12 +86,14 @@ Xanathar.CLASSES_FEATURES_ADDED = {
   'Cleric':
     '"features.Forge Domain ? 1:Blessing Of The Forge",' +
     '"features.Forge Domain ? 1:Bonus Proficiencies (Forge Domain)",' +
+    '"features.Forge Domain ? 1:Forge Domain Spells",' +
     '"features.Forge Domain ? 2:Artisan\'s Blessing",' +
     '"features.Forge Domain ? 6:Soul Of The Forge",' +
     '"clericHasDivineStrike ? 8:Divine Strike",' +
     '"features.Forge Domain ? 17:Saint Of Forge And Fire",' +
     '"features.Grave Domain ? 1:Circle Of Mortality",' +
     '"features.Grave Domain ? 1:Eyes Of The Grave",' +
+    '"features.Grave Domain ? 1:Grave Domain Spells",' +
     '"features.Grave Domain ? 2:Path To The Grave",' +
     '"features.Grave Domain ? 6:Sentinel At Death\'s Door",' +
     '"clericHasPotentSpellcasting ? 8:Potent Spellcasting",' +
@@ -338,18 +340,17 @@ Xanathar.FEATURES = {
   // Path Of The Ancestral Guardian
   'Ancestral Protectors':
     'Section=combat ' +
-    'Note="First foe struck each rd during rage suffers disadvantage on attacks on others, and its targets also have resistance to damage from the foe, for 1 rd"',
+    'Note="First foe struck each turn during rage suffers disadvantage on attacks on others, who also have resistance to damage from the foe, until the start of the next turn"',
   'Consult The Spirits':
     'Section=magic ' +
-    'Note="Can cast <i>Augury</i> or <i>Clairvoyance</i> via spirits once per short rest" ' +
+    'Note="Can cast <i>Augury</i> or <i>Clairvoyance</i> without expending a spell slot once per short rest" ' +
     'SpellAbility=Wisdom ' +
     'Spells=Augury,Clairvoyance',
   'Spirit Shield':
     'Section=combat ' +
-    'Note="R30\' Can use a reaction to reduce the damage to a creature by %{levels.Barbarian<10?2:levels.Barbarian<14?3:4}d6 HP"',
+    'Note="R30\' Can use a reaction to reduce the damage to a creature by %{levels.Barbarian<10?2:levels.Barbarian<14?3:4}d6 HP%{combatNotes.vengefulAncestors?\' and inflict the same amount of force damage on the attacker\':\'\'}"',
   'Vengeful Ancestors':
-    'Section=combat ' +
-    'Note="Spirit Shield inflicts force damage on the attacker equal to the amount prevented"',
+    'Section=combat Note="Has increased Spirit Shield effects"',
   // Path Of The Storm Herald
   'Raging Storm (Desert)':
     'Section=combat ' +
@@ -359,39 +360,38 @@ Xanathar.FEATURES = {
     'Note="R10\' Can use a reaction to inflict knocked prone with a successful attack (save DC %{8+proficiencyBonus+constitutionModifier} Strength negates)"',
   'Raging Storm (Tundra)':
     'Section=combat ' +
-    'Note="R10\; Can immobilize a target (save DC %{8+proficiencyBonus+constitutionModifier} Strength negates) for 1 rd once per rd"',
+    'Note="R10\' Activating Storm Aura allows immobilizing a target (save DC %{8+proficiencyBonus+constitutionModifier} Strength negates) until the start of the next turn"',
   'Shielding Storm':
     'Section=combat ' +
-    'Note="R10\' Targets gain resistance to %{$\'features.Storm Aura (Desert)\' ? \'fire\' : $\'features.Storm Aura (Sea)\' ? \'lightning\' : \'cold\'} during rage"',
+    'Note="R10\' Targets gain Storm Soul resistance during rage"',
   'Storm Aura (Desert)':
     'Section=combat ' +
-    'Note="During the first rd of rage, 10\' radius inflicts %{levels.Barbarian//5+2} HP fire; can use a bonus action to repeat the effect throughout rage"',
+    'Note="10\' radius inflicts %{levels.Barbarian//5+2} HP fire upon entering rage; can use a bonus action each turn to repeat the effect throughout rage"',
   'Storm Aura (Sea)':
     'Section=combat ' +
-    'Note="During the first rd of rage, R10\' inflicts %{levels.Barbarian//5>?1}d6 HP lightning (save DC %{8+proficiencyBonus+constitutionModifier} Dexterity half); can use a bonus action to repeat the effect throughout rage"',
+    'Note="R10\' inflicts %{levels.Barbarian//5>?1}d6 HP lightning (save DC %{8+proficiencyBonus+constitutionModifier} Dexterity half) upon entering rage; can use a bonus action each turn to repeat the effect throughout rage"',
   'Storm Aura (Tundra)':
     'Section=combat ' +
-    'Note="During the first rd of rage, R10\' targets gain %{levels.Barbarian//5+2} temporary hit points; can use a bonus action to repeat the effect throughout rage"',
+    'Note="R10\' Can give targets %{levels.Barbarian//5+2} temporary hit points upon entering rage; can use a bonus action each turn to repeat the effect throughout rage"',
   'Storm Soul (Desert)':
     'Section=magic,save ' +
     'Note=' +
       '"Can set unattended flammable objects on fire via touch",' +
       '"Has resistance to fire and immunity to extreme heat"',
   'Storm Soul (Sea)':
-    'Section=ability,feature,save ' +
+    'Section=ability,save ' +
     'Note=' +
-      '"Has a 30\' swim Speed",' +
-      '"Can breathe water",' +
+      '"Has a 30\' swim Speed and can breathe water",' +
       '"Has resistance to lightning"',
   'Storm Soul (Tundra)':
     'Section=magic,save ' +
     'Note=' +
-      '"Can freeze unoccupied 5\' cube of water for 1 min via touch",' +
+      '"Can freeze an unoccupied 5\' cube of water for 1 min via touch",' +
       '"Has resistance to cold and immunity to extreme cold"',
   // Path Of The Zealot
   'Divine Fury':
     'Section=combat ' +
-    'Note="First hit each turn during rage inflicts +1d6+%{levels.Barbarian//2} HP of a choice of necrotic or radiant"',
+    'Note="First weapon hit each turn during rage inflicts +1d6+%{levels.Barbarian//2} HP of a choice of necrotic or radiant"',
   'Fanatical Focus':
     'Section=save Note="Can reroll a failed save once per rage"',
   'Rage Beyond Death':
@@ -406,54 +406,54 @@ Xanathar.FEATURES = {
   // Bard
   // College Of Glamour
   'Enthralling Performance':
-    'Section=magic ' +
-    'Note="R60\' Can use 1 min performance to charm %{charismaModifier>?1} listeners (save DC %{spellDifficultyClass.B} Will negates; taking damage or seeing self attack an ally ends the effect) for 1 hr once per short rest"',
+    'Section=skill ' +
+    'Note="R60\' Can use 1 min performance once per short rest to charm %{charismaModifier>1?charismaModifier+\' listeners\':\'1 listener\'} (save DC %{spellDifficultyClass.B} Will negates) for 1 hr or until damaged or self attacks the target or its ally"',
   'Mantle Of Inspiration':
     'Section=combat ' +
-    'Note="R60\' Can use a bonus action and expend a Bardic Inspiration use to give %{charismaModifier>1?charismaModifier+\' targets\':\'1 target\'} %{levels.Bard//5*3+6<?14} temporary hit points and to allow %{charismaModifier>1?\'them\':\'it\'} to use a reaction to make an immediate move without provoking opportunity attacks"',
+    'Note="R60\' Can use a bonus action and expend a Bardic Inspiration use to give %{charismaModifier>1?charismaModifier+\' targets\':\'1 target\'} %{levels.Bard//5*3+6<?14} temporary hit points and allow %{charismaModifier>1?\'them\':\'it\'} to use a reaction to make an immediate move without provoking opportunity attacks"',
   'Mantle Of Majesty':
     'Section=magic ' +
-    'Note="Can use bonus actions to cast <i>Command</i> without expending a spell slot once per rd for concentration up to 1 min once per long rest" ' +
+    'Note="Can use a bonus action each turn to cast <i>Command</i> without expending a spell slot for concentration up to 1 min once per long rest" ' +
     'Spells=Command',
   'Unbreakable Majesty':
     'Section=combat ' +
-    'Note="Can use a bonus action to prevent foes from attacking self for 1 min (save DC %{spellDifficultyClass.B} Charisma negates and inflicts disadvantage on saves vs. self spells for 1 rd)"',
+    'Note="Can use a bonus action to prevent foes from attacking self for 1 min (save DC %{spellDifficultyClass.B} Charisma negates and inflicts disadvantage on saves vs. self spells until the end of the next turn)"',
   // College Of Swords
   'Bonus Proficiencies (College Of Swords)':
-    'Section=feature,magic ' +
+    'Section=combat,magic ' +
     'Note=' +
       '"Armor Proficiency (Medium)/Weapon Proficiency (Scimitar)",' +
       '"Can use a proficient melee weapon as a bard spell focus"',
   'Blade Flourish':
     'Section=combat ' +
-    'Note="Can gain +10 Speed and use a flourish during an attack once per rd"',
+    'Note="Taking an Attack action gives +10 Speed until the end of the current turn and allows using a flourish after a successful weapon attack once per turn"',
   'Defensive Flourish':
     'Section=combat ' +
-    'Note="Can spend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} HP weapon damage and gain an equal bonus to Armor Class for 1 rd"',
+    'Note="Can expend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} HP weapon damage and gain an equal bonus to Armor Class for until the start of the next turn"',
   // Extra Attack as SRD5E
   // Fighting Style as SRD5E
   "Master's Flourish":
     'Section=combat ' +
-    'Note="Can roll 1d6 instead of a Bardic Inspiration die for a flourish"',
+    'Note="Can roll 1d6 instead of expending a Bardic Inspiration die for a flourish"',
   'Mobile Flourish':
     'Section=combat ' +
-    'Note="Can spend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} weapon damage and a 5\' + 1d%{bardicInspirationDie}\' push, using a reaction to follow the foe if desired"',
+    'Note="Can expend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} weapon damage and a 5\' + 1d%{bardicInspirationDie}\' push, optionally using a reaction to follow the foe"',
   'Slashing Flourish':
     'Section=combat ' +
-    'Note="Can spend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} HP weapon damage on the target and an adjacent foe"',
+    'Note="Can expend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} HP weapon damage on the target and an adjacent foe"',
   // College Of Whispers
   'Mantle Of Whispers':
     'Section=magic ' +
-    'Note="R30\' Can capture a dying person\'s shadow to use as a disguise (Insight vs. +5 Deception to see through) for 1 hr once short rest"',
+    'Note="R30\' Can capture a dying person\'s shadow to use as a disguise (Insight vs. +5 Deception detects) for 1 hr once short rest"',
   'Psychic Blades (College Of Whispers)':
     'Section=combat ' +
-    'Note="Can spend 1 Bardic Inspiration to inflict +%{levels.Bard<5?2:levels.Bard<10?3:levels.Bard<15?5:8}d6 HP psychic once per rd"',
+    'Note="Can expend 1 Bardic Inspiration die to inflict +%{levels.Bard<5?2:levels.Bard<10?3:levels.Bard<15?5:8}d6 HP psychic once per turn"',
   'Shadow Lore':
     'Section=magic ' +
     'Note="R30\' Target obeys self commands (save DC %{spellDifficultyClass.B} Wisdom negates) for 8 hr once per long rest"',
   'Words Of Terror':
-    'Section=magic ' +
-    'Note="Can use 1 min of conversation to frighten a target (save DC %{spellDifficultyClass.B} Wisdom negates; damage ends) for 1 hr once per short rest"',
+    'Section=skill ' +
+    'Note="Can use 1 min of conversation to frighten a target (save DC %{spellDifficultyClass.B} Wisdom negates) for 1 hr or until the target or an ally is attacked or damaged once per short rest"',
 
   // Cleric
   // Forge Domain
@@ -469,7 +469,7 @@ Xanathar.FEATURES = {
     'Section=magic ' +
     'Note="Touched weapon or armor gains a +1 bonus until the next long rest once per long rest"',
   // Divine Strike as SRD5E
-  'Forge Domain':
+  'Forge Domain Spells':
     'Spells=' +
       '"1:Identify","1:Searing Smite",' +
       '"3:Heat Metal","3:Magic Weapon",' +
@@ -477,10 +477,8 @@ Xanathar.FEATURES = {
       '"7:Fabricate","7:Wall Of Fire",' +
       '"9:Animate Objects","9:Creation"',
   'Saint Of Forge And Fire':
-    'Section=combat,save ' +
-    'Note=' +
-      '"Has resistance to non-magical bludgeoning, piercing, and slashing damage in heavy armor",' +
-      '"Has immunity to fire"',
+    'Section=save ' +
+    'Note="Has resistance to non-magical bludgeoning, piercing, and slashing in heavy armor/Has immunity to fire"',
   'Soul Of The Forge':
     'Section=combat,save ' +
     'Note=' +
@@ -489,12 +487,12 @@ Xanathar.FEATURES = {
   // Grave Domain
   'Circle Of Mortality':
     'Section=magic ' +
-    'Note="Can cast R30\' <i>Spare The Dying</i> as a bonus action, and cure spells have maximum effect for targets with 0 hit points" ' +
+    'Note="Can cast R30\' <i>Spare The Dying</i> as a bonus action, and cure spells restore the maximum number of hit points for targets with 0 hit points" ' +
     'Spells="Spare The Dying"',
   'Eyes Of The Grave':
     'Section=magic ' +
-    'Note="R60\' Can detect undead for 1 rd %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
-  'Grave Domain':
+    'Note="R60\' Can detect undead until the end of the next turn %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
+  'Grave Domain Spells':
     'Spells=' +
       '"1:Bane","1:False Life",' +
       '"3:Gentle Repose","3:Ray Of Enfeeblement",' +
@@ -503,20 +501,20 @@ Xanathar.FEATURES = {
       '"9:Antilife Shell","9:Raise Dead"',
   'Keeper Of Souls':
     'Section=magic ' +
-    'Note="R60\' Can cause a foe\'s death to restore hit points equal to the foe\'s number of Hit Dice to another creature once per rd"',
+    'Note="R60\' Can cause a foe\'s death to restore to another creature hit points equal to the foe\'s number of Hit Dice once per turn"',
   'Path To The Grave':
     'Section=magic ' +
-    'Note="R30\' Can use Channel Divinity to inflict vulnerability to all damage for 1 rd"',
+    'Note="R30\' Can use Channel Divinity to inflict vulnerability to all damage until the end of the next turn"',
   // Potent Spellcasting as PHB5E
   "Sentinel At Death's Door":
     'Section=combat ' +
-    'Note="R30\' Can negate a critical hit %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
+    'Note="R30\' Can use a reaction to negate a critical hit %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
 
   // Druid
   // Circle Of Dreams
   'Balm Of The Summer Court':
     'Section=magic ' +
-    'Note="R120\' Once per rd, can use a bonus action to restore up to %{levels.Druid//2}d6 hit points and give the target 1 temporary hit point per die, restoring a maximum of %{levels.Druid}d6 hit points per long rest"',
+    'Note="R120\' Can use a bonus action to restore up to %{levels.Druid//2}d6 hit points and give the target 1 temporary hit point per die, restoring a total of %{levels.Druid}d6 hit points per long rest"',
   'Hearth Of Moonlight And Shadow':
     'Section=magic ' +
     'Note="Creates a 30\' sphere that gives +5 Stealth and Perception and obscures flames during a rest"',
@@ -525,15 +523,15 @@ Xanathar.FEATURES = {
     'Note="Can use a bonus action to teleport self 60\' or a willing touched target 30\' %{wisdomModifier>1?wisdomModifier+\' times\':\'once\'} per long rest"',
   'Walker In Dreams':
     'Section=magic ' +
-    'Note="After a short rest, can cast <i>Dream</i>, <i>Scrying</i>, or <i>Teleportation Circle</i> connected to the most recent long rest location once per long rest" ' +
+    'Note="After a short rest, can cast <i>Dream</i>, <i>Scrying</i>, or <i>Teleportation Circle</i> connected to the most recent long rest location without expending a spell slot once per long rest" ' +
     'Spells=Dream,Scrying,"Teleportation Circle"',
   // Circle Of The Shepherd
   'Faithful Summons':
     'Section=magic ' +
-    'Note="Incapacitation summons 4 creatures that protect self for 1 hr once per long rest"',
+    'Note="Upon incapacitation, can summon 4 creatures that protect self for 1 hr once per long rest"',
   'Guardian Spirit':
     'Section=magic ' +
-    'Note="Summoned creatures within Spirit Totem radius regain %{levels.Druid//2} hit points each rd"',
+    'Note="Summoned creatures within Spirit Totem radius regain %{levels.Druid//2} hit points at the end of their turns"',
   'Mighty Summoner':
     'Section=magic ' +
     'Note="Summoned creatures gain +2 hit points per Hit Die and magical natural weapons"',
@@ -544,13 +542,13 @@ Xanathar.FEATURES = {
       '"Can communicate with beasts"',
   'Spirit Totem (Bear)':
     'Section=magic ' +
-    'Note="R60\' Can use a bonus action to give targets in a 30\' radius %{levels.Druid+5} temporary hit points and advantage on Strength for 1 min once per short rest"',
+    'Note="R60\' Can use a bonus action to give targets in a 30\' radius %{levels.Druid+5} temporary hit points and advantage on Strength for 1 min once per short rest; can use bonus actions to move the radius 60\'"',
   'Spirit Totem (Hawk)':
     'Section=magic ' +
-    'Note="R60\' Can use a bonus action to give targets in a 30\' radius advantage on Perception, and can use a reaction to give advantage on an attack, for 1 min once per short rest"',
+    'Note="R60\' Can use a bonus action to give targets in a 30\' radius advantage on Perception, and can use a reaction to give advantage on an attack, for 1 min once per short rest; can use bonus actions to move the radius 60\'"',
   'Spirit Totem (Unicorn)':
     'Section=magic ' +
-    'Note="R60\' Can use a bonus action to give allies advantage to detect creatures in a 30\' radius, and self heal spells also restore %{levels.Druid} hit points to targets in the same radius, for 1 min once per short rest"',
+    'Note="R60\' Can use a bonus action to give allies advantage to detect creatures in a 30\' radius, and self heal spells also restore %{levels.Druid} hit points to targets in the same radius, for 1 min once per short rest; can use bonus actions to move the radius 60\'"',
 
   // Fighter
   // Arcane Archer
@@ -694,10 +692,10 @@ Xanathar.FEATURES = {
   // Way Of The Sun Soul (ref SwordCoast)
   'Radiant Sun Bolt':
     'Section=combat ' +
-    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant once per rd; can expend 1 ki point and use a bonus action for a second attack"',
+    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant; can expend 1 ki point to use a bonus action for an additional attack"',
   'Searing Arc Strike':
     'Section=magic ' +
-    'Note="Can spend 2 ki points to cast <i>Burning Hands</i> after an attack as a bonus action; each additional ki point spent raises the spell level by 1, to a maximum of level %{levels.Monk//2-1}" ' +
+    'Note="Can expend 2 ki points to cast <i>Burning Hands</i> as a bonus action after an Attack action; each additional ki point spent raises the spell level by 1, to a maximum of level %{levels.Monk//2-1}" ' +
     'SpellAbility=Wisdom ' +
     'Spells="Burning Hands"',
   'Searing Sunburst':
@@ -850,11 +848,11 @@ Xanathar.FEATURES = {
   // Mastermind (ref SwordCoast)
   'Insightful Manipulator':
     'Section=skill ' +
-    'Note="Can learn 2 choices of information about a target after 1 min of study: relative class levels, Charisma, Intelligence, or Wisdom"',
+    'Note="Can learn 2 choices of information about a target after 1 min of observation: relative class levels, Charisma, Intelligence, or Wisdom"',
   'Master Of Intrigue':
     'Section=skill,skill ' +
     'Note=' +
-      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming)",' +
+      '"Language (Choose 2 from any)/Tool Proficiency (Disguise Kit; Forgery Kit; Choose 1 from any Gaming Set)",' +
       '"Can mimic an accent and speech patterns after listening for 1 min"',
   'Master Of Tactics':
     'Section=combat ' +
@@ -882,16 +880,16 @@ Xanathar.FEATURES = {
   // Swashbuckler (ref SwordCoast)
   'Elegant Maneuver':
     'Section=skill ' +
-    'Note="Can use a bonus action to gain advantage on the next Acrobatics or Athletics check during that turn"',
+    'Note="Can use a bonus action to gain advantage on the next Acrobatics or Athletics check before the end of the turn"',
   'Fancy Footwork':
     'Section=combat ' +
-    'Note="Attacks prevent the target from making opportunity attacks against self for 1 rd"',
+    'Note="Attacking prevents the target from making opportunity attacks against self for the rest of the turn"',
   'Master Duelist':
     'Section=combat ' +
     'Note="Can reroll a miss with advantage once per short rest"',
   'Panache':
     'Section=skill ' +
-    'Note="Successful Persuasion vs. Insight gives a hostile target disadvantage on attacks on others (an attack by another ends) or charms a non-hostile target (damage ends) for 1 min"',
+    'Note="Successful Persuasion vs. Insight charms a non-hostile target (attack by self or an ally ends), or inflicts on a hostile target disadvantage on attacks on others and prevention of opportunity attacks on others (harm from an ally or moving more than 60\' away from self ends), for 1 min"',
   'Rakish Audacity':
     'Section=combat,combat ' +
     'Note=' +
@@ -935,17 +933,17 @@ Xanathar.FEATURES = {
   'Heart Of The Storm':
     'Section=magic,save ' +
     'Note=' +
-      '"10\' radius inflicts %{levels.Sorcerer//2} HP of a choice of lightning or thunder on targets when casting a lightning or thunder spell",' +
+      '"Casting a lightning or thunder spell of level 1 or higher inflicts %{levels.Sorcerer//2} HP of a choice of lightning or thunder on targets within 10\'",' +
       '"Has resistance to lightning and thunder"',
   'Storm Guide':
     'Section=magic ' +
     'Note="Can use an action to stop rain in a 20\' radius and a bonus action each rd to direct winds in a 100\' radius"',
   "Storm's Fury":
     'Section=combat ' +
-    'Note="Can use a reaction to inflict %{levels.Sorcerer} HP lightning and a 20\' push on a successful melee attacker (save DC %{spellDifficultyClass.S} Strength HP only)"',
+    'Note="Can use a reaction to inflict %{levels.Sorcerer} HP lightning and a 20\' push on a successful melee attacker (save DC %{spellDifficultyClass.S} Strength negates push)"',
   'Tempestuous Magic':
     'Section=magic ' +
-    'Note="Can use a bonus action before or after casting a spell to fly 10\' without provoking opportunity attacks"',
+    'Note="Can use a bonus action before or after casting a spell of level 1 or highter to fly 10\' without provoking opportunity attacks"',
   'Wind Soul':
     'Section=ability,magic,save ' +
     'Note=' +

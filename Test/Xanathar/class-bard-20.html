@@ -109,8 +109,6 @@ var attributes = {
       <tr style="text-align:center">
         <td><i>Bard College: 1 selection</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Bonus Proficiencies (College Of Swords): Armor Proficiency (Medium)/Weapon Proficiency (Scimitar)</i></td>
-      </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: Can receive aid from temples of Celtic-Briantia and fellow believers</td>
       </tr></table>
 </td>
@@ -162,9 +160,13 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Countercharm: R30' Performance gives friendly listeners advantage on saves vs. charmed and frightened until the end of the next turn</td>
     </tr><tr style="text-align:center">
+      <td>Enthralling Performance: R60' Can use 1 min performance once per short rest to charm 2 listeners (save DC 16 Will negates) for 1 hr or until damaged or self attacks the target or its ally</td>
+    </tr><tr style="text-align:center">
       <td>Healer: Using a healer's kit to stabilize also restores 1 hit point/Can expend a use of a healer's kit to restore 1d6+4 + target HD hit points once per creature per short rest</td>
     </tr><tr style="text-align:center">
       <td>Observant: Can read lips/+5 passive Investigation and passive Perception</td>
+    </tr><tr style="text-align:center">
+      <td>Words Of Terror: Can use 1 min of conversation to frighten a target (save DC 16 Wisdom negates) for 1 hr or until the target or an ally is attacked or damaged once per short rest</td>
     </tr></table>
 </td>
   </tr></table>
@@ -199,6 +201,8 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Combat Notes</b>:       <table id="CombatNotes" style="width:100%">
       <tr style="text-align:center">
+        <td><i>Bonus Proficiencies (College Of Swords): Armor Proficiency (Medium)/Weapon Proficiency (Scimitar)</i></td>
+      </tr><tr style="text-align:center">
         <td><i>Constitution Hit Points Adjustment: -20</i></td>
       </tr><tr style="text-align:center">
         <td><i>Dexterity Armor Class Adjustment: +2</i></td>
@@ -215,11 +219,11 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Bardic Inspiration: R60' Can use a bonus action 2 times per short rest to give an ally +1d12 on an ability check, attack, or save within 10 min</td>
       </tr><tr style="text-align:center">
-        <td>Blade Flourish: Can gain +10 Speed and use a flourish during an attack once per rd</td>
+        <td>Blade Flourish: Taking an Attack action gives +10 Speed until the end of the current turn and allows using a flourish after a successful weapon attack once per turn</td>
       </tr><tr style="text-align:center">
         <td>Charger: Can use a bonus action after a 10' Dash to attack, inflicting +5 damage or a 10' push</td>
       </tr><tr style="text-align:center">
-        <td>Defensive Flourish: Can spend 1 Bardic Inspiration to inflict +1d12 HP weapon damage and gain an equal bonus to Armor Class for 1 rd</td>
+        <td>Defensive Flourish: Can expend 1 Bardic Inspiration to inflict +1d12 HP weapon damage and gain an equal bonus to Armor Class for until the start of the next turn</td>
       </tr><tr style="text-align:center">
         <td>Extra Attack: Can make 2 attacks during an Attack action</td>
       </tr><tr style="text-align:center">
@@ -227,21 +231,21 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Fighting Style (Two-Weapon Fighting): Adds the ability modifier to the damage from a second weapon attack</td>
       </tr><tr style="text-align:center">
-        <td>Mantle Of Inspiration: R60' Can use a bonus action and expend a Bardic Inspiration use to give 2 targets 14 temporary hit points and to allow them to use a reaction to make an immediate move without provoking opportunity attacks</td>
+        <td>Mantle Of Inspiration: R60' Can use a bonus action and expend a Bardic Inspiration use to give 2 targets 14 temporary hit points and allow them to use a reaction to make an immediate move without provoking opportunity attacks</td>
       </tr><tr style="text-align:center">
-        <td>Master's Flourish: Can roll 1d6 instead of a Bardic Inspiration die for a flourish</td>
+        <td>Master's Flourish: Can roll 1d6 instead of expending a Bardic Inspiration die for a flourish</td>
       </tr><tr style="text-align:center">
-        <td>Mobile Flourish: Can spend 1 Bardic Inspiration to inflict +1d12 weapon damage and a 5' + 1d12' push, using a reaction to follow the foe if desired</td>
+        <td>Mobile Flourish: Can expend 1 Bardic Inspiration to inflict +1d12 weapon damage and a 5' + 1d12' push, optionally using a reaction to follow the foe</td>
       </tr><tr style="text-align:center">
-        <td>Psychic Blades (College Of Whispers): Can spend 1 Bardic Inspiration to inflict +8d6 HP psychic once per rd</td>
+        <td>Psychic Blades (College Of Whispers): Can expend 1 Bardic Inspiration die to inflict +8d6 HP psychic once per turn</td>
       </tr><tr style="text-align:center">
         <td>Savage Attacker: Can take the better of 2 melee damage rolls once per turn</td>
       </tr><tr style="text-align:center">
-        <td>Slashing Flourish: Can spend 1 Bardic Inspiration to inflict +1d12 HP weapon damage on the target and an adjacent foe</td>
+        <td>Slashing Flourish: Can expend 1 Bardic Inspiration to inflict +1d12 HP weapon damage on the target and an adjacent foe</td>
       </tr><tr style="text-align:center">
         <td>Superior Inspiration: Has a minimum of 1 use of Bardic Inspiration available after initiative</td>
       </tr><tr style="text-align:center">
-        <td>Unbreakable Majesty: Can use a bonus action to prevent foes from attacking self for 1 min (save DC 16 Charisma negates and inflicts disadvantage on saves vs. self spells for 1 rd)</td>
+        <td>Unbreakable Majesty: Can use a bonus action to prevent foes from attacking self for 1 min (save DC 16 Charisma negates and inflicts disadvantage on saves vs. self spells until the end of the next turn)</td>
       </tr></table>
 </td>
     </tr></table>
@@ -340,23 +344,19 @@ var attributes = {
     <tr style="text-align:center">
       <td>Bonus Proficiencies (College Of Swords): Can use a proficient melee weapon as a bard spell focus</td>
     </tr><tr style="text-align:center">
-      <td>Enthralling Performance: R60' Can use 1 min performance to charm 2 listeners (save DC 16 Will negates; taking damage or seeing self attack an ally ends the effect) for 1 hr once per short rest</td>
-    </tr><tr style="text-align:center">
       <td>Magic Initiate (Sorcerer): Knows 2 Sorcerer cantrips and can cast a chosen S1 spell without expending a spell slot once per long rest</td>
     </tr><tr style="text-align:center">
       <td>Magical Secrets: Can learn 6 additional spells from any class</td>
     </tr><tr style="text-align:center">
-      <td>Mantle Of Majesty: Can use bonus actions to cast <i>Command</i> without expending a spell slot once per rd for concentration up to 1 min once per long rest</td>
+      <td>Mantle Of Majesty: Can use a bonus action each turn to cast <i>Command</i> without expending a spell slot for concentration up to 1 min once per long rest</td>
     </tr><tr style="text-align:center">
-      <td>Mantle Of Whispers: R30' Can capture a dying person's shadow to use as a disguise (Insight vs. +5 Deception to see through) for 1 hr once short rest</td>
+      <td>Mantle Of Whispers: R30' Can capture a dying person's shadow to use as a disguise (Insight vs. +5 Deception detects) for 1 hr once short rest</td>
     </tr><tr style="text-align:center">
       <td>Shadow Lore: R30' Target obeys self commands (save DC 16 Wisdom negates) for 8 hr once per long rest</td>
     </tr><tr style="text-align:center">
       <td>Song Of Rest: Friendly listeners who spend Hit Dice to regain hit points after a short rest recover +1d12 hit points</td>
     </tr><tr style="text-align:center">
       <td>Spellcasting: Can cast spells from the bard spell list and cast spells marked with [R] using a ritual; regains expended spell slots after a long rest</td>
-    </tr><tr style="text-align:center">
-      <td>Words Of Terror: Can use 1 min of conversation to frighten a target (save DC 16 Wisdom negates; damage ends) for 1 hr once per short rest</td>
     </tr></table>
 </td>
   </tr></table>
