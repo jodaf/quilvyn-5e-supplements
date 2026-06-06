@@ -16,7 +16,8 @@ var attributes = {
   "selectableFeatures.Monk - Way Of The Drunken Master":1, "selectableFeatures.Monk - Way Of The Kensei":1, 
   "selectableFeatures.Monk - Way Of The Sun Soul":1, "shield":"None", "skillsChosen.Athletics":1, "skillsChosen.History":1, 
   "strength":10, "toolsChosen.Lute":1, "toolsChosen.Painter's Supplies":1, "weapons.Club":1, 
-  "weapons.Greatclub":1, "weapons.Unarmed":1, "wisdom":14
+  "weapons.Greatclub":1, "weapons.Unarmed":1, "weaponsChosen.Blowgun":1, "weaponsChosen.Handaxe":1, 
+  "weaponsChosen.Javelin":1, "weaponsChosen.Longbow":1, "weaponsChosen.Mace":1, "wisdom":14
 };
   </script>
 </head>
@@ -107,13 +108,13 @@ var attributes = {
       <tr style="text-align:center">
         <td><i>Monastic Tradition: 1 selection</i></td>
       </tr><tr style="text-align:center">
-        <td><i>One With The Blade: Has Magic Kensei Weapons and Deft Strike features</i></td>
+        <td><i>One With The Blade: Has the Magic Kensei Weapons and Deft Strike features</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Path Of The Kensei: Has Kensei Weapons, Agile Parry, Kensei's Shot, and Way Of The Brush features</i></td>
+        <td><i>Path Of The Kensei: Has the Kensei Weapons, Agile Parry, Kensei's Shot, and Way Of The Brush features</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Tipsy Sway: Has Leap To Your Feet and Redirect Attack features</i></td>
+        <td><i>Tipsy Sway: Has the Leap To Your Feet and Redirect Attack features</i></td>
       </tr><tr style="text-align:center">
-        <td>Drunkard's Luck: Can spend 2 ki points to cancel disadvantage on an ability, attack, or save roll</td>
+        <td>Drunkard's Luck: Can spend 2 ki points to cancel disadvantage on a self ability check, attack, or save</td>
       </tr><tr style="text-align:center">
         <td>Keen Mind: Always knows the direction of north and hours until sunrise or sunset/Can recall anything seen or heard during the past month</td>
       </tr><tr style="text-align:center">
@@ -190,7 +191,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>      <table id="CombatProfs" style="width:100%">
       <tr style="text-align:center">
-        <td><b>Weapon Proficiency</b>: Shortsword; Simple Weapons</td>
+        <td><b>Weapon Proficiency</b>: Blowgun; Handaxe; Javelin; Longbow; Mace; Shortsword; Simple Weapons</td>
       </tr></table>
 </td>
     </tr><tr style="text-align:center">
@@ -218,21 +219,21 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Unarmored Defense: +2 Armor Class in no armor</i></td>
       </tr><tr style="text-align:center">
-        <td>Agile Parry: Gains +2 Armor Class for 1 rd after an unarmed strike when armed with a Kensei melee weapon</td>
+        <td>Agile Parry: Gains +2 Armor Class until the start of the next turn after an unarmed strike when armed with a Kensei melee weapon</td>
       </tr><tr style="text-align:center">
         <td>Deflect Missiles: Can use a reaction to reduce suffered missile damage by 1d10+22 HP; reducing it to 0 HP allows spending 1 ki point to make an immediate attack with the missile</td>
       </tr><tr style="text-align:center">
-        <td>Deft Strike: Can spend 1 ki point to inflict +1d10 damage with a Kensei weapon once per rd</td>
+        <td>Deft Strike: Can spend 1 ki point to inflict +1d10 HP with a Kensei weapon once per turn</td>
       </tr><tr style="text-align:center">
-        <td>Drunken Technique: Movement provokes no opportunity attacks and gains +10 Speed during Flurry Of Blows</td>
+        <td>Drunken Technique: Flurry Of Blows gives the benefits of Disengage and +10 Speed until the end of the turn</td>
       </tr><tr style="text-align:center">
         <td>Extra Attack: Can make 2 attacks during an Attack action</td>
       </tr><tr style="text-align:center">
         <td>Flurry Of Blows: Can spend 1 ki point after using an Attack action to make 2 unarmed strikes as a bonus action</td>
       </tr><tr style="text-align:center">
-        <td>Intoxicated Frenzy: Can make 3 additional Flurry Of Blows attacks on 3 different foes</td>
+        <td>Intoxicated Frenzy: Directing each Flurry Of Blows attack at a different target allows making 3 additional attacks</td>
       </tr><tr style="text-align:center">
-        <td>Kensei's Shot: Can use a bonus action to inflict +1d4 HP weapon damage with a ranged Kensei weapon</td>
+        <td>Kensei's Shot: Can use a bonus action to inflict +1d4 HP weapon damage with ranged Kensei weapons until the end of the turn</td>
       </tr><tr style="text-align:center">
         <td>Ki-Empowered Strikes: Unarmed strikes count as magical</td>
       </tr><tr style="text-align:center">
@@ -250,9 +251,9 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Perfect Self: Has a minimum of 4 ki points available after initiative</td>
       </tr><tr style="text-align:center">
-        <td>Radiant Sun Bolt: R30' +8 ranged touch attack inflicts 1d10+2 HP radiant; can expend 1 ki point to use a bonus action for an additional attack</td>
+        <td>Radiant Sun Bolt: R30' +8 ranged touch attack inflicts 1d10+2 HP radiant; after using it as part of an Attack action, can use a bonus action and spend 1 ki point for an additional use</td>
       </tr><tr style="text-align:center">
-        <td>Redirect Attack: Can use a reaction and spend 1 ki point to redirect a foe miss to an adjacent creature</td>
+        <td>Redirect Attack: Can use a reaction and spend 1 ki point to redirect a missed foe melee attack vs. self to an adjacent creature</td>
       </tr><tr style="text-align:center">
         <td>Sharpen The Blade: Can use a bonus action and spend 1-3 ki points to gain an equal bonus on attack and damage with a nom-magical Kensei weapon for 1 min</td>
       </tr><tr style="text-align:center">
@@ -260,9 +261,9 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Stunning Strike: Can spend 1 ki point after a successful melee attack to stun the target (save DC 16 Constitution negates) until the end of the next turn</td>
       </tr><tr style="text-align:center">
-        <td>Sun Shield: Can use a reaction while emitting light to inflict 7 HP radiant on a successful melee attacker</td>
+        <td>Sun Shield: Can use a bonus action to emit or suppress a 30' bright light; while emitting light, can use a reaction to inflict 7 HP radiant on a successful melee attacker</td>
       </tr><tr style="text-align:center">
-        <td>Unerring Accuracy: Can reroll a monk weapon miss once per rd</td>
+        <td>Unerring Accuracy: Can reroll a monk weapon miss once per turn</td>
       </tr></table>
 </td>
     </tr></table>
@@ -323,11 +324,9 @@ var attributes = {
     <tr style="text-align:center">
       <td>Empty Body: Can spend 4 ki points to become invisible and gain resistance to all damage other than force for 1 min/Can spend 8 ki points to cast <i>Astral Projection</i> on self</td>
     </tr><tr style="text-align:center">
-      <td>Searing Arc Strike: Can expend 2 ki points to cast <i>Burning Hands</i> as a bonus action after an Attack action; each additional ki point spent raises the spell level by 1, to a maximum of level 9</td>
+      <td>Searing Arc Strike: Can use a bonus action and spend 2 ki points to cast <i>Burning Hands</i> after using an Attack action; each additional ki point spent raises the spell level by 1, to a maximum of level 9</td>
     </tr><tr style="text-align:center">
-      <td>Searing Sunburst: R150' 20' radius inflicts 2d6 HP radiant (save DC 16 Constitution negates); can expend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP</td>
-    </tr><tr style="text-align:center">
-      <td>Sun Shield: Can emit bright light in a 30' radius at will</td>
+      <td>Searing Sunburst: R150' 20' radius inflicts 2d6 HP radiant (save DC 16 Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP</td>
     </tr></table>
 </td>
   </tr></table>
@@ -337,13 +336,7 @@ var attributes = {
   <tr style="text-align:center">
     <td>    <table id="ValidationPart" style="width:100%">
     <tr style="text-align:center">
-      <td><b>Validation Errors</b>:       <table id="ValidationNotes" style="width:100%">
-      <tr style="text-align:center">
-        <td>Selectable Feature Allocation: 1 available vs. 3 allocated</td>
-      </tr><tr style="text-align:center">
-        <td>Weapon Proficiency Allocation: 5 available vs. 0 allocated</td>
-      </tr></table>
-</td>
+      <td><b>Validation Errors</b>: Selectable Feature Allocation: 1 available vs. 3 allocated</td>
     </tr></table>
 </td>
   </tr></table>

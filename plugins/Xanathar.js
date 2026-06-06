@@ -147,10 +147,12 @@ Xanathar.CLASSES_FEATURES_ADDED = {
   'Paladin':
     '"features.Oath Of Conquest ? 3:Conquering Presence",' +
     '"features.Oath Of Conquest ? 3:Guided Strike",' +
+    '"features.Oath Of Conquest ? 3:Oath Of Conquest Spells",' +
     '"features.Oath Of Conquest ? 7:Aura Of Conquest",' +
     '"features.Oath Of Conquest ? 15:Scornful Rebuke",' +
     '"features.Oath Of Conquest ? 20:Invincible Conqueror",' +
     '"features.Oath Of Redemption ? 3:Emissary Of Peace",' +
+    '"features.Oath Of Redemption ? 3:Oath Of Redemption Spells",' +
     '"features.Oath Of Redemption ? 3:Rebuke The Violent",' +
     '"features.Oath Of Redemption ? 7:Aura Of The Guardian",' +
     '"features.Oath Of Redemption ? 15:Protective Spirit",' +
@@ -426,7 +428,7 @@ Xanathar.FEATURES = {
       '"Can use a proficient melee weapon as a bard spell focus"',
   'Blade Flourish':
     'Section=combat ' +
-    'Note="Taking an Attack action gives +10 Speed until the end of the current turn and allows using a flourish after a successful weapon attack once per turn"',
+    'Note="Taking an Attack action gives +10 Speed until the end of the turn and allows using a flourish after a successful weapon attack once per turn"',
   'Defensive Flourish':
     'Section=combat ' +
     'Note="Can expend 1 Bardic Inspiration to inflict +1d%{bardicInspirationDie} HP weapon damage and gain an equal bonus to Armor Class for until the start of the next turn"',
@@ -560,39 +562,39 @@ Xanathar.FEATURES = {
   'Arcane Shot':
     'Section=combat,feature ' +
     'Note=' +
-      '"Can use an Arcane Shot effect once per rd 2 times per short rest",' +
+      '"Can use an Arcane Shot effect once per turn 2 times per short rest",' +
       '"%V selection%{featureNotes.arcaneShot>1?\'s\':\'\'}"',
   'Banishing Arrow':
     'Section=combat ' +
-    'Note="Arrow inflicts banishment to Feywild (save DC %{8+proficiencyBonus+intelligenceModifier} Charisma negates) for 1 rd%{levels.Fighter>=18?\' and +2d6 HP force\':\'\'}"',
+    'Note="Arcane Shot arrow inflicts%{levels.Fighter>=18?\' +2d6 HP force and\':\'\'} banishment to the Feywild until the end of the target\'s next turn (save DC %{8+proficiencyBonus+intelligenceModifier} Charisma negates%{levels.Fighter>=18?\' banishment\':\'\'})"',
   'Beguiling Arrow':
     'Section=combat ' +
-    'Note="Arrow inflicts +%{level<18?2:4}d6 HP psychic, and the target becomes charmed by a chosen ally within 30\' for 1 rd (save DC %{8+proficiencyBonus+intelligenceModifier} Wisdom HP only; ally attacking the target ends)"',
+    'Note="Arcane Shot arrow inflicts +%{level<18?2:4}d6 HP psychic, and the target becomes charmed by a chosen ally within 30\' (save DC %{8+proficiencyBonus+intelligenceModifier} Wisdom negates charm) until the start of the next turn or until the ally attacks or damages the target or forces it to make a save"',
   'Bursting Arrow':
     'Section=combat ' +
-    'Note="Successful arrow attack inflicts +%{levels.Fighter<18?2:4}d6 HP force damage in a 10\' radius"',
+    'Note="Successful Arcane Shot arrow attack inflicts +%{levels.Fighter<18?2:4}d6 HP force damage in a 10\' radius"',
   'Curving Shot':
     'Section=combat ' +
     'Note="Can use a bonus action to redirect a magic arrow miss to another target within 60\'"',
   'Enfeebling Arrow':
     'Section=combat ' +
-    'Note="Arrow inflicts +%{levels.Fighter<18?2:4}d6 HP necrotic damage and reduces the damage inflicted by target attacks by half for 1 rd (save DC %{8+proficiencyBonus+intelligenceModifier} Constitution HP only)"',
+    'Note="Arcane Shot arrow inflicts +%{levels.Fighter<18?2:4}d6 HP necrotic damage and reduces the damage inflicted by the target\'s attacks by half until the start of the next turn (save DC %{8+proficiencyBonus+intelligenceModifier} Constitution HP only)"',
   'Ever-Ready Shot':
     'Section=combat ' +
     'Note="Has a minimum of 1 Arcane Shot use available after initiative"',
   'Grasping Arrow':
     'Section=combat ' +
-    'Note="Arrow inflicts +%{levels.Fighter<18?2:4}d6 HP poison damage, -10\' Speed, and %{levels.Fighter<18?2:4}d6 HP slashing per rd upon target move for 1 min (save DC %{8+proficiencyBonus+intelligenceModifier} Athletics ends)"',
-  'Magic Arrow':'Section=combat Note="Arrows count as magic weapons"',
+    'Note="Arcane Shot arrow inflicts +%{levels.Fighter<18?2:4}d6 HP poison damage, -10\' Speed, and %{levels.Fighter<18?2:4}d6 HP slashing per rd upon target move for 1 min (save DC %{8+proficiencyBonus+intelligenceModifier} Athletics ends)"',
+  'Magic Arrow':'Section=combat Note="Can make arrows magical when fired"',
   'Piercing Arrow':
     'Section=combat ' +
-    'Note="Arrow passes harmlessly through objects and inflicts +%{levels.Fighter<18?1:2}d6 HP piercing damage (save DC %{8+proficiencyBonus+intelligenceModifier} Dexterity half) to creatures in a 30\'x1\' line"',
+    'Note="Arcane Shot arrow passes harmlessly through objects and inflicts +%{levels.Fighter<18?1:2}d6 HP piercing damage (save DC %{8+proficiencyBonus+intelligenceModifier} Dexterity half) on creatures in a 30\'x1\' line"',
   'Seeking Arrow':
     'Section=combat ' +
-    'Note="Arrow ignores 3/4 cover, inflicting +%{levels.Fighter<18?1:2}d6 HP force and revealing the target (save DC %{8+proficiencyBonus+intelligenceModifier} Dexterity half HP only)"',
+    'Note="Arcane Shot arrow finds the specified target, ignoring 3/4 cover, inflicts +%{levels.Fighter<18?1:2}d6 HP force, and reveals the target\'s location (save DC %{8+proficiencyBonus+intelligenceModifier} Dexterity half HP only)"',
   'Shadow Arrow':
     'Section=combat ' +
-    'Note="Arrow inflicts +%{levels.Fighter<18?2:4}d6 HP psychic damage and 5\' vision (save DC %{8+proficiencyBonus+intelligenceModifier} Wisdom HP only) for 1 rd"',
+    'Note="Arcane Shot arrow inflicts +%{levels.Fighter<18?2:4}d6 HP psychic and 5\' vision until the start of the next turn (save DC %{8+proficiencyBonus+intelligenceModifier} Wisdom HP only)"',
   // Cavalier
   'Bonus Proficiency (Cavalier)':
     'Section=skill ' +
@@ -603,19 +605,19 @@ Xanathar.FEATURES = {
     'Note="Has advantage on saves vs. falling off mount, lands on feet after a 10\' fall from mount, and dismount and mount each cost only 5\' movement"',
   'Ferocious Charger':
     'Section=combat ' +
-    'Note="Can knock prone with a hit after a 10\' move (save DC %{8+proficiencyBonus+strengthModifier} Strength negates) once per rd"',
+    'Note="Can knock prone with a hit after a 10\' move (save DC %{8+proficiencyBonus+strengthModifier} Strength negates) once per turn"',
   'Hold The Line':
     'Section=combat ' +
     'Note="Foe move within reach provokes an opportunity attack; a hit halts the move"',
   'Unwavering Mark':
     'Section=combat ' +
-    'Note="Can mark a foe for 1 rd with a successful attack %{strengthModifier>1?strengthModifier+\' times\':\'once\'} per long rest; its attacks on others when adjacent to self suffer disadvantage and allow self to use a bonus action to attack with advantage, inflicting +%{levels.Fighter//2} HP weapon damage"',
+    'Note="A successful attack can mark a foe until the end of the next turn %{strengthModifier>1?strengthModifier+\' times\':\'once\'} per long rest; its attacks on others when adjacent to self suffer disadvantage, and damaging others allows self to use a bonus action during the next turn to attack with advantage, inflicting +%{levels.Fighter//2} HP weapon damage"',
   'Vigilant Defender':
     'Section=combat ' +
     'Note="Can use a reaction to make an opportunity attack on every other creature\'s turn"',
   'Warding Maneuver':
     'Section=combat ' +
-    'Note="When using a melee weapon or shield, can give self or an adjacent ally +1d8 Armor Class and damage resistance when struck %{constitutionModifier>1?constitutionModifier+\' times\':\'once\'} per long rest"',
+    'Note="When using a melee weapon or shield, can use a reaction in response to a successful attack on self or an adjacent ally to give the target +1d8 Armor Class and damage resistance %{constitutionModifier>1?constitutionModifier+\' times\':\'once\'} per long rest"',
   // Samurai
   'Bonus Proficiency (Samurai)':
     'Section=skill ' +
@@ -629,13 +631,13 @@ Xanathar.FEATURES = {
       '"+%V Persuasion"',
   'Fighting Spirit':
     'Section=combat ' +
-    'Note="Can use a bonus action to gain advantage on attacks for 1 rd and %{levels.Fighter<10?5:levels.Fighter<15?10:15} temporary hit points 3 times per long rest"',
+    'Note="Can use a bonus action to gain advantage on attacks until the end of the turn and %{levels.Fighter<10?5:levels.Fighter<15?10:15} temporary hit points 3 times per long rest"',
   'Rapid Strike':
     'Section=combat ' +
-    'Note="Can forego advantage on an attack to gain an extra attack once per rd"',
+    'Note="Can forego advantage on an attack to gain an extra attack once per turn"',
   'Strength Before Death':
     'Section=combat ' +
-    'Note="Can take an extra turn when brought to 0 HP once per long rest"',
+    'Note="Can take an immediate extra turn when brought to 0 HP once per long rest"',
   'Tireless Spirit':
     'Section=combat ' +
     'Note="Has a minimum 1 Fighting Spirit use available after initiative"',
@@ -647,65 +649,65 @@ Xanathar.FEATURES = {
     'Note="Skill Proficiency (Performance)/Tool Proficiency (Brewer\'s Supplies)"',
   "Drunkard's Luck":
     'Section=feature ' +
-    'Note="Can spend 2 ki points to cancel disadvantage on an ability, attack, or save roll"',
+    'Note="Can spend 2 ki points to cancel disadvantage on a self ability check, attack, or save"',
   'Drunken Technique':
     'Section=combat ' +
-    'Note="Movement provokes no opportunity attacks and gains +10 Speed during Flurry Of Blows"',
+    'Note="Flurry Of Blows gives the benefits of Disengage and +10 Speed until the end of the turn"',
   'Intoxicated Frenzy':
     'Section=combat ' +
-    'Note="Can make 3 additional Flurry Of Blows attacks on 3 different foes"',
+    'Note="Directing each Flurry Of Blows attack at a different target allows making 3 additional attacks"',
   'Leap To Your Feet':
     'Section=ability Note="Standing from prone costs only 5\' movement"',
   'Redirect Attack':
     'Section=combat ' +
-    'Note="Can use a reaction and spend 1 ki point to redirect a foe miss to an adjacent creature"',
+    'Note="Can use a reaction and spend 1 ki point to redirect a missed foe melee attack vs. self to an adjacent creature"',
   'Tipsy Sway':
-    'Section=feature Note="Has Leap To Your Feet and Redirect Attack features"',
+    'Section=feature ' +
+    'Note="Has the Leap To Your Feet and Redirect Attack features"',
   // Way Of The Kensei
   'Agile Parry':
     'Section=combat ' +
-    'Note="Gains +2 Armor Class for 1 rd after an unarmed strike when armed with a Kensei melee weapon"',
+    'Note="Gains +2 Armor Class until the start of the next turn after an unarmed strike when armed with a Kensei melee weapon"',
   'Deft Strike':
     'Section=combat ' +
-    'Note="Can spend 1 ki point to inflict +%{monkMeleeDieBonus} damage with a Kensei weapon once per rd"',
+    'Note="Can spend 1 ki point to inflict +%{monkMeleeDieBonus} HP with a Kensei weapon once per turn"',
   'Kensei Weapons':
     'Section=combat ' +
     'Note="Has proficiency in %V choice%{combatNotes.kenseiWeapons>1?\'s\':\'\'} of non-heavy melee or ranged weapons"',
   "Kensei's Shot":
     'Section=combat ' +
-    'Note="Can use a bonus action to inflict +1d4 HP weapon damage with a ranged Kensei weapon"',
+    'Note="Can use a bonus action to inflict +1d4 HP weapon damage with ranged Kensei weapons until the end of the turn"',
   'Magic Kensei Weapons':
     'Section=combat Note="Attacks with Kensei weapons count as magical"',
   'One With The Blade':
-    'Section=feature Note="Has Magic Kensei Weapons and Deft Strike features"',
+    'Section=feature ' +
+    'Note="Has the Magic Kensei Weapons and Deft Strike features"',
   'Path Of The Kensei':
     'Section=feature ' +
-    'Note="Has Kensei Weapons, Agile Parry, Kensei\'s Shot, and Way Of The Brush features"',
+    'Note="Has the Kensei Weapons, Agile Parry, Kensei\'s Shot, and Way Of The Brush features"',
   'Sharpen The Blade':
     'Section=combat ' +
     'Note="Can use a bonus action and spend 1-3 ki points to gain an equal bonus on attack and damage with a nom-magical Kensei weapon for 1 min"',
   'Unerring Accuracy':
-    'Section=combat Note="Can reroll a monk weapon miss once per rd"',
+    'Section=combat Note="Can reroll a monk weapon miss once per turn"',
   'Way Of The Brush':
     'Section=skill ' +
     'Note="Tool Proficiency (Choose 1 from Calligrapher\'s Supplies, Painter\'s Supplies)"',
   // Way Of The Sun Soul (ref SwordCoast)
   'Radiant Sun Bolt':
     'Section=combat ' +
-    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant; can expend 1 ki point to use a bonus action for an additional attack"',
+    'Note="R30\' +%{proficiencyBonus+dexterityModifier} ranged touch attack inflicts 1d%{combatNotes.martialArts}+%{dexterityModifier} HP radiant; after using it as part of an Attack action, can use a bonus action and spend 1 ki point for an additional use"',
   'Searing Arc Strike':
     'Section=magic ' +
-    'Note="Can expend 2 ki points to cast <i>Burning Hands</i> as a bonus action after an Attack action; each additional ki point spent raises the spell level by 1, to a maximum of level %{levels.Monk//2-1}" ' +
+    'Note="Can use a bonus action and spend 2 ki points to cast <i>Burning Hands</i> after using an Attack action; each additional ki point spent raises the spell level by 1, to a maximum of level %{levels.Monk//2-1}" ' +
     'SpellAbility=Wisdom ' +
     'Spells="Burning Hands"',
   'Searing Sunburst':
     'Section=magic ' +
-    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{monkSaveDC} Constitution negates); can expend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
+    'Note="R150\' 20\' radius inflicts 2d6 HP radiant (save DC %{monkSaveDC} Constitution negates); can spend 1, 2, or 3 ki points to inflict +2d6, +4d6, or +6d6 HP"',
   'Sun Shield':
-    'Section=combat,magic ' +
-    'Note=' +
-      '"Can use a reaction while emitting light to inflict %{wisdomModifier+5} HP radiant on a successful melee attacker",' +
-      '"Can emit bright light in a 30\' radius at will"',
+    'Section=combat ' +
+    'Note="Can use a bonus action to emit or suppress a 30\' bright light; while emitting light, can use a reaction to inflict %{wisdomModifier+5} HP radiant on a successful melee attacker"',
 
   // Paladin
   // Oath Of Conquest
@@ -714,12 +716,12 @@ Xanathar.FEATURES = {
     'Note="R%{levels.Paladin<18?10:30}\' Frightened foes suffer immobility and %{levels.Paladin//2} HP psychic each rd"',
   'Conquering Presence':
     'Section=combat ' +
-    'Note="R30\' Can use Channel Divinity to frighten targets for 1 min (save DC %{spellDifficultyClass.P} Wisdom ends)"',
+    'Note="R30\' Can use Channel Divinity to frighten targets for 1 min (save DC %{spellDifficultyClass.P} Wisdom negates; additional saves each rd end)"',
   // Guided Strike as PHB5E
   'Invincible Conqueror':
     'Section=combat ' +
-    'Note="Can gain resistance to all damage, make an extra attack, and crit on a natural 19 for 1 min once per long rest"',
-  'Oath Of Conquest':
+    'Note="Can gain resistance to all damage, make an extra attack as part of Attack actions, and crit on a natural 19 for 1 min once per long rest"',
+  'Oath Of Conquest Spells':
     'Spells=' +
       '"3:Armor Of Agathys","3:Command",' +
       '"5:Hold Person","5:Spiritual Weapon",' +
@@ -732,14 +734,14 @@ Xanathar.FEATURES = {
   // Oath Of Redemption
   'Aura Of The Guardian':
     'Section=combat ' +
-    'Note="R%{levels.Paladin<18?10:30}\' Can use a reaction to transfer damage from another to self"',
+    'Note="R%{levels.Paladin<18?10:30}\' Can use a reaction when another creature takes damage to transfer the damage to self"',
   'Emissary Of Peace':
     'Section=skill ' +
-    'Note="Can use Channel Energy and a bonus action to gain +5 Persuasion for 10 min"',
+    'Note="Can use a bonus action and Channel Energy to gain +5 Persuasion for 10 min"',
   'Emissary Of Redemption':
     'Section=combat ' +
-    'Note="Has resistance to all attack damage, and a successful attacker takes radiant damage equal to half that inflicted; attacking a creature negates these effects with it until a long rest"',
-  'Oath Of Redemption':
+    'Note="Has resistance to all attack damage, and a successful attacker takes radiant damage equal to half that inflicted; attacking a creature negates these effects with that creature until a long rest"',
+  'Oath Of Redemption Spells':
     'Spells=' +
       '"3:Sanctuary","3:Sleep",' +
       '"5:Calm Emotions","5:Hold Person",' +
@@ -751,14 +753,15 @@ Xanathar.FEATURES = {
     'Note="Regains 1d6+%{levels.Paladin//2} hit points at the end of a turn when below %{hitPoints//2} hit points"',
   'Rebuke The Violent':
     'Section=combat ' +
-    'Note="R30\' Can use Channel Divinity to inflict equal damage on a successful attacker of another (save DC %{spellDifficultyClass.P} Wisdom half)"',
+    'Note="R30\' When another creature takes damage from an attack, can use a reaction and Channel Divinity to inflict on the attacker radiant damage equal to the attack damage (save DC %{spellDifficultyClass.P} Wisdom half)"',
+
   // Ranger
   // Gloom Stalker
   'Dread Ambusher':
     'Section=combat,combat ' +
     'Note=' +
       '"+%V Initiative",' +
-      '"Gains +10 Speed and an additional weapon attack inflicting +1d8 HP weapon damage during the first rd of combat"',
+      '"During the first turn of combat, gains +10 Speed and, as part of an Attack action, an additional weapon attack that inflicts +1d8 HP weapon damage"',
   'Gloom Stalker Magic':
     'Spells=' +
       '"3:Disguise Self",' +
@@ -773,20 +776,20 @@ Xanathar.FEATURES = {
     'Note="Can use a reaction to inflict disadvantage on an attacker who does not have advantage"',
   "Stalker's Flurry":
     'Section=combat ' +
-    'Note="Can follow a weapon miss with another attack once per rd"',
+    'Note="Can follow a weapon miss with another attack once per turn"',
   'Umbral Sight':
     'Section=feature ' +
-    'Note="Has %{features.Darkvision?\'+30\':60}\' Darkvision and is invisible to Darkvision"',
+    'Note="%{features.Darkvision?\\"Has +30\' Darkvision\\":\\"R60\' Sees one light level better\\"} and is invisible to Darkvision"',
   // Horizon Walker
   'Detect Portal':
     'Section=magic ' +
     'Note="R1 mile Can sense the nearest planar portal once per short rest"',
   'Distant Strike':
     'Section=combat ' +
-    'Note="Can teleport 10\' before an attack and attack 3 different creatures"',
+    'Note="While using an Attack action, can teleport 10\' before each attack and make an additional attack against a third creature"',
   'Ethereal Step':
     'Section=magic ' +
-    'Note="Can use a bonus action to cast <i>Etherealness</i>, lasting until the end of the turn, once per short rest" ' +
+    'Note="Can use a bonus action to cast <i>Etherealness</i>, lasting until the end of the turn, without expending a spell slot once per short rest" ' +
     'Spells=Etherealness',
   'Horizon Walker Magic':
     'Spells=' +
@@ -797,7 +800,7 @@ Xanathar.FEATURES = {
       '"17:Teleportation Circle"',
   'Planar Warrior':
     'Section=combat ' +
-    'Note="R30\' Can use a bonus action to convert weapon damage to force and inflict +%{levels.Ranger<11?1:2}d8 HP once per rd"',
+    'Note="R30\' Can use a bonus action to have the next self hit on the target during the current turn inflict force damage and +%{levels.Ranger<11?1:2}d8 HP"',
   'Spectral Defense':
     'Section=combat ' +
     'Note="Can use a reaction upon taking damage to gain resistance to it"',
@@ -817,10 +820,10 @@ Xanathar.FEATURES = {
       '"17:Hold Monster"',
   "Slayer's Counter":
     'Section=combat ' +
-    'Note="Can use a reaction to attack when a Slayer\'s Prey target forces a self saving throw; attack success also makes the save succeed"',
+    'Note="Can use a reaction to attack when a Slayer\'s Prey target forces a self saving throw; attack success also causes the save to succeed"',
   "Slayer's Prey":
     'Section=combat ' +
-    'Note="R60\' Can use a bonus action to inflict +1d6 HP weapon damage on a chosen target with the first attack each rd"',
+    'Note="R60\' Can use a bonus action to mark a target, inflicting +1d6 HP weapon damage on it with the first attack each turn"',
   'Supernatural Defense':
     'Section=save ' +
     'Note="+1d6 saves and grapple escapes vs. Slayer\'s Prey targets"',
@@ -1808,23 +1811,6 @@ Xanathar.classRulesExtra = function(rules, name) {
       ('saveProficiency.Wisdom', 'saveNotes.elegantCourtier', '=', '1');
     rules.defineRule('skillNotes.elegantCourtier', 'wisdomModifier', '=', null);
   } else if(name == 'Monk') {
-    rules.defineRule
-      ('features.Leap To Your Feet', 'featureNotes.tipsySway', '=', '1');
-    rules.defineRule
-      ('features.Redirect Attack', 'featureNotes.tipsySway', '=', '1');
-    rules.defineRule
-      ('features.Agile Parry', 'featureNotes.pathOfTheKensei', '=', '1');
-    rules.defineRule
-      ('features.Deft Strike', 'featureNotes.oneWithTheBlade', '=', '1');
-    rules.defineRule
-      ('features.Kensei Weapons', 'featureNotes.pathOfTheKensei', '=', '1');
-    rules.defineRule
-      ("features.Kensei's Shot", 'featureNotes.pathOfTheKensei', '=', '1');
-    rules.defineRule('features.Magic Kensei Weapons',
-      'featureNotes.oneWithTheBlade', '=', '1'
-    );
-    rules.defineRule
-      ('features.Way Of The Brush', 'featureNotes.pathOfTheKensei', '=', '1');
     rules.defineRule('combatNotes.kenseiWeapons',
       classLevel, '=', 'source>=17 ? 5 : source>=11 ? 4 : source>=6 ? 3 : 2'
     );
@@ -1832,8 +1818,6 @@ Xanathar.classRulesExtra = function(rules, name) {
       ('weaponChoiceCount', 'combatNotes.kenseiWeapons', '+=', null);
   } else if(name == 'Ranger') {
     rules.defineRule('combatNotes.dreadAmbusher', 'wisdomModifier', '=', null);
-    rules.defineRule
-      ('features.Darkvision', 'featureNotes.umbralSight', '=', '1');
     rules.defineRule('saveProficiency.Wisdom', 'saveNotes.ironMind', '=', '1');
   } else if(name == 'Rogue') {
     rules.defineRule('skillNotes.survivalist.1',
