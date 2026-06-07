@@ -79,7 +79,7 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Human Ability Adjustment: +1 Charisma/+1 Constitution/+1 Dexterity/+1 Intelligence/+1 Strength/+1 Wisdom</i></td>
     </tr><tr style="text-align:center">
-      <td>Gift Of The Depths: Has a 30' swim Speed</td>
+      <td>Gift Of The Depths: Has a 30' swim Speed and can breathe water</td>
     </tr></table>
 </td>
   </tr></table>
@@ -109,13 +109,9 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Feature Notes</b>:       <table id="FeatureNotes" style="width:100%">
       <tr style="text-align:center">
-        <td><i>Hex Warrior: Armor Proficiency (Medium; Shield)/Weapon Proficiency (Martial)</i></td>
-      </tr><tr style="text-align:center">
         <td><i>Otherworldly Patron: 1 selection</i></td>
       </tr><tr style="text-align:center">
         <td><i>Pact Boon: 1 selection</i></td>
-      </tr><tr style="text-align:center">
-        <td>Gift Of The Depths: Can breathe water</td>
       </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: Can receive aid from temples of Greek-Hecate and fellow believers</td>
       </tr></table>
@@ -163,8 +159,6 @@ var attributes = {
       <td><i>Skilled: Skill Proficiency or Tool Proficiency (Choose 3 from any)</i></td>
     </tr><tr style="text-align:center">
       <td>Bulky Armor: Has disadvantage on Stealth</td>
-    </tr><tr style="text-align:center">
-      <td>Cloak Of Flies: Can use a bonus action to gain advantage on Intimidate and suffer disadvantage on other Charisma checks once per short rest</td>
     </tr></table>
 </td>
   </tr></table>
@@ -207,6 +201,8 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Dexterity Damage Adjustment: +1</i></td>
       </tr><tr style="text-align:center">
+        <td><i>Hex Warrior: Armor Proficiency (Medium; Shield)/Weapon Proficiency (Martial)</i></td>
+      </tr><tr style="text-align:center">
         <td><i>Strength Attack Adjustment: +1</i></td>
       </tr><tr style="text-align:center">
         <td><i>Strength Damage Adjustment: +1</i></td>
@@ -215,9 +211,9 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Armor Of Hexes: Can use a reaction to give a successful attack on self by a Hexblade's Curse target a 50% miss chance</td>
       </tr><tr style="text-align:center">
-        <td>Cloak Of Flies: Can use a bonus action to create a 5' radius that inflicts 2 HP poison damage once per short rest</td>
+        <td>Cloak Of Flies: Can use a bonus action to create a 5' radius that inflicts 2 HP poison damage and gives advantage on Intimidate, but disadvantage on other Charisma checks, once per short rest</td>
       </tr><tr style="text-align:center">
-        <td>Eldritch Smite: Can spend a spell slot to inflict +(slot level + 1)d8 HP force and knock prone a Huge or smaller foe with a pact weapon</td>
+        <td>Eldritch Smite: Once per turn, can expend a spell slot upon a pact weapon hit to inflict +1d8 HP force plus +1d8 HP force per slot level and to inflict prone on a Huge or smaller target</td>
       </tr><tr style="text-align:center">
         <td>Gift Of The Ever-Living Ones: Regains maximum HP from healing when within 100' of familiar</td>
       </tr><tr style="text-align:center">
@@ -227,7 +223,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Hexblade's Curse: R30' Can use a bonus action to curse a target for 1 min once per short rest: self gains +6 damage vs. the target, crits on a natural 19 vs. the target, and regains 22 hit points if the target dies</td>
       </tr><tr style="text-align:center">
-        <td>Improved Pact Weapon: Can use a bow or crossbow as a pact weapon/Pact weapon can be used as a spell focus and gains +1 attack and damage if non-magical</td>
+        <td>Improved Pact Weapon: Can use a bow or crossbow as a pact weapon, and a pact weapon gains +1 attack and damage if non-magical and can be used as a spell focus</td>
       </tr><tr style="text-align:center">
         <td>Maddening Hex: R30' Can use a bonus action to inflict 2 HP psychic to targets in a 5' radius around a curse target</td>
       </tr><tr style="text-align:center">
@@ -239,7 +235,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Relentless Hex: Can use a bonus action to teleport 30' to a space adjacent to a curse target</td>
       </tr><tr style="text-align:center">
-        <td>Tomb Of Levistus: Can use a reaction upon taking damage to gain 200 temporary hit points and suffer vulnerability to fire and immobility for 1 rd once per short rest</td>
+        <td>Tomb Of Levistus: Can use a reaction upon taking damage to gain 200 temporary hit points and suffer vulnerability to fire and immobility until the end of the next turn once per short rest</td>
       </tr></table>
 </td>
     </tr></table>
@@ -253,11 +249,11 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Save Notes</b>:       <table id="SaveNotes" style="width:100%">
       <tr style="text-align:center">
-        <td>Aspect Of The Moon: Has immunity to sleep; gains the benefits of sleep from light activity</td>
+        <td>Aspect Of The Moon: Does not need to sleep, has immunity to sleep effects, and can engage in light activity during a long rest</td>
       </tr><tr style="text-align:center">
         <td>Radiant Soul: Has resistance to radiant</td>
       </tr><tr style="text-align:center">
-        <td>Searing Vengeance: Instead of attempting a death saving throw, can regain 78 hit points, stand, and inflict R30' 2d8+2 HP radiant and blindness for 1 rd once per long rest</td>
+        <td>Searing Vengeance: Instead of attempting a death saving throw, can regain 78 hit points, stand, and inflict 2d8+2 HP radiant and blindness until the end of the turn on targets within 30' once per long rest</td>
       </tr></table>
 </td>
     </tr></table>
@@ -342,21 +338,19 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Accursed Specter: Can raise a slain humanoid as an obedient specter with 10 temporary hit points and +2 attacks until the next long rest once per long rest</td>
     </tr><tr style="text-align:center">
-      <td>Bonus Cantrips (The Celestial): Knows the <i>Light</i> and <i>Sacred Flame</i> cantrips</td>
-    </tr><tr style="text-align:center">
       <td>Celestial Resilience: Gains 22 temporary hit points, and can give 5 others 12 temporary hit points, at the end of a rest</td>
     </tr><tr style="text-align:center">
       <td>Eldritch Master: Can use a 1 min process to recover all expended spell slots once per long rest</td>
     </tr><tr style="text-align:center">
       <td>Ghostly Gaze: Can see 30' with Darkvision through solid objects for concentration up to 1 min once per short rest</td>
     </tr><tr style="text-align:center">
-      <td>Gift Of The Depths: Can cast <i>Water Breathing</i> once per long rest</td>
+      <td>Gift Of The Depths: Can cast <i>Water Breathing</i> without expending a spell slot once per long rest</td>
     </tr><tr style="text-align:center">
-      <td>Grasp Of Hadar: <i>Eldritch Blast</i> can pull the target 10' once per rd</td>
+      <td>Grasp Of Hadar: <i>Eldritch Blast</i> can pull the target 10' once per turn</td>
     </tr><tr style="text-align:center">
       <td>Healing Light: R60' Can use bonus actions to restore 21d6 HP per long rest, with a maximum of 2d6 per healing</td>
     </tr><tr style="text-align:center">
-      <td>Lance Of Lethargy: <i>Eldritch Blast</i> can inflict -10 Speed for 1 rd once per rd</td>
+      <td>Lance Of Lethargy: <i>Eldritch Blast</i> can inflict -10 Speed until the end of the next turn once per turn</td>
     </tr><tr style="text-align:center">
       <td>Magic Initiate (Cleric): Knows 2 Cleric cantrips and can cast a chosen C1 spell without expending a spell slot once per long rest</td>
     </tr><tr style="text-align:center">
@@ -370,11 +364,11 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td>Pact Of The Tome: Has a <i>Book Of Shadows</i> containing 3 chosen cantrips from any spell lists</td>
     </tr><tr style="text-align:center">
-      <td>Radiant Soul: Can inflict +2 HP radiant or fire spell damage on one target</td>
+      <td>Radiant Soul: Radiant and fire spells inflict +2 HP on one target</td>
     </tr><tr style="text-align:center">
-      <td>Shroud Of Shadow: Can cast <i>Invisibility</i> at will</td>
+      <td>Shroud Of Shadow: Can cast <i>Invisibility</i> without expending a spell slot</td>
     </tr><tr style="text-align:center">
-      <td>Trickster's Escape: Can cast self <i>Freedom Of Movement</i> once per long rest</td>
+      <td>Trickster's Escape: Can cast self <i>Freedom Of Movement</i> without expending a spell slot once per long rest</td>
     </tr></table>
 </td>
   </tr></table>

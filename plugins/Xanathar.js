@@ -333,7 +333,7 @@ Xanathar.FEATS = {
   'Orcish Fury':'Require="race == \'Half-Orc\'"',
   'Prodigy':'Require="race =~ \'Half-Elf|Half-Orc|Human\'"',
   'Second Chance':'Require="race =~ \'Halfling\'"',
-  'Squat Nimbleness':'Require="race =~ \'Dwarf\'||features.Small"',
+  'Squat Nimbleness':'Require="race =~ \'Dwarf\' || size == \'Small\'"',
   'Wood Elf Magic':'Require="race == \'Wood Elf\'"'
 };
 Xanathar.FEATURES = {
@@ -869,13 +869,13 @@ Xanathar.FEATURES = {
   // Scout
   'Ambush Master':
     'Section=combat ' +
-    'Note="Has advantage on initiative, and the first successful attack in the first round gives self and allies advantage on attacks vs. that foe for 1 rd"',
+    'Note="Has advantage on initiative, and the first successful attack in the first round gives self and allies advantage on attacks vs. that foe until the start of the next turn"',
   'Skirmisher':
     'Section=combat ' +
-    'Note="Can use a reaction to move half speed without provoking opportunity attacks when a foe comes within 5\'"',
+    'Note="Can use a reaction to move half speed without provoking opportunity attacks when a foe ends its turn within 5\'"',
   'Sudden Strike':
     'Section=combat ' +
-    'Note="Can use a bonus action for an extra attack that can include a second Sneak Attack on a different foe"',
+    'Note="Can use a bonus action after an Attack action to make an additional attack; this can be a second Sneak Attack on a second target"',
   'Superior Mobility':'Section=ability Note="+10 Speed"',
   'Survivalist':
     'Section=skill ' +
@@ -901,10 +901,11 @@ Xanathar.FEATURES = {
 
   // Sorcerer
   // Divine Soul
-  'Divine Magic':'Section=magic Note="Has access to Cleric spells"',
+  'Divine Magic':
+    'Section=magic Note="Has access to spells from the cleric spell list"',
   'Empowered Healing':
     'Section=magic ' +
-    'Note="R5\' Can spend 1 Sorcery Point to reroll a self or ally healing once per rd"',
+    'Note="R5\' Can spend 1 Sorcery Point to reroll a self or ally healing once per turn"',
   'Favored By The Gods':
     'Section=combat ' +
     'Note="Can add 2d4 to a failed attack or save once per short rest"',
@@ -918,20 +919,20 @@ Xanathar.FEATURES = {
     'Section=feature,magic ' +
     'Note=' +
       '"R120\' Sees one light level better",' +
-      '"Can cast <i>Darkness</i> using a spell slot or 2 Sorcery Points" ' +
+      '"Can cast <i>Darkness</i> using 2 Sorcery Points instead of a spell slot, allowing self to see through the darkness" ' +
     'Spells=Darkness',
   'Hound Of Ill Omen':
     'Section=combat ' +
-    'Note="R120\' Can use a bonus action and spend 3 Sorcery Points to summon a hound to attack a chosen target as a dire wolf with %{levels.Sorcerer//2} temporary HP, moving through obstacles, for 5 min or until reduced to 0 HP; being adjacent to the hound inflicts disadvantage vs. self spells on the target"',
+    'Note="R120\' Can use a bonus action and spend 3 Sorcery Points to summon a hound to attack a chosen target as a dire wolf with %{levels.Sorcerer//2} temporary HP for 5 min or until the hound or target is reduced to 0 HP; it can move through obstacles as difficult terrain, and being adjacent to the hound inflicts on the target disadvantage vs. self spells"',
   'Shadow Walk':
     'Section=magic ' +
     'Note="Can use a bonus action to teleport 120\' between dim or dark areas"',
   'Strength Of The Grave':
     'Section=combat ' +
-    'Note="Once per long rest, can retain 1 hit point with a successful DC 5 + damage Charisma save when reduced to 0 hit points by non-critical, non-radiant damage"',
+    'Note="Once per long rest, a successful DC 5 + damage Charisma save allows self to retain 1 hit point when reduced to 0 hit points by non-critical, non-radiant damage"',
   'Umbral Form':
     'Section=magic ' +
-    'Note="Can use a bonus action and spend 6 Sorcery Points to gain the ability to move through objects and resistance to non-force, non-radiant damage for 1 min"',
+    'Note="Can use a bonus action and spend 6 Sorcery Points to gain the ability to move through objects as difficult terrain and resistance to non-force, non-radiant damage for 1 min"',
   // Storm Sorcery (ref SwordCoast)
   'Heart Of The Storm':
     'Section=magic,save ' +
@@ -940,18 +941,18 @@ Xanathar.FEATURES = {
       '"Has resistance to lightning and thunder"',
   'Storm Guide':
     'Section=magic ' +
-    'Note="Can use an action to stop rain in a 20\' radius and a bonus action each rd to direct winds in a 100\' radius"',
+    'Note="Can use an action to stop rain in a 20\' radius and a bonus action each rd to direct winds in a 100\' radius until the end of the next turn"',
   "Storm's Fury":
     'Section=combat ' +
     'Note="Can use a reaction to inflict %{levels.Sorcerer} HP lightning and a 20\' push on a successful melee attacker (save DC %{spellDifficultyClass.S} Strength negates push)"',
   'Tempestuous Magic':
     'Section=magic ' +
-    'Note="Can use a bonus action before or after casting a spell of level 1 or highter to fly 10\' without provoking opportunity attacks"',
+    'Note="Can use a bonus action before or after casting a spell of level 1 or higher to fly 10\' without provoking opportunity attacks"',
   'Wind Soul':
     'Section=ability,magic,save ' +
     'Note=' +
       '"Has a 60\' fly Speed",' +
-      '"R30\' Can slow fly Speed to 30\' to give %{charismaModifier+3} others a 30\' fly Speed for 1 hr once per long rest",' +
+      '"R30\' Can slow fly Speed to 30\' to give %{charismaModifier+3} others a 30\' fly Speed for 1 hr once per short rest",' +
       '"Has immunity to lightning and thunder"',
   'Wind Speaker':
     'Section=skill Note="Language (Primordial; Aquan; Auran; Ignan; Terran)"',
@@ -959,8 +960,6 @@ Xanathar.FEATURES = {
   // Warlock
   // The Celestial
   'Bonus Cantrips (The Celestial)':
-    'Section=magic ' +
-    'Note="Knows the <i>Light</i> and <i>Sacred Flame</i> cantrips" ' +
     'Spells=Light,"Sacred Flame"',
   'Celestial Resilience':
     'Section=magic ' +
@@ -971,11 +970,11 @@ Xanathar.FEATURES = {
   'Radiant Soul':
     'Section=magic,save ' +
     'Note=' +
-      '"Can inflict +%{charismaModifier} HP radiant or fire spell damage on one target",' +
+      '"Radiant and fire spells inflict +%{charismaModifier} HP on one target",' +
       '"Has resistance to radiant"',
   'Searing Vengeance':
     'Section=save ' +
-    'Note="Instead of attempting a death saving throw, can regain %{hitPoints//2} hit points, stand, and inflict R30\' 2d8+%{charismaModifier} HP radiant and blindness for 1 rd once per long rest"',
+    'Note="Instead of attempting a death saving throw, can regain %{hitPoints//2} hit points, stand, and inflict 2d8+%{charismaModifier} HP radiant and blindness until the end of the turn on targets within 30\' once per long rest"',
   // The Hexblade
   'Accursed Specter':
     'Section=magic ' +
@@ -984,10 +983,10 @@ Xanathar.FEATURES = {
     'Section=combat ' +
     'Note="Can use a reaction to give a successful attack on self by a Hexblade\'s Curse target a 50% miss chance"',
   'Hex Warrior':
-    'Section=combat,feature ' +
+    'Section=combat,combat ' +
     'Note=' +
-      '"At the end of a long rest, gains +%{charismaModifier-strengthModifier} attack and damage (Charisma instead of Strength) with pact weapons and a touched non-two-handed weapon until the next long rest",' +
-      '"Armor Proficiency (Medium; Shield)/Weapon Proficiency (Martial)"',
+      '"Armor Proficiency (Medium; Shield)/Weapon Proficiency (Martial)",' +
+      '"At the end of a long rest, gains +%{charismaModifier-strengthModifier} attack and damage (Charisma instead of Strength) with pact weapons and a touched non-two-handed weapon until the next long rest"',
   "Hexblade's Curse":
     'Section=combat ' +
     'Note="R30\' Can use a bonus action to curse a target for 1 min once per short rest: self gains +%{proficiencyBonus} damage vs. the target, crits on a natural 19 vs. the target, and regains %{levels.Warlock+charismaModifier} hit points if the target dies"',
@@ -997,37 +996,34 @@ Xanathar.FEATURES = {
   // Eldritch Invocations
   'Aspect Of The Moon':
     'Section=save ' +
-    'Note="Has immunity to sleep; gains the benefits of sleep from light activity"',
+    'Note="Does not need to sleep, has immunity to sleep effects, and can engage in light activity during a long rest"',
   'Cloak Of Flies':
-    'Section=combat,skill ' +
-    'Note=' +
-      '"Can use a bonus action to create a 5\' radius that inflicts %{charismaModifier>?0} HP poison damage once per short rest",' +
-      '"Can use a bonus action to gain advantage on Intimidate and suffer disadvantage on other Charisma checks once per short rest"',
+    'Section=combat ' +
+    'Note="Can use a bonus action to create a 5\' radius that inflicts %{charismaModifier>?0} HP poison damage and gives advantage on Intimidate, but disadvantage on other Charisma checks, once per short rest"',
   'Eldritch Smite':
     'Section=combat ' +
-    'Note="Can spend a spell slot to inflict +(slot level + 1)d8 HP force and knock prone a Huge or smaller foe with a pact weapon"',
+    'Note="Once per turn, can expend a spell slot upon a pact weapon hit to inflict +1d8 HP force plus +1d8 HP force per slot level and to inflict prone on a Huge or smaller target"',
   'Ghostly Gaze':
     'Section=magic ' +
     'Note="Can see 30\' with Darkvision through solid objects for concentration up to 1 min once per short rest"',
   'Gift Of The Depths':
-    'Section=ability,feature,magic ' +
+    'Section=ability,magic ' +
     'Note=' +
-      '"Has a %{speed}\' swim Speed",' +
-      '"Can breathe water",' +
-      '"Can cast <i>Water Breathing</i> once per long rest" ' +
+      '"Has a %{speed}\' swim Speed and can breathe water",' +
+      '"Can cast <i>Water Breathing</i> without expending a spell slot once per long rest" ' +
     'Spells="Water Breathing"',
   'Gift Of The Ever-Living Ones':
     'Section=combat ' +
     'Note="Regains maximum HP from healing when within 100\' of familiar"',
   'Grasp Of Hadar':
     'Section=magic ' +
-    'Note="<i>Eldritch Blast</i> can pull the target 10\' once per rd"',
+    'Note="<i>Eldritch Blast</i> can pull the target 10\' once per turn"',
   'Improved Pact Weapon':
     'Section=combat ' +
-    'Note="Can use a bow or crossbow as a pact weapon/Pact weapon can be used as a spell focus and gains +1 attack and damage if non-magical"',
+    'Note="Can use a bow or crossbow as a pact weapon, and a pact weapon gains +1 attack and damage if non-magical and can be used as a spell focus"',
   'Lance Of Lethargy':
     'Section=magic ' +
-    'Note="<i>Eldritch Blast</i> can inflict -10 Speed for 1 rd once per rd"',
+    'Note="<i>Eldritch Blast</i> can inflict -10 Speed until the end of the next turn once per turn"',
   'Maddening Hex':
     'Section=combat ' +
     'Note="R30\' Can use a bonus action to inflict %{charismaModifier>?1} HP psychic to targets in a 5\' radius around a curse target"',
@@ -1036,21 +1032,21 @@ Xanathar.FEATURES = {
     'Note="Can use a bonus action to teleport 30\' to a space adjacent to a curse target"',
   'Shroud Of Shadow':
     'Section=magic ' +
-    'Note="Can cast <i>Invisibility</i> at will" ' +
+    'Note="Can cast <i>Invisibility</i> without expending a spell slot" ' +
     'Spells=Invisibility',
   'Tomb Of Levistus':
     'Section=combat ' +
-    'Note="Can use a reaction upon taking damage to gain %{levels.Warlock*10} temporary hit points and suffer vulnerability to fire and immobility for 1 rd once per short rest"',
+    'Note="Can use a reaction upon taking damage to gain %{levels.Warlock*10} temporary hit points and suffer vulnerability to fire and immobility until the end of the next turn once per short rest"',
   "Trickster's Escape":
     'Section=magic ' +
-    'Note="Can cast self <i>Freedom Of Movement</i> once per long rest" ' +
+    'Note="Can cast self <i>Freedom Of Movement</i> without expending a spell slot once per long rest" ' +
     'Spells="Freedom Of Movement"',
 
   // Wizard
   // War Magic
   'Arcane Deflection':
     'Section=combat ' +
-    'Note="Can use a reaction and forego 1 rd of non-cantrip casting to gain +2 Armor Class vs. a successful attack or +4 on a failed save"',
+    'Note="Can use a reaction and forego non-cantrip casting until the end of the next turn to gain +2 Armor Class vs. a successful attack or +4 on a failed save"',
   'Deflecting Shroud':
     'Section=combat ' +
     'Note="R60\' Arcane Deflection inflicts %{levels.Wizard//2} HP force on 3 targets"',
@@ -1061,13 +1057,13 @@ Xanathar.FEATURES = {
       '"+2 saves during spell concentration"',
   'Power Surge':
     'Section=magic ' +
-    'Note="Can pool magic from %{intelligenceModifier>?1} countered or dispelled spells and use it once per rd to inflict +%{levels.Wizard//2} HP force with a spell; the pool contents increase to 1 after a short rest and reset to 1 after a long rest"',
+    'Note="Can pool magical energy from %{intelligenceModifier>?1} countered or dispelled spells and use it once per turn to inflict +%{levels.Wizard//2} HP force with a spell; the pool contents increase to 1 after a short rest and reset to 1 after a long rest"',
   'Tactical Wit':'Section=combat Note="+%V Initiative"',
 
   // Feats
   'Bountiful Luck':
     'Section=combat ' +
-    'Note="R30\' Can use a reaction and forego using the Lucky racial trait for 1 rd to allow an ally to reroll a natural 1 on an attack, ability, or saving throw"',
+    'Note="R30\' Can use a reaction and forego using the Lucky racial trait until the end of the next turn to allow an ally to reroll a natural 1 on an attack, ability check, or save"',
   'Dragon Fear':
     'Section=ability,combat ' +
     'Note=' +
@@ -1081,14 +1077,14 @@ Xanathar.FEATURES = {
       '"Claws inflict 1d4%{strengthModifier<0?strengthModifier:strengthModifier>0?\'+\'+strengthModifier:\'\'} HP slashing"',
   'Drow High Magic':
     'Section=magic ' +
-    'Note="Can cast <i>Detect Magic</i> at will and <i>Dispel Magic</i> and <i>Levitate</i> once each per long rest" ' +
+    'Note="Can cast <i>Detect Magic</i> without expending a spell slot and <i>Dispel Magic</i> and <i>Levitate</i> without expending a spell slot once per long rest" ' +
     'SpellAbility=Charisma ' +
     'Spells="Detect Magic","Dispel Magic",Levitate',
   'Dwarven Fortitude':
     'Section=ability,combat ' +
     'Note=' +
       '"+1 Constitution",' +
-      '"Can spend a Hit Die to regain the number rolled + %{constitutionModifier} hit points during a Dodge action"',
+      '"During a Dodge action, can spend a Hit Die to regain the number rolled + %{constitutionModifier} hit points"',
   'Elven Accuracy':
     'Section=ability,combat ' +
     'Note=' +
@@ -1098,12 +1094,12 @@ Xanathar.FEATURES = {
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Intelligence)",' +
-      '"Can use a reaction upon taking damage to become invisible for 1 rd once per short rest; attacking ends"',
+      '"Can use a reaction upon taking damage to become invisible until the end of the next turn once per short rest; attacking, inflicting damage, or forcing a save ends"',
   'Fey Teleportation':
     'Section=ability,magic,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence)",' +
-      '"Can cast <i>Misty Step</i> once per short rest",' +
+      '"Can cast <i>Misty Step</i> without expending a spell slot once per short rest",' +
       '"Language (Sylvan)" ' +
     'SpellAbility=Intelligence ' +
     'Spells="Misty Step"',
@@ -1111,36 +1107,34 @@ Xanathar.FEATURES = {
     'Section=ability,magic ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Charisma, Intelligence)",' +
-      '"Can reroll 1s on fire spell damage/When casting a fire spell, can inflict 1d4 HP fire on adjacent creatures and give 30\' light for 1 rd"',
+      '"When casting a fire spell, can reroll 1s on its damage and can emit a 30\' bright light, inflicting 1d4 HP fire on adjacent creatures, until the end of the next turn"',
   'Infernal Constitution':
     'Section=ability,save ' +
     'Note=' +
       '"+1 Constitution",' +
-      '"Has resistance to cold and poison damage and advantage on saves vs. poison"',
+      '"Has resistance to cold and poison and advantage on saves vs. poisoned"',
   'Orcish Fury':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Constitution)",' +
-      '"Can add a die to weapon damage once per short rest, and can use a reaction immediately after Relentless Endurance to make an extra attack"',
+      '"Can add a die to weapon damage once per short rest, and can use a reaction to make an attack immediately after using Relentless Endurance"',
   'Prodigy':
-    'Section=feature,skill ' +
-    'Note=' +
-      '"Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)/Language (Choose 1 from any)",' +
-      '"+%{proficiencyBonus} on a chosen proficient skill"',
+    'Section=skill ' +
+    'Note="Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)/Language (Choose 1 from any)/Expertise (Choose 1 from any)"',
   'Second Chance':
     'Section=ability,combat ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Dexterity, Constitution, Charisma)",' +
-      '"Can use a reaction to force a foe attack reroll once per encounter or short rest"',
+      '"Can use a reaction to force a foe attack reroll once per combat or short rest"',
   'Squat Nimbleness':
-    'Section=ability,combat,skill ' +
+    'Section=ability,skill,skill ' +
     'Note=' +
       '"Ability Boost (Choose 1 from Strength, Dexterity)/+5 Speed",' +
-      '"Has advantage on Athletics or Acrobatics to break a grapple",' +
-      '"Skill Proficiency (Choose 1 from Acrobatics, Athletics)"',
+      '"Skill Proficiency (Choose 1 from Acrobatics, Athletics)",' +
+      '"Has advantage on Athletics or Acrobatics to break a grapple"',
   'Wood Elf Magic':
     'Section=magic ' +
-    'Note="Knows 1 druid cantrip and can cast <i>Longstrider</i> and <i>Pass Without Trace</i> once each per long rest" ' +
+    'Note="Knows 1 druid cantrip and can cast <i>Longstrider</i> and <i>Pass Without Trace</i> without expending a spell slot once per long rest" ' +
     'SpellAbility=Wisdom ' +
     'Spells=Longstrider,"Pass Without Trace"'
 
@@ -1750,10 +1744,11 @@ Xanathar.featRulesExtra = function(rules, name) {
       'combatNotes.dragonHide', '?', null,
       'armor', '=', 'source == "None" ? 3 : null'
     );
-    SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4', null);
+    SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4 S', null);
     rules.defineRule('weapons.Claws', 'combatNotes.dragonHide', '=', '1');
   } else if(name == 'Wood Elf Magic') {
-    rules.defineRule('spellSlots.D0', 'magicNotes.woodElfMagic', '+=', '1');
+    rules.defineRule
+      ('spellsAvailable.D0', 'magicNotes.woodElfMagic', '+=', '1');
     rules.defineRule
       ('casterLevels.D', 'casterLevels.Wood Elf Magic', '^=', null);
     rules.defineRule('casterLevels.Wood Elf Magic',

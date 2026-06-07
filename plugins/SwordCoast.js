@@ -638,18 +638,18 @@ SwordCoast.FEATURES_ADDED = {
       '"Has resistance to lightning and thunder"',
   'Storm Guide':
     'Section=magic ' +
-    'Note="Can use an action to stop rain in a 20\' radius and a bonus action each rd to direct winds in a 100\' radius"',
+    'Note="Can use an action to stop rain in a 20\' radius and a bonus action each rd to direct winds in a 100\' radius until the end of the next turn"',
   "Storm's Fury":
     'Section=combat ' +
     'Note="Can use a reaction to inflict %{levels.Sorcerer} HP lightning and a 20\' push on a successful melee attacker (save DC %{spellDifficultyClass.S} Strength negates push)"',
   'Tempestuous Magic':
     'Section=magic ' +
-    'Note="Can use a bonus action before or after casting a spell of level 1 or highter to fly 10\' without provoking opportunity attacks"',
+    'Note="Can use a bonus action before or after casting a spell of level 1 or higher to fly 10\' without provoking opportunity attacks"',
   'Wind Soul':
     'Section=ability,magic,save ' +
     'Note=' +
       '"Has a 60\' fly Speed",' +
-      '"R30\' Can slow fly Speed to 30\' to give %{charismaModifier+3} others a 30\' fly Speed for 1 hr once per long rest",' +
+      '"R30\' Can slow fly Speed to 30\' to give %{charismaModifier+3} others a 30\' fly Speed for 1 hr once per short rest",' +
       '"Has immunity to lightning and thunder"',
   'Wind Speaker':
     'Section=skill Note="Language (Primordial; Aquan; Auran; Ignan; Terran)"',

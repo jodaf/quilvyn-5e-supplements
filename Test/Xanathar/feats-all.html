@@ -10,9 +10,9 @@ var attributes = {
   "abilityBoosts.Charisma":1, "abilityBoosts.Constitution":1, "abilityBoosts.Dexterity":2, 
   "abilityBoosts.Intelligence":3, "abilityBoosts.Strength":2, "alignment":"Lawful Good", "armor":"None", 
   "background":"Acolyte", "charisma":14, "constitution":13, "deity":"Greyhawk-Wee Jas", 
-  "dexterity":17, "experience":39030, "feats.Bountiful Luck":1, "feats.Dragon Fear":1, 
-  "feats.Dragon Hide":1, "feats.Drow High Magic":1, "feats.Dwarven Fortitude":1, 
-  "feats.Elven Accuracy":1, "feats.Fade Away":1, "feats.Fey Teleportation":1, 
+  "dexterity":17, "experience":39030, "expertise.Acrobatics":1, "feats.Bountiful Luck":1, 
+  "feats.Dragon Fear":1, "feats.Dragon Hide":1, "feats.Drow High Magic":1, 
+  "feats.Dwarven Fortitude":1, "feats.Elven Accuracy":1, "feats.Fade Away":1, "feats.Fey Teleportation":1, 
   "feats.Flames Of Phlegethos":1, "feats.Infernal Constitution":1, "feats.Orcish Fury":1, "feats.Prodigy":1, 
   "feats.Second Chance":1, "feats.Squat Nimbleness":1, "feats.Wood Elf Magic":1, "gender":"Female", 
   "hitPoints":29, "intelligence":7, "languagesChosen.Giant":1, "languagesChosen.Goblin":1, 
@@ -124,8 +124,6 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td><i>Martial Archetype: 1 selection</i></td>
       </tr><tr style="text-align:center">
-        <td><i>Prodigy: Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)/Language (Choose 1 from any)</i></td>
-      </tr><tr style="text-align:center">
         <td>Shelter Of The Faithful: Can receive aid from temples of Greyhawk-Wee Jas and fellow believers</td>
       </tr></table>
 </td>
@@ -137,7 +135,7 @@ var attributes = {
     <col style="width:33%"/>
     <col style="width:34%"/>
     <tr style="text-align:left">
-      <td>Acrobatics: (dex) +8</td>
+      <td>Acrobatics: (dex) +11</td>
       <td>Insight: (wis) +7</td>
       <td>Performance: (cha) +3</td>
     </tr><tr style="text-align:left">
@@ -165,6 +163,8 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Skill Proficiency</b>: Acrobatics; Arcana; Insight; Perception; Religion</td>
   </tr><tr style="text-align:center">
+    <td><b>Expertise</b>: Acrobatics</td>
+  </tr><tr style="text-align:center">
     <td><b>Tool Proficiency</b>: Smith's Tools; Thieves' Tools</td>
   </tr><tr style="text-align:center">
     <td><b>Languages</b>: Common; Giant; Goblin; Halfling; Sylvan</td>
@@ -173,11 +173,13 @@ var attributes = {
     <tr style="text-align:center">
       <td><i>Fey Teleportation: Language (Sylvan)</i></td>
     </tr><tr style="text-align:center">
+      <td><i>Prodigy: Skill Proficiency (Choose 1 from any)/Tool Proficiency (Choose 1 from any)/Language (Choose 1 from any)/Expertise (Choose 1 from any)</i></td>
+    </tr><tr style="text-align:center">
       <td><i>Squat Nimbleness: Skill Proficiency (Choose 1 from Acrobatics, Athletics)</i></td>
     </tr><tr style="text-align:center">
       <td><i>Student Of War: Tool Proficiency (Choose 1 from any Artisan's Tools)</i></td>
     </tr><tr style="text-align:center">
-      <td>Prodigy: +3 on a chosen proficient skill</td>
+      <td>Squat Nimbleness: Has advantage on Athletics or Acrobatics to break a grapple</td>
     </tr></table>
 </td>
   </tr></table>
@@ -206,7 +208,7 @@ var attributes = {
       <tr style="text-align:center">
         <td><b>Armor</b>: None</td>
         <td><b>Shield</b>: Shield</td>
-        <td><b>Weapons</b>: Claws (+7 1d4+4); Flail (+7 1d8+4 B); Handaxe (+7 1d6+4 S R20/60); Quarterstaff (+7 1d6+4 B [2h d8]); Unarmed Strike (+7 1+4 B)</td>
+        <td><b>Weapons</b>: Claws (+7 1d4+4 S); Flail (+7 1d8+4 B); Handaxe (+7 1d6+4 S R20/60); Quarterstaff (+7 1d6+4 B [2h d8]); Unarmed Strike (+7 1+4 B)</td>
       </tr></table>
 </td>
     </tr><tr style="text-align:center">
@@ -230,7 +232,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Action Surge: Can take an extra action once per short rest</td>
       </tr><tr style="text-align:center">
-        <td>Bountiful Luck: R30' Can use a reaction and forego using the Lucky racial trait for 1 rd to allow an ally to reroll a natural 1 on an attack, ability, or saving throw</td>
+        <td>Bountiful Luck: R30' Can use a reaction and forego using the Lucky racial trait until the end of the next turn to allow an ally to reroll a natural 1 on an attack, ability check, or save</td>
       </tr><tr style="text-align:center">
         <td>Combat Superiority: Can use a d8 superiority die to perform one of 5 chosen maneuvers 5 times per short rest</td>
       </tr><tr style="text-align:center">
@@ -242,25 +244,23 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Dragon Hide: Claws inflict 1d4+4 HP slashing</td>
       </tr><tr style="text-align:center">
-        <td>Dwarven Fortitude: Can spend a Hit Die to regain the number rolled + 3 hit points during a Dodge action</td>
+        <td>Dwarven Fortitude: During a Dodge action, can spend a Hit Die to regain the number rolled + 3 hit points</td>
       </tr><tr style="text-align:center">
         <td>Elven Accuracy: Can reroll 1 die when attacking with advantage using Dexterity, Intelligence, Wisdom, or Charisma</td>
       </tr><tr style="text-align:center">
         <td>Extra Attack: Can make 2 attacks during an Attack action</td>
       </tr><tr style="text-align:center">
-        <td>Fade Away: Can use a reaction upon taking damage to become invisible for 1 rd once per short rest; attacking ends</td>
+        <td>Fade Away: Can use a reaction upon taking damage to become invisible until the end of the next turn once per short rest; attacking, inflicting damage, or forcing a save ends</td>
       </tr><tr style="text-align:center">
         <td>Know Your Enemy: Knows how foe compares to self after 1 min study</td>
       </tr><tr style="text-align:center">
-        <td>Orcish Fury: Can add a die to weapon damage once per short rest, and can use a reaction immediately after Relentless Endurance to make an extra attack</td>
+        <td>Orcish Fury: Can add a die to weapon damage once per short rest, and can use a reaction to make an attack immediately after using Relentless Endurance</td>
       </tr><tr style="text-align:center">
         <td>Parry: Can use a reaction and expend a superiority die to subtract the roll + 5 from a foe's melee damage to self</td>
       </tr><tr style="text-align:center">
-        <td>Second Chance: Can use a reaction to force a foe attack reroll once per encounter or short rest</td>
+        <td>Second Chance: Can use a reaction to force a foe attack reroll once per combat or short rest</td>
       </tr><tr style="text-align:center">
         <td>Second Wind: Can use a bonus action to regain 1d10+8 hit points once per short rest</td>
-      </tr><tr style="text-align:center">
-        <td>Squat Nimbleness: Has advantage on Athletics or Acrobatics to break a grapple</td>
       </tr><tr style="text-align:center">
         <td>Sweeping Attack: After a successful melee attack, can expend a superiority die to inflict the roll HP on a second adjacent foe</td>
       </tr><tr style="text-align:center">
@@ -276,7 +276,7 @@ var attributes = {
     </tr><tr style="text-align:center">
       <td><b>Save</b>: Charisma: +3; Constitution: +6; Dexterity: +5; Intelligence: +0; Strength: +7; Wisdom: +4</td>
     </tr><tr style="text-align:center">
-      <td><b>Save Notes</b>: Infernal Constitution: Has resistance to cold and poison damage and advantage on saves vs. poison</td>
+      <td><b>Save Notes</b>: Infernal Constitution: Has resistance to cold and poison and advantage on saves vs. poisoned</td>
     </tr></table>
 </td>
   </tr></table>
@@ -288,7 +288,7 @@ var attributes = {
     <tr style="text-align:center">
       <td>      <table id="SpellStats" style="width:100%">
       <tr style="text-align:center">
-        <td><b>Spell Slots</b>: D0</td>
+        <td><b>Spells Known/Prepared</b>: D0</td>
         <td><b>Attack</b>: D: +7; Drow High Magic: +6; Fey Teleportation: +3; Wood Elf Magic: +7</td>
         <td><b>Spell DC</b>: D: 15; Drow High Magic: 14; Fey Teleportation: 11; Wood Elf Magic: 15</td>
       </tr></table>
@@ -314,13 +314,13 @@ var attributes = {
   </tr><tr style="text-align:center">
     <td><b>Magic Notes</b>:     <table id="MagicNotes" style="width:100%">
     <tr style="text-align:center">
-      <td><i>Wood Elf Magic: Knows 1 druid cantrip and can cast <i>Longstrider</i> and <i>Pass Without Trace</i> once each per long rest</i></td>
+      <td><i>Wood Elf Magic: Knows 1 druid cantrip and can cast <i>Longstrider</i> and <i>Pass Without Trace</i> without expending a spell slot once per long rest</i></td>
     </tr><tr style="text-align:center">
-      <td>Drow High Magic: Can cast <i>Detect Magic</i> at will and <i>Dispel Magic</i> and <i>Levitate</i> once each per long rest</td>
+      <td>Drow High Magic: Can cast <i>Detect Magic</i> without expending a spell slot and <i>Dispel Magic</i> and <i>Levitate</i> without expending a spell slot once per long rest</td>
     </tr><tr style="text-align:center">
-      <td>Fey Teleportation: Can cast <i>Misty Step</i> once per short rest</td>
+      <td>Fey Teleportation: Can cast <i>Misty Step</i> without expending a spell slot once per short rest</td>
     </tr><tr style="text-align:center">
-      <td>Flames Of Phlegethos: Can reroll 1s on fire spell damage/When casting a fire spell, can inflict 1d4 HP fire on adjacent creatures and give 30' light for 1 rd</td>
+      <td>Flames Of Phlegethos: When casting a fire spell, can reroll 1s on its damage and can emit a 30' bright light, inflicting 1d4 HP fire on adjacent creatures, until the end of the next turn</td>
     </tr></table>
 </td>
   </tr></table>
@@ -358,7 +358,7 @@ var attributes = {
       </tr><tr style="text-align:center">
         <td>Second Chance Feat: Requires race (currently Human) matches 'Halfling'</td>
       </tr><tr style="text-align:center">
-        <td>Squat Nimbleness Feat: Requires race (currently Human) matches 'Dwarf' or small feature</td>
+        <td>Squat Nimbleness Feat: Requires race (currently Human) matches 'Dwarf' or size (currently Medium) == 'Small'</td>
       </tr><tr style="text-align:center">
         <td>Wood Elf Magic Feat: Requires race (currently Human) == 'Wood Elf'</td>
       </tr></table>
