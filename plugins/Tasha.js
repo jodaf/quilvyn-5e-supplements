@@ -583,7 +583,7 @@ Tasha.FEATURES = {
     'Section=skill Note="Tool Proficiency (Woodcarver\'s Tools)"',
   'Eldritch Cannon':
     'Section=combat ' +
-    'Note="Can create a magical cannon (Armor Class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\' and acivate as a bonus action) flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP force and a 5\' push), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can expend spell slots to create additional cannons"',
+    'Note="Can create a magical cannon (Armor Class 18; %{levels.Artificer*5} hit points (<i>Mending</i> repairs 2d6 hit points); can move 15\' and activate as a bonus action) flamethrower (15\' cone inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP fire (save DC %{spellDifficultyClass.A} Dexterity half)), force ballista (R120\' inflicts %{2+(combatNotes.explosiveCannon?1:0)}d8 HP force and a 5\' push), or protector (R10\' targets gain 1d8+%{intelligenceModifier>?1} temporary hit points) for 1 hr once per long rest; can expend spell slots to create additional cannons"',
   'Explosive Cannon':
     'Section=combat,combat ' +
     'Note=' +
