@@ -934,10 +934,11 @@ Eberron5E.RACES =
   Object.assign({}, (window.PHB5E||window.SRD5E).RACES, Eberron5E.RACES_ADDED);
 Eberron5E.SPELLS_ADDED = {
   'Gust': // ref Xanathar
+    'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
-      '"R30\' Pushes the target creature 5\' (save Strength negates), pushes an unattended 5 lb object 10\', or creates a light breeze"'
+      '"R30\' Pushes a Medium or smaller target creature 5\' (save Strength negates), pushes an unattended 5 lb object 10\', or creates a light breeze"'
 };
 Eberron5E.SPELLS_LEVELS_ADDED = {
 

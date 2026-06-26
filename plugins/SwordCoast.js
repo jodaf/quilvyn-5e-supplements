@@ -773,18 +773,22 @@ if(PHB5E != null) {
 }
 SwordCoast.SPELLS_ADDED = {
   'Booming Blade': // ref Tasha
+    'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers %{(level+7)//6}d8 HP thunder on its next move within 1 rd"',
+    'Description="R5\' Struck foe suffers %{(level+7)//6}d8 HP thunder on its next move before the start of the next turn"',
   'Green-Flame Blade': // ref Tasha
+    'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="Struck foe suffers +%{(level+1)//6}d8 HP fire, and an adjacent target suffers %{(level+1)//6}d8+%{mdf} HP fire"',
+    'Description="R5\' Foe struck with a melee weapon suffers +%{(level+1)//6}d8 HP fire, and an adjacent target suffers %{(level+1)//6}d8+%{mdf} HP fire"',
   'Lightning Lure': // ref Tasha
+    'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
     'Description="R15\' Pulls the target 10\' and inflicts %{(level+5)//6}d8 HP lightning if this brings it to within 5\' (save Strength negates)"',
   'Sword Burst': // ref Tasha
+    'CastingTime=Action ' +
     'School=Conjuration ' +
     'Level=K0,S0,W0 ' +
     'Description="5\' radius inflicts %{(level+7)//6}d6 HP force (save Dexterity negates)"'

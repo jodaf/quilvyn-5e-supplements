@@ -351,10 +351,11 @@ Volo.MONSTROUS_RACES = {
 };
 Volo.SPELLS = {
   'Wall Of Water': // (ref Xanathar)
+    'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=D3,S3,W3 ' +
     'Description=' +
-      '"R60\' 30\'x10\' wall or 20\'x20\' ring inflicts disadvantage on ranged attacks, reduces fire effects by half, and turns to ice from cold effects for concentration up to 10 min"'
+      '"R60\' 30\'x10\'x1\' wall or 20\'x20\'x1\' ring creates difficult terrain, inflicts disadvantage on ranged attacks, reduces fire effects by half, and turns to ice from cold effects for concentration up to 10 min"'
 };
 
 /* Defines rules related to basic character identity. */
