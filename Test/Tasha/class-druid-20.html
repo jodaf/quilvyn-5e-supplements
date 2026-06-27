@@ -257,17 +257,17 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Beast Sense (D2 Divi): Self can perceive through a touched willing beast's senses for concentration up to 1 hr [R]</td>
     </tr><tr style="text-align:left">
-      <td>Blight (D4 [Circle Of Spores Spells] Necr): R30' Inflicts 8d8 HP necrotic (save Constitution half; plant target has disadvantage on the save and suffers maximum damage on failure) [+Level inflicts +1d8 HP]</td>
+      <td>Blight (D4 [Circle Of Spores Spells] Necr): R30' Kills a nonmagical plant or inflicts 8d8 HP necrotic on a creature (save Constitution half; plant target has disadvantage on the save and suffers maximum damage on failure) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Blindness/Deafness (D2 [Circle Of Spores Spells] Necr): R30' Inflicts a choice of blindness or deafness (save Constitution negates; additional saves each rd end) for 1 min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
-      <td>Burning Hands (D1 [Circle Of Wildfire Spells] Evoc): 15' cone inflicts 3d6 HP fire (save Dexterity half) [+Level inflicts +1d6 HP]</td>
+      <td>Burning Hands (D1 [Circle Of Wildfire Spells] Evoc): 15' cone inflicts 3d6 HP fire (save Dexterity half) and lights unattended flammable objects [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Chill Touch (D0 [Circle Of Spores Spells] Necr): R120' Ranged spell inflicts 4d8 HP necrotic and target cannot regain hit points until the start of the next turn; undead also suffer disadvantage vs. self attack for 1 rd</td>
+      <td>Chill Touch (D0 [Circle Of Spores Spells] Necr): R120' Ranged spell inflicts 4d8 HP necrotic, and the target cannot regain hit points until the start of the next turn; undead also suffer disadvantage vs. self attack for 1 rd</td>
     </tr><tr style="text-align:left">
-      <td>Chill Touch (W0 Necr): R120' Ranged spell inflicts 4d8 HP necrotic and target cannot regain hit points until the start of the next turn; undead also suffer disadvantage vs. self attack for 1 rd</td>
+      <td>Chill Touch (W0 Necr): R120' Ranged spell inflicts 4d8 HP necrotic, and the target cannot regain hit points until the start of the next turn; undead also suffer disadvantage vs. self attack for 1 rd</td>
     </tr><tr style="text-align:left">
-      <td>Cloudkill (D5 [Circle Of Spores Spells] Conj): R120' 20' radius inflicts 5d8 HP poison (save Constitution half) and moves away 10' per rd for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
+      <td>Cloudkill (D5 [Circle Of Spores Spells] Conj): R120' 20' radius becomes heavily obscured, inflicts 5d8 HP poison (save Constitution half), and moves away 10' at the start of each turn for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Confusion (D4 [Circle Of Spores Spells] Ench): R90' Creatures in a 10' radius lose reactions and randomly: 10% wander; 50% do nothing; 20% attack an adjacent creature; 20% act normally (save Wisdom negates; additional saves each rd end) for concentration up to 1 min [+Level increases the radius by 5']</td>
     </tr><tr style="text-align:left">
@@ -303,13 +303,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Greater Restoration (D5 Abju): Touched recovers from an effect causing an exhaustion level, a charmed or petrified condition, a curse, an ability reduction, or a reduction of hit point maximum</td>
     </tr><tr style="text-align:left">
-      <td>Guidance (D0 Divi): Touched gains +1d4 on 1 ability check within concentration up to 1 min</td>
+      <td>Guidance (D0 Divi): Willing touched gains +1d4 on 1 ability check within concentration up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Guidance (D0 [Star Map] Divi): Touched gains +1d4 on 1 ability check within concentration up to 1 min</td>
+      <td>Guidance (D0 [Star Map] Divi): Willing touched gains +1d4 on 1 ability check within concentration up to 1 min</td>
     </tr><tr style="text-align:left">
       <td>Guiding Bolt (D1 [Star Map] Evoc): R120' Ranged spell inflicts 4d6 HP radiant and gives advantage on the next attack on the target before the end of the next turn [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Gust Of Wind (D2 Evoc): 60'x10' wind pushes 15' (save Strength negates), inflicts half movement, disperses gas and vapor, and extinguishes flames (50% chance for protected flames) for concentration up to 1 min; can use a bonus action each rd to redirect the wind</td>
+      <td>Gust Of Wind (D2 Evoc): 60'x10' wind pushes 15' (save Strength negates), inflicts half movement, disperses gas and vapor, and extinguishes flames (50% chance for protected flames) for concentration up to 1 min; can use a bonus action each turn to redirect the wind</td>
     </tr><tr style="text-align:left">
       <td>Healing Word (D1 Evoc): R60' Target regains 1d4+2 hit points [+Level restores +1d4 hit points]</td>
     </tr><tr style="text-align:left">
@@ -329,9 +329,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Ray Of Sickness (W1 Necr): R60' Ranged spell inflicts 2d8 HP poison and poisoned for 1 rd (save Constitution HP only) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Reverse Gravity (D7 Tran): R100' Items in a 100'x100' cylinder fall upward for concentration up to 1 min</td>
+      <td>Reverse Gravity (D7 Tran): R100' Items in a 50' radius, 100' high cylinder fall upward for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Revivify (D3 [Circle Of Wildfire Spells] Necr): Restores life and 1 hit point to a touched 1-minute-old corpse</td>
+      <td>Revivify (D3 [Circle Of Wildfire Spells] Necr): Restores life and 1 hit point to a touched 1-min-old corpse</td>
     </tr><tr style="text-align:left">
       <td>Scorching Ray (D2 [Circle Of Wildfire Spells] Evoc): R120' 3 ranged attacks each inflict 2d6 HP fire [+Level gives +1 ranged attack]</td>
     </tr><tr style="text-align:left">
@@ -339,13 +339,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Shillelagh (D0 Tran): Held club gains +8 magical attacks that inflict 1d8+2 HP for 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Sunburst (D8 Evoc): R150' 60' radius inflicts 12d6 HP radiant and blindness for 1 min (save Constitution half HP only; an additional save each turn ends blindness)</td>
+      <td>Sunburst (D8 Evoc): R150' 60' radius inflicts 12d6 HP radiant and blindness for 1 min (save Constitution half HP only; additional saves each rd end)</td>
     </tr><tr style="text-align:left">
       <td>Thunderwave (D1 Evoc): 15' cube inflicts 2d8 HP thunder and pushes 10' (save Constitution half HP only) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Fire (D4 Evoc): R120' Creates a 60'x20'x1' wall or a 20'x20'x1' ring that inflicts 5d8 HP fire (save Dexterity half) within 10' of a chosen side for concentration up to 1 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Stone (D5 Evoc): R120' Creates 10 contiguous 10'x10'x6" or 10'x20'x3" stone panels (save Dexterity avoids entrapment), with Armor Class 15 and 30 hit points each, for concentration up to 10 min; concentrating for 10 min makes the wall permanent</td>
+      <td>Wall Of Stone (D5 Evoc): R120' Creates 10 contiguous 10'x10'x6" or 10'x20'x3" stone panels (save Dexterity allows using a reaction to avoid entrapment), with Armor Class 15 and 30 hit points each, for concentration up to 10 min; concentrating for 10 min makes the wall permanent</td>
     </tr><tr style="text-align:left">
       <td>Wall Of Thorns (D6 Conj): R120' Creates a 60'x10'x5' wall or a 20'x20'x5' ring that inflicts 7d8 HP piercing (save Dexterity half) initially, plus 1/4 Speed and 7d8 HP slashing to creatures passing through (save Dexterity half) for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
     </tr></table>

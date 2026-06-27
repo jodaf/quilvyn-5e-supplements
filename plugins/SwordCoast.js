@@ -781,7 +781,7 @@ SwordCoast.SPELLS_ADDED = {
     'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=A0,K0,S0,W0 ' +
-    'Description="R5\' Foe struck with a melee weapon suffers +%{(level+1)//6}d8 HP fire, and an adjacent target suffers %{(level+1)//6}d8+%{mdf} HP fire"',
+    'Description="R5\' Foe struck with a melee weapon suffers normal damage%{level>4?\' +\'+((level+1)//6)+\'d8 HP fire\':\'\'}, and an adjacent target suffers %{level>4?((level+1)//6)+\'d8+\':\'\'}%{mdf} HP fire"',
   'Lightning Lure': // ref Tasha
     'CastingTime=Action ' +
     'School=Evocation ' +

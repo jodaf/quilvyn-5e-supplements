@@ -319,19 +319,19 @@ var attributes = {
     <tr style="text-align:left">
       <td>Aura Of Purity (A4 [Battle Smith Spells] Abju): 30' radius gives nonhostile creatures resistance to poison damage, immunity to disease, and advantage on saves vs. conditions for concentration up to 10 min</td>
     </tr><tr style="text-align:left">
-      <td>Aura Of Vitality (A3 [Battle Smith Spells] Evoc): R30' Self can use a bonus action to restore 2d6 hit points to a target once per rd for concentration up to 1 min</td>
+      <td>Aura Of Vitality (A3 [Battle Smith Spells] Evoc): R30' Self can use a bonus action to restore 2d6 hit points to a target once per turn for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Banishing Smite (A5 [Battle Smith Spells] Abju): Next successful self weapon attack inflicts +5d10 HP force, plus banishment to home plane or a demiplane for concentration up to 1 min if the attack reduces the target below 51 hit points</td>
+      <td>Banishing Smite (A5 [Battle Smith Spells] Abju): Next successful weapon attack within concentration up to 1 min inflicts +5d10 HP force, plus banishment until the spell ends to the target's home plane or a demiplane if the attack reduces the target below 51 hit points</td>
     </tr><tr style="text-align:left">
-      <td>Blight (A4 [Alchemist Spells] Necr): R30' Inflicts 8d8 HP necrotic (save Constitution half; plant target has disadvantage on the save and suffers maximum damage on failure) [+Level inflicts +1d8 HP]</td>
+      <td>Blight (A4 [Alchemist Spells] Necr): R30' Kills a nonmagical plant or inflicts 8d8 HP necrotic on a creature (save Constitution half; plant target has disadvantage on the save and suffers maximum damage on failure) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Branding Smite (A2 [Battle Smith Spells] Evoc): Next successful self weapon attack inflicts +2d6 HP radiant and lights the target for concentration up to 1 min [+Level inflicts +1d6 HP]</td>
+      <td>Branding Smite (A2 [Battle Smith Spells] Evoc): Next successful weapon attack within concentration up to 1 min inflicts +2d6 HP radiant and causes the target to emit a 5' dim light until the spell ends [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Cloudkill (A5 [Alchemist Spells] Conj): R120' 20' radius inflicts 5d8 HP poison (save Constitution half) and moves away 10' per rd for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
+      <td>Cloudkill (A5 [Alchemist Spells] Conj): R120' 20' radius becomes heavily obscured, inflicts 5d8 HP poison (save Constitution half), and moves away 10' at the start of each turn for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
       <td>Cone Of Cold (A5 [Artillerist Spells] Evoc): 60' cone inflicts 8d8 HP cold (save Constitution half) [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Conjure Barrage (A3 [Battle Smith Spells] Conj): 60' cone inflicts 3d8 HP weapon type damage (save Dexterity half)</td>
+      <td>Conjure Barrage (A3 [Battle Smith Spells] Conj): 60' cone inflicts 3d8 HP weapon damage type (save Dexterity half)</td>
     </tr><tr style="text-align:left">
       <td>Death Ward (A4 [Alchemist Spells] Abju): Touched retains 1 HP when next reduced to 0 HP or survives the next death effect within 8 hrs</td>
     </tr><tr style="text-align:left">
@@ -353,7 +353,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Healing Word (A1 [Alchemist Spells] Evoc): R60' Target regains 1d4+3 hit points [+Level restores +1d4 hit points]</td>
     </tr><tr style="text-align:left">
-      <td>Heroism (A1 [Battle Smith Spells] Ench): Touched gains immunity to becoming frightened and +3 temporary hit points each rd for concentration up to 1 min [+Level affects +1 target]</td>
+      <td>Heroism (A1 [Battle Smith Spells] Ench): Willing touched gains immunity to frightened and 3 temporary hit points each rd for concentration up to 1 min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
       <td>Hypnotic Pattern (A3 [Armorer Spells] Illu): R120' Creatures in a 30' cube become incapacitated (save Wisdom negates) for concentration up to 1 min; taking damage or being shaken ends the effects</td>
     </tr><tr style="text-align:left">
@@ -395,11 +395,11 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Wall Of Fire (A4 [Artillerist Spells] Evoc): R120' Creates a 60'x20'x1' wall or a 20'x20'x1' ring that inflicts 5d8 HP fire (save Dexterity half) within 10' of a chosen side for concentration up to 1 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Force (A5 [Armorer Spells] Evoc): R120' Creates 10 contiguous 10'x10' impassable force panels or a 10' radius impassible force dome or globe for concentration up to 10 min; the effect extends into the ethereal plane</td>
+      <td>Wall Of Force (A5 [Armorer Spells] Evoc): R120' Creates 10 contiguous 10'x10'x1/4" impassable force panels or a 10' radius impassible force dome or globe for concentration up to 10 min; the effect extends into the ethereal plane</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Force (A5 [Artillerist Spells] Evoc): R120' Creates 10 contiguous 10'x10' impassable force panels or a 10' radius impassible force dome or globe for concentration up to 10 min; the effect extends into the ethereal plane</td>
+      <td>Wall Of Force (A5 [Artillerist Spells] Evoc): R120' Creates 10 contiguous 10'x10'x1/4" impassable force panels or a 10' radius impassible force dome or globe for concentration up to 10 min; the effect extends into the ethereal plane</td>
     </tr><tr style="text-align:left">
-      <td>Warding Bond (A2 [Battle Smith Spells] Abju): Willing touched gains +1 Armor Class, +1 saves, and resistance to all damage, and any damage to the target also affects self, for 1 hr or until separated from self by more than 60'</td>
+      <td>Warding Bond (A2 [Battle Smith Spells] Abju): Willing touched gains +1 Armor Class, +1 saves, and resistance to all damage, and any damage to the target also affects self, for 1 hr; separation by more than 60' or casting again ends</td>
     </tr><tr style="text-align:left">
       <td>Wind Wall (A3 [Artillerist Spells] Evoc): R120' Creates a 50'x15'x1' area that inflicts 3d8 HP bludgeoning (save Strength half) and deflects lightweight creatures, objects, and projectiles for concentration up to 1 min</td>
     </tr></table>

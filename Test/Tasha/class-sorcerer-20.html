@@ -248,13 +248,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Alarm (S1 [Clockwork Magic] Abju): R30' Entry into a 20' cube by a non-designated Tiny or larger creature triggers an audible or mental alarm for 8 hr [R]</td>
     </tr><tr style="text-align:left">
-      <td>Arms Of Hadar (S1 [Psionic Spells] Conj): 10' radius inflicts 2d6 HP necrotic and loss of reactions (save Strength half HP only) for 1 rd [+Level inflicts +1d6 HP]</td>
+      <td>Arms Of Hadar (S1 [Psionic Spells] Conj): 10' radius inflicts 2d6 HP necrotic and loss of reactions until the target's next turn (save Strength half HP only) [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
       <td>Blade Ward (S0 Abju): Self gains resistance to bludgeoning, piercing, and slashing weapon damage for 1 rd</td>
     </tr><tr style="text-align:left">
-      <td>Burning Hands (S1 Evoc): 15' cone inflicts 3d6 HP fire (save Dexterity half) [+Level inflicts +1d6 HP]</td>
+      <td>Burning Hands (S1 Evoc): 15' cone inflicts 3d6 HP fire (save Dexterity half) and lights unattended flammable objects [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Calm Emotions (S2 [Psionic Spells] Ench): R60' 20' radius suppresses a choice of charmed and frightened or hostility (save Charisma negates) for concentration up to 1 min</td>
+      <td>Calm Emotions (S2 [Psionic Spells] Ench): R60' 20' radius suppresses a choice of charmed and frightened or hostility (save Charisma negates) for concentration up to 1 min; harm to a target of suppressed hostility or its allies ends the effects on that target</td>
     </tr><tr style="text-align:left">
       <td>Chromatic Orb (S1 Evoc): R90' Ranged spell inflicts 3d8 HP of a choice of acid, cold, fire, lightning, poison, or thunder [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
@@ -264,11 +264,11 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Creation (S5 Illu): R30' Creates a 5' cube of false matter lasting 1 day (vegetable matter), 12 hr (stone or crystal), 1 hr (precious metals), 10 min (gems), or 1 min (adamantine or mithral) [+Level creates a +5' cube]</td>
     </tr><tr style="text-align:left">
-      <td>Crown Of Madness (S2 Ench): R120' Self can direct the target's attacks each rd (save Wisdom ends) for concentration up to 1 min</td>
+      <td>Crown Of Madness (S2 Ench): R120' Self can direct the target humanoid's attacks (save Wisdom negates; additional saves each rd end) for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
       <td>Darkvision (S2 Tran): Willing touched sees 60' in darkness for 8 hr</td>
     </tr><tr style="text-align:left">
-      <td>Detect Thoughts (S2 [Psionic Spells] Divi): R30' Reveals targets' surface thoughts and allows probing deeper (save Wisdom ends; additional contested Intelligence attempts each rd end) for concentration up to 1 min; 2' of rock, 2" of metal, or a thin sheet of lead blocks the spell</td>
+      <td>Detect Thoughts (S2 [Psionic Spells] Divi): R30' Detects the presence of minds or reveals targets' surface thoughts and allows probing deeper (save Wisdom negates; additional contested Intelligence attempts each rd end) for concentration up to 1 min; 2' of rock, 2" of metal, or a thin sheet of lead blocks the spell</td>
     </tr><tr style="text-align:left">
       <td>Disintegrate (S6 Tran): R60' Inflicts 10d6+40 HP force and turns the target to dust if reduced to 0 HP (save Dexterity negates), or disintegrates a Large or smaller object or magical force [+Level inflicts +3d6 HP]</td>
     </tr><tr style="text-align:left">
@@ -276,11 +276,11 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Dissonant Whispers (S1 [Psionic Spells] Ench): R60' Inflicts 3d6 HP psychic and forces the target to use its reaction to flee (save Wisdom half HP only) [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Dominate Beast (S4 Ench): R60' Target beast obeys telepathic commands (save Wisdom negates; damage allows another save) for concentration up to 1 min [+Level extends the duration to 10 min, 1 hr, or 8 hr at level 5, 6, or 7]</td>
+      <td>Dominate Beast (S4 Ench): R60' Target beast obeys telepathic commands (save Wisdom negates; active fighting gives advantage, and damage allows another save) for concentration up to 1 min [+Level extends the duration to 10 min, 1 hr, or 8 hr at level 5, 6, or 7]</td>
     </tr><tr style="text-align:left">
-      <td>Dominate Person (S5 Ench): R60' Target humanoid obeys telepathic commands (save Wisdom negates; damage allows another save) for concentration up to 1 min [+Level extends the duration to 10 min, 1 hr, or 8 hr at level 6, 7, or 8]</td>
+      <td>Dominate Person (S5 Ench): R60' Target humanoid obeys telepathic commands (save Wisdom negates; active fighting gives advantage, and damage allows another save) for concentration up to 1 min [+Level extends the duration to 10 min, 1 hr, or 8 hr at level 6, 7, or 8]</td>
     </tr><tr style="text-align:left">
-      <td>Evard's Black Tentacles (S4 [Psionic Spells] Conj): R90' 20' sq inflicts difficult terrain, 3d6 HP bludgeoning, and restrained (save Dexterity negates, Strength or Dexterity breaks free) for concentration up to 1 min</td>
+      <td>Evard's Black Tentacles (S4 [Psionic Spells] Conj): R90' 20' sq inflicts difficult terrain, 3d6 HP bludgeoning, and restrained (save Dexterity negates, additional Strength or Dexterity checks each rd break free) for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
       <td>Fire Storm (S7 Evoc): R150' 10 contiguous 10' cubes inflict 7d10 HP fire (save Dexterity half) and ignite unattended flammable objects</td>
     </tr><tr style="text-align:left">
@@ -294,19 +294,19 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Hunger Of Hadar (S3 [Psionic Spells] Conj): R150' Creatures in a 20' radius suffer 2d6 HP cold at the start of their turns (no save) and 2d6 HP acid at the end of their turns (save Dexterity negates) for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Incendiary Cloud (S8 Conj): R150' 20' radius inflicts 10d8 HP fire (save Dexterity half), obscures, and moves away 10' per rd for concentration up to 1 min</td>
+      <td>Incendiary Cloud (S8 Conj): R150' 20' radius becomes heavily obscured, inflicts 10d8 HP fire (save Dexterity half), and moves away 10' per rd for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
       <td>Lesser Restoration (S2 [Clockwork Magic] Abju): Touched recovers from a choice of blinded, deafened, paralyzed, or poisoned</td>
     </tr><tr style="text-align:left">
       <td>Mage Armor (S1 Abju): Willing, unarmored touched gains Armor Class 13 + Dexterity modifier for 8 hr; the spell ends if the target dons armor</td>
     </tr><tr style="text-align:left">
-      <td>Major Image (S3 Illu): R120' Creates a 20' cube sight, sound, smell, and temperature illusion (Investigation detects) for concentration up to 10 min [+Level extends the duration to permanent at level 6]</td>
+      <td>Major Image (S3 Illu): R120' Creates a 20' cube sight, sound, smell, and temperature illusion (contact or Investigation detects) that can be changed and moved for concentration up to 10 min [+Level extends the duration to permanent at level 6]</td>
     </tr><tr style="text-align:left">
       <td>Message (S0 Tran): R120' Self and target can hold a whispered conversation for 1 rd; can be cast through objects, but 3' of wood, 1' of stone, 1" of metal, or a thin sheet of lead blocks the spell</td>
     </tr><tr style="text-align:left">
-      <td>Mind Sliver (S0 [Psionic Spells] Ench): R60' Inflicts 4d6 HP psychic and -1d4 on the target's next save within 1 rd (save Intelligence negates)</td>
+      <td>Mind Sliver (S0 [Psionic Spells] Ench): R60' Inflicts 4d6 HP psychic and -1d4 on the target's next save before the end of the next turn (save Intelligence negates)</td>
     </tr><tr style="text-align:left">
-      <td>Move Earth (S6 Tran): R120' Reshapes a 40' cube of earth each 10 minutes for concentration up to 2 hr</td>
+      <td>Move Earth (S6 Tran): R120' Reshapes a 40' cube of earth each 10 min for concentration up to 2 hr</td>
     </tr><tr style="text-align:left">
       <td>Plane Shift (S7 Conj): Target (save Charisma negates) or self and 8 willing others travel to another plane</td>
     </tr><tr style="text-align:left">
@@ -320,7 +320,7 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Protection From Evil And Good (S1 [Clockwork Magic] Abju): Willing touched gains immunity to charmed, frightened, and possession from aberrations, celestials, elementals, fey, fiends, and undead and advantage on saves vs. existing conditions for concentration up to 10 min; those creatures also suffer disadvantage on attacks on the target</td>
     </tr><tr style="text-align:left">
-      <td>Rary's Telepathic Bond (S5 [Psionic Spells] Divi): R30' 8 willing targets can communicate mentally for 1 hr [R]</td>
+      <td>Rary's Telepathic Bond (S5 [Psionic Spells] Divi): R30' 8 willing targets can communicate telepathically for 1 hr [R]</td>
     </tr><tr style="text-align:left">
       <td>Scorching Ray (S2 Evoc): R120' 3 ranged attacks each inflict 2d6 HP fire [+Level gives +1 ranged attack]</td>
     </tr><tr style="text-align:left">
@@ -328,19 +328,19 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Shield (S1 Abju): Cast as a reaction upon taking damage, gives self +5 Armor Class and immunity to <i>Magic Missile</i> until the start of the next turn</td>
     </tr><tr style="text-align:left">
-      <td>Shocking Grasp (S0 Evoc): Touch inflicts 4d8 HP lightning and loss of reactions until its next turn</td>
+      <td>Shocking Grasp (S0 Evoc): Touch inflicts 4d8 HP lightning and loss of reactions until the target's next turn</td>
     </tr><tr style="text-align:left">
-      <td>Sleet Storm (S3 Conj): R150' 40' radius obscures, douses exposed flames, and inflicts difficult terrain and prone (save Dexterity negates) for concentration up to 1 min</td>
+      <td>Sleet Storm (S3 Conj): R150' 40' radius becomes heavily obscured, douses exposed flames, becomes difficult terrain, and inflicts prone (save Dexterity negates) for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Summon Aberration (S4 [Psionic Spells] Conj): R90' Summons an obedient aberrant spirit (Armor Class 15; 40 hit points; move 30'; multiattack equal to half the spell level) of type beholderkin (R150' inflicts 1d8+7 HP psychic; fly 30'), slaad (inflicts 1d10+7 HP slashing and negates healing for 1 rd; regenerates 5 hit points per rd), or star spawn (inflicts 1d8+7 HP psychic, plus 2d6 HP psychic (save Wisdom negates) in a 5' radius) for concentration up to 1 hr [+Level increases the Armor Class by 1, hit points by 10, and attack damage by 1]</td>
+      <td>Summon Aberration (S4 [Psionic Spells] Conj): R90' Summons an obedient aberrant spirit (Armor Class 15; 40 hit points; move 30'; 60' darkvision; multiattack equal to half the spell level) of type beholderkin (R150' inflicts 1d8+7 HP psychic; fly 30'), slaad (inflicts 1d10+7 HP slashing and negates healing for 1 rd; regenerates 5 hit points per rd), or star spawn (inflicts 1d8+7 HP psychic, plus 2d6 HP psychic (save Wisdom negates) in a 5' radius) for concentration up to 1 hr [+Level increases the Armor Class by 1, hit points by 10, and attack damage by 1]</td>
     </tr><tr style="text-align:left">
-      <td>Summon Construct (S4 [Clockwork Magic] Conj): R90' Summons an obedient construct spirit (Armor Class 17; 40 hit points; move 30'; multiattack equal to half the spell level; slam inflicts 1d8+8) of clay (attacks an adjacent creature or moves 15' as a reaction to damage), metal (inflicts 1d10 HP fire on adjacent melee attackers), or stone (can inflict half Speed and loss of reactions (save Wisdom negates) on creatures within 10') for concentration up to 1 hr [+Level increases the Armor Class by 1, hit points by 15, and attack damage by 1]</td>
+      <td>Summon Construct (S4 [Clockwork Magic] Conj): R90' Summons an obedient construct spirit (Armor Class 17; 40 hit points; move 30'; 60' darkvision; multiattack equal to half the spell level; slam inflicts 1d8+8 bludgeoning) of clay (attacks an adjacent creature or moves 15' as a reaction to damage), metal (inflicts 1d10 HP fire on adjacent melee attackers), or stone (can inflict half Speed and loss of reactions (save Wisdom negates) on creatures within 10') for concentration up to 1 hr [+Level increases the Armor Class by 1, hit points by 15, and attack damage by 1]</td>
     </tr><tr style="text-align:left">
       <td>Telekinesis (S5 [Psionic Spells] Tran): R60' Self can mentally restrain and move 1 Huge creature or 1000 lb object 30' (save Strength negates) each rd for concentration up to 10 min</td>
     </tr><tr style="text-align:left">
       <td>Time Stop (S9 Tran): Self can take 1d4+1 turns while no time passes for others; affecting another creature or moving more than 1000' away ends</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Force (S5 [Clockwork Magic] Evoc): R120' Creates 10 contiguous 10'x10' impassable force panels or a 10' radius impassible force dome or globe for concentration up to 10 min; the effect extends into the ethereal plane</td>
+      <td>Wall Of Force (S5 [Clockwork Magic] Evoc): R120' Creates 10 contiguous 10'x10'x1/4" impassable force panels or a 10' radius impassible force dome or globe for concentration up to 10 min; the effect extends into the ethereal plane</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">

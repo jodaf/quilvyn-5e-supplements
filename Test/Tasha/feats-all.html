@@ -10,8 +10,8 @@ var attributes = {
   "abilityBoosts.Charisma":2, "abilityBoosts.Constitution":2, "abilityBoosts.Intelligence":1, 
   "abilityBoosts.Strength":2, "alignment":"Chaotic Evil", "armor":"None", "background":"Entertainer", 
   "charisma":12, "constitution":15, "deity":"Norse-Uller", "dexterity":16, 
-  "experience":82073, "expertise.Acrobatics":1, "feats.Artificer Initiate":1, "feats.Chef":1, 
-  "feats.Crusher":1, "feats.Eldritch Adept":1, "feats.Fey Touched (Wisdom)":1, 
+  "experience":82073, "expertiseChosen.Acrobatics":1, "feats.Artificer Initiate":1, 
+  "feats.Chef":1, "feats.Crusher":1, "feats.Eldritch Adept":1, "feats.Fey Touched (Wisdom)":1, 
   "feats.Fighting Initiate":1, "feats.Gunner":1, "feats.Metamagic Adept":1, "feats.Piercer":1, 
   "feats.Poisoner":1, "feats.Shadow Touched (Wisdom)":1, "feats.Skill Expert":1, 
   "feats.Slasher":1, "feats.Telekinetic (Charisma)":1, "feats.Telepathic (Intelligence)":1, 
@@ -328,21 +328,21 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Beast Sense (R2 [Primal Awareness] Divi): Self can perceive through a touched willing beast's senses for concentration up to 1 hr [R]</td>
     </tr><tr style="text-align:left">
-      <td>Cordon Of Arrows (R2 Tran): R5' Four arrows or crossbow bolts attack non-designated creatures within 30', inflicting 1d6 HP piercing each (save Dexterity negates), for 8 hr [+Level affects +2 pieces]</td>
+      <td>Cordon Of Arrows (R2 Tran): Four planted arrows or bolts attack non-designated creatures within 30', inflicting 1d6 HP piercing each (save Dexterity negates), for 8 hr [+Level affects +2 pieces]</td>
     </tr><tr style="text-align:left">
       <td>Cure Wounds (R1 Evoc): Touched regains 1d8+4 hit points [+Level restores +1d8 hit points]</td>
     </tr><tr style="text-align:left">
-      <td>Detect Thoughts (Telepathic Intelligence2 [Telepathic (Intelligence)] Divi): R30' Reveals targets' surface thoughts and allows probing deeper (save Wisdom ends; additional contested Intelligence attempts each rd end) for concentration up to 1 min; 2' of rock, 2" of metal, or a thin sheet of lead blocks the spell</td>
+      <td>Detect Thoughts (Telepathic Intelligence2 [Telepathic (Intelligence)] Divi): R30' Detects the presence of minds or reveals targets' surface thoughts and allows probing deeper (save Wisdom negates; additional contested Intelligence attempts each rd end) for concentration up to 1 min; 2' of rock, 2" of metal, or a thin sheet of lead blocks the spell</td>
     </tr><tr style="text-align:left">
       <td>Disguise Self (A1 Illu): Changes the appearance of self body and clothing for 1 hr; physical investigation detects the illusion</td>
     </tr><tr style="text-align:left">
       <td>Elemental Weapon (R3 Tran): Touched weapon gains +1 attack and +1d4 HP damage of a choice of acid, cold, fire, lightning, or thunder for concentration up to 1 hr [+Level gives +2 or +3 attack and +2d4 or +3d4 damage at level 5 or 7]</td>
     </tr><tr style="text-align:left">
-      <td>Ensnaring Strike (R1 Conj): Next successful self attack restrains the foe and inflicts 1d6 HP per rd piercing (save Strength ends; Large creatures have advantage on the save) for concentration up to 1 min [+Level inflicts +1d6 HP]</td>
+      <td>Ensnaring Strike (R1 Conj): Next successful self weapon attack within concentration up to 1 min restrains the foe and inflicts 1d6 HP piercing each rd until the spell ends (save Strength negates; Large creatures have advantage on the save, and additional saves each rd end) [+Level inflicts +1d6 HP]</td>
     </tr><tr style="text-align:left">
       <td>Find Traps (R2 Divi): R120' Reveals the presence of traps</td>
     </tr><tr style="text-align:left">
-      <td>Fog Cloud (R1 Conj): R120' 20' radius obscures vision for concentration up to 1 hr [+Level increases the radius by 20']</td>
+      <td>Fog Cloud (R1 Conj): R120' 20' radius becomes heavily obscured for concentration up to 1 hr [+Level increases the radius by 20']</td>
     </tr><tr style="text-align:left">
       <td>Invisibility (Shadow Touched Wisdom2 [Shadow Touched (Wisdom)] Illu): Touched becomes invisible for concentration up to 1 hr; target attacking or casting ends [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
@@ -354,11 +354,11 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Ray Of Frost (A0 Evoc): R60' Ranged spell inflicts 2d8 HP cold and -10' Speed until the start of the next turn</td>
     </tr><tr style="text-align:left">
-      <td>Searing Smite (R1 Evoc): Next successful self melee weapon attack inflicts +1d6 HP fire, plus 1d6 HP fire per rd (save Constitution ends) for concentration up to 1 min [+Level inflicts +1d6 HP initial]</td>
+      <td>Searing Smite (R1 Evoc): Next successful melee weapon attack within concentration up to 1 min inflicts +1d6 HP fire, plus 1d6 HP fire each rd until the spell ends (Constitution saves each rd end) [+Level inflicts +1d6 HP initial]</td>
     </tr><tr style="text-align:left">
       <td>Speak With Animals (R1 [Primal Awareness] Divi): Self can talk with beasts for 10 min [R]</td>
     </tr><tr style="text-align:left">
-      <td>Speak With Plants (R3 [Primal Awareness] Tran): Self can talk with and command plants in a 30' radius for 10 min</td>
+      <td>Speak With Plants (R3 [Primal Awareness] Tran): Self can talk with and command plants in a 30' radius, turning difficult terrain from plant growth into normal terrain or vice versa, for 10 min</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">
