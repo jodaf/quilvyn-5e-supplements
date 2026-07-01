@@ -259,9 +259,9 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Armor Of Agathys (P1 [Oath Of Conquest Spells] Abju): Self gains 5 temporary hit points, and a successful attacker suffers 5 HP cold, for 1 hr [+Level gives +5 temporary hit points and inflicts +5 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Aura Of Vitality (P3 Evoc): R30' Self can use a bonus action to restore 2d6 hit points to a target once per rd for concentration up to 1 min</td>
+      <td>Aura Of Vitality (P3 Evoc): R30' Self can use a bonus action to restore 2d6 hit points to a target once per turn for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
-      <td>Banishing Smite (P5 Abju): Next successful self weapon attack inflicts +5d10 HP force, plus banishment to home plane or a demiplane for concentration up to 1 min if the attack reduces the target below 51 hit points</td>
+      <td>Banishing Smite (P5 Abju): Next successful weapon attack within concentration up to 1 min inflicts +5d10 HP force, plus banishment until the spell ends to the target's home plane or a demiplane if the attack reduces the target below 51 hit points</td>
     </tr><tr style="text-align:left">
       <td>Banishment (P4 Abju): R60' Banishes the target to its home plane or to a demiplane (save Charisma negates) for concentration up to 1 min; extraplanar creatures don't return if the spell is maintained for a full min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
@@ -269,15 +269,15 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Bless (P1 Ench): R30' 3 targets gain +1d4 on attacks and saves for concentration up to 1 min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
-      <td>Blinding Smite (P3 Evoc): Next successful self weapon attack inflicts +3d8 HP radiant and blinds (save Constitution ends) for concentration up to 1 min</td>
+      <td>Blinding Smite (P3 Evoc): Next successful melee weapon attack within concentration up to 1 min inflicts +3d8 HP radiant and blinded until the spell ends (save Constitution negates blindness; additional saves each rd end)</td>
     </tr><tr style="text-align:left">
-      <td>Calm Emotions (P2 [Oath Of Redemption Spells] Ench): R60' 20' radius suppresses a choice of charmed and frightened or hostility (save Charisma negates) for concentration up to 1 min</td>
+      <td>Calm Emotions (P2 [Oath Of Redemption Spells] Ench): R60' 20' radius suppresses a choice of charmed and frightened or hostility (save Charisma negates) for concentration up to 1 min; harm to a target of suppressed hostility or its allies ends the effects on that target</td>
     </tr><tr style="text-align:left">
-      <td>Cloudkill (P5 [Oath Of Conquest Spells] Conj): R120' 20' radius inflicts 5d8 HP poison (save Constitution half) and moves away 10' per rd for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
+      <td>Cloudkill (P5 [Oath Of Conquest Spells] Conj): R120' 20' radius becomes heavily obscured, inflicts 5d8 HP poison (save Constitution half), and moves away 10' at the start of each turn for concentration up to 10 min [+Level inflicts +1d8 HP]</td>
     </tr><tr style="text-align:left">
-      <td>Color Spray (S1 Illu): 15' cone blinds 6d10 HP of targets for 1 rd [+Level affects +2d10 HP of targets]</td>
+      <td>Color Spray (S1 Illu): 15' cone inflicts blinded on 6d10 HP of targets for 1 rd [+Level affects +2d10 HP of targets]</td>
     </tr><tr style="text-align:left">
-      <td>Command (P1 [Oath Of Conquest Spells] Ench): R60' Target obeys a one-word command from self (save Wisdom negates) for 1 rd [+Level affects +1 target]</td>
+      <td>Command (P1 [Oath Of Conquest Spells] Ench): R60' Target obeys a one-word command from self on its next turn (save Wisdom negates) [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
       <td>Counterspell (P3 [Oath Of Redemption Spells] Abju): R60' Negates foe casting up to spell level 3; successful DC 10 + spell level negates a higher-level spell [+Level negates any spell of equal or lesser level]</td>
     </tr><tr style="text-align:left">
@@ -287,13 +287,13 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Detect Magic (P1 Divi): R30' Reveals magic auras and their schools for concentration up to 10 min; 3' of wood or dirt, 1' of stone, 1" of metal, or a thin sheet of lead blocks the spell [R]</td>
     </tr><tr style="text-align:left">
-      <td>Dispel Evil And Good (P5 Abju): Celestials, elementals, fey, fiends, and undead suffer disadvantage on attacks vs. self for concentration up to 1 min; ending the spell early allows a successful spell attack on one of these creatures to return it to its home plane (save Charisma negates), or to end with a touch an enchanted, frightened, or possessed condition inflicted by one of them</td>
+      <td>Dispel Evil And Good (P5 Abju): Celestials, elementals, fey, fiends, and undead suffer disadvantage on attacks vs. self for concentration up to 1 min; ending the spell early allows a successful spell attack on one of these creatures to return it to its home plane (save Charisma negates), or a touch to end an enchanted, frightened, or possessed condition inflicted by one of them</td>
     </tr><tr style="text-align:left">
-      <td>Dominate Beast (P4 [Oath Of Conquest Spells] Ench): R60' Target beast obeys telepathic commands (save Wisdom negates; damage allows another save) for concentration up to 1 min [+Level extends the duration to 10 min, 1 hr, or 8 hr at level 5, 6, or 7]</td>
+      <td>Dominate Beast (P4 [Oath Of Conquest Spells] Ench): R60' Target beast obeys telepathic commands (save Wisdom negates; active fighting gives advantage, and damage allows another save) for concentration up to 1 min [+Level extends the duration to 10 min, 1 hr, or 8 hr at level 5, 6, or 7]</td>
     </tr><tr style="text-align:left">
-      <td>Dominate Person (P5 [Oath Of Conquest Spells] Ench): R60' Target humanoid obeys telepathic commands (save Wisdom negates; damage allows another save) for concentration up to 1 min [+Level extends the duration to 10 min, 1 hr, or 8 hr at level 6, 7, or 8]</td>
+      <td>Dominate Person (P5 [Oath Of Conquest Spells] Ench): R60' Target humanoid obeys telepathic commands (save Wisdom negates; active fighting gives advantage, and damage allows another save) for concentration up to 1 min [+Level extends the duration to 10 min, 1 hr, or 8 hr at level 6, 7, or 8]</td>
     </tr><tr style="text-align:left">
-      <td>Fear (P3 [Oath Of Conquest Spells] Illu): Creatures in a 30' cone drop held objects and flee (save Wisdom negates; additional saves each rd end) for concentration up to 1 min</td>
+      <td>Fear (P3 [Oath Of Conquest Spells] Illu): Creatures in a 30' cone drop held objects and flee (save Wisdom negates; additional saves each rd when out of sight of self end) for concentration up to 1 min</td>
     </tr><tr style="text-align:left">
       <td>Hold Monster (P5 [Oath Of Redemption Spells] Ench): R90' Inflicts paralyzed (save Wisdom negates; additional saves each rd end) for concentration up to 1 min [+Level affects +1 target]</td>
     </tr><tr style="text-align:left">
@@ -319,17 +319,17 @@ var attributes = {
     </tr><tr style="text-align:left">
       <td>Sanctuary (P1 [Oath Of Redemption Spells] Abju): R30' Foes of the target cannot attack it (save Wisdom negates) for 1 min; target attacking ends</td>
     </tr><tr style="text-align:left">
-      <td>Sleep (P1 [Oath Of Redemption Spells] Ench): R90' 20' radius puts to sleep 5d8 hit points of creatures, starting with those with the least hit points, for 1 min (damage or shaking awakens) [+Level affects +2d8 hit points of creatures]</td>
+      <td>Sleep (P1 [Oath Of Redemption Spells] Ench): R90' 20' radius puts to sleep 5d8 hit points of creatures, starting with those with the least hit points, for 1 min; damage or shaking awakens [+Level affects +2d8 hit points of creatures]</td>
     </tr><tr style="text-align:left">
       <td>Spiritual Weapon (P2 [Oath Of Conquest Spells] Evoc): R60' Creates a spectral weapon that inflicts 1d8+2 HP force and can move 20' and attack as a bonus action for 1 min [+Level inflicts +1d8 HP per 2 levels]</td>
     </tr><tr style="text-align:left">
-      <td>Staggering Smite (P4 Evoc): Next successful self weapon attack within concentration up to 1 min inflicts +4d6 HP psychic, disadvantage on attacks and ability checks for 1 rd, and loss of reactions for 1 rd (save Wisdom HP only)</td>
+      <td>Staggering Smite (P4 Evoc): Next successful melee weapon attack within concentration up to 1 min inflicts +4d6 HP psychic and disadvantage on attacks and ability checks and loss of reactions until the end of the target's next turn (save Wisdom negates disadvantage and loss of reactions)</td>
     </tr><tr style="text-align:left">
       <td>Stoneskin (P4 [Oath Of Conquest Spells] Abju): Touched gains resistance to bludgeoning, piercing, and slashing for concentration up to 1 hr</td>
     </tr><tr style="text-align:left">
       <td>Stoneskin (P4 [Oath Of Redemption Spells] Abju): Touched gains resistance to bludgeoning, piercing, and slashing for concentration up to 1 hr</td>
     </tr><tr style="text-align:left">
-      <td>Wall Of Force (P5 [Oath Of Redemption Spells] Evoc): R120' Creates 10 contiguous 10'x10' impassable force panels or a 10' radius impassible force dome or globe for concentration up to 10 min; the effect extends into the ethereal plane</td>
+      <td>Wall Of Force (P5 [Oath Of Redemption Spells] Evoc): R120' Creates 10 contiguous 10'x10'x1/4" impassable force panels or a 10' radius impassible force dome or globe for concentration up to 10 min; the effect extends into the ethereal plane</td>
     </tr></table>
 </td>
   </tr><tr style="text-align:center">

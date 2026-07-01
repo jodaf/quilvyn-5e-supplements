@@ -1153,7 +1153,7 @@ Xanathar.SPELLS = {
     'Level=D1,R1,S1,W1 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"Cast as a reaction to suffering energy damage, gives resistance to the damage and causes the the next self melee attack within 1 rd to inflict +1d6 HP of that energy type"',
+      '"Cast as a reaction to suffering acid, cold, fire, lightning, or thunder damage, gives resistance to that type of damage until the start of the next turn and causes the the first melee attack during that turn to inflict +1d6 HP of that type"',
   "Aganazzar's Scorcher":
     'CastingTime=Action ' +
     'School=Evocation ' +
@@ -1173,7 +1173,7 @@ Xanathar.SPELLS = {
     'Level=D6 ' +
     'AtHigherLevels="creates +2 pillars" ' +
     'Description=' +
-      '"R120\' Creates 6 5\'x30\' pillars that inflict 6d6 HP bludgeoning and pin creatures caught between the top of a pillar and the ceiling (save Dexterity negates; Dexterity or Strength frees)"',
+      '"R120\' Creates 6 5\' diameter, 30\' high pillars that can pin creatures between the top of a pillar and the ceiling, inflicting 6d6 HP bludgeoning (save Dexterity negates; additional Dexterity or Strength saves each rd free)"',
   'Catapult':
     'CastingTime=Action ' +
     'School=Transmutation ' +
@@ -1187,46 +1187,46 @@ Xanathar.SPELLS = {
     'Level=B3,S3,W3 ' +
     'AtHigherLevels="affects +1 target" ' +
     'Description=' +
-      '"R30\' 3 willing targets sleep for 10 min (shaking or damage ends), gaining the benefits of a short rest, then become immune until their next long rest"',
+      '"R30\' 3 willing targets sleep for 10 min or until shaken or damaged; sleeping the full time gives the benefits of a short rest and prevents repeating the spell on the target until after their next long rest"',
   'Cause Fear':
     'CastingTime=Action ' +
     'School=Necromancy ' +
     'Level=K1,W1 ' +
-    'AtHigherLevels="affects +1 target" ' +
+    'AtHigherLevels="affects +1 target within 30\' of the first" ' +
     'Description=' +
-      '"R60\' Target becomes frightened of self (save Wisdom ends) for concentration up to 1 min"',
+      '"R60\' Target becomes frightened of self (save Wisdom negates; additional saves each rd end) for concentration up to 1 min"',
   'Ceremony':
     'CastingTime=Hour ' +
     'School=Abjuration ' +
     'Level=C1,P1 ' +
     'Description=' +
-      '"Performs a ceremony of atonement, bless water, coming of age, dedication, funeral rites, or marriage"',
+      '"Performs a ceremony of Atonement (DC 20 Insight restores alignment to a target), Bless Water (creates a vial of holy water), Coming Of Age (gives a young adult target +1d4 on ability checks for 24 hr), Dedication (gives a target +1d4 on saves for 24 hr), Funeral Rite (prevents a corpse from becoming undead for 7 days), or Marriage (gives a couple +2 Armor Class when within 30\' of each other for 7 days)"',
   'Chaos Bolt':
     'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=S1 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"R120\' Ranged spell inflicts 2d8+1d6 HP of a random damage type; may affect additional targets within 30\'"',
+      '"R120\' Ranged spell inflicts 2d8+1d6 HP of a random type: acid, cold, fire, force, lightning, poison, psychic, or thunder; matching numbers on the d8s indicates that the spell attacks another target within 30\' of the first"',
   'Charm Monster':
     'CastingTime=Action ' +
     'School=Enchantment ' +
     'Level=B4,D4,K4,S4,W4 ' +
-    'AtHigherLevels="affects +1 target" ' +
+    'AtHigherLevels="affects +1 target within 30\' of the first" ' +
     'Description=' +
-      '"R30\' Target regards you as a friend (save Wisdom negates) for 1 hr or until harmed"',
+      '"R30\' Target becomes charmed by self (save Wisdom negates; active fighting gives advantage) for 1 hr or until harmed"',
   'Control Flames':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
-      '"R60\' Target flame up to a 5\' cube expands 5\', snuffs, doubles light area for 1 hr, or forms shapes for 1 hr"',
+      '"R60\' Target flame up to a 5\' cube expands 5\', snuffs, doubles or halves its lighted area for 1 hr, or forms shapes for 1 hr"',
   'Control Winds':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D5,S5,W5 ' +
     'Description=' +
-      '"R300\' Air in a 100\' cube creates gusts (can inflict disadvantage on ranged attacks and half movement), a downdraft (inflicts disadvantage on ranged attacks and knocks prone flying creatures (save Strength negates)), or an updraft (reduces damage from falling by half and gives +10\' jumps) for concentration up to 1 hr"',
+      '"R300\' Air in a 100\' cube creates gusts (can inflict disadvantage on ranged attacks and half movement), a downdraft (knocks prone flying creatures (save Strength negates) and inflicts disadvantage on ranged attacks), or an updraft (reduces damage from falling by half and gives +10\' jumps) for concentration up to 1 hr"',
   'Create Bonfire':
     'CastingTime=Action ' +
     'School=Conjuration ' +
@@ -1245,7 +1245,7 @@ Xanathar.SPELLS = {
     'Level=K7,S7,W7 ' +
     'AtHigherLevels="creates +2 flames" ' +
     'Description=' +
-      '"Creates seven flames around self that give 30\' light for 1 hr; each can be used to make a ranged touch attack that inflicts 4d12 HP radiant"',
+      '"Creates 7 flames around self; each can be used within 1 hr to make a ranged touch attack inflicting 4d12 HP radiant, and 1 or 4 remaining flames emit a 30\' dim or bright light"',
   'Danse Macabre':
     'CastingTime=Action ' +
     'School=Necromancy ' +
@@ -1258,60 +1258,60 @@ Xanathar.SPELLS = {
     'School=Evocation ' +
     'Level=C5,W5 ' +
     'Description=' +
-      '"R60\' 30\' radius inflicts 4d10 HP radiant and can move 60\' per rd for concentration up to 1 min"',
+      '"R60\' Creates a 30\' radius of bright sunlight that inflicts 4d10 HP radiant for concentration up to 1 min; can use a bonus action each turn when within 60\' to move it 60\'"',
   "Dragon's Breath":
     'CastingTime=Bonus ' +
     'School=Transmutation ' +
     'Level=S2,W2 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"Touched can exhale a choice of acid, cold, fire, lightning, or poison, inflicting 3d6 HP (save Dexterity half) in a 15\' cone for concentration up to 1 min"',
+      '"Touched can exhale a 15\' cone of a choice of acid, cold, fire, lightning, or poison, inflicting 3d6 HP (save Dexterity half), for concentration up to 1 min"',
   'Druid Grove':
     'CastingTime="10 Minutes" ' +
     'School=Abjuration ' +
     'Level=D6 ' +
     'Description=' +
-      '"Touched 90\' cube responds to intruders with chosen hostile effects for 24 hr"',
-  'Dust Devil':
+      '"Touched 90\' cube responds to intruders with choices of entanglement, fog that inflicts heavy obscurement and reduction of Speed by 2/3, attacks from 4 awakened trees, <i>Gust Of Wind</i>, <i>Spike Growth</i>, and <i>Wind Wall</i> (password negates) for 24 hr; casting every day for a year makes the effects permanent"',
+ 'Dust Devil':
     'CastingTime=Action ' +
     'School=Conjuration ' +
     'Level=D2,S2,W2 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R60\' 5\' cube inflicts 1d8 HP bludgeoning and a 10\' push (save Strength half HP only) and can move 30\' per rd for concentration up to 1 min"',
+      '"R60\' 5\' cube heavily obscures a 10\' radius when over loose material and inflicts 1d8 HP bludgeoning and a 10\' push (save Strength half HP only) on adjacent creatures; can use bonus actions to move it move 30\' each turn for concentration up to 1 min"',
   'Earth Tremor':
     'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=B1,D1,S1,W1 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"10\' radius knocks prone and inflicts 1d6 HP bludgeoning (save Dexterity negates) and inflicts difficult terrain if made from loose earth or stone"',
+      '"10\' emanation knocks prone and inflicts 1d6 HP bludgeoning (save Dexterity negates) and inflicts difficult terrain if made from loose earth or stone"',
   'Earthbind':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D2,K2,S2,W2 ' +
     'Description=' +
-      '"R300\' Reduces the target\'s fly Speed to 0 for concentration up to 1 min (save Strength negates)"',
+      '"R300\' Reduces the target\'s fly Speed to 0 (save Strength negates), causing a flying target to descend 60\' per rd, for concentration up to 1 min"',
   'Elemental Bane':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D4,K4,W4 ' +
-    'AtHigherLevels="affects +1 target" ' +
+    'AtHigherLevels="affects +1 target within 30\' of the first" ' +
     'Description=' +
-      '"R90\' Target loses resistance to a chosen energy type and suffers +2d6 HP from the first hit of that energy each rd for concentration up to 1 min"',
+      '"R90\' Target loses resistance to a choice of acid, cold, fire, lightning, or thunder and suffers +2d6 HP from the first hit of that damage type each turn (save Constitution negates) for concentration up to 1 min"',
   'Enemies Abound':
     'CastingTime=Action ' +
     'School=Enchantment ' +
     'Level=B3,K3,S3,W3 ' +
     'Description=' +
-      '"R120\' Target regards all creatures as enemies and attacks randomly (save Intelligence negates; taking damage allows another save) for concentration up to 1 min"',
+      '"R120\' Target regards all creatures as enemies and attacks randomly (save Intelligence negates; additional saves after taking damage end) for concentration up to 1 min"',
   'Enervation':
     'CastingTime=Action ' +
     'School=Necromancy ' +
     'Level=K5,S5,W5 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R60\' Target suffers 4d6 HP necrotic each rd, and self regains half the amount inflicted, for concentration up to 1 min (save Dexterity suffers 2d6 HP once only)"',
+      '"R60\' Target suffers 4d6 HP necrotic each turn, and self regains half of the amount inflicted, for concentration up to 1 min (save Dexterity inflicts 2d6 HP once and restores half of that amount)"',
   'Erupting Earth':
     'CastingTime=Action ' +
     'School=Transmutation ' +
@@ -1324,13 +1324,13 @@ Xanathar.SPELLS = {
     'School=Conjuration ' +
     'Level=K5,S5,W5 ' +
     'Description=' +
-      '"Allows self to teleport 60\' each rd for concentration up to 1 min"',
+      '"Teleports self 60\'; can use bonus actions to teleport an additional 60\' each turn for concentration up to 1 min"',
   'Find Greater Steed':
     'CastingTime="10 Minutes" ' +
     'School=Conjuration ' +
     'Level=P4 ' +
     'Description=' +
-      '"R30\' Summons a mount with at least 6 Intelligence that can understand 1 language and communicate telepathically with self until dismissed or reduced to 0 hit points"',
+      '"R30\' Summons a mount with at least 6 Intelligence that can understand 1 language and communicate telepathically with self within 1 mile until dismissed or reduced to 0 hit points; self spells can be extended to include the mount"',
   'Flame Arrows':
     'CastingTime=Action ' +
     'School=Transmutation ' +
@@ -1343,32 +1343,32 @@ Xanathar.SPELLS = {
     'School=Evocation ' +
     'Level=D0,K0,S0,W0 ' +
     'Description=' +
-      '"R60\' Target suffers %{(level+7)//6}d6 HP cold and disadvantage on its next weapon attack within 1 rd (save Constitution negates)"',
+      '"R60\' Target suffers %{(level+7)//6}d6 HP cold and disadvantage on its next weapon attack before the end of its next turn (save Constitution negates)"',
   'Guardian Of Nature':
     'CastingTime=Bonus ' +
     'School=Transmutation ' +
     'Level=D4,R4 ' +
     'Description=' +
-      '"Changes self into a Primal Beast with +10 Speed, 120\' Darkvision, advantage on Strength, and +1d6 HP force from melee weapons, or into a Great Tree with 10 temporary hit points, advantage on Constitution, advantage on Dexterity and Wisdom attacks, and a 15\' radius that inflicts difficult terrain on foes, for concentration up to 1 min"',
+      '"Changes self into a Primal Beast with +10 Speed, 120\' Darkvision, advantage on Strength attacks, and +1d6 HP force from melee weapons, or into a Great Tree with 10 temporary hit points, advantage on Constitution saves, advantage on Dexterity and Wisdom attacks, and a 15\' radius that inflicts difficult terrain on foes, for concentration up to 1 min"',
   'Gust': // ref Eberron5E
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
-      '"R30\' Pushes the target creature 5\' (save Strength negates), pushes an unattended 5 lb object 10\', or creates a light breeze"',
+      '"R30\' Pushes a Medium or smaller target creature 5\' (save Strength negates), pushes an unattended 5 lb object 10\', or creates a light breeze"',
   'Healing Spirit':
     'CastingTime=Bonus ' +
     'School=Conjuration ' +
     'Level=D2,R2 ' +
     'AtHigherLevels="heals +1d6 HP" ' +
     'Description=' +
-      '"R60\' Allies in a 5\' cube regain 1d6 HP each rd for concentration up to 1 min, to a maximum of %{wisdomModifier+1>?2} healings"',
+      '"R60\' Allies in a 5\' cube regain 1d6 HP during each of their turns for concentration up to 1 min, to a maximum of %{wisdomModifier+1>?2} healings; can use a bonus action each turn to move the effect 30\'"',
   'Holy Weapon':
     'CastingTime=Bonus ' +
     'School=Evocation ' +
     'Level=C5,P5 ' +
     'Description=' +
-      '"Touched weapon lights 30\' and inflicts +2d8 HP radiant for concentration up to 1 hr; dismissal inflicts 4d8 HP radiant and blindness for 1 min (save Constitution half HP only; an additional save each rd ends blindness) on targets in a 30\' radius"',
+      '"Touched weapon becomes magic, emits a 30\' bright light, and inflicts +2d8 HP radiant for concentration up to 1 hr; dismissal inflicts 4d8 HP radiant and blindness for 1 min on targets in a 30\' radius (save Constitution half HP only; additional saves each rd end)"',
   'Ice Knife':
     'CastingTime=Action ' +
     'School=Conjuration ' +
@@ -1381,50 +1381,50 @@ Xanathar.SPELLS = {
     'School=Illusion ' +
     'Level=W8 ' +
     'Description=' +
-      '"R120\' Illusionary shadow dragon frightens (save Wisdom negates), is immune to damage, can move 60\', and can inflict 7d6 HP of a choice of energy in a 60\' cone (save Intelligence half; successful Investigation gives advantage) for concentration up to 1 min"',
+      '"R120\' Illusionary shadow dragon frightens for 1 min (save Wisdom negates; additional saves when out of sight end) and is immune to damage; can use a bonus action each turn to move it 60\' and inflict 7d6 HP of a choice of acid, cold, fire, lightning, necrotic, or poison (chosen when the spell is cast) in a 60\' cone (save Intelligence half; successful Investigation gives advantage) for concentration up to 1 min"',
   'Immolation':
     'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=S5,W5 ' +
     'Description=' +
-      '"R90\' Inflicts 8d6 HP fire (save Dexterity half), then 4d6 HP fire each rd (save Dexterity ends) for concentration up to 1 min"',
+      '"R90\' Target emits a 30\' bright light and suffers 8d6 HP fire, then 4d6 HP fire each rd (save Dexterity half initial HP only; additional saves each rd end) for concentration up to 1 min"',
   'Infernal Calling':
     'CastingTime=Minute ' +
     'School=Conjuration ' +
     'Level=K5,W5 ' +
-    'AtHigherLevels="summons +1 CR" ' +
+    'AtHigherLevels="summons a +1 CR devil" ' +
     'Description=' +
-      '"R90\' Summons a CR 6 devil, obedient only with a successful Charisma vs. Insight check (knowing its true name gives advantage, and possessing its talisman makes the check unnecessary), for concentration up to 1 hr or until it is reduced to 0 hit points"',
+      '"R90\' Summons a CR 6 or lower devil that obeys commands in alignment with its desires or on a successful Charisma vs. Insight check (knowing its true name gives advantage, and possessing its talisman makes the check unnecessary) for concentration up to 1 hr or until it is reduced to 0 hit points; failure on a check makes the devil immune to additional commands and allows it to remain for 3d6 min after concentration is broken"',
   'Infestation':
     'CastingTime=Action ' +
     'School=Conjuration ' +
     'Level=D0,K0,S0,W0 ' +
     'Description=' +
-      '"R30\' Target suffers %{(level+7)//6}d6 HP poison and moves 5\' in a random direction (save Constitution negates)"',
+      '"R30\' Target suffers %{(level+7)//6}d6 HP poison and moves 5\' in a random direction without triggering opportunity attacks (save Constitution negates)"',
   'Investiture Of Flame':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
     'Description=' +
-      '"Self lights 30\', gains immunity to fire and advantage on saves vs. cold, inflicts 1d10 HP fire in a 5\' radius, and can inflict 4d8 HP fire (save Dexterity half) in a 15\'x5\' line for concentration up to 10 min"',
+      '"Self emits a 30\' bright light, gains immunity to fire and resistance to cold, inflicts 1d10 HP fire in a 5\' radius, and can inflict 4d8 HP fire (save Dexterity half) in a 15\'x5\' line, for concentration up to 10 min"',
   'Investiture Of Ice':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
     'Description=' +
-      '"Self gains immunity to cold and advantage on saves vs. fire, moves normally across ice and snow, inflicts difficult terrain in a 10\' radius, and can inflict 4d6 HP cold and half speed for 1 rd (save Dexterity half HP only) in a 15\' cone for concentration up to 10 min"',
+      '"Self gains immunity to cold and resistance to fire, moves normally across ice and snow, inflicts difficult terrain in a 10\' radius, and can inflict 4d6 HP cold and half speed until the start of the next turn (save Dexterity half HP only) in a 15\' cone, for concentration up to 10 min"',
   'Investiture Of Stone':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
     'Description=' +
-      '"Self gains resistance to non-magical bludgeoning, piercing, and slashing, can inflict knocked prone (save Dexterity negates) in a 15\' radius, moves normally across earth and stone difficult terrain, and can pass through earth and stone for concentration up to 10 min"',
+      '"Self gains resistance to non-magical bludgeoning, piercing, and slashing, can inflict knocked prone (save Dexterity negates) in a 15\' radius, moves normally across earth and stone difficult terrain, and can pass through earth and stone, for concentration up to 10 min"',
   'Investiture Of Wind':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D6,K6,S6,W6 ' +
     'Description=' +
-      '"Inflicts disadvantage on ranged attacks on self, gives self a 60\' fly Speed, and allows inflicting 2d10 HP bludgeoning, plus a 10\' push on Large or smaller creatures, in a R60\' 15\' cube for concentration up to 10 min"',
+      '"Inflicts disadvantage on ranged attacks vs. self, and self gains a 60\' fly Speed and can make a R60\' attack that inflicts 2d10 HP bludgeoning in a 15\' cube and a 10\' push on Large or smaller creatures, for concentration up to 10 min"',
   'Invulnerability':
     'CastingTime=Action ' +
     'School=Abjuration ' +
@@ -1437,7 +1437,7 @@ Xanathar.SPELLS = {
     'Level=C3,W3 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R30\' Inflicts 4d8 HP necrotic on self and restores twice that amount to a target"',
+      '"R30\' Inflicts 4d8 HP necrotic on self and restores twice that amount to the target"',
   'Maddening Darkness':
     'CastingTime=Action ' +
     'School=Evocation ' +
@@ -1449,7 +1449,7 @@ Xanathar.SPELLS = {
     'School=Evocation ' +
     'Level=D5 ' +
     'Description=' +
-      '"R120\' 30\' radius of swirling water inflicts 6d6 HP bludgeoning per rd and pulls creatures 10\' toward its center (save Strength negates) for concentration up to 1 min"',
+      '"R120\' 30\' radius of swirling water inflicts 6d6 HP bludgeoning and pulls creatures 10\' toward its center (save Strength negates) for concentration up to 1 min"',
   'Magic Stone':
     'CastingTime=Bonus ' +
     'School=Transmutation ' +
@@ -1461,13 +1461,13 @@ Xanathar.SPELLS = {
     'School=Transmutation ' +
     'Level=B9,S9,W9 ' +
     'Description=' +
-      '"R120\' 10 targets transform into beasts (save Wisdom negates) with half the target\'s HD for concentration up to 1 hr or until reduced to 0 HP"',
+      '"R120\' 10 targets transform into beasts (save Wisdom negates; shapeshifters automatically succeed) of equal or lesser CR and gain temporary hit points appropriate to the beast for concentration up to 1 hr or until the temporary hit points are lost"',
   "Maximilian's Earthen Grasp":
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=S2,W2 ' +
     'Description=' +
-      '"R30\' 5\' sq inflicts 2d6 HP bludgeoning per rd and restrains (save Strength escapes) for concentration up to 1 min"',
+      '"R30\' Earthen hand inflicts 2d6 HP bludgeoning and restrains (save Strength negates); can inflict an additional 2d6 HP bludgeoning on a restrained creature (save Strength half; additional saves each rd escape), or release to attack a different target, each turn for concentration up to 1 min"',
   "Melf's Minute Meteors":
     'CastingTime=Action ' +
     'School=Evocation ' +
@@ -1480,26 +1480,26 @@ Xanathar.SPELLS = {
     'School=Illusion ' +
     'Level=K6,S6,W6 ' +
     'Description=' +
-      '"R60\' Target suffers 5d6 HP psychic and becomes trapped by an illusionary danger (save Intelligence HP only; escape inflicts 10d6 HP psychic) for concentration up to 1 min"',
+      '"R60\' Target suffers 5d6 HP psychic and becomes trapped by an illusionary danger (save Intelligence HP only) for concentration up to 1 min; the target touching the danger inflicts 10d6 HP psychic and ends the spell"',
   'Mighty Fortress':
     'CastingTime=Minute ' +
     'School=Conjuration ' +
     'Level=W8 ' +
     'Description=' +
-      '"R1 mile Creates a 120\' sq turreted and staffed fortress for 7 days; casting every 7 days for a year makes it permanent"',
+      '"R1 mile Creates a 120\' sq turreted fortress and keep, staffed by invisible servants, for 7 days or until cast again; casting every 7 days for a year makes it permanent"',
   'Mind Spike':
     'CastingTime=Action ' +
     'School=Divination ' +
     'Level=K2,S2,W2 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R60\' Inflicts 3d8 HP psychic, and self knows the target\'s location (save Wisdom half HP only) for concentration up to 1 hr"',
+      '"R60\' Inflicts 3d8 HP psychic and reveals the target\'s location for concentration up to 1 hr (save Wisdom half HP only)"',
   'Mold Earth':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D0,S0,W0 ' +
     'Description=' +
-      '"R30\' Excavates a 5\' cube of earth, or colors or changes the movement difficulty of one for 1 hr"',
+      '"R30\' Excavates a 5\' cube of earth, or colors and inscribes or changes the movement difficulty of one for 1 hr"',
   'Negative Energy Flood':
     'CastingTime=Action ' +
     'School=Necromancy ' +
@@ -1511,7 +1511,7 @@ Xanathar.SPELLS = {
     'School=Enchantment ' +
     'Level=K7,S7,W7 ' +
     'Description=' +
-      '"R60\' Target with up to 100 hit points slows to 10\' Speed, suffers disadvantage on attack, ability, and non-Constitution saves, and requires a successful Constitution save to cast spells (save Constitution ends)"',
+      '"R60\' Target with up to 100 hit points slows to 10\' Speed, suffers disadvantage on attacks, ability checks, and non-Constitution saves, and requires a successful Constitution save to cast a spell (save Constitution each rd ends)"',
   'Primal Savagery':
     'CastingTime=Action ' +
     'School=Transmutation ' +
@@ -1523,37 +1523,38 @@ Xanathar.SPELLS = {
     'School=Abjuration ' +
     'Level=D6 ' +
     'Description=' +
-      '"Self gains resistance to acid, cold, fire, lightning, and thunder for concentration up to 1 min and can dismiss as a reaction upon taking damage to gain immunity for 1 rd"',
+      '"Self gains resistance to acid, cold, fire, lightning, and thunder for concentration up to 1 min; can dismiss as a reaction upon taking damage of one of these types to gain immunity to it until the end of the turn"',
   'Psychic Scream':
     'CastingTime=Action ' +
     'School=Enchantment ' +
     'Level=B9,K9,S9,W9 ' +
     'Description=' +
-      '"R90\' 10 targets with Intelligence 3 or higher suffer 14d6 HP psychic (save Intelligence half) and stunned (save Intelligence each rd ends)"',
+      '"R90\' 10 targets with Intelligence 3 or higher suffer 14d6 HP psychic and stunned (save Intelligence half HP only; additional saves each rd end)"',
   'Pyrotechnics':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=B2,S2,W2 ' +
     'Description=' +
-      '"R60\' Target fire snuffs and emits fireworks (R10\' blinds for 1 rd (save Constitution negates)) or 20\' smoke for 1 min"',
+      '"R60\' Snuffs a 5\' target fire and causes it to emit fireworks, blinding creatures within 10\' (save Constitution negates) until the end of the next turn, or smoke that heavily obscures a 20\' radius for 1 min"',
   'Scatter':
     'CastingTime=Action ' +
     'School=Conjuration ' +
     'Level=K6,S6,W6 ' +
-    'Description="R30\' Teleports 5 targets 120\' (save Wisdom negates)"',
+    'Description=' +
+      '"R30\' Teleports 5 targets 120\' (save Wisdom negates), each to a different location"',
   'Shadow Blade':
     'CastingTime=Bonus ' +
     'School=Illusion ' +
     'Level=K2,S2,W2 ' +
     'AtHigherLevels="increases damage to 3d8, 4d8, or 5d8 HP at level 3, 5, or 7" ' +
     'Description=' +
-      '"Creates a shadow sword that gives advantage on attacks in dim light, inflicts 2d8 HP psychic, and has the finesse, light and thrown properties with a range of 20/60, for concentration up to 1 min"',
+      '"Creates a shadow sword with the finesse, light, and thrown (range 20/60) properties that gives advantage on attacks in dim light and inflicts 2d8 HP psychic for concentration up to 1 min"',
   'Shadow Of Moil':
     'CastingTime=Action ' +
     'School=Necromancy ' +
     'Level=K4 ' +
     'Description=' +
-      '"10\' radius dims light, gives self resistance to radiant damage, and inflicts 2d8 HP necrotic on a successful attacker for concentration up to 1 min"',
+      '"10\' emanation dims light, gives self resistance to radiant, and inflicts 2d8 HP necrotic on a successful attacker for concentration up to 1 min"',
   'Shape Water':
     'CastingTime=Action ' +
     'School=Transmutation ' +
@@ -1565,13 +1566,13 @@ Xanathar.SPELLS = {
     'School=Evocation ' +
     'Level=K4,S4,W4 ' +
     'Description=' +
-      '"R120\' 30\' radius lights creatures, inflicting 4d10 HP radiant and 1 level of exhaustion (save Constitution negates), for concentration up to 10 min"',
+      '"R120\' 30\' radius causes creatures to emit a dim glow and suffer 4d10 HP radiant and 1 level of exhaustion (save Constitution negates) for concentration up to 10 min"',
   'Skill Empowerment':
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=B5,S5,W5 ' +
     'Description=' +
-      '"Touched gains 2x proficiency on a chosen proficient skill for concentration up to 1 hr"',
+      '"Willing touched gains expertise in a chosen proficient skill for concentration up to 1 hr"',
   'Skywrite':
     'CastingTime=Action ' +
     'School=Transmutation ' +
@@ -1582,7 +1583,7 @@ Xanathar.SPELLS = {
     'School=Abjuration ' +
     'Level=D1,R1,W1 ' +
     'Description=' +
-      '"Touched magical trap restrains the first Small, Medium, or Large creature to cross it (save Dexterity negates; Dexterity or Arcana ends) within 8 hr"',
+      '"Touched hidden magical trap (Intelligence detects) restrains the first Small, Medium, or Large creature to cross it within 8 hr (save Dexterity negates; additional saves and Arcana checks end)"',
   "Snilloc's Snowball Swarm":
     'CastingTime=Action ' +
     'School=Evocation ' +
@@ -1594,7 +1595,7 @@ Xanathar.SPELLS = {
     'School=Necromancy ' +
     'Level=K6,W6 ' +
     'Description=' +
-      '"R60\' Allows using a trapped dying soul 6 times within 8 hr to regain 2d8 HP, answer a question, gain advantage on an attack, ability, or saving throw, or scry for 10 min"',
+      '"R60\' Allows using a trapped dying soul 6 times within 8 hr to regain 2d8 HP, truthfully answer a question, gain advantage on an attack, ability check, or save, or scry a location familiar to the soul for 10 min"',
   'Steel Wind Strike':
     'CastingTime=Action ' +
     'School=Conjuration ' +
@@ -1605,41 +1606,41 @@ Xanathar.SPELLS = {
     'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=S4,W4 ' +
-    'AtHigherLevels="inflicts +1d6 HP" ' +
+    'AtHigherLevels="inflicts +1d6 HP bludgeoning and lightning" ' +
     'Description=' +
-      '"R150\' 20\' radius inflicts 2d6 HP bludgeoning (save Strength negates) and can emit a 60\' bolt that inflicts 4d6 HP lightning once per rd for concentration up to 1 min"',
+      '"R150\' 20\' radius inflicts 2d6 HP bludgeoning (save Strength negates) and disadvantage on listening Perception within 30\' for concentration up to 1 min; can use a bonus action each turn for a R60\' ranged spell attack, with advantage if the target is within the radius, that inflicts 4d6 HP lightning"',
   'Summon Greater Demon':
     'CastingTime=Action ' +
     'School=Conjuration ' +
     'Level=K4,W4 ' +
-    'AtHigherLevels="summons +1 CR" ' +
+    'AtHigherLevels="summons a +1 CR demon" ' +
     'Description=' +
-      '"R60\' Demon up to CR 5 obeys commands (save Charisma ends; speaking the true name inflicts disadvantage) or attacks the nearest creature for concentration up to 1 hr"',
+      '"R60\' Summons a demon up to CR 5 that obeys commands (save Charisma ends; speaking the true name inflicts disadvantage) or attacks the nearest attacker for concentration up to 1 hr or until reduced to 0 hit points; the demon lingers for 1d6 rd if concentration ends early"',
   'Summon Lesser Demons':
     'CastingTime=Action ' +
     'School=Conjuration ' +
     'Level=K3,W3 ' +
-    'AtHigherLevels="doubles or triples the demon count at level 6 or 8" ' +
+    'AtHigherLevels="doubles or triples the number of demons at level 6 or 8" ' +
     'Description=' +
-      '"R60\' 2 CR 1, 4 CR 1/2, or 6 CR 1/4 demons each attack the nearest creature for concentration up to 1 hr"',
+      '"R60\' Summons 2 CR 1, 4 CR 1/2, or 8 CR 1/4 demons that each attack the nearest non-demon for concentration up to 1 hr or until reduced to 0 hit points"',
   'Synaptic Static':
     'CastingTime=Action ' +
     'School=Enchantment ' +
     'Level=B5,K5,S5,W5 ' +
     'Description=' +
-      '"R120\' Creatures with an Intelligence of 3 or higher in a 20\' radius suffer 8d6 HP psychic and -1d6 attack, ability, and concentration for 1 min (save Intelligence half HP only; additional saves each rd end)"',
+      '"R120\' Creatures with an Intelligence of 3 or higher in a 20\' radius suffer 8d6 HP psychic and -1d6 attacks, ability checks, and concentration checks for 1 min (save Intelligence half HP only; additional saves each rd end)"',
   'Temple Of The Gods':
     'CastingTime=Hour ' +
     'School=Conjuration ' +
     'Level=C7 ' +
     'Description=' +
-      '"R120\' Creates a 120\' sq temple that bars divination, ethereal travel, and choices of celestials, elementals, fey, fiends, and undead (save Charisma instead inflicts -1d4 attack, ability, and saves) and gives a +%{wisdomModifier} bonus to healing for 1 dy; casting every day for a year makes it permanent"',
+      '"R120\' Creates a 120\' sq temple that bars divination, ethereal travel, and choices of celestials, elementals, fey, fiends, and undead (save Charisma inflicts -1d4 attacks, ability checks, and saves) and gives a +%{wisdomModifier} bonus to healing for 24 hr; casting every day for a year makes it permanent"',
   "Tenser's Transformation":
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=W6 ' +
     'Description=' +
-      '"Self gains 50 temporary hit points, advantage on simple and martial weapon attacks, +2d12 HP force weapon damage, Armor Proficiency (Light; Heavy; Shield), Weapon Proficiency (Simple Weapons; Martial Weapons), Save Proficiency (Constitution; Strength), and an extra attack for concentration up to 10 min; inflicts 1 level of exhaustion afterward (save DC 15 Constitution negates)"',
+      '"Self gains 50 temporary hit points, advantage on simple and martial weapon attacks, +2d12 HP force weapon damage, Armor Proficiency (Light; Heavy; Shield), Weapon Proficiency (Simple Weapons; Martial Weapons), Save Proficiency (Constitution; Strength), and 2 attacks per Attack action, while losing the ability to cast spells, for concentration up to 10 min; inflicts 1 level of exhaustion afterward (save DC 15 Constitution negates)"',
   'Thunderclap':
     'CastingTime=Action ' +
     'School=Evocation ' +
@@ -1650,7 +1651,7 @@ Xanathar.SPELLS = {
     'School=Conjuration ' +
     'Level=K3,S3,W3 ' +
     'AtHigherLevels="inflicts +1d10 HP" ' +
-    'Description="Self and 1 willing adjacent creature teleport 90\', and a 10\' radius around the starting location inflicts 3d10 HP thunder (save Constitution half)"',
+    'Description="Teleports self and 1 willing adjacent creature 90\' and inflicts 3d10 HP thunder in a 10\' radius around the starting position (save Constitution half)"',
   'Tidal Wave':
     'CastingTime=Action ' +
     'School=Conjuration ' +
@@ -1662,7 +1663,7 @@ Xanathar.SPELLS = {
     'School=Transmutation ' +
     'Level=W3 ' +
     'AtHigherLevels="animates +2 objects" ' +
-    'Description="Touched Tiny object sprouts arms and legs and obeys commands for 8 hr"',
+    'Description="Touched Tiny object sprouts arms and legs, animates (Armor Class 15; 10 hit points; 30\' Speed and climb Speed; +5 slam inflicts 1d4+3 bludgeoning), and obeys commands when within 120\' for 8 hr"',
   'Toll The Dead':
     'CastingTime=Action ' +
     'School=Necromancy ' +
@@ -1673,7 +1674,7 @@ Xanathar.SPELLS = {
     'CastingTime=Action ' +
     'School=Transmutation ' +
     'Level=D5,W5 ' +
-    'Description="R120\' 40\' cube changes between rock and mud"',
+    'Description="R120\' Changes a 40\' cube of rock to mud, inflicting restrained on creatures standing on it (save Strength negates; using an action ends), 1/4 movement, and 4d8 HP bludgeoning (save Dexterity half) if it falls on a creature, or changes a 40\' cube of mud to rock, restraining creatures standing in it (save Dexterity negates; DC 20 Strength ends)"',
   'Vitriolic Sphere':
     'CastingTime=Action ' +
     'School=Evocation ' +
@@ -1687,37 +1688,37 @@ Xanathar.SPELLS = {
     'Level=K5,S5,W5 ' +
     'AtHigherLevels="inflicts +1d8 HP" ' +
     'Description=' +
-      '"R120\' 60\'x10\' wall lights 120\', inflicts 4d8 HP radiant, and blinds (save Constitution half HP only; additional saves end blindness) for concentration up to 10 min; can emit a 60\' ray each rd that inflicts 4d8 HP radiant and shortens the wall by 10\'"',
+      '"R120\' 60\'x10\'x5\' wall emits a 120\' bright light and inflicts 4d8 HP radiant and blinded for 1 min (save Constitution half HP only; additional saves each rd end) for concentration up to 10 min; can emit a 60\' ray each rd that inflicts 4d8 HP radiant and shortens the wall by 10\'"',
   'Wall Of Sand':
     'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=W3 ' +
     'Description=' +
-      '"R90\' 30\'x10\' wall inflicts 1/3 Speed and blocks vision for concentration up to 10 min"',
+      '"R90\' 30\'x10\'x10\' wall inflicts 1/3 Speed and blocks vision for concentration up to 10 min"',
   'Wall Of Water': // ref Volo
     'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=D3,S3,W3 ' +
     'Description=' +
-      '"R60\' 30\'x10\' wall or 20\'x20\' ring inflicts disadvantage on ranged attacks, reduces fire effects by half, and turns to ice from cold effects for concentration up to 10 min"',
+      '"R60\' 30\'x10\'x1\' wall or 20\'x20\'x1\' ring creates difficult terrain, inflicts disadvantage on ranged attacks, reduces fire effects by half, and turns to ice from cold effects for concentration up to 10 min"',
   'Warding Wind':
     'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=B2,D2,S2,W2 ' +
     'Description=' +
-      '"10\' radius deafens others, extinguishes flames, bars gas and fog, inflicts difficult terrain, and inflicts disadvantage on ranged attacks for concentration up to 10 min"',
+      '"10\' emanation deafens, extinguishes unprotected flames, disperses gas and fog, inflicts difficult terrain on others, and inflicts disadvantage on ranged attacks for concentration up to 10 min"',
   'Watery Sphere':
     'CastingTime=Action ' +
     'School=Conjuration ' +
     'Level=D4,S4,W4 ' +
     'Description=' +
-      '"R90\' 5\' sphere traps 1 Large or 4 Medium targets (save Strength ends) and can move 30\' per rd for concentration up to 1 min"',
+      '"R90\' 10\' diameter water sphere traps 1 Large or 4 Medium targets (save Strength negates; additional saves each rd end); can hover 10\' and move 30\' each turn for concentration up to 1 min, after which it bursts, knocking prone any restrained targets and extinguishing flames within 30\'"',
   'Whirlwind':
     'CastingTime=Action ' +
     'School=Evocation ' +
     'Level=D7,S7,W7 ' +
     'Description=' +
-      '"R300\' 10\' radius inflicts 10d6 HP bludgeoning (save Dexterity half), restrains and pulls 5\' upward (save Strength or Dexterity negates; additional saves eject the creature 3d6 x 10\'), and can move 30\' per rd for concentration up to 1 min"',
+      '"R300\' 10\' radius inflicts restrained on Large or smaller creatures and 10d6 HP bludgeoning (save Dexterity half HP only; save Strength negates restrained, and additional Strength or Dexterity saves each rd eject a restrained creature and throw it 3d6x10\'), pulling restrained creatures upward 5\' each turn to a maximum of 30\'; can move 30\' each turn for concentration up to 1 min"',
   'Word Of Radiance':
     'CastingTime=Action ' +
     'School=Evocation ' +
@@ -1729,13 +1730,13 @@ Xanathar.SPELLS = {
     'School=Evocation ' +
     'Level=D5,R5 ' +
     'Description=' +
-      '"R120\' Animates a 60\' cube of nature to attack targets for concentration up to 1 min: trees inflict 4d6 HP slashing (save Dexterity negates) in a 10\' radius; undergrowth inflicts difficult terrain, vines restrain 1 target each rd (save Strength negates; additional saves end), and a ranged spell attack as a bonus action each rd causes rocks to inflict 3d8 HP bludgeoning and knocked prone (save Dexterity HP only)"',
+      '"R120\' Animates a 60\' cube of nature to attack foes for concentration up to 1 min: trees inflict 4d6 HP slashing in a 10\' radius (save Dexterity negates); undergrowth inflicts difficult terrain, vines restrain 1 target each turn (save Strength negates; Athletics checks each rd end), and a bonus action each turn causes rocks to inflict 3d8 HP bludgeoning and knocked prone on a target (save Strength HP only)"',
   'Zephyr Strike':
     'CastingTime=Bonus ' +
     'School=Transmutation ' +
     'Level=R1 ' +
     'Description=' +
-      '"Self movement does not provoke opportunity attacks for concentration up to 1 min; can attack with advantage once during the spell, inflicting +1d8 HP force and gaining +30 Speed for 1 rd"'
+      '"Self movement does not provoke opportunity attacks for concentration up to 1 min; can attack with advantage once during the spell, inflicting +1d8 HP force and gaining +30 Speed until the end of the turn"'
 
 };
 Xanathar.SPELLS_LEVELS_ADDED = {
