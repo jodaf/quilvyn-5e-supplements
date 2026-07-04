@@ -2106,6 +2106,9 @@ Tasha.classRulesExtra = function(rules, name) {
     rules.defineRule('skillNotes.canny',
       'featureNotes.deftExplorer', '+', 'null' // italics
     );
+    rules.defineRule('casterLevels.D',
+      'magicNotes.fightingStyle(DruidicWarrior)', '^=', '1'
+    );
     rules.defineRule('spellsAvailable.D0',
       'magicNotes.fightingStyle(DruidicWarrior)', '+=', '2'
     );
