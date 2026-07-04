@@ -1153,7 +1153,7 @@ Xanathar.SPELLS = {
     'Level=D1,R1,S1,W1 ' +
     'AtHigherLevels="inflicts +1d6 HP" ' +
     'Description=' +
-      '"Cast as a reaction to suffering acid, cold, fire, lightning, or thunder damage, gives resistance to that type of damage until the start of the next turn and causes the the first melee attack during that turn to inflict +1d6 HP of that type"',
+      '"Cast when suffering acid, cold, fire, lightning, or thunder damage, gives resistance to that type of damage until the start of the next turn and causes the the first melee attack during that turn to inflict +1d6 HP of that type"',
   "Aganazzar's Scorcher":
     'CastingTime=Action ' +
     'School=Evocation ' +
