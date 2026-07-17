@@ -58,7 +58,7 @@ Tasha.CLASSES = {
       '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
       '"1:Tool Proficiency (Thieves\' Tools; Tinker\'s Tools; Choose 1 from any Artisan)",' +
       '"1:Weapon Proficiency (Simple Weapons)",' +
-      '"1:Magical Tinkering","1:Spellcasting","2:Infuse Item",' +
+      '"1:Magical Tinkering","1:Spellcasting (Artificer)","2:Infuse Item",' +
       '"3:Artificer Specialist","3:The Right Tool For The Job",' +
       '"6:Tool Expertise","7:Flash Of Genius","10:Magic Item Adept",' +
       '"11:Spell-Storing Item","14:Magic Item Savant","18:Magic Item Master",' +
@@ -486,7 +486,9 @@ Tasha.FEATURES = {
   'Spell-Storing Item':
     'Section=magic ' +
     'Note="After a long rest, can store in a weapon or spellcasting focus a level 1 or 2 artificer spell that can be cast by the holder %{intelligenceModifier*2>?2} times"',
-  // Spellcasting as SRD5E
+  'Spellcasting (Artificer)':
+    'Section=magic ' +
+    'Note="Can cast spells from the artificer spell list and cast spells marked with [R] using a ritual; regains expended spell slots after a long rest"',
   'The Right Tool For The Job':
     'Section=skill Note="Can spend 1 hr to create a set of artisan\'s tools"',
   'Tool Expertise':
@@ -2018,7 +2020,6 @@ Tasha.classRulesExtra = function(rules, name) {
       'magicNotes.magicItemMaster', '+', 'null', // italics
       'magicNotes.magicItemSavant', '+', 'null' // italics
     );
-    rules.defineRule('magicNotes.spellcasting.1', classLevel, '=', '1');
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
       'featureNotes.infuseItem', '?', null,
       classLevel, '=', 'Math.floor((source + 6) / 4) * 2'

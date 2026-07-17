@@ -67,7 +67,7 @@ function Eberron5E() {
   SRD5E.magicRules(rules, PHB5E.SCHOOLS, Eberron5E.SPELLS);
   Eberron5E.identityRules(
     rules, PHB5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
-    Eberron5E.DEITIES, {}, Eberron5E.RACES, Eberron5E.HOUSES
+    Eberron5E.DEITIES, Eberron5E.RACES, Eberron5E.HOUSES
   );
   SRD5E.talentRules
     (rules, Eberron5E.FEATS, Eberron5E.FEATURES, PHB5E.GOODIES,
@@ -125,7 +125,7 @@ Eberron5E.CLASSES_ADDED = {
       '"1:Skill Proficiency (Choose 2 from Arcana, History, Investigation, Medicine, Nature, Perception, Sleight Of Hand)",' +
       '"1:Tool Proficiency (Thieves\' Tools; Tinker\'s Tools; Choose 1 from any Artisan\'s Tools)",' +
       '"1:Weapon Proficiency (Simple Weapons)",' +
-      '"1:Magical Tinkering","1:Spellcasting","2:Infuse Item",' +
+      '"1:Magical Tinkering","1:Spellcasting (Artificer)","2:Infuse Item",' +
       '"3:Artificer Specialist","3:The Right Tool For The Job",' +
       '"6:Tool Expertise","7:Flash Of Genius","10:Magic Item Adept",' +
       '"11:Spell-Storing Item","14:Magic Item Savant","18:Magic Item Master",' +
@@ -245,7 +245,9 @@ Eberron5E.FEATURES_ADDED = {
   'Spell-Storing Item':
     'Section=magic ' +
     'Note="After a long rest, can store in a weapon or spellcasting focus a level 1 or 2 artificer spell that can be cast by the holder %{intelligenceModifier*2>?2} times"',
-  // Spellcasting as SRD5E
+  'Spellcasting (Artificer)':
+    'Section=magic ' +
+    'Note="Can cast spells from the artificer spell list and cast spells marked with [R] using a ritual; regains expended spell slots after a long rest"',
   'The Right Tool For The Job':
     'Section=skill Note="Can spend 1 hr to create a set of artisan\'s tools"',
   'Tool Expertise':
@@ -1049,24 +1051,26 @@ for(let s in Eberron5E.SPELLS_LEVELS_ADDED)
   Eberron5E.SPELLS[s] =
     Eberron5E.SPELLS[s].replace('Level=', 'Level=' + Eberron5E.SPELLS_LEVELS_ADDED[s] + ',');
 Eberron5E.TOOLS_ADDED = {
-  'Vehicles (Air And Sea)':'Category=General'
+  // As with SRD5E's Vehicles (Water), the cost and weight of air and sea
+  // vehicles will vary, but neither is important for the character sheet
+  'Vehicles (Air And Sea)':SRD5E.TOOLS['Vehicles (Water)']
 };
 Eberron5E.TOOLS =
   Object.assign({}, (window.PHB5E||window.SRD5E).TOOLS, Eberron5E.TOOLS_ADDED);
 Eberron5E.WEAPONS_ADDED = {
   'Double-Bladed Scimitar':
-    'Category="Martial Melee" Property=Two-Handed Damage=2d4'
+    'Category="Martial Melee" Property=Two-Handed Damage=2d4 Cost=100 Weight=6'
 };
 Eberron5E.WEAPONS =
   Object.assign({}, (window.PHB5E||window.SRD5E).WEAPONS, Eberron5E.WEAPONS_ADDED);
 
 /* Defines rules related to basic character identity. */
 Eberron5E.identityRules = function(
-  rules, alignments, backgrounds, classes, deities, paths, races, houses
+  rules, alignments, backgrounds, classes, deities, races, houses
 ) {
   SRD5E.identityRules(
     rules, SRD5E.ALIGNMENTS, Eberron5E.BACKGROUNDS, Eberron5E.CLASSES,
-    Eberron5E.DEITIES, {}, Eberron5E.RACES
+    Eberron5E.DEITIES, Eberron5E.RACES
   );
   QuilvynUtils.checkAttrTable(houses, ['Dragonmark', 'Race', 'Tool', 'Spells']);
   for(let h in houses)
@@ -1134,7 +1138,6 @@ Eberron5E.classRulesExtra = function(rules, name) {
       'magicNotes.magicItemMaster', '+', '0',
       'magicNotes.magicItemSavant', '+', '0'
     );
-    rules.defineRule('magicNotes.spellcasting.1', classLevel, '=', '1');
     rules.defineRule('selectableFeatureCount.Artificer (Infusion)',
       'featureNotes.infuseItem', '?', null,
       classLevel, '=', 'Math.floor((source + 6) / 4) * 2'
@@ -1212,7 +1215,7 @@ Eberron5E.houseRules = function(rules, name, dragonmark, races, tools, spells) {
   );
   SRD5E.featureRules(
     rules, 'House Tool Proficiency (' + name + ')', ['feature'],
-    ['Tool Proficiency (' + tools.join('; ') + ')']
+    ['Tool Proficiency (' + tools.join('; ') + ')'], [], null
   );
 
   // This creates new spells for all the classes to cover those added by the

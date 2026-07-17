@@ -360,7 +360,7 @@ Volo.SPELLS = {
 
 /* Defines rules related to basic character identity. */
 Volo.identityRules = function(rules, races) {
-  SRD5E.identityRules(rules, {}, {}, {}, {}, {}, races);
+  SRD5E.identityRules(rules, {}, {}, {}, {}, races);
   for(let r in races)
     Volo.raceRulesExtra(rules, r);
 };
@@ -397,7 +397,7 @@ Volo.raceRulesExtra = function(rules, name) {
       'spellAttackModifier.Aasimar', '=', '8 + source'
     );
   } else if(name == 'Lizardfolk') {
-    SRD5E.weaponRules(rules, 'Bite', 'Unarmed', [], '1d6 P', null);
+    SRD5E.weaponRules(rules, 'Bite', 'Unarmed', [], '1d6 P', null, 0, 0, true);
     rules.defineRule('weapons.Bite', 'combatNotes.bite', '=', '1');
     rules.defineRule('armorClass', 'combatNotes.naturalArmor.1', '+', null);
     rules.defineRule('combatNotes.naturalArmor.1',
@@ -406,7 +406,7 @@ Volo.raceRulesExtra = function(rules, name) {
     );
     rules.defineRule('saveNotes.holdBreath', raceLevel, '^=', '"for 15 min"');
   } else if(name == 'Tabaxi') {
-    SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4 S', null);
+    SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4 S', null, 0, 0, true);
     rules.defineRule('weapons.Claws', "combatNotes.cat'sClaws", '=', '1');
   }
 };

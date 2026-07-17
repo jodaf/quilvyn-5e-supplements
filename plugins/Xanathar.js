@@ -670,7 +670,7 @@ Xanathar.FEATURES = {
     'Note="Gains +2 Armor Class until the start of the next turn after an unarmed strike when armed with a Kensei melee weapon"',
   'Deft Strike':
     'Section=combat ' +
-    'Note="Can spend 1 ki point to inflict +%{monkMeleeDieBonus} HP with a Kensei weapon once per turn"',
+    'Note="Can spend 1 ki point to inflict +1d%{monkMeleeDieBonus} HP with a Kensei weapon once per turn"',
   'Kensei Weapons':
     'Section=combat ' +
     'Note="Has proficiency in %V choice%{combatNotes.kenseiWeapons>1?\'s\':\'\'} of non-heavy melee or ranged weapons"',
@@ -1764,10 +1764,13 @@ Xanathar.SPELLS_LEVELS_ADDED = {
   'Wrathful Smite':'"K1 [The Hexblade]"'
 };
 Xanathar.TOOLS_ADDED = {
-  'Croak Box':'Category="Musical Instrument"',
-  'Fiddle':'Category="Musical Instrument"',
-  'Harp':'Category="Musical Instrument"',
-  'Zither':'Category="Musical Instrument"'
+  // The book doesn't seem to list cost and weight for these; the values below
+  // are taken from the guessed nearest approximation from SRD5E
+  // etc, gathered from ???--the book doesn't seem to list them
+  'Croak Box':'Category="Musical Instrument" Cost=6 Weight=3', // Drum
+  'Fiddle':'Category="Musical Instrument" Cost=30 Weight=1', // viol
+  'Harp':'Category="Musical Instrument" Cost=30 Weight=2', // lyre
+  'Zither':'Category="Musical Instrument" Cost=30 Weight=2' // lyre
 };
 
 /* Defines rules related to basic character identity. */
@@ -1840,7 +1843,7 @@ Xanathar.featRulesExtra = function(rules, name) {
       'combatNotes.dragonHide', '?', null,
       'armor', '=', 'source == "None" ? 3 : null'
     );
-    SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4 S', null);
+    SRD5E.weaponRules(rules, 'Claws', 'Unarmed', [], '1d4 S', null, 0, 0, true);
     rules.defineRule('weapons.Claws', 'combatNotes.dragonHide', '=', '1');
   } else if(name == 'Wood Elf Magic') {
     rules.defineRule

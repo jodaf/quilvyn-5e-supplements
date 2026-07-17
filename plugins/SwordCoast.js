@@ -66,7 +66,7 @@ function SwordCoast() {
   SRD5E.magicRules(rules, SRD5E.SCHOOLS, SwordCoast.SPELLS);
   SRD5E.identityRules(
     rules, SRD5E.ALIGNMENTS, SwordCoast.BACKGROUNDS, SwordCoast.CLASSES,
-    SwordCoast.DEITYS, {}, SwordCoast.RACES
+    SwordCoast.DEITYS, SwordCoast.RACES
   );
   SRD5E.talentRules
     (rules, SwordCoast.FEATS, SwordCoast.FEATURES, SRD5E.GOODIES,
@@ -811,18 +811,20 @@ for(let s in SwordCoast.SPELLS_LEVELS_ADDED) {
     SwordCoast.SPELLS[s].replace('Level=', 'Level=' + SwordCoast.SPELLS_LEVELS_ADDED[s] + ',');
 }
 SwordCoast.TOOLS_ADDED = {
-  'Birdpipes':'Category="Musical Instrument"',
-  'Glaur':'Category="Musical Instrument"',
-  'Hand Drum':'Category="Musical Instrument"',
-  'Longhorn':'Category="Musical Instrument"',
-  // In SRD5E 'Shawm':'Category="Musical Instrument"',
-  'Songhorn':'Category="Musical Instrument"',
-  'Tantan':'Category="Musical Instrument"',
-  'Thelarr':'Category="Musical Instrument"',
-  'Tocken':'Category="Musical Instrument"',
-  'Wargong':'Category="Musical Instrument"',
-  'Yarting':'Category="Musical Instrument"',
-  'Zulkoon':'Category="Musical Instrument"'
+  // Costs and weights taken from http://dndroll.wikidot.com/items:birdpipes,
+  // etc, gathered from ???--the book doesn't seem to list them
+  'Birdpipes':'Category="Musical Instrument" Cost=12 Weight=2',
+  'Glaur':'Category="Musical Instrument" Cost=3 Weight=2',
+  'Hand Drum':'Category="Musical Instrument" Cost=6 Weight=3',
+  'Longhorn':'Category="Musical Instrument" Cost=2 Weight=1',
+  // In SRD5E 'Shawm':'Category="Musical Instrument Cost=2 Weight=1',
+  'Songhorn':'Category="Musical Instrument" Cost=2 Weight=1',
+  'Tantan':'Category="Musical Instrument" Cost=6 Weight=3',
+  'Thelarr':'Category="Musical Instrument" Cost=2 Weight=1',
+  'Tocken':'Category="Musical Instrument" Cost=6 Weight=3',
+  'Wargong':'Category="Musical Instrument" Cost=30 Weight=6',
+  'Yarting':'Category="Musical Instrument" Cost=35 Weight=2',
+  'Zulkoon':'Category="Musical Instrument" Cost=30 Weight=6'
 };
 SwordCoast.TOOLS = Object.assign({}, (window.PHB5E||window.SRD5E).TOOLS, SwordCoast.TOOLS_ADDED);
 
