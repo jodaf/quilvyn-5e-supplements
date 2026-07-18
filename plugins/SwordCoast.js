@@ -87,7 +87,7 @@ function SwordCoast() {
 
 }
 
-SwordCoast.VERSION = '2.4.2.0';
+SwordCoast.VERSION = '2.4.3.0';
 
 SwordCoast.ARMORS_ADDED = {
   'Spiked Armor':'Category=Medium AC=4 Bulky=true Dex=2 Cost=75 Weight=45'

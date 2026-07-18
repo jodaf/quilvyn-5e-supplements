@@ -100,7 +100,7 @@ function Eberron5E() {
 
 }
 
-Eberron5E.VERSION = '2.4.2.0';
+Eberron5E.VERSION = '2.4.3.0';
 
 Eberron5E.CHOICES = [].concat(SRD5E.CHOICES, 'House');
 Eberron5E.RANDOMIZABLE_ATTRIBUTES =

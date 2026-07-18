@@ -48,7 +48,7 @@ function Volo(edition, rules) {
     Volo.CHARACTER_RACES_IN_PLAY = true;
 }
 
-Volo.VERSION = '2.4.2.0';
+Volo.VERSION = '2.4.3.0';
 
 Volo.CHARACTER_FEATURES = {
   // Aasimar

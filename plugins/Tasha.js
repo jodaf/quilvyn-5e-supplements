@@ -47,7 +47,7 @@ function Tasha(edition, rules) {
 
 }
 
-Tasha.VERSION = '2.4.2.0';
+Tasha.VERSION = '2.4.3.0';
 
 Tasha.CLASSES = {
   'Artificer': // (ref Eberron5E)
